@@ -50,6 +50,10 @@
 		  margin: 40px 0 50px;
 		  text-align: center;
 		}
+		.logo-bar{
+			height:200px;
+			z-index:1000;
+		}
 </style>
 </head>
 
@@ -125,29 +129,14 @@
 				
 		</div>
 
-		<div class="top-bar">
-      <div class="search">
-        <form class="search__form">
-          <label for="search" class="search__label">Search</label>
-          <input type="search" id="search" name="search" class="search__input" placeholder="What do you want?" />
-        </form>
-      </div>
-      <div class="profile">
-        <div class="profile__icon">N</div>
-      </div>
-    </div>
+		<div class="top-bar logo-bar">
+			<!-- 로고 넣는 바  -->
+	    </div>
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
 
-  
-  
-  
-  
-  
-  
-  
-  
+
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
 
 </body>
