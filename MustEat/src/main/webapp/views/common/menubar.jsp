@@ -20,10 +20,12 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
+		body{margin:0 auto;}
+		
 		.wrap {
 		  display: grid;
 		  grid-template-columns: 270px minmax(420px, 1fr);
-		  grid-template-rows: 56px 1fr; /* search Form */
+		  grid-template-rows: 150px 1fr; /* search Form */
 		}
 		
 		.header {
@@ -51,8 +53,8 @@
 		  text-align: center;
 		}
 		.logo-bar{
-			height:200px;
-			z-index:1000;
+			width:100%;
+			/* z-index:1000; */
 		}
 </style>
 </head>
@@ -131,11 +133,12 @@
 
 		<div class="top-bar logo-bar">
 			<!-- 로고 넣는 바  -->
+			로고넣어주세요
 	    </div>
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
-
+	여기에 메인 페이지 넣어주세요
 
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
 
