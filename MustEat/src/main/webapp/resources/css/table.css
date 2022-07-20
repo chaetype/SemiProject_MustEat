@@ -1,3 +1,8 @@
+/*
+[외부CSS 연결 경로]_복사해서 head태그 안에 붙여주세요 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
+*/
+
 @font-face {
     font-family: 'OTWelcomeRA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
