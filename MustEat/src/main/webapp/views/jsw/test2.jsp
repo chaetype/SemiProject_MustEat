@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 
 </head>
+<body>
 
 	<%@ include file="../common/menubar.jsp"%>
 
