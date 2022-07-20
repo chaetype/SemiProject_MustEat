@@ -9,7 +9,6 @@ html {
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
 	min-height: 100vh;
 	color: #57585c;
 	color: var(--color-text);
