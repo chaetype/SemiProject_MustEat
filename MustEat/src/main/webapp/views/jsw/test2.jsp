@@ -13,16 +13,18 @@
 	<%@ include file="../common/menubar.jsp"%>
 
 	<div>
-		<h1 sytle="font-family:GangwonEdu_OTFBoldA !important;">테이블 테스트중</h1>
+	
+		<h2>테스트중</h2>
+		
 		  <table class="rwd-table">
 		    <tbody>
 		      <tr>
-		        <th>내용</th>
-		        <th>내용</th>
-		        <th>내용</th>
-		        <th>내용</th>
-		        <th>내용</th>
-		        <th>내용</th>
+		        <th>글번호</th>
+		        <th>이름</th>
+		        <th>회원아이디</th>
+		        <th>적립금 적립</th>
+		        <th>적립금 사용</th>
+		        <th>총 적립금</th>
 		      </tr>
 		      <tr>
 		        <td data-th="Supplier Code">내용</td>
