@@ -126,7 +126,7 @@ background: linear-gradient(to left, #4B79A1 , #283E51);
 h1 {
   text-align: center;
   font-size: 2.4em;
-  color: #f2f2f2;
+  color: black;
 }
 .container {
   display: block;
