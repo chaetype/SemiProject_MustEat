@@ -56,6 +56,17 @@
         width:150px;
         height:150px;
         margin:10% 30px;
+        border-radius:30%;
+    }
+
+    .support-button a{
+        display:inline-block;
+        text-decoration:none;
+        color:black;
+        width:100%;
+        height:100%;
+        box-sizing:border-box;
+        line-height:150px;
     }
 
     /* #notice-button{
@@ -98,11 +109,11 @@
 
             
         </div>
-        <div class="support-button" id="notice-button"></div>
+        <div class="support-button" id="notice-button"><a href="http://www.naver.com"><b>공지사항</b></a></div>
 
-        <div class="support-button" id="contact-button"></div>
+        <div class="support-button" id="contact-button"><a href=""><b>1 : 1 문의하기</b></a></div>
 
-        <div class="support-button" id="faq-button"></div>
+        <div class="support-button" id="faq-button"><a href=""><b>FAQ</b></a></div>
     </div>
 
 </body>
