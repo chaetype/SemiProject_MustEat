@@ -90,7 +90,7 @@
 		        
 		        <tfoot>
 		          <tr>
-		            <td colspan="5">내용 써도 되고 안써도 되고</td>
+		            <td colspan="5">내용(지워도 됨)</td>
 		          </tr>
 		        </tfoot>
 		        
