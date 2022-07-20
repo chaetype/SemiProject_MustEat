@@ -6,19 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
 
 </head>
-<body>
 
 	<%@ include file="../common/menubar.jsp"%>
 
-	<div class="container">
-		<h1>테이블 테스트중</h1>
+	<div>
+		<h1 sytle="font-family:GangwonEdu_OTFBoldA !important;">테이블 테스트중</h1>
 		  <table class="rwd-table">
 		    <tbody>
 		      <tr>
