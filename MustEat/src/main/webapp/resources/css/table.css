@@ -1,6 +1,6 @@
 /*
 [외부CSS 연결 경로]_복사해서 head태그 안에 붙여주세요 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
+<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/table.css">
 */
 
 @font-face {
