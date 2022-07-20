@@ -1,8 +1,4 @@
-<head>
-
-$('table').DataTable();
+$("table").DataTable();
 
 // See:
 // http://www.sitepoint.com/responsive-data-tables-comprehensive-list-solutions
-
-</head>
