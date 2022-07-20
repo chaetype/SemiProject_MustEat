@@ -23,10 +23,15 @@ table.dataTable td {
 }
 
 thead{
+	text-align: center;
 	background:rgb(168, 99, 221);
 	color:white;
 }
 
 tbody{
 	text-align:right;
+}
+
+tfoot{
+	text-align: center;
 }
