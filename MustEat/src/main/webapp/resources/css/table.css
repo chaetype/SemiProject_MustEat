@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+div {font-family: 'OTWelcomeRA';}
 
 .rwd-table {
   margin: auto;
@@ -152,10 +160,6 @@ h3:after {
   75%   { transform: translateX(10px)}
   100%  { transform: translateX(0)}
 }
-
-body{font-family: 'Nanum Gothic Coding', monospace;}
-
-h1{font-family: 'Nanum Gothic Coding', monospace;}
 
 /*
     Don't look at this last part. It's unnecessary. I was just playing with pixel gradients... Don't judge.
