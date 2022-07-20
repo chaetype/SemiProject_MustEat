@@ -54,8 +54,7 @@
 		  align-content: center;
 		}
 		
-		.myPage {
-		  margin: 40px 0 50px;
+		.webLogo {
 		  text-align: center;
 		}
 		.logo-bar{
@@ -63,14 +62,14 @@
 			/* z-index:1000; */
 		}
 
-
         .bbtn{
             /* border: 1px solid black; */
-            
             position: absolute;
-            
-
         }
+        .font-basic *{
+			font-size:12px;
+			color:black;
+		}
 </style>
 </head>
 
@@ -81,7 +80,7 @@
 		<div class="header">
 			<!-- 로그인바 -->
 			<div>
-				<div class="myPage">
+				<div class="webLogo">
 						<div class="bbtn">
 		                	<button class="custom-btn btn-8"><span>SIGN IN</span></button>
 		                	<button class="custom-btn btn-8"><span>SIGN OUT</span></button>
