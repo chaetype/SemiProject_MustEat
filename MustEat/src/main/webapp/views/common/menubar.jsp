@@ -153,8 +153,7 @@
 
 		<div class="top-bar logo-bar">
 			<!-- 로고 넣는 바  -->
-			<div><h1 id="header-style">&nbsp;&nbsp;&nbsp;&nbsp;════════ Delicious ════════</h1></div>
-			
+			<div><h1 id="header-style">&nbsp;&nbsp;&nbsp;&nbsp;════════ Delicious ════════</h1></div>			
 		</div>
 	    
     
