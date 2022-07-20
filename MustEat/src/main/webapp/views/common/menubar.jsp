@@ -160,9 +160,7 @@
 	여기에 메인 페이지 넣어주세요
 
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
-	</div>
-	
-</div>
+
 </body>
 
 </html>
