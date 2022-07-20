@@ -19,11 +19,19 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		
+		<link rel="stylesheet" href="<%=contextPath %>/resources/css/buttoncss2.css">
+		
+		<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/header.css">
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"/> 
 <style>
+		body{margin:0 auto;}
+		
 		.wrap {
 		  display: grid;
 		  grid-template-columns: 270px minmax(420px, 1fr);
-		  grid-template-rows: 56px 1fr; /* search Form */
+		  grid-template-rows: 150px 1fr; /* search Form */
 		}
 		
 		.header {
@@ -34,12 +42,12 @@
 		
 		.main{
 			height:100%;
-		    background-color:pink;
+
 		}
 		.search-label{width:20%;}
 		
 		.top-bar {
-		  background-color: #f0f0f0;
+
 		  display: grid;
 		  column-gap: 5px;
 		  grid-template-columns: 1fr 52px;
@@ -51,9 +59,18 @@
 		  text-align: center;
 		}
 		.logo-bar{
-			height:200px;
-			z-index:1000;
+			width:100%;
+			/* z-index:1000; */
 		}
+
+
+        .bbtn{
+            /* border: 1px solid black; */
+            
+            position: absolute;
+            
+
+        }
 </style>
 </head>
 
@@ -65,7 +82,12 @@
 			<!-- 로그인바 -->
 			<div>
 				<div class="myPage">
-						<p>여기에 로그인바<p>
+						<div class="bbtn">
+		                	<button class="custom-btn btn-8"><span>SIGN IN</span></button>
+		                	<button class="custom-btn btn-8"><span>SIGN OUT</span></button>
+		                	<button class="custom-btn btn-8"><span>SIGN UP</span></button>
+            			</div>
+            			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
 				</div>
 			</div>
 			<!-- 메뉴바 -->
@@ -131,7 +153,11 @@
 
 		<div class="top-bar logo-bar">
 			<!-- 로고 넣는 바  -->
-	    </div>
+			
+			<div class="container"><h1 class="style-1"><span id="head-delicious">Delicious</span></h1></div>
+			
+    </div>
+	    
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
