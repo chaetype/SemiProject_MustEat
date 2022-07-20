@@ -24,7 +24,7 @@
 		<link rel="stylesheet" href="<%=contextPath %>/resources/css/buttoncss2.css">
 		
 		<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/header.css">
-		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"/> 
+
 <style>
 		body{margin:0 auto;}
 		
@@ -153,10 +153,8 @@
 
 		<div class="top-bar logo-bar">
 			<!-- 로고 넣는 바  -->
-			
-			<div class="container"><h1 class="style-1"><span id="head-delicious">Delicious</span></h1></div>
-			
-    </div>
+			<div><h1 id="header-style">&nbsp;&nbsp;&nbsp;&nbsp;════════ Delicious ════════</h1></div>			
+		</div>
 	    
     
     <!-- 메인페이지 여기에 담기 -->
