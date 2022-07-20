@@ -14,7 +14,7 @@
 
 	<div>
 	
-		<h2>테스트중</h2>
+		<h2 style="text-align:center">테스트중</h2>
 		
 		  <table class="rwd-table">
 		    <tbody>
