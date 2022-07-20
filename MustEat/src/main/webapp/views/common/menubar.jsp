@@ -36,7 +36,6 @@
 		
 		.main{
 			height:100%;
-		    background-color:pink;
 		}
 		.search-label{width:20%;}
 		
@@ -138,7 +137,7 @@
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
-	여기에 메인 페이지 넣어주세요
+
 
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
 
