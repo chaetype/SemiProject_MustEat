@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../../resources/css/myPage.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/myPage.css" />
 </head>
 <body>
 
@@ -15,16 +15,14 @@
 
     <div class="purpleContainer">
       <div class="myPage-user">
-        <img src="../../resources/image/user.png" id="userIcon">
+        <img src="<%=request.getContextPath()%>/resources/image/user.png" id="userIcon">
         <div class="userInfo">
-          <div class="name">김회원님 반갑습니다!</div>
+          <div class="name">김회원님 반갑습니다!
+            <button type="button">내정보</button>
+          </div>
           <div class="grade">등급 : 신뢰 리뷰어</div>
         </div>
       </div>    
-
-      <div class="userModify" align="right">
-      <button >회원 정보 수정</button>
-      </div>
 
   </div>
 
@@ -91,52 +89,45 @@
       </div>
       
     </div>
-    
   </div>  
-  <div class="listContainer">
-    <a href="#" class="item">
-        <div class="text">주문목록<span class="circle"></span></div>
-        <div class="right"> > </div>
-    </a>
-    <a href="#" class="item">
-        <div class="text">상품후기</div>
-        <div class="right"> > </div>
-    </a>
-    <a href="#" class="item">
-        <div class="text">상품문의</div>
-        <div class="right"> > </div>
-    </a>
-    <a href="#" class="item">
-        <div class="text">단골상점</div>
-        <div class="right"> > </div>
-    </a>
-    <a href="#" class="item">
-        <div class="text">찜한상품</div>
-        <div class="right"> > </div>
-    </a>
-  </div>
-  <div class="listContainer">
-    <a href="#" class="item">
-        <div class="text">
-          <span>내지갑</span>
-          <span class="smallLight">
-            <span>|</span>
-            <span>보유 적립금</span>
-          </span>          
-        </div>                
-        <div class="right">
-          <span class="blct">175 BLCT</span>
-          > </div>
-    </a>
-    <a href="#" class="item">
-        <div class="text">알림</div>
-        <div class="right"> > </div>
-    </a>
-    <a href="#" class="item">
-        <div class="text">설정</div>
-        <div class="right"> > </div>
-    </a>   
-  </div>
+
+ <div class="listContainer">
+
+  <div class="myPageList">
+
+    <a href="" class="listTitle">my리뷰</a>
+    <a href="" class="listMore">더보기 ></a>
+
+    <table class="list">
+
+      <thead>
+        <tr>
+          <th style="width:650px">제목</th>
+          <th style="width:150px">좋아요수</th>
+          <th style="width:150px">작성일자</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>내 인생 최고의 맛집!</td>
+          <td>130</td>
+          <td>2022.07.02</td>
+        </tr>
+
+        <tr>
+          <td>저만 믿고 오세요. 후회 안합니다. </td>
+          <td>78</td>
+          <td>2022.06.30</td>
+        </tr>
+    </tbody>
+
+    </table>
+
+ </div>
+
+
+ </div>
   <div class="infoContainer">
     <a href="#" class="item">
       <div>icon</div>
