@@ -8,7 +8,12 @@
 </head>
 <body>
 
- <%@ include file="views/common/menubar.jsp" %>
- 
+	<%@ include file="../common/menubar.jsp" %>
+
+    <div class="outer">
+        <br>
+        <h3>공지사항</h3>
+    </div>
+
 </body>
 </html>

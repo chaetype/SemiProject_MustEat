@@ -83,6 +83,11 @@
 	background-color: white;
 }
 
+.font-basic>p{
+	font-size:12px;
+	color:black;
+}
+
 .plain-btn{
 	list-style: none;
     border: 1px solid rgb(231, 216, 241) !important;
@@ -92,4 +97,5 @@
     font-size: inherit;
     text-align: center;
 	display:inline-block;
+	color:black;
 }

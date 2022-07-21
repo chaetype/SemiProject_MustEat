@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>웹문서상세구조</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Archivo+Black&family=Koulen&family=Oswald:wght@500&family=Roboto+Condensed:wght@700&family=Sriracha&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/normalize.css" />
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Archivo+Black&family=Koulen&family=Oswald:wght@500&family=Roboto+Condensed:wght@700&family=Sriracha&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/normalize.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">		
 		<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/style-dustu.css" />
@@ -19,8 +20,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		
 		<link rel="stylesheet" href="<%=contextPath %>/resources/css/buttoncss2.css">
+		
+		<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/header.css">
+
 <style>
 		body{margin:0 auto;}
 		
@@ -38,7 +43,8 @@
 		
 		.main{
 			height:100%;
-		    /*background-color:pink;*/
+			background-color:pink;
+
 		}
 		.search-label{width:20%;}
 		
@@ -50,8 +56,7 @@
 		  align-content: center;
 		}
 		
-		.myPage {
-		  margin: 40px 0 50px;
+		.webLogo {
 		  text-align: center;
 		}
 		.logo-bar{
@@ -59,14 +64,14 @@
 			/* z-index:1000; */
 		}
 
-
         .bbtn{
             /* border: 1px solid black; */
-            
             position: absolute;
-            
-
         }
+        .font-basic *{
+			font-size:12px;
+			color:black;
+		}
 </style>
 </head>
 
@@ -77,7 +82,7 @@
 		<div class="header">
 			<!-- 로그인바 -->
 			<div>
-				<div class="myPage">
+				<div class="webLogo">
 						<div class="bbtn">
 		                	<button class="custom-btn btn-8"><span>SIGN IN</span></button>
 		                	<button class="custom-btn btn-8"><span>SIGN OUT</span></button>
@@ -149,18 +154,18 @@
 
 		<div class="top-bar logo-bar">
 			<!-- 로고 넣는 바  -->
-			
-			
-			
-    </div>
+			<div><h1 id="header-style">&nbsp;&nbsp;&nbsp;&nbsp;════════ Delicious ════════</h1></div>			
+		</div>
 	    
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
+
 	여기에 메인 페이지 넣어주세요
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
-  		
-	
+  		<script src="<%=contextPath %>/resources/js/demo.js"></script>
+
+
 </body>
 
 </html>
