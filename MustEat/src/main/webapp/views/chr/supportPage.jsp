@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
 <style>
     .container{
-        margin-top:10%;
-        margin-left:17%;
+        margin-top:7%;
+        margin-left:20%;
     }
 
     .btn:hover{
@@ -55,7 +55,7 @@
         background-color:rgb(231, 216, 241);
         width:150px;
         height:150px;
-        margin:10% 30px;
+        margin:7% 30px;
         border-radius:30%;
     }
 
@@ -67,6 +67,10 @@
         height:100%;
         box-sizing:border-box;
         line-height:150px;
+    }
+
+    .support-button a:hover{
+        color:white;
     }
 
     /* #notice-button{
@@ -109,7 +113,7 @@
 
             
         </div>
-        <div class="support-button" id="notice-button"><a href="http://www.naver.com"><b>공지사항</b></a></div>
+        <div class="support-button" id="notice-button"><a href=""><b>공지사항</b></a></div>
 
         <div class="support-button" id="contact-button"><a href=""><b>1 : 1 문의하기</b></a></div>
 
