@@ -77,7 +77,7 @@
 
 
 
-
+        <h1 style="text-align: center;"><b>MZ EDITOR PICK!</b></h1>
 		<div class="list-area">
 	
             <div class="thumbnail2" align="center">
@@ -95,12 +95,12 @@
 		<div class="list-area">
 	
             <div class="thumbnail2" align="center">
-                <img src="<%=contextPath%>/resources/image/cy/bankan.jpg" width="450" height="250">
+                <img src="<%=contextPath%>/resources/image/cy/bankan.jpg" width="400" height="250">
                 
             </div>
 
             <div class="thumbnail2" align="center">
-                <img src="<%=contextPath%>/resources/image/cy/makgeolli.jpg" width="450" height="250">
+                <img src="<%=contextPath%>/resources/image/cy/makgeolli.jpg" width="400" height="250">
             </div>
 
 
@@ -108,23 +108,23 @@
 		
         <div class="list-area">
             <div class="thumbnail2" align="center">
-                <img src="<%=contextPath%>/resources/image/cy/saltbread.jpg" width="450" height="250">
+                <img src="<%=contextPath%>/resources/image/cy/saltbread.jpg" width="400" height="250">
                 
             </div>
 
             <div class="thumbnail2" align="center">
-                <img src="<%=contextPath%>/resources/image/cy/hapjung.jpg" width="450" height="250">
+                <img src="<%=contextPath%>/resources/image/cy/hapjung.jpg" width="400" height="250">
             </div>
         </div>
         
         <div class="list-area">
             <div class="thumbnail2" align="center">
-                <img src="<%=contextPath%>/resources/image/cy/dosirak.jpg" width="450" height="250">
+                <img src="<%=contextPath%>/resources/image/cy/dosirak.jpg" width="400" height="250">
                 
             </div>
 
             <div class="thumbnail2" align="center">
-                <img src="<%=contextPath%>/resources/image/cy/shrimp.jpg" width="450" height="250">
+                <img src="<%=contextPath%>/resources/image/cy/shrimp.jpg" width="400" height="250">
             </div>
         </div>
         

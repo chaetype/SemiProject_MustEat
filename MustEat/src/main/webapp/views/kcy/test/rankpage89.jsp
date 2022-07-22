@@ -61,7 +61,7 @@
     
         <div class="content22">
             <div class="img11">
-            <img src="<%=contextPath%>/resources/image/cy/hojokban.jfif" style="width: 100%; height:100%"></div>
+            <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%"></div>
             <div class="rmf11"><h2>호족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
         
         

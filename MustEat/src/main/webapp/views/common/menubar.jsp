@@ -25,6 +25,12 @@
 		<link rel="stylesheet" href="<%=contextPath %>/resources/css/buttoncss2.css">
 		
 		<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/header.css">
+		
+		<!-- 슬릭 -->
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
 
 <style>
 		body{margin:0 auto;}
