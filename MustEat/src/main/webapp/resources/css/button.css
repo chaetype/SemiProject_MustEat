@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/*
+[외부CSS 연결 경로]_복사해서 head태그 안에 붙여주세요 
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/button.css">
+*/
+
+.bn3 {
+  display: inline-block;
+  padding: 0.5em 1.7em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgb(255, 255, 255);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.bn3:hover {
+  color: black;
+  background-color: rgb(255, 255, 255);
+}

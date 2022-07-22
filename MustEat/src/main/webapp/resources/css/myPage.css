@@ -1,0 +1,230 @@
+  div{
+    box-sizing: border-box;
+  }
+
+  /* listContainer */
+.myPageList{
+  width:100%;
+  height:200px;
+  padding:15px 15px;
+}
+
+.myPageList .listTitle{
+  font-size:25px;
+  font-weight:bold;
+  margin-bottom:15px;
+  color:black;
+}
+
+.listTitle{
+  display:inline-block;
+  width:85%;
+  height:30px;
+  text-decoration: none;
+  line-height: 30px;
+}
+.listTitle:hover{
+  color:rgb(168, 99, 221);
+}
+
+.listMore{
+  width:13%;
+  height:30px;
+  font-size:13px;
+  line-height: 30px;
+  text-decoration: none;
+  color: black;
+  text-align: right;
+  display:inline-block;
+}
+
+.listMore:hover{
+  color:rgb(168, 99, 221);
+}
+
+.list{
+  padding: 5px 0px 5px 0px;
+  border-top: 2px solid black;
+  border-collapse: collapse;
+}
+
+.categoryTitle, .categoryContent{
+  border-top: 1px solid rgba(221, 219, 219, 0.87);
+}
+
+.categoryTitle{
+	cursor:pointer;
+}
+
+.categoryTh, .categoryTd{
+  height:40px;
+  text-align:center;
+}
+
+.categoryTh{
+	font-size:15px;
+}
+
+.categoryTd{
+	font-size:13.5px;
+}
+
+  /* ========= 마이페이지 상단 ========= */
+  /* 마이페이지 유저 사진 */
+.myPage-user{
+  display:flex;
+}
+  #userIcon{
+    width:80px;
+    height:80px;
+    margin:10px;
+  }
+  
+  /* alert badge */
+  .circle{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+    background-color: #ff0000;
+    position: absolute;
+    top: -5px;
+    left: 110%;
+  }
+  
+  /* 텍스트 색상 */
+  .purple{
+    color: rgb(168, 99, 221);
+  }
+  
+  .myPage-area{
+    background-color: #F8F8F8;  
+    width:80%;
+    margin:auto;
+  }
+  /* 녹색배경 */
+  .purpleContainer{  
+    height: 132px;
+    width:100%;
+    background-color: rgb(168, 99, 221);
+    display: flex;
+    padding: 16px;
+  }
+  
+.userInfo .name{
+  color:white;
+  font-size:20px;
+  font-weight: bold;
+  padding: 20px 0px 0px 0px;
+}
+
+.userInfo .grade{
+  font-size:15px;
+  padding: 5px 0px 0px 0px;
+}
+  .purpleContainer .modify{
+    margin-left: auto;
+  }
+
+  /* 회원 정보 수정 버튼 */
+  .name>button{
+    font-size:12px;
+  }
+  
+  /* 단골상점 , 상품후기 , 적립금 박스 */
+  .summaryContainer{
+    background-color: white;  
+    display: flex;  
+    padding: 21px 16px;  
+    height: 90px;
+    margin-bottom: 10px;
+  }
+
+  .item{
+    position:relative;
+    background-position: 0 0;
+  }
+
+  /* 마이페이지 주문/배송조회 사진 */
+  .myPageImg, .myPageImg>img{
+    width:60px;
+    height:60px;
+    display:inline-block;
+    position:absolute;
+    left:0;
+  }
+  /* 단골상점 , 상품후기 , 적립금 */
+  .summaryContainer .item{
+    flex-grow: 1;
+    padding-left:125px;
+  }
+  /* summaryContainer안의 숫자 */
+  .summaryContainer .number{
+    font-size: 20px;
+    font-weight: bold;
+    padding:4px;
+    color: rgb(167, 112, 239);
+  }
+  /* 텍스트 */
+  .summaryContainer .item > div:nth-child(2){
+    font-size: 13px;
+    margin:5px;
+  }
+  
+  /* ================== 주문/배송조회 박스 시작 ==================== */
+  .shippingStatusContainer{
+    padding: 15px 15px;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+  
+  /* 주문/배송조회 타이틀 */
+  .shippingStatusContainer .title{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* 장바구니 결제완료 배송중 구매확정 [로우] */
+  .shippingStatusContainer .status{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 21px;
+  }
+  /* 장바구니 결제완료 배송중 구매확정 [아이템]  */
+  .shippingStatusContainer .item{
+    display: flex;
+  }
+  
+  .shippingStatusContainer .number{
+    font-size: 31px;
+    font-weight: 500;
+    text-align: center;
+    display:block;
+  }
+
+  .shippingStatusContainer .number:hover{
+    color:rgb(167, 112, 239);
+  }
+
+  .shippingStatusContainer .text{
+    font-size: 12px;
+    font-weight: normal;
+    color: #c2c2c2;
+    text-align: center;
+  }
+  .shippingStatusContainer .icon{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  
+  /*=================== my리뷰 ~ 가고싶다 리스트 ==================*/
+  .listContainer{  
+    padding: 0;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+  }
