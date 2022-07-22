@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+.orderDetail-area{
+    background-color: #F8F8F8; 
+    width:80%;
+    margin:auto;
+  }
+
+  /* ================== 주문/배송조회 박스 시작 ==================== */
+  .shippingStatusContainer{
+    padding: 15px 15px;
+    background-color: rgb(168, 99, 221);
+    margin-bottom: 15px;
+    height:150px;
+  }
+  
+  /* 주문/배송조회 타이틀 */
+  .shippingStatusContainer .title{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* 장바구니 결제완료 배송중 구매확정 [로우] */
+  .shippingStatusContainer .status{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 21px;
+  }
+  /* 장바구니 결제완료 배송중 구매확정 [아이템]  */
+  .shippingStatusContainer .item{
+    display: flex;
+  }
+  
+  .shippingStatusContainer .number{
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    display:block;
+    color:white;
+    text-decoration: none;
+  }
+
+  .shippingStatusContainer .text{
+    font-size: 13.5px;
+    font-weight: normal;
+    color: #c2c2c2;
+    text-align: center;
+  }
+
+  /* 주문 전체 리스트 */
+
+.orderDetailArea{
+    width:100%;
+    height:500px;
+    background-color: white;
+    margin-top:10px;
+}
+
+.orderMonth{
+    width: 100%;
+    height:39px;
+    background:url(../image/key/monthLine.gif) repeat-x;
+    text-align:center;
+}
+
+.orderMonth h4{
+    width:110px;
+    height:39px;
+    margin:0 auto;
+    background: url(../image/key/monthCircle.gif) no-repeat;
+    line-height: 39px;
+    font-size:18px;
+    font-weight: normal
+}
+
+/* 주문 상품 */
+.goodsPayItem{
+    display: table;
+}
+
+.goodsPayItem .goodsItem{
+    position:relative;
+}
+
+.goodsPayItem>div{
+    display:table-cell;
+}
+
+.goodsThumb{
+    position:absolute;
+    display:block;
+    top:50%;
+    margin-top:-45px;
+}
+
+.goodsInfo{
+    padding-left:135px;
+    display:block;
+    text-decoration:none;
+}
+
+.goodsPayItem .goodsItem .goodsInfo .info{
+    margin:5px 0px 12px;
+}
+
+.goodsName{
+    font-size:18px;
+}
+
+.info{
+    padding:0px;
+}
+
+.info>li{
+    display:inline-block;
+    padding-right:10px;
+    list-style: none;
+    font-size:14px;
+}
