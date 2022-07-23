@@ -1,22 +1,23 @@
 @charset "UTF-8";
 
-.orderDetail-area{
-    background-color: #F8F8F8; 
+  /* ================== 주문/배송조회 박스 시작 ==================== */
+  .orderDetail-area{
+    background-color: white; 
     width:80%;
     margin:auto;
+    border:1px solid rgba(221, 219, 219, 0.87);
   }
-
-  /* ================== 주문/배송조회 박스 시작 ==================== */
+  
   .shippingStatusContainer{
     padding: 15px 15px;
     background-color: rgb(168, 99, 221);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     height:150px;
   }
   
   /* 주문/배송조회 타이틀 */
   .shippingStatusContainer .title{
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     margin-bottom: 15px;
   }
@@ -48,13 +49,22 @@
     text-align: center;
   }
 
-  /* 주문 전체 리스트 */
-
+  /* ================== 주문 전체 리스트 ==================== */
 .orderDetailArea{
     width:100%;
-    height:500px;
+    height:100%;
     background-color: white;
     margin-top:10px;
+}
+
+.orderDetailArea *{
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* margin-bottom: 40px; */
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .orderMonth{
@@ -75,16 +85,23 @@
 }
 
 /* 주문 상품 */
+.goodsGroup{ margin:0px 30px; } 
+
 .goodsPayItem{
     display: table;
+    table-layout:fixed;
 }
 
 .goodsPayItem .goodsItem{
     position:relative;
+
 }
 
 .goodsPayItem>div{
-    display:table-cell;
+    display:
+    table-cell;
+    vertical-align: middle;
+    margin: 0px 30px;
 }
 
 .goodsThumb{
@@ -96,8 +113,11 @@
 
 .goodsInfo{
     padding-left:135px;
-    display:block;
-    text-decoration:none;
+    /* display:
+    block; */
+    text-decoration:
+    none;
+    width: 550px;
 }
 
 .goodsPayItem .goodsItem .goodsInfo .info{
@@ -106,15 +126,38 @@
 
 .goodsName{
     font-size:18px;
+    width:100%;
+    margin: 7px 0px;
+    overflow:hidden; /* 일정 글자수 초과하면 가려지기 */
+    white-space:nowrap; /* 텍스트는 무조건 한 줄로 정렬 */
+    text-overflow:ellipsis; /* 글자수 초과하면 밀줄임표로 가리기*/
 }
 
-.info{
-    padding:0px;
-}
+.goodsStatus, .goodsAmount, .goodsDate{color:gray;}
 
 .info>li{
     display:inline-block;
     padding-right:10px;
     list-style: none;
     font-size:14px;
+}
+.info{ padding:0px; }
+.inner{ padding:0px 30px; }
+.sellerInfo{ width:250px; }
+.orderButton{ width:200px; }
+
+.seller, .tel, .orderNo{
+  display:block;
+  text-align:center;
+  font-size:13px;
+  padding:0px 20px;
+  margin-bottom:5px;
+}
+
+.orderButton>a{
+  display: block;
+  width: 90px;
+  margin: 10px 0px;
+  padding: 10px;
+  font-size: 13px;
 }
