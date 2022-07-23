@@ -49,7 +49,7 @@
 		
 		.main{
 			height:100%;
-			background-color:pink;
+			/* background-color:pink; */
 
 		}
 		.search-label{width:20%;}

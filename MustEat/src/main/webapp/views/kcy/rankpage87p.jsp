@@ -24,7 +24,7 @@
         width: 80% ;
         height: 350px;
         margin-top: 10px;
-        margin-left: 70px;
+        margin-left: 100px;
         z-index:1000;
         position: relative;
         /* display: flex; */
@@ -37,7 +37,7 @@
         width: 80% ;
         height: 350px;
         margin-top: -350px;
-        margin-left: 70px;
+        margin-left: 100px;
         z-index:1000;
         display: flex;
         justify-content: center;

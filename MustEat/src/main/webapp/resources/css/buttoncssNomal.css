@@ -12,6 +12,10 @@
     text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
     text-align: center;
     transition: all 0.2s;
+    font-family: 'OTWelcomeRA';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .btn1:hover {
