@@ -1,0 +1,32 @@
+.basicInfo-area{
+    width:80%;
+    margin:auto;
+    border:1px solid rgba(221, 219, 219, 0.87);
+    background-color: white;
+  }
+
+.userUpdateForm{
+    background-color: rgb(167, 112, 239); 
+}
+
+.basicInfo{
+    color:white;
+    font-size:20px;
+    padding:10px;
+}
+
+.basicInfo>span>em{ color: orange; }
+
+.basicInfo>span{
+    font-size:12px;
+    float:right;
+    padding:7px 10px 10px 0px;
+}
+
+.updateInfo{
+    padding:15px 10px 10px 10px;
+}
+
+.updateInfo input{
+    width:90%;
+}

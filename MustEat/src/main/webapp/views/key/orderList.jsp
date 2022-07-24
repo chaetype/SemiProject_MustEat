@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderList.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 </head>
 <body>
 
@@ -69,7 +70,7 @@
 	      <h4>2022.07</h4>
 	    </div>
 	
-	    <!-- 안쪽 for문 -->
+	            <!-- 안쪽 for문 -->
 	    <div class="paySection">
 	
 	      <div class="goodsGroup">
@@ -79,12 +80,12 @@
 	          <li class="goodsPayItem">
 	
 	            <div class="goodsItem">
-	            <a href="해당 상품 주문상세페이지(주문번호, 상품코드 동일해야됨)" class="goodsThumb">
+	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
 	              <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
 	            </a>
 	
 	            <div class="goodsInfo">
-	              <a href="해당 상품 주문상세페이지(주문번호, 상품코드 동일해야됨)" class="goods">
+	              <a href="해당 상품 주문상세페이지" class="goods">
 	                <p class="goodsName">[채선당]샤브샤브 밀키트 (2인)</p>
 	                <ul class="info">
 	                  <li class="goodsPrice">12800원
@@ -93,7 +94,7 @@
 	                  <li class="goodsDate" style="font-weight:bold;">2022.07.12</li>
 	                </ul>
 	              </a>
-	              <span class="goodsStatus">구매확정</span>
+	              <span class="goodsStatus">배송완료</span>
 	            </div>
 	          </div>
 	
@@ -110,24 +111,14 @@
 	          </div>
 	
 	          <div class="orderButton">
-	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 => 배송완료 외의 것들 display:none 처리 -->
-	            <a href="" class="plain-btn btn">구매확정</a>
-	            <!-- <input type="hidden" name="orderStatus" value="배송완료"> -->
-	            
+	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
+	            <a href="" class="btn1">구매확정</a>
 	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
-	            <a href="" class="plain-btn btn">리뷰작성</a>
-	            <!-- <input type="hidden" name="orderStatus" value="구매확정"> -->
-	            
+	            <a href="" class="btn1">리뷰작성</a>
 	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	            <a href="" class="plain-btn btn" onclick="orderCancel();">구매취소</a>
-	            <!-- <input type="hidden" name="orderStatus" value="배송준비중"> -->
+	            <a href="" class="btn1">구매취소</a>
 	          </div>
 	          
-			  <script>
-				function orderCancel() {
-					confirm("구매를 취소하시겠습니까?");
-				}
-			  </script>
 	
 	          </li>
 	
@@ -137,65 +128,6 @@
 	
 	    </div>
 	    <!-- 안쪽 for문 끝-->
-	
-	        <!-- 안쪽 for문 -->
-	        <div class="paySection">
-	
-	          <div class="goodsGroup">
-	    
-	            <ul class="goodsList">
-	    
-	              <li class="goodsPayItem">
-	    
-	                <div class="goodsItem">
-	                <a href="해당 상품 주문상세페이지" class="goodsThumb">
-	                  <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
-	                </a>
-	    
-	                <div class="goodsInfo">
-	                  <a href="해당 상품 주문상세페이지" class="goods">
-	                    <p class="goodsName">[채선당]샤브샤브 밀키트 (2인)</p>
-	                    <ul class="info">
-	                      <li class="goodsPrice">12800원
-	                        <span class="goodsAmount">/ 1개</span>
-	                      </li>
-	                      <li class="goodsDate" style="font-weight:bold;">2022.07.12</li>
-	                    </ul>
-	                  </a>
-	                  <span class="goodsStatus">구매확정</span>
-	                </div>
-	              </div>
-	    
-	              <div class="sellerInfo">
-	    
-	                <div class="inner">
-	                  <span class="orderNo" style="font-weight:bold;">
-	                    주문번호<br>
-	                    [12345678]
-	                  </span>
-	                  <span class="seller">채선당</span>
-	                  <span class="tel">XXX-XXXX-XXXX</span>
-	                </div>
-	              </div>
-	    
-	              <div class="orderButton">
-	                <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
-	                <a href="" class="plain-btn btn">구매확정</a>
-	                <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
-	                <a href="" class="plain-btn btn">리뷰작성</a>
-	                <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	                <a href="" class="plain-btn btn">구매취소</a>
-	              </div>
-	              
-	    
-	              </li>
-	    
-	            </ul>
-	    
-	          </div>
-	    
-	        </div>
-	        <!-- 안쪽 for문 끝-->
 	
 	            <!-- 안쪽 for문 -->
 	    <div class="paySection">
@@ -239,11 +171,70 @@
 	
 	          <div class="orderButton">
 	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
-	            <a href="" class="plain-btn btn">구매확정</a>
+	            <a href="" class="btn1">구매확정</a>
 	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
-	            <a href="" class="plain-btn btn">리뷰작성</a>
+	            <a href="" class="btn1">리뷰작성</a>
 	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	            <a href="" class="plain-btn btn">구매취소</a>
+	            <a href="" class="btn1">구매취소</a>
+	          </div>
+	          
+	
+	          </li>
+	
+	        </ul>
+	
+	      </div>
+	
+	    </div>
+	    <!-- 안쪽 for문 끝-->
+	
+	            <!-- 안쪽 for문 -->
+	    <div class="paySection">
+	
+	      <div class="goodsGroup">
+	
+	        <ul class="goodsList">
+	
+	          <li class="goodsPayItem">
+	
+	            <div class="goodsItem">
+	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
+	              <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
+	            </a>
+	
+	            <div class="goodsInfo">
+	              <a href="해당 상품 주문상세페이지" class="goods">
+	                <p class="goodsName">[채선당]샤브샤브 밀키트 (2인)</p>
+	                <ul class="info">
+	                  <li class="goodsPrice">12800원
+	                    <span class="goodsAmount">/ 1개</span>
+	                  </li>
+	                  <li class="goodsDate" style="font-weight:bold;">2022.07.12</li>
+	                </ul>
+	              </a>
+	              <span class="goodsStatus">배송완료</span>
+	            </div>
+	          </div>
+	
+	          <div class="sellerInfo">
+	
+	            <div class="inner">
+	              <span class="orderNo" style="font-weight:bold;">
+	                주문번호<br>
+	                [12345678]
+	              </span>
+	              <span class="seller">채선당</span>
+	              <span class="tel">XXX-XXXX-XXXX</span>
+	            </div>
+	          </div>
+	
+	          <div class="orderButton">
+	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
+	            <a href="" class="btn1">구매확정</a>
+	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
+	            <a href="" class="btn1">리뷰작성</a>
+	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
+	            <a href="" class="btn1">구매취소</a>
 	          </div>
 	          
 	
@@ -269,123 +260,123 @@
 	        <h4>2022.06</h4>
 	      </div>
 	  
-	      <!-- 안쪽 for문 -->
-	      <div class="paySection">
-	  
-	        <div class="goodsGroup">
-	  
-	          <ul class="goodsList">
-	  
-	            <li class="goodsPayItem">
-	  
-	              <div class="goodsItem">
-	              <a href="해당 상품 주문상세페이지" class="goodsThumb">
-	                <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
+	            <!-- 안쪽 for문 -->
+	    <div class="paySection">
+	
+	      <div class="goodsGroup">
+	
+	        <ul class="goodsList">
+	
+	          <li class="goodsPayItem">
+	
+	            <div class="goodsItem">
+	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
+	              <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
+	            </a>
+	
+	            <div class="goodsInfo">
+	              <a href="해당 상품 주문상세페이지" class="goods">
+	                <p class="goodsName">[채선당]샤브샤브 밀키트 (2인)</p>
+	                <ul class="info">
+	                  <li class="goodsPrice">12800원
+	                    <span class="goodsAmount">/ 1개</span>
+	                  </li>
+	                  <li class="goodsDate" style="font-weight:bold;">2022.07.12</li>
+	                </ul>
 	              </a>
-	  
-	              <div class="goodsInfo">
-	                <a href="해당 상품 주문상세페이지" class="goods">
-	                  <p class="goodsName">[채선당]샤브샤브 밀키트 (2인)</p>
-	                  <ul class="info">
-	                    <li class="goodsPrice">12800원
-	                      <span class="goodsAmount">/ 1개</span>
-	                    </li>
-	                    <li class="goodsDate" style="font-weight:bold;">2022.06.12</li>
-	                  </ul>
-	                </a>
-	                <span class="goodsStatus">구매확정</span>
-	              </div>
+	              <span class="goodsStatus">배송완료</span>
 	            </div>
-	  
-	            <div class="sellerInfo">
-	  
-	              <div class="inner">
-	                <span class="orderNo" style="font-weight:bold;">
-	                  주문번호<br>
-	                  [12345678]
-	                </span>
-	                <span class="seller">채선당</span>
-	                <span class="tel">XXX-XXXX-XXXX</span>
-	              </div>
+	          </div>
+	
+	          <div class="sellerInfo">
+	
+	            <div class="inner">
+	              <span class="orderNo" style="font-weight:bold;">
+	                주문번호<br>
+	                [12345678]
+	              </span>
+	              <span class="seller">채선당</span>
+	              <span class="tel">XXX-XXXX-XXXX</span>
 	            </div>
-	  
-	            <div class="orderButton">
-	              <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
-	              <a href="" class="plain-btn btn">구매확정</a>
-	              <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
-	              <a href="" class="plain-btn btn">리뷰작성</a>
-	              <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	              <a href="" class="plain-btn btn">구매취소</a>
-	            </div>
-	            
-	  
-	            </li>
-	  
-	          </ul>
-	  
-	        </div>
-	  
+	          </div>
+	
+	          <div class="orderButton">
+	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
+	            <a href="" class="btn1">구매확정</a>
+	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
+	            <a href="" class="btn1">리뷰작성</a>
+	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
+	            <a href="" class="btn1">구매취소</a>
+	          </div>
+	          
+	
+	          </li>
+	
+	        </ul>
+	
 	      </div>
-	      <!-- 안쪽 for문 끝-->
+	
+	    </div>
+	    <!-- 안쪽 for문 끝-->
 	
 	            <!-- 안쪽 for문 -->
-	            <div class="paySection">
-	  
-	              <div class="goodsGroup">
-	        
-	                <ul class="goodsList">
-	        
-	                  <li class="goodsPayItem">
-	        
-	                    <div class="goodsItem">
-	                    <a href="해당 상품 주문상세페이지" class="goodsThumb">
-	                      <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
-	                    </a>
-	        
-	                    <div class="goodsInfo">
-	                      <a href="해당 상품 주문상세페이지" class="goods">
-	                        <p class="goodsName">[채선당]샤브샤브 밀키트 (2인)</p>
-	                        <ul class="info">
-	                          <li class="goodsPrice">12800원
-	                            <span class="goodsAmount">/ 1개</span>
-	                          </li>
-	                          <li class="goodsDate" style="font-weight:bold;">2022.06.12</li>
-	                        </ul>
-	                      </a>
-	                      <span class="goodsStatus">구매확정</span>
-	                    </div>
-	                  </div>
-	        
-	                  <div class="sellerInfo">
-	        
-	                    <div class="inner">
-	                      <span class="orderNo" style="font-weight:bold;">
-	                        주문번호<br>
-	                        [12345678]
-	                      </span>
-	                      <span class="seller">채선당</span>
-	                      <span class="tel">XXX-XXXX-XXXX</span>
-	                    </div>
-	                  </div>
-	        
-	                  <div class="orderButton">
-	                    <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
-	                    <a href="" class="plain-btn btn">구매확정</a>
-	                    <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
-	                    <a href="" class="plain-btn btn">리뷰작성</a>
-	                    <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	                    <a href="" class="plain-btn btn">구매취소</a>
-	                  </div>
-	                  
-	        
+	    <div class="paySection">
+	
+	      <div class="goodsGroup">
+	
+	        <ul class="goodsList">
+	
+	          <li class="goodsPayItem">
+	
+	            <div class="goodsItem">
+	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
+	              <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
+	            </a>
+	
+	            <div class="goodsInfo">
+	              <a href="해당 상품 주문상세페이지" class="goods">
+	                <p class="goodsName">[채선당]샤브샤브 밀키트 (2인)</p>
+	                <ul class="info">
+	                  <li class="goodsPrice">12800원
+	                    <span class="goodsAmount">/ 1개</span>
 	                  </li>
-	        
+	                  <li class="goodsDate" style="font-weight:bold;">2022.07.12</li>
 	                </ul>
-	        
-	              </div>
-	        
+	              </a>
+	              <span class="goodsStatus">배송완료</span>
 	            </div>
-	            <!-- 안쪽 for문 끝-->
+	          </div>
+	
+	          <div class="sellerInfo">
+	
+	            <div class="inner">
+	              <span class="orderNo" style="font-weight:bold;">
+	                주문번호<br>
+	                [12345678]
+	              </span>
+	              <span class="seller">채선당</span>
+	              <span class="tel">XXX-XXXX-XXXX</span>
+	            </div>
+	          </div>
+	
+	          <div class="orderButton">
+	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 -->
+	            <a href="" class="btn1">구매확정</a>
+	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
+	            <a href="" class="btn1">리뷰작성</a>
+	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
+	            <a href="" class="btn1">구매취소</a>
+	          </div>
+	          
+	
+	          </li>
+	
+	        </ul>
+	
+	      </div>
+	
+	    </div>
+	    <!-- 안쪽 for문 끝-->
 	  
 	  
 	    </div>
