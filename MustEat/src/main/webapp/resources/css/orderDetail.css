@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+/* ====== 주문상세정보 총 테두리 ====== */
+.orderDetail-area{
+    background-color: white; 
+    width:80%;
+    margin:auto;
+    border:1px solid rgba(221, 219, 219, 0.87);
+    padding: 10px 30px;
+  }
+
+.detailTitle{
+    font-size:20px;
+    letter-spacing: -1px;
+}
+
+.title{
+    font-size:17px;
+    letter-spacing: -1px;
+    margin:40px 0px 9px;
+}
+
+
+/* ====== 주문상세정보 ====== */
+.order_detail{
+    border:3px solid rgba(221, 219, 219, 0.87);
+    padding:10px;
+    margin-bottom:25px;
+}
+
+.order_detail>li, .order_detail>li>div{
+    display:inline-block;
+    list-style: none;
+    padding: 5px 20px 5px 0px;
+}
+
+.order_detail>li{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.orderDate, .orderNo{
+    font-size:17px;
+    color:rgb(168, 99, 221);
+}
+
+.orderTb{ border-collapse: collapse; }
+
+.orderTb th{
+    border-top:2px solid #dddde1;
+    font-size:14px;
+}
+
+.orderTb td{font-size:13.5px;}
+
+
+.orderTb th, .orderTb td{
+    padding:10px;
+    border-bottom: 1px solid #dddde1;
+    text-align: center;
+    table-layout: fixed;
+}
+
+.send, .sellerInfo, .orderStatus{ background-color: #f7f7f7; }
+
+/* ====== 주문 결제 금액 ====== */
+.orderPrice, .orderPlace{
+    border-top:2px solid #dddde1;
+    border-bottom: 1px solid #dddde1;
+    width:100%;
+}
+
+.first_money{
+    border-right:1px solid #dddde1;
+    padding-left:15px;
+    width:50%;
+}
+
+.first *{
+    padding:0px;
+    margin:0px;
+    list-style: none;
+}
+
+.first, .total{ font-size:15.5px; }
+
+.price_list{ padding:0px 8px 10px 0px; }
+
+.price_list>li{ margin-top:10px; }
+
+.price_list>li>span{
+    color:gray;
+    font-size:13.5px;
+}
+
+.price_list .thm{
+    float:right;
+    font-size:13px;
+}
+
+.last_money{
+    padding-left:15px;
+    background-color: rgb(167, 112, 239);
+    color:white;
+    width:50%;
+}
+
+/* ====== 배송지 정보 ====== */
+.orderPlace{
+    font-size:13.5px;
+    border-collapse: collapse;
+}
+
+.orderPlace tr, .orderPlace td{
+    padding: 10px 0px 10px 10px;
+}
+
+.deliveryTh{ background-color: #f7f7f7; }
+
+.deliveryInfo{
+    border-left:1px solid #dddde1;
+    border-bottom:1px solid #dddde1;
+    vertical-align:top;
+    line-height: 30px;
+    text-align: start; 
+    padding: 10px 0px 10px 10px;
+}
+
+.deliveryInfo>button{ float:right; }
+
+.orderName, .orderPhone{
+    color: gray;
+    font-weight: bold;
+}

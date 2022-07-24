@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderDetailList.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderList.css">
 </head>
 <body>
 
@@ -119,10 +119,15 @@
 	            <!-- <input type="hidden" name="orderStatus" value="구매확정"> -->
 	            
 	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	            <a href="" class="plain-btn btn">구매취소</a>
+	            <a href="" class="plain-btn btn" onclick="orderCancel();">구매취소</a>
 	            <!-- <input type="hidden" name="orderStatus" value="배송준비중"> -->
 	          </div>
 	          
+			  <script>
+				function orderCancel() {
+					confirm("구매를 취소하시겠습니까?");
+				}
+			  </script>
 	
 	          </li>
 	

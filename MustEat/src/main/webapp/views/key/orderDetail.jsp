@@ -6,15 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/myPage.css" />
-<style>
-  .orderDetail-area{
-    background-color: white; 
-    width:80%;
-    margin:auto;
-    border:1px solid rgba(221, 219, 219, 0.87);
-    padding: 10px 30px;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="../../resources/css/orderDetail.css" />
 </head>
 <body>
 	
@@ -24,7 +16,7 @@
 
       <div class="orderDetail-area">
         
-      <h3 class="DetailTitle">주문 상세정보</h3>
+      <h3 class="detailTitle">주문 상세정보</h3>
 
 
         <ul class="order_detail">
@@ -41,16 +33,16 @@
         </ul>
         
         
-        <table cellspacing="0" border="1" class="orderTb" width="100%">
+        <table class="orderTb" width="100%">
 
         <thead>
           <tr>
 
-            <th><strong>상품주문번호</strong></th>
-            <th>상품정보</th>
-            <th>상품금액(수량)</th>
-            <th>배송비/판매자</th>
-            <th>진행상태</th>
+            <th width="100"><strong>상품주문번호</strong></th>
+            <th width="300">상품정보</th>
+            <th width="100">상품금액(수량)</th>
+            <th width="100" class="send">배송비/판매자</th>
+            <th width="100" class="orderStatus">진행상태</th>
 
           </tr>
         </thead>
@@ -62,8 +54,8 @@
               <span class="thm ordernum2">2022072319850950</span>
             </td>
             <td class="product">
-          <div id="productName">
-            [채선당] 샤브샤브 밀키트 (2인)
+          <div id="productName" align="left"> 
+            [채선당] 샤브샤브 밀키트
           </div>
           </td>
 
@@ -73,11 +65,11 @@
             </td>
             <td class="sellerInfo" rowspan="1">
               <div class="send">
-                <div class="deliveryPrice">무료</div>
-                <div class="seller">채선당</div>
-                <div class="tel">
-                  <span>xxx-xxxx-xxxx</span>
-                </div>
+                  <div class="deliveryPrice">무료</div> 
+                  <div class="seller">채선당</div>
+                  <div class="tel">
+                    <span>xxx-xxxx-xxxx</span>
+                  </div>
               </div>
             </td>
 
@@ -90,68 +82,78 @@
 
         </table>
 
-        <h4 class="DetailTitle">주문/결제 금액 정보</h4>
+        <h4 class="title">주문/결제 금액 정보</h4>
         
-          <table cellspacing="0" border="1" class="orderPrice" width="100%">
+          <table class="orderPrice" width="100%">
         
           <tr class="money">
             <td class="first_money" colspan="6">
-              <div class="l_none">
                 <div class="price_list">
-                  <h3>최초 주문금액</h3>
-                    <!-- 주문금액 -->
-                    <div class="price_list">
-                        <div>상품금액</div>
-                        <p class="thm"><em>12,650</em>원</p>
-                        <div>배송비</div>
-                        <p class="thm"><em>3000</em>원</p>
-                        <div>적립금사용</div>
-                        <p class="thm"><em>0</em>원</p>
-                   </div>
-                </div>
+                  <dl class="first">
+                    <dt><strong>최초 주문금액</strong></dt>
+                    <dd>
+                      <!-- 주문금액 -->
+                      <ul class="price_list">
+                        <li>
+                          <span>상품금액</span>
+                          <p class="thm"><em>12,650</em>원</p>
+                        </li>
+                        <li>
+                          <span>배송비</span>
+                          <p class="thm"><em>0</em>원</p>
+                        </li>
+                        <li>
+                          <span>적립금사용</span>
+                          <p class="thm"><em>0</em>원</p>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
               </div>
               <br>
             </td>
 
             <td class="last_money" colspan="6" style="vertical-align:top;">
-              <div class="l_none">
-                <div class="price_list">
-                  <h3>최종 주문금액</h3>
+                <div class="total_price">
+                  <dl class="total">
+                    <dt><strong>최종 주문금액</strong></dt>
+                  </dl>
                     <!-- 주문금액 -->
-                    <div class="price_list">
-                        <p><em class="thm">15,650</em>원</p>
+                    <div class="total_price">
+                        <p><em>15,650</em>원</p>
                    </div>
                 </div>
-              </div>
             </td>
           </tr>
 
           </table>
 
-        <h4 class="DetailTitle">배송지 정보</h4>
-        <table cellspacing="0" border="1" class="orderPlace" width="100%">
+        <h4 class="title">배송지 정보</h4>
+        <table class="orderPlace" width="100%">
 
             <tr>
-              <th class="deliveryTh" width="15%" height="30px;">수령인</th>
-              <td width="55%" class="orderName"  height="30px;">김은영</td>
-              <th width="30%"  height="30px;">주문자 정보</th>
+              <th width="15%" height="50px;" class="deliveryTh">수령인</th>
+              <td width="55%" height="50px;">김회원</td>
+              <th class="deliveryInfo" width="30%"  height="50px;">주문자 정보
+                <button type="button">회원정보수정</button>
+              </th>
             </tr>
 
             <tr>
-              <th class="deliveryTh"  height="30px;">연락처</th>
+              <th height="30px;" class="deliveryTh">연락처</th>
               <td>
                 <span class="tel">xxx-xxxx-xxxx</span>
                 <span></span>
               </td>
               <!-- 주문자 정보 -->
-              <td rowspan="3" style="vertical-align:top; text-align: start; padding: 10px;">
-                <div class="orderName"><strong>홍길동</strong></div>
-                <div class="tel">xxx-xxxx-xxxx</div>
+              <td class="deliveryInfo" rowspan="3">
+                <div class="orderName">홍길동</div>
+                <div class="orderPhone">xxx-xxxx-xxxx</div>
               </td> 
             </tr>
 
             <tr>
-              <th class="deliveryTh"  height="70px;">배송지</th>
+              <th height="70px;" class="deliveryTh">배송지</th>
               <td class="address">
                 11111<br> <!--우편번호-->
                 서울시 관악구 행운동 사랑아파트<br> <!-- 주소 -->
@@ -160,7 +162,7 @@
             </tr>
             
             <tr class="gap3">
-              <th class="deliveryTh" height="30px;">배송메모</th>
+              <th height="30px;" class="deliveryTh">배송메모</th>
               <td>빨리 보내주세요</td>
             </tr>
         
