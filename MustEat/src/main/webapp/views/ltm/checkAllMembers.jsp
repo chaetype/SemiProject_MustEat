@@ -61,7 +61,7 @@
                 <option>번호</option>
                 <option>이름</option>
                 <option>가입일</option>
-                <option>구매누적액</option>
+                <option>회원등급</option>
             </select>
         </div>
         
@@ -118,7 +118,7 @@
                     <td>1</td>
                     <td>user1</td>
                     <td>백혜린</td>
-                    <td>일반</td>
+                    <td>신뢰</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
                     <td>7</td>
@@ -130,7 +130,7 @@
                     <td>1</td>
                     <td>user1</td>
                     <td>백혜린</td>
-                    <td>일반</td>
+                    <td>신뢰</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
                     <td>7</td>
