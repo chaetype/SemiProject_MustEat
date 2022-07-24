@@ -47,7 +47,7 @@
   </div>  
   <div class="shippingStatusContainer">
     <div class="title">
-      주문/배송조회
+      나의 주문/배송 현황
     </div>
     <div class="status">
       
