@@ -30,6 +30,8 @@
 		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
 		font-weight: normal;
 		font-style: normal;
+		padding: 0.3em 1em;
+    	margin: 0 0.1em 0.1em 0;
 	}
 </style>
 </head>
@@ -39,11 +41,12 @@
 
 	<div class="wrap44">
 	
-		<h2 style="text-align:center">MZ RESTAURANT REVIEWS</h2>
+		<h2 style="text-align:center">REPORT LIST</h2>
 		
 		  <table class="rwd-table">
 				<tbody>
 				<tr>
+					<th>선택</th>
 					<th>글번호</th>
 					<th width="100">게시자</th>
 					<th width="100">회원아이디</th>
@@ -52,6 +55,7 @@
 					<th width="100">비고</th>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">15</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -60,6 +64,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">14</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -68,6 +73,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">13</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -76,6 +82,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">12</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -84,6 +91,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">11</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -92,6 +100,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">10</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -100,6 +109,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">9</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -108,6 +118,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">8</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -116,6 +127,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">7</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -124,6 +136,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">6</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -132,6 +145,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">5</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -140,6 +154,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">4</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -148,6 +163,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">3</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -156,6 +172,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">2</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -164,6 +181,7 @@
 					<td data-th="Net Amount">일반회원</td>
 				</tr>
 				<tr>
+					<td data-th="Supplier Code"><input type="checkbox"></td>
 					<td data-th="Supplier Code">1</td>
 					<td data-th="Supplier Name">김김이</td>
 					<td data-th="Invoice Number">user001</td>
@@ -175,25 +193,7 @@
 				</tbody>
 		  	</table>
 	
-		<form action="test.do">
-			<div class="test1">
-			<select name="select11" style="height: 48px; margin: 10px;">
-				<option value="name">게시자</option>
-				<option vlaue="userId">회원아이디</option>
-				<option value="reviewTitle">리뷰제목</option>
-				<option selected>선택안함</option>
-			</select>
-			</div>
-			<div class="wrap55">
-				<div class="input-group mb-3">
-					<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-					</div>
-				</div>
-			</div>
-			<button class="btn1" style="float: right; margin:10px;">글쓰기</button>
-		</form>
+			<button class="btn1" style="float: left; margin-top:10px;">삭제</button>
 	</div>
 	<br><br><br><br><br>
 </body>

@@ -19,6 +19,7 @@
 
 
 <style>
+    /* 마진 손 안댐 */
     .wrap22{
         /* border: 1px solid black; */
         width: 80% ;

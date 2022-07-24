@@ -15,7 +15,7 @@
 <style>
 	.wrap44{
 		width: 80%;
-		margin-left: 120px;
+		margin-left: 20%;
 	}
 	.wrap55{
 		display: inline-block;

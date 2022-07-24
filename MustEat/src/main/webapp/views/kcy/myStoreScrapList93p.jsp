@@ -10,15 +10,15 @@
 <style>
     .wrap55{
         /* border: 1px solid black; */
-        width: 80%;
-        margin-left: 70px;
-        margin-top: 100px;
+        width : 80%;
+        margin-left:20%;
+        
     }
     .list01{
         /* border: 1px solid red; */
         width: 70%;
         margin-top: 5px;
-        margin-left: 150px;
+        /* margin-left: 150px; */
     }
     .thumbnail01{
         width: 150px;
@@ -37,7 +37,10 @@
 <body>
     <%@ include file="../common/menubar.jsp" %>
     <div class="wrap55">
-        <input type="checkbox" style="margin-top: 5px; margin-left: 100px;" name='check'>
+        
+
+
+        <input type="checkbox" style="margin-top: 5px;" name='check'>
         <div class="list01">
             <div class="thumbnail01">
                 <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;" alt="">
@@ -61,7 +64,7 @@
         </div>
 
     
-        <input type="checkbox" style="margin-top: 5px; margin-left: 100px;" name='check'>
+        <input type="checkbox" style="margin-top: 5px;" name='check'>
         <div class="list01">
             <div class="thumbnail01">
                 <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;" alt="">
@@ -86,7 +89,7 @@
 
 
 
-        <input type="checkbox" style="margin-top: 5px; margin-left: 100px;" name='check'>
+        <input type="checkbox" style="margin-top: 5px;" name='check'>
         <div class="list01">
             <div class="thumbnail01">
                 <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;" alt="">

@@ -11,9 +11,9 @@
         margin:auto;
         /* border:1px solid white; */
         text-align:center;
-        width:80%;
+        width:100%;
     }
-    .thumbnail{
+    .thumbnail33{
         border:1px solid lightgray;
         border-radius: 3%;
         overflow: hidden;
@@ -55,18 +55,18 @@
         
         <div class="list-area">
 	
-            <div class="thumbnail" align="center">
+            <div class="thumbnail33" align="center">
                 <img src="<%=contextPath%>/resources/image/cy/rank.jpg" width="270" height="170">
                 <p>ME인정 맛집+리뷰 상위랭킹 확인하기</p>
                 
             </div>
 
-            <div class="thumbnail" align="center">
+            <div class="thumbnail33" align="center">
                 <img src="<%=contextPath%>/resources/image/cy/mealkit.jpg" width="270" height="170">
                 <p>맛집을 집에서도? 밀키트 찾아보기</p>
             </div>
 
-            <div class="thumbnail" align="center">
+            <div class="thumbnail33" align="center">
                 <img src="<%=contextPath%>/resources/image/mz.png" width="270" height="170">
                 <p>MZ에디터들 글 구경하기</p>
             </div>

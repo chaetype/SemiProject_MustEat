@@ -10,7 +10,7 @@
             /* border: 1px solid black; */
             width: 80%;
             margin-top: 10px;
-            margin-left: 100px;
+            margin-left: 20%;
             position: relative;
        
         }
