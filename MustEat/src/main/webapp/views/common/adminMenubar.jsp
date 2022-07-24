@@ -32,16 +32,6 @@
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"/>
     	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
 
-
-		<!-- summernote -->
-		
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
 <style>
 		body{margin:0 auto;}
 		
@@ -59,7 +49,7 @@
 		
 		.main{
 			height:100%;
-			background-color:pink;
+			/* background-color:pink; */
 
 		}
 		.search-label{width:20%;}
@@ -88,17 +78,6 @@
 			font-size:12px;
 			color:black;
 		}
-
-		.menu-footer_down{
-			border:1px solid rgb(231, 216, 241);
-			width:270px;
-			height:79%;
-			justify-content: center;
-			align-items: center;
-			padding: 20px;
-			font-size:11.5px;
-			background-color: white;
-		}
 </style>
 </head>
 
@@ -120,62 +99,50 @@
 			</div>
 			<!-- 메뉴바 -->
 			<nav class="demo-dust menu menu--dustu">
-					
+	
+					<br>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">Restaurant</span>
-						<span class="menu__item-label">View all our Restaurant</span>
+						<span class="menu__item-name">▶ 회원조회</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">Meal Kit</span>
-						<span class="menu__item-label">We can get to deliver to your home</span>
+						<span class="menu__item-name">▶ 회원탈퇴 내역</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">MZ Pick</span>
-						<span class="menu__item-label">Recently popular restaurant of MZ</span>
+						<span class="menu__item-name">▶ 식당 조회</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">Editor Pick</span>
-						<span class="menu__item-label">Read what others choice</span>
+						<span class="menu__item-name">▶ 식당 등록</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">Event</span>
-						<span class="menu__item-label">Read what others say</span>
+						<span class="menu__item-name">▶ 밀키트 조회</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">Contact</span>
-						<span class="menu__item-label">Get in touch and find us</span>
+						<span class="menu__item-name">▶ 밀키트 등록</span>
 					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ 결제관리</span>
+					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ 리뷰관리</span>
+					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ 적립금 조회</span>
+					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ 적립금 지급</span>
+					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ 공지사항</span>
+					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ 1:1문의</span>
+					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ FAQ</span>
+					</a>					
 					
 			</nav>
 
-
-			<!-- 공지사항 -->
-			<div class="menu-footer_up" style="float: none;">
-				<h2 style="font-size: 25px">
-					<span class="fas fa-phone"></span>
-					<span>1234-5678 </span>
-				</h2>
-				<p class="font_basic" style="margin:15px 0px 10px 0px;">오전 9시~오후 6시 운영/주말,휴일 휴무</p>
-
-			</div>
-
-			<div class="menu-footer_down font_basic">
-				<p>
-					- 전화 전 <a href="#" style="color:black;">자주 묻는 질문</a>을 확인하세요.
-				</p>
-				<p>
-					- <a href="#" style="color:black;">1:1문의</a>를 통해서도 상담이 가능합니다.
-				</p>
-				<p>- 상품 문의는 각 상품 Q&A를 이용하세요.</p>
-
-				<br> 
-				<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
-				<a href="" class="plain-btn btn" style="font-size:12px">적립금</a> 
-				<a href="" class="plain-btn btn" style="font-size:12px">공지사항</a>
-				
-			<br><br>
-			
-			</div>
 				
 		</div>
 
@@ -188,8 +155,6 @@
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
 
-	여기에 메인 페이지 넣어주세요
-  		<script src="<%=contextPath %>/resources/js/demo.js"></script>
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
 
 

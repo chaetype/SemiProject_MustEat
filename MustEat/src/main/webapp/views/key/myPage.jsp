@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/myPage.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 </head>
 <body>
 
@@ -18,9 +19,9 @@
         <img src="<%=request.getContextPath() %>/resources/image/user.png" id="userIcon">
         <div class="userInfo">
           <div class="name">김회원님 반갑습니다!
-            <button type="button">내정보</button>
+            <button type="button" class="btn1">내정보</button>
           </div>
-          <div class="grade">등급 : 신뢰 리뷰어</div>
+          <div class="grade"><strong>등급 : 신뢰 리뷰어</strong></div>
         </div>
       </div>    
 
@@ -47,7 +48,7 @@
   </div>  
   <div class="shippingStatusContainer">
     <div class="title">
-      주문/배송조회
+      나의 주문/배송 현황
     </div>
     <div class="status">
       
@@ -93,7 +94,7 @@
 
   <div class="myPageList">
 
-    <a href="" class="listTitle">my리뷰</a>
+    <a href="" class="listTitle">식당 리뷰</a>
     <a href="" class="listMore">더보기 ></a>
 
     <table class="list">
@@ -116,6 +117,41 @@
 
         <tr>
           <td class="categoryTd categoryTitle">저만 믿고 오세요. 후회 안합니다. </td>
+          <td class="categoryTd categoryContent">78</td>
+          <td class="categoryTd categoryContent">2022.06.30</td>
+        </tr>
+        <!-- 반복문!! -->
+    </tbody>
+
+    </table>
+
+  </div>
+  
+    <div class="myPageList">
+
+    <a href="" class="listTitle">밀키트 리뷰</a>
+    <a href="" class="listMore">더보기 ></a>
+
+    <table class="list">
+
+      <thead>
+        <tr>
+          <th class="categoryTh" style="width:600px">상품명</th>
+          <th class="categoryTh" style="width:150px">좋아요수</th>
+          <th class="categoryTh" style="width:200px">작성일자</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <!-- 반복문 처리!!! -->
+        <tr>
+          <td class="categoryTd categoryTitle" >식당 맛 그대로입니다!</td>
+          <td class="categoryTd categoryContent">130</td>
+          <td class="categoryTd categoryContent">2022.07.02</td>
+        </tr>
+
+        <tr>
+          <td class="categoryTd categoryTitle">꼭 사세요. 너무 맛있어요</td>
           <td class="categoryTd categoryContent">78</td>
           <td class="categoryTd categoryContent">2022.06.30</td>
         </tr>
