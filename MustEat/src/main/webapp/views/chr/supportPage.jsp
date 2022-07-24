@@ -43,7 +43,7 @@
         border-color:rgb(213, 164, 247);
     }
 
-    .wrap-support{
+    .outer{
         background-color:white;
         width:80%;
         height:100%;    
@@ -91,7 +91,7 @@
 
 	<%@ include file="../common/menubar.jsp" %>
 
-    <div class="wrap-support" align="center">
+    <div class="outer" align="center">
         <br>
         <h1 align="center" style="margin-top:5%">무엇을 도와드릴까요?</h1>
         <div class="container justify-content-center">
