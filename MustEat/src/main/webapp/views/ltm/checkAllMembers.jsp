@@ -33,6 +33,14 @@
         font-size: large;
         border: none;
     }
+    #select{
+        text-align-last: center;
+        text-align: center;
+        -ms-text-align-last: center;
+        -moz-text-align-last: center;
+        padding: 2px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 </style>
 </head>
 <body>
@@ -45,19 +53,29 @@
         
         <h2 style="padding-left: 130px">전체 회원 조회</h2>
 
-        <table class="rwd-table" width="80%">
-            <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------</p>
-            <br>
+        <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <br>
 
-            <p style="display:inline-block; padding-left: 140px; font-size: larger; font-size: x-large;" >총 회원 : 10 명</p>
+        <div style="display: inline; padding-left: 130px;">
+            <select name="select" id="select" style="height: 40px; width: 120px; font-weight: bold;">
+                <option>번호</option>
+                <option>이름</option>
+                <option>가입일</option>
+                <option>구매누적액</option>
+            </select>
+        </div>
+        
+        &nbsp; &nbsp;
 
-            <div style="width: 1125px; display: inline; padding-left:760px">
-                <button class="delete">삭제하기</button>
-            </div>
-            
-            <br>
-            <br>
-            
+        <p style="display:inline-block; font-size: larger; font-size: x-large;" >총 회원 : 10 명</p>
+
+        <div style="width: 1125px; display: inline; padding-left:635px">
+            <button class="delete">삭제하기</button>
+        </div>
+        
+        <br>
+
+        <table class="rwd-table" width="80%">   
             <tbody>
                 <tr>
                     <th></th>
