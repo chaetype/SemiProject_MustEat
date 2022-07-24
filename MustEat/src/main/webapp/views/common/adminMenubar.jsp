@@ -123,6 +123,9 @@
 						<span class="menu__item-name">▶ 결제관리</span>
 					</a>
 					<a class="menu__item" href="#">
+						<span class="menu__item-name">▶ 리뷰관리</span>
+					</a>
+					<a class="menu__item" href="#">
 						<span class="menu__item-name">▶ 적립금 조회</span>
 					</a>
 					<a class="menu__item" href="#">
