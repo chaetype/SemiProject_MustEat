@@ -31,7 +31,7 @@
 
         <table class="table table-hover">
             <thead>
-              <tr style="background:lightgray;">
+              <tr style="background:rgba(168, 108, 203, 0.518);">
                 <th style="font-size:medium; text-align:center;" scope="col">번호</th>
                 <th style="font-size:medium; text-align:center;" scope="col">문의</th>
                 <th style="font-size:medium; text-align:center;" scope="col">상태</th>
@@ -45,7 +45,7 @@
                     <td>답변 대기</td>
                     <td>2022-07-10</td>
                 </tr>
-                <tr class="table-active">
+                <tr class="table-active" style="background:rgba(249, 240, 254, 0.868)">
                     <td colspan="4"></td>
                 </tr>
                 <tr class="contact-title">
@@ -54,7 +54,7 @@
                     <td>답변 완료</td>
                     <td>2022-06-15</td>
                 </tr>
-                <tr class="table-active">
+                <tr class="table-active" style="background:rgba(249, 240, 254, 0.868)">
                     <td colspan="4">
                         <p>
                             안녕하세요, 고객님. <br>
