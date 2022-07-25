@@ -19,6 +19,9 @@
     }
 
     .title{cursor:pointer;}
+
+    th{font-size:medium;}
+    tr>th{padding:15px;}
 </style>
 </head>
 <body>
@@ -29,43 +32,43 @@
 
     <div class="outer">
         <br><br>
-        <h3>공지사항</h3>
+        <h2>공지사항</h2>
         <br><br>
 
-        <table class="table table-hover">
-              <tr class="title">
-                <th scope="row">[공지] 7월 이벤트 추첨 완료</th>
-              </tr>
-              <tr class="table-active">
-                <th scope="row">
-                  <p>
-                    축하드립니다 <br>
-                    하하하
-                  </p>
-                </th>
-              </tr>
-              <tr class="title">
-                <th scope="row">[공지] 7월 이벤트 추첨 완료</th>
-              </tr>
-              <tr class="table-active">
-                <th scope="row">
-                  <p>
-                    축하드립니다 <br>
-                    하하하
-                  </p>
-                </th>
-              </tr>
-              <tr class="title">
-                <th scope="row">[공지] 7월 이벤트 추첨 완료</th>
-              </tr>
-              <tr class="table-active">
-                <th scope="row">
-                  <p>
-                    축하드립니다 <br>
-                    하하하
-                  </p>
-                </th>
-              </tr>
+        <table class="table table-hover" style="font-size:large;">
+          <tr class="title">
+            <th style="padding:15px">[공지] 7월 이벤트 추첨 완료</th>
+          </tr>
+          <tr class="table-active">
+            <th>
+              <p>
+                축하드립니다 <br>
+                하하하
+              </p>
+            </th>
+          </tr>
+          <tr class="title">
+            <th style="padding:15px">[공지] 7월 이벤트 추첨 완료</th>
+          </tr>
+          <tr class="table-active">
+            <th>
+              <p>
+                축하드립니다 <br>
+                하하하
+              </p>
+            </th>
+          </tr>
+          <tr class="title">
+            <th style="padding:15px">[공지] 7월 이벤트 추첨 완료</th>
+          </tr>
+          <tr class="table-active">
+            <th>
+              <p>
+                축하드립니다 <br>
+                하하하
+              </p>
+            </th>
+          </tr>
         </table>
     </div>
 
