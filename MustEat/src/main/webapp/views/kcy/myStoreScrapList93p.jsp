@@ -27,7 +27,7 @@
     }
     .info01{
         display: inline-block;
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
         width: 500px;
         height: 150px;
         margin-left: 20px;

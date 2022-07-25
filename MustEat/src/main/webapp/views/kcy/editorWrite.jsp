@@ -14,32 +14,38 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-
-
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
     .wrap88{
         width: 70%;
         margin-left: 20%;
         margin-top: 20px;
+        text-align: center;
+    }
+
+    .btn1{
+        width: 300px;
     }
 </style>
 
 </head>
 <body>
-
-    <%@ include file="../common/menubar.jsp"%>
-
+    <!-- 에디터 글 조회에서 관리자만 글쓰기 버튼 활성화 시켜서 들어오기 -->
+    <%@ include file="../common/menubar22.jsp"%>
+    
     <div class="wrap88">
         <form method="post">
-            <textarea id="summernote" name="editordata"></textarea>
+            <textarea class="yui3-cssreset" id="summernote" name="editordata"></textarea>
         </form>
+
+        <button class="btn1">작성완료</button>
     </div>
       
     <script>
         $(document).ready(function() {
 	//여기 아래 부분
 	$('#summernote').summernote({
-		  height: 300,                 // 에디터 높이
+		  height: 600,                 // 에디터 높이
 		  minHeight: null,             // 최소 높이
 		  maxHeight: null,             // 최대 높이
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
@@ -50,5 +56,8 @@
     });
 
     </script>
+
+
+    
 </body>
 </html>

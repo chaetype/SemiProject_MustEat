@@ -6,13 +6,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+
 <style>
+    
+    
+
     .tt{
         border: 1px solid black;
         /* margin-left: 250px;
@@ -26,6 +31,7 @@
         width : 80%;
         margin-left:20%;
     }
+    
 
     .search1{
         margin-top: 50px;
@@ -37,10 +43,9 @@
 </head>
 <body>
 	<%@ include file="../common/menubar.jsp"%>
-
-
     <div class="wrap77">
-        <div class="search1">
+        
+        <div class="wrap55">
             <div class="input-group mb-3">
                 <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
@@ -48,7 +53,6 @@
                 </div>
             </div>
         </div>
-
         <table class="tt" background = "<%=contextPath%>/resources/image/cy/retrobg.jpg">
             
             <tr>
