@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/myPage.css" />
-<link rel="stylesheet" type="text/css" href="../../resources/css/orderDetail.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/orderDetail.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 </head>
 <body>
 	
@@ -135,7 +136,7 @@
               <th width="15%" height="50px;" class="deliveryTh">수령인</th>
               <td width="55%" height="50px;">김회원</td>
               <th class="deliveryInfo" width="30%"  height="50px;">주문자 정보
-                <button type="button">회원정보수정</button>
+                <button type="button" class="btn1">회원정보수정</button>
               </th>
             </tr>
 

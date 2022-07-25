@@ -57,6 +57,8 @@
 
 
 
+		<!-- favicon -->
+		<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 <style>
 	
 		body{margin:0 auto;}
@@ -75,7 +77,7 @@
 		
 		.main{
 			height:100%;
-			background-color:pink;
+			background-color:white;
 
 		}
 		.search-label{width:20%;}
@@ -104,11 +106,21 @@
 			font-size:12px;
 			color:black;
 		}
+
+		.menu-footer_down{
+			border:1px solid rgb(231, 216, 241);
+			width:270px;
+			height:79%;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			font-size:11.5px;
+			background-color: white;
+		}
 </style>
 </head>
 
 <body>
-
 
   <div class="wrap">
 		<div class="header">
@@ -160,23 +172,23 @@
 					<span class="fas fa-phone"></span>
 					<span>1234-5678 </span>
 				</h2>
-				<p class="font_basic">오전 9시~오후 6시 운영/주말,휴일 휴무</p>
+				<p class="font_basic" style="margin:15px 0px 10px 0px;">오전 9시~오후 6시 운영/주말,휴일 휴무</p>
 
 			</div>
 
 			<div class="menu-footer_down font_basic">
 				<p>
-					- 전화 전 <a href="#">자주 묻는 질문</a>을 확인하세요.
+					- 전화 전 <a href="#" style="color:black;">자주 묻는 질문</a>을 확인하세요.
 				</p>
 				<p>
-					- <a href="#">1:1문의</a>를 통해서도 상담이 가능합니다.
+					- <a href="#" style="color:black;">1:1문의</a>를 통해서도 상담이 가능합니다.
 				</p>
 				<p>- 상품 문의는 각 상품 Q&A를 이용하세요.</p>
 
 				<br> 
-				<a href="" class="plain-btn btn">회원후기</a> 
-				<a href="" class="plain-btn btn">적립금</a> 
-				<a href="" class="plain-btn btn">공지사항</a>
+				<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
+				<a href="" class="plain-btn btn" style="font-size:12px">적립금</a> 
+				<a href="" class="plain-btn btn" style="font-size:12px">공지사항</a>
 				
 			<br><br>
 			
@@ -196,7 +208,6 @@
 	여기에 메인 페이지 넣어주세요
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
-
 
 </body>
 

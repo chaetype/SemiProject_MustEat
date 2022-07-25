@@ -12,12 +12,14 @@
 .detailTitle{
     font-size:20px;
     letter-spacing: -1px;
+    font-weight:bold;
 }
 
 .title{
     font-size:17px;
     letter-spacing: -1px;
     margin:40px 0px 9px;
+    font-weight:bold;	
 }
 
 
@@ -73,6 +75,7 @@
 .first_money{
     border-right:1px solid #dddde1;
     padding-left:15px;
+    padding-top:15px;
     width:50%;
 }
 
@@ -82,7 +85,7 @@
     list-style: none;
 }
 
-.first, .total{ font-size:15.5px; }
+.first, .total{ font-size:15.5px;}
 
 .price_list{ padding:0px 8px 10px 0px; }
 
@@ -100,6 +103,7 @@
 
 .last_money{
     padding-left:15px;
+    padding-top:15px;
     background-color: rgb(167, 112, 239);
     color:white;
     width:50%;
@@ -115,7 +119,10 @@
     padding: 10px 0px 10px 10px;
 }
 
-.deliveryTh{ background-color: #f7f7f7; }
+.deliveryTh{ 
+	background-color: #f7f7f7;
+	text-align: center;
+}
 
 .deliveryInfo{
     border-left:1px solid #dddde1;
@@ -126,7 +133,14 @@
     padding: 10px 0px 10px 10px;
 }
 
-.deliveryInfo>button{ float:right; }
+.deliveryInfo>button{ 
+	float:right; 
+	width: 90x;
+    height: 35px;
+    font-size:12px;
+    line-height:10px;
+    background: white;
+}
 
 .orderName, .orderPhone{
     color: gray;

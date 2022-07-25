@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MustEat MyPage</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/myPage.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 </head>
 <body>
 
@@ -18,9 +19,9 @@
         <img src="<%=request.getContextPath() %>/resources/image/user.png" id="userIcon">
         <div class="userInfo">
           <div class="name">김회원님 반갑습니다!
-            <button type="button">내정보</button>
+            <button type="button" class="btn1">내정보</button>
           </div>
-          <div class="grade">등급 : 신뢰 리뷰어</div>
+          <div class="grade"><strong>등급 : 신뢰 리뷰어</strong></div>
         </div>
       </div>    
 

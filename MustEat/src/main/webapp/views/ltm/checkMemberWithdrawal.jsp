@@ -23,15 +23,26 @@
         width: 30px;
     }
     .delete{
-        border-radius: 8%; 
+        border-radius: 2%; 
         background: rgb(167, 112, 239); 
         color: white; 
         font-family:'OTWelcomeRA'; 
         height: 40px; 
-        width: 80px;
+        width: 120px;
         font-weight: bold;
         font-size: large;
         border: none;
+    }
+    .delete2{
+        border-radius: 2%; 
+        background: rgb(167, 112, 239); 
+        color: white; 
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+        border: none;
+        height: 33px; 
+        width: 50px;
+        
     }
     #select{
         text-align-last: center;
@@ -51,26 +62,26 @@
 
         <br><br>
         
-        <h2 style="padding-left: 130px">전체 회원 조회</h2>
+        <h2 style="padding-left: 130px">회원탈퇴내역</h2>
 
         <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------</p>
         <br>
 
         <div style="display: inline; padding-left: 130px;">
             <select name="select" id="select" style="height: 40px; width: 120px; font-weight: bold;">
-                <option>번호</option>
                 <option>이름</option>
-                <option>가입일</option>
-                <option>회원등급</option>
+                <option>탈퇴기간</option>
+                <option>탈퇴일</option>
+                <option>탈퇴유형</option>
             </select>
         </div>
         
         &nbsp; &nbsp;
 
-        <p style="display:inline-block; font-size: larger; font-size: x-large;" >총 회원 : 10 명</p>
+        <p style="display:inline-block; font-size: larger; font-size: x-large;" >총 탈퇴 회원 : 10 명</p>
 
-        <div style="width: 1125px; display: inline; padding-left:635px">
-            <button class="delete">삭제하기</button>
+        <div style="width: 1125px; display: inline; padding-left:550px">
+            <button class="delete">회원 정보 삭제</button>
         </div>
         
         <br>
@@ -82,12 +93,12 @@
                     <th>번호</th>
                     <th>아이디</th>
                     <th>이름</th>
-                    <th>회원 등급</th>
+                    <th>탈퇴 유형</th>
                     <th>휴대폰 번호</th>
                     <th>가입일</th>
-                    <th>구매 횟수</th>
-                    <th>구매 누적액</th>
-                    <th>적립금</th>
+                    <th>탈퇴일</th>
+                    <th>탈퇴기간</th>
+                    <th>관리</th>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -97,9 +108,9 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -109,33 +120,9 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>신뢰</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>신뢰</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -145,9 +132,21 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>user1</td>
+                    <td>백혜린</td>
+                    <td>강제</td>
+                    <td>010-1111-2222</td>
+                    <td>2012.10.30</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -157,9 +156,21 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>user1</td>
+                    <td>백혜린</td>
+                    <td>강제</td>
+                    <td>010-1111-2222</td>
+                    <td>2012.10.30</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -169,9 +180,9 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -181,9 +192,9 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -193,9 +204,9 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -205,9 +216,9 @@
                     <td>일반</td>
                     <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>2015.10.30</td>
+                    <td>87</td>
+                    <td><button class="delete2">삭제</button></td>
                 </tr>
                 
             </tbody>

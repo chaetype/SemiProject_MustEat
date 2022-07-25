@@ -102,7 +102,7 @@
     width:80%;
     margin:auto;
   }
-  /* 녹색배경 */
+  /* 보라색배경 */
   .purpleContainer{  
     height: 132px;
     width:100%;
@@ -129,6 +129,8 @@
   /* 회원 정보 수정 버튼 */
   .name>button{
     font-size:12px;
+    width: 85px;
+    height: 36px;
   }
   
   /* 단골상점 , 상품후기 , 적립금 박스 */
@@ -201,6 +203,8 @@
     font-weight: 500;
     text-align: center;
     display:block;
+    color: black;
+    text-decoration: none;
   }
 
   .shippingStatusContainer .number:hover{

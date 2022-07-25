@@ -26,21 +26,14 @@
         border-radius: 8%; 
         background: rgb(167, 112, 239); 
         color: white; 
-        font-family:'OTWelcomeRA'; 
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
         height: 40px; 
-        width: 80px;
+        width: 130px;
         font-weight: bold;
         font-size: large;
         border: none;
     }
-    #select{
-        text-align-last: center;
-        text-align: center;
-        -ms-text-align-last: center;
-        -moz-text-align-last: center;
-        padding: 2px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
+
 </style>
 </head>
 <body>
@@ -51,26 +44,13 @@
 
         <br><br>
         
-        <h2 style="padding-left: 130px">전체 회원 조회</h2>
+        <h2 style="padding-left: 130px">리뷰 관리</h2>
 
         <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------</p>
         <br>
 
-        <div style="display: inline; padding-left: 130px;">
-            <select name="select" id="select" style="height: 40px; width: 120px; font-weight: bold;">
-                <option>번호</option>
-                <option>이름</option>
-                <option>가입일</option>
-                <option>회원등급</option>
-            </select>
-        </div>
-        
-        &nbsp; &nbsp;
-
-        <p style="display:inline-block; font-size: larger; font-size: x-large;" >총 회원 : 10 명</p>
-
-        <div style="width: 1125px; display: inline; padding-left:635px">
-            <button class="delete">삭제하기</button>
+        <div style="width: 1125px; padding-left:990px;">
+            <button class="delete">선택 삭제하기</button>
         </div>
         
         <br>
@@ -80,135 +60,103 @@
                 <tr>
                     <th></th>
                     <th>번호</th>
+                    <th>게시일</th>
                     <th>아이디</th>
-                    <th>이름</th>
-                    <th>회원 등급</th>
-                    <th>휴대폰 번호</th>
-                    <th>가입일</th>
-                    <th>구매 횟수</th>
-                    <th>구매 누적액</th>
-                    <th>적립금</th>
+                    <th>게시자</th>
+                    <th width="500px">내용</th>
+                    <th>회원등급</th>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
                     <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
+                    <td>user01</td>
                     <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
                     <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
                     <td>1</td>
-                    <td>user1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
                     <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
+                    <td>일반</td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
+                    <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
+                    <td>일반</td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
+                    <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
                     <td>신뢰</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
                     <td>1</td>
-                    <td>user1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
                     <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
+                    <td>일반</td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
+                    <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
+                    <td>일반</td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
+                    <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
+                    <td>일반</td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
+                    <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
+                    <td>일반</td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>2012.10.30</td>
+                    <td>user01</td>
+                    <td>백혜린</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
                     <td>신뢰</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
                 </tr>
                 <tr>
                     <th><input type="checkbox"></th>
                     <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
                     <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
+                    <td>user01</td>
                     <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
+                    <td>여기는 테이블 간 공간이 벽으로 아주 잘 분리되어 있어서 프라이빗 룸 느낌이 난다 데이트하기도 좋고 지인들과 도란도란 대화 나누며 깔끔하게 식사하기 좋다. 음식도 맛있다</td>
+                    <td>신뢰</td>
                 </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
+               
                 
             </tbody>
         </table> 
@@ -232,7 +180,7 @@
         <!--검색바 영역-->
         <div class="wrap55">
             <div class="input-group mb-3" >
-              <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <input type="text" class="form-control input-text" placeholder="아이디 검색" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search">검색</i></button>
                 </div>
