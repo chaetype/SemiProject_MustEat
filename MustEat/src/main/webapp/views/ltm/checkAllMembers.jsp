@@ -51,12 +51,12 @@
 
         <br><br>
         
-        <h2 style="padding-left: 130px">전체 회원 조회</h2>
+        <h2 style="padding-left: 10%">전체 회원 조회</h2>
 
-        <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
         <br>
 
-        <div style="display: inline; padding-left: 130px;">
+        <div style="display: inline; padding-left: 10%">
             <select name="select" id="select" style="height: 40px; width: 120px; font-weight: bold;">
                 <option>번호</option>
                 <option>이름</option>
@@ -64,12 +64,12 @@
                 <option>회원등급</option>
             </select>
         </div>
-        
-        &nbsp; &nbsp;
 
+		&nbsp; &nbsp;
+		
         <p style="display:inline-block; font-size: larger; font-size: x-large;" >총 회원 : 10 명</p>
 
-        <div style="width: 1125px; display: inline; padding-left:635px">
+        <div style="display:inline; padding-left:58%">
             <button class="delete">삭제하기</button>
         </div>
         
@@ -230,14 +230,16 @@
         
 
         <!--검색바 영역-->
-        <div class="wrap55">
-            <div class="input-group mb-3" >
-              <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search">검색</i></button>
-                </div>
-            </div>
-            
+        <div align="center">
+	        <div class="wrap55">
+	            <div class="input-group mb-3" >
+	              <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+	                <div class="input-group-append">
+	                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search">검색</i></button>
+	                </div>
+	            </div>
+	            
+	        </div>
         </div>
 
         

@@ -10,7 +10,7 @@
     .outer{
         width:400px;
         margin:auto;
-        margin-top:170px;
+        margin-top:12%;
     }
     h1{
         font-weight: bold;
@@ -22,14 +22,23 @@
         text-decoration: none;
         color: black;
     }
+    img{
+    	width: 120px;
+        height: 100px;;
+        margin: 0;
+        margin-left: 37%;
+    }
 </style>
 </head>
 <body>
 	<div class="outer">
 
-		<h1 align="center">MZ</h1>
-        
+		<!-- <h1 align="center">MZ</h1> -->
+
+    	<img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center">
+
         <hr>
+
         <br>
         <!-- Sign In Form -->
         <form>
@@ -49,16 +58,15 @@
             
             <div>
                 <div style="display:inline;">
-                    <a class="small" href="">아이디 찾기 |</a>
+                    <a class="small" style="font-size: 15px;"  href="" >아이디 찾기 |</a>
                 </div>
                 <div style="display:inline;">
-                    <a class="small" href="">비밀번호 찾기</a>
+                    <a class="small" style="font-size: 15px;" href="">비밀번호 찾기</a>
                 </div>
                 <div style="display:inline;"></div>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                &nbsp&nbsp&nbsp&nbsp&nbsp
-                    <a class="small" href="">회원가입</a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a class="small" style="font-size: 15px;" href="">회원가입</a>
                 </div>
             </div>
         </form>
