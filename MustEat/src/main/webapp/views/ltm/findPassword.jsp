@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
     .outer{
-        width:400px;
+        width:500px;
         margin:auto;
         margin-top:10%;
     }
@@ -27,7 +27,7 @@
     	width: 130px;
         height: 120px;;
         margin: 0;
-        margin-left: 33%;
+        margin-left: 36%;
     }
     .btn1{
         border-radius: 2%;

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
     .outer{
-        width:400px;
+        width:500px;
         margin:auto;
         margin-top:12%;
     }
@@ -63,6 +63,8 @@
                 <button class="btn1" type="submit">로그인</button>
             </div>
             
+            <br>
+            
             <div>
                 <div style="display:inline;">
                     <a class="small" style="font-size: 15px;"  href="" >아이디 찾기 |</a>
@@ -71,8 +73,9 @@
                     <a class="small" style="font-size: 15px;" href="">비밀번호 찾기</a>
                 </div>
                 <div style="display:inline;"></div>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <a class="small" style="font-size: 15px;" href="">회원가입</a>
                 </div>
             </div>
