@@ -15,7 +15,8 @@
     input{
         margin: 10px;
         width: 300px;
-        height: 30px;
+        height: 33px;
+        border: 1px solid rgb(167, 112, 239);
     }
     img{
     	width: 170px;
@@ -83,7 +84,8 @@
                             <input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
                             <input type="text" id="sample6_extraAddress" placeholder="참고항목">
                         </td>
-                            <td><button onclick="sample6_execDaumPostcode()" class="btn1">우편번호검색</button>
+                        <td>
+                            <input type="button" onclick="sample6_execDaumPostcode()" class="btn1" value="우편번호 찾기" style="width:145px; height: 40px;">
                         </td>
                     </tr>
 
