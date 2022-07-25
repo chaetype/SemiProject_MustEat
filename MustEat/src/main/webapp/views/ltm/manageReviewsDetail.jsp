@@ -44,12 +44,12 @@
 
         <br><br>
         
-        <h2 style="padding-left: 130px">리뷰 관리</h2>
+        <h1 style="padding-left: 130px">리뷰 관리</h1>
 
         <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------</p>
         <br>
 
-        <div style="width: 1125px; padding-left:990px;">
+        <div style="width: 80%; padding-left:82%;">
             <button class="delete">삭제하기</button>
         </div>
         
