@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
     .outer{
         width:400px;
@@ -28,6 +29,12 @@
         margin: 0;
         margin-left: 37%;
     }
+    .btn1{
+        border-radius: 2%;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
 </style>
 </head>
 <body>
@@ -53,7 +60,7 @@
         
         
             <div class="d-grid">
-                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" style="background: rgb(167, 112, 239);">로그인</button>
+                <button class="btn1" type="submit">로그인</button>
             </div>
             
             <div>
