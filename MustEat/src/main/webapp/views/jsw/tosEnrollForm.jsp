@@ -28,7 +28,7 @@
 </head>
 <body>
 
-	<%@ include file="../common/menubar.jsp"%>
+	<%@ include file="../common/adminMenubar.jsp"%>
 
 	<div class="wrap-tos">
 		
