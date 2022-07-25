@@ -59,7 +59,7 @@
 		
 		.main{
 			height:100%;
-			background-color:pink;
+			background-color:white;
 
 		}
 		.search-label{width:20%;}
