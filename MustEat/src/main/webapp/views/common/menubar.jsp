@@ -42,6 +42,8 @@
 		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+		<!-- favicon -->
+		<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 <style>
 		body{margin:0 auto;}
 		
@@ -103,7 +105,6 @@
 </head>
 
 <body>
-
 
   <div class="wrap">
 		<div class="header">
@@ -191,7 +192,6 @@
 	여기에 메인 페이지 넣어주세요
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
-
 
 </body>
 
