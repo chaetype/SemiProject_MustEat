@@ -116,7 +116,7 @@
 	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
 	            <a href="" class="btn1">리뷰작성</a>
 	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	            <a href="" class="btn1">구매취소</a>
+	            <a href="" class="btn1" onclick="deleteOrder();">구매취소</a>
 	          </div>
 	          
 	

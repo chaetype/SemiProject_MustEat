@@ -1,0 +1,54 @@
+.delete-area{
+    margin:auto;
+    width:80%;
+}
+
+.deleteInfo_first{
+    text-align:center;
+    margin-top: 100px;
+    line-height: 30px;
+}
+
+.deleteInfo_first>img{
+    width:130px;
+    height:130px;
+}
+
+.deleteInfo_first>div{
+    font-size:35px;
+}
+
+.deleteInfo_first span, #text1>span{
+    color:rgb(168, 99, 221)
+}
+
+.deleteInfo_middle{
+    background-color: rgba(224, 224, 224, 0.548);
+    margin-top:50px;
+    text-align:center;
+    padding:30px;
+    height:200px;
+    line-height: 70px;
+}
+
+#text1{ 
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+#text2{
+    font-size:20px;
+    font-weight:bold;
+    color:rgb(133, 130, 130);
+}
+
+.deleteInfo_last{
+    text-align: center;
+    margin-top:50px;    
+}
+
+.deleteInfo_last>.btn1{
+    background-color: white;
+    font-size:14px;
+}

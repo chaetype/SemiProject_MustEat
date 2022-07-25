@@ -76,16 +76,63 @@
     line-height: 12px;
 }
 
-.deleteReason{
-    width:220px;
-}
-
 #deleteModal .btn{
     font-size:13px;
     height: 35px;
     line-height: 10px;
 }
 
+#deleteModal .btn:hover{
+    font-size:13px;
+    height: 35px;
+    line-height: 10px;
+    background-color: rgb(167, 112, 239);
+}
+
 #deleteModal b, #deleteModal div{
     font-size:14.5px;
 }
+
+.memberDelete, .close{
+    background-color: black;
+    color:white;
+    text-align: left;
+}
+
+.deleteContent{
+    text-align:left;
+    padding:15px;
+    line-height:25px;
+    border:1px solid rgba(221, 219, 219, 0.87);
+}
+
+.deleteSelect{
+    text-align:left;
+    padding:15px;
+    line-height:25px;
+    display:flex;
+}
+
+.deleteSelect>span{
+    margin-right:20px;
+}
+
+.deleteReason>select{
+    width:220px;
+}
+
+.deleteCheck{
+    text-align:left;
+    display:flex;
+    padding:15px;
+    margin-left: 15px;
+    line-height: 25px;
+    border-top:1px solid black;
+}
+
+#deletePwd{
+    width:220px;
+    height:20px;
+    margin-left:10px;
+}
+

@@ -12,6 +12,7 @@
 
 	<%@ include file="../common/menubar.jsp" %>
 
+  <!-- 회원 정보 수정 창 -->
     <div class="basicInfo-area">
 
         <br>
@@ -148,9 +149,9 @@
 	    <div class="modal-content">
 	
 	      <!-- Modal Header -->
-	      <div class="modal-header">
+	      <div class="modal-header memberDelete">
 	        <h4 class="modal-title">회원 탈퇴</h4>
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
 	        <!-- 해당 버튼 클릭시 모달과 연결해제 -->
 	      </div>
 	
@@ -160,27 +161,45 @@
 	        <form action="" method="post">
 	        	<input type="hidden" name="userId" value="">
 				
-				  <b>탈퇴 후 복구가 불가능합니다. <br> 정말로 탈퇴하시겠습니까?</b> <br>
-          <br>
+          <div class="deleteContent">
+            <b>혜택 내역</b>  <br> 
+            탈퇴하면 적립금이 삭제됩니다. <br>
+            현재 적립금 : 7000
+          </div>
 
-          <div>탈퇴 사유를 선택해주세요.</div>
+          <div class="deleteSelect">
 
-          <select required class="deleteReason">
-            <option value="맛집 및 상품 종류 부족">맛집 및 상품 종류 부족</option>
-            <option value="상품 가격 불만족">상품 가격 불만족</option>
-            <option value="서비스 이용 불편">서비스 이용 불편</option>
-            <option value="방문 횟수 거의 없음">방문 횟수 거의 없음</option>
-          </select>
-				
-          <br><hr>
-	        	
-	        	비밀번호를 입력해주세요. <br>
-            <input type="password" name="userPwd">
-	        	<br><br>
-	        	
-	        	<button type="submit" class="plain-btn btn" >탈퇴하기</button>
-	        	
+            <span><strong>회원 탈퇴 사유</strong></span>
+
+              <div class="deleteReason">
+                <select required>
+                  <option value="맛집 및 상품 종류 부족">맛집 및 상품 종류 부족</option>
+                  <option value="상품 가격 불만족">상품 가격 불만족</option>
+                  <option value="서비스 이용 불편">서비스 이용 불편</option>
+                  <option value="방문 횟수 거의 없음">방문 횟수 거의 없음</option>
+                </select>
+            </div>
+
+          </div>
+
+				</div>
+
+            <div class="deleteCheck">
+
+              <div><strong>비밀번호를 입력해주세요.</strong></div>
+              <input type="password" name="userPwd" id="deletePwd">
+              <br><br>
+
+	        	</div>
+
+            <div align="center">
+              <button type="submit" class="plain-btn btn">탈퇴하기</button>
+              <button type="button" class="plain-btn btn" onclick="history.back();">취소</button>
+            </div>
+
 	        </form>
+
+          <br>
 	        
 	 		</div>
 		 </div>
