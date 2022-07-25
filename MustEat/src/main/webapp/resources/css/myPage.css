@@ -66,7 +66,7 @@
 }
 
 .categoryTd{
-	font-size:13.5px;
+	font-size:15px;
 }
 
   /* ========= 마이페이지 상단 ========= */
@@ -98,9 +98,10 @@
   }
   
   .myPage-area{
-    background-color: #F8F8F8;  
+    background-color: white; 
     width:80%;
     margin:auto;
+    border:1px solid rgba(221, 219, 219, 0.87);
   }
   /* 보라색배경 */
   .purpleContainer{  
@@ -176,7 +177,7 @@
   /* ================== 주문/배송조회 박스 시작 ==================== */
   .shippingStatusContainer{
     padding: 15px 15px;
-    background-color: white;
+    background-color: #f7f7f7;
     margin-bottom: 10px;
   }
   

@@ -97,7 +97,7 @@
     <a href="" class="listTitle">식당 리뷰</a>
     <a href="" class="listMore">더보기 ></a>
 
-    <table class="list">
+    <table class="list" width="100%">
 
       <thead>
         <tr>
@@ -132,7 +132,7 @@
     <a href="" class="listTitle">밀키트 리뷰</a>
     <a href="" class="listMore">더보기 ></a>
 
-    <table class="list">
+    <table class="list" width="100%">
 
       <thead>
         <tr>
@@ -167,7 +167,7 @@
     <a href="" class="listTitle">적립금</a>
     <a href="" class="listMore">더보기 ></a>
 
-    <table class="list">
+    <table class="list" width="100%">
 
       <thead>
         <tr>
@@ -205,7 +205,7 @@
     <a href="" class="listTitle">주문상세</a>
     <a href="" class="listMore">더보기 ></a>
 
-    <table class="list">
+    <table class="list" width="100%">
 
       <thead>
         <tr>
@@ -243,7 +243,7 @@
     <a href="" class="listTitle">가고싶다</a>
     <a href="" class="listMore">더보기 ></a>
 
-    <table class="list">
+    <table class="list" width="100%">
 
       <thead>
         <tr>
