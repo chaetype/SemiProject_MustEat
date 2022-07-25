@@ -5,17 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
     .outer{
         background-color:white;
         width:80%;
         height:100%;    
-        margin:auto;
+        margin-left:20%;
+        /* margin:auto; */
         /* border:1px solid black; */
     }
-    th,td{
+    th{
         /* border:1px solid black;  */
         font-size:large;
+        height:50px;
+    }
+    td{
+        /* border:1px solid black;  */
+        font-size:medium;
         height:50px;
     }
     textarea{color:gray}
@@ -51,7 +58,7 @@
                 <tr>
                     <th>문의 내용</th>
                     <td>
-                        <textarea name="contact-content" cols="103" rows="20" style="resize:none">내용을 입력해주세요</textarea>
+                        <textarea name="contact-content" cols="81" rows="20" style="resize:none">내용을 입력해주세요</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -80,7 +87,11 @@
                     </td>
                 </tr>
             </table>
-            
+            <br><br>
+            <div style="width:850px" align="right">
+                <button type="submit" class="btn1">문의하기</button>
+                <button type="reset" class="btn1">초기화</button>
+            </div>
         </form>
     </div>
 
