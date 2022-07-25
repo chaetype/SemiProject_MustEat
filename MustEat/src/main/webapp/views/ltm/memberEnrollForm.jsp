@@ -5,25 +5,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
 	.outer{
         width:1000px;
         margin:auto;
-        margin-top:5%;
+        margin-top:3%;
     }
     input{
         margin: 10px;
         width: 300px;
         height: 30px;
     }
+    img{
+    	width: 170px;
+        height: 150px;;
+        margin: 0;
+        margin-left: 42%;
+    }
+    .btn1{
+        border-radius: 2%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+
 </style>
 </head>
 <body>
 
     <div class="outer">
            
-        <h1 align="center">MZ</h1>
-        <p align="center" style="font-size: 20px; font-weight: bold;">회원가입</p>
+        <img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center">
+        <p align="center" style="font-size: 30px; font-weight: bold; margin: 20px;">회원가입</p>
         
         <div align="center"><div style="width: 55%;"><hr></div></div>
         
@@ -33,7 +47,7 @@
                     <tr>
                         <th>아이디</th>
                         <td><input type="text" placeholder="6~15글자"></td>
-                        <td><button>중복확인</button></td>
+                        <td><button class="btn1">중복확인</button></td>
                     </tr>        
                     <tr>
                         <th>비밀번호</th>
@@ -50,17 +64,16 @@
                     <tr>
                         <th>닉네임</th>
                         <td><input type="text" placeholder="닉네임을 입력해주세요"></td>
-                        <td><button>중복확인</button></td>
+                        <td><button class="btn1">중복확인</button></td>
                     </tr>
                     <tr>
                         <th>이메일</th>
                         <td><input type="text" placeholder="abc@naver.com"></td>
-                        <td><button>중복확인</button></td>
+                        <td><button class="btn1">중복확인</button></td>
                     </tr>
                     <tr>
                         <th>휴대전화</th>
-                        <td><input type="text" placeholder="-포함해서 작성해주세요"></td>
-                        <td><button>중복확인</button></td>
+                        <td colspan="2"><input type="text" placeholder="-포함해서 작성해주세요"></td>
                     </tr>
                     <tr>
                         <th>주소</th>
@@ -70,7 +83,8 @@
                             <input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
                             <input type="text" id="sample6_extraAddress" placeholder="참고항목">
                         </td>
-                        <td><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></td>
+                            <td><button onclick="sample6_execDaumPostcode()" class="btn1">우편번호검색</button>
+                        </td>
                     </tr>
 
                 </table>
@@ -83,7 +97,7 @@
             <br><br>
             
             <div align="center">
-                <button type="submit" style="width: 30%; height: 50px;">회원가입하기</button>
+                <button type="submit" style="width: 30%; height: 50px;" class="btn1">회원가입하기</button>
             </div>
             
 
