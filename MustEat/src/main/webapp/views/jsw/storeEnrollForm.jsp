@@ -143,10 +143,57 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="menu-introduce"><b>인기메뉴</b></label>
+							<label for="menu-introduce"><b>인기메뉴 설명</b></label>
 						  <input type="text" class="form-control" id="menu-introduce" placeholder="인기메뉴 설명을 입력해주세요.">
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
+						  </div>
+						</div>
+
+						<div class="mb-3">
+							<label for="store-operating-start"><b>운영시간</b></label>
+						  <input type="time" class="form-control" id="store-operating-start">~<input type="time" class="form-control" id="store-operating-end">
+						  <div class="invalid-feedback">
+							운영시간을 입력해주세요.
+						  </div>
+						</div>
+
+						<div class="mb-3">
+							<label for="store-break-start"><b>브레이크타임</b></label>
+						  <input type="time" class="form-control" id="store-break-start">~<input type="time" class="form-control" id="store-break-end">
+						  <div class="invalid-feedback">
+							브레이크 타임을 입력해주세요.
+						  </div>
+						</div>
+
+						<div class="mb-3">
+							<label for="store-naver"><b>네이버 주소 URL</b></label>
+						  <input type="url" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
+						  <div class="invalid-feedback">
+							네이버 주소 URL을 입력해주세요.
+						  </div>
+						</div>
+
+						<div class="mb-3">
+							<label for="store-url"><b>식당 주소 URL</b></label>
+						  <input type="text" class="form-control" id="store-url" placeholder="식당 주소 url을 입력해주세요.">
+						  <div class="invalid-feedback">
+							식당 주소 URL을 입력해주세요.
+						  </div>
+						</div>
+
+						<div class="mb-3">
+							<label for="store-holiday"><b>휴무일</b></label>
+							<br>
+						  <input type="checkbox" id="store-holiday">월
+						  <input type="checkbox" id="store-holiday">화
+						  <input type="checkbox" id="store-holiday">수
+						  <input type="checkbox" id="store-holiday">목
+						  <input type="checkbox" id="store-holiday">금
+						  <input type="checkbox" id="store-holiday">토
+						  <input type="checkbox" id="store-holiday">일
+						  <div class="invalid-feedback">
+							휴무일을 입력해주세요.
 						  </div>
 						</div>
 			  

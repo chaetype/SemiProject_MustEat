@@ -5,7 +5,7 @@
 	align-items: flex-start;
 	margin: 2em 0;
 	padding-left: 10px;
-	
+	text-decoration: none;
 }
 
 .menu--dustu .menu__item-name {
@@ -71,6 +71,7 @@
 .menu-footer_up>h2{
     margin-block-end: 0em;
 	background-color: white;
+	margin-top: 20px;
 }
 .menu-footer_down{
 	border:1px solid rgb(231, 216, 241);
