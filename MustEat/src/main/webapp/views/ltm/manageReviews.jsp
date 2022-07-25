@@ -44,12 +44,12 @@
 
         <br><br>
         
-        <h2 style="padding-left: 130px">리뷰 관리</h2>
+        <h2 style="padding-left: 10%">리뷰 관리</h2>
 
-        <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
         <br>
 
-        <div style="width: 1125px; padding-left:990px;">
+        <div style="width: 80%; padding-left:82%;">
             <button class="delete">선택 삭제하기</button>
         </div>
         
@@ -178,13 +178,16 @@
         
 
         <!--검색바 영역-->
-        <div class="wrap55">
-            <div class="input-group mb-3" >
-              <input type="text" class="form-control input-text" placeholder="아이디 검색" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search">검색</i></button>
-                </div>
-            </div>
+        <div align="center">
+	        <div class="wrap55">
+	            <div class="input-group mb-3" >
+	              <input type="text" class="form-control input-text" placeholder="아이디 검색" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+	                <div class="input-group-append">
+	                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search">검색</i></button>
+	                </div>
+	            </div>
+	            
+	        </div>
             
         </div>
 
