@@ -7,14 +7,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../../resources/css/contactEnrollFormAdmin.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<style>
-@font-face {
-    font-family: 'OTWelcomeRA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-</style>
 </head>
 <body>
 

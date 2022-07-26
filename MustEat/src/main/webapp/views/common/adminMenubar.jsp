@@ -33,22 +33,6 @@
     	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
 
 <style>
-	
-	@font-face {
-      font-family: 'OTWelcomeRA';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  .menu__item-name{
-	line-height: 50px;
-  }
-
-	.wrap * {
-		font-family: 'OTWelcomeRA';
-	}
-
 		body{margin:0 auto;}
 		
 		.wrap {

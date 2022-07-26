@@ -54,16 +54,6 @@
 		<!-- favicon -->
 		<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 <style>
-  @font-face {
-      font-family: 'OTWelcomeRA';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  .wrap * {
-	font-family: 'OTWelcomeRA';
-  }
 		body{margin:0 auto;}
 		
 		.wrap {
