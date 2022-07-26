@@ -27,27 +27,25 @@
 	}
 	
 	.review-sum{
-		margin-top:3%;
+		margin-top:1%;
 		text-align:left;
-		background:rgb(231, 216, 241);
-		height:60px;
+		height:70px;
 	}
 	
 	.review-sum h2{
-		margin-top:0.3%;
 		margin-left:3%;
+		margin-bottom:5%;
 	}
 	
 	.review-total{
-		margin-top:2%;
+		margin-top:1%;
 		text-align:left;
-		background:rgb(231, 216, 241);
-		height:60px;
+		height:70px;
 	}
 	
 	.review-total h2{
-		margin-top:0.3%;
 		margin-left:3%;
+		margin-bottom:5%;
 	}
 	
 	.review-text{
@@ -107,14 +105,14 @@
 			</div>
 		
 
-			<div class="review-sum">
+			<div class="review-sum" style="background:rgb(231, 216, 241)">
 				
 				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>xx건(수정)한달간리뷰갯수들어갈자리</span></h2>
 				
 			</div>
 		
 		
-			<div class="review-total">
+			<div class="review-total" style="background:rgb(231, 216, 241)">
 			
 				&nbsp;<h2>그동안 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>xx건(수정)그동안리뷰갯수들어갈자리</span></h2>
 			
