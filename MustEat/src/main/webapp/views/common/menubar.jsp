@@ -127,6 +127,10 @@
 			background:rgb(213, 164, 247);
 			border-color:rgb(213, 164, 247);
 		}
+		
+		.input-text{
+			height:50px;
+		}
 </style>
 </head>
 
