@@ -73,6 +73,10 @@
         color:white;
     }
 
+    #input{
+        height:100%;
+    }
+
     /* #notice-button{
         background-color:rgb(231, 216, 241);
         width:100px;
