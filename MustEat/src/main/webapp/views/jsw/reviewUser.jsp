@@ -239,31 +239,6 @@
 			
 			</div>
 
-			<div style="width:100%; margin-top:3%;">
-				<div style="display:inline-block;">
-					<table style="display:inline-block;">
-						<tr>
-							<td>
-								<div class="point-category">
-									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
-										<option value="">이름</option>
-										<option value="">아이디</option>
-									</select>
-								</div>
-							</td>
-							<td>
-								<div class="input-group mb-3" style="margin-top:6%;">
-									<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
-									<div class="input-group-append">
-										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-									</div>
-								</div>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			
 			<div class="review-page">
 
 				<div class="paging-area" align="center">
@@ -277,6 +252,31 @@
 				</div>
 
 			</div>
+
+			<div style="width:100%; margin-top:3%;">
+				<div style="display:inline-block;">
+					<table style="display:inline-block;">
+						<tr>
+							<td>
+								<div class="point-category">
+									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
+										<option value="">이름</option>
+										<option value="">아이디</option>
+									</select>
+								</div>
+							</td>
+							<td>
+								<div class="input-group mb-3" style="margin-top:6.5%;">
+									<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="100px;%" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
+									<div class="input-group-append">
+										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>			
 
 				<div class="review-enroll">
 
