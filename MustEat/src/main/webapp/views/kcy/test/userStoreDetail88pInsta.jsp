@@ -41,10 +41,10 @@
 
         .tumbnail11{
             /* border: 1px solid black; */
-            width: 100%;
+            width: 500px;
             height: 400px;
             display: inline-block;
-            text-align: center;
+            /* text-align: center; */
             margin: 40px;
             
         }
@@ -52,7 +52,7 @@
             /* border: 1px solid red; */
             /* width: 300px;
             height: 600px; */
-            /* display: inline-block; */
+            display: inline-block;
             float: right;
             margin: 40px;
         }

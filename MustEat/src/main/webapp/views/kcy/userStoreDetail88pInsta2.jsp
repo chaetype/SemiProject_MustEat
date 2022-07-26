@@ -13,6 +13,7 @@
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 <link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 
     <style>
         .wrap33{
@@ -20,7 +21,7 @@
             width: 80%;
             /* margin-top: 10px;
             margin-left: 20%; */
-
+            text-align: center;
             margin: auto;
             /* position: relative; */
        
@@ -28,7 +29,7 @@
 
         .outer111{
             /* border: 1px solid black; */
-            
+            float: left;
         }
 
         .outer222{
@@ -41,12 +42,17 @@
 
         .tumbnail11{
             /* border: 1px solid black; */
-            width: 100%;
+           
             height: 400px;
             display: inline-block;
             text-align: center;
             margin: 40px;
             
+            
+        }
+        .info1{
+            display: inline-block;
+            width: 400px;
         }
         .insta{
             /* border: 1px solid red; */
@@ -115,13 +121,18 @@
         <div class="outer111">
             <div class="tumbnail11">
                 <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 400px; height:400px;" alt="">
-                <h2>(식당이름)호족반</h2>
+                <!-- <h2>(식당이름)호족반</h2>
                 <br>
                 (식당주소)서울 강남구 언주로 164길 39 1층
                 <br><br>
-                (식당 소개글)모던 서양 한식 브랜드 호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.
+                (식당 소개글)모던 서양 한식 브랜드 호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다. -->
             </div>
-
+            <div class="info1"><h2>(식당이름)호족반</h2>
+                <br>
+                (식당주소)서울 강남구 언주로 164길 39 1층
+                <br><br>
+                (식당 소개글)모던 서양 한식 브랜드 호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <button class="btn1" style="margin: 5px;"> ❥ 찜 ❥</button>
             
         </div>
         <br><br><br>

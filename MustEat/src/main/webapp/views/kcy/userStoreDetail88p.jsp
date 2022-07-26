@@ -13,23 +13,27 @@
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 <link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
-
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 
 
 
     <style>
+
+
+
+
         .wrap33{
-            /* border: 1px solid black; */
+            border: 2px solid rgb(231, 216, 241);
             width: 80%;
-            margin-top: 10px;
-            margin-left: 20%;
+            /* margin-top: 10px;
+            margin-left: 20%; */
             /* position: relative; */
-       
+            margin: auto;
         }
 
         .outer111{
             /* border: 1px solid black; */
-            
+            margin: 5px;
         }
 
         .outer222{
@@ -94,6 +98,8 @@
             display: inline-block;
             text-align: center;
         }
+
+
         
     </style>
 </head>
@@ -104,7 +110,7 @@
             <div class="tumbnail">
                 <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;" alt="">
             </div>
-
+           
             <div class="info">
                 <h2>(식당이름)호족반</h2>
                 <br>
@@ -112,7 +118,7 @@
                 <br>
                 (식당 소개글)모던 서양 한식 브랜드 호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.
             </div>
-            
+            <button class="btn1" style="margin: 5px;"> ❥ 찜 ❥</button>
             
         </div>
         <div class="outer222">
