@@ -44,7 +44,7 @@
         text-align:right;
         color:lightyellow
     }
-    table{
+    table, h2{
         margin-left:15%;
     }
     .bar{

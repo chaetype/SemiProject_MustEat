@@ -24,6 +24,16 @@
         background-color:rgba(228, 207, 243, 0.568);
         cursor:pointer;
     }
+    .paging-area>button{
+        background-color: rgb(167, 112, 239);
+        color: white;
+        font-family: 'OTWelcomeRA';
+        line-height: 0.28in;
+        border: none;
+        border-radius: 10%;
+        height: 38px;
+        width: 30px;
+    }
 </style>
 <body>
 
@@ -98,8 +108,14 @@
         </div>
         
         <br>
-        <div style="border:1px solid black">
-            페이징바 자리
+        <div class="paging-area" align="center">
+            <button>&lt;</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>&gt;</button>
         </div>
     </div>
 

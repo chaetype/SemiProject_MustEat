@@ -52,13 +52,13 @@
                             <option>배송</option>
                             <option>회원</option>
                         </select>
-                        <input type="text" name="contact-title" style="width:85%; height:80%" placeholder="제목을 입력해주세요." required>
+                        <input type="text" name="contact-title" style="width:84%; height:80%" placeholder="제목을 입력해주세요." required>
                     </td>
                 </tr>
                 <tr>
                     <th>문의 내용</th>
                     <td>
-                        <textarea name="contact-content" cols="81" rows="20" style="resize:none">내용을 입력해주세요</textarea>
+                        <textarea name="contact-content" cols="87" rows="20" style="resize:none">내용을 입력해주세요</textarea>
                     </td>
                 </tr>
                 <tr>
