@@ -27,27 +27,25 @@
 	}
 	
 	.point-sum{
-		margin-top:3%;
+		margin-top:1%;
 		text-align:left;
-		background:rgb(231, 216, 241);
-		height:60px;
+		height:70px;
 	}
 	
 	.point-sum h2{
-		margin-top:0.3%;
 		margin-left:3%;
+		margin-bottom:5%;
 	}
 	
 	.point-delete{
-		margin-top:2%;
+		margin-top:1%;
 		text-align:left;
-		background:rgb(231, 216, 241);
-		height:60px;
+		height:70px;
 	}
 	
 	.point-delete h2{
-		margin-top:0.3%;
 		margin-left:3%;
+		margin-bottom:5%;
 	}
 	
 	.point-text{
@@ -60,6 +58,18 @@
 	.rwd-table{
 		width:100%;	
 	}
+
+	.paging-area>button{
+        background-color: rgb(167, 112, 239);
+		margin-top:3%;
+        color: white;
+        font-family: 'OTWelcomeRA';
+        line-height: 0.28in;
+        border: none;
+        border-radius: 10%;
+        height: 38px;
+        width: 30px;
+    }
 	
 </style>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
@@ -93,21 +103,19 @@
 			
 			</div>
 		
-
-			<div class="point-sum">
+			<div class="point-sum" style="background:rgb(231, 216, 241)">
 				
 				&nbsp;<h2><span style="color:blue;">사용 가능</span>한 적립금 : <span>xxxx원(수정)총적립금들어갈자리</span></h2>
 				
 			</div>
 		
 		
-			<div class="point-delete">
+			<div class="point-delete" style="background:rgb(231, 216, 241)">
 			
 				&nbsp;<h2>이번달 <span style="color:red;">소멸예정</span> 적립금 : <span>xxxx원(수정)소멸예정적립금들어갈자리</span></h2>
 			
 			</div>
-		
-		
+			
 			<h2 class="point-text">* 적립금 내역</h2>
 			
 			<div>
@@ -172,6 +180,16 @@
 				    </tbody>
 		  	</table>
 			
+			</div>
+
+			<div class="paging-area" align="center">
+				<button>&lt;</button>
+				<button>1</button>
+				<button>2</button>
+				<button>3</button>
+				<button>4</button>
+				<button>5</button>
+				<button>&gt;</button>
 			</div>
 		
 			
