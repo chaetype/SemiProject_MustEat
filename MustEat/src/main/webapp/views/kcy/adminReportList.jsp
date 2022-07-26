@@ -12,10 +12,14 @@
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+
 <style>
 	.wrap44{
+		/* width: 80%;
+		margin-left: 20%; */
 		width: 80%;
-		margin-left: 20%;
+		margin: auto;
 	}
 	.wrap55{
 		display: inline-block;
@@ -192,9 +196,26 @@
 
 				</tbody>
 		  	</table>
-	
-			<button class="btn1" style="float: left; margin-top:10px;">삭제</button>
+			<div class="list01">
+		        <button class="btn1" id="btn2">전체선택</button>
+		        <button class="btn1">선택삭제</button>
+	        </div>
 	</div>
 	<br><br><br><br><br>
+	<script>
+        const $container = document.querySelector('.wrap55');
+        const $inputs = [...$container.children];
+        const $agreeBtn = document.querySelector('#btn2');
+
+        $agreeBtn.onclick = () => {
+        if ($inputs.filter(input => input.checked).length === 3) {
+            $inputs.forEach(input => { input.checked = false; });
+        } else {
+            $inputs.forEach(input => {
+            input.checked = true;
+            });
+        }
+        };
+    </script>
 </body>
 </html>

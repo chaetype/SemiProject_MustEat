@@ -244,7 +244,7 @@ a.demo--current {
 }
 
 .menu__item {
-	line-height: 1;
+	line-height: 1.6;
 	position: relative;
 	display: block;
 	margin: 1em 0;

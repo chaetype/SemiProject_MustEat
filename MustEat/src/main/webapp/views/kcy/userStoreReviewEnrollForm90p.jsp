@@ -22,6 +22,8 @@
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+
 </head>
 <body>
 
@@ -41,7 +43,7 @@
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td><div id="ta1" contentEditable="true" style="overflow-x:auto; width:100%; height: 500px; border: solid 1px; margin: 0px; line-height: 20px; background-image: ; background-color: white;"></div></td>
+                    <td><textarea rows="40" name="content" required style="resize:none"></textarea></td>
                 </tr>
                 <tr>
                     <th>첨부파일</th>
@@ -52,14 +54,8 @@
             <br>
 
             <div align="center">
-                <button class="btn1" type="submit" style="    font-family: 'OTWelcomeRA';
-                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
-                font-weight: normal;
-                font-style: normal;">작성하기</button>
-                <button class="btn1" type="reset" style="    font-family: 'OTWelcomeRA';
-                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
-                font-weight: normal;
-                font-style: normal;">취소하기</button>
+                <button class="btn1" type="submit">작성하기</button>
+                <button class="btn1" type="reset">취소하기</button>
             </div>
         </form>
 
