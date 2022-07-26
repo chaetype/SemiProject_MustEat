@@ -28,6 +28,7 @@
 
 	.search-list{
 		display:inline-block;
+		width:100%;
 	}
 
 	.wrap55{
@@ -40,8 +41,13 @@
 	}
 
 	.btn1{
-		width:180px;
+		width:150px;
 		margin-top:10px;
+		margin-right: 10px;
+	}
+
+	.search-padding{
+		padding:1%;
 	}
 
 </style>
@@ -61,14 +67,14 @@
 		<div class="container">
 
 			<div class="search-head">
-				<table border="1" width="100%;">
+				<table width="100%;" style="border-collapse:collapse; border:1px lightgrey solid;">
 					<tr>
 						<td colspan="2">
-							<div class="wrap55" style="width:70%;">
+							<div class="wrap55" style="width:60%;">
 								<div class="input-group mb-3">
 									<input type="text" class="form-control input-text" placeholder="식당명, 지역명으로 검색해주세요." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									<div class="input-group-append">
-										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+										<button class="btn btn-outline-warning btn-lg" type="button" style="color:rgb(167, 112, 239); border-color:rgb(167, 112, 239)"><i class="fa fa-search"></i></button>
 									</div>
 								</div>
 							</div>							
@@ -76,19 +82,19 @@
 					</tr>
 					<tr>
 						<td width="20%;">
-							<select name="" id="" style="width:60%;">
+							<select name="" id="" style="width:40%;">
 								<option value="">인기순</option>
 								<option value="">이름순</option>
 								<option value="">별점순</option>
 							</select>
 						</td>
 						<td>
-							<h2 style="text-align:left;">XX맛집 XX순</h2>
+							<h2 class="search-padding" style="text-align:left;">XX맛집 XX순</h2>
 						</td>
 					</tr>
 					<tr>
 						<th><h4><strong>분위기</strong></h4></th>
-						<td class="search-tag">
+						<td class="search-tag search-padding">
 							<button class="btn1">#가성비좋은</button>
 							<button class="btn1">#분위기좋은</button>
 							<button class="btn1">#격식있는</button>
@@ -102,7 +108,7 @@
 					</tr>
 					<tr>
 						<th><h4><strong><span style="color:#ffd966;">★</span>별점</strong></h4></th>
-						<td class="search-tag">
+						<td class="search-tag search-padding">
 							<select name="" id="" style="width:10%;">
 								<option value="">0.5</option>
 								<option value="">1.0</option>
@@ -133,9 +139,45 @@
 					</tr>
 				</table>
 			</div>
+			
+			<br><br>
+
+			<hr noshade size = 1 style="background:black;">
 
 			<div class="search-list">
-
+				<div class="search-list-view">
+					<table width="100%">
+						<tbody>
+							<tr>
+								<td rowspan="4" width="20%" height="200px" style="text-align:center;">
+									<div style="border:1px solid black; width:95%; height:95%; display: inline-block;">
+										<div>
+											<img src="" alt="">사진넣는자리
+										</div>	
+									</div>						
+								</td>
+								<td colspan="2" style="text-align:left;"><h2>식당이름</h2></td>
+							</tr>
+							<tr>
+								<td colspan="2" style="text-align:left;"><h5>xx시 xx구</h5></td>
+							</tr>
+							<tr>
+								<td colspan="2" style="text-align:left;"><h8>#태그1,#태그2,#태그3</h8></td>
+							</tr>
+							<tr>
+								<td width="5%" style="text-align:left;"><span style="color:#ffd966;">★</span>&nbsp;5.0</td>
+								<td style="text-align:left;"><span style="color:#ff0000;">♥</span>&nbsp;xx명</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="text-align:left;">
+									<p style="margin-left:0.5%;">
+										리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리  
+									</p>	
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			
 		</div>
