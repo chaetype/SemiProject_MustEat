@@ -31,6 +31,11 @@
 	}
 	
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 </head>
@@ -42,7 +47,7 @@
 		
 		<div class="container">
 		
-		<h1 style="font-family: 'OTWelcomeRA'; text-align:left;">회원 적립금 조회</h1>
+		<h1 style="font-family: 'OTWelcomeRA'; text-align:left;">회원 적립금 지급</h1>
 	
 		<hr noshade size = 1 style="background:black;">
 		
@@ -163,10 +168,29 @@
 				    </tbody>
 		  		</table>
 
-				<div class="point-search">
-
-					<h2>여기 아마 검색창 들어갈듯</h2>
-
+				<div style="width:100%; margin-top:3%;">
+					<div style="display:inline-block;">
+						<table style="display:inline-block;">
+							<tr>
+								<td>
+									<div class="point-category">
+										<select name="" id="" style="height:100%;">
+											<option value="">이름</option>
+											<option value="">아이디</option>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div class="input-group mb-3">
+										<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 
 				<div class="point-save">
