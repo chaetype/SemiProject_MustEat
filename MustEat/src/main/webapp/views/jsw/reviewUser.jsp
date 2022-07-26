@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>[관리자]식당등록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <style>
 
 	.wrap-review {
@@ -70,8 +73,27 @@
 	.review-table{
 		margin-top:2%;	
 	}
+
+	.paging-area>button{
+        background-color: rgb(167, 112, 239);
+		margin-top:3%;
+        color: white;
+        font-family: 'OTWelcomeRA';
+        line-height: 0.28in;
+        border: none;
+        border-radius: 10%;
+        height: 38px;
+        width: 30px;
+    }
+
+	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
 	
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 </head>
@@ -216,12 +238,45 @@
 		  		</table>
 			
 			</div>
+
+			<div style="width:100%; margin-top:3%;">
+				<div style="display:inline-block;">
+					<table style="display:inline-block;">
+						<tr>
+							<td>
+								<div class="point-category">
+									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
+										<option value="">이름</option>
+										<option value="">아이디</option>
+									</select>
+								</div>
+							</td>
+							<td>
+								<div class="input-group mb-3" style="margin-top:6%;">
+									<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<div class="input-group-append">
+										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 			
 			<div class="review-page">
 
-					<h2>페이징 버튼 넣기</h2>
-
+				<div class="paging-area" align="center">
+					<button>&lt;</button>
+					<button>1</button>
+					<button>2</button>
+					<button>3</button>
+					<button>4</button>
+					<button>5</button>
+					<button>&gt;</button>
 				</div>
+
+			</div>
 
 				<div class="review-enroll">
 
