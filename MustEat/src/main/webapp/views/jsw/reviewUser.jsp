@@ -76,7 +76,7 @@
 
 	.paging-area>button{
         background-color: rgb(167, 112, 239);
-		margin-top:3%;
+		margin-top:1%;
         color: white;
         font-family: 'OTWelcomeRA';
         line-height: 0.28in;
