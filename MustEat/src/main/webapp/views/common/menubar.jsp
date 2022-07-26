@@ -51,22 +51,30 @@
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"/>
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
 
-		
-
-
-
-
-
 		<!-- favicon -->
 		<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 <style>
-	
+  @font-face {
+      font-family: 'OTWelcomeRA';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  .wrap * {
+	font-family: 'OTWelcomeRA';
+  }
 		body{margin:0 auto;}
 		
 		.wrap {
 		  display: grid;
 		  grid-template-columns: 270px minmax(420px, 1fr);
 		  grid-template-rows: 150px 1fr; /* search Form */
+		}
+
+		.menu__item-name, .menu__item-label{
+			font-family: 'Sriracha', cursive;
+
 		}
 		
 		.header {
