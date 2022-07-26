@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+
     <style>
         .wrap33{
             /* border: 1px solid black; */

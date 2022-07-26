@@ -18,6 +18,7 @@
         overflow:hidden;
     }
 </style>
+<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
     <%@ include file="../common/menubar.jsp"%>

@@ -12,6 +12,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 
     <style>
         .wrap33{
@@ -38,9 +39,9 @@
             /* border: 1px solid black; */
         }
 
-        .tumbnail{
+        .tumbnail11{
             /* border: 1px solid black; */
-            width: 400px;
+            width: 100%;
             height: 400px;
             display: inline-block;
             text-align: center;
@@ -102,12 +103,12 @@
 
 
         <div class="outer111">
-            <div class="tumbnail">
-                <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;" alt="">
+            <div class="tumbnail11">
+                <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 400px; height:400px;" alt="">
                 <h2>(식당이름)호족반</h2>
                 <br>
                 (식당주소)서울 강남구 언주로 164길 39 1층
-                <br>
+                <br><br>
                 (식당 소개글)모던 서양 한식 브랜드 호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.
             </div>
 
@@ -116,8 +117,9 @@
             </div>
         </div>
         <br><br><br>
-        <hr style="width: 550px; float:left;">
+        
         <div class="outer222">
+            <hr >
             <div class="popular">
 
                 <div id="map" style="width:550px;height:350px;"></div>

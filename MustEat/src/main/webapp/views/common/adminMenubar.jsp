@@ -102,43 +102,43 @@
 	
 					<br>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 회원조회</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 회원조회</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 회원탈퇴 내역</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 회원탈퇴 내역</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 식당 조회</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 식당 조회</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 식당 등록</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 식당 등록</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 밀키트 조회</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 밀키트 조회</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 밀키트 등록</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 밀키트 등록</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 결제관리</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 결제관리</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 리뷰관리</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 리뷰관리</span>
+					</a>
+					<a class="menu__item" href="#" >
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 적립금 조회</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 적립금 조회</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 적립금 지급</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 적립금 지급</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 공지사항</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 공지사항</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 1:1문의</span>
 					</a>
 					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ 1:1문의</span>
-					</a>
-					<a class="menu__item" href="#">
-						<span class="menu__item-name">▶ FAQ</span>
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ FAQ</span>
 					</a>					
 					
 			</nav>
