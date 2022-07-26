@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/memberWithdrawal.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/memberWithdrawal.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <title>Insert title here</title>
 </head>
