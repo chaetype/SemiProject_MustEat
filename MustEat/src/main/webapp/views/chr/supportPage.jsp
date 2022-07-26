@@ -94,7 +94,7 @@
     <div class="outer" align="center">
         <br>
         <h1 align="center" style="margin-top:5%">무엇을 도와드릴까요?</h1>
-        <div class="container justify-content-center">
+        <div class="container justify-content-center" style="margin-left:20%">
     
             <div class="row">
         
