@@ -68,7 +68,7 @@
     .input-form {
       max-width: 680px;
 
-      margin-top: 80px;
+      margin-top: 60px;
       padding: 32px;
 
       background: #fff;
@@ -104,26 +104,26 @@
 	
 			<hr noshade size = 1 style="background:black;"> -->
 		
+			<h1 style="font-family: 'OTWelcomeRA'; text-align:left;">식당 등록</h1>
+	
+			<hr noshade size = 1 style="background:black;">
 
 
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
-					  <h2 class="mb-3" style="color:rgb(167, 112, 239)"><strong>식당등록</strong></h2>
-
-					  <hr class="row" style="margin-top:2%;">
 					 
-					  <form class="store-enroll-form" action="" style="margin-top:3%;">
+					  <form class="store-enroll-form" action="" style="margin-top:1%;">
 
 						<div class="row">
 						  <div class="col-md-6 mb-3">
-							<label for="store-name"><b>* 식당명</b></label>
+							<label for="store-name" style="color:rgb(168, 99, 221)"><b>* 식당명</b></label>
 							<input type="text" class="form-control" id="store-name" placeholder="식당명을 입력해주세요." value="" required>
 							<div class="invalid-feedback">
 							  식당명을 입력해주세요.
 							</div>
 						  </div>
 						  <div class="col-md-6 mb-3">
-							<label for="store-phone"><b>* 전화번호(-포함)</b></label>
+							<label for="store-phone" style="color:rgb(168, 99, 221)"><b>* 전화번호(-포함)</b></label>
 							<input type="tel" class="form-control" id="store-phone" placeholder="전화번호를 입력해주세요. ex) xx-xxx-xxxx / xxx-xxx-xxxx" required>
 						 	<div class="invalid-feedback">
 							  전화번호를 입력해주세요.
@@ -132,7 +132,7 @@
 						</div>
 			  
 						<div class="mb-3">
-							<label for="store-address"><b>* 식당주소</b></label>
+							<label for="store-address" style="color:rgb(168, 99, 221)"><b>* 식당주소</b></label>
 							<br>
 							<select name="sido" id="sido"></select>
 							<select name="gugun" id="gugun"></select>	
@@ -187,7 +187,7 @@
 						
 						<div class="mb-3" id="store-map">
 
-							<label for="store-map"><b>* 식당지도</b></label>
+							<label for="store-map" style="color:rgb(168, 99, 221)"><b>* 식당지도</b></label>
 
 							<div id="map" style="width:100%;height:350px;"></div>
 
@@ -238,7 +238,7 @@
 
 							<table>
 								<tr>
-									<td><label for="store-img"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="store-img" style="color:rgb(168, 99, 221)"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file"></td>
 								</tr>
 								<tr>
@@ -251,7 +251,7 @@
 						</div>
 
 						<div class="mb-3">
-						  <label for="store-introduce"><b>* 식당소개</b></label>
+						  <label for="store-introduce" style="color:rgb(168, 99, 221)"><b>* 식당소개</b></label>
 						  <br>
 						  <textarea name="store-introduce" id="store-introduce" cols="145" rows="10" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div class="invalid-feedback">
@@ -260,7 +260,7 @@
 						</div>
 			  
 						<div class="mb-3">
-							<label for="store-menu"><b>* 인기메뉴</b></label>
+							<label for="store-menu" style="color:rgb(168, 99, 221)"><b>* 인기메뉴</b></label>
 						  <input type="text" class="form-control" id="store-menu" placeholder="인기메뉴를 입력해주세요.">
 						  <div class="invalid-feedback">
 							인기메뉴를 입력해주세요.
@@ -271,7 +271,7 @@
 
 							<table>
 								<tr>
-									<td><label for="menu-img"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="menu-img" style="color:rgb(168, 99, 221)"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file"></td>
 								</tr>
 								<tr>
@@ -284,7 +284,7 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="menu-introduce"><b>* 인기메뉴 설명</b></label>
+							<label for="menu-introduce" style="color:rgb(168, 99, 221)"><b>* 인기메뉴 설명</b></label>
 							<br>
 							<textarea name="store-introduce" id="store-introduce" cols="145" rows="10" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div class="invalid-feedback">
@@ -297,7 +297,7 @@
 							<table>
 								<div class="mb-3">
 									<tr>
-										<td><label for="store-operating-start"><b>* 운영시간</b></label></td>
+										<td><label for="store-operating-start" style="color:rgb(168, 99, 221)"><b>* 운영시간</b></label></td>
 										<td><input type="time" id="store-operating-start">&nbsp;~&nbsp;<input type="time" id="store-operating-end"></td>
 									</tr>
 									<div class="invalid-feedback">
@@ -306,7 +306,7 @@
 								</div>
 								<div class="mb-3">
 									<tr>
-										<td><label for="store-break-start"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										<td><label for="store-break-start" style="color:rgb(168, 99, 221)"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 										<td><input type="time" id="store-break-start">&nbsp;~&nbsp;<input type="time"id="store-break-end"></td>
 									</tr>
 									<div class="invalid-feedback">
@@ -320,7 +320,7 @@
 						<br>
 						
 						<div class="mb-3">
-							<label for="store-naver"><b>* 네이버 주소 URL</b></label>
+							<label for="store-naver" style="color:rgb(168, 99, 221)"><b>* 네이버 주소 URL</b></label>
 						  <input type="url" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
 						  <div class="invalid-feedback">
 							네이버 주소 URL을 입력해주세요.
@@ -328,7 +328,7 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="store-url"><b>* 식당 주소 URL</b></label>
+							<label for="store-url" style="color:rgb(168, 99, 221)"><b>* 식당 주소 URL</b></label>
 						  <input type="text" class="form-control" id="store-url" placeholder="식당 주소 url을 입력해주세요.">
 						  <div class="invalid-feedback">
 							식당 주소 URL을 입력해주세요.
@@ -338,7 +338,7 @@
 						<div class="mb-3">
 							<table>
 								<tr>
-									<td><label for="store-holiday"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="store-holiday" style="color:rgb(168, 99, 221)"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
 										<input type="checkbox" id="store-holiday">월
 										<input type="checkbox" id="store-holiday">화
