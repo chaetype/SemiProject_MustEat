@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../../resources/css/contactEnrollFormAdmin.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 </head>
 <body>
 
