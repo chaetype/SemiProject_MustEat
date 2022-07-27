@@ -73,7 +73,6 @@
 				<table class="rwd-table">
 				    <tbody>
 				      <tr>
-				        <th></th>
 				        <th>회원번호</th>
 				        <th>이름</th>
 						<th>아이디</th>
@@ -82,7 +81,6 @@
 						<th>잔여 적립금(원)</th>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -91,7 +89,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -100,7 +97,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -109,7 +105,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -118,7 +113,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -127,7 +121,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -136,7 +129,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -145,7 +137,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -154,7 +145,6 @@
 						<td>10000</td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -163,7 +153,6 @@
 						<td>10000</td>
 				      </tr>
 					  <tr>
-				        <td><input type="checkbox"></td>
 				        <td>1</td>
 				        <td>홍길동</td>
 						<td>hong1234</td>
@@ -215,13 +204,6 @@
 					</table>
 				</div>
 			</div>	
-
-			<div class="button">
-
-				<button class="btn1">적립금 회수하기</button>
-
-			</div>
-
 			
 			
 		</div>
