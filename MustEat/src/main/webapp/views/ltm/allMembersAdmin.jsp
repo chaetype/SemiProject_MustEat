@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
     .paging-area>button{
         background-color: rgb(167, 112, 239);
@@ -67,10 +68,10 @@
 
 		&nbsp; &nbsp;
 		
-        <p style="display:inline-block; font-size: larger; font-size: x-large;" >총 회원 : 10 명</p>
+        <p style="display:inline-block; font-size: larger; font-size: x-large;">총 회원 : 10 명</p>
 
-        <div style="display:inline; padding-left:58%">
-            <button class="delete">삭제하기</button>
+        <div style="display:inline; padding-left:55%">
+            <button class="btn1">삭제하기</button>
         </div>
         
         <br>

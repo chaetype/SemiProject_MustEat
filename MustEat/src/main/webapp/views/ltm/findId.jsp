@@ -67,7 +67,7 @@
                 <button class="btn1" type="submit">아이디 찾기</button>
             </div>
             <div class="d-grid">
-                <button class="btn1" type="submit">로그인</button>
+                <button class="btn1" type="submit" onclick="enrollPage();">로그인</button>
             </div>            
             
             <br>
