@@ -132,8 +132,14 @@
 			height:50px;
 		}
 		a{
-			
 			color: white;
+		}
+		.mustEatInfo{
+			text-align:center;
+		}
+		.mustEatInfo>a{
+			margin-left:2px;
+			margin-bottom:7px;
 		}
 </style>
 </head>
@@ -204,9 +210,22 @@
 				<p>- 상품 문의는 각 상품 Q&A를 이용하세요.</p>
 
 				<br> 
-				<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
-				<a href="" class="plain-btn btn" style="font-size:12px">적립금</a> 
-				<a href="" class="plain-btn btn" style="font-size:12px">공지사항</a>
+				
+				<div class="mustEatInfo">
+					<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
+					<a href="" class="plain-btn btn" style="font-size:12px">적립금</a> 
+					<a href="" class="plain-btn btn" style="font-size:12px">공지사항</a>
+					</div>
+					
+					<div class="mustEatInfo">
+					<a href="" class="plain-btn btn" style="font-size:12px; width:55px; height:40px;">FAQ</a>
+					<a href="" class="plain-btn btn" style="font-size:12px">이용약관</a>
+					<a href="" class="plain-btn btn" style="font-size:12px">1대1 문의</a>
+					
+					<p align="center" style="color:lightgray;">
+						© MUSTEAT Corp.	
+					</p>
+				</div>
 				
 			<br><br>
 			
