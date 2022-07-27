@@ -20,6 +20,8 @@
 </head>
 <body>
 
+	<%@ include file= "../common/menubar.jsp" %>
+
 	<div class="map-area" align="center">
 	
 	
@@ -62,7 +64,7 @@
 	</div>
 	
 	<script>
-		
+			
 		$(function() {
 			$(".seoul-area").maphilight();
 		});
