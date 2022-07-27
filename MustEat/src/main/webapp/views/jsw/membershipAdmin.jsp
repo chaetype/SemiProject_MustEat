@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[관리자]적립금 지급</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
 
 	.wrap-point-admin {
@@ -27,8 +28,22 @@
 	}
 
 	.point-save{
-		margin-top:2%;	
+		margin-top:1%;	
 	}
+
+	.paging-area>button{
+        background-color: rgb(167, 112, 239);
+		margin-top:4%;
+        color: white;
+        font-family: 'OTWelcomeRA';
+        line-height: 0.28in;
+        border: none;
+        border-radius: 10%;
+        height: 38px;
+        width: 30px;
+    }
+
+	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
 	
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
@@ -168,21 +183,36 @@
 				    </tbody>
 		  		</table>
 
+				  <div>
+			
+					<div class="paging-area" align="center">
+						<button>&lt;</button>
+						<button>1</button>
+						<button>2</button>
+						<button>3</button>
+						<button>4</button>
+						<button>5</button>
+						<button>&gt;</button>
+					</div>
+				
+				</div>	
+	
 				<div style="width:100%; margin-top:3%;">
 					<div style="display:inline-block;">
 						<table style="display:inline-block;">
 							<tr>
 								<td>
 									<div class="point-category">
-										<select name="" id="" style="height:100%;">
+										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
+											<option value="">회원번호</option>
 											<option value="">이름</option>
 											<option value="">아이디</option>
 										</select>
 									</div>
 								</td>
 								<td>
-									<div class="input-group mb-3">
-										<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<div class="input-group mb-3" style="margin-top:6.5%;">
+										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
 										<div class="input-group-append">
 											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
 										</div>
@@ -191,7 +221,7 @@
 							</tr>
 						</table>
 					</div>
-				</div>
+				</div>	
 
 				<div class="point-save">
 
