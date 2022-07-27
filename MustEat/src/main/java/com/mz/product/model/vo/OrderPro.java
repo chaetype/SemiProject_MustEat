@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class OrderPro {
 	private int orderNo;
-	private int memNo;
+	private String memNo;
 	private int orderQuentity;
 	private Date orderDate;
 	private String memo;
@@ -25,7 +25,7 @@ public class OrderPro {
 	}
 
 
-	public OrderPro(int orderNo, int memNo, int orderQuentity, Date orderDate, String memo, Date modifyDate,
+	public OrderPro(int orderNo, String memNo, int orderQuentity, Date orderDate, String memo, Date modifyDate,
 			int orderStatus, int totalPrice, int deliveryPrice, int discountFee, String payment, String courier,
 			int courierNo, String deliveryStatus, String deliverType) {
 		super();
@@ -57,12 +57,12 @@ public class OrderPro {
 	}
 
 
-	public int getMemNo() {
+	public String getMemNo() {
 		return memNo;
 	}
 
 
-	public void setMemNo(int memNo) {
+	public void setMemNo(String memNo) {
 		this.memNo = memNo;
 	}
 
@@ -205,6 +205,9 @@ public class OrderPro {
 				+ ", payment=" + payment + ", courier=" + courier + ", courierNo=" + courierNo + ", deliveryStatus="
 				+ deliveryStatus + ", deliverType=" + deliverType + "]";
 	}
+
+
+	
 	
 	
 	
