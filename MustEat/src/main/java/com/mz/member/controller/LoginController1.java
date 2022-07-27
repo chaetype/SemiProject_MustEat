@@ -28,6 +28,8 @@ public class LoginController1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//태민
 		// 단순히 로그인페이지 요청 
 		
 		// 응답페이지 (로그인페이지)

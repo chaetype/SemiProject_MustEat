@@ -28,6 +28,8 @@ public class MemberEnrollForm1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//태민
 		// 단순히 회원가입페이지 요청 
 		
 		// 회원가입페이지 (회원가입페이지)
