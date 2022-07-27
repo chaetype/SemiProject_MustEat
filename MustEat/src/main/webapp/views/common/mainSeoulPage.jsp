@@ -8,10 +8,10 @@
 <!-- jQuery Script -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <!-- Maphighlight Script -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+
 <style>
  	.map-area{
- 		background-color:#EBF6FD;
+ 		background-color:#e4f2fd;
  	}
  	.map-name>h2{
  		font-size:50px;
@@ -19,6 +19,8 @@
 </style>
 </head>
 <body>
+
+	<%@ include file="../common/menubar.jsp" %>
 
 	<div class="map-area" align="center">
 	
@@ -29,7 +31,7 @@
 		</div>
 
 		<!-- 서울 지도 페이지! -->
-		<img src="<%=request.getContextPath() %>/resources/image/서울.png" usemap="#image-map" class="seoul-area">
+		<img src="../../resources/image/서울.png" usemap="#image-map" class="seoul-area">
 		
 		<map name="image-map">
 		    <area target="_blank" alt="강동구 맛집" title="강동구 맛집" href="#" coords="980,706,967,702,960,696,943,695,934,675,920,664,926,649,929,634,928,626,925,620,919,621,910,613,912,594,918,576,927,566,936,557,949,551,963,539,975,539,989,539,1000,539,1012,531,1028,522,1056,507,1057,522,1064,527,1076,530,1077,539,1079,552,1072,569,1076,579,1076,592,1079,603,1078,614,1070,620,1055,625,1041,630,1028,634,1004,641,1002,656,1002,669,994,676,981,681,959,686" shape="poly">
@@ -61,6 +63,7 @@
 
 	</div>
 	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
 	<script>
 		
 		$(function() {
