@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[사용자]식당/지역검색페이지</title>
-
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
 
 	.wrap-search {

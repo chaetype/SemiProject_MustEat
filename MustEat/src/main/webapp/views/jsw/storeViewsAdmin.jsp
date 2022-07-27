@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[관리자]식당조회/수정</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
 
 	.wrap-store-view {
@@ -29,8 +30,27 @@
 	.store-delete{
 		margin-top:2%;	
 	}
+
+	.paging-area>button{
+        background-color: rgb(167, 112, 239);
+		margin-top:4%;
+        color: white;
+        font-family: 'OTWelcomeRA';
+        line-height: 0.28in;
+        border: none;
+        border-radius: 10%;
+        height: 38px;
+        width: 30px;
+    }
+
+	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
 	
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 </head>
@@ -163,11 +183,45 @@
 				    </tbody>
 		  		</table>
 
-				<div class="store-search">
-
-					<h2>여기 아마 검색창 들어갈듯</h2>
-
-				</div>
+				  <div>
+			
+					<div class="paging-area" align="center">
+						<button>&lt;</button>
+						<button>1</button>
+						<button>2</button>
+						<button>3</button>
+						<button>4</button>
+						<button>5</button>
+						<button>&gt;</button>
+					</div>
+				
+				</div>	
+	
+				<div style="width:100%; margin-top:3%;">
+					<div style="display:inline-block;">
+						<table style="display:inline-block;">
+							<tr>
+								<td>
+									<div class="point-category">
+										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
+											<option value="">식당번호</option>
+											<option value="">식당명</option>
+											<option value="">전화번호</option>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div class="input-group mb-3" style="margin-top:6.5%;">
+										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
+										<div class="input-group-append">
+											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>	
 
 				<div class="store-delete">
 

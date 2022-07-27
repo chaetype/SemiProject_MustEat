@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[관리자]식당등록</title>
+<title>[사용자]my리뷰</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
@@ -67,7 +68,7 @@
 	}
 
 	.review-enroll{
-		margin-top:2%;	
+		margin-top:1%;	
 	}
 	
 	.review-table{
@@ -160,7 +161,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -168,7 +169,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -176,7 +177,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -184,7 +185,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -192,7 +193,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -200,7 +201,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -208,7 +209,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -216,7 +217,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -224,7 +225,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -232,7 +233,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기 및 수정</button></td>
 				      </tr>
 				    </tbody>
 		  		</table>
@@ -253,21 +254,21 @@
 
 			</div>
 
-			<div style="width:100%; margin-top:3%;">
+			<div style="width:100%; margin-top:2%;">
 				<div style="display:inline-block;">
 					<table style="display:inline-block;">
 						<tr>
 							<td>
 								<div class="point-category">
 									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
-										<option value="">이름</option>
-										<option value="">아이디</option>
+										<option value="">식당명</option>
+										<option value="">밀키트명</option>
 									</select>
 								</div>
 							</td>
 							<td>
 								<div class="input-group mb-3" style="margin-top:6.5%;">
-									<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="100px;%" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
+									<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
 									<div class="input-group-append">
 										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
 									</div>
