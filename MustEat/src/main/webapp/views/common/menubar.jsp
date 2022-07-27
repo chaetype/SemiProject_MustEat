@@ -52,7 +52,7 @@
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
 
 		<!-- favicon -->
-		<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+		<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
 		body{margin:0 auto;}
 		

@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welcome to Must Eat</title>
+
+ 		<!-- favicon -->
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?">
 </head>
 <body>
 
- <%@ include file="views/common/menubar.jsp" %>
- 
+ <%@ include file="views/common/mainPage.jsp" %>
 </body>
 </html>

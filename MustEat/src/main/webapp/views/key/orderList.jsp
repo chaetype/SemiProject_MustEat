@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MustEat 주문현황</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderList.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 </head>
 <body>
 

@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/memberWithdrawal.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<title>Insert title here</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<title>회원 탈퇴</title>
 </head>
 <body>
 

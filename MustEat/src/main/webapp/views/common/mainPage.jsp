@@ -4,15 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>후보2 #CCE7E6 </title>
+<title>Welcome to Must Eat</title>
 <!-- jQuery Script -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <!-- Maphighlight Script -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+		<!-- favicon -->
+		<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 </head>
 <style>
 	.map-area{
- 		background-color:#EBF6FD;
+ 		background-color:#e4f2fd;
  	}
 </style>
 <body>
