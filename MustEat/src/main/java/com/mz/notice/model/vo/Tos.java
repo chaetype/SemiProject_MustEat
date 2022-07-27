@@ -6,7 +6,6 @@ public class Tos {
 	
 	private int tosNo;
 	private int tosCategory;
-	private String tosPage;
 	private Date uploadDate;
 	private Date enrollDate;
 	private Date modifyDate;
@@ -18,12 +17,11 @@ public class Tos {
 		
 	}
 
-	public Tos(int tosNo, int tosCategory, String tosPage, Date uploadDate, Date enrollDate, Date modifyDate,
+	public Tos(int tosNo, int tosCategory, Date uploadDate, Date enrollDate, Date modifyDate,
 			String tosNote, String tosTitle, String tosContent) {
 		super();
 		this.tosNo = tosNo;
 		this.tosCategory = tosCategory;
-		this.tosPage = tosPage;
 		this.uploadDate = uploadDate;
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;
@@ -46,14 +44,6 @@ public class Tos {
 
 	public void setTosCategory(int tosCategory) {
 		this.tosCategory = tosCategory;
-	}
-
-	public String getTosPage() {
-		return tosPage;
-	}
-
-	public void setTosPage(String tosPage) {
-		this.tosPage = tosPage;
 	}
 
 	public Date getUploadDate() {
@@ -106,7 +96,7 @@ public class Tos {
 
 	@Override
 	public String toString() {
-		return "Tos [tosNo=" + tosNo + ", tosCategory=" + tosCategory + ", tosPage=" + tosPage + ", uploadDate="
+		return "Tos [tosNo=" + tosNo + ", tosCategory=" + tosCategory + ", uploadDate="
 				+ uploadDate + ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", tosNote=" + tosNote
 				+ ", tosTitle=" + tosTitle + ", tosContent=" + tosContent + "]";
 	}
