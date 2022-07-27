@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[관리자]회사소개/이용약관</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
 
 	.wrap-tos {
