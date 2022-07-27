@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
     <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
-
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
     <style>
         .outer{
             margin-top: 20%;

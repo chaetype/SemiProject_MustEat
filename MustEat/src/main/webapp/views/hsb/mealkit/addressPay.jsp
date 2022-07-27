@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
     <style>
         .basketdiv {
     width: 100%;
