@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[사용자]적립금조회</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
 
 	.wrap-membership {
