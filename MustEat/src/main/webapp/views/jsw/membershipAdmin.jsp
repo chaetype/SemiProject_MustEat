@@ -226,7 +226,6 @@
 				<div class="point-save">
 
 					<button class="btn1"><strong>지급하기</strong></button>
-					<button class="btn1"><strong>삭제하기</strong></button>
 
 				</div>
 
