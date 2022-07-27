@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<!-- 파비콘 -->
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
     .outer{
         width:400px;
@@ -36,32 +38,34 @@
     }
 
 </style>
+
 </head>
 <body>
 	<div class="outer">
 
 		<!-- <h1 align="center">MZ</h1> -->
 
-    	<img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center">
+    	<a href=<%= request.getContextPath() %>><img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center"></a>
 
         <hr>
 
         <br>
         <!-- Sign In Form -->
-        <form>
+        <form action="<%= request.getContextPath() %>/login2.me" method="post">
             <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="userId" placeholder="아이디">
-            <label for="floatingInput">아이디</label>
+            	<input type="text" class="form-control" name="userId" placeholder="아이디" required>
+           		<label for="floatingInput">아이디</label>
             </div>
             <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="userPwd" placeholder="비밀번호">
-            <label for="floatingPassword">비밀번호</label>
+           		<input type="password" class="form-control" name="userPwd" placeholder="비밀번호" required>
+           		<label for="floatingPassword">비밀번호</label>
             </div>
         
         
             <div class="d-grid">
                 <button class="btn1" type="submit">로그인</button>
             </div>
+		</form>   
             
             <br>
             
@@ -78,7 +82,8 @@
                     <a class="small" style="font-size: 15px;" href="">회원가입</a>
                 </div>
             </div>
-        </form>
+        
     </div>
+    
 </body>
 </html>
