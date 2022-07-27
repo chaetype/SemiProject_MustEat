@@ -161,7 +161,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -169,7 +169,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -177,7 +177,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -185,7 +185,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -193,7 +193,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -201,7 +201,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -209,7 +209,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -217,7 +217,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -225,7 +225,7 @@
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				      <tr>
 				        <td><input type="checkbox"></td>
@@ -233,7 +233,7 @@
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기 및 수정</button></td>
+				        <td><button class="btn1">상세보기</button></td>
 				      </tr>
 				    </tbody>
 		  		</table>
@@ -278,14 +278,6 @@
 					</table>
 				</div>
 			</div>			
-
-				<div class="review-enroll">
-
-					<button class="btn1"><strong>리뷰 등록</strong></button>
-					<button class="btn1"><strong>리뷰 삭제</strong></button>
-
-				</div>
-		
 			
 		</div>
 		
