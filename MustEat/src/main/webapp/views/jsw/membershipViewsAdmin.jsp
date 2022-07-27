@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[관리자]적립금조회</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
 	
 	.container {
 		margin-top:5%;
-		margin-bottom:5%;
+		margin-bottom:2%;
 	}	
 	
 	.table-div {
@@ -30,12 +31,12 @@
 	}
 	
 	.button {
-		margin-top:3%;	
+		margin-top:2%;	
 	}
 
 	.paging-area>button{
         background-color: rgb(167, 112, 239);
-		margin-top:3%;
+		margin-top:4%;
         color: white;
         font-family: 'OTWelcomeRA';
         line-height: 0.28in;
@@ -44,7 +45,8 @@
         height: 38px;
         width: 30px;
     }
-	
+
+	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
@@ -186,32 +188,33 @@
 					<button>&gt;</button>
 				</div>
 			
-			</div>			
+			</div>	
 
 			<div style="width:100%; margin-top:3%;">
 				<div style="display:inline-block;">
-				   <table style="display:inline-block;">
-					  <tr>
-						 <td>
-							<div class="point-category">
-							   <select name="" id="" style="height:100%;">
-								  <option value="">이름</option>
-								  <option value="">아이디</option>
-							   </select>
-							</div>
-						 </td>
-						 <td>
-							<div class="input-group mb-3">
-							   <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
-							   <div class="input-group-append">
-								  <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-							   </div>
-							</div>
-						 </td>
-					  </tr>
-				   </table>
+					<table style="display:inline-block;">
+						<tr>
+							<td>
+								<div class="point-category">
+									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
+										<option value="">회원번호</option>										
+										<option value="">이름</option>
+										<option value="">아이디</option>
+									</select>
+								</div>
+							</td>
+							<td>
+								<div class="input-group mb-3" style="margin-top:6.5%;">
+									<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
+									<div class="input-group-append">
+										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
 				</div>
-			 </div>
+			</div>	
 
 			<div class="button">
 
