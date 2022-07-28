@@ -22,6 +22,14 @@ public class Member {
 	private String memImgPath;
 	private String withDraw;
 	
+	
+	// 태민 아이디 찾기에 사용
+	
+	public Member(String memId) {
+		super();
+		this.memId = memId;
+	}
+	
 	public Member(int memNo, String memId, String memPwd, String memName, String memPhone, String memEmail,
 			Date enrollDate, Date modifyDate, String memStatus, String memNickname, String memGrade, int addressCode,
 			String address, String addressDetail, String addressRef, String memImgPath, String withDraw) {
@@ -45,7 +53,8 @@ public class Member {
 		this.withDraw = withDraw;
 	}
 	
-	
+
+
 
 	public Member(String memId, String memPwd, String memName, String memPhone, String memEmail, String memNickname,
 			int addressCode, String address, String addressDetail, String addressRef) {

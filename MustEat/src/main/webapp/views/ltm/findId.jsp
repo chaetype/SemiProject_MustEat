@@ -36,6 +36,9 @@
         font-weight: bold;
         font-size: 18px;
     }
+    #text{
+        white-space:pre 
+    }
 
 </style>
 </head>
@@ -51,20 +54,23 @@
         <hr>
 
 
-        <form >
+        <form action="<%= request.getContextPath() %>/findId2.me" method="post" >
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="userNmae" placeholder="성명">
+                <input type="text" class="form-control" name="userName" placeholder="성명" required>
                 <label for="floatingInput">성명</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" name="userEmail" placeholder="이메일 주소" >
+                <input type="text" class="form-control" name="userEmail" placeholder="이메일 주소" required>
                 <label for="floatingPassword">이메일 주소</label>
             </div>
             <p style="font-size:small; color:gray; margin-top:0;">
             	must-eat place 가입시 사용하신 이메일을 입력하세요.
             </p>
         
-        
+        	<% if (request.getAttribute("errorMsg") != null) { %>
+           		<p align="left" style="color:red; font-size:small" id="text";><%= request.getAttribute("errorMsg") %></p>
+        	<% } %>
+        	
             <div class="d-grid" style="padding-bottom: 10px;">
                 <button class="btn1" type="submit">아이디 찾기</button>
             </div>

@@ -15,7 +15,13 @@ import com.mz.member.model.vo.Report;
 public class MemberService {
 	//메소드 위에 이름 주석 꼭 달기!!!
 	
-	// 태민 (로그인관련 / LoginController2랑 연결)
+	// 태민
+	/**
+	 * 로그인 처리하는 Service / LoginController2랑 연결
+	 * @param userId : 사용자에게 입력받은 Id
+	 * @param userPwd : 사용자에게 입력받은 Pwd
+	 * @return : 입력받은 id/pwd 에 해당하는 회원정보 담긴 Member 객체  
+	 */
 	public Member loginMember(String userId, String userPwd) {
 		Connection conn = getConnection();
 		Member m = new MemberDao().loginMember(conn, userId, userPwd);
@@ -23,7 +29,20 @@ public class MemberService {
 		return m;
 	}
 	
-	
+
+	//태민 (아이디찾기 / FindIdController2랑 연결)
+	/**
+	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
+	 * @param userName : 사용자에게 입력받은 유저이름
+	 * @param userEmail : 사용자에게 입력받은 유저이메일
+	 * @return : 입력받은 name/email에 해당하는 아이디가 담긴 문자열
+	 */
+	public Member findId(String userName, String userEmail) {
+		Connection conn = getConnection();
+		Member m  = new MemberDao().findId(conn, userName, userEmail);
+		close(conn);
+		return m;
+	}
 
 	
 	

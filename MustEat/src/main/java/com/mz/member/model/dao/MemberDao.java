@@ -81,6 +81,38 @@ public class MemberDao {
 		
 	}
 	
+	// 태민 (아이디찾기 / FindIdController2랑 연결)
+	public Member findId(Connection conn, String userName, String userEmail) {
+	
+		Member m = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("findId");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userName);
+			pstmt.setString(2, userEmail);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getString("MEM_ID"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return m;
+	}
+	
+	
 	// 은영
 	/**
 	 * 회원 정보 수정 처리하는 Service
