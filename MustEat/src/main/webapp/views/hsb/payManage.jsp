@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <style>
      .paging-area>button{
         background-color: rgb(167, 112, 239);
@@ -36,11 +39,12 @@
   }
 
     .outer{
-        margin-top: 15%;
-        font-size:;
+        margin:auto;
+        width: 80%;
+        
     }
 
-    < style type="text/css"> 
+  
      body{ 
          text-align: center; 
          display: block; 
@@ -152,17 +156,21 @@
         display: inline-block;
      }
     
-< /style>
+     .outer{
+        margin:auto;
+        width:80%;
+     }
+
 
 </style>
 </head>
 <body>
 
-    <%@ include file="../common/menubar.jsp"%>
+    <%@ include file="../../common/adminMenubar.jsp"%>
     
     <div class="outer" align="center" width="10%">
-        <table style="border-collapse: collapse;" style=" border-top: 1px solid #444444;" style="box-sizing: border-box;">
-            <tr style="background-color:rgb(226, 223, 223)">
+        <table style="border-collapse: collapse;" style=" border-top: 1px solid #444444;" style="box-sizing: border-box;" class="rwd-table">
+            <tr>
                 <th>번호</th>
                 <th>아이디</th>
                 <th>상품코드</th>

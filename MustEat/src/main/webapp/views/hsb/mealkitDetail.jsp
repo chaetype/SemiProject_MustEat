@@ -11,7 +11,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
 	.outer{
-		width:700px
+		width:80%;
+		margin:auto;
 	}
 </style>
 </head>
@@ -38,7 +39,7 @@
                     <p><b>알레르기정보: </b></p>
                     <p><b>유통기한: </b></p>
                     <p><b>구매수량: </b></p>
-					</div>
+				</div>
 
 					<div align="right">	
 						<hr>
@@ -47,13 +48,14 @@
 						<button class="btn1">바로구매</button>
 						<button class="btn1">장바구니</button>
 					</div>
-				</div>
+					<hr>
+		</div>		
 			
-			<hr>
+			
 
 			<link rel="stylesheet" href="/css/bootstrap.css">
-		</head>
-		<body>
+		
+	<div class="outer">
 		<div class="container">
 			<form id="commentForm" name="commentForm" method="post">
 			<br><br>
@@ -65,10 +67,10 @@
 						<table class="table">                    
 							<tr>
 								<td>
-									<textarea style="width: 1100px" rows="3" cols="20" id="comment" name="comment" placeholder="리뷰를 입력하세요" style="resize:none"></textarea>
+									<textarea rows="3" cols="20" id="comment" name="comment" placeholder="리뷰를 입력하세요" style="width :100%; resize:none"></textarea>
 									<br>
 									<div>
-										<button class="btn1" align="right"><a href='#' onClick="fn_comment('${result.code }')" class="btn pull-right btn-success" style="text-decoration:none; color:black" >등록</a></button>
+										<a class="btn1" href='#' onClick="fn_comment('${result.code }')" style="text-decoration:none;" >등록</a>
 									</div>
 								</td>
 							</tr>
@@ -78,13 +80,19 @@
 				<input type="hidden" id="b_code" name="b_code" value="${result.code }" />        
 			</form>
 		</div>
+		
 		<div class="container">
 			<form id="commentListForm" name="commentListForm" method="post">
 				<div id="commentList">
 				</div>
 			</form>
 		</div>
-		 
+	 
+</div>
+
+
+
+
 		<script>
 		/*
 		 * 댓글 등록하기(Ajax)
@@ -168,7 +176,7 @@
 		 
 
 
-		</div>
+		
 		
 		
 </body>

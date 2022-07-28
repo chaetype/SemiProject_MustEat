@@ -35,6 +35,11 @@
         height: 38px;
         width: 30px;
     }
+    .table-wrap{
+        border-top:3px solid black;
+        padding-top:30px;
+        width:90%;
+    }
 </style>
 <body>
 
@@ -45,6 +50,7 @@
         <h2>공지사항</h2>
         <br><br>
 
+        <div class="table-wrap"></div>
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>

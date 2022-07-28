@@ -12,7 +12,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
     <style>
         .outer{
-            margin-top: 20%;
+            width:80%;
+            margin:auto;
         }
     </style>
 </head>
@@ -23,7 +24,7 @@
     <div class="outer">
 
         <div class="img" align="center">
-            <img src="C:\workspaces\MustEat Project\SemiProject_MustEat\MustEat\src\main\webapp\resources\image\shopping-cart.png" width="250px" height="250px">
+            <img src="<%=contextPath%>/resources/image/shopping-cart.png" width="250px" height="250px">
         </div>
 
         <br><br>

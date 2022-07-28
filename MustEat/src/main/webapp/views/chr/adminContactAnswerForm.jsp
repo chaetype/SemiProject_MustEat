@@ -45,8 +45,12 @@
         text-align:right;
         color:lightyellow
     }
-    table, h2{
-        margin-left:15%;
+    table{
+        margin:auto;
+    }
+    h2{
+        display:inline-block;
+        margin-left:20%;
     }
     .bar{
         border:3px solid rgba(139, 3, 230, 0.726);
@@ -54,6 +58,48 @@
     textarea{
         width:70%;
     }
+    .form-wrap{
+        margin:auto;
+        width:60%;
+        border-top:3px solid black;
+        padding-top:30px;
+    }
+    /* .form-outline .form-control {
+        border: 1px solid #bdbdbd;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+    } */
+    /* .form-outline .form-control:focus {
+        border: 1px solid rgba(139, 3, 230, 0.726);
+        box-shadow: none;
+    } */
+    /* .form-outline .form-control:focus~ .form-notch .form-notch-leading {
+        border-top: .125rem solid #ffaabb;
+        border-bottom: .125rem solid #ffaabb;
+        border-left: .125rem solid #ffaabb;
+    } 
+
+    .form-outline .form-control:focus~ .form-notch .form-notch-trailing {
+        border-top: .125rem solid #ffaabb;
+        border-right: .125rem solid #ffaabb;
+        border-bottom: .125rem solid #ffaabb;
+    } 
+
+    .form-outline .form-control:focus~ .form-notch .form-notch-middle {
+        border-top: 0;
+        border-bottom: .125rem solid #ffaabb;
+    } 
+    .form-outline .form-control~ .form-notch .form-notch-leading {
+        border-radius: 10px 0 0 10px;
+    } 
+
+    .form-outline .form-control~ .form-notch .form-notch-trailing {
+    border-radius: 0 10px 10px 0;
+    } 
+
+    .form-label {
+    color: #ffaabb !important;
+    } */
 </style>
 </head>
 <body>
@@ -66,6 +112,7 @@
         <h2>1 : 1 문의</h2>
         <br><br>
 
+        <div class="form-wrap"></div>
         <table class="table table-bordered border-secondary" style="width:60%">
             <thead style="background:rgba(139, 3, 230, 0.726)">
                 <tr id="a">
@@ -97,14 +144,20 @@
         <br><br>
         <!-- <div class="bar"></div> -->
         <form action="">
-            <div style="margin-left:15%">
-                <textarea name="contactAnswer" id="answer" cols="30" rows="10" style="resize:none"></textarea>
+            <div class="form-outline" style="width:60%; margin:auto;">
+                <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                <label class="form-label" for="textAreaExample">답변 입력</label>
             </div>
             <br>
-            <div style="width:75%" align="right">
+            <div style="width:80%" align="right">
                 <button type="submit" class="btn1">답변 등록</button>
             </div>
         </form>
+        <script>
+            document.querySelectorAll('.form-outline').forEach((formOutline) => {
+            new mdb.Input(formOutline).init();
+            });
+        </script>
     </div>
 
 </body>

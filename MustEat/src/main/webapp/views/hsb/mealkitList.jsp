@@ -45,10 +45,10 @@ a {
     width: 100%;
 }
 /*커스텀*/
-html,
+/* html,
 body {
     overflow-x: hidden;
-}
+} */
 .con {
     max-width: 1000px;
 }
@@ -184,10 +184,16 @@ body {
         height: 38px;
         width: 30px;
     }
+    .wrap{
+        width:80%;
+        margin:auto;
+    }
+
 </style>
 </head>
 <body>
     <%@ include file="../../common/menubar.jsp"%>
+    <div class="wrap">
     <div class="logo-bar con">
         <div class="logo">
             <h1>MEALKIT</h1>
@@ -340,5 +346,6 @@ body {
         <button>5</button>
         <button>&gt;</button>
     </div>
+</div>
 </body>
 </html>
