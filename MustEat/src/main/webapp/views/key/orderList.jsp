@@ -7,7 +7,7 @@
 <title>MustEat 주문현황</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderList.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 </head>
 <body>
 
@@ -35,7 +35,7 @@
 	        <div> <!-- href 예시 : $lt;%=request.getContextPath() %>/orderStatus.or?status=$lt;% list.getStatus().equals("배송준비중"); %> -->
 	        <!-- 해당 카테고리에 속하는 목록들만 보이도록 설정하는 페이지 : orderStatusList.jsp -->
 	          <a href= "" class="number">0</a> 
-	          <div class="text">배송준비중</div>
+	          <div class="text">상품준비중</div>
 	        </div>
 	      </div>     
 	
@@ -49,14 +49,14 @@
 	      <div class="item">
 	        <div>
 	          <a href="" class="number">3</a>
-	          <div class="text">구매확정</div>
+	          <div class="text">배송완료</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div>
 	          <a href="" class="number">3</a>
-	          <div class="text">취소/교환/반품</div>
+	          <div class="text">상품취소</div>
 	        </div>
 	      </div>
 	    </div>

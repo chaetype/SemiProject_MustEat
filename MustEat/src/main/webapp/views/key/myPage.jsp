@@ -7,6 +7,7 @@
 <title>MustEat MyPage</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/myPage.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">">
 </head>
 <body>
 
@@ -19,11 +20,19 @@
         <img src="<%=request.getContextPath() %>/resources/image/user.png" id="userIcon">
         <div class="userInfo">
           <div class="name">김회원님 반갑습니다!
-            <button type="button" class="btn1">내정보</button>
+            <button type="button" class="btn1" onclick="myPageOpen();">내정보</button>
           </div>
           <div class="grade"><strong>등급 : 신뢰 리뷰어</strong></div>
         </div>
       </div>    
+      
+      <script>
+      	
+      	function myPageOpen() {
+      		location.href = "<%=contextPath%>/updateForm.me";
+      	}
+      
+      </script>
 
   </div>
 
@@ -54,41 +63,63 @@
       
       <div class="item">
         <div>
-          <a href="" class="number">6</a>
+          <div class="number basket">6</div>
           <div class="text">장바구니</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <a href="" class="number">0</a>
-          <div class="text">배송준비중</div>
+          <div class="number orderStatus">0</div>
+          <div class="text">상품준비중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <a href="" class="number">1</a>
+          <div class="number orderStatus">0</div>
           <div class="text">배송중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <a href="" class="number">3</a>
-          <div class="text">구매확정</div>
+          <div class="number orderStatus">0</div>
+          <div class="text">배송완료</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <a href="" class="number">3</a>
-          <div class="text">취소/교환/반품</div>
+          <div class="number orderCancel">3</div>
+          <div class="text">상품취소</div>
         </div>
       </div>
       
     </div>
   </div>  
+
+  <script>
+  
+  // '장바구니' 클릭하면 실행하는 함수
+  $(".basket").click(function() {
+	  location.href="<%=contextPath%>/proBasket.pro"
+  })
+  
+	
+  // '배송중, 상품준비중, 배송완료' 클릭하면 실행하는 함수
+  	$(".orderStatus").click(function() { 
+  		// 배송상품들의 상태를 전달하는 함수
+  		// location.href="<%=contextPath%>/orderStatusList.pro?delivery=" + $(this).next().text();
+  		location.href="<%=contextPath%>/orderStatusList.pro";
+  	})
+  	
+  // '상품취소' 클릭하면 실행하는 함수
+  $(".orderCancel").click(function() {
+	  location.href="<%=contextPath%>/orderStatusList.pro?status=2";
+  })
+  
+  </script>
 
  <div class="listContainer">
 

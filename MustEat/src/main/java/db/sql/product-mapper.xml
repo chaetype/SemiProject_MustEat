@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 은영 (배송현황 관련) -->
+	<entry key="deliveryStatusList">
+		<!-- 배송 현황에 따른 주문상품들 조회시 실행할 sql문 -->
+		SELECT 
+		       MEM_ID
+		     , ORDER_NO
+		     , PRODUCT_NAME
+		     , ORDER_QUENTITY
+		     , ORDER_DATE
+		     , TOTAL_PRICE
+		     , DELIVERY_STATUS
+		     , SELLER
+		     , SELLER_PHONE
+		FROM ORDER_PRO
+		JOIN MEMBER USING (MEM_NO)
+		JOIN ORDER_LIST USING (ORDER_NO)
+		JOIN PRODUCT USING (PRODUCT_CODE)
+		WHERE DELIVERY_STATUS = ? <!-- 배송 현황 -->
+		  AND MEM_ID = ? <!-- 주문자 아이디 -->
+	</entry>
+	
+	<!-- 은영 ('상품준비중'에 따른 주문 수량) -->
+	<entry key="countReadyDelivery">
+	<!-- 배송 현황에 다른 주문 수량 조회시 실행할 sql문 -->
+		SELECT COUNT(*) "COUNT"
+			FROM ORDER_PRO
+			JOIN MEMBER USING (MEM_NO)
+		WHERE DELIVERY_STATUS = '상품준비중'
+		  AND MEM_ID = ?
+	</entry>
+	
+	<!-- 은영 ('배송중'에 따른 주문 수량) -->
+	<entry key="countInTransit">
+	<!-- 배송 현황에 다른 주문 수량 조회시 실행할 sql문 -->
+		SELECT COUNT(*) "COUNT"	
+			FROM ORDER_PRO
+			JOIN MEMBER USING (MEM_NO)
+		WHERE DELIVERY_STATUS = '배송중'
+		  AND MEM_ID = ?
+	</entry>
+	
+		<!-- 은영 ('배송완료'에 따른 주문 수량) -->
+	<entry key="countDelivered">
+	<!-- 배송 현황에 다른 주문 수량 조회시 실행할 sql문 -->
+		SELECT COUNT(*) "COUNT"
+			FROM ORDER_PRO
+			JOIN MEMBER USING (MEM_NO)
+		WHERE DELIVERY_STATUS = '배송완료'
+		  AND MEM_ID = ?
+	</entry>
+	
+</properties>

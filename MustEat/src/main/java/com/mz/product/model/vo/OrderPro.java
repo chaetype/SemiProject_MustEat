@@ -18,6 +18,11 @@ public class OrderPro {
 	private int courierNo;
 	private String deliveryStatus;
 	private String deliverType;
+	// 추가문
+	private String memId; // 주문현황에서 조회하는 아이디
+	private String productName; // 주문현황에서 조회하는 상품명
+	private String seller; // 주문현황에서 조회하는 상품판매자명
+	private String sellePhone; // 주문현황에서 조회하는 상품판매자 전화번호
 	
 	
 	public OrderPro() {
@@ -44,6 +49,86 @@ public class OrderPro {
 		this.courierNo = courierNo;
 		this.deliveryStatus = deliveryStatus;
 		this.deliverType = deliverType;
+	}
+	
+	public OrderPro(int orderNo, String memNo, int orderQuentity, Date orderDate, String memo, Date modifyDate,
+			int orderStatus, int totalPrice, int deliveryPrice, int discountFee, String payment, String courier,
+			int courierNo, String deliveryStatus, String deliverType, String memId, String productName, String seller,
+			String sellePhone) {
+		super();
+		this.orderNo = orderNo;
+		this.memNo = memNo;
+		this.orderQuentity = orderQuentity;
+		this.orderDate = orderDate;
+		this.memo = memo;
+		this.modifyDate = modifyDate;
+		this.orderStatus = orderStatus;
+		this.totalPrice = totalPrice;
+		this.deliveryPrice = deliveryPrice;
+		this.discountFee = discountFee;
+		this.payment = payment;
+		this.courier = courier;
+		this.courierNo = courierNo;
+		this.deliveryStatus = deliveryStatus;
+		this.deliverType = deliverType;
+		this.memId = memId;
+		this.productName = productName;
+		this.seller = seller;
+		this.sellePhone = sellePhone;
+	}
+
+	public OrderPro(int orderNo, int orderQuentity, Date orderDate, int totalPrice, String deliveryStatus, String memId,
+			String productName, String seller, String sellePhone) {
+		super();
+		this.orderNo = orderNo;
+		this.orderQuentity = orderQuentity;
+		this.orderDate = orderDate;
+		this.totalPrice = totalPrice;
+		this.deliveryStatus = deliveryStatus;
+		this.memId = memId;
+		this.productName = productName;
+		this.seller = seller;
+		this.sellePhone = sellePhone;
+	}
+
+
+	public String getMemId() {
+		return memId;
+	}
+
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+
+	public String getProductName() {
+		return productName;
+	}
+
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+
+	public String getSeller() {
+		return seller;
+	}
+
+
+	public void setSeller(String seller) {
+		this.seller = seller;
+	}
+
+
+	public String getSellePhone() {
+		return sellePhone;
+	}
+
+
+	public void setSellePhone(String sellePhone) {
+		this.sellePhone = sellePhone;
 	}
 
 
@@ -203,12 +288,8 @@ public class OrderPro {
 				+ orderDate + ", memo=" + memo + ", modifyDate=" + modifyDate + ", orderStatus=" + orderStatus
 				+ ", totalPrice=" + totalPrice + ", deliveryPrice=" + deliveryPrice + ", discountFee=" + discountFee
 				+ ", payment=" + payment + ", courier=" + courier + ", courierNo=" + courierNo + ", deliveryStatus="
-				+ deliveryStatus + ", deliverType=" + deliverType + "]";
+				+ deliveryStatus + ", deliverType=" + deliverType + ", memId=" + memId + ", productName=" + productName
+				+ ", seller=" + seller + ", sellePhone=" + sellePhone + "]";
 	}
 
-
-	
-	
-	
-	
 }

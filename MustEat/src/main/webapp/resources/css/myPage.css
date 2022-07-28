@@ -112,7 +112,8 @@
     display: flex;
     padding: 16px;
   }
-  
+ 
+ /* 유저 정보 */
 .userInfo .name{
   color:white;
   font-size:20px;
@@ -134,6 +135,7 @@
     width: 85px;
     height: 36px;
   }
+
   
   /* 단골상점 , 상품후기 , 적립금 박스 */
   .summaryContainer{
