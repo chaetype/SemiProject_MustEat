@@ -196,6 +196,7 @@
 
 			<div class="wrap-storelist">
 				<div class="container-storelist">
+				
 					<div class="card">
 					<div class="card-header">
 						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
@@ -212,8 +213,7 @@
 						브레이크 : 00:00 ~ 00:00            
 						</p>
 						<div class="user-info">
-
-							<small><span style="color:red;">★</span> 5.0 | <span style="color:#f54d4d;">♥</span> 777</small>
+							<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
 						</div>
 					</div>
 					</div>
@@ -231,7 +231,7 @@
 						브레이크 : 00:00 ~ 00:00            
 						</p>
 						<div class="user-info">
-							<small>★ 5.0 | ♥ 777</small>
+							<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
 						</div>
 					</div>
 					</div>
@@ -249,10 +249,17 @@
 						브레이크 : 00:00 ~ 00:00            
 						</p>
 						<div class="user-info">
-							<small>★ 5.0 | ♥ 777</small>
+							<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
 						</div>
-						</div>
-					</div>
+					</div>							
+				</div>	
+				
+				
+				
+				
+				
+				
+								
 				</div>
 
 			</div>
