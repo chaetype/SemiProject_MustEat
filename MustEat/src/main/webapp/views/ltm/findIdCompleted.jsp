@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<!-- 파비콘 -->
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .outer{
         width:500px;

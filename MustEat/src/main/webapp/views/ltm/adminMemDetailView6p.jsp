@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 <link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
+<!-- 파비콘 -->
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
     .rwd-table{
