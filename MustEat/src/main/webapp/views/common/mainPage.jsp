@@ -10,7 +10,7 @@
 <!-- Maphighlight Script -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
 		<!-- favicon -->
-		<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 </head>
 <style>
 	.map-area{
