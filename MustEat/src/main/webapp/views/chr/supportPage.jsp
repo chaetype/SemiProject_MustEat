@@ -72,6 +72,7 @@
 
     .support-button a:hover{
         color:white;
+        text-decoration:none;
     }
 
     #input{

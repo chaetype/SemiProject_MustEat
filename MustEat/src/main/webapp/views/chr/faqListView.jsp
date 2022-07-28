@@ -33,6 +33,10 @@
         height:100%;    
         margin:auto;
     }
+    .accordion{
+      border-top:3px solid black;
+      padding-top:30px;
+    }
 </style>
 </head>
 <body>
