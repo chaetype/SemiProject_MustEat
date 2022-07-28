@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 
+<%
+	//int countR = (int)request.getAttribute("countR"); // '상품준비중'
+	//int countT = (int)request.getAttribute("countT"); // '배송중'
+	//int countD = (int)request.getAttribute("countD"); // '배송완료'
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +14,7 @@
 <title>MustEat MyPage</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/myPage.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 </head>
 <body>
 

@@ -55,6 +55,7 @@ public class OrderStatusListController extends HttpServlet {
 		request.setAttribute("countT", countT);
 		request.setAttribute("countD", countD);
 		
+		// request.getRequestDispatcher("views/key/myPage.jsp").forward(request, response);
 		request.getRequestDispatcher("views/key/orderStatusList.jsp").forward(request, response);
 		
 		
