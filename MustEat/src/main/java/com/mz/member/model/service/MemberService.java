@@ -30,7 +30,7 @@ public class MemberService {
 	}
 	
 
-	//태민 (아이디찾기 / FindIdController2랑 연결)
+	//태민
 	/**
 	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
 	 * @param userName : 사용자에게 입력받은 유저이름
