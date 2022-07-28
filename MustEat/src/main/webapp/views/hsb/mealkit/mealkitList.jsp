@@ -187,7 +187,7 @@ body {
 </style>
 </head>
 <body>
-    <%@ include file="../common/menubar.jsp"%>
+    <%@ include file="../../common/menubar.jsp"%>
     <div class="logo-bar con">
         <div class="logo">
             <h1>MEALKIT</h1>

@@ -1,9 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +16,7 @@
 </style>
 </head>
 <body>
-    <%@ include file="../common/menubar.jsp"%>
-		
-		
-		
-		
+    <%@ include file="../../common/menubar.jsp"%>
 		
 		<div class="outer">
 			
@@ -101,7 +93,7 @@
 			
 			$.ajax({
 				type:'POST',
-				url : "<c:url value='/board/addComment.do'/>",
+				url : "/board/addComment.do",
 				data:$("#commentForm").serialize(),
 				success : function(data){
 					if(data=="success")
@@ -133,7 +125,7 @@
 			
 			$.ajax({
 				type:'GET',
-				url : "<c:url value='/board/commentList.do'/>",
+				url : "/board/commentList.do",
 				dataType : "json",
 				data:$("#commentForm").serialize(),
 				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 

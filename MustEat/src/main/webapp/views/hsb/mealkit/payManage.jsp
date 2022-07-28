@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -200,7 +202,7 @@
                 <td>배송중</td>
                 <td><button class="btn1" onclick="windoOnClick3();">변경</button></td>
             </tr>
-            <tr>
+           <tr>
                 <td>7</td>
                 <td>user91</td>
                 <td>A381</td>
@@ -274,22 +276,22 @@
            
         </table>
 
-        <!-- 팝업 될 레이어 --> 
-     <div class="modal"> 
-         <div class="modal-content"> 
-             <span class="close-button">&times;</span> 
-             <h1 class="title">상태변경</h1> 
-             <form action="#post.php" method="POST" id="deilvery"> 
-               
-               <input type="radio" name="deli" required="required" style="display:inline">배송중
-               <input type="radio" name="deli" style="display:inline">배송준비중
-               <input type="radio" name="deli" style="display:inline">배송완료
-               
-               <input type="button" id="submit" value="확인"> 
-               <input type="submit" id="cancel" value="취소"> 
-             </form> 
-         </div> 
-     </div>
+         <!-- 팝업 될 레이어 --> 
+	     <div class="modal"> 
+	         <div class="modal-content"> 
+	             <span class="close-button">&times;</span> 
+	             <h1 class="title">상태변경</h1> 
+	             <form action="#post.php" method="POST" id="deilvery"> 
+	               
+	               <input type="radio" name="deli" required="required" style="display:inline">배송중
+	               <input type="radio" name="deli" style="display:inline">배송준비중
+	               <input type="radio" name="deli" style="display:inline">배송완료
+	               
+	               <input type="button" id="submit" value="확인"> 
+	               <input type="submit" id="cancel" value="취소"> 
+	             </form> 
+	         </div> 
+	     </div>
 
     <script type="text/javascript"> 
          var modal = document.querySelector(".modal"); 

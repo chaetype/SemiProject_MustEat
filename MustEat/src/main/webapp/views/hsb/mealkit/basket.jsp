@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -227,14 +229,14 @@
     </style>
 </head>
 <body>
-    <%@ include file="../common/adminMenubar.jsp"%>
+    <%@ include file="../../common/adminMenubar.jsp"%>
     <form name="orderform" id="orderform" method="post" class="orderform" action="/Order">
 
         <div class="basket" id="basket">
     
         
             
-            <!-- "장바구니 상품 목록" -->
+            <!-- "ì¥ë°êµ¬ë ìí ëª©ë¡" -->
             <hr>
             <div class="row data">
     
@@ -244,7 +246,7 @@
     
                 <div class="pname">
     
-                    <span><b>닭한마리 칼국수</b></span>
+                   <span><b>닭한마리 칼국수</b></span>
     
                 </div>
     
@@ -298,7 +300,7 @@
 
             </div>
 
-            <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000원</div>
+            <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000ì</div>
 
             <div class="num">
 
@@ -319,25 +321,24 @@
             <!-- "장바구니 상품 합계" -->
 
             <div class="sum">40,000원</div>
-
             <div class="basketcmd"><a href="#" class="abutton">삭제</a></div>
 
         </div>
 
     </div>
 
-    <!-- "장바구니 기능 버튼" -->
+     <!-- "장바구니 기능 버튼" -->
+
 
     <div class="right-align basketrowcmd">
 
         <a href="#" class="abutton">선택상품삭제</a>
-
         <a href="#" class="abutton">주문하기</a>
 
     </div>
     <hr>
     
-        <!-- "장바구니 전체 합계 정보" -->
+         <!-- "장바구니 전체 합계 정보" -->
         <button class="btn1">전체선택</button>
     
         <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: 4개</div>
