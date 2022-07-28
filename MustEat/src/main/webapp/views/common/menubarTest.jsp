@@ -186,8 +186,11 @@
 			                	&nbsp&nbsp&nbsp
 			                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;">SIGN UP</a></button>
 		                	<% }else { %>
-		                		&nbsp&nbsp<b style="padding-top:10%"><%= loginUser.getMemName() %>님</b> 환영합니다!!!
-		                		<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;"><span>SIGN OUT</a></span></button>
+		                	  	 &nbsp&nbsp&nbsp&nbsp<b style="padding-top:10%"><%= loginUser.getMemName() %>님</b> 환영합니다!!!
+		                		<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">정보수정</a></button>
+		                		<button class="custom-btn btn-8"><a href="<%=contextPath%>/myPage.me" style="text-decoration: none;">MY PAGE</a></button>
+		                		<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">로그아웃</a></button>
+		                		
 		                	<% } %>	
 		                	
             			</div>
