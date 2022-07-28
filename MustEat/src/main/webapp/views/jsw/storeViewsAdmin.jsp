@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[관리자]식당조회/수정</title>
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<title>식당조회/수정</title>
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 
 	.wrap-store-view {
@@ -31,19 +31,41 @@
 		margin-top:2%;	
 	}
 
-	.paging-area>button{
-        background-color: rgb(167, 112, 239);
-		margin-top:4%;
-        color: white;
-        font-family: 'OTWelcomeRA';
-        line-height: 0.28in;
-        border: none;
-        border-radius: 10%;
-        height: 38px;
-        width: 30px;
-    }
+	body{
+    	background-color: #eee;
+	}
 
-	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
+	.wrapper-paging{	
+		margin-top:3%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	.page-link {
+	    position: relative;
+	    display: block;
+	    color: #673AB7 !important;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #673AB7 !important;
+	}
+	
+	
+	.page-link:hover {
+	    z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
+	}
+	
+	
+	.page-link:focus {
+		border-color: rgb(167, 112, 239) !important;
+	    z-index: 3;
+	    outline: 0;
+	    box-shadow: none;
+	}
 	
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
@@ -53,6 +75,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 </head>
 <body>
 	
@@ -62,7 +86,7 @@
 		
 		<div class="container">
 		
-		<h1 style="font-family: 'OTWelcomeRA'; text-align:left;">식당 조회</h1>
+		<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">식당 조회</h1>
 	
 		<hr noshade size = 1 style="background:black;">
 		
@@ -71,7 +95,7 @@
 				<table class="rwd-table" style="width:100%;">
 				    <tbody>
 				      <tr>
-				        <th></th>
+				        <th><input type="checkbox" id="storelist" name="storelist" value="storelist"></th>
 				        <th>식당번호</th>
 				        <th>식당명</th>
 						<th>주소</th>
@@ -81,7 +105,7 @@
 						<th>상세보기 및 수정</th>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -91,7 +115,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -101,7 +125,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 					  <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -111,7 +135,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -121,7 +145,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -131,7 +155,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -141,7 +165,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -151,7 +175,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -161,7 +185,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -171,7 +195,7 @@
 						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
 				      </tr>
 					  <tr>
-				        <td><input type="checkbox"></td>
+				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
 				        <td>1</td>
 				        <td>김밥천국</td>
 						<td>xx시 xx구 xx동 xx</td>
@@ -182,17 +206,53 @@
 				      </tr>
 				    </tbody>
 		  		</table>
+		  		
+		  		<script type="text/javascript">
+				   let check = false;
+				   // function checkAll(){
+				   //     let chk = document.getElementsByName("chk[]");
+				   //     console.log(chk);
+				   //     if(check==false){
+				   //         check=true;
+				   //         for(let i=0; i<chk.length; i++){
+				   //             chk[i].checked=true;
+				   //         }
+				   //     }else{
+				   //         check=false;
+				   //         for(let i=0; i<chk.length; i++){
+				   //             chi[i].checked=false;
+				   //         }
+				   //     }
+				   // }
+				
+				   function checkAll(checkAll){
+				      let checkboxes=document.getElementsByName("storelist");
+				      console.log(checkboxes);
+				      checkboxes.forEach((checkbox)=>{
+				         console.log(checkbox    );
+				         checkbox.checked=checkAll.checked;
+				      })
+				   }
+				
+				</script>
+		  		
 
 				  <div>
 			
-					<div class="paging-area" align="center">
-						<button>&lt;</button>
-						<button>1</button>
-						<button>2</button>
-						<button>3</button>
-						<button>4</button>
-						<button>5</button>
-						<button>&gt;</button>
+					<div class="wrapper-paging">
+					    
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+								<li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">4</a></li>
+								<li class="page-item"><a class="page-link" href="#">5</a></li>
+								<li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+							</ul>
+						</nav>					
+					
 					</div>
 				
 				</div>	
@@ -228,7 +288,6 @@
 					<button class="btn1"><strong>삭제하기</strong></button>
 
 				</div>
-
 			
 			
 		</div>
