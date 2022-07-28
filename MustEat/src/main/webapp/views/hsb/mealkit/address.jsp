@@ -12,6 +12,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
     <style>
+        .wrap1212{
+            margin: auto;
+            width: 80%;
+            border: 2px solid rgb(223, 194, 241);
+        }
+
         .basketdiv {
     width: 100%;
     border-top: 1px solid #e0e0e0;
@@ -222,7 +228,7 @@
 <body>
 
     <%@ include file="../../common/menubar.jsp"%>
-    
+        <div class="wrap1212">
             <div class="outer" align="center">
                 <table>
                     <caption>배송정보</caption>
@@ -261,7 +267,7 @@
            
            
             <br><br>
-            <div style="background-color:rgb(209, 209, 209)">
+            <div style="background-color:rgb(231, 216, 241)">
                 <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2,500원</div>
                 <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 59,800원</div>
            
@@ -277,7 +283,7 @@
             
                     <div class="buttongroup center-align cmd">
             
-                        <button class="btn1" style="width:100px" align="right">주문하기</button>
+                        <button class="btn1">주문하기</button>
             
                     </div>
             
@@ -287,7 +293,7 @@
             </div>
         </div>
        
-   
+   </div>
     
 
    

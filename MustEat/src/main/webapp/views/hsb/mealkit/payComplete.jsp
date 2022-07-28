@@ -13,17 +13,19 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 <style>
     .outer{
-        margin-top: 15%;
+        margin:auto;
+        width: 80%;
     }
 
     
 </style>
 </head>
 <body>
+    <%@ include file="../../common/menubar.jsp"%>
 
     <div class="outer" align="center">
 
-        <img src="resources\image\화면 캡처 2022-07-26 192302.jpg" width="250" height="250">
+        <img src="<%=contextPath%>/resources/image/주문완료.jpg" width="250" height="200">
         <br><br>
         <div style="font-weight:bold; font-size:20px">
             주문 접수가  <span style="color:rgb(155, 89, 182) ;">완료되었습니다.</span>  

@@ -45,10 +45,10 @@ a {
     width: 100%;
 }
 /*커스텀*/
-html,
+/* html,
 body {
     overflow-x: hidden;
-}
+} */
 .con {
     max-width: 1000px;
 }
