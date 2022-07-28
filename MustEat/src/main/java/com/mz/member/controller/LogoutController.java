@@ -1,8 +1,6 @@
 package com.mz.member.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,20 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mz.member.model.service.MemberService;
-import com.mz.member.model.vo.Member;
-
 /**
- * Servlet implementation class LoginController2
+ * Servlet implementation class LogoutController
  */
-@WebServlet("/login2.me")
-public class LoginController2 extends HttpServlet {
+@WebServlet("/logout.me")
+public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController2() {
+    public LogoutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,28 +27,14 @@ public class LoginController2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//태민
-		// 실제 로그인하는 컨트롤러
-		request.setCharacterEncoding("UTF-8");
 		
-		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("userPwd");
+		// 태민
+		// session 만료시켜 로그아웃 요청처리해주는 컨트롤러
 		
-		Member loginUser = new MemberService().loginMember(userId, userPwd);
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
-		if(loginUser == null) { // 로그인실패   
-			
-			// ?
-			
-		}else { // 로그인성공  ==> ?
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginUser);
-			
-			response.sendRedirect(request.getContextPath()); 
-			
-			//System.out.println(loginUser);
-		}
+		response.sendRedirect(request.getContextPath());
 	}
 
 	/**
