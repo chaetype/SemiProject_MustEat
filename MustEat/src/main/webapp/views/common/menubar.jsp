@@ -131,7 +131,7 @@
 		.input-text{
 			height:50px;
 		}
-		a{
+		.bbtn a{
 			color: white;
 		}
 		.mustEatInfo{
@@ -152,9 +152,9 @@
 			<div>
 				<div class="webLogo">
 						<div class="bbtn">
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/login1.me" style="text-decoration: none;"><span>SIGN IN</span><a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/login1.me" style="text-decoration: none;">SIGN IN</a></button>
 		                	<button class="custom-btn btn-8"><span>SIGN OUT</span></button>
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;"><span>SIGN UP</span><a></a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;">SIGN UP</a></button>
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
 				</div>
