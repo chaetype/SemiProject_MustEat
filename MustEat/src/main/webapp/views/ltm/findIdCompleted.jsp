@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .outer{
-        width:500px;
+        width:450px;
         margin:auto;
         margin-top:10%;
     }
@@ -26,8 +26,8 @@
         color: black;
     }
     img{
-    	width: 130px;
-        height: 120px;;
+    	width: 120px;
+        height: 100px;;
         margin: 0;
         margin-left: 36%;
     }
@@ -53,7 +53,7 @@
 
 		<!-- <h1 align="center">MZ</h1> -->
 
-    	<img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center">
+    	<a href=<%= request.getContextPath() %>><img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center"></a>
 
         <p align="center" style="font-size: 23px; font-weight: bold; margin: 20px;">아이디 찾기 완료!</p>
         
@@ -66,11 +66,15 @@
 
         <form>
             <div class="form-floating mb-3">
-                <p class="pp">must******</p>
+                <p class="pp">
+					<% if (request.getAttribute("successMsg") != null) { %>
+           				<%= request.getAttribute("successMsg") %></p>
+        			<% } %>
+				</p>
             </div>
 
             <div class="d-grid">
-                <button class="btn1" type="submit">로그인</button>
+                <button class="btn1" type="button" onclick="location.href='<%=request.getContextPath() %>/login1.me';">로그인</button>
             </div>         
 
             <br>
@@ -91,7 +95,7 @@
 
             <div>
                 <div style="display:block" align="right">
-                    <a class="small" style="font-size: 15px;" href="">비밀번호 찾기 ></a>
+                    <a class="small" style="font-size: 15px;" href="<%=request.getContextPath() %>/findPwd1.me">비밀번호 찾기 ></a>
                 </div>
                 
             </div>

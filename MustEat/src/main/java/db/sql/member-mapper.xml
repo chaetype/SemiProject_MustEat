@@ -31,6 +31,18 @@
 	
 	
 
+	<!-- 태민 (아이디 찾기) -->
+	<entry key="findId">
+	SELECT
+		  MEM_ID
+	  FROM
+	  	  MEMBER
+     WHERE MEM_NAME = ?
+	   AND MEM_EMAIL = ?
+		
+	</entry>
+	
+	
 	<!-- 은영 (회원 정보 수정) -->
 	<entry key="updateMember">
 	<!-- 회원정보 수정 요청시 실행할 sql문 -->
@@ -70,7 +82,18 @@
 
 	<!-- 채윤 : 신고글 -->
 	<entry key="reportList">
-		
+		SELECT 
+		       REPORT_NO
+		     , M.MEM_NICKNAME
+		     , S.REVIEW_WRITER
+		     , S.REVIEW_TITLE
+		     , REPORT_CONTENT
+             , REPORT_DATE
+		  FROM REPORT R
+		  JOIN MEMBER M USING(MEM_NO)
+          JOIN STORE_RE S USING (RE_NO)
+		 ORDER 
+		    BY REPORT_NO DESC
 	</entry>
 
 </properties>
