@@ -36,7 +36,7 @@ public class MemberService {
 	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
 	 * @param userName : 사용자에게 입력받은 유저이름
 	 * @param userEmail : 사용자에게 입력받은 유저이메일
-	 * @return : 입력받은 name/email에 해당하는 아이디가 담긴 문자열
+	 * @return : 입력받은 name/email에 해당하는 유저ID정보가 담긴 Member 객체
 	 */
 	public Member findId(String userName, String userEmail) {
 		Connection conn = getConnection();
