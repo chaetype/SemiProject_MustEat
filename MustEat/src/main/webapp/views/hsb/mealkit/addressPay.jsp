@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- iamport.payment.js -->
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-ìµì ë²ì }.js"></script>
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
     <style>
         .basketdiv {
@@ -229,25 +231,25 @@
     
             <div class="outer" align="center">
                 <table>
-                    <caption>배송정보</caption>
+                    <caption>ë°°ì¡ì ë³´</caption>
                     <tbody>
                         <tr>
-                            <th>* 이름</th>
+                            <th>* ì´ë¦</th>
                             <td><input type="text"></td>
                         </tr>
                          <tr>
-                            <th>* 휴대폰</th>
+                            <th>* í´ëí°</th>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
                         <tr>
-                            <th>* 이메일</th>
+                            <th>* ì´ë©ì¼</th>
                             <td><input type="text"></td>
                          </tr>
-                            <th>* 주소</th>
+                            <th>* ì£¼ì</th>
                             <td>
                                 <input type="text">
-                                <button class="btn1">우편번호</button>
+                                <button class="btn1">ì°í¸ë²í¸</button>
                                
                             </td>    
                         </tr>
@@ -256,7 +258,7 @@
                             <td><textarea name="" id="" cols="30" rows="1]" style="resize: none ;"></textarea></td>
                         </tr>
                         <tr>
-                            <th>* 배송시 요청사항</th>
+                            <th>* ë°°ì¡ì ìì²­ì¬í­</th>
                             <td><textarea name="" id="" cols="30" rows="10" style="resize: none ;"></textarea></td>
                         
                     </tbody>
@@ -266,13 +268,13 @@
            
             <br><br>
             <div style="background-color:rgb(209, 209, 209)">
-                <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2,500원</div>
-                <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 59,800원</div>
+                <div class="bigtext right-align box blue summoney" style="color: black;">ë°°ì¡ë¹: 2,500ì</div>
+                <div class="bigtext right-align box blue summoney" style="color: black;">ì´ìí ê¸ì¡: 59,800ì</div>
            
             <hr>
 
         
-            <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: 62,300원</div>
+            <div class="bigtext right-align box blue summoney" id="sum_p_price" >ìµì¢ê²°ì  ê¸ì¡: 62,300ì</div>
        
         
             
@@ -282,7 +284,7 @@
             
                     <div class="buttongroup center-align cmd">
             
-                        <button class="btn1" style="width:100px" align="right" onclick="pay();">주문하기</button>
+                        <button class="btn1" style="width:100px" align="right" onclick="pay();">ì£¼ë¬¸íê¸°</button>
             
                     </div>
             
@@ -294,26 +296,26 @@
        
         <script>
             function pay(){
-                IMP.init('iamport'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+                IMP.init('iamport'); //iamport ëì  ìì ì "ê°ë§¹ì  ìë³ì½ë"ë¥¼ ì¬ì©
                 IMP.request_pay({
                     pg: "inicis",
                     pay_method: "card",
                     merchant_uid : 'merchant_'+new Date().getTime(),
-                    name : '결제테스트',
+                    name : 'ê²°ì íì¤í¸',
                     amount : 14000,
                     buyer_email : 'iamport@siot.do',
-                    buyer_name : '구매자',
+                    buyer_name : 'êµ¬ë§¤ì',
                     buyer_tel : '010-1234-5678',
-                    buyer_addr : '서울특별시 강남구 삼성동',
+                    buyer_addr : 'ìì¸í¹ë³ì ê°ë¨êµ¬ ì¼ì±ë',
                     buyer_postcode : '123-456'
                 }, function (rsp) { // callback
                     if (rsp.success) {
                         
-                        // 결제 성공 시 로직,
+                        // ê²°ì  ì±ê³µ ì ë¡ì§,
                         
                     } else {
                         
-                        // 결제 실패 시 로직,
+                        // ê²°ì  ì¤í¨ ì ë¡ì§,
                         
                     }
                 });

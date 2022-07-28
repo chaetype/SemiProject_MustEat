@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,7 +236,7 @@
     
         
             
-            <!-- "장바구니 상품 목록" -->
+            <!-- "ì¥ë°êµ¬ë ìí ëª©ë¡" -->
             <hr>
             <div class="row data">
     
@@ -244,15 +246,15 @@
     
                 <div class="pname">
     
-                    <span><b>닭한마리 칼국수</b></span>
+                    <span><b>ë­íë§ë¦¬ ì¹¼êµ­ì</b></span>
     
                 </div>
     
-                <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="18900">18,900원</div>
+                <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="18900">18,900ì</div>
     
                 <div class="num">
     
-                    <!-- "장바구니 수량 변경" -->
+                    <!-- "ì¥ë°êµ¬ë ìë ë³ê²½" -->
     
                     <div class="updown">
     
@@ -266,23 +268,23 @@
     
                 </div>
                 
-                <!-- "장바구니 상품 합계" -->
+                <!-- "ì¥ë°êµ¬ë ìí í©ê³" -->
     
-                <div class="sum">18,900원</div>
+                <div class="sum">18,900ì</div>
     
-                <div class="basketcmd"><a href="#" class="abutton">삭제</a></div>
+                <div class="basketcmd"><a href="#" class="abutton">ì­ì </a></div>
     
             </div>
     
         </div>
     
-        <!-- "장바구니 기능 버튼" -->
+        <!-- "ì¥ë°êµ¬ë ê¸°ë¥ ë²í¼" -->
     
         <div class="right-align basketrowcmd">
     
-            <a href="#" class="abutton">선택상품삭제</a>
+            <a href="#" class="abutton">ì íìíì­ì </a>
     
-            <a href="#" class="abutton">주문하기</a>
+            <a href="#" class="abutton">ì£¼ë¬¸íê¸°</a>
     
         </div>
         <hr><br><hr>
@@ -294,15 +296,15 @@
 
             <div class="pname">
 
-                <span><b>놀부 부대찌개</b></span>
+                <span><b>ëë¶ ë¶ëì°ê°</b></span>
 
             </div>
 
-            <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000원</div>
+            <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000ì</div>
 
             <div class="num">
 
-                <!-- "장바구니 수량 변경" -->
+                <!-- "ì¥ë°êµ¬ë ìë ë³ê²½" -->
 
                 <div class="updown">
 
@@ -316,33 +318,33 @@
 
             </div>
 
-            <!-- "장바구니 상품 합계" -->
+            <!-- "ì¥ë°êµ¬ë ìí í©ê³" -->
 
-            <div class="sum">40,000원</div>
+            <div class="sum">40,000ì</div>
 
-            <div class="basketcmd"><a href="#" class="abutton">삭제</a></div>
+            <div class="basketcmd"><a href="#" class="abutton">ì­ì </a></div>
 
         </div>
 
     </div>
 
-    <!-- "장바구니 기능 버튼" -->
+    <!-- "ì¥ë°êµ¬ë ê¸°ë¥ ë²í¼" -->
 
     <div class="right-align basketrowcmd">
 
-        <a href="#" class="abutton">선택상품삭제</a>
+        <a href="#" class="abutton">ì íìíì­ì </a>
 
-        <a href="#" class="abutton">주문하기</a>
+        <a href="#" class="abutton">ì£¼ë¬¸íê¸°</a>
 
     </div>
     <hr>
     
-        <!-- "장바구니 전체 합계 정보" -->
-        <button class="btn1">전체선택</button>
+        <!-- "ì¥ë°êµ¬ë ì ì²´ í©ê³ ì ë³´" -->
+        <button class="btn1">ì ì²´ì í</button>
     
-        <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: 4개</div>
+        <div class="bigtext right-align sumcount" id="sum_p_num">ìíê°¯ì: 4ê°</div>
     
-        <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: 59,800원</div>
+        <div class="bigtext right-align box blue summoney" id="sum_p_price">í©ê³ê¸ì¡: 59,800ì</div>
     
     
     
@@ -352,7 +354,7 @@
     
             <div class="buttongroup center-align cmd">
     
-                <button class="btn1" style="width:100px">주문하기</button>
+                <button class="btn1" style="width:100px">ì£¼ë¬¸íê¸°</button>
     
             </div>
     

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +29,16 @@
         <br><br>
 
         <div align="center" style="font-size: 20px;">
-            <b>장바구니가 비어있습니다.</b>
+            <b>ì¥ë°êµ¬ëê° ë¹ì´ììµëë¤.</b>
             <br>
-            <b>새로운 상품을 담아주세요!</b>
+            <b>ìë¡ì´ ìíì ë´ìì£¼ì¸ì!</b>
         </div>
 
         <br><br>
 
         <div align="center">
             <button class="btn1" style="width:35%" >
-                <b>쇼핑계속하기</b>
+                <b>ì¼íê³ìíê¸°</b>
             </button>
         </div>
     </div>

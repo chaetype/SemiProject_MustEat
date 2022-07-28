@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,29 +221,29 @@
 </head>
 <body>
 
-    <%@ include file="../common/menubar.jsp"%>
+    <%@ include file="../../common/menubar.jsp"%>
     
             <div class="outer" align="center">
                 <table>
-                    <caption>배송정보</caption>
+                    <caption>ë°°ì¡ì ë³´</caption>
                     <tbody>
                         <tr>
-                            <th>* 이름</th>
+                            <th>* ì´ë¦</th>
                             <td><input type="text"></td>
                         </tr>
                          <tr>
-                            <th>* 휴대폰</th>
+                            <th>* í´ëí°</th>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
                         <tr>
-                            <th>* 이메일</th>
+                            <th>* ì´ë©ì¼</th>
                             <td><input type="text"></td>
                          </tr>
-                            <th>* 주소</th>
+                            <th>* ì£¼ì</th>
                             <td>
                                 <input type="text">
-                                <button class="btn1">우편번호</button>
+                                <button class="btn1">ì°í¸ë²í¸</button>
                                
                             </td>    
                         </tr>
@@ -250,7 +252,7 @@
                             <td><textarea name="" id="" cols="30" rows="1]" style="resize: none ;"></textarea></td>
                         </tr>
                         <tr>
-                            <th>* 배송시 요청사항</th>
+                            <th>* ë°°ì¡ì ìì²­ì¬í­</th>
                             <td><textarea name="" id="" cols="30" rows="10" style="resize: none ;"></textarea></td>
                         
                     </tbody>
@@ -260,13 +262,13 @@
            
             <br><br>
             <div style="background-color:rgb(209, 209, 209)">
-                <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2,500원</div>
-                <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 59,800원</div>
+                <div class="bigtext right-align box blue summoney" style="color: black;">ë°°ì¡ë¹: 2,500ì</div>
+                <div class="bigtext right-align box blue summoney" style="color: black;">ì´ìí ê¸ì¡: 59,800ì</div>
            
             <hr>
 
         
-            <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: 62,300원</div>
+            <div class="bigtext right-align box blue summoney" id="sum_p_price" >ìµì¢ê²°ì  ê¸ì¡: 62,300ì</div>
        
         
             
@@ -276,7 +278,7 @@
             
                     <div class="buttongroup center-align cmd">
             
-                        <button class="btn1" style="width:100px" align="right">주문하기</button>
+                        <button class="btn1" style="width:100px" align="right">ì£¼ë¬¸íê¸°</button>
             
                     </div>
             

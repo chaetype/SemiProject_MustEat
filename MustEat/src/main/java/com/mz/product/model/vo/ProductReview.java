@@ -13,6 +13,7 @@ public class ProductReview {
 	private char prReviewStatue;
 	private int orderNo;
 	private int productCode;
+	private int scrapCount;
 	
 	
 	public ProductReview() {
@@ -21,7 +22,8 @@ public class ProductReview {
 
 
 	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent, int prReviewRate,
-			Date prReviewErollDate, Date prReviewModifyDate, char prReviewStatue, int orderNo, int productCode) {
+			Date prReviewErollDate, Date prReviewModifyDate, char prReviewStatue, int orderNo, int productCode,
+			int scrapCount) {
 		super();
 		this.reviewNo = reviewNo;
 		this.reviewWriter = reviewWriter;
@@ -32,6 +34,7 @@ public class ProductReview {
 		this.prReviewStatue = prReviewStatue;
 		this.orderNo = orderNo;
 		this.productCode = productCode;
+		this.scrapCount = scrapCount;
 	}
 
 
@@ -125,16 +128,23 @@ public class ProductReview {
 	}
 
 
+	public int getScrapCount() {
+		return scrapCount;
+	}
+
+
+	public void setScrapCount(int scrapCount) {
+		this.scrapCount = scrapCount;
+	}
+
+
 	@Override
 	public String toString() {
 		return "ProductReview [reviewNo=" + reviewNo + ", reviewWriter=" + reviewWriter + ", prReviewContent="
 				+ prReviewContent + ", prReviewRate=" + prReviewRate + ", prReviewErollDate=" + prReviewErollDate
 				+ ", prReviewModifyDate=" + prReviewModifyDate + ", prReviewStatue=" + prReviewStatue + ", orderNo="
-				+ orderNo + ", productCode=" + productCode + "]";
+				+ orderNo + ", productCode=" + productCode + ", scrapCount=" + scrapCount + "]";
 	}
 
-
-	
-	
 	
 }
