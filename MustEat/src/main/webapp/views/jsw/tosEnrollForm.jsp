@@ -46,41 +46,11 @@
 		        <th/>게시글 삭제</th>
 		      </tr>
 		      <tr>
-		        <th>회사소개</th>
-		        <td><button class="btn1"><strong>등록</strong></button></td>
-		        <td><button class="btn1"><strong>수정</strong></button></td>
-		        <td><button class="btn1"><strong>삭제</strong></button></td>
-		      </tr>
-		      <tr>
 		        <th>이용약관</th>
 		        <td><button class="btn1"><strong>등록</strong></button></td>
 		        <td><button class="btn1"><strong>수정</strong></button></td>
 		        <td><button class="btn1"><strong>삭제</strong></button></td>
-		      </tr>
-		      <tr>
-		        <th>개인정보처리방침</th>
-		        <td><button class="btn1"><strong>등록</strong></button></td>
-		        <td><button class="btn1"><strong>수정</strong></button></td>
-		        <td><button class="btn1"><strong>삭제</strong></button></td>
-		      </tr>
-		      <tr>
-		        <th>위치기반서비스</th>
-		        <td><button class="btn1"><strong>등록</strong></button></td>
-		        <td><button class="btn1"><strong>수정</strong></button></td>
-		        <td><button class="btn1"><strong>삭제</strong></button></td>
-		      </tr>
-		      <tr>
-		        <th>커뮤니티가이드</th>
-		        <td><button class="btn1"><strong>등록</strong></button></td>
-		        <td><button class="btn1"><strong>수정</strong></button></td>
-		        <td><button class="btn1"><strong>삭제</strong></button></td>
-		      </tr>
-		      <tr>
-		        <th>청소년보호정책</th>
-		        <td><button class="btn1"><strong>등록</strong></button></td>
-		        <td><button class="btn1"><strong>수정</strong></button></td>
-		        <td><button class="btn1"><strong>삭제</strong></button></td>
-		      </tr>  
+		      </tr>		     
 		    </tbody>
 		  </table>
 			
