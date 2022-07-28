@@ -78,5 +78,97 @@ public class MemberDao {
 		
 	}
 	
+	// 은영
+	/**
+	 * 회원 정보 수정 처리하는 Service
+	 * @param m : 수정하고자하는 회원 정보가 담긴 Member 객체
+	 * @return : 수정 성공여부가 담긴 int형 변수 (성공 : 1 | 실패 : 0)
+	 */
+	public int updateMember(Connection conn, Member m) {
+		
+		// update => 처리된 행 수 반환
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, m.getMemPwd());
+			pstmt.setString(2, m.getMemName());
+			pstmt.setString(3, m.getMemPhone());
+			pstmt.setString(4, m.getMemEmail());
+			pstmt.setString(5, m.getMemNickname());
+			pstmt.setInt(6, m.getAddressCode());
+			pstmt.setString(7, m.getAddress());
+			pstmt.setString(8, m.getAddressDetail());
+			pstmt.setString(9, m.getAddressRef());
+			pstmt.setString(10, m.getMemId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	// 은영
+	/**
+	 * 수정된 회원정보 조회하는 Dao
+	 * @param memId : 조회하고자하는 회원 아이디
+	 * @return : 수정된 회원 정보가 담긴 Member 객체
+	 */
+	public Member selectUpdateMember(Connection conn, String memId) {
+		
+		// select => 조회된 행 반환(한 행) => ResultSet
+		Member updateMem = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectUpdateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				updateMem = new Member(rset.getString("mem_id")
+									 , rset.getString("mem_pwd")
+									 , rset.getString("mem_name")
+									 , rset.getString("mem_phone")
+									 , rset.getString("mem_email")
+									 , rset.getString("mem_nickname")
+									 , rset.getInt("address_code")
+									 , rset.getString("address")
+									 , rset.getString("address_detail")
+									 , rset.getString("address_ref")
+									 );
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return updateMem;
+		
+	}
+	
 	
 }
+	

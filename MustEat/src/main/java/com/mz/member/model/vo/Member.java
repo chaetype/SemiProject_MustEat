@@ -22,8 +22,6 @@ public class Member {
 	private String memImgPath;
 	private String withDraw;
 	
-	public Member() {}
-
 	public Member(int memNo, String memId, String memPwd, String memName, String memPhone, String memEmail,
 			Date enrollDate, Date modifyDate, String memStatus, String memNickname, String memGrade, int addressCode,
 			String address, String addressDetail, String addressRef, String memImgPath, String withDraw) {
@@ -46,6 +44,25 @@ public class Member {
 		this.memImgPath = memImgPath;
 		this.withDraw = withDraw;
 	}
+	
+	
+
+	public Member(String memId, String memPwd, String memName, String memPhone, String memEmail, String memNickname,
+			int addressCode, String address, String addressDetail, String addressRef) {
+		super();
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.memName = memName;
+		this.memPhone = memPhone;
+		this.memEmail = memEmail;
+		this.memNickname = memNickname;
+		this.addressCode = addressCode;
+		this.address = address;
+		this.addressDetail = addressDetail;
+		this.addressRef = addressRef;
+	}
+
+
 
 	public int getMemNo() {
 		return memNo;

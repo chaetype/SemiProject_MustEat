@@ -5,13 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 정보 수정</title>
-<link rel="stylesheet" type="text/css" href="../../resources/css/memberUpdateForm.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/memberUpdateForm.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
 </head>
 <body>
 
 	<%@ include file="../common/menubar.jsp" %>
+	
+	<!-- 메뉴바에 담겨있는 회원 정보 불러오기 -->
+	<%
+		String memId = loginUser.getMemId();
+		String memName = loginUser.getMemName();
+		String memNickname = loginUser.getMemNickname();
+		String phone = loginUser.getMemPhone();
+		String email = loginUser.getMemEmail();
+		int addressCode = loginUser.getAddressCode();
+		String address = loginUser.getAddress();
+		String addressDetail = loginUser.getAddressDetail();
+		String addressRef = loginUser.getAddressRef();
+	%>
 
   <!-- 회원 정보 수정 창 -->
     <div class="basicInfo-area">
@@ -19,20 +32,20 @@
         <br>
         <h3 align="center">회원 정보 수정</h3>
         <br>
-
+        
+	<form action="<%=contextPath %>/update.me" class="userUpdateForm" method="post">
+	
         <div class="basicInfoTitle" style="height:50px;">
             <div class="basicInfo"><strong>기본정보</strong>
             <span><em>*</em> 필수</span>
             </div>
         </div>  
-        
-        <form action="" class="userUpdateForm">
 
             <table class="userUpdateInfo" width="100%">
 
                 <tr class="updateInfo">
                   <th>아이디</th>
-                  <td><input type="text" name="userId" value="유저아이디" readonly></td>
+                  <td><input type="text" name="userId" value="<%=memId %>" readonly></td>
                 </tr>
     
                 <tr class="updateInfo">
@@ -51,71 +64,35 @@
                 
                 <tr class="updateInfo">
                   <th>이름</th>
-                  <td><input type="text" name="userName" value="회원이름" required></td>
+                  <td><input type="text" name="userName" value="<%=memName %>" required></td>
                 </tr>
                                 
                 <tr class="updateInfo"> 
                     <th>닉네임</th>
-                    <td><input type="text" name="userNickname" value="닉네임" required></td>
+                    <td><input type="text" name="userNickname" value="<%=memNickname %>" required></td>
                 </tr>
 
                 <tr class="updateInfo">
                     <th>전화번호</th>
-                    <td><input type="text" name="phone" value="유저 전화번호"></td>
+                    <td><input type="text" name="phone" value="<%=phone %>"></td>
                 </tr>
 
                 <tr class="updateInfo">
                     <th>이메일</th>
-                    <td><input type="text" name="email" value="이메일"></td>
+                    <td><input type="text" name="email" value="<%=email %>"></td>
                 </tr>
 
                 <tr class="updateInfo">
                     <th>주소</th>
                     <td colspan="3">
-                        <input type="text" name="addressCode" value="우편번호"> <button class="addressCheck btn1">주소검색</button>  <br>
-                        <input type="text" name="address" value="기본주소"> <br>
-                        <input type="text" name="addressDetail" value="상세주소">
+                        <input type="text" name="addressCode" value="<%=addressCode %>"> <button class="addressCheck btn1">주소검색</button>  <br>
+                        <input type="text" name="address" value="<%=address %>"> <br>
+                        <input type="text" name="addressDetail" value="<%=addressDetail%>" style="width:50%;">
+                        <input type="text" name="addressRef" value="<%=addressRef%>" style="width:50%;">
                     </td>
                 </tr>
               
               </table>
-    	
-          <div class="basicInfoTitle" style="height:50px;">
-            <div class="basicInfo"><strong>환불계좌</strong>
-            </div>
-          </div>  
-          
-          <table width="100%">
-            <tr class="updateInfo">
-              <th>예금주</th>
-              <td> <input type="text" name="accountName"> <br>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;- 예금주명은 주문자명과 동일해야 합니다.</span>
-              </td>
-            </tr>
-
-            <tr class="updateInfo">
-              <th>은행명</th>
-              <td>
-                <select name="bank">
-                  <option value="none" selected>-선택하세요-</option>
-                  <option value="우리">우리은행</option>
-                  <option value="기업">기업은행</option>
-                  <option value="하나">하나(신한)은행</option>
-                  <option value="카카오">카카오뱅크</option>
-                  <option value="국민">국민은행</option>
-                  <option value="신한">신한은행</option>
-                </select>
-              </td>
-            </tr>
-
-            <tr class="updateInfo">
-              <th>계좌번호</th>
-              <td><input type="text" name="account"> <br>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;- '-'없이 숫자만 입력해주세요.</span>
-              </td>
-            </tr>
-
-          </table>
 
       <br>
 

@@ -55,8 +55,10 @@
     width:25%;
 }
 
-.updateInfo input[name=addressDetail]{
-    margin-bottom:20px;
+.updateInfo input[name=addressDetail], .updateInfo input[name=addressRef] {
+    display: inline-block;
+ 	margin-bottom:20px;
+    width: 33.5%;
 }
 
 .updateInfo span{

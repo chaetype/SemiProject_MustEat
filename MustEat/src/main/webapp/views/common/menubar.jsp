@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% String contextPath = request.getContextPath(); %>
+    pageEncoding="UTF-8" import="com.mz.member.model.vo.Member"%>
+<% String contextPath = request.getContextPath(); 
+	
+	Member loginUser = (Member)session.getAttribute("loginUser");
+
+	String alertMsg = (String)session.getAttribute("alertMsg");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,17 +151,39 @@
 
 <body>
 
+		<!-- alert문구 생성할 때 -->
+	<% if(alertMsg != null) { %>
+	<script>
+		alert("<%=alertMsg%>");
+		
+		// 지우지 않으면 새로고침할 때마다 alert가 띄워짐
+		// => 확인 버튼을 누르면 아예 사라지도록 설정(한 번 띄우고 난 뒤 안띄우기)
+		// session.removeAttribute() : session 자체를 지우는 것이 아닌 안에 담긴 값을 삭제하는 것
+		<% session.removeAttribute("alertMsg"); %>
+	</script>
+	<% } %>
+
   <div class="wrap">
+    
 		<div class="header">
 			<!-- 로그인바 -->
 			<div>
 				<div class="webLogo">
+					
+					<% if(loginUser == null) { %> <!-- 로그인하지 않은 경우 -->
 						<div class="bbtn">
 		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/login1.me" style="text-decoration: none;">SIGN IN</a></button>
 		                	<button class="custom-btn btn-8"><span>SIGN OUT</span></button>
 		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;">SIGN UP</a></button>
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
+					<% } else { %> <!-- 로그인한 경우 -->
+						<div class="bbtn" style="margin-left:50px;">
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">정보수정</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;">MY PAGE</a></button>
+            			</div>
+            			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
+            		<% } %>
 				</div>
 			</div>
 			<!-- 메뉴바 -->
