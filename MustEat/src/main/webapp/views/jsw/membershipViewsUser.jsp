@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[사용자]적립금조회</title>
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<title>적립금조회</title>
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 
 	.wrap-membership {
@@ -18,10 +18,6 @@
 		margin-top:5%;
 		margin-bottom:5%;
 	}	
-	
-	.hr-membership{
-		background:black;
-	}
 	
 	li{
 		margin:10px 0px;
@@ -60,20 +56,46 @@
 		width:100%;	
 	}
 
-	.paging-area>button{
-        background-color: rgb(167, 112, 239);
-		margin-top:3%;
-        color: white;
-        font-family: 'OTWelcomeRA';
-        line-height: 0.28in;
-        border: none;
-        border-radius: 10%;
-        height: 38px;
-        width: 30px;
-    }
+	body{
+    	background-color: #eee;
+	}
+
+	.wrapper-paging{	
+		margin-top:2%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	.page-link {
+	    position: relative;
+	    display: block;
+	    color: #673AB7 !important;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #673AB7 !important;
+	}
+	
+	
+	.page-link:hover {
+	    z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
+	}
+	
+	
+	.page-link:focus {
+		border-color: rgb(167, 112, 239) !important;
+	    z-index: 3;
+	    outline: 0;
+	    box-shadow: none;
+	}
 	
 </style>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 </head>
 <body>
 	
@@ -183,14 +205,20 @@
 			
 			</div>
 
-			<div class="paging-area" align="center">
-				<button>&lt;</button>
-				<button>1</button>
-				<button>2</button>
-				<button>3</button>
-				<button>4</button>
-				<button>5</button>
-				<button>&gt;</button>
+			<div class="wrapper-paging">
+					    
+			    <nav aria-label="Page navigation example">
+					<ul class="pagination">
+					    <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+					    <li class="page-item"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item"><a class="page-link" href="#">4</a></li>
+					    <li class="page-item"><a class="page-link" href="#">5</a></li>
+					    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+				    </ul>
+				</nav>					
+			
 			</div>
 		
 			
