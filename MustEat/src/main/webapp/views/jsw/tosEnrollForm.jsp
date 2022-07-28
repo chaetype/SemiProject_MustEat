@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[관리자]회사소개/이용약관</title>
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<title>이용약관</title>
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 
 	.wrap-tos {
@@ -14,7 +14,7 @@
 		margin:auto;
 	}
 	
-	.container {
+	.container-tos {
 		margin-top:5%;
 		margin-bottom:5%;
 	}	
@@ -33,9 +33,9 @@
 
 	<div class="wrap-tos">
 		
-		<div class="container">
+		<div class="container-tos">
 		
-		<h1 style="font-family: 'OTWelcomeRA';">회사소개/이용약관</h1>
+		<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">이용약관</h1>
 
 			<table class="rwd-table tos-table">
 		    <tbody>

@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[관리자]식당등록</title>
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<title>식당등록</title>
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 
 	.wrap-review {
@@ -104,7 +104,7 @@
 	
 			<hr noshade size = 1 style="background:black;"> -->
 		
-			<h1 style="font-family: 'OTWelcomeRA'; text-align:left;">식당 등록</h1>
+			<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">식당 등록</h1>
 	
 			<hr noshade size = 1 style="background:black;">
 
@@ -112,7 +112,7 @@
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
 					 
-					  <form class="store-enroll-form" action="" style="margin-top:1%;">
+					  <form class="store-enroll-form" action="" method="post" style="margin-top:1%;">
 
 						<div class="row">
 						  <div class="col-md-6 mb-3">

@@ -18,6 +18,7 @@ public class MemberService {
 	}
 	
 	
+
 	
 	
 	// 은영
@@ -45,4 +46,10 @@ public class MemberService {
 	}
 	
 	
+
+	//채윤(신고 목록 조회 / ReportListController와 연결)
+	public void selectReportList() {
+		
+	}
+
 }
