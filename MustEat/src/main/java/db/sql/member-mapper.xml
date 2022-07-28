@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<!-- 태민 (로그인관련) -->
+	<entry key="loginMember">
+		SELECT		
+		      MEM_NO
+			, MEM_ID
+			, MEM_PWD
+			, MEM_NAME
+			, MEM_PHONE
+			, MEM_EMAIL
+			, MEM_ENROLLDATE
+			, MEM_MODIFYDATE
+			, MEM_STATUS
+			, MEM_NICKNAME
+			, MEM_GRADE
+			, ADDRESS_CODE
+			, ADDRESS
+			, ADDRESS_DETAIL
+			, ADDRESS_REF
+			, MEM_IMGPATH
+			, WITHDRAW
+		FROM MEMBER
+		WHERE (MEM_STATUS = 'Y' 
+		   OR MEM_STATUS = 'A')
+		  AND MEM_ID = ?
+		  AND MEM_PWD = ?
+	</entry>
+	
+	
+</properties>
