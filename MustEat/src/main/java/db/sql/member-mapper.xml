@@ -70,7 +70,18 @@
 
 	<!-- 채윤 : 신고글 -->
 	<entry key="reportList">
-		
+		SELECT 
+		       REPORT_NO
+		     , M.MEM_NICKNAME
+		     , S.REVIEW_WRITER
+		     , S.REVIEW_TITLE
+		     , REPORT_CONTENT
+             , REPORT_DATE
+		  FROM REPORT R
+		  JOIN MEMBER M USING(MEM_NO)
+          JOIN STORE_RE S USING (RE_NO)
+		 ORDER 
+		    BY REPORT_NO DESC
 	</entry>
 
 </properties>

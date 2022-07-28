@@ -1,10 +1,16 @@
 package com.mz.member.model.service;
 
+import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.commit;
+import static com.mz.common.JDBCTemplate.getConnection;
+import static com.mz.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
-import static com.mz.common.JDBCTemplate.*;
+import com.mz.member.model.vo.Report;
 
 public class MemberService {
 	//메소드 위에 이름 주석 꼭 달기!!!
@@ -48,8 +54,11 @@ public class MemberService {
 	
 
 	//채윤(신고 목록 조회 / ReportListController와 연결)
-	public void selectReportList() {
-		
+	public ArrayList<Report> selectReportList() {
+		Connection conn = getConnection();
+		ArrayList<Report> list = new MemberDao().selectReportList(conn);
+		close(conn);
+		return list;
 	}
-
+	
 }

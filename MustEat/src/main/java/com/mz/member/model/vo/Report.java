@@ -41,6 +41,17 @@ public class Report {
 		this.memId = memId;
 		this.reportTitle = reportTitle;
 	}
+	
+	
+	public Report(int reportNo,String memNickname, String memId, String reportTitle, String reportContent, Date reportDate) {
+		super();
+		this.reportNo = reportNo;
+		this.memNickname = memNickname;
+		this.memId = memId;
+		this.reportTitle = reportTitle;
+		this.reportContent = reportContent;
+		this.reportDate = reportDate;
+	}
 
 
 
