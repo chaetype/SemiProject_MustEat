@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <%@ include file="../common/menubar.jsp"%>
+    <%@ include file="../../common/menubar.jsp"%>
 
     <div class="outer">
 
@@ -29,16 +29,16 @@
         <br><br>
 
         <div align="center" style="font-size: 20px;">
-            <b>ì¥ë°êµ¬ëê° ë¹ì´ììµëë¤.</b>
+            <b>장바구니가 비어있습니다.</b>
             <br>
-            <b>ìë¡ì´ ìíì ë´ìì£¼ì¸ì!</b>
+            <b>새로운 상품을 담아주세요!</b>
         </div>
 
         <br><br>
 
         <div align="center">
             <button class="btn1" style="width:35%" >
-                <b>ì¼íê³ìíê¸°</b>
+                <b>쇼핑계속하기</b>
             </button>
         </div>
     </div>

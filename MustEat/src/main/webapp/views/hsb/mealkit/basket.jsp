@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -229,7 +229,7 @@
     </style>
 </head>
 <body>
-    <%@ include file="../common/adminMenubar.jsp"%>
+    <%@ include file="../../common/adminMenubar.jsp"%>
     <form name="orderform" id="orderform" method="post" class="orderform" action="/Order">
 
         <div class="basket" id="basket">
@@ -246,15 +246,15 @@
     
                 <div class="pname">
     
-                    <span><b>ë­íë§ë¦¬ ì¹¼êµ­ì</b></span>
+                   <span><b>닭한마리 칼국수</b></span>
     
                 </div>
     
-                <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="18900">18,900ì</div>
+                <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="18900">18,900원</div>
     
                 <div class="num">
     
-                    <!-- "ì¥ë°êµ¬ë ìë ë³ê²½" -->
+                    <!-- "장바구니 수량 변경" -->
     
                     <div class="updown">
     
@@ -268,23 +268,23 @@
     
                 </div>
                 
-                <!-- "ì¥ë°êµ¬ë ìí í©ê³" -->
+                <!-- "장바구니 상품 합계" -->
     
-                <div class="sum">18,900ì</div>
+                <div class="sum">18,900원</div>
     
-                <div class="basketcmd"><a href="#" class="abutton">ì­ì </a></div>
+                <div class="basketcmd"><a href="#" class="abutton">삭제</a></div>
     
             </div>
     
         </div>
     
-        <!-- "ì¥ë°êµ¬ë ê¸°ë¥ ë²í¼" -->
+        <!-- "장바구니 기능 버튼" -->
     
         <div class="right-align basketrowcmd">
     
-            <a href="#" class="abutton">ì íìíì­ì </a>
+            <a href="#" class="abutton">선택상품삭제</a>
     
-            <a href="#" class="abutton">ì£¼ë¬¸íê¸°</a>
+            <a href="#" class="abutton">주문하기</a>
     
         </div>
         <hr><br><hr>
@@ -296,7 +296,7 @@
 
             <div class="pname">
 
-                <span><b>ëë¶ ë¶ëì°ê°</b></span>
+                <span><b>놀부 부대찌개</b></span>
 
             </div>
 
@@ -304,7 +304,7 @@
 
             <div class="num">
 
-                <!-- "ì¥ë°êµ¬ë ìë ë³ê²½" -->
+                <!-- "장바구니 수량 변경" -->
 
                 <div class="updown">
 
@@ -318,33 +318,32 @@
 
             </div>
 
-            <!-- "ì¥ë°êµ¬ë ìí í©ê³" -->
+            <!-- "장바구니 상품 합계" -->
 
-            <div class="sum">40,000ì</div>
-
-            <div class="basketcmd"><a href="#" class="abutton">ì­ì </a></div>
+            <div class="sum">40,000원</div>
+            <div class="basketcmd"><a href="#" class="abutton">삭제</a></div>
 
         </div>
 
     </div>
 
-    <!-- "ì¥ë°êµ¬ë ê¸°ë¥ ë²í¼" -->
+     <!-- "장바구니 기능 버튼" -->
+
 
     <div class="right-align basketrowcmd">
 
-        <a href="#" class="abutton">ì íìíì­ì </a>
-
-        <a href="#" class="abutton">ì£¼ë¬¸íê¸°</a>
+        <a href="#" class="abutton">선택상품삭제</a>
+        <a href="#" class="abutton">주문하기</a>
 
     </div>
     <hr>
     
-        <!-- "ì¥ë°êµ¬ë ì ì²´ í©ê³ ì ë³´" -->
-        <button class="btn1">ì ì²´ì í</button>
+         <!-- "장바구니 전체 합계 정보" -->
+        <button class="btn1">전체선택</button>
     
-        <div class="bigtext right-align sumcount" id="sum_p_num">ìíê°¯ì: 4ê°</div>
+        <div class="bigtext right-align sumcount" id="sum_p_num">상품갯수: 4개</div>
     
-        <div class="bigtext right-align box blue summoney" id="sum_p_price">í©ê³ê¸ì¡: 59,800ì</div>
+        <div class="bigtext right-align box blue summoney" id="sum_p_price">합계금액: 59,800원</div>
     
     
     
@@ -354,7 +353,7 @@
     
             <div class="buttongroup center-align cmd">
     
-                <button class="btn1" style="width:100px">ì£¼ë¬¸íê¸°</button>
+                <button class="btn1" style="width:100px">주문하기</button>
     
             </div>
     

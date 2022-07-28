@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -163,135 +163,135 @@
     <div class="outer" align="center" width="10%">
         <table style="border-collapse: collapse;" style=" border-top: 1px solid #444444;" style="box-sizing: border-box;">
             <tr style="background-color:rgb(226, 223, 223)">
-                <th>ë²í¸</th>
-                <th>ìì´ë</th>
-                <th>ìíì½ë</th>
-                <th>ìíëª</th>
-                <th>ê²°ì ê¸ì¡</th>
-                <th>ê²°ì ì¼ì</th>
-                <th>ë°°ì¡ìí</th>
+                <th>번호</th>
+                <th>아이디</th>
+                <th>상품코드</th>
+                <th>상품명</th>
+                <th>결제금액</th>
+                <th>결제일시</th>
+                <th>배송상태</th>
                 <th></th>
             </tr>
             <tr>
                 <td>10</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick1();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick1();">변경</button></td>
             </tr>
             <tr>
                 <td>9</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick1();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick1();">변경</button></td>
             </tr>
             <tr>
                 <td>8</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick3();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick3();">변경</button></td>
             </tr>
-            <tr>
+           <tr>
                 <td>7</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick4();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick4();">변경</button></td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick5();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick5();">변경</button></td>
             </tr>
 
             <tr>
                 <td>5</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick6();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick6();">변경</button></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick7();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick7();">변경</button></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick8();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick8();">변경</button></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick9();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick9();">변경</button></td>
             </tr>
             <tr>
                 <td>1</td>
                 <td>user91</td>
                 <td>A381</td>
-                <td>ë­íë§ë¦¬ ì¹¼êµ­ì</td>
+                <td>닭한마리 칼국수</td>
                 <td>18,900</td>
                 <td>xxxx-xx-xx</td>
-                <td>ë°°ì¡ì¤</td>
-                <td><button class="btn1" onclick="windoOnClick10();">ë³ê²½</button></td>
+                <td>배송중</td>
+                <td><button class="btn1" onclick="windoOnClick10();">변경</button></td>
             </tr>
            
         </table>
 
-        <!-- íì ë  ë ì´ì´ --> 
-     <div class="modal"> 
-         <div class="modal-content"> 
-             <span class="close-button">&times;</span> 
-             <h1 class="title">ìíë³ê²½</h1> 
-             <form action="#post.php" method="POST" id="deilvery"> 
-               
-               <input type="radio" name="deli" required="required" style="display:inline">ë°°ì¡ì¤
-               <input type="radio" name="deli" style="display:inline">ë°°ì¡ì¤ë¹ì¤
-               <input type="radio" name="deli" style="display:inline">ë°°ì¡ìë£
-               
-               <input type="button" id="submit" value="íì¸"> 
-               <input type="submit" id="cancel" value="ì·¨ì"> 
-             </form> 
-         </div> 
-     </div>
+         <!-- 팝업 될 레이어 --> 
+	     <div class="modal"> 
+	         <div class="modal-content"> 
+	             <span class="close-button">&times;</span> 
+	             <h1 class="title">상태변경</h1> 
+	             <form action="#post.php" method="POST" id="deilvery"> 
+	               
+	               <input type="radio" name="deli" required="required" style="display:inline">배송중
+	               <input type="radio" name="deli" style="display:inline">배송준비중
+	               <input type="radio" name="deli" style="display:inline">배송완료
+	               
+	               <input type="button" id="submit" value="확인"> 
+	               <input type="submit" id="cancel" value="취소"> 
+	             </form> 
+	         </div> 
+	     </div>
 
     <script type="text/javascript"> 
          var modal = document.querySelector(".modal"); 

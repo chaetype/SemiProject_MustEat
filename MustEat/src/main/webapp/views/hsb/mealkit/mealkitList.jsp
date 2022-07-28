@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,7 +187,7 @@ body {
 </style>
 </head>
 <body>
-    <%@ include file="../common/menubar.jsp"%>
+    <%@ include file="../../common/menubar.jsp"%>
     <div class="logo-bar con">
         <div class="logo">
             <h1>MEALKIT</h1>
