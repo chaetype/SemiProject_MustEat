@@ -30,6 +30,7 @@
 	</entry>
 	
 	
+
 	<!-- 은영 (회원 정보 수정) -->
 	<entry key="updateMember">
 	<!-- 회원정보 수정 요청시 실행할 sql문 -->
@@ -66,4 +67,10 @@
 
 	
 	
+
+	<!-- 채윤 : 신고글 -->
+	<entry key="reportList">
+		
+	</entry>
+
 </properties>
