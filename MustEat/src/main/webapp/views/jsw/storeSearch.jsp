@@ -70,7 +70,7 @@
 	border-radius: 50px;
 	font-size: 12px;
 	margin: 0;
-	color: #fff;
+	color: #8440b2;
 	padding: 2px 10px;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -201,10 +201,8 @@
 						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
 					</div>
 					<div class="card-body">
-						<span class="tag tag-purple">서울시 금천구</span>
-						<h4 style="margin-top:3%;">
-						구디아카데미
-						</h4>
+						<span class="tag tag-purple"><strong>서울시 금천구</strong></span>
+						<h4 style="margin-top:3%;"><strong>구디아카데미</strong></h4>
 						<p style="margin-top:4%;">
 						#태그1, #태그2, #태그3 <br><br>
 						대표메뉴 : xxxx <br>
@@ -212,7 +210,7 @@
 						브레이크 : 00:00 ~ 00:00            
 						</p>
 						<div class="user-info">
-							<small>★ 5.0 | ♥ 777</small>
+							<small><span style="color:red;">★</span> 5.0 | <span style="color:#f54d4d;">♥</span> 777</small>
 						</div>
 					</div>
 					</div>
@@ -221,10 +219,8 @@
 						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
 					</div>
 					<div class="card-body">
-						<span class="tag tag-purple">서울시 금천구</span>
-						<h4 style="margin-top:3%;">
-						구디아카데미
-						</h4>
+						<span class="tag tag-purple"><strong>서울시 금천구</strong></span>
+						<h4 style="margin-top:3%;"><strong>구디아카데미</strong></h4>
 						<p style="margin-top:4%;">
 						#태그1, #태그2, #태그3 <br><br>
 						대표메뉴 : xxxx <br>
@@ -241,10 +237,8 @@
 						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
 					</div>
 					<div class="card-body">
-						<span class="tag tag-purple">서울시 금천구</span>
-						<h4 style="margin-top:3%;">
-						구디아카데미
-						</h4>
+						<span class="tag tag-purple"><strong>서울시 금천구</strong></span>
+						<h4 style="margin-top:3%;"><strong>구디아카데미</strong></h4>
 						<p style="margin-top:4%;">
 						#태그1, #태그2, #태그3 <br><br>
 						대표메뉴 : xxxx <br>
