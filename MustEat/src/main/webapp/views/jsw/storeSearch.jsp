@@ -18,38 +18,88 @@
 		width:100%;
 		margin-top:5%;
 		margin-bottom:5%;
-		text-align: center;
+		/* text-align: center; */
 	}	
 
 	.search-head{
 		display:inline-block;
 		width:100%;
 	}
-
-	.search-list{
-		display:inline-block;
-		width:100%;
-	}
-
-	.wrap55{
-		display:inline-block;
-
-	}
-
-	.search-tag{
-		text-align: left;
-	}
-
-	.btn1{
-		width:150px;
-		margin-top:10px;
-		margin-right: 10px;
-	}
-
-	.search-padding{
-		padding:1%;
-	}
 	
+	@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+	.wrap-storelist {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	background-color: #fff;
+	font-family: "Roboto", sans-serif;
+	color: #10182f;
+	}
+	.container-storelist {
+	display: flex;
+	width: 1040px;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	}
+	.card {
+	margin: 10px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	width: 300px;
+	}
+	.card-header img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	}
+	.card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 20px;
+	min-height: 250px;
+	}
+
+	.tag {
+	background: #cccccc;
+	border-radius: 50px;
+	font-size: 12px;
+	margin: 0;
+	color: #fff;
+	padding: 2px 10px;
+	text-transform: uppercase;
+	cursor: pointer;
+	}
+
+	.tag-purple {
+	background-color: rgb(231, 216, 241);
+	}
+
+	.card-body p {
+	font-size: 13px;
+	}
+
+	.user {
+	display: flex;
+	margin-top: auto;
+	}
+
+	.user-info h5 {
+	margin: 0;
+	}
+	.user-info small {
+	color: #545d7a;
+	}
+
+
+
+
+
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
@@ -143,43 +193,74 @@
 			<br><br>
 
 			<hr noshade size = 1 style="background:black;">		
-			
 
-			<div class="search-list">
-				<div class="search-list-view">
-					<table width="100%">
-						<tbody>
-							<tr>
-								<td rowspan="4" width="20%" height="200px" style="text-align:center;">
-									<div style="border:1px solid black; width:95%; height:95%; display: inline-block;">
-										<div>
-											<img src="" alt="">사진넣는자리
-										</div>	
-									</div>						
-								</td>
-								<td colspan="2" style="text-align:left;"><h2>식당이름</h2></td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align:left;"><h5>xx시 xx구</h5></td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align:left;"><h8>#태그1,#태그2,#태그3</h8></td>
-							</tr>
-							<tr>
-								<td width="5%" style="text-align:left;"><span style="color:#ffd966;">★</span>&nbsp;5.0</td>
-								<td style="text-align:left;"><span style="color:#ff0000;">♥</span>&nbsp;xx명</td>
-							</tr>
-							<tr>
-								<td colspan="3" style="text-align:left;">
-									<p style="margin-left:0.5%;">
-										리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리 리뷰 들어갈 자리  
-									</p>	
-								</td>
-							</tr>
-						</tbody>
-					</table>
+			<div class="wrap-storelist">
+				<div class="container-storelist">
+					<div class="card">
+					<div class="card-header">
+						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+					</div>
+					<div class="card-body">
+						<span class="tag tag-purple">서울시 금천구</span>
+						<h4 style="margin-top:3%;">
+						구디아카데미
+						</h4>
+						<p style="margin-top:4%;">
+						#태그1, #태그2, #태그3 <br><br>
+						대표메뉴 : xxxx <br>
+						영업시간 : 00:00 ~ 00:00 <br>
+						브레이크 : 00:00 ~ 00:00            
+						</p>
+						<div class="user-info">
+							<small>★ 5.0 | ♥ 777</small>
+						</div>
+					</div>
+					</div>
+					<div class="card">
+					<div class="card-header">
+						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+					</div>
+					<div class="card-body">
+						<span class="tag tag-purple">서울시 금천구</span>
+						<h4 style="margin-top:3%;">
+						구디아카데미
+						</h4>
+						<p style="margin-top:4%;">
+						#태그1, #태그2, #태그3 <br><br>
+						대표메뉴 : xxxx <br>
+						영업시간 : 00:00 ~ 00:00 <br>
+						브레이크 : 00:00 ~ 00:00            
+						</p>
+						<div class="user-info">
+							<small>★ 5.0 | ♥ 777</small>
+						</div>
+					</div>
+					</div>
+				<div class="card">
+					<div class="card-header">
+						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+					</div>
+					<div class="card-body">
+						<span class="tag tag-purple">서울시 금천구</span>
+						<h4 style="margin-top:3%;">
+						구디아카데미
+						</h4>
+						<p style="margin-top:4%;">
+						#태그1, #태그2, #태그3 <br><br>
+						대표메뉴 : xxxx <br>
+						영업시간 : 00:00 ~ 00:00 <br>
+						브레이크 : 00:00 ~ 00:00            
+						</p>
+						<div class="user-info">
+							<small>★ 5.0 | ♥ 777</small>
+						</div>
+						</div>
+					</div>
 				</div>
+
 			</div>
+
+
 			
 		</div>
 		
