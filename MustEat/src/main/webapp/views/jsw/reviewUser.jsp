@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[사용자]my리뷰</title>
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<title>my리뷰</title>
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 <style>
 
 	.wrap-review {
@@ -75,25 +77,49 @@
 		margin-top:2%;	
 	}
 
-	.paging-area>button{
-        background-color: rgb(167, 112, 239);
-		margin-top:1%;
-        color: white;
-        font-family: 'OTWelcomeRA';
-        line-height: 0.28in;
-        border: none;
-        border-radius: 10%;
-        height: 38px;
-        width: 30px;
-    }
-
 	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
 	
+	body{
+    	background-color: #eee;
+	}
+
+	.wrapper-paging{	
+		margin-top:2%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	.page-link {
+	    position: relative;
+	    display: block;
+	    color: #673AB7 !important;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #673AB7 !important;
+	}
+	
+	
+	.page-link:hover {
+	    z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
+	}
+	
+	
+	.page-link:focus {
+		border-color: rgb(167, 112, 239) !important;
+	    z-index: 3;
+	    outline: 0;
+	    box-shadow: none;
+	}
+	
 </style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
@@ -148,7 +174,6 @@
 				<table class="rwd-table">
 				    <tbody>
 				      <tr>
-				        <th></th>
 				        <th>작성일</th>
 				        <th>식당명/상품명</th>
 						<th>리뷰구분</th>
@@ -156,105 +181,98 @@
 						<th>작성내역</th>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				      <tr>
-				        <td><input type="checkbox"></td>
 				        <td>xxxx-xx-xx</td>
 				        <td>고메짬뽕</td>
 						<td>밀키트</td>
 				        <td>4.5</td>
-				        <td><button class="btn1">상세보기</button></td>
+				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
 				    </tbody>
 		  		</table>
 			
 			</div>
-
-			<div class="review-page">
-
-				<div class="paging-area" align="center">
-					<button>&lt;</button>
-					<button>1</button>
-					<button>2</button>
-					<button>3</button>
-					<button>4</button>
-					<button>5</button>
-					<button>&gt;</button>
-				</div>
-
+			
+			<div class="wrapper-paging">
+					    
+			    <nav aria-label="Page navigation example">
+					<ul class="pagination">
+					    <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+					    <li class="page-item"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item"><a class="page-link" href="#">4</a></li>
+					    <li class="page-item"><a class="page-link" href="#">5</a></li>
+					    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+				    </ul>
+				</nav>					
+			
 			</div>
+			
 
-			<div style="width:100%; margin-top:2%;">
+			<div style="width:100%; margin-top:1%;">
 				<div style="display:inline-block;">
 					<table style="display:inline-block;">
 						<tr>
@@ -277,7 +295,8 @@
 						</tr>
 					</table>
 				</div>
-			</div>			
+			</div>	
+					
 			
 		</div>
 		
