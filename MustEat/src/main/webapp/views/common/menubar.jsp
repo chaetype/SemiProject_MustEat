@@ -57,7 +57,7 @@
 			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
 
 		<!-- favicon -->
-		<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+		<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 		body{margin:0 auto;}
 		
@@ -178,9 +178,10 @@
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
 					<% } else { %> <!-- 로그인한 경우 -->
-						<div class="bbtn" style="margin-left:50px;">
+						<div class="bbtn">
 		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">정보수정</a></button>
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;">MY PAGE</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/myPage.me" style="text-decoration: none;">MY PAGE</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">로그아웃</a></button>
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
             		<% } %>
