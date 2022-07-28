@@ -78,6 +78,22 @@
 			font-size:12px;
 			color:black;
 		}
+
+		.btn-outline-warning{
+			color:rgb(231, 216, 241);
+			background-color:transparent;
+			background-image:none;
+			border-color:rgb(231, 216, 241);
+		}
+
+		.btn-outline-warning:hover{
+			background:rgb(213, 164, 247);
+			border-color:rgb(213, 164, 247);
+		}
+		
+		.input-text{
+			height:50px;
+		}
 </style>
 </head>
 
