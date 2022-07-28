@@ -41,13 +41,18 @@ public class LoginController2 extends HttpServlet {
 		
 		Member loginUser = new MemberService().loginMember(userId, userPwd);
 		
+		HttpSession session = request.getSession();
+		
 		if(loginUser == null) { // 로그인실패   
 			
-			// ?
+			RequestDispatcher view = request.getRequestDispatcher("views/ltm/memberLogin.jsp");
+			
+			request.setAttribute("errorMsg", "아이디 또는 비밀번호를 잘못 입력했습니다. \n입력하신 내용을 다시 확인해주세요.");
+			
+			view.forward(request, response);
 			
 		}else { // 로그인성공  ==> ?
 			
-			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
 			response.sendRedirect(request.getContextPath()); 

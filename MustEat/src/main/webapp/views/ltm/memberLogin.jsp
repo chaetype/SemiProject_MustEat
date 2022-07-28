@@ -36,7 +36,9 @@
         font-weight: bold;
         font-size: 18px;
     }
-
+    p{
+        white-space:pre 
+    }
 </style>
 
 </head>
@@ -60,7 +62,12 @@
            		<input type="password" class="form-control" name="userPwd" placeholder="비밀번호" required>
            		<label for="floatingPassword">비밀번호</label>
             </div>
-        
+            
+
+            <% if (request.getAttribute("errorMsg") != null) { %>
+            <p align="left" style="color:red; font-size:small" id="text";><%= request.getAttribute("errorMsg") %></p>
+        	<% } %>
+            
         
             <div class="d-grid">
                 <button class="btn1" type="submit">로그인</button>
