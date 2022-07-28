@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"% import="java.util.ArrayList, com.mz.member.model.vo.Report"%>
-<%
-	ArrayList<Notice> list = (ArrayList<Report>)request.getAttribute("list");
-%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Report"%>
+<%ArrayList<Report> list = (ArrayList<Report>)request.getAttribute("list");%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MUST EAT : 신고관리</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
@@ -55,11 +53,47 @@
         height: 38px;
         width: 30px;
     }
+
+	body{
+    	background-color: #eee;
+	}
+
+	.wrapper-paging{	
+		margin-top:4%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	.page-link {
+	    position: relative;
+	    display: block;
+	    color: #673AB7 !important;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #673AB7 !important;
+	}
+	
+	
+	.page-link:hover {
+	    z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
+	}
+	
+	
+	.page-link:focus {
+		border-color: rgb(167, 112, 239) !important;
+	    z-index: 3;
+	    outline: 0;
+	    box-shadow: none;
+	}
 </style>
 </head>
 <body>
 
-	<%@ include file="../common/menubar.jsp"%>
+	<%@ include file="../common/adminMenubar.jsp"%>
 
 	<div class="wrap44">
 	
@@ -71,10 +105,10 @@
 					<tr>
 						<th width="60">선택<input class="btn1" name="chk" type="checkbox" onclick="checkAll(this)"></th>
 						<th width="75">글번호</th> <!--신고당한 글, 가게리뷰에서 가져오기-->
-						<th width="75">신고자</th> <!--신고 한 사람, 멤버에서에서 가져오기-->
+						<th width="90">신고자</th> <!--신고 한 사람, 멤버에서에서 가져오기-->
 						<th width="100">신고대상자</th><!--신고당한 사람 가게리뷰에서 가져오기-->
-						<th colspan="3" width="290">리뷰제목</th>
-						<th width="180">신고내용</th><!--신고 한 사람이 작성한 신고 사유-->
+						<th width="280">리뷰제목</th>
+						<th>신고내용</th><!--신고 한 사람이 작성한 신고 사유-->
 						<th width="145">게시일</th>
 					
 					</tr>
@@ -83,10 +117,11 @@
 				<% if(list.isEmpty()) { %>
                 <!--case1. 신고글이 없을 경우-->
                 <tr>
-                    <td colspan="8">존재하는 신고사항이 없습니다.</td>
+                    <td colspan="7">존재하는 신고사항이 없습니다.</td>
                 </tr>
 				<% }else { %>
                 <!--case2.신고글이 있을 경우-->
+                <td colspan="7"></td>
                 	<% for(Report r : list){ %>
 	                <tr>
 	                	<td data-th="Supplier Code"><input type="checkbox" name="list"></td>
@@ -106,7 +141,7 @@
 				</tbody>
 		  	</table>
 		
-			<div class="list01">
+			<div class="list01" style="float: left;">
 				<!-- <input class="btn1" type="button" id="check_all" value="전체선택" /> -->
 		        <button class="btn1">선택삭제</button>
 				
@@ -114,16 +149,24 @@
 		
 	</div>
 	<br><br><br>
-	<div class="paging-area" align="center">
-		<button>&lt;</button>
-		<button>1</button>
-		<button>2</button>
-		<button>3</button>
-		<button>4</button>
-		<button>5</button>
-		<button>&gt;</button>
+	<div class="wrapper-paging">
+					    
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">4</a></li>
+				<li class="page-item"><a class="page-link" href="#">5</a></li>
+				<li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+			</ul>
+		</nav>					
+	
 	</div>
 	<br><br>
+	
+
 	
 	<script>
     	$(function(){
@@ -138,28 +181,11 @@
     		})
     	})
     	
-    </script>
-	
-	
+    </script> 
 	
 	
 	
 
-
-	<!-- <script>
-		jQuery(document).ready(function($){
-			$("#check_all").click(function() {
-				$("input[name=list]:checkbox").attr("checked", true);
-			});
-
-
-
-			$("#uncheck_all").click(function() {
-				$("input[name=list]:checkbox").attr("checked", false);
-			});
-		});
-		</script>
- -->
 
 
 

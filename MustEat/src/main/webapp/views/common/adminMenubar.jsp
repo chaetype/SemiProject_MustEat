@@ -158,6 +158,9 @@
 					</a>		
 					<a class="menu__item" href="#">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 이용약관</span>
+					</a>
+					<a class="menu__item" href="#">
+						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;"><a href="<%=contextPath%>/list.rp" style="text-decoration: none;">▶ 신고관리</span>
 					</a>				
 					
 			</nav>
