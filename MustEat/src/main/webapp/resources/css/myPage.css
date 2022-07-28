@@ -25,6 +25,7 @@
 }
 .listTitle:hover{
   color:rgb(168, 99, 221);
+   text-decoration:none;
 }
 
 .listMore{
@@ -206,6 +207,7 @@
     display:block;
     color: black;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .shippingStatusContainer .number:hover{
