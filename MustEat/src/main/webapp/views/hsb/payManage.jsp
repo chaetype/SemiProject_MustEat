@@ -156,6 +156,10 @@
         display: inline-block;
      }
     
+     .outer{
+        margin:auto;
+        width:80%;
+     }
 
 
 </style>

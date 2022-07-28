@@ -15,6 +15,7 @@
     .outer{
         margin:auto;
         width: 80%;
+        margin-top: 15%;
     }
 
     
