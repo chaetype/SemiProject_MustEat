@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>[관리자]리뷰관리</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
     
     
     <style>

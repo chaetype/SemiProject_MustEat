@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>[관리자]문의답변</title>
 <!-- Font Awesome -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -26,7 +26,7 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
 ></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .outer{
         background-color:white;

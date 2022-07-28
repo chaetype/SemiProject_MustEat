@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>고객센터</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .container{
         margin-top:7%;
@@ -107,7 +107,7 @@
                <div class="col-md-8">
                    
                    <div class="input-group mb-3">
-                        <input type="text" class="form-control input-text" placeholder="Search products...." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control input-text" placeholder="Search keyword...." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
                         </div>
@@ -119,11 +119,11 @@
 
             
         </div>
-        <div class="support-button" id="notice-button"><a href=""><b>공지사항</b></a></div>
+        <div class="support-button" id="notice-button"><a href="<%=contextPath%>/listNotice.no?cpage=1"><b>공지사항</b></a></div>
 
-        <div class="support-button" id="contact-button"><a href=""><b>1 : 1 문의하기</b></a></div>
+        <div class="support-button" id="contact-button"><a href="<%=contextPath%>/contactEnrollForm.no"><b>1 : 1 문의하기</b></a></div>
 
-        <div class="support-button" id="faq-button"><a href=""><b>FAQ</b></a></div>
+        <div class="support-button" id="faq-button"><a href="<%=contextPath%>/listFaq.no"><b>FAQ</b></a></div>
     </div>
 
 </body>

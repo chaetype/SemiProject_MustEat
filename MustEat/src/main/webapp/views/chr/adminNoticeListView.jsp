@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>[관리자]공지사항목록</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
-</head>
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 <style>
     .outer{
         background-color:white;
@@ -40,7 +41,43 @@
         padding-top:30px;
         width:90%;
     }
+    body{
+    	background-color: #eee;
+	}
+
+	.wrapper-paging{	
+		margin-top:4%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	.page-link {
+	    position: relative;
+	    display: block;
+	    color: #673AB7 !important;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #673AB7 !important;
+	}
+	
+	
+	.page-link:hover {
+	    z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
+	}
+	
+	
+	.page-link:focus {
+		border-color: rgb(167, 112, 239) !important;
+	    z-index: 3;
+	    outline: 0;
+	    box-shadow: none;
+	}
 </style>
+</head>
 <body>
 
 	<%@ include file="../common/adminMenubar.jsp" %>
@@ -55,7 +92,7 @@
             <thead>
                 <tr>
                     <th width="10%">
-                        <input type="checkbox" name="allCheck" id="all"> 전체 선택
+                        <input type="checkbox" name="allCheck" id="all" onclick="checkAll();"> 전체 선택
                     </th>
                     <th width="6%">번호</th>
                     <th width="45%">제목</th>
@@ -115,16 +152,51 @@
         </div>
         
         <br>
-        <div class="paging-area" align="center">
-            <button>&lt;</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>&gt;</button>
-        </div>
+        <div class="wrapper-paging">
+					    
+		    <nav aria-label="Page navigation example">
+				<ul class="pagination">
+				    <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+				    <li class="page-item"><a class="page-link" href="#">1</a></li>
+				    <li class="page-item"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item"><a class="page-link" href="#">4</a></li>
+				    <li class="page-item"><a class="page-link" href="#">5</a></li>
+				    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+			    </ul>
+			</nav>					
+		
+		</div>
     </div>
+
+    <script type="text/javascript">
+        let check = false;
+        // function checkAll(){
+        //     let chk = document.getElementsByName("chk[]");
+        //     console.log(chk);
+        //     if(check==false){
+        //         check=true;
+        //         for(let i=0; i<chk.length; i++){
+        //             chk[i].checked=true;
+        //         }
+        //     }else{
+        //         check=false;
+        //         for(let i=0; i<chk.length; i++){
+        //             chi[i].checked=false;
+        //         }
+        //     }
+        // }
+     
+        function checkAll(checkAll){
+           let checkboxes=document.getElementsByName("input에 준 네임명");
+           console.log(checkboxes);
+           checkboxes.forEach((checkbox)=>{
+              console.log(checkbox    );
+              checkbox.checked=checkAll.checked;
+           })
+        }
+     
+     </script>
 
 </body>
 </html>

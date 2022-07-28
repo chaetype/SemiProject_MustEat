@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>문의하기</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
-<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .outer{
         background-color:white;
@@ -26,7 +26,6 @@
         font-size:medium;
         height:50px;
     }
-    textarea{color:gray}
     #email, #phone{
         margin-left:10px;
     }
@@ -65,7 +64,7 @@
                     <tr>
                         <th>문의 내용</th>
                         <td>
-                            <textarea name="contact-content" cols="87" rows="20" style="resize:none">내용을 입력해주세요</textarea>
+                            <textarea name="contact-content" cols="87" rows="20" style="resize:none"></textarea>
                         </td>
                     </tr>
                     <tr>
