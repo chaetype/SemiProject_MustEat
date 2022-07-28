@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <style>
     .outer{
-        width:500px;
+        width:400px;
         margin:auto;
         margin-top:10%;
     }
@@ -24,8 +24,8 @@
         color: black;
     }
     img{
-    	width: 130px;
-        height: 120px;;
+    	width: 120px;
+        height: 100px;;
         margin: 0;
         margin-left: 36%;
     }
@@ -42,20 +42,20 @@
 
 		<!-- <h1 align="center">MZ</h1> -->
 
-    	<img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center">
+    	<a href=<%= request.getContextPath() %>><img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center"></a>
 
         <p align="center" style="font-size: 23px; font-weight: bold; margin: 20px;">아이디 찾기</p>
         
         <hr>
 
 
-        <form>
+        <form >
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="userId" placeholder="성명">
+                <input type="text" class="form-control" name="userNmae" placeholder="성명">
                 <label for="floatingInput">성명</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="userPwd" placeholder="이메일 주소" >
+                <input type="password" class="form-control" name="userEmail" placeholder="이메일 주소" >
                 <label for="floatingPassword">이메일 주소</label>
             </div>
             <p style="font-size:small; color:gray; margin-top:0;">
@@ -67,14 +67,14 @@
                 <button class="btn1" type="submit">아이디 찾기</button>
             </div>
             <div class="d-grid">
-                <button class="btn1" type="submit" onclick="enrollPage();">로그인</button>
+                <button class="btn1" type="button" onclick="location.href='<%=request.getContextPath() %>/login1.me';">로그인</button>
             </div>            
             
             <br>
 
             <div>
                 <div style="display:block" align="right">
-                    <a class="small" style="font-size: 15px;" href="">비밀번호 찾기 ></a>
+                    <a class="small" style="font-size: 15px;" href="<%=request.getContextPath() %>/findPwd1.me">비밀번호 찾기 ></a>
                 </div>
                 
             </div>

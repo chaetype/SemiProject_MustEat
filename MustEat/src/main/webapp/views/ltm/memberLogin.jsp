@@ -71,15 +71,15 @@
             
             <div>
                 <div style="display:inline;">
-                    <a class="small" style="font-size: 15px;"  href="" >아이디 찾기 |</a>
+                    <a class="small" style="font-size: 15px;"  href="<%=request.getContextPath() %>/findId1.me">아이디 찾기 |</a>
                 </div>
                 <div style="display:inline;">
-                    <a class="small" style="font-size: 15px;" href="">비밀번호 찾기</a>
+                    <a class="small" style="font-size: 15px;" href="<%=request.getContextPath() %>/findPwd1.me">비밀번호 찾기</a>
                 </div>
                 <div style="display:inline;"></div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <a class="small" style="font-size: 15px;" href="">회원가입</a>
+                    <a class="small" style="font-size: 15px;" href="<%=request.getContextPath() %>/enroll1.me">회원가입</a>
                 </div>
             </div>
         
