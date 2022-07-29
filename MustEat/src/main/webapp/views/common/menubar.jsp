@@ -198,13 +198,9 @@
 						<span class="menu__item-name">Meal Kit</span>
 						<span class="menu__item-label">We can get to deliver to your home</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="/clist.st">
 						<span class="menu__item-name">MZ Pick</span>
-						<span class="menu__item-label">Recently popular restaurant of MZ</span>
-					</a>
-					<a class="menu__item" href="#">
-						<span class="menu__item-name">Editor Pick</span>
-						<span class="menu__item-label">Read what others choice</span>
+						<span class="menu__item-label">Meet what MZ choice</span>
 					</a>
 					<a class="menu__item" href="#">
 						<span class="menu__item-name">Event</span>
