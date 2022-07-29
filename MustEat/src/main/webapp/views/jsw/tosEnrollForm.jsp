@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.notice.model.vo.Tos"%>
+<%
+	ArrayList<Tos> list = (ArrayList<Tos>)request.getAttribute("list");
+%>      
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +70,7 @@
 		<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">이용약관</h1>
 
 			<table class="rwd-table tos-table">
-		    <thead>
+		    <tbody>
 		      <tr>
 		      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
 		        <th>글번호</th>
@@ -75,30 +79,39 @@
 		        <th>수정일</th>
 		        <th/>비고</th>
 		      </tr>
-		      </thead>
-		      <tbody>
-		      <tr>
-		      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
-		        <td>(번호)</td>
-		        <td>(제목)</td>
-		        <td>(등록일)</td>
-		        <td>(수정일)</td>
-		        <td>(비고)</td>
-		      </tr>		     
+		      			
+			<!-- 이용약관이 없을 경우 -->
+			<% if(list.isEmpty()) { %>
+			<tr>
+				<td colspan="6">존재하는 이용약관이 없습니다.</td>
+			</tr>
+			<% }else { %>
+			<!-- 이용약관이 있을 경우 -->    
+				<% for(Tos t : list) { %>  
+			    <tr>
+			      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
+			        <td><%= t.getTosNo() %></td>
+			        <td><%= t.getTosTitle() %></td>
+			        <td><%= t.getEnrollDate() %></td>
+			        <td><%= t.getModifyDate() %></td>
+			        <td><%= t.getTosNote() %></td>
+			     </tr>	
+			     <% } %>
+		     <% } %>	     
 		    </tbody>
 		  </table>
 						
 		</div>
 		
 		<div class="tos-enroll">
-	
+		
 			<button type="button" class="btn1" id="tos-enroll-btn" data-toggle="modal" data-target="#myModal">등록하기</button>
 			<button type="button" class="btn1" id="tos-modify-btn" >수정하기</button>
 			<button type="button" class="btn1" id="tos-delete-btn" >삭제하기</button>
 
 		</div>
 		
-		<form action="<%= contextPath %>/tosInsertlist.no">
+		<form action="<%= contextPath %>/tosInsertList.no" method="post">
 		<input type="hidden" name="userNo" value="">
 		
 		<!-- The Modal -->
