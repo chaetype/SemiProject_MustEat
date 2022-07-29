@@ -85,12 +85,12 @@
                 아래 발송 요청 버튼을 클릭해주세요
             </p>
 
-        
+
             <div class="d-grid" style="padding-bottom: 10px;">
-                <button class="btn1" type="submit">아이디 발송 요청</button>
+                <button class="btn1" type="button" onclick="sendEmail();">아이디 발송 요청</button>
             </div>
-   
-            
+
+           
             <br>
 
             <div>
