@@ -98,7 +98,7 @@
 
 		</div>
 		
-		<form action="">
+		<form action="<%= contextPath %>/toslist.no">
 		
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
