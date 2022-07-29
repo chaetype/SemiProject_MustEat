@@ -93,8 +93,8 @@
 		<div class="tos-enroll">
 	
 			<button type="button" class="btn1" id="tos-enroll-btn" data-toggle="modal" data-target="#myModal">등록하기</button>
-			<button class="btn1">수정하기</button>
-			<button class="btn1">삭제하기</button>
+			<button type="button" class="btn1" id="tos-modify-btn" >수정하기</button>
+			<button type="button" class="btn1" id="tos-delete-btn" >삭제하기</button>
 
 		</div>
 		
