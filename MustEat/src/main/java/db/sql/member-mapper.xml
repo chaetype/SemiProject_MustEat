@@ -34,7 +34,7 @@
 	<!-- 태민 (아이디 찾기) -->
 	<entry key="findId">
 	SELECT
-		  MEM_ID
+		  RPAD(SUBSTR(MEM_ID,1,3), LENGTH(MEM_ID), '*') AS"MEM_ID"
 	  FROM
 	  	  MEMBER
      WHERE MEM_NAME = ?
