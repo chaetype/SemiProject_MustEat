@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.notice.model.vo.Notice, com.mz.common.model.vo.PageInfo"%>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,6 +91,13 @@
 	    outline: 0;
 	    box-shadow: none;
 	}
+	
+	.focus {
+		z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
+	}
     
 </style>
 </head>
@@ -95,7 +111,35 @@
         <br><br>
 
         <div class="accordion accordion-flush" id="accordionFlushExample">
-          <div class="accordion-item">
+        
+        	<% for(int i=0; i<list.size(); i++) { %>
+        		<div class="accordion-item">
+		        	<h2 class="accordion-header" id="flush-heading<%=i%>">
+		              <button
+		                class="accordion-button collapsed"
+		                type="button"
+		                data-mdb-toggle="collapse"
+		                data-mdb-target="#flush-collapse<%=i%>"
+		                aria-expanded="false"
+		                aria-controls="flush-collapse<%=i%>"
+		              >
+		                <%= list.get(i).getNoticeTitle() %>
+		              </button>
+		            </h2>
+		        	<div
+		              id="flush-collapse<%=i%>"
+		              class="accordion-collapse collapse"
+		              aria-labelledby="flush-heading<%=i%>"
+		              data-mdb-parent="#accordionFlushExample"
+		            >
+		              <div class="accordion-body">
+		                <%= list.get(i).getNoticeContent() %>
+		              </div>
+		            </div>
+	          </div>
+        	<% } %>
+        	<!--
+           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
               <button
                 class="accordion-button collapsed"
@@ -182,18 +226,29 @@
             </div>
           </div>
         </div>
+        -->
 	    <br><br>
 	    <div class="wrapper-paging">
 						    
 		    <nav aria-label="Page navigation example">
 				<ul class="pagination">
-				    <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-				    <li class="page-item"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
-				    <li class="page-item"><a class="page-link" href="#">4</a></li>
-				    <li class="page-item"><a class="page-link" href="#">5</a></li>
-				    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+					<% if(currentPage != 1) { %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/listNotice.no?cpage=<%= currentPage-1 %>">&lt;</a></li>
+				    <% } %>
+				    
+				    <% for(int p=startPage; p<=endPage; p++) { %>
+				    	
+				    	<% if(p == currentPage) { %>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/listNotice.no?cpage=<%=p%>"><%= p %></a></li>
+				    	<% } else { %>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/listNotice.no?cpage=<%=p%>"><%= p %></a></li>
+				    	<% } %>
+				    	
+				    <% } %>
+				    
+				    <% if(currentPage != maxPage) { %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/listNotice.no?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    <% } %>
 			    </ul>
 			</nav>					
 				
