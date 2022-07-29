@@ -116,6 +116,7 @@
 				        <th>이름</th>
 						<th>아이디</th>
 						<th>전화번호</th>
+						<th>발생일</th>
 						<th>적립 및 사용금액(원)</th>
 						<th>잔여 적립금(원)</th>
 				      </tr>
@@ -124,6 +125,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -132,6 +134,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -140,6 +143,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -148,6 +152,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -156,6 +161,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -164,6 +170,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -172,6 +179,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -180,6 +188,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -188,6 +197,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
@@ -196,6 +206,7 @@
 				        <td>홍길동</td>
 						<td>hong1234</td>
 						<td>xxx-xxxx-xxxx</td>
+						<td>xxxx-xx-xx</td>
 						<td>-5000</td>
 						<td>10000</td>
 				      </tr>
