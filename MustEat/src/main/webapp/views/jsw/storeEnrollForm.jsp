@@ -253,31 +253,26 @@
 						<div class="mb-3">
 						  <label for="store-introduce" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
-						  <textarea name="store-introduce" id="store-introduce" cols="145" rows="10" style="resize:none; border:1px solid lightgrey;"></textarea>
+						  <textarea name="store-introduce" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
+						  <div style="text-align:right; margin-right:1%;"><span id="store-count">0 / 1200</span></div>
 						  <div class="invalid-feedback">
 							식당 소개글을 입력해주세요.
 						  </div>
 						</div>
 						
 						<script>
-							$('#store-introduce').keyup(function (e) {
-								let content = $(this).val();
-							    
-							    // 글자수 세기
-							    if (content.length == 0 || content == '') {
-							    	$('.textCount').text('0자');
-							    } else {
-							    	$('.textCount').text(content.length + '자');
-							    }
-							    
-							    // 글자수 제한
-							    if (content.length > 1200) {
-							    	// 1200자 부터는 타이핑 되지 않도록
-							        $(this).val($(this).val().substring(0, 1200));
-							        // 1200자 넘으면 알림창 뜨도록
-							        alert('글자수는 1200자까지 입력 가능합니다.');
-							    };
-							});
+							
+							function counter1(text, length){
+								var limit = length;
+								var str = text.value.length;
+								if(str>limit){
+									document.getElementById("store-count").innerHTML = "1200자 이상 입력했습니다.";
+									text.value = text.value.substring(0, limit);
+									text.focus();
+								}
+								document.getElementById("store-count").innerHTML = text.value.length + "/" + limit;
+							}						
+
 						</script>
 			  
 						<div class="mb-3">
@@ -307,31 +302,26 @@
 						<div class="mb-3">
 							<label for="menu-introduce" style="color:#4B088A;"><b>* 인기메뉴 설명</b></label>
 							<br>
-							<textarea name="menu-introduce" id="menu-introduce" cols="145" rows="10" maxlength="600" style="resize:none; border:1px solid lightgrey;"></textarea>
+							<textarea name="menu-introduce" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;"></textarea>
+						  <div style="text-align:right; margin-right:1%;"><span id="menu-count">0 / 600</span></div>
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
 						  </div>
 						</div>
 						
 						<script>
-							$('#menu-introduce').keyup(function (e) {
-								let content = $(this).val();
-							    
-							    // 글자수 세기
-							    if (content.length == 0 || content == '') {
-							    	$('.textCount').text('0자');
-							    } else {
-							    	$('.textCount').text(content.length + '자');
-							    }
-							    
-							    // 글자수 제한
-							    if (content.length > 600) {
-							    	// 600자 부터는 타이핑 되지 않도록
-							        $(this).val($(this).val().substring(0, 600));
-							        // 600자 넘으면 알림창 뜨도록
-							        alert('글자수는 600자까지 입력 가능합니다.');
-							    };
-							});
+						
+							function counter2(text, length){
+								var limit = length;
+								var str = text.value.length;
+								if(str>limit){
+									document.getElementById("menu-count").innerHTML = "600자 이상 입력했습니다.";
+									text.value = text.value.substring(0, limit);
+									text.focus();
+								}
+								document.getElementById("menu-count").innerHTML = text.value.length + "/" + limit;
+							}	
+							
 						</script>
 
 						<div style="margin-top:3%;">
