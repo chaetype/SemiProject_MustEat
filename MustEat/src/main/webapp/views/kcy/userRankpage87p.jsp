@@ -26,8 +26,9 @@
         /* border: 1px solid black; */
         width: 80% ;
         height: 350px;
-        margin-top: 10px;
-        margin-left: 100px;
+        /* margin-top: 10px;
+        margin-left: 100px; */
+        margin: auto;
         z-index:1000;
         position: relative;
         /* display: flex; */
@@ -39,8 +40,10 @@
         /* border: 1px solid black; */
         width: 80% ;
         height: 350px;
-        margin-top: -350px;
-        margin-left: 100px;
+        /* margin-top: -350px;
+        margin-left: 100px; */
+        margin: auto;
+        margin-bottom: 350px;
         z-index:1000;
         display: flex;
         justify-content: center;
@@ -48,17 +51,17 @@
 	
     .content22{
         /* border: 1px solid black; */
-        width: 470px ;
+        /* width: 470px ; margin: 20px; */
         height: 300px;
-        margin: 20px;
+        width: 80% ; margin: auto;
         /* position: absolute; */
         
     }
     .content23{
         /* border: 1px solid black; */
-        width: 470px ;
+        /* width: 470px ;margin: 20px; */
         height: 300px;
-        margin: 20px;
+        width: 80% ; margin: auto;
         /* position: absolute; */
         
     }
