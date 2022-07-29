@@ -2,5 +2,19 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	
-	
+	<!-- 채윤 : 식당리뷰목록조회 -->
+	<entry key="selectStoreReviewList">
+	SELECT
+	        RE_NO
+	       ,M.MEM_NICKNAME
+	       ,M.MEM_ID
+	       ,REVIEW_TITLE
+	       ,REVIEW_RATE
+	       ,REVIEW_ENROLLDATE
+	       ,M.MEM_GRADE
+	FROM STORE_RE SR
+	JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+	ORDER
+    BY RE_NO DESC
+	</entry>
 </properties>

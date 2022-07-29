@@ -65,6 +65,7 @@
 						<th width="100">게시자</th>
 						<th width="100">회원아이디</th>
 						<th width="400">리뷰제목</th>
+						<th>별점</th>
 						<th width="200">게시일</th>
 						<th width="100">비고</th>
 					</tr>
@@ -73,17 +74,18 @@
 					<% if(list.isEmpty()) { %>
 		                <!--case1. 게시글이 없을 경우-->
 		                <tr>
-		                    <td colspan="6">존재하는 게시글이 없습니다.</td>
+		                    <td colspan="7">존재하는 게시글이 없습니다.</td>
 		                </tr>
 						<% }else { %>
 		                <!--case2.신고글이 있을 경우-->
-		                <td colspan="6"></td>
+		                <td colspan="7"></td>
 		                	<% for(StoreReview sr : list){ %>
 			                <tr>
 			                    <td><%=sr.getReNo()%></td>
-			                    <td><%= sr.getReviewWriter()%></td>]
+			                    <td><%= sr.getReviewWriter()%></td>
 			                    <td><%= sr.getReviewMemId()%></td>
 			                    <td><%= sr.getReviewTitle()%></td>
+			                    <td><%= sr.getReviewRate() %></td>
 			                    <td><%= sr.getReviewEnrollDate()%></td>
 			                    <td><%= sr.getMemLevel()%></td>
 			                   

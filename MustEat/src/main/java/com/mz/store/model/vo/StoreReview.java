@@ -49,6 +49,18 @@ public class StoreReview {
 		this.reviewMemId = reviewMemId;
 		this.memLevel = memLevel;
 	}
+	
+	public StoreReview(int reNo, String reviewWriter,String reviewMemId,String reviewTitle, int reviewRate, Date reviewEnrollDate,
+			  String memLevel) {
+		super();
+		this.reNo = reNo;
+		this.reviewWriter = reviewWriter;
+		this.reviewMemId = reviewMemId;
+		this.reviewTitle = reviewTitle;
+		this.reviewRate = reviewRate;
+		this.reviewEnrollDate = reviewEnrollDate;
+		this.memLevel = memLevel;
+	}
 
 	public int getReNo() {
 		return reNo;
