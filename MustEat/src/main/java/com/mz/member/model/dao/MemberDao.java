@@ -244,35 +244,6 @@ public class MemberDao {
 	}
 	
 	
-//	public ArrayList<Notice> selectNoticeList(Connection conn){
-//		// select문 => ResultSet (여러행) => ArrayList<Notice>객체 
-//		ArrayList<Notice> list = new ArrayList<>();
-//		PreparedStatement pstmt = null;
-//		ResultSet rset = null;
-//		
-//		String sql = prop.getProperty("selectNoticeList");
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			rset = pstmt.executeQuery();
-//			
-//			while(rset.next()) {
-//				list.add(new Notice(rset.getInt("notice_no"),
-//									rset.getString("notice_title"),
-//									rset.getString("user_id"),
-//									rset.getInt("count"),
-//									rset.getDate("create_date")
-//									));
-//			}
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close(rset);
-//			close(pstmt);
-//		}
-//		
-//		return list;
-//	}
+
 }
 	

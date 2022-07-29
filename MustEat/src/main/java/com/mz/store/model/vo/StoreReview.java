@@ -19,6 +19,8 @@ public class StoreReview {
 	private int count;
 	private int scrapCount; // 리뷰 찜횟수
 	private int reportCount; // 신고 횟수
+	private String reviewMemId;//리뷰작성 회원 아이디
+	private String memLevel;//리뷰작성 회원 등급
 	
 	public StoreReview() {
 		
@@ -26,7 +28,8 @@ public class StoreReview {
 
 	public StoreReview(int reNo, String reviewWriter, int storeNo, String reviewContent, String reviewImg,
 			int reviewRate, Date reviewEnrollDate, Date reviewModifyDate, String reviewStatus, String reviewImgPath,
-			String visitDate, String reviewTitle, int count, int scrapCount, int reportCount) {
+			String visitDate, String reviewTitle, int count, int scrapCount, int reportCount, String reviewMemId,
+			String memLevel) {
 		super();
 		this.reNo = reNo;
 		this.reviewWriter = reviewWriter;
@@ -43,6 +46,8 @@ public class StoreReview {
 		this.count = count;
 		this.scrapCount = scrapCount;
 		this.reportCount = reportCount;
+		this.reviewMemId = reviewMemId;
+		this.memLevel = memLevel;
 	}
 
 	public int getReNo() {
@@ -165,6 +170,22 @@ public class StoreReview {
 		this.reportCount = reportCount;
 	}
 
+	public String getReviewMemId() {
+		return reviewMemId;
+	}
+
+	public void setReviewMemId(String reviewMemId) {
+		this.reviewMemId = reviewMemId;
+	}
+
+	public String getMemLevel() {
+		return memLevel;
+	}
+
+	public void setMemLevel(String memLevel) {
+		this.memLevel = memLevel;
+	}
+
 	@Override
 	public String toString() {
 		return "StoreReview [reNo=" + reNo + ", reviewWriter=" + reviewWriter + ", storeNo=" + storeNo
@@ -172,7 +193,11 @@ public class StoreReview {
 				+ ", reviewEnrollDate=" + reviewEnrollDate + ", reviewModifyDate=" + reviewModifyDate
 				+ ", reviewStatus=" + reviewStatus + ", reviewImgPath=" + reviewImgPath + ", visitDate=" + visitDate
 				+ ", reviewTitle=" + reviewTitle + ", count=" + count + ", scrapCount=" + scrapCount + ", reportCount="
-				+ reportCount + "]";
+				+ reportCount + ", reviewMemId=" + reviewMemId + ", memLevel=" + memLevel + "]";
 	}
+
+	
+	
+	
 
 }

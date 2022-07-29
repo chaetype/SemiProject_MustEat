@@ -29,10 +29,10 @@
         /* margin-top: 10px;
         margin-left: 100px; */
         margin: auto;
-        z-index:1000;
-        position: relative;
+     
+        /* position: relative; */
         /* display: flex; */
-        
+        /* background-color: rgb(231, 216, 241); */
        
   
     }
@@ -46,7 +46,7 @@
         margin-bottom: 350px;
         z-index:1000;
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
     }
 	
     .content22{

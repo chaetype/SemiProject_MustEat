@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.StoreReview"%>
+<%ArrayList<StoreReview> list = (ArrayList<StoreReview>)request.getAttribute("list");%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,135 +59,40 @@
 		<h2 style="text-align:center">MZ RESTAURANT REVIEWS</h2>
 		
 		  <table class="rwd-table">
+		  		<thead>
+		  			<tr>
+						<th>글번호</th>
+						<th width="100">게시자</th>
+						<th width="100">회원아이디</th>
+						<th width="400">리뷰제목</th>
+						<th width="200">게시일</th>
+						<th width="100">비고</th>
+					</tr>
+		  		</thead>
 				<tbody>
-				<tr>
-					<th>글번호</th>
-					<th width="100">게시자</th>
-					<th width="100">회원아이디</th>
-					<th colspan="3" width="400">리뷰제목</th>
-					<th width="200">게시일</th>
-					<th width="100">비고</th>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">15</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">14</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">13</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">12</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">11</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">10</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">9</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">8</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">7</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">6</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">5</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">4</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">3</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">2</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code">1</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
+					<% if(list.isEmpty()) { %>
+		                <!--case1. 게시글이 없을 경우-->
+		                <tr>
+		                    <td colspan="6">존재하는 게시글이 없습니다.</td>
+		                </tr>
+						<% }else { %>
+		                <!--case2.신고글이 있을 경우-->
+		                <td colspan="6"></td>
+		                	<% for(StoreReview sr : list){ %>
+			                <tr>
+			                    <td><%=sr.getReNo()%></td>
+			                    <td><%= sr.getReviewWriter()%></td>]
+			                    <td><%= sr.getReviewMemId()%></td>
+			                    <td><%= sr.getReviewTitle()%></td>
+			                    <td><%= sr.getReviewEnrollDate()%></td>
+			                    <td><%= sr.getMemLevel()%></td>
+			                   
+			                </tr>
+                	<% } %>
+				<% } %>
+				
+				
+				
 
 				</tbody>
 		  	</table>
@@ -211,5 +118,22 @@
 		</form>
 	</div>
 	<br><br><br><br><br>
+	
+	
+	
+		<script>
+    	$(function(){
+    		$(".list-area>tbody>tr").click(function(){
+    			const num = $(this).children().eq(0).text(); // 클릭했을때의 글번호
+    			
+    			// 요청할url?키=밸류&키=밸류... 
+    			// 요청시전달값(키=밸류) => 쿼리스트링 
+     			
+    			// /web/detail.no?no=xx
+    			location.href = '<%=contextPath%>/detail.rp?no=' + num;
+    		})
+    	})
+    	
+    </script> 
 </body>
 </html>
