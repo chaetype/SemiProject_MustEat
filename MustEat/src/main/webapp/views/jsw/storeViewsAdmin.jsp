@@ -263,7 +263,7 @@
 							<tr>
 								<td>
 									<div class="point-category">
-										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
+										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey; font-family: Verdana, Geneva, Arial, sans-serif !important;">
 											<option value="">식당번호</option>
 											<option value="">식당명</option>
 											<option value="">전화번호</option>
@@ -272,7 +272,7 @@
 								</td>
 								<td>
 									<div class="input-group mb-3" style="margin-top:6.5%;">
-										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
+										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: Verdana, Geneva, Arial, sans-serif !important;">
 										<div class="input-group-append">
 											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
 										</div>
