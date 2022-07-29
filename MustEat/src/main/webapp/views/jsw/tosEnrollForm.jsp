@@ -68,26 +68,36 @@
 		<div class="container-tos">
 		
 		<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">이용약관</h1>
-
-			<table class="rwd-table tos-table">
-		    <tbody>
-		      <tr>
-		      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
-		        <th>글번호</th>
-		        <th>제목</th>
-		        <th>등록일</th>
-		        <th>수정일</th>
-		        <th/>비고</th>
-		      </tr>
-		      			
+			
 			<!-- 이용약관이 없을 경우 -->
 			<% if(list.isEmpty()) { %>
+			<table class="rwd-table tos-table">
+		    <tbody>
+			    <tr>
+			      	<th></th>
+			        <th>글번호</th>
+			        <th>제목</th>
+			        <th>등록일</th>
+			        <th>수정일</th>
+			        <th/>비고</th>
+			    </tr>
 			<tr>
 				<td colspan="6">존재하는 이용약관이 없습니다.</td>
-			</tr>
-			<% }else { %>
+			</tr>		      			
+			</table>
+			<% }else { %>			
 			<!-- 이용약관이 있을 경우 -->    
 				<% for(Tos t : list) { %>  
+			<table class="rwd-table tos-table">
+		    <tbody>	
+			    <tr>
+			      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
+			        <th>글번호</th>
+			        <th>제목</th>
+			        <th>등록일</th>
+			        <th>수정일</th>
+			        <th/>비고</th>
+			    </tr>		    
 			    <tr>
 			      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
 			        <td><%= t.getTosNo() %></td>
