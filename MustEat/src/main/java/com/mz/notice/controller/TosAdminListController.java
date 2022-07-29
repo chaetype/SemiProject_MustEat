@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TosEnrollFormController
  */
 @WebServlet("/toslist.no")
-public class TosEnrollFormController extends HttpServlet {
+public class TosAdminListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TosEnrollFormController() {
+    public TosAdminListController() {
         super();
         // TODO Auto-generated constructor stub
     }
