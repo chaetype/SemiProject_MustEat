@@ -12,13 +12,14 @@ public class Tos {
 	private String tosNote;
 	private String tosTitle;
 	private String tosContent;
+	private String tosStatus;
 	
 	public Tos() {
 		
 	}
 
-	public Tos(int tosNo, int tosCategory, Date uploadDate, Date enrollDate, Date modifyDate,
-			String tosNote, String tosTitle, String tosContent) {
+	public Tos(int tosNo, int tosCategory, Date uploadDate, Date enrollDate, Date modifyDate, String tosNote,
+			String tosTitle, String tosContent, String tosStatus) {
 		super();
 		this.tosNo = tosNo;
 		this.tosCategory = tosCategory;
@@ -28,6 +29,7 @@ public class Tos {
 		this.tosNote = tosNote;
 		this.tosTitle = tosTitle;
 		this.tosContent = tosContent;
+		this.tosStatus = tosStatus;
 	}
 
 	public int getTosNo() {
@@ -92,15 +94,23 @@ public class Tos {
 
 	public void setTosContent(String tosContent) {
 		this.tosContent = tosContent;
+	}		
+
+	public String getTosStatus() {
+		return tosStatus;
+	}
+
+	public void setTosStatus(String tosStatus) {
+		this.tosStatus = tosStatus;
 	}
 
 	@Override
 	public String toString() {
-		return "Tos [tosNo=" + tosNo + ", tosCategory=" + tosCategory + ", uploadDate="
-				+ uploadDate + ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", tosNote=" + tosNote
-				+ ", tosTitle=" + tosTitle + ", tosContent=" + tosContent + "]";
+		return "Tos [tosNo=" + tosNo + ", tosCategory=" + tosCategory + ", uploadDate=" + uploadDate + ", enrollDate="
+				+ enrollDate + ", modifyDate=" + modifyDate + ", tosNote=" + tosNote + ", tosTitle=" + tosTitle
+				+ ", tosContent=" + tosContent + ", tosStatus=" + tosStatus + "]";
 	}
-	
+
 	
 	
 }
