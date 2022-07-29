@@ -99,7 +99,7 @@
 	
 		<h2 style="text-align:center">REPORT LIST</h2>
 		
-		  <table class="rwd-table">
+		  <table class="rwd-table" width="100%">
 
 				<thead>
 					<tr>
