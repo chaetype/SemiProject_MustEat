@@ -98,7 +98,7 @@
 				<table class="rwd-table" style="width:100%;">
 				    <tbody>
 				      <tr>
-				        <th></th>
+				        <th><input type="checkbox"></th>
 				        <th>회원번호</th>
 				        <th>이름</th>
 						<th>아이디</th>
@@ -237,8 +237,7 @@
 								<td>
 									<div class="point-category">
 										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
-											<option value="">회원번호</option>
-											<option value="">이름</option>
+											<option value="">회원명</option>
 											<option value="">아이디</option>
 										</select>
 									</div>
