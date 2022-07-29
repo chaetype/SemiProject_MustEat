@@ -31,7 +31,7 @@
                 <tr>
                     <td style="padding: 3% 3% 3% 3%;">
 
-                            <h3>서비스 이용약관</h3>
+                            <h3><strong>서비스 이용약관</strong></h3>
 
                             <br>
 
