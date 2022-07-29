@@ -51,7 +51,7 @@ public class StoreReview {
 	}
 	
 	public StoreReview(int reNo, String reviewWriter,String reviewMemId,String reviewTitle, int reviewRate, Date reviewEnrollDate,
-			  String memLevel) {
+			  String memLevel,int count) {
 		super();
 		this.reNo = reNo;
 		this.reviewWriter = reviewWriter;
@@ -60,6 +60,7 @@ public class StoreReview {
 		this.reviewRate = reviewRate;
 		this.reviewEnrollDate = reviewEnrollDate;
 		this.memLevel = memLevel;
+		this.count = count;
 	}
 
 	public int getReNo() {
