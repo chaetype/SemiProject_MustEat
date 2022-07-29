@@ -40,16 +40,22 @@
 			<table class="rwd-table tos-table">
 		    <tbody>
 		      <tr>
-		        <th>메뉴명</th>
-		        <th>게시글 등록</th>
-		        <th>게시글 수정</th>
-		        <th/>게시글 삭제</th>
+		      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
+		        <th>글번호</th>
+		        <th>제목</th>
+		        <th>내용</th>
+		        <th>등록일</th>
+		        <th>수정일</th>
+		        <th/>비고</th>
 		      </tr>
 		      <tr>
-		        <th>이용약관</th>
-		        <td><button class="btn1"><strong>등록</strong></button></td>
-		        <td><button class="btn1"><strong>수정</strong></button></td>
-		        <td><button class="btn1"><strong>삭제</strong></button></td>
+		      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
+		        <td>(번호)</td>
+		        <td>(제목)</td>
+		        <td>(내용일부)</td>
+		        <td>(등록일)</td>
+		        <td>(수정일)</td>
+		        <td>(비고)</td>
 		      </tr>		     
 		    </tbody>
 		  </table>
