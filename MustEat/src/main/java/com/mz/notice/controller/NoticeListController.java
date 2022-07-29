@@ -16,7 +16,7 @@ import com.mz.notice.model.vo.Notice;
 /**
  * Servlet implementation class NoticeListView
  */
-@WebServlet("/listNotice.no")
+@WebServlet("/noticeList.no")
 public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

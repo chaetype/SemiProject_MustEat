@@ -48,7 +48,7 @@
         <br><br>
 
         <div class="form-wrap">
-            <form action="#">
+            <form action="<%= contextPath %>/contactInsert.no" method="post" enctype="multipart/form-data">
                 <table style="margin-left:50px">
                     <tr>
                         <th width="130px">문의 제목</th>
@@ -64,7 +64,7 @@
                     <tr>
                         <th>문의 내용</th>
                         <td>
-                            <textarea name="contact-content" cols="87" rows="20" style="resize:none"></textarea>
+                            <textarea name="contact-content" cols="87" rows="20" style="resize:none" required></textarea>
                         </td>
                     </tr>
                     <tr>

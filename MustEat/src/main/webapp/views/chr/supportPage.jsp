@@ -119,7 +119,7 @@
 
             
         </div>
-        <div class="support-button" id="notice-button"><a href="<%=contextPath%>/listNotice.no?cpage=1"><b>공지사항</b></a></div>
+        <div class="support-button" id="notice-button"><a href="<%=contextPath%>/noticeList.no?cpage=1"><b>공지사항</b></a></div>
 
         <div class="support-button" id="contact-button"><a href="<%=contextPath%>/contactEnrollForm.no"><b>1 : 1 문의하기</b></a></div>
 
