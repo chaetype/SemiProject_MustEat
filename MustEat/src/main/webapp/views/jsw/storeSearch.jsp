@@ -39,8 +39,7 @@
 	}
 	.container-storelist {
 	display: flex;
-	width: 1040px;
-	justify-content: space-evenly;
+	width: 100%;
 	flex-wrap: wrap;
 	}
 	.card {
@@ -131,18 +130,6 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="20%;">
-							<select name="" id="" style="width:40%;">
-								<option value="">인기순</option>
-								<option value="">이름순</option>
-								<option value="">별점순</option>
-							</select>
-						</td>
-						<td>
-							<h2 class="search-padding" style="text-align:left;">XX맛집 XX순</h2>
-						</td>
-					</tr>
-					<tr>
 						<th><h4><strong>분위기</strong></h4></th>
 						<td class="search-tag search-padding">
 							<button class="btn1">#가성비좋은</button>
@@ -187,6 +174,20 @@
 							이하
 						</td>
 					</tr>
+					
+					<tr>
+						<td width="20%;">
+							<select name="" id="" style="width:40%;">
+								<option value="">인기순</option>
+								<option value="">이름순</option>
+								<option value="">별점순</option>
+							</select>
+						</td>
+						<td>
+							<h2 class="search-padding" style="text-align:left;">XX맛집 XX순</h2>
+						</td>
+					</tr>
+					
 				</table>
 			</div>
 			
@@ -197,25 +198,69 @@
 			<div class="wrap-storelist">
 				<div class="container-storelist">
 				
-					<div class="card">
-					<div class="card-header">
-						<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-					</div>
-					<div class="card-body">
-
-						<span class="tag tag-purple"><strong>서울시 금천구</strong></span>
-						<h4 style="margin-top:3%;"><strong>구디아카데미</strong></h4>
-
-						<p style="margin-top:4%;">
-						#태그1, #태그2, #태그3 <br><br>
-						대표메뉴 : xxxx <br>
-						영업시간 : 00:00 ~ 00:00 <br>
-						브레이크 : 00:00 ~ 00:00            
-						</p>
-						<div class="user-info">
-							<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
+				<table class="table-storelist">
+				
+					<tr>
+						<td>
+							
+							<div class="card">
+								<div class="card-header">
+									<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+								</div>
+								<div class="card-body">
+			
+									<span class="tag tag-purple"><strong>서울시 금천구</strong></span>
+									<h4 style="margin-top:3%;"><strong>구디아카데미</strong></h4>
+			
+									<p style="margin-top:4%;">
+									#태그1, #태그2, #태그3 <br><br>
+									대표메뉴 : xxxx <br>
+									영업시간 : 00:00 ~ 00:00 <br>
+									브레이크 : 00:00 ~ 00:00            
+									</p>
+									<div class="user-info">
+										<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
+									</div>
+								</div>
+							</div>
+							
+						</td>						
+					</tr>
+				
+				
+				</table>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+<!-- 					<div class="card">
+						<div class="card-header">
+							<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
 						</div>
-					</div>
+						<div class="card-body">
+	
+							<span class="tag tag-purple"><strong>서울시 금천구</strong></span>
+							<h4 style="margin-top:3%;"><strong>구디아카데미</strong></h4>
+	
+							<p style="margin-top:4%;">
+							#태그1, #태그2, #태그3 <br><br>
+							대표메뉴 : xxxx <br>
+							영업시간 : 00:00 ~ 00:00 <br>
+							브레이크 : 00:00 ~ 00:00            
+							</p>
+							<div class="user-info">
+								<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
+							</div>
+						</div>
 					</div>
 					<div class="card">
 					<div class="card-header">
@@ -308,7 +353,7 @@
 							<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
 						</div>
 					</div>							
-				</div>	
+				</div>	 -->
 				
 				
 				
