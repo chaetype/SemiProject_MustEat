@@ -4,6 +4,8 @@
 	int countR = (int)request.getAttribute("countR"); // '상품준비중'
 	int countT = (int)request.getAttribute("countT"); // '배송중'
 	int countD = (int)request.getAttribute("countD"); // '배송완료'
+	int countC = (int)request.getAttribute("countC"); // '상품취소'
+	int countB = (int)request.getAttribute("countB"); // '장바구니'
 %>
 <!DOCTYPE html>
 <html>
@@ -31,7 +33,7 @@
 	    <div class="status">
 	      <div class="item">
 	        <div>
-	          <a href="" class="number">6</a>
+	          <a href="" class="number"><%=countB %></a>
 	          <div class="text">장바구니</div>
 	        </div>
 	      </div>     
@@ -59,7 +61,7 @@
 	
 	      <div class="item">
 	        <div>
-	          <a href="" class="number">3</a>
+	          <a href="" class="number"><%=countC %></a>
 	          <div class="text">상품취소</div>
 	        </div>
 	      </div>

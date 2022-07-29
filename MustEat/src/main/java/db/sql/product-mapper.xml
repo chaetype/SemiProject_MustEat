@@ -43,7 +43,7 @@
 		  AND MEM_ID = ?
 	</entry>
 	
-		<!-- 은영 ('배송완료'에 따른 주문 수량) -->
+	<!-- 은영 ('배송완료'에 따른 주문 수량) -->
 	<entry key="countDelivered">
 	<!-- 배송 현황에 다른 주문 수량 조회시 실행할 sql문 -->
 		SELECT COUNT(*) "COUNT"
@@ -53,4 +53,23 @@
 		  AND MEM_ID = ?
 	</entry>
 	
+	<!-- 은영 ('상품취소'에 따른 주문 수량) -->
+	<entry key="countCancel">
+	<!-- 상품 취소 조회시 실행할 sql문 -->
+		SELECT COUNT(*) "COUNT"
+		    FROM ORDER_PRO
+		JOIN MEMBER USING (MEM_NO)
+		WHERE ORDER_STATUS = 2
+		  AND MEM_ID = ?
+	</entry>
+	
+	<!-- 은영 ('장바구니'에 담긴 물품 수량) -->
+	<entry key="countBasket">
+	<!-- 장바구니 조회시 실행할 sql문 -->
+		SELECT COUNT(AMOUNT) "COUNT"
+		    FROM BASKET
+		JOIN MEMBER USING (MEM_NO)
+		WHERE MEM_ID = ?
+	</entry>
+
 </properties>

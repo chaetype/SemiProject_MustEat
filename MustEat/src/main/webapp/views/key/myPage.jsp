@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
  
 <%
-	//int countR = (int)request.getAttribute("countR"); // '상품준비중'
-	//int countT = (int)request.getAttribute("countT"); // '배송중'
-	//int countD = (int)request.getAttribute("countD"); // '배송완료'
+	int countR = (int)request.getAttribute("countR"); // '상품준비중'
+	int countT = (int)request.getAttribute("countT"); // '배송중'
+	int countD = (int)request.getAttribute("countD"); // '배송완료'
+	int countC = (int)request.getAttribute("countC"); // '상품취소'
+	int countB = (int)request.getAttribute("countB"); // '장바구니'
 %>
 
 <!DOCTYPE html>
@@ -70,61 +72,48 @@
       
       <div class="item">
         <div>
-          <div class="number basket">6</div>
+          <div class="number basket" onclick="orderStatus(0);"><%=countB %></div>
           <div class="text">장바구니</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus">0</div>
+          <div class="number orderStatus" onclick="orderStatus(1);" ><%=countR %></div>
           <div class="text">상품준비중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus">0</div>
+          <div class="number orderStatus" onclick="orderStatus(3);"><%=countT %></div>
           <div class="text">배송중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus">0</div>
+          <div class="number orderStatus" onclick="orderStatus(4);"><%=countD %></div>
           <div class="text">배송완료</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderCancel">3</div>
+          <div class="number orderCancel" onclick="orderStatus(2);"><%=countC %></div>
           <div class="text">상품취소</div>
         </div>
       </div>
       
     </div>
   </div>  
-
+  
   <script>
   
-  // '장바구니' 클릭하면 실행하는 함수
-  $(".basket").click(function() {
-	  location.href="<%=contextPath%>/proBasket.pro"
-  })
-  
-	
-  // '배송중, 상품준비중, 배송완료' 클릭하면 실행하는 함수
-  	$(".orderStatus").click(function() { 
-  		// 배송상품들의 상태를 전달하는 함수
-  		// location.href="<%=contextPath%>/orderStatusList.pro?delivery=" + $(this).next().text();
-  		location.href="<%=contextPath%>/orderStatusList.pro";
-  	})
-  	
-  // '상품취소' 클릭하면 실행하는 함수
-  $(".orderCancel").click(function() {
-	  location.href="<%=contextPath%>/orderStatusList.pro?status=2";
-  })
+	  // '장바구니, 상품준비중, 배송중, 배송완료, 상품취소' 클릭하면 실행하는 함수
+	 	function orderStatus(status) { // 실행시 전달되는 값을 담는 매개변수
+		  location.href="<%=contextPath%>/orderStatusList.pro?status=" + status;
+	  }
   
   </script>
 

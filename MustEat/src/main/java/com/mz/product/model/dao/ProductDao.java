@@ -71,7 +71,6 @@ public class ProductDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -111,7 +110,6 @@ public class ProductDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -150,7 +148,6 @@ public class ProductDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -190,7 +187,6 @@ public class ProductDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -201,7 +197,76 @@ public class ProductDao {
 		
 	}
 	
+	// 은영
+	/**
+	 * 로그인한 회원의 '상품취소'인 주문 갯수를 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : '상품취소'인 주문 갯수가 담긴 int형 변수
+	 */
+	public int countCancel(Connection conn, String memId) {
+		
+		// select => 상품취소 => ResultSet => int
+		int count = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("countCancel");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				count = rset.getInt("count");				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return count;
+		
+	}
 	
-	
+	// 은영
+	/**
+	 * 로그인한 회원의 '장바구니'인 주문 갯수를 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : '장바구니'인 주문 갯수가 담긴 int형 변수
+	 */
+	public int countBasket(Connection conn, String memId) {
+		
+		// select => 장바구니 수량 => ResultSet => int
+		int count = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("countBasket");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				count = rset.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return count;
+			
+	}
 	
 }
