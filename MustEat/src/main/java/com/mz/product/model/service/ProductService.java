@@ -50,6 +50,7 @@ public class ProductService {
 		
 	}
 	
+	
 	// 은영
 	/**
 	 * 로그인한 회원의 '배송중'인 주문 갯수를 조회하는 Service
@@ -88,7 +89,43 @@ public class ProductService {
 		
 	}
 	
+	// 은영
+	/**
+	 * 로그인한 회원의 '상품취소'인 주문 갯수를 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : '상품취소'인 주문 갯수가 담긴 int형 변수
+	 */
+	public int countCancel(String memId) {
+		
+		Connection conn = getConnection();
+		
+		// 상품취소된 주문 수량
+		int result = new ProductDao().countCancel(conn, memId);
+		
+		close(conn);
+		
+		return result;
+		
+	}
 	
-
+	// 은영
+	/**
+	 * 로그인한 회원의 '장바구니'인 주문 갯수를 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : '장바구니'인 주문 갯수가 담긴 int형 변수
+	 */
+	public int countBasket(String memId) {
+		
+		Connection conn = getConnection();
+		
+		// 장바구니 물품 수량
+		int result = new ProductDao().countBasket(conn, memId);
+		
+		close(conn);
+		
+		return result;
+		
+	}
+	
 }
 
