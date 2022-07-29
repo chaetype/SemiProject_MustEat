@@ -264,8 +264,8 @@
 								<td>
 									<div class="point-category">
 										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey; font-family: Verdana, Geneva, Arial, sans-serif !important;">
-											<option value="">식당번호</option>
 											<option value="">식당명</option>
+											<option value="">식당주소</option>
 											<option value="">전화번호</option>
 										</select>
 									</div>
