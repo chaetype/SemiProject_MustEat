@@ -71,5 +71,15 @@
 		JOIN MEMBER USING (MEM_NO)
 		WHERE MEM_ID = ?
 	</entry>
+	
+	<!-- 은영(미완성 => 배송에 따른 주문 수량를 한꺼번에 실행할 코드 -->
+	<entry key="countOrder">
+	<!-- 제일 마지막에 완성할것! -->
+	  	SELECT COUNT(*) "COUNT"
+			FROM ORDER_PRO
+			JOIN MEMBER USING (MEM_NO)
+		WHERE DELIVERY_STATUS = ?
+		  AND MEM_ID = ?
+	</entry>
 
 </properties>

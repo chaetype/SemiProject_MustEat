@@ -81,7 +81,7 @@ public class ProductService {
 		Connection conn = getConnection();
 		
 		// 배송완료된 주문 수량
-		int result = new ProductDao().countInTransit(conn, memId);
+		int result = new ProductDao().countDelivered(conn, memId);
 		
 		close(conn);
 		
@@ -127,5 +127,16 @@ public class ProductService {
 		
 	}
 	
+	public int countOrder(String status, String memId) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().countOrder(conn, status, memId);
+		
+		close(conn);
+		
+		return result;
+	}
+ 	
 }
 

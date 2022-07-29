@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
 <%
 	int countR = (int)request.getAttribute("countR"); // '상품준비중'
 	int countT = (int)request.getAttribute("countT"); // '배송중'
@@ -112,7 +111,7 @@
   
 	  // '장바구니, 상품준비중, 배송중, 배송완료, 상품취소' 클릭하면 실행하는 함수
 	 	function orderStatus(status) { // 실행시 전달되는 값을 담는 매개변수
-		  location.href="<%=contextPath%>/orderStatusList.pro?status=" + status;
+		  location.href="<%=contextPath%>/orderStatusList2.pro?status=" + status;
 	  }
   
   </script>

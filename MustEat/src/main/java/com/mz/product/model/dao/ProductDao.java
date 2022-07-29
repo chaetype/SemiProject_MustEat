@@ -269,4 +269,35 @@ public class ProductDao {
 			
 	}
 	
+	public int countOrder(Connection conn, String status, String memId) {
+		
+		// select => 주문현황에 따른 주문수량 => ResultSet => int
+		int count = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("countOrder");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1,status);
+			pstmt.setString(2, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				count = rset.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return count;
+		
+	}
+	
 }
