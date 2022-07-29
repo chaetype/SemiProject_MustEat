@@ -104,7 +104,7 @@
 	
 			<hr noshade size = 1 style="background:black;"> -->
 		
-			<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">식당 등록</h1>
+			<h1 style="text-align:center; font-family: 'OTWelcomeRA' !important;">식당 등록</h1>
 	
 			<hr noshade size = 1 style="background:black;">
 
@@ -116,14 +116,14 @@
 
 						<div class="row">
 						  <div class="col-md-6 mb-3">
-							<label for="store-name" style="color:rgb(168, 99, 221)"><b>* 식당명</b></label>
+							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
 							<input type="text" class="form-control" id="store-name" placeholder="식당명을 입력해주세요." value="" required>
 							<div class="invalid-feedback">
 							  식당명을 입력해주세요.
 							</div>
 						  </div>
 						  <div class="col-md-6 mb-3">
-							<label for="store-phone" style="color:rgb(168, 99, 221)"><b>* 전화번호(-포함)</b></label>
+							<label for="store-phone" style="color:#4B088A;"><b>* 전화번호(-포함)</b></label>
 							<input type="tel" class="form-control" id="store-phone" placeholder="전화번호를 입력해주세요. ex) xx-xxx-xxxx / xxx-xxx-xxxx" required>
 						 	<div class="invalid-feedback">
 							  전화번호를 입력해주세요.
@@ -132,7 +132,7 @@
 						</div>
 			  
 						<div class="mb-3">
-							<label for="store-address" style="color:rgb(168, 99, 221)"><b>* 식당주소</b></label>
+							<label for="store-address" style="color:#4B088A;"><b>* 식당주소</b></label>
 							<br>
 							<select name="sido" id="sido"></select>
 							<select name="gugun" id="gugun"></select>	
@@ -187,7 +187,7 @@
 						
 						<div class="mb-3" id="store-map">
 
-							<label for="store-map" style="color:rgb(168, 99, 221)"><b>* 식당지도</b></label>
+							<label for="store-map" style="color:#4B088A;"><b>* 식당지도</b></label>
 
 							<div id="map" style="width:100%;height:350px;"></div>
 
@@ -238,7 +238,7 @@
 
 							<table>
 								<tr>
-									<td><label for="store-img" style="color:rgb(168, 99, 221)"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="store-img" style="color:#4B088A;"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file"></td>
 								</tr>
 								<tr>
@@ -251,16 +251,37 @@
 						</div>
 
 						<div class="mb-3">
-						  <label for="store-introduce" style="color:rgb(168, 99, 221)"><b>* 식당소개</b></label>
+						  <label for="store-introduce" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
 						  <textarea name="store-introduce" id="store-introduce" cols="145" rows="10" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div class="invalid-feedback">
 							식당 소개글을 입력해주세요.
 						  </div>
 						</div>
+						
+						<script>
+							$('#store-introduce').keyup(function (e) {
+								let content = $(this).val();
+							    
+							    // 글자수 세기
+							    if (content.length == 0 || content == '') {
+							    	$('.textCount').text('0자');
+							    } else {
+							    	$('.textCount').text(content.length + '자');
+							    }
+							    
+							    // 글자수 제한
+							    if (content.length > 1200) {
+							    	// 1200자 부터는 타이핑 되지 않도록
+							        $(this).val($(this).val().substring(0, 1200));
+							        // 1200자 넘으면 알림창 뜨도록
+							        alert('글자수는 1200자까지 입력 가능합니다.');
+							    };
+							});
+						</script>
 			  
 						<div class="mb-3">
-							<label for="store-menu" style="color:rgb(168, 99, 221)"><b>* 인기메뉴</b></label>
+							<label for="store-menu" style="color:#4B088A;"><b>* 인기메뉴</b></label>
 						  <input type="text" class="form-control" id="store-menu" placeholder="인기메뉴를 입력해주세요.">
 						  <div class="invalid-feedback">
 							인기메뉴를 입력해주세요.
@@ -271,7 +292,7 @@
 
 							<table>
 								<tr>
-									<td><label for="menu-img" style="color:rgb(168, 99, 221)"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="menu-img" style="color:#4B088A;"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file"></td>
 								</tr>
 								<tr>
@@ -284,20 +305,41 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="menu-introduce" style="color:rgb(168, 99, 221)"><b>* 인기메뉴 설명</b></label>
+							<label for="menu-introduce" style="color:#4B088A;"><b>* 인기메뉴 설명</b></label>
 							<br>
-							<textarea name="store-introduce" id="store-introduce" cols="145" rows="10" style="resize:none; border:1px solid lightgrey;"></textarea>
+							<textarea name="menu-introduce" id="menu-introduce" cols="145" rows="10" maxlength="600" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
 						  </div>
 						</div>
+						
+						<script>
+							$('#menu-introduce').keyup(function (e) {
+								let content = $(this).val();
+							    
+							    // 글자수 세기
+							    if (content.length == 0 || content == '') {
+							    	$('.textCount').text('0자');
+							    } else {
+							    	$('.textCount').text(content.length + '자');
+							    }
+							    
+							    // 글자수 제한
+							    if (content.length > 600) {
+							    	// 600자 부터는 타이핑 되지 않도록
+							        $(this).val($(this).val().substring(0, 600));
+							        // 600자 넘으면 알림창 뜨도록
+							        alert('글자수는 600자까지 입력 가능합니다.');
+							    };
+							});
+						</script>
 
 						<div style="margin-top:3%;">
 
 							<table>
 								<div class="mb-3">
 									<tr>
-										<td><label for="store-operating-start" style="color:rgb(168, 99, 221)"><b>* 운영시간</b></label></td>
+										<td><label for="store-operating-start" style="color:#4B088A;"><b>* 운영시간</b></label></td>
 										<td><input type="time" id="store-operating-start">&nbsp;~&nbsp;<input type="time" id="store-operating-end"></td>
 									</tr>
 									<div class="invalid-feedback">
@@ -306,7 +348,7 @@
 								</div>
 								<div class="mb-3">
 									<tr>
-										<td><label for="store-break-start" style="color:rgb(168, 99, 221)"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										<td><label for="store-break-start"  style="color:#4B088A;"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 										<td><input type="time" id="store-break-start">&nbsp;~&nbsp;<input type="time"id="store-break-end"></td>
 									</tr>
 									<div class="invalid-feedback">
@@ -320,7 +362,7 @@
 						<br>
 						
 						<div class="mb-3">
-							<label for="store-naver" style="color:rgb(168, 99, 221)"><b>* 네이버 주소 URL</b></label>
+							<label for="store-naver" style="color:#4B088A;"><b>* 네이버 주소 URL</b></label>
 						  <input type="url" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
 						  <div class="invalid-feedback">
 							네이버 주소 URL을 입력해주세요.
@@ -328,7 +370,7 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="store-url" style="color:rgb(168, 99, 221)"><b>* 식당 주소 URL</b></label>
+							<label for="store-url" style="color:#4B088A;"><b>* 식당 주소 URL</b></label>
 						  <input type="text" class="form-control" id="store-url" placeholder="식당 주소 url을 입력해주세요.">
 						  <div class="invalid-feedback">
 							식당 주소 URL을 입력해주세요.
@@ -338,7 +380,7 @@
 						<div class="mb-3">
 							<table>
 								<tr>
-									<td><label for="store-holiday" style="color:rgb(168, 99, 221)"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="store-holiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
 										<input type="checkbox" id="store-holiday">월
 										<input type="checkbox" id="store-holiday">화
