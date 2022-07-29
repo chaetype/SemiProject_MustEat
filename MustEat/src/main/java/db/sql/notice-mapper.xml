@@ -9,7 +9,7 @@
 	
 	
 	<!-- 서원 -->
-	<!-- 관리자 이용약관 -->
+	<!-- 관리자 이용약관 페이지 -->
 	<entry key="selectAdminTosList">
 		SELECT 
 	     	   TOS_NO
