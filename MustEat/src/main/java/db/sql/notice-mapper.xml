@@ -29,5 +29,23 @@
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	
+	
+	
+	<!-- 서원 -->
+	<!-- 관리자 이용약관 -->
+	<entry key="selectAdminTosList">
+		SELECT 
+	     	   TOS_NO
+	    	 , TOS_TITLE
+	    	 , ENROLL_DATE
+	    	 , MODIFY_DATE
+	    	 , TOS_NOTE
+	 	 FROM TOS
+	 	WHERE TOS_STATUS = 'Y'
+	 	ORDER 
+	   	   BY TOS_NO DESC
+	</entry>  
 
 </properties>
