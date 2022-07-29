@@ -7,6 +7,10 @@
 <title>이용약관</title>
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
+
 <style>
 
 	.wrap-tos {
@@ -28,6 +32,24 @@
 		margin-top:2%;	
 		text-align:center;
 	}
+	
+	@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+	
+	html, body{height: 100%}
+	
+	body{display: grid;place-items: center;font-family: 'Manrope', sans-serif;background: red}
+	
+	.card{position: relative;display: flex;flex-direction: column;min-width: 0;padding: 20px;word-wrap: break-word;background-color: #fff;background-clip: border-box;border-radius: 6px;-moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)}
+	
+	.card input{margin-top:10px}.btn-success{color: #fff;background-color: #ff5300;border-color: #ff5300}
+	
+	.btn-success:hover{color: #fff;background-color: #ff0000;border-color: #ff0000}
+	
+	.btn-success.focus, .btn-success:focus{box-shadow: 0 0 0 0.2rem rgb(255, 255, 255)}
+	
+	.btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle{color: #fff;background-color: #ff0000;border-color: #ff0000}
+	
+	.form-control:focus{color: #495057;background-color: #fff;border-color: #ff5300;outline: 0;box-shadow: 0 0 0 1px rgb(255, 255, 255) !important}
 		
 </style>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
@@ -70,16 +92,53 @@
 		
 		<div class="tos-enroll">
 	
-			<button class="btn1">등록하기</button>
+			<button type="button" class="btn1" id="tos-enroll-btn" data-toggle="modal" data-target="#myModal">등록하기</button>
 			<button class="btn1">수정하기</button>
 			<button class="btn1">삭제하기</button>
 
 		</div>
 		
+		<form action="">
 		
-		<!-- 등록 버튼 누르고 뜨는 모달창 안에 넣기 -->
+		<!-- The Modal -->
+		<div class="modal fade" id="myModal">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		      		        
+		        <!-- Modal body -->
+		        <div class="modal-body">
+		          
+			        <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/datedropper.css" rel="stylesheet">
+					<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/datedropper.js"></script>
+					
+					<div class="container d-flex justify-content-center text-center">
+					    <div class="card px-5 py-5">
+					        <div class="row">
+					        <h1 style="font-family: 'OTWelcomeRA';">이용약관 등록하기</h1>
+					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="이용약관 제목" /> </div>
+					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="비고" /> </div>
+					        </div>
+					        <div class="row mt-3">
+					            <div class="col-md-12"> <textarea rows="15" class="form-control" id="tos-content" style="width:100% !important;" placeholder="이용약관 내용을 입력해주세요." ></textarea> </div>
+					        </div> <button type="submit" value="이용약관내용" class="btn btn-primary mt-5" style="background:rgb(167, 112, 239) !important;">등록하기<i class="fa fa-long-arrow-right ml-2 mt-1"></i></button>
+					    </div>
+					</div>				          
+		          
+		        </div>
+		        
+		        <!-- Modal footer -->
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        </div>
+		        
+		      </div>
+		    </div>
+		  </div>
+		  
+		  </form>
 		
 		
+
 		
 		
 		
