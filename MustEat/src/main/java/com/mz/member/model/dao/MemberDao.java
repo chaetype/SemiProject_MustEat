@@ -243,6 +243,34 @@ public class MemberDao {
 		
 	}
 	
+	// 은영
+	public int deleteMember(Connection conn, String withdraw, String memId, String deletePwd) {
+		
+		// update => 처리된 행 수 반환
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, withdraw);
+			pstmt.setString(2, memId);
+			pstmt.setString(3, deletePwd);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 	
 
 }

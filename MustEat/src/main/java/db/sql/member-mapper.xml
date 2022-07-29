@@ -96,5 +96,15 @@
 		 ORDER 
 		    BY REPORT_NO DESC
 	</entry>
+	
+	<!-- 은영 (회원 탈퇴 처리) -->
+	<entry key="deleteMember">
+	<!-- 회원 탈퇴 신청시 실행할 sql문 -->
+		UPDATE MEMBER
+		    SET MEM_STATUS = 'N'
+		      , WITHDRAW = ?
+		WHERE MEM_ID = ?
+	  	  AND MEM_PWD = ?
+	</entry>
 
 </properties>

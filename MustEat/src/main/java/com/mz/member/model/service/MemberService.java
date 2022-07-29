@@ -81,4 +81,23 @@ public class MemberService {
 		return list;
 	}
 	
+	// 은영
+	public int deleteMember(String withdraw, String memId, String deletePwd) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().deleteMember(conn, withdraw, memId, deletePwd);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+
+	}
+	
 }

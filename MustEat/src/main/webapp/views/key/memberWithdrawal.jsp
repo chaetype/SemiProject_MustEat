@@ -17,7 +17,7 @@
     <div class="delete-area">
 
         <div class="deleteInfo_first">
-            <img src="../../resources/image/key/check-mark-black.png" alt=""> <br><br>
+            <img src="<%=request.getContextPath()%>/resources/image/key/check-mark-black.png" alt=""> <br><br>
             <div><strong>회원탈퇴가 <span>완료되었습니다.</span></strong></div>
         </div>
 

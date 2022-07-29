@@ -16,6 +16,7 @@
 	<!-- 메뉴바에 담겨있는 회원 정보 불러오기 -->
 	<%
 		String memId = loginUser.getMemId();
+		String memPwd = loginUser.getMemPwd();
 		String memName = loginUser.getMemName();
 		String memNickname = loginUser.getMemNickname();
 		String phone = loginUser.getMemPhone();
@@ -136,8 +137,8 @@
 	      <!-- Modal body -->
 	      <div class="modal-body" align="center">
 	      
-	        <form action="" method="post">
-	        	<input type="hidden" name="userId" value="">
+	        <form action="<%=contextPath %>/delete.me" method="post" id="delete-form">
+	        	<input type="hidden" name="userId" value="<%=memId%>">
 				
           <div class="deleteContent">
             <b>혜택 내역</b>  <br> 
@@ -150,7 +151,7 @@
             <span><strong>회원 탈퇴 사유</strong></span>
 
               <div class="deleteReason">
-                <select required>
+                <select name="withdraw" required>
                   <option value="맛집 및 상품 종류 부족">맛집 및 상품 종류 부족</option>
                   <option value="상품 가격 불만족">상품 가격 불만족</option>
                   <option value="서비스 이용 불편">서비스 이용 불편</option>
@@ -163,21 +164,38 @@
 				</div>
 
             <div class="deleteCheck">
-
               <div><strong>비밀번호를 입력해주세요.</strong></div>
-              <input type="password" name="userPwd" id="deletePwd">
-              <br><br>
+              <div><input type="password" name="deletePwd" id="deletePwd"></div>
+			</div>
+			
+			 <div id="alert-fail" style="padding-left:31px; font-size:12px; color:red;">비밀번호를 다시 입력해주세요.</div>
 
-	        	</div>
-
+			<br>
             <div align="center">
-              <button type="submit" class="plain-btn btn">탈퇴하기</button>
+              <button type="submit" class="plain-btn btn" onclick="return deleteMember();">탈퇴하기</button>
               <button type="button" class="plain-btn btn" onclick="history.back();">취소</button>
             </div>
+            
+            <br><br>
 
 	        </form>
+	        
+	        <script>
 
-          <br>
+	        	 $("#alert-fail").hide(); // 비밀번호 불일치 안내창 숨기기
+	        	
+	        	function deleteMember() {
+	        		
+	        		if( $("#deletePwd").val() != <%=memPwd %>) {
+	        			$("#alert-fail").show();
+	        			// alert("볼일치");
+	        			return false;
+	        		}
+	        		
+	        	}
+
+	        </script>
+
 	        
 	 		</div>
 		 </div>
