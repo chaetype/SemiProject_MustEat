@@ -56,9 +56,6 @@ public class NoticeListController extends HttpServlet {
 		
 		request.getRequestDispatcher("views/chr/noticeListView.jsp").forward(request, response);
 		
-//		System.out.println(pi.getCurrentPage());
-//		System.out.println(list.size());
-		
 	}
 
 	/**
