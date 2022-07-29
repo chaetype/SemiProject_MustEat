@@ -71,7 +71,6 @@
 		      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
 		        <th>글번호</th>
 		        <th>제목</th>
-		        <th>내용</th>
 		        <th>등록일</th>
 		        <th>수정일</th>
 		        <th/>비고</th>
@@ -80,7 +79,6 @@
 		      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
 		        <td>(번호)</td>
 		        <td>(제목)</td>
-		        <td>(내용일부)</td>
 		        <td>(등록일)</td>
 		        <td>(수정일)</td>
 		        <td>(비고)</td>
@@ -99,6 +97,7 @@
 		</div>
 		
 		<form action="<%= contextPath %>/toslist.no">
+		<input type="hidden" name="userNo" value="">
 		
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
@@ -115,11 +114,11 @@
 					    <div class="card px-5 py-5">
 					        <div class="row">
 					        <h1 style="font-family: 'OTWelcomeRA';">이용약관 등록하기</h1>
-					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="이용약관 제목"> </div>
-					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="비고"> </div>
+					            <div class="col-md-6"> <input type="text" name="tosTitle" class="form-control" placeholder="이용약관 제목"> </div>
+					            <div class="col-md-6"> <input type="text" name="tosEtc" class="form-control" placeholder="비고"> </div>
 					        </div>
 					        <div class="row mt-3">
-					            <div class="col-md-12"> <textarea rows="15" class="form-control" id="tos-content" style="width:100% !important; resize:none;" placeholder="이용약관 내용을 입력해주세요." ></textarea> </div>
+					            <div class="col-md-12"> <textarea name="tosContent" rows="15" class="form-control" id="tos-content" style="width:100% !important; resize:none;" placeholder="이용약관 내용을 입력해주세요." ></textarea> </div>
 					        </div> <button type="submit" value="이용약관내용" class="btn btn-primary mt-5" style="background:rgb(167, 112, 239) !important;">등록하기<i class="fa fa-long-arrow-right ml-2 mt-1"></i></button>
 					    </div>
 					</div>				          
