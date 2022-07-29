@@ -23,6 +23,11 @@
 		width:100%;
 	}
 	
+	.tos-enroll{
+		margin-top:2%;	
+		text-align:center;
+	}
+	
 </style>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
@@ -59,9 +64,18 @@
 		      </tr>		     
 		    </tbody>
 		  </table>
-			
-			
+						
 		</div>
+		
+		<div class="tos-enroll">
+	
+			<button class="btn1">등록하기</button>
+			<button class="btn1">수정하기</button>
+			<button class="btn1">삭제하기</button>
+
+		</div>
+		
+		
 		
 	</div>
 
