@@ -49,13 +49,14 @@ public class StoreDao {
 			
 			
 			while(rset.next()) {
-				list.add(new StoreReview(rset.getInt("reNO"),
-									rset.getString("reviewWriter"),
-									rset.getString("reviewMemId"),
-									rset.getString("reviewTitle"),
-									rset.getInt("reviewRate"),
-									rset.getDate("reviewEnrollDate"),
-									rset.getString("memLevel")
+				list.add(new StoreReview(rset.getInt("re_no"),
+									rset.getString("mem_nickname"),
+									rset.getString("mem_id"),
+									rset.getString("review_title"),
+									rset.getInt("review_rate"),
+									rset.getDate("review_enrolldate"),
+									rset.getString("mem_grade"),
+									rset.getInt("count")
 									));
 			}
 		} catch (SQLException e) {
