@@ -3,7 +3,32 @@
 <properties>
 	
 	<!-- 혜림 -->
+	<entry key="selectNoticeListCount">
+		SELECT
+		       COUNT(*) AS COUNT
+		  FROM NOTICE
+	</entry>
 	
+	<entry key="selectNoticeList">
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM, A.*
+		          FROM (
+		                SELECT
+		                       NOTICE_NO
+		                     , NOTICE_TITLE
+		                     , NOTICE_CONTENT
+		                     , NOTICE_WRITER
+		                     , ENROLL_DATE
+		                     , NOTICE_COUNT
+		                     , NOTICE_ATTACH
+		                  FROM NOTICE
+		                 ORDER
+		                    BY NOTICE_NO DESC
+		                ) A
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
 	
 	
 	

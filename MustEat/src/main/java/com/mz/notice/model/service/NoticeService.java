@@ -9,11 +9,26 @@ import java.util.ArrayList;
 import com.mz.notice.model.dao.NoticeDao;
 import com.mz.notice.model.vo.Notice;
 import com.mz.notice.model.vo.Tos;
+import com.mz.common.model.vo.PageInfo;
+import com.mz.notice.model.dao.NoticeDao;
+import com.mz.notice.model.vo.Notice;
 
 public class NoticeService {
 	
 	// 혜림
+	public int selectNoticeListCount() {
+		Connection conn = getConnection();
+		int listCount = new NoticeDao().selectNoticeListCount(conn);
+		close(conn);
+		return listCount;
+	}
 	
+	public ArrayList<Notice> selectNoticeList(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Notice> list = new NoticeDao().selectNoticeList(conn, pi);
+		close(conn);
+		return list;
+	}
 
 	
 	
