@@ -37,7 +37,7 @@
 	
 	html, body{height: 100%}
 	
-	body{display: grid;place-items: center;font-family: 'Manrope', sans-serif;background: red}
+	body{place-items: center;font-family: 'Manrope', sans-serif;background: red}
 	
 	.card{position: relative;display: flex;flex-direction: column;min-width: 0;padding: 20px;word-wrap: break-word;background-color: #fff;background-clip: border-box;border-radius: 6px;-moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)}
 	
@@ -115,11 +115,11 @@
 					    <div class="card px-5 py-5">
 					        <div class="row">
 					        <h1 style="font-family: 'OTWelcomeRA';">이용약관 등록하기</h1>
-					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="이용약관 제목" /> </div>
-					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="비고" /> </div>
+					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="이용약관 제목"> </div>
+					            <div class="col-md-6"> <input type="text" class="form-control" placeholder="비고"> </div>
 					        </div>
 					        <div class="row mt-3">
-					            <div class="col-md-12"> <textarea rows="15" class="form-control" id="tos-content" style="width:100% !important;" placeholder="이용약관 내용을 입력해주세요." ></textarea> </div>
+					            <div class="col-md-12"> <textarea rows="15" class="form-control" id="tos-content" style="width:100% !important; resize:none;" placeholder="이용약관 내용을 입력해주세요." ></textarea> </div>
 					        </div> <button type="submit" value="이용약관내용" class="btn btn-primary mt-5" style="background:rgb(167, 112, 239) !important;">등록하기<i class="fa fa-long-arrow-right ml-2 mt-1"></i></button>
 					    </div>
 					</div>				          
