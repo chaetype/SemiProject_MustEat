@@ -66,7 +66,7 @@
 		<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">이용약관</h1>
 
 			<table class="rwd-table tos-table">
-		    <tbody>
+		    <thead>
 		      <tr>
 		      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
 		        <th>글번호</th>
@@ -75,6 +75,8 @@
 		        <th>수정일</th>
 		        <th/>비고</th>
 		      </tr>
+		      </thead>
+		      <tbody>
 		      <tr>
 		      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
 		        <td>(번호)</td>
@@ -96,7 +98,7 @@
 
 		</div>
 		
-		<form action="<%= contextPath %>/toslist.no">
+		<form action="<%= contextPath %>/tosInsertlist.no">
 		<input type="hidden" name="userNo" value="">
 		
 		<!-- The Modal -->
