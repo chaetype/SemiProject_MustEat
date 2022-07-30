@@ -121,9 +121,8 @@
 
 		</div>
 		
-		<form action="<%= contextPath %>/tosInsertList.no" method="post">
-		<input type="hidden" name="userNo" value="">
-		
+		<form action="<%= contextPath %>/tosInsertList.no" id="tos-enroll-form" method="post">
+				
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
 		    <div class="modal-dialog">
