@@ -187,9 +187,8 @@
 	        	function deleteMember() {
 	        		
 	        		if( $("#deletePwd").val() != <%=memPwd %>) {
-	        			$("#alert-fail").show();
-	        			// alert("볼일치");
-	        			return false;
+	        			$("#alert-fail").show(); // 비밀번호 불일치시 안내창 보이도록 설정
+	        			return false; // 탈퇴 불가능하도록 설정
 	        		}
 	        		
 	        	}

@@ -35,7 +35,7 @@
         <script>
 
             function moveMain() {
-                location.href("메인페이지로 이동");
+            	location.href = "<%=contextPath%>/";
             }
 
         </script>
