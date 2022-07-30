@@ -30,113 +30,24 @@ public class ProductService {
 		return list;
 		
 	}
-	
+
 	// 은영
 	/**
-	 * 로그인한 회원의 '상품준비중'인 주문 갯수를 조회하는 Service
+	 * 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문 수량 조회하는 Service
 	 * @param memId : 로그인한 회원 아이디
-	 * @return : '상품준비중'인 주문 갯수가 담긴 int형 변수
+	 * @return : 배송현황에 따른 주문 수량 정보가 담긴 OrderPro 객체
 	 */
-	public int countReadyDelivery(String memId) {
-		
-		Connection conn = getConnection();
-	
-		// 배송 준바 중인 주문 수량
-		int result = new ProductDao().countReadyDelivery(conn, memId);
-		
-		close(conn);
-		
-		return result;
-		
-	}
-	
-	
-	// 은영
-	/**
-	 * 로그인한 회원의 '배송중'인 주문 갯수를 조회하는 Service
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '배송중'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countInTransit(String memId) {
+	public OrderPro countOrder(String memId) {
 		
 		Connection conn = getConnection();
 		
-		// 배송중인 주문 수량
-		int result = new ProductDao().countInTransit(conn, memId);
+		OrderPro op = new ProductDao().countOrder(conn, memId);
 		
 		close(conn);
 		
-		return result;
-		
+		return op;
 	}
+
 	
-	// 은영
-	/**
-	 * 로그인한 회원의 '배송완료'인 주문 갯수를 조회하는 Service
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '배송완료'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countDelivered(String memId) {
-		
-		Connection conn = getConnection();
-		
-		// 배송완료된 주문 수량
-		int result = new ProductDao().countDelivered(conn, memId);
-		
-		close(conn);
-		
-		return result;
-		
-	}
-	
-	// 은영
-	/**
-	 * 로그인한 회원의 '상품취소'인 주문 갯수를 조회하는 Service
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '상품취소'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countCancel(String memId) {
-		
-		Connection conn = getConnection();
-		
-		// 상품취소된 주문 수량
-		int result = new ProductDao().countCancel(conn, memId);
-		
-		close(conn);
-		
-		return result;
-		
-	}
-	
-	// 은영
-	/**
-	 * 로그인한 회원의 '장바구니'인 주문 갯수를 조회하는 Service
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '장바구니'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countBasket(String memId) {
-		
-		Connection conn = getConnection();
-		
-		// 장바구니 물품 수량
-		int result = new ProductDao().countBasket(conn, memId);
-		
-		close(conn);
-		
-		return result;
-		
-	}
-	
-	public int countOrder(String status, String memId) {
-		
-		Connection conn = getConnection();
-		
-		int result = new ProductDao().countOrder(conn, status, memId);
-		
-		close(conn);
-		
-		return result;
-	}
- 	
 }
 

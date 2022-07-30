@@ -23,63 +23,30 @@
 		  AND MEM_ID = ? <!-- 주문자 아이디 -->
 	</entry>
 	
-	<!-- 은영 ('상품준비중'에 따른 주문 수량) -->
-	<entry key="countReadyDelivery">
-	<!-- 배송 현황에 다른 주문 수량 조회시 실행할 sql문 -->
-		SELECT COUNT(*) "COUNT"
-			FROM ORDER_PRO
-			JOIN MEMBER USING (MEM_NO)
-		WHERE DELIVERY_STATUS = '상품준비중'
-		  AND MEM_ID = ?
-	</entry>
-	
-	<!-- 은영 ('배송중'에 따른 주문 수량) -->
-	<entry key="countInTransit">
-	<!-- 배송 현황에 다른 주문 수량 조회시 실행할 sql문 -->
-		SELECT COUNT(*) "COUNT"	
-			FROM ORDER_PRO
-			JOIN MEMBER USING (MEM_NO)
-		WHERE DELIVERY_STATUS = '배송중'
-		  AND MEM_ID = ?
-	</entry>
-	
-	<!-- 은영 ('배송완료'에 따른 주문 수량) -->
-	<entry key="countDelivered">
-	<!-- 배송 현황에 다른 주문 수량 조회시 실행할 sql문 -->
-		SELECT COUNT(*) "COUNT"
-			FROM ORDER_PRO
-			JOIN MEMBER USING (MEM_NO)
-		WHERE DELIVERY_STATUS = '배송완료'
-		  AND MEM_ID = ?
-	</entry>
-	
-	<!-- 은영 ('상품취소'에 따른 주문 수량) -->
-	<entry key="countCancel">
-	<!-- 상품 취소 조회시 실행할 sql문 -->
-		SELECT COUNT(*) "COUNT"
-		    FROM ORDER_PRO
-		JOIN MEMBER USING (MEM_NO)
-		WHERE ORDER_STATUS = 2
-		  AND MEM_ID = ?
-	</entry>
-	
-	<!-- 은영 ('장바구니'에 담긴 물품 수량) -->
-	<entry key="countBasket">
-	<!-- 장바구니 조회시 실행할 sql문 -->
-		SELECT COUNT(AMOUNT) "COUNT"
-		    FROM BASKET
-		JOIN MEMBER USING (MEM_NO)
-		WHERE MEM_ID = ?
-	</entry>
-	
-	<!-- 은영(미완성 => 배송에 따른 주문 수량를 한꺼번에 실행할 코드 -->
+	<!-- 은영(배송에 따른 주문 수량를 한꺼번에 실행할 코드 -->
 	<entry key="countOrder">
-	<!-- 제일 마지막에 완성할것! -->
-	  	SELECT COUNT(*) "COUNT"
-			FROM ORDER_PRO
-			JOIN MEMBER USING (MEM_NO)
-		WHERE DELIVERY_STATUS = ?
-		  AND MEM_ID = ?
+        SELECT 
+            M.MEM_ID,
+            (SELECT COUNT(*) 
+            	FROM BASKET B 
+             	WHERE M.MEM_NO = B.MEM_NO) AS BASKET, <!-- 장바구니 -->
+            (SELECT COUNT(*) 
+            	FROM ORDER_PRO O 
+            	WHERE M.MEM_NO = O.MEM_NO AND ORDER_STATUS = 1) AS CONFIRM, <!-- 구매확정 -->
+            (SELECT COUNT(*) 
+            	FROM ORDER_PRO O 
+            	WHERE M.MEM_NO = O.MEM_NO AND ORDER_STATUS = 2) AS CANCEL, <!-- 구매취소 -->
+            (SELECT COUNT(*) 
+            	FROM ORDER_PRO O 
+            	WHERE M.MEM_NO = O.MEM_NO AND DELIVERY_STATUS = '상품준비중') AS READY, <!-- 상품준비중 -->
+            (SELECT COUNT(*) 
+            	FROM ORDER_PRO O 
+            	WHERE M.MEM_NO = O.MEM_NO AND DELIVERY_STATUS = '배송중') AS TRANSIT, <!-- 배송중 -->
+            (SELECT COUNT(*) 
+            	FROM ORDER_PRO O 
+            	WHERE M.MEM_NO = O.MEM_NO AND DELIVERY_STATUS = '배송완료') AS DELIVERED <!-- 배송완료 -->
+            FROM MEMBER M 
+        WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 	</entry>
 
 </properties>

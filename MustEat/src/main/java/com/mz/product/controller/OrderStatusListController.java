@@ -45,18 +45,12 @@ public class OrderStatusListController extends HttpServlet {
 		// 상품 배송 현황
 		ArrayList<OrderPro> list = new ProductService().deliveryStatusList(deliveryStatus, memId);
 		// 상품 배송 현황에 따른 주문 갯수
-		int countR = new ProductService().countReadyDelivery(memId); // 상품준비중
-		int countC = new ProductService().countCancel(memId); // 상품취소
-		int countT = new ProductService().countInTransit(memId); // 배송중
-		int countD = new ProductService().countDelivered(memId); // 배송완료
-		int countB = new ProductService().countBasket(memId); // 장바구니
+		OrderPro op = new ProductService().countOrder(memId);
+		
 		
 		request.setAttribute("orderList", list);
-		request.setAttribute("countB", countB);
-		request.setAttribute("countR", countR);
-		request.setAttribute("countC", countC);
-		request.setAttribute("countT", countT);
-		request.setAttribute("countD", countD);
+		request.setAttribute("orderStatus", op);
+
 		
 		if (status == 0) { // 장바구니
 			request.getRequestDispatcher("views/key/orderBasketList.jsp").forward(request, response);

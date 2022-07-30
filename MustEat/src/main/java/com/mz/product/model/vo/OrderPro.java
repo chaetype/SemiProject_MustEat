@@ -23,7 +23,12 @@ public class OrderPro {
 	private String productName; // 주문현황에서 조회하는 상품명
 	private String seller; // 주문현황에서 조회하는 상품판매자명
 	private String sellePhone; // 주문현황에서 조회하는 상품판매자 전화번호
-	
+	private int basket; // 장바구니 수량
+	private int orderConfirm; // 구매확정 수량
+	private int orderCancel; // 구매취소 수량
+	private int orderReady; // 배송준비중 수량
+	private int orderTransit; // 배송중 수량
+	private int orderDelivered; // 배송완료 수량
 	
 	public OrderPro() {
 
@@ -89,6 +94,19 @@ public class OrderPro {
 		this.productName = productName;
 		this.seller = seller;
 		this.sellePhone = sellePhone;
+	}
+	
+	
+	public OrderPro(String memNo, int basket, int orderConfirm, int orderCancel, int orderReady, int orderTransit,
+			int orderDelivered) {
+		super();
+		this.memNo = memNo;
+		this.basket = basket;
+		this.orderConfirm = orderConfirm;
+		this.orderCancel = orderCancel;
+		this.orderReady = orderReady;
+		this.orderTransit = orderTransit;
+		this.orderDelivered = orderDelivered;
 	}
 
 
@@ -282,6 +300,66 @@ public class OrderPro {
 	}
 
 
+	public int getBasket() {
+		return basket;
+	}
+
+
+	public void setBasket(int basket) {
+		this.basket = basket;
+	}
+
+
+	public int getOrderConfirm() {
+		return orderConfirm;
+	}
+
+
+	public void setOrderConfirm(int orderConfirm) {
+		this.orderConfirm = orderConfirm;
+	}
+
+
+	public int getOrderCancel() {
+		return orderCancel;
+	}
+
+
+	public void setOrderCancel(int orderCancel) {
+		this.orderCancel = orderCancel;
+	}
+
+
+	public int getOrderReady() {
+		return orderReady;
+	}
+
+
+	public void setOrderReady(int orderReady) {
+		this.orderReady = orderReady;
+	}
+
+
+	public int getOrderTransit() {
+		return orderTransit;
+	}
+
+
+	public void setOrderTransit(int orderTransit) {
+		this.orderTransit = orderTransit;
+	}
+
+
+	public int getOrderDelivered() {
+		return orderDelivered;
+	}
+
+
+	public void setOrderDelivered(int orderDelivered) {
+		this.orderDelivered = orderDelivered;
+	}
+
+
 	@Override
 	public String toString() {
 		return "OrderPro [orderNo=" + orderNo + ", memNo=" + memNo + ", orderQuentity=" + orderQuentity + ", orderDate="
@@ -289,7 +367,10 @@ public class OrderPro {
 				+ ", totalPrice=" + totalPrice + ", deliveryPrice=" + deliveryPrice + ", discountFee=" + discountFee
 				+ ", payment=" + payment + ", courier=" + courier + ", courierNo=" + courierNo + ", deliveryStatus="
 				+ deliveryStatus + ", deliverType=" + deliverType + ", memId=" + memId + ", productName=" + productName
-				+ ", seller=" + seller + ", sellePhone=" + sellePhone + "]";
+				+ ", seller=" + seller + ", sellePhone=" + sellePhone + ", basket=" + basket + ", orderConfirm="
+				+ orderConfirm + ", orderCancel=" + orderCancel + ", orderReady=" + orderReady + ", orderTransit="
+				+ orderTransit + ", orderDelivered=" + orderDelivered + "]";
 	}
+
 
 }

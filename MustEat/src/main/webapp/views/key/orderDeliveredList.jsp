@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.product.model.vo.OrderPro"%>
 <%
-	int countR = (int)request.getAttribute("countR"); // '상품준비중'
-	int countT = (int)request.getAttribute("countT"); // '배송중'
-	int countD = (int)request.getAttribute("countD"); // '배송완료'
-	int countC = (int)request.getAttribute("countC"); // '상품취소'
-	int countB = (int)request.getAttribute("countB"); // '장바구니'
+	//장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문수량
+	OrderPro op = (OrderPro)request.getAttribute("orderStatus");
 %>
 <!DOCTYPE html>
 <html>
@@ -33,35 +30,35 @@
 	    <div class="status">
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=countB %></a>
+	          <a href="" class="number"><%=op.getBasket() %></a>
 	          <div class="text">장바구니</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div> <!-- href 예시 : $lt;%=request.getContextPath() %>/orderList.or?status=$lt;% list.getStatus().equals("배송준비중"); %> -->
-	          <a href= "" class="number"><%=countR %></a> 
+	          <a href= "" class="number"><%=op.getOrderReady() %></a> 
 	          <div class="text">상품준비중</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=countT %></a>
+	          <a href="" class="number"><%=op.getOrderTransit() %></a>
 	          <div class="text">배송중</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=countD %></a>
+	          <a href="" class="number"><%=op.getOrderDelivered() %></a>
 	          <div class="text">배송완료</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=countC %></a>
+	          <a href="" class="number"><%=op.getOrderCancel() %></a>
 	          <div class="text">상품취소</div>
 	        </div>
 	      </div>

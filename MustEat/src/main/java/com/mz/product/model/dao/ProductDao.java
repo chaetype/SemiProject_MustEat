@@ -80,199 +80,17 @@ public class ProductDao {
 		return list;
 		
 	}
-	
+
 	// 은영
 	/**
-	 * 로그인한 회원의 '상품준비중'인 주문 갯수를 조회하는 Dao
+	 * 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문 수량 조회하는 Dao
 	 * @param memId : 로그인한 회원 아이디
-	 * @return : '상품준비중'인 주문 갯수가 담긴 int형 변수
+	 * @return : 배송현황에 따른 주문 수량 정보가 담긴 OrderPro 객체
 	 */
-	public int countReadyDelivery(Connection conn, String memId) {
-		
-		// select => count수 => int 형
-		int countR = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("countReadyDelivery");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, memId);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				
-				countR = rset.getInt("count");
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return countR;
-		
-	}
-	
-	/**
-	 * 로그인한 회원의 '배송중'인 주문 갯수를 조회하는 Dao
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '배송중'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countInTransit(Connection conn, String memId) {
-		
-		// select => count수 => int 형
-		int countT = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("countInTransit");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, memId);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				
-				countT = rset.getInt("count");
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return countT;
-		
-	}
-	
-	// 은영
-	/**
-	 * 로그인한 회원의 '배송완료'인 주문 갯수를 조회하는 Dao
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '배송완료'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countDelivered(Connection conn, String memId) {
-		
-		// select => count수 => int 형
-		int countD = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("countDelivered");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, memId);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				
-				countD = rset.getInt("count");
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return countD;
-		
-	}
-	
-	// 은영
-	/**
-	 * 로그인한 회원의 '상품취소'인 주문 갯수를 조회하는 Dao
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '상품취소'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countCancel(Connection conn, String memId) {
-		
-		// select => 상품취소 => ResultSet => int
-		int count = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("countCancel");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, memId);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				count = rset.getInt("count");				
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return count;
-		
-	}
-	
-	// 은영
-	/**
-	 * 로그인한 회원의 '장바구니'인 주문 갯수를 조회하는 Dao
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : '장바구니'인 주문 갯수가 담긴 int형 변수
-	 */
-	public int countBasket(Connection conn, String memId) {
-		
-		// select => 장바구니 수량 => ResultSet => int
-		int count = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("countBasket");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, memId);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				count = rset.getInt("count");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return count;
-			
-	}
-	
-	public int countOrder(Connection conn, String status, String memId) {
+	public OrderPro countOrder(Connection conn, String memId) {
 		
 		// select => 주문현황에 따른 주문수량 => ResultSet => int
-		int count = 0;
+		OrderPro op = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -281,13 +99,19 @@ public class ProductDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1,status);
-			pstmt.setString(2, memId);
+			pstmt.setString(1, memId);
 			
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				count = rset.getInt("count");
+				op = new OrderPro( rset.getString("MEM_ID")
+								 , rset.getInt("BASKET")
+								 , rset.getInt("CONFIRM")
+								 , rset.getInt("CANCEL")
+								 , rset.getInt("READY")
+								 , rset.getInt("TRANSIT")
+								 , rset.getInt("DELIVERED")
+						);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -296,7 +120,7 @@ public class ProductDao {
 			close(pstmt);
 		}
 		
-		return count;
+		return op;
 		
 	}
 	
