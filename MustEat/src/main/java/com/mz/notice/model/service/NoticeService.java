@@ -1,6 +1,6 @@
 package com.mz.notice.model.service;
 
-import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.*;
 import static com.mz.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -10,8 +10,6 @@ import com.mz.notice.model.dao.NoticeDao;
 import com.mz.notice.model.vo.Notice;
 import com.mz.notice.model.vo.Tos;
 import com.mz.common.model.vo.PageInfo;
-import com.mz.notice.model.dao.NoticeDao;
-import com.mz.notice.model.vo.Notice;
 
 public class NoticeService {
 	
