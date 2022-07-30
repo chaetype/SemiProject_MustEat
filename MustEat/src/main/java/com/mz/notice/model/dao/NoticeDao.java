@@ -124,7 +124,7 @@ public class NoticeDao {
 			close(rset);
 			close(pstmt);
 		}
-		
+				
 		return list;
 	}
 	
