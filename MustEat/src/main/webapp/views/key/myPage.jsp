@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.member.model.vo.MyPage, com.mz.product.model.vo.OrderPro"%>
  
 <%
-	int countR = (int)request.getAttribute("countR"); // '상품준비중'
-	int countT = (int)request.getAttribute("countT"); // '배송중'
-	int countD = (int)request.getAttribute("countD"); // '배송완료'
-	int countC = (int)request.getAttribute("countC"); // '상품취소'
-	int countB = (int)request.getAttribute("countB"); // '장바구니'
+	// 식당 리뷰, 밀키트 리뷰, 적립금, 가고싶다, 팔로우 수량
+	MyPage mp = (MyPage)request.getAttribute("myPage");
+	// 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문수량
+	OrderPro op = (OrderPro)request.getAttribute("orderStatus");
+	
 %>
 
 <!DOCTYPE html>
@@ -42,25 +42,29 @@
       	}
       
       </script>
-
+      
   </div>
 
   <div class="summaryContainer">
+      <div class="item">
+        <div class="number"><%=mp.getStoreReview() %>건</div>
+        <div class="summary">식당 리뷰</div>
+      </div>
     <div class="item">
-        <div class="number">5건</div>
-        <div class="summary">my리뷰</div>
+        <div class="number"><%=mp.getProductReview() %>건</div>
+        <div class="summary">밀키트 리뷰</div>
       </div>
       <div class="item">
-        <div class="number">2000</div>
+        <div class="number"><%=mp.getMpsPoint() %></div>
         <div class="summary">적립금</div>
       </div>
       <div class="item">
-        <div class="number">10곳</div>
+        <div class="number"><%=mp.getStoreScrap() %>곳</div>
         <div class="summary">가고싶다</div>
       </div>
 
       <div class="item">
-        <div class="number">10명</div>
+        <div class="number"><%=mp.getFollow() %>명</div>
         <div class="summary">팔로우</div>
       </div>
   </div>  
@@ -72,35 +76,35 @@
       
       <div class="item">
         <div>
-          <div class="number basket" onclick="orderStatus(0);"><%=countB %></div>
+          <div class="number basket" onclick="orderStatus(0);"><%=op.getBasket() %></div>
           <div class="text">장바구니</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus" onclick="orderStatus(1);" ><%=countR %></div>
+          <div class="number orderStatus" onclick="orderStatus(1);" ><%=op.getOrderReady() %></div>
           <div class="text">상품준비중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus" onclick="orderStatus(3);"><%=countT %></div>
+          <div class="number orderStatus" onclick="orderStatus(3);"><%=op.getOrderTransit() %></div>
           <div class="text">배송중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus" onclick="orderStatus(4);"><%=countD %></div>
+          <div class="number orderStatus" onclick="orderStatus(4);"><%=op.getOrderDelivered() %></div>
           <div class="text">배송완료</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderCancel" onclick="orderStatus(2);"><%=countC %></div>
+          <div class="number orderCancel" onclick="orderStatus(2);"><%=op.getOrderCancel() %></div>
           <div class="text">상품취소</div>
         </div>
       </div>

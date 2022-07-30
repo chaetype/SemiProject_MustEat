@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.mz.member.model.vo.Member;
+import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Report;
 
 public class MemberDao {
@@ -244,6 +245,13 @@ public class MemberDao {
 	}
 	
 	// 은영
+	/**
+	 * 회원 탈퇴 요청 처리하는 Dao
+	 * @param withdraw : 탈퇴 사유
+	 * @param memId : 탈퇴할 회원 아이디
+	 * @param deletePwd : 탈퇴시 확인할 회원 비밀번호
+	 * @return : 탈퇴 성공여부가 담긴 int형 변수 (성공 : 1 | 실패 : 0)
+	 */
 	public int deleteMember(Connection conn, String withdraw, String memId, String deletePwd) {
 		
 		// update => 처리된 행 수 반환
@@ -269,6 +277,50 @@ public class MemberDao {
 		}
 		
 		return result;
+		
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지 리뷰, 적립금, 가고싶다, 팔로우 횟수 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 마이페이지 정보가 담긴 MyPage 객체
+	 */
+	public MyPage selectMyPage(Connection conn, String memId) {
+		
+		// select => ResultSet => 한 행 조회
+		MyPage my = null; 
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMyPage");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				my = new MyPage(rset.getString("MEM_ID")
+							  , rset.getInt("STORE_REVIEW")
+							  , rset.getInt("PRODUCT_REVIEW")
+							  , rset.getInt("MPS_POINT")
+							  , rset.getInt("STORE_SCRAP")
+							  , rset.getInt("FOLLOW"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return my;
 		
 	}
 	

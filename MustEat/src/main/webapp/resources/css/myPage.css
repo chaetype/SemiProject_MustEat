@@ -162,8 +162,9 @@
   /* 단골상점 , 상품후기 , 적립금 */
   .summaryContainer .item{
     flex-grow: 1;
-    padding-left:125px;
+    text-align: center;
   }
+
   /* summaryContainer안의 숫자 */
   .summaryContainer .number{
     font-size: 20px;

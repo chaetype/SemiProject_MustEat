@@ -106,5 +106,29 @@
 		WHERE MEM_ID = ?
 	  	  AND MEM_PWD = ?
 	</entry>
+	
+	<!-- 은영(마이페이지 게시판 조회) -->
+	<entry key="selectMyPage">
+	<!-- 마이페이지에서 리뷰,적립금,가고싶다,팔로우 조회시 실행할 sql문 -->
+		SELECT 
+		    M.MEM_ID, <!-- 1. 로그인한 회원 아이디 -->
+		    (SELECT COUNT(REVIEW_WRITER) 
+		            FROM STORE_RE S 
+		    WHERE M.MEM_NO = S.REVIEW_WRITER) AS STORE_REVIEW, <!-- 2. 식당 리뷰 갯수 -->
+		    (SELECT COUNT(REVIEW_WRITER) 
+		            FROM PRODUCT_REVIEW P 
+		    WHERE M.MEM_NO = P.REVIEW_WRITER) AS PRODUCT_REVIEW, <!-- 3. 밀키트 리뷰 갯수 -->
+		    (SELECT SUM(MPS_RECORD) 
+		            FROM MPS_POINT MP 
+		    WHERE M.MEM_NO = MP.MEM_NO) AS MPS_POINT, <!-- 4. 적립금 총 금액 -->
+		    (SELECT COUNT(MEM_NO) 
+		            FROM STORE_SCRAP SS 
+		    WHERE M.MEM_NO = SS.MEM_NO) AS STORE_SCRAP, <!-- 5. 식당 스크랩 갯수 -->
+		    (SELECT COUNT(FING_MNO) 
+		            FROM FOLLOW F 
+		    WHERE M.MEM_NO = F.F_MNO) AS FOLLOW <!-- 6. 팔로우한 인원 수 -->
+		FROM MEMBER M
+		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+	</entry>
 
 </properties>

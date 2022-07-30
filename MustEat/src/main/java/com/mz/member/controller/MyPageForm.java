@@ -1,14 +1,18 @@
 package com.mz.member.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Member;
+import com.mz.member.model.vo.MyPage;
 import com.mz.product.model.service.ProductService;
+import com.mz.product.model.vo.OrderPro;
 
 /**
  * Servlet implementation class MyPageForm
@@ -34,18 +38,15 @@ public class MyPageForm extends HttpServlet {
 		
 		String memId = ((Member)request.getSession().getAttribute("loginUser")).getMemId(); // 회원 아이디 담는 변수
 		
+		// 마이페이지 리뷰, 적립금, 가고싶다, 팔로우 건수
+		MyPage m = new MemberService().selectMyPage(memId);
+		
 		// 상품 배송 현황에 따른 주문 갯수
-		int countR = new ProductService().countReadyDelivery(memId); // 상품준비중
-		int countC = new ProductService().countCancel(memId); // 상품취소
-		int countT = new ProductService().countInTransit(memId); // 배송중
-		int countD = new ProductService().countDelivered(memId); // 배송완료
-		int countB = new ProductService().countBasket(memId); // 장바구니
+		OrderPro op = new ProductService().countOrder(memId);
 
-		request.setAttribute("countR", countR);
-		request.setAttribute("countC", countC);
-		request.setAttribute("countT", countT);
-		request.setAttribute("countD", countD);
-		request.setAttribute("countB", countB);
+		request.setAttribute("myPage", m);
+		request.setAttribute("orderStatus", op);
+
 		
 		request.getRequestDispatcher("views/key/myPage.jsp").forward(request, response);
 	}

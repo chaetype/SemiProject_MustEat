@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
+import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Report;
 
 public class MemberService {
@@ -82,6 +83,13 @@ public class MemberService {
 	}
 	
 	// 은영
+	/**
+	 * 회원 탈퇴 요청 처리하는 Service
+	 * @param withdraw : 탈퇴 사유
+	 * @param memId : 탈퇴할 회원 아이디
+	 * @param deletePwd : 탈퇴시 확인할 회원 비밀번호
+	 * @return : 탈퇴 성공여부가 담긴 int형 변수 (성공 : 1 | 실패 : 0)
+	 */
 	public int deleteMember(String withdraw, String memId, String deletePwd) {
 		
 		Connection conn = getConnection();
@@ -98,6 +106,24 @@ public class MemberService {
 		
 		return result;
 
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지 리뷰, 적립금, 가고싶다, 팔로우 횟수 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 마이페이지 정보가 담긴 MyPage 객체
+	 */
+	public MyPage selectMyPage(String memId) {
+		
+		Connection conn = getConnection();
+		
+		MyPage my = new MemberDao().selectMyPage(conn, memId);
+		
+		close(conn);
+		
+		return my;
+		
 	}
 	
 }
