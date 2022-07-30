@@ -99,7 +99,7 @@ public class NoticeDao {
 	// 서원
 	// 관리자 이용약관 조회
 	public ArrayList<Tos> selectAdminTosList(Connection conn) {
-		// select문 => ResultSet (여러행) => ArrayList<Notice>객체 
+
 		ArrayList<Tos> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
