@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.StoreReview"%>
-<%ArrayList<StoreReview> list = (ArrayList<StoreReview>)request.getAttribute("list");%>
+<%
+	ArrayList<StoreReview> list = (ArrayList<StoreReview>)request.getAttribute("list");
+	String findKeyword = request.getParameter("findKeyword");
+	
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +67,7 @@
 
 	<div class="wrap44">
 	
-		<h2 style="text-align:center">유저이름 REVIEWS</h2>
+		<h2 style="text-align:center"><%=findKeyword%> REVIEWS</h2>
 		  <table class="rwd-table">
 				<thead>
 				<tr>

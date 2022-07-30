@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.store.model.dao.StoreDao;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.StoreReview;
 
@@ -31,7 +32,21 @@ public class UserReviewListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<StoreReview> list = new StoreService().selectStoreReviewList();
+		String type_ = request.getParameter("select11");
+		String keyword_ = request.getParameter("findKeyword");
+		
+		String type = "3";
+		if(type_ != null) {
+			type=type_;
+		}
+		
+		String keyword ="";
+		if(keyword_ != null) {
+			keyword = keyword_;
+		}
+		
+		StoreService service = new StoreService();
+		ArrayList<StoreReview> list = service.userStoreReview(type, keyword);
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("views/kcy/userReviewLookup92p.jsp").forward(request, response);

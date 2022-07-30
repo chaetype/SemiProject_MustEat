@@ -296,7 +296,7 @@
 				</tbody>
 		  	</table>
 	
-		<form action="<%=contextPath%>/searchList.st">
+		<form action="<%=contextPath%>/urlist.st">
 			<div class="test1">
 			<select name="select11" style="height: 48px; margin: 10px;">
 				<option value="1">게시자</option>
@@ -306,7 +306,7 @@
 			</div>
 			<div class="wrap55">
 				<div class="input-group mb-3">
-					<input type="text" name="findKeyword" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<input type="text" name="findKeyword" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2" >
 					<div class="input-group-append">
 						<button class="btn btn-outline-warning btn-lg" type="submit"><i class="fa fa-search"></i></button>
 					</div>

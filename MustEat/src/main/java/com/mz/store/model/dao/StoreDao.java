@@ -91,6 +91,8 @@ public class StoreDao {
 				break;
 			case "2":  sql += "WHERE review_title like ? ";
 				break;
+			case "3": sql += "WHERE (MEM_NICKNAME LIKE ? OR review_title like ?)";
+				break; 
 			
 		}
 		
@@ -100,6 +102,7 @@ public class StoreDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setString(2, "%"+keyword+"%");
 			
 			rset = pstmt.executeQuery();
 			
