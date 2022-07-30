@@ -23,7 +23,6 @@ public class NoticeDao {
 	public NoticeDao() {
 		try {
 			prop.loadFromXML(new FileInputStream( NoticeDao.class.getResource("/db/sql/notice-mapper.xml").getPath() ));
-			prop.loadFromXML(new FileInputStream(NoticeDao.class.getResource("/db/sql/notice-mapper.xml").getPath()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
