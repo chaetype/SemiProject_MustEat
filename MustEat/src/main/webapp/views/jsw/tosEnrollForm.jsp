@@ -88,24 +88,24 @@
 			<% }else { %>			
 			<!-- 이용약관이 있을 경우 -->    
 				<% for(Tos t : list) { %>  
-			<table class="rwd-table tos-table">
-		    <tbody>	
-			    <tr>
-			      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
-			        <th>글번호</th>
-			        <th>제목</th>
-			        <th>등록일</th>
-			        <th>수정일</th>
-			        <th/>비고</th>
-			    </tr>		    
-			    <tr>
-			      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
-			        <td><%= t.getTosNo() %></td>
-			        <td><%= t.getTosTitle() %></td>
-			        <td><%= t.getEnrollDate() %></td>
-			        <td><%= t.getModifyDate() %></td>
-			        <td><%= t.getTosNote() %></td>
-			     </tr>	
+				<table class="rwd-table tos-table">
+			    <tbody>	
+				    <tr>
+				      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
+				        <th>글번호</th>
+				        <th>제목</th>
+				        <th>등록일</th>
+				        <th>수정일</th>
+				        <th/>비고</th>
+				    </tr>		    
+				    <tr>
+				      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
+				        <td><%= t.getTosNo() %></td>
+				        <td><%= t.getTosTitle() %></td>
+				        <td><%= t.getEnrollDate() %></td>
+				        <td><%= t.getModifyDate() %></td>
+				        <td><%= t.getTosNote() %></td>
+				     </tr>	
 			     <% } %>
 		     <% } %>	     
 		    </tbody>
