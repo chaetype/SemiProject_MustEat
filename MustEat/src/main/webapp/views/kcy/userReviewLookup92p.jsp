@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.StoreReview"%>
+<%ArrayList<StoreReview> list = (ArrayList<StoreReview>)request.getAttribute("list");%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Must Eat</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
@@ -13,6 +14,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 
 <style>
 	.wrap44{
@@ -48,6 +50,9 @@
     	background-color: rgb(231, 216, 241);
     	color: red;
     }
+    .rwd-table{
+		width: 100%;
+	}
 </style>
 </head>
 <body>
@@ -57,155 +62,46 @@
 	<div class="wrap44">
 	
 		<h2 style="text-align:center">유저이름 REVIEWS</h2>
-		
 		  <table class="rwd-table">
-				<tbody>
+				<thead>
 				<tr>
-					<th>찜</th>
-					<th>글번호</th>
+					<th width="70">찜</th>
+					<th width="75">글번호</th>
 					<th width="100">게시자</th>
-					<th width="100">회원아이디</th>
-					<th colspan="3" width="400">리뷰제목</th>
-					<th width="200">게시일</th>
-					<th width="100">비고</th>
+					<th>리뷰제목</th>
+					<th width="70">별점</th>
+					<th width="150">게시일</th>
+					<th width="75">비고</th>
+					<th width="75">조회수</th>
 				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">15</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">14</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">13</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">12</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">11</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">10</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">9</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">8</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">7</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">6</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">5</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">4</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">3</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">2</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
-				<tr>
-					<td data-th="Supplier Code"><input type="checkbox"></td>
-					<td data-th="Supplier Code">1</td>
-					<td data-th="Supplier Name">김김이</td>
-					<td data-th="Invoice Number">user001</td>
-					<td data-th="Invoice Date" colspan="3">시금치치킨 안먹어보신분?<a herf="" class="a222">신고하기</a></td>
-					<td data-th="Due Date">2022-07-23</td>
-					<td data-th="Net Amount">일반회원</td>
-				</tr>
+				</thead>
+				
+				<tbody>
+					<% if(list.isEmpty()) { %>
+		                <!--case1. 게시글이 없을 경우-->
+		                <tr>
+		                    <td colspan="8">존재하는 게시글이 없습니다.</td>
+		                </tr>
+						<% }else { %>
+		                <!--case2.게시글이 있을 경우-->
+		                <td colspan="8"></td>
+		                	<% for(StoreReview sr : list){ %>
+			                <tr>
+			                    <td data-th="Supplier Code"><input type="checkbox"></td>
+			                    <td><%= sr.getReNo() %></td>
+			                    <td><%= sr.getReviewWriter()%></td>
+			                    <td><%= sr.getReviewTitle()%></td>
+			                    <td><%= sr.getReviewRate() %></td>
+			                    <td><%= sr.getReviewEnrollDate()%></td>
+			                    <td><%= sr.getMemLevel()%></td>
+			                    <td><%= sr.getCount()%></td>
+			                </tr>
+                	<% } %>
+				<% } %>
+				
+				
+				
 
-				</tbody>
 		  	</table>
 	
 			<button class="btn1" style="float: left; margin-top:10px;">찜</button>

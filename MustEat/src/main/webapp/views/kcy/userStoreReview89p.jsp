@@ -296,25 +296,33 @@
 				</tbody>
 		  	</table>
 	
-		<form action="test.do">
+		<form action="<%=contextPath%>/searchList.st">
 			<div class="test1">
 			<select name="select11" style="height: 48px; margin: 10px;">
-				<option value="name">게시자</option>
-				<option value="reviewTitle">리뷰제목</option>
-				<option selected>선택안함</option>
+				<option value="1">게시자</option>
+				<option value="2">리뷰제목</option>
+				<option value="3" selected>전체</option>
 			</select>
 			</div>
 			<div class="wrap55">
 				<div class="input-group mb-3">
-					<input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<input type="text" name="findKeyword" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 					<div class="input-group-append">
-						<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+						<button class="btn btn-outline-warning btn-lg" type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 			</div>
 			<button class="btn1" style="float: right; margin:10px;">글쓰기</button>
 		</form>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<div class="wrapper-paging">
 					    

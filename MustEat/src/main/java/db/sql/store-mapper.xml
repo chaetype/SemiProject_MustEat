@@ -18,4 +18,20 @@
 	ORDER
     BY RE_NO DESC
 	</entry>
+	
+	<entry key="userStoreReview">
+		SELECT
+	        RE_NO
+	       ,M.MEM_NICKNAME
+	       ,M.MEM_ID
+	       ,REVIEW_TITLE
+	       ,REVIEW_RATE
+	       ,REVIEW_ENROLLDATE
+	       ,M.MEM_GRADE
+	       ,COUNT
+		FROM STORE_RE SR
+		JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+	</entry>
+	
+	
 </properties>

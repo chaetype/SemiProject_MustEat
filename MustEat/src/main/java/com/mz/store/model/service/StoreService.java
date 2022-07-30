@@ -19,4 +19,11 @@ public class StoreService {
 		close(conn);
 		return list;
 	}
+	
+	public ArrayList<StoreReview> userStoreReview(String type, String keyword){
+		Connection conn = getConnection();
+		ArrayList<StoreReview> list = new StoreDao().userStoreReview(conn, type, keyword);
+		close(conn);
+		return list;
+	}
 }

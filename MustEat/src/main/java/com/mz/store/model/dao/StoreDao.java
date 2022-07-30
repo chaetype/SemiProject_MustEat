@@ -68,6 +68,61 @@ public class StoreDao {
 		
 		return list;
 	}
+	
+	
+	/**
+	 * 채윤
+	 * @param conn
+	 * @param 검색값 분류type
+	 * @param 찾으려는 검색 값keyword
+	 * @return
+	 */
+	public ArrayList<StoreReview> userStoreReview(Connection conn,String type, String keyword){
+		
+		ArrayList<StoreReview> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("userStoreReview");
 		
 
+		switch(type) {
+			case "1": sql += "WHERE mem_nickname like ? ";
+				break;
+			case "2":  sql += "WHERE review_title like ? ";
+				break;
+			
+		}
+		
+		sql += "ORDER BY re_no desc";
+		
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+keyword+"%");
+			
+			rset = pstmt.executeQuery();
+			
+			
+			
+			while(rset.next()) {
+				list.add(new StoreReview(rset.getInt("re_no"),
+									rset.getString("mem_nickname"),
+									rset.getString("mem_id"),
+									rset.getString("review_title"),
+									rset.getInt("review_rate"),
+									rset.getDate("review_enrolldate"),
+									rset.getString("mem_grade"),
+									rset.getInt("count")
+									));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 }
