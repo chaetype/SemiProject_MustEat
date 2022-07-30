@@ -31,7 +31,7 @@
           <div class="name"><%=loginUser.getMemName() %>님 반갑습니다!
             <button type="button" class="btn1" onclick="myPageOpen();">내정보</button>
           </div>
-          <div class="grade"><strong>등급 : 신뢰 리뷰어</strong></div>
+          <div class="grade"><strong>등급 : <%=loginUser.getMemGrade() %> 리뷰어</strong></div>
         </div>
       </div>    
       
@@ -132,7 +132,8 @@
 
       <thead>
         <tr>
-          <th class="categoryTh" style="width:600px">제목</th>
+          <th class="categoryTh" style="width:500px">제목</th>
+          <th class="categoryTh" style="width:200px">식당명</th>
           <th class="categoryTh" style="width:150px">좋아요수</th>
           <th class="categoryTh" style="width:200px">작성일자</th>
         </tr>
@@ -142,12 +143,14 @@
       <!-- 반복문 처리!!! -->
         <tr>
           <td class="categoryTd categoryTitle" >내 인생 최고의 맛집!</td>
+          <td class="categoryTd categoryTitle" >식당이름</td>
           <td class="categoryTd categoryContent">130</td>
           <td class="categoryTd categoryContent">2022.07.02</td>
         </tr>
 
         <tr>
           <td class="categoryTd categoryTitle">저만 믿고 오세요. 후회 안합니다. </td>
+          <td class="categoryTd categoryTitle" >식당이름</td>
           <td class="categoryTd categoryContent">78</td>
           <td class="categoryTd categoryContent">2022.06.30</td>
         </tr>
