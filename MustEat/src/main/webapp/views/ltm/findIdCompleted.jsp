@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <!-- 파비콘 -->
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
     .outer{
         width:450px;
@@ -45,7 +46,6 @@
         font-weight: bold;
         line-height: 220%;
     }
-
 </style>
 </head>
 <body>
@@ -89,6 +89,26 @@
             <div class="d-grid" style="padding-bottom: 10px;">
                 <button class="btn1" type="button" onclick="sendEmail();">아이디 발송 요청</button>
             </div>
+            
+            <script>
+            
+                function sendEmail() {
+                	
+                    $.ajax({
+                    type: 'POST',
+                    url : '/MustEat/findId3.me',
+                    data: {"email" : 'musteat2022@gmail.com', "id" : 'users01'},
+                    dataType : "json",
+                    success : function(data){
+                        alert("ㅋㅋ안감");
+                    },
+                    error:function(request,status,error){
+                        alert("이메일 성공적으로 보내졌습니다.");
+               		}
+                });
+                    
+            }
+            </script>
 
            
             <br>
