@@ -71,7 +71,7 @@ public class StoreDao {
 	
 	
 	/**
-	 * 채윤
+	 * 채윤 식당 리뷰 검색
 	 * @param conn
 	 * @param 검색값 분류type
 	 * @param 찾으려는 검색 값keyword
@@ -85,7 +85,8 @@ public class StoreDao {
 		
 		String sql = prop.getProperty("userStoreReview");
 		
-
+		//검색을 위한 동적 sql
+		//case에 옵션의 value값담아주기 3번이 전체검색
 		switch(type) {
 			case "1": sql += "WHERE mem_nickname like ? ";
 				break;

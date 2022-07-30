@@ -19,8 +19,9 @@ public class StoreService {
 		close(conn);
 		return list;
 	}
-	
+	//채윤 (식당 리뷰 검색/ UserReviewController와 연결)
 	public ArrayList<StoreReview> userStoreReview(String type, String keyword){
+		
 		Connection conn = getConnection();
 		ArrayList<StoreReview> list = new StoreDao().userStoreReview(conn, type, keyword);
 		close(conn);

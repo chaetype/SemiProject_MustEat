@@ -295,7 +295,11 @@
 
 				</tbody>
 		  	</table>
-	
+		  	
+		  	
+		  	
+		  	
+	<!-- 검색폼 시작 -->
 		<form action="<%=contextPath%>/urlist.st">
 			<div class="test1">
 			<select name="select11" style="height: 48px; margin: 10px;">
@@ -314,6 +318,7 @@
 			</div>
 			<button class="btn1" style="float: right; margin:10px;">글쓰기</button>
 		</form>
+	<!-- 검색폼 끝 -->
 	</div>
 	
 	
