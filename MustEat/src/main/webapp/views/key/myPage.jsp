@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page
-	import="com.mz.member.model.vo.MyPage, com.mz.product.model.vo.OrderPro
-		  , java.util.ArrayList, com.mz.store.model.vo.StoreReview
-		  , com.mz.product.model.vo.*
-		  , com.mz.member.model.vo.Point, java.text.DecimalFormat"
+	import="com.mz.member.model.vo.* , java.util.ArrayList
+		  , com.mz.store.model.vo.StoreReview, com.mz.product.model.vo.*
+		  , java.text.DecimalFormat"
  %> 
 <%
 	// 식당 리뷰, 밀키트 리뷰, 적립금, 가고싶다, 팔로우 수량
@@ -17,6 +16,8 @@
 	ArrayList<Point> mpsPoint = (ArrayList<Point>)request.getAttribute("mpsPoint");
 	// 주문상세 내역 최신 2개
 	ArrayList<OrderPro> orderList = (ArrayList<OrderPro>)request.getAttribute("orderList");
+	// 가고싶다 내역 최신 2개
+	ArrayList<StoreScrap> scrapList = (ArrayList<StoreScrap>)request.getAttribute("scrapList");
 	// 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문수량
 	OrderPro op = (OrderPro)request.getAttribute("orderStatus");
 	
@@ -293,18 +294,13 @@
 
       <tbody>
        <!-- 반복문 처리!!! -->
+       <% for(StoreScrap ss : scrapList) { %>
         <tr>
-          <td class="categoryTd categoryTitle">성수베이킹스튜디오</td>
-          <td class="categoryTd categoryContent">서울 성동구 서울숲2길 46</td>
-          <td class="categoryTd categoryContent">4.5</td>
+          <td class="categoryTd categoryTitle"><%=ss.getStoreNo() %></td>
+          <td class="categoryTd categoryContent"><%=ss.getStoreAddress() %></td>
+          <td class="categoryTd categoryContent"><%=ss.getReviewRate() %></td>
         </tr>
-
-        <tr>
-          <td class="categoryTd categoryTitle">앨리스리틀이태리</td>
-          <td class="categoryTd categoryContent">서울 송파구 백제고분로41길 43-21</td>
-          <td class="categoryTd categoryContent">4.3</td>
-        </tr>
-         <!-- 반복문 처리!!! -->
+	   <% } %>
     </tbody>
 
     </table>

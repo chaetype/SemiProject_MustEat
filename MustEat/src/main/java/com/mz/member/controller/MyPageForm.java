@@ -13,6 +13,7 @@ import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Point;
+import com.mz.member.model.vo.StoreScrap;
 import com.mz.product.model.service.ProductService;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.ProductReview;
@@ -57,12 +58,15 @@ public class MyPageForm extends HttpServlet {
 		ArrayList<Point> mpsList = new MemberService().selectNewPoint(memId);
 		// 마이페이지에서 주문상세 내역 최신 2개 조회
 		ArrayList<OrderPro> opList = new ProductService().selectNewOrder(memId);
+		// 마이페이지 가고싶다 내역 최신 2개 조회
+		ArrayList<StoreScrap> ssList = new MemberService().selectNewScrap(memId);
 				
 		request.setAttribute("myPage", m);
 		request.setAttribute("storeReview", srList);
 		request.setAttribute("productReview", proList);
 		request.setAttribute("mpsPoint", mpsList);
 		request.setAttribute("orderList", opList);
+		request.setAttribute("scrapList", ssList);
 		request.setAttribute("orderStatus", op);
 
 		

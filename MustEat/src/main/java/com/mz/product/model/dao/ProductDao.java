@@ -167,6 +167,12 @@ public class ProductDao {
 		
 	}
 	
+	// 은영
+	/**
+	 * 마이페이지 주문상세 리스트 중 최신 2개 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문상세 리스트가 들어간 ArrayList<OrderPro> 객체
+	 */
 	public ArrayList<OrderPro> selectNewOrder(Connection conn, String memId) {
 		
 		// 조회된 행 수 반환 => ResultSet => ArrayList

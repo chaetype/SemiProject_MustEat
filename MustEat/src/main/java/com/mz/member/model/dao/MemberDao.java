@@ -15,6 +15,7 @@ import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Point;
 import com.mz.member.model.vo.Report;
+import com.mz.member.model.vo.StoreScrap;
 
 public class MemberDao {
 	//메소드 위에 주석으로 이름 달아두기!!!
@@ -370,6 +371,47 @@ public class MemberDao {
 		
 	}
 	
+	// 은영
+	/**
+	 * 마이페이지 식당 스크랩 중 최신 2개 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 식당 스크랩 리스트가 들어간 ArrayList<StoreScrap> 객체 
+	 */
+	public ArrayList<StoreScrap> selectNewScrap(Connection conn, String memId) {
+		
+		// 조회된 행 수 반환 => ResultSet => ArrayList
+		ArrayList<StoreScrap> ssList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNewScrap");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				ssList.add(new StoreScrap( rset.getString("STORE_NAME")
+										 , rset.getString("STORE_ADDRESS")
+										 , rset.getInt("RATE")
+										 ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return ssList;
+		
+	}
 
 }
 	
