@@ -100,7 +100,10 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				m = new Member(rset.getString("MEM_ID"));
+				m = new Member(rset.getString("MEM_ID"),
+							   rset.getString("MEM_EMAIL"),
+							   rset.getString("SECREAT_ID")
+							  );
 			}
 			
 		} catch (SQLException e) {
