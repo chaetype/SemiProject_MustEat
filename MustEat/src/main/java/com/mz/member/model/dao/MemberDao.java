@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
+import com.mz.member.model.vo.Point;
 import com.mz.member.model.vo.Report;
 
 public class MemberDao {
@@ -320,6 +321,49 @@ public class MemberDao {
 		}
 		
 		return my;
+		
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지에서 적립금 내역 중 최신 2개 조회하는 Dao
+	 * @param memId : 로그인한 회원아이디 
+	 * @return : 적립금 내역이 담긴 ArrayList<Point> 객체
+	 */
+	public ArrayList<Point> selectNewPoint(Connection conn, String memId) {
+		
+		// 조회된 행 수 반환 => ResultSet => ArrayList
+		ArrayList<Point> mpsList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNewPoint");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				mpsList.add(new Point(rset.getDate("SU_DATE")
+						            , rset.getString("MPS_CATEGORY")
+						            , rset.getInt("MPS_RECORD")
+						            , rset.getString("MPS_STATUS")
+						            ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return mpsList;
 		
 	}
 	

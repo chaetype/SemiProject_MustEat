@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
+import com.mz.member.model.vo.Point;
 import com.mz.product.model.service.ProductService;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.ProductReview;
@@ -52,10 +53,13 @@ public class MyPageForm extends HttpServlet {
 		ArrayList<StoreReview> srList = new StoreService().selectNewStoreReview(memId);
 		// 마이페이지에서 밀키트 리뷰 중 최신 2개 게시글 조회
 		ArrayList<ProductReview> proList = new ProductService().selectNewProductReview(memId);
-
+		// 마이페이지에서 적립금 내역 최신 2개 조회
+		ArrayList<Point> mpsList = new MemberService().selectNewPoint(memId);
+		
 		request.setAttribute("myPage", m);
 		request.setAttribute("storeReview", srList);
 		request.setAttribute("productReview", proList);
+		request.setAttribute("mpsPoint", mpsList);
 		request.setAttribute("orderStatus", op);
 
 		
