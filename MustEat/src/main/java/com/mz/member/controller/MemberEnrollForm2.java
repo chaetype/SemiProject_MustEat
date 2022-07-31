@@ -26,8 +26,9 @@ public class MemberEnrollForm2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		// 태민
+		// 실제 회원가입 하는 컨트롤러 (회원정보 db에 추가)
 	}
 
 	/**

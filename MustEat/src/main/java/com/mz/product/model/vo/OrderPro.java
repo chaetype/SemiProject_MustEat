@@ -108,6 +108,15 @@ public class OrderPro {
 		this.orderTransit = orderTransit;
 		this.orderDelivered = orderDelivered;
 	}
+	
+	public OrderPro(Date orderDate, int orderStatus, int totalPrice, String deliveryStatus, String productName) {
+		super();
+		this.orderDate = orderDate;
+		this.orderStatus = orderStatus;
+		this.totalPrice = totalPrice;
+		this.deliveryStatus = deliveryStatus;
+		this.productName = productName;
+	}
 
 
 	public String getMemId() {

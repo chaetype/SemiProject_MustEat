@@ -30,6 +30,32 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<entry key="insertContact">
+		INSERT
+		  INTO CONTACT
+		  (
+		    CONTACT_NO
+		  , CONTACT_TYPE
+		  , CONTACT_TITLE
+		  , CONTACT_CONTENT
+		  , CONTACT_WRITER
+		  , CONTACT_EMAIL
+		  , CONTACT_PHONE
+		  , CONTACT_ATTACH
+		  )
+		  VALUES
+		  (
+		    SEQ_CNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
 	
 	
 	

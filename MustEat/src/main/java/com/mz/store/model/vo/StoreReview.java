@@ -21,6 +21,7 @@ public class StoreReview {
 	private int reportCount; // 신고 횟수
 	private String reviewMemId;//리뷰작성 회원 아이디
 	private String memLevel;//리뷰작성 회원 등급
+	private String storeName; // 식당명
 	
 	public StoreReview() {
 		
@@ -61,6 +62,14 @@ public class StoreReview {
 		this.reviewEnrollDate = reviewEnrollDate;
 		this.memLevel = memLevel;
 		this.count = count;
+	}
+
+	public StoreReview(Date reviewEnrollDate, String reviewTitle, int scrapCount, String storeName) {
+		super();
+		this.reviewEnrollDate = reviewEnrollDate;
+		this.reviewTitle = reviewTitle;
+		this.scrapCount = scrapCount;
+		this.storeName = storeName;
 	}
 
 	public int getReNo() {
@@ -198,6 +207,15 @@ public class StoreReview {
 	public void setMemLevel(String memLevel) {
 		this.memLevel = memLevel;
 	}
+	
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
 
 	@Override
 	public String toString() {
@@ -206,11 +224,9 @@ public class StoreReview {
 				+ ", reviewEnrollDate=" + reviewEnrollDate + ", reviewModifyDate=" + reviewModifyDate
 				+ ", reviewStatus=" + reviewStatus + ", reviewImgPath=" + reviewImgPath + ", visitDate=" + visitDate
 				+ ", reviewTitle=" + reviewTitle + ", count=" + count + ", scrapCount=" + scrapCount + ", reportCount="
-				+ reportCount + ", reviewMemId=" + reviewMemId + ", memLevel=" + memLevel + "]";
+				+ reportCount + ", reviewMemId=" + reviewMemId + ", memLevel=" + memLevel + ", storeName=" + storeName
+				+ "]";
 	}
 
-	
-	
-	
 
 }

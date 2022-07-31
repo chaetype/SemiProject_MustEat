@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
+import com.mz.member.model.vo.Point;
 import com.mz.member.model.vo.Report;
 
 public class MemberService {
@@ -123,6 +124,24 @@ public class MemberService {
 		close(conn);
 		
 		return my;
+		
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지에서 적립금 내역 중 최신 2개 조회하는 Service
+	 * @param memId : 로그인한 회원아이디 
+	 * @return : 적립금 내역이 담긴 ArrayList<Point> 객체
+	 */
+	public ArrayList<Point> selectNewPoint(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Point> mpsList = new MemberDao().selectNewPoint(conn, memId);
+		
+		close(conn);
+		
+		return mpsList;
 		
 	}
 	

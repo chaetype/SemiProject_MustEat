@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.mz.member.model.vo.Member" %>
+<%
+	Member m = (Member)request.getAttribute("Member");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,19 +99,19 @@
                 function sendEmail() {
                 	
                     $.ajax({
-                    type: 'POST',
-                    url : '/MustEat/findId3.me',
-                    data: {"email" : 'musteat2022@gmail.com', "id" : 'users01'},
-                    dataType : "json",
-                    success : function(data){
-                        alert("ㅋㅋ안감");
-                    },
-                    error:function(request,status,error){
-                        alert("이메일 성공적으로 보내졌습니다.");
-               		}
-                });
-                    
-            }
+                        type: 'POST',
+                        url : '/MustEat/findId3.me',
+                        data: {"email" : "<%= m.getMemEmail() %>", "id" : "<%= m.getMemId() %>"},
+                        dataType : "json",
+                        success : function(data){
+                            alert("ㅋㅋ안감");
+                        },
+                        error:function(request,status,error){
+                            alert("이메일 성공적으로 보내졌습니다.");
+                        }
+                    });
+                 }
+
             </script>
 
            

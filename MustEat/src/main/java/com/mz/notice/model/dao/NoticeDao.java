@@ -11,9 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.mz.notice.model.vo.Notice;
-import com.mz.notice.model.vo.Tos;
 import com.mz.common.model.vo.PageInfo;
+import com.mz.notice.model.vo.Contact;
 import com.mz.notice.model.vo.Notice;
 
 public class NoticeDao {
@@ -87,6 +86,33 @@ public class NoticeDao {
 		}
 		
 		return list;
+		
+	}
+	
+	public int insertContact(Connection conn, Contact c) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertContact");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getContactType());
+			pstmt.setString(2, c.getContactTitle());
+			pstmt.setString(3, c.getContactContent());
+			pstmt.setString(4, c.getContactWriter());
+			pstmt.setString(5, c.getContactEmail());
+			pstmt.setString(6, c.getContactPhone());
+			pstmt.setString(7, c.getContactAttach());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 		
 	}
 	

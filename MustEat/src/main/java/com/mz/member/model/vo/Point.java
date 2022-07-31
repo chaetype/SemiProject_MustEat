@@ -24,6 +24,14 @@ public class Point {
 		this.mpsRecord = mpsRecord;
 		this.mpsStatus = mpsStatus;
 	}
+	
+	public Point(Date suDate, String mpsCategory, int mpsRecord, String mpsStatus) {
+		super();
+		this.suDate = suDate;
+		this.mpsCategory = mpsCategory;
+		this.mpsRecord = mpsRecord;
+		this.mpsStatus = mpsStatus;
+	}
 
 	public int getMpsNo() {
 		return mpsNo;

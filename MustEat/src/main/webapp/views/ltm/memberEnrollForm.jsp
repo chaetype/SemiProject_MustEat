@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <!-- 파비콘 -->
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 	.outer{
         width:1000px;
@@ -76,7 +77,8 @@
                     </tr>
                     <tr>
                         <th>휴대전화</th>
-                        <td colspan="2"><input type="text" placeholder="-포함해서 작성해주세요"></td>
+                        <td><input type="text" placeholder="-포함해서 작성해주세요"></td>
+                        <td><button type="button" id="phoneChk" class="btn1" onclick="location.href='<%=request.getContextPath() %>/phoneCheck.me';">본인인증</button></td>
                     </tr>
                     <tr>
                         <th>주소</th>
@@ -163,6 +165,28 @@
               }
             }).open();
         }
+        /*
+        $("#phoneChk").click(function(){
+            alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오.");
+            var phone = $("#phone").val();
+            $.ajax({
+                type:"GET",
+                url:'/MustEat/phoneCheck.me',
+                cache : false,
+                success:function(data){
+                    if(data == "error"){
+                        alert("휴대폰 번호가 올바르지 않습니다.")
+                        
+                    }else{	        		
+                        alert("휴대폰 번호가 올바르지 않습니다.")
+                       
+                    }
+                }
+            });
+        });
+        */
+
+
     </script>
 	
 </body>

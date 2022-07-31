@@ -21,6 +21,7 @@ public class Member {
 	private String addressRef;
 	private String memImgPath;
 	private String withDraw;
+	private String secreatId;
 	
 	
 	// 태민 아이디 찾기에 사용
@@ -30,6 +31,15 @@ public class Member {
 		this.memId = memId;
 	}
 	
+	public Member(String memId, String memEmail, String secreatId) {
+		super();
+		this.memId = memId;
+		this.memEmail = memEmail;
+		this.secreatId = secreatId;
+	}
+
+
+
 	public Member(int memNo, String memId, String memPwd, String memName, String memPhone, String memEmail,
 			Date enrollDate, Date modifyDate, String memStatus, String memNickname, String memGrade, int addressCode,
 			String address, String addressDetail, String addressRef, String memImgPath, String withDraw) {
@@ -71,6 +81,10 @@ public class Member {
 		this.addressRef = addressRef;
 	}
 
+
+	public String getSecreatId() {
+		return secreatId;
+	}
 
 
 	public int getMemNo() {
@@ -207,6 +221,10 @@ public class Member {
 
 	public void setWithDraw(String withDraw) {
 		this.withDraw = withDraw;
+	}
+	
+	public void setSecreatId(String secreatId) {
+		this.secreatId = secreatId;
 	}
 
 	@Override

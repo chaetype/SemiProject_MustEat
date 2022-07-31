@@ -1,15 +1,14 @@
 package com.mz.notice.model.service;
 
 import static com.mz.common.JDBCTemplate.*;
-import static com.mz.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import com.mz.notice.model.dao.NoticeDao;
-import com.mz.notice.model.vo.Notice;
-import com.mz.notice.model.vo.Tos;
 import com.mz.common.model.vo.PageInfo;
+import com.mz.notice.model.dao.NoticeDao;
+import com.mz.notice.model.vo.Contact;
+import com.mz.notice.model.vo.Notice;
 
 public class NoticeService {
 	
@@ -26,6 +25,21 @@ public class NoticeService {
 		ArrayList<Notice> list = new NoticeDao().selectNoticeList(conn, pi);
 		close(conn);
 		return list;
+	}
+	
+	public int insertContact(Contact c) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().insertContact(conn, c);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
 	}
 	
 	

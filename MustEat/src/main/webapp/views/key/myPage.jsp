@@ -1,9 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.member.model.vo.MyPage, com.mz.product.model.vo.OrderPro"%>
- 
+    pageEncoding="UTF-8"%>
+<%@ page
+	import="com.mz.member.model.vo.MyPage, com.mz.product.model.vo.OrderPro
+		  , java.util.ArrayList, com.mz.store.model.vo.StoreReview
+		  , com.mz.product.model.vo.*
+		  , com.mz.member.model.vo.Point, java.text.DecimalFormat"
+ %> 
 <%
 	// 식당 리뷰, 밀키트 리뷰, 적립금, 가고싶다, 팔로우 수량
 	MyPage mp = (MyPage)request.getAttribute("myPage");
+	// 식당 리뷰 최신 2개 게시글
+	ArrayList<StoreReview> storeReview = (ArrayList<StoreReview>)request.getAttribute("storeReview");
+	// 밀키트 리뷰 최신 2개 게시글
+	ArrayList<ProductReview> proReview = (ArrayList<ProductReview>)request.getAttribute("productReview");
+	// 적립금 내역 최신 2개
+	ArrayList<Point> mpsPoint = (ArrayList<Point>)request.getAttribute("mpsPoint");
+	// 주문상세 내역 최신 2개
+	ArrayList<OrderPro> orderList = (ArrayList<OrderPro>)request.getAttribute("orderList");
 	// 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문수량
 	OrderPro op = (OrderPro)request.getAttribute("orderStatus");
 	
@@ -19,6 +32,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 </head>
 <body>
+
 
 	<%@include file="../common/menubar.jsp" %>
 
@@ -141,20 +155,14 @@
 
       <tbody>
       <!-- 반복문 처리!!! -->
+      <% for(StoreReview sr : storeReview) { %>
         <tr>
-          <td class="categoryTd categoryTitle" >내 인생 최고의 맛집!</td>
-          <td class="categoryTd categoryTitle" >식당이름</td>
-          <td class="categoryTd categoryContent">130</td>
-          <td class="categoryTd categoryContent">2022.07.02</td>
+          <td class="categoryTd categoryTitle" ><%=sr.getReviewTitle() %></td>
+          <td class="categoryTd categoryTitle" ><%=sr.getStoreName() %></td>
+          <td class="categoryTd categoryContent"><%=sr.getScrapCount() %></td>
+          <td class="categoryTd categoryContent"><%=sr.getReviewEnrollDate() %></td>
         </tr>
-
-        <tr>
-          <td class="categoryTd categoryTitle">저만 믿고 오세요. 후회 안합니다. </td>
-          <td class="categoryTd categoryTitle" >식당이름</td>
-          <td class="categoryTd categoryContent">78</td>
-          <td class="categoryTd categoryContent">2022.06.30</td>
-        </tr>
-        <!-- 반복문!! -->
+	  <% } %>
     </tbody>
 
     </table>
@@ -178,18 +186,13 @@
 
       <tbody>
       <!-- 반복문 처리!!! -->
+      <% for (ProductReview pr : proReview) { %>
         <tr>
-          <td class="categoryTd categoryTitle" >식당 맛 그대로입니다!</td>
-          <td class="categoryTd categoryContent">130</td>
-          <td class="categoryTd categoryContent">2022.07.02</td>
+          <td class="categoryTd categoryTitle" ><%=pr.getProductName() %></td>
+          <td class="categoryTd categoryContent"><%=pr.getScrapCount() %></td>
+          <td class="categoryTd categoryContent"><%=pr.getPrReviewErollDate() %></td>
         </tr>
-
-        <tr>
-          <td class="categoryTd categoryTitle">꼭 사세요. 너무 맛있어요</td>
-          <td class="categoryTd categoryContent">78</td>
-          <td class="categoryTd categoryContent">2022.06.30</td>
-        </tr>
-        <!-- 반복문!! -->
+	  <% } %>
     </tbody>
 
     </table>
@@ -214,20 +217,20 @@
 
       <tbody>
        <!-- 반복문 처리!!! -->
+       <% for (Point p : mpsPoint ) { %>
+       
+       		<%
+       	 		int mps = p.getMpsRecord();
+       			DecimalFormat df = new DecimalFormat("#,##0"); // 가격 천단위로 보여지도록 설정
+       		%>
+       	
         <tr>
-          <td class="categoryTd categoryTitle">신뢰리뷰어 적립</td>
-          <td class="categoryTd categoryContent">5000원</td>
-          <td class="categoryTd categoryContent">2022.05.03</td>
-          <td class="categoryTd categoryContent">적립</td>
+          <td class="categoryTd categoryTitle"><%=p.getMpsCategory() %></td>
+          <td class="categoryTd categoryContent"><%=df.format(mps) %>원</td>
+          <td class="categoryTd categoryContent"><%=p.getSuDate() %></td>
+          <td class="categoryTd categoryContent"><%=p.getMpsStatus() %></td>
         </tr>
-
-        <tr>
-          <td class="categoryTd categoryTitle">밀키트 구매</td>
-          <td class="categoryTd categoryContent">-3000원</td>
-          <td class="categoryTd categoryContent">2022.03.02</td>
-          <td class="categoryTd categoryContent">사용</td>
-        </tr>
-         <!-- 반복문 처리!!! -->
+	   <% } %>
     </tbody>
 
     </table>
@@ -252,20 +255,21 @@
 
       <tbody>
        <!-- 반복문 처리!!! -->
+       <% for (OrderPro opl : orderList) { %>
+       		
+       		<%
+       	 		int total = opl.getTotalPrice();
+       			DecimalFormat df = new DecimalFormat("#,##0"); // 가격 천단위로 보여지도록 설정
+       		
+       		%>
+       		
         <tr>
-          <td class="categoryTd categoryTitle" >[채선당] 샤브샤브 밀키트 (2인)</td>
-          <td class="categoryTd categoryContent">15,900원</td>
-          <td class="categoryTd categoryContent">2022.07.02</td>
-          <td class="categoryTd categoryContent">배송준비중</td>
+          <td class="categoryTd categoryTitle" ><%=opl.getProductName() %></td>
+          <td class="categoryTd categoryContent"><%=df.format(total) %>원</td>
+          <td class="categoryTd categoryContent"><%=opl.getOrderDate() %></td>
+          <td class="categoryTd categoryContent"><%=opl.getDeliveryStatus() %></td>
         </tr>
-
-        <tr>
-          <td class="categoryTd categoryTitle">닭한마리 칼국수</td>
-          <td class="categoryTd categoryContent">18,900원</td>
-          <td class="categoryTd categoryContent">2022.06.30</td>
-          <td class="categoryTd categoryContent">배송중</td>
-        </tr>
-         <!-- 반복문 처리!!! -->
+	   <% } %>
     </tbody>
 
     </table>

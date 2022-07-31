@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import com.mz.product.model.dao.ProductDao;
 import com.mz.product.model.vo.OrderPro;
+import com.mz.product.model.vo.ProductReview;
 
 public class ProductService {
 	//메소드 위에 주석으로 이름 달아두기!!!
@@ -46,6 +47,36 @@ public class ProductService {
 		close(conn);
 		
 		return op;
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지에서 밀키트 리뷰 중 최신 2개글 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 조회된 밀키트 리뷰가 담긴 ArrayList<ProductReview> 객체
+	 */
+	public ArrayList<ProductReview> selectNewProductReview(String memId) {
+		
+		Connection conn = getConnection();
+
+		ArrayList<ProductReview> proList = new ProductDao().selectNewProductReview(conn, memId);
+		
+		close(conn);
+		
+		return proList;
+		
+	}
+	
+	public ArrayList<OrderPro> selectNewOrder(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> opList = new ProductDao().selectNewOrder(conn, memId);
+		
+		close(conn);
+		
+		return opList;
+		
 	}
 
 	
