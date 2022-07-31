@@ -14,6 +14,7 @@ public class ProductReview {
 	private int orderNo;
 	private int productCode;
 	private int scrapCount;
+	private String productName; // 상품명
 	
 	
 	public ProductReview() {
@@ -35,6 +36,13 @@ public class ProductReview {
 		this.orderNo = orderNo;
 		this.productCode = productCode;
 		this.scrapCount = scrapCount;
+	}
+
+	public ProductReview(Date prReviewErollDate, int scrapCount, String productName) {
+		super();
+		this.prReviewErollDate = prReviewErollDate;
+		this.scrapCount = scrapCount;
+		this.productName = productName;
 	}
 
 
@@ -137,14 +145,23 @@ public class ProductReview {
 		this.scrapCount = scrapCount;
 	}
 
+	public String getProductName() {
+		return productName;
+	}
+
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
 
 	@Override
 	public String toString() {
 		return "ProductReview [reviewNo=" + reviewNo + ", reviewWriter=" + reviewWriter + ", prReviewContent="
 				+ prReviewContent + ", prReviewRate=" + prReviewRate + ", prReviewErollDate=" + prReviewErollDate
 				+ ", prReviewModifyDate=" + prReviewModifyDate + ", prReviewStatue=" + prReviewStatue + ", orderNo="
-				+ orderNo + ", productCode=" + productCode + ", scrapCount=" + scrapCount + "]";
+				+ orderNo + ", productCode=" + productCode + ", scrapCount=" + scrapCount + ", productName="
+				+ productName + "]";
 	}
 
-	
 }

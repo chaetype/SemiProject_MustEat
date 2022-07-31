@@ -12,6 +12,7 @@ import java.util.Properties;
 import static com.mz.common.JDBCTemplate.*;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.product.model.vo.OrderPro;
+import com.mz.product.model.vo.ProductReview;
 
 public class ProductDao {
 	//메소드 위에 주석으로 이름 달아두기!!!
@@ -121,6 +122,48 @@ public class ProductDao {
 		}
 		
 		return op;
+		
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지에서 밀키트 리뷰 중 최신 2개글 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 조회된 밀키트 리뷰가 담긴 ArrayList<ProductReview> 객체
+	 */
+	public ArrayList<ProductReview> selectNewProductReview(Connection conn, String memId) {
+		
+		// 조회된 행 수 반환 => ResultSet => ArrayList
+		ArrayList<ProductReview> proList = new  ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNewProductReview");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				proList.add(new ProductReview(rset.getDate("REVIEW_ENROLLDATE")
+				                             ,rset.getInt("SCRAP_COUNT")
+				                             ,rset.getString("PRODUCT_NAME")
+				                             ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return proList;
 		
 	}
 	
