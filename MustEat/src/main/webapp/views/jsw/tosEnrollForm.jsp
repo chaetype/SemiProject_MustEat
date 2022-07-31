@@ -115,14 +115,14 @@
 
 		
 		<div class="tos-enroll">
-		
+			
 			<button type="button" class="btn1" id="tos-enroll-btn" data-toggle="modal" data-target="#myModal">등록하기</button>
 			<button type="button" class="btn1" id="tos-modify-btn" >수정하기</button>
 			<button type="button" class="btn1" id="tos-delete-btn" >삭제하기</button>
 
 		</div>
 		
-		<form action="<%= contextPath %>/tosInsertList.no" id="tos-enroll-form" method="post">
+		<form action="<%= contextPath %>/tosinsertlist.no" id="tos-enroll-form" method="post">
 				
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
@@ -139,8 +139,8 @@
 					    <div class="card px-5 py-5">
 					        <div class="row">
 					        <h1 style="font-family: 'OTWelcomeRA';">이용약관 등록하기</h1>
-					            <div class="col-md-6"> <input type="text" name="tosTitle" class="form-control" placeholder="이용약관 제목"> </div>
-					            <div class="col-md-6"> <input type="text" name="tosEtc" class="form-control" placeholder="비고"> </div>
+					            <div class="col-md-6"> <input type="text" name="tosTitle" class="form-control" placeholder="이용약관 제목"></div>
+					            <div class="col-md-6"> <input type="text" name="tosNote" class="form-control" placeholder="비고"></div>
 					        </div>
 					        <div class="row mt-3">
 					            <div class="col-md-12"> <textarea name="tosContent" rows="15" class="form-control" id="tos-content" style="width:100% !important; resize:none;" placeholder="이용약관 내용을 입력해주세요." ></textarea> </div>
