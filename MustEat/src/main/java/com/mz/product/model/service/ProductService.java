@@ -65,6 +65,17 @@ public class ProductService {
 		
 		return proList;
 		
+	}
+	
+	public ArrayList<OrderPro> selectNewOrder(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> opList = new ProductDao().selectNewOrder(conn, memId);
+		
+		close(conn);
+		
+		return opList;
 		
 	}
 

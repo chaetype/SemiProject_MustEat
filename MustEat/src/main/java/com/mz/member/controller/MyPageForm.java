@@ -55,11 +55,14 @@ public class MyPageForm extends HttpServlet {
 		ArrayList<ProductReview> proList = new ProductService().selectNewProductReview(memId);
 		// 마이페이지에서 적립금 내역 최신 2개 조회
 		ArrayList<Point> mpsList = new MemberService().selectNewPoint(memId);
-		
+		// 마이페이지에서 주문상세 내역 최신 2개 조회
+		ArrayList<OrderPro> opList = new ProductService().selectNewOrder(memId);
+				
 		request.setAttribute("myPage", m);
 		request.setAttribute("storeReview", srList);
 		request.setAttribute("productReview", proList);
 		request.setAttribute("mpsPoint", mpsList);
+		request.setAttribute("orderList", opList);
 		request.setAttribute("orderStatus", op);
 
 		

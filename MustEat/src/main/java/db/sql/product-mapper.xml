@@ -70,5 +70,25 @@
 		             ) A
       WHERE ROWNUM BETWEEN 1 AND 2
 	</entry>
+	
+	<!-- 은영 (마이페이지에서 주문상세 내역 중 최신 2개 조회) -->
+	<entry key="selectNewOrder">
+		SELECT ROWNUM, A.* 
+		    FROM (
+		        SELECT PRODUCT_NAME
+		             , TOTAL_PRICE
+		             , ORDER_DATE
+		             , DELIVERY_STATUS
+		             , ORDER_STATUS
+		        FROM ORDER_PRO
+		        JOIN MEMBER USING (MEM_NO)
+		        JOIN ORDER_LIST USING (ORDER_NO)
+		        JOIN PRODUCT USING (PRODUCT_CODE)
+		        WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		          AND ORDER_STATUS = 1
+		        ORDER BY ORDER_DATE DESC
+		         ) A
+		WHERE ROWNUM BETWEEN 1 AND 2
+	</entry>
 
 </properties>

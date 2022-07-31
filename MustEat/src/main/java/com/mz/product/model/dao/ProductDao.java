@@ -167,4 +167,42 @@ public class ProductDao {
 		
 	}
 	
+	public ArrayList<OrderPro> selectNewOrder(Connection conn, String memId) {
+		
+		// 조회된 행 수 반환 => ResultSet => ArrayList
+		ArrayList<OrderPro> opList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNewOrder");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				opList.add(new OrderPro( rset.getDate("ORDER_DATE")
+									   , rset.getInt("ORDER_STATUS")
+									   , rset.getInt("TOTAL_PRICE")
+									   , rset.getString("DELIVERY_STATUS")
+									   , rset.getString("PRODUCT_NAME")
+									   ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return opList;
+		
+	}
+	
 }
