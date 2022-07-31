@@ -77,26 +77,56 @@
 	
 	<!-- 이용약관 등록 -->
 	<entry key="insertTos">
-	INSERT
-	  INTO TOS
-	     (
-	       TOS_NO
-	     , ENROLL_DATE
-	     , MODIFY_DATE
-	     , TOS_TITLE
-	     , TOS_CONTENT
-	     , TOS_NOTE
-	     , TOS_STATUS
-	VALUES
-	     (
-	       SEQ_TOSNO.NEXTVAL
-	     , SYSDATE
-	     , SYSDATE
-	     , ?
-	     , ?
-	     , ?
-	     , Y
-	     )	
+		INSERT 
+		  INTO TOS
+		     (
+		       TOS_NO
+		     , ENROLL_DATE
+		     , MODIFY_DATE
+		     , TOS_TITLE
+		     , TOS_CONTENT
+		     , TOS_NOTE
+		     , TOS_STATUS
+		     )
+		VALUES
+		     (
+		       SEQ_TOSNO.NEXTVAL
+		     , SYSDATE
+		     , SYSDATE
+		     , ?
+		     , ?
+		     , ?
+		     , 'Y'
+		     )
 	</entry> 
+	
+	<!-- 이용약관 상세 조회 -->
+	<entry key="selectTos">
+		SELECT
+		       TOS_NO
+		     , TOS_TITLE
+		     , TOS_NOTE
+		     , TOS_CONTENT
+		  FROM TOS
+		 WHERE TOS_NO = ?	
+	</entry>
+	
+	<!-- 이용약관 수정 -->
+	<entry key="updateTos">
+		UPDATE TOS
+		   SET TOS_TITLE = ?
+		     , TOS_NOTE = ?
+		     , TOS_CONTENT = ?
+		 WEHRE TOS_NO = ?
+	</entry>
+	
+	<!-- 이용약관 삭제 -->
+	<entry key="deleteTos">
+		UPDATE TOS
+		   SET TOS_STATUS = 'N'
+		 WHERE TOS_NO = ?
+	</entry>
+	
+	
 
 </properties>
