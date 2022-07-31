@@ -27,17 +27,7 @@ public class NoticeService {
 		close(conn);
 		return list;
 	}
-
 	
-	
-	// 서원
-	// 관리자 이용약관 조회
-	public ArrayList<Tos> selectAdminTosList(){
-		Connection conn = getConnection();
-		ArrayList<Tos> list = new NoticeDao().selectAdminTosList(conn);
-		close(conn);
-		return list;
-	}
 	
 	
 }
