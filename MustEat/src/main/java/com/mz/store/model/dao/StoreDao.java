@@ -1,6 +1,7 @@
 package com.mz.store.model.dao;
 
 import static com.mz.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.mz.member.model.dao.MemberDao;
+import com.mz.store.model.vo.Store;
 import com.mz.store.model.vo.StoreReview;
 
 public class StoreDao {
@@ -103,8 +105,11 @@ public class StoreDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%"+keyword+"%");
-			pstmt.setString(2, "%"+keyword+"%");
+			if(type.equals("3")) {
+				pstmt.setString(2, "%"+keyword+"%");
+			}
 			
+						
 			rset = pstmt.executeQuery();
 			
 			
@@ -129,4 +134,68 @@ public class StoreDao {
 		}
 		return list;
 	}
+	
+	//채윤 식당 상세조회
+	public Store selectStore(Connection conn, int storeNo) {
+		// board로부터 select => ResultSet(한행) => Board
+		Store s = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectStore");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, storeNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				s = new Store(rset.getInt("store_no"),
+							  rset.getString("store_name"),
+							  rset.getString("store_address"),
+							  rset.getString("store_intro"),
+							  rset.getString("store_img_path"),
+							  rset.getString("store_popularity"),
+							  rset.getString("store_pop_info"),
+							  rset.getString("STORE_POP_PATH"),
+							  rset.getString("review_writer"),
+							  rset.getString("review_content"),
+							  rset.getString("review_img")
+							 );
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return s;
+		
+	}
+	
+	
+	public int increaseCount(Connection conn, int storeNo) {
+		// update문 => 처리된행수
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, storeNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
 }

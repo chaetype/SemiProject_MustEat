@@ -34,5 +34,30 @@
 		JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
 	</entry>
 	
+	<!-- 채윤 : 식당 상세조회 -->
+	<entry key="selectStore">
+		SELECT 
+		       STORE_NO
+		     , STORE_NAME
+		     , STORE_ADDRESS
+		     , STORE_INTRO
+		     , STORE_IMG_PATH
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , STORE_POP_PATH
+		     , REVIEW_WRITER
+		     , REVIEW_CONTENT
+		     , REVIEW_IMG
+		  FROM STORE S
+		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
+		 WHERE STORE_NO = ?
+	</entry>
 	
+	<!-- 채윤 식당 조회수 -->
+	<entry key="increaseCount">
+		UPDATE STORE
+		   SET COUNT = COUNT+1
+		 WHERE STORE_NO = ?
+		   AND STATUS = 'Y'
+	</entry>
 </properties>

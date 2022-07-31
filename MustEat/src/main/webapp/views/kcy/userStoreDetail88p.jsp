@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.*" %>
+<%
+	Store s = (Store)request.getAttribute("s");
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Must Eat</title>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5083115c1fb16d0c71e6b310c47c7609"></script>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>
@@ -108,15 +112,16 @@
     <div class="wrap33">
         <div class="outer111">
             <div class="tumbnail">
-                <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;" alt="">
+                <img src="<%=contextPath%>/<%=s.getStoreImgPath()%>" style="width: 100%; height:100%;" alt="">
             </div>
            
             <div class="info">
-                <h2>(식당이름)호족반</h2>
+            
+                <h2><%= s.getStoreName() %></h2>
                 <br>
-                (식당주소)서울 강남구 언주로 164길 39 1층
+                <%= s.getStoreAddress() %>
                 <br>
-                (식당 소개글)모던 서양 한식 브랜드 호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.
+                <%= s.getStoreIntro()%>
             </div>
             <button class="btn1" style="margin: 5px;"> ❥ 찜 ❥</button>
             
@@ -160,9 +165,9 @@
             <div class="popular">
                 <h2>인기메뉴</h2>
                 <div class="tumbnail2">
-                    <img src="<%=contextPath%>/resources/image/cy/popmenuhojokban.jpg"style="width: 100%; height:100%;">
+                    <img src="<%=contextPath%>/<%=s.getStorePopPath() %>"style="width: 100%; height:100%;">
                 </div>
-                <div class="info2"><b>항정살 수육</b><br> 부드러운 항정살과 특제 무 무침의 조화</div>
+                <div class="info2"><b> <%=s.getStorePopularity()%> </b><br> <%=s.getStorePopInfo() %></div>
             </div>
         </div>
         <hr>
@@ -170,10 +175,9 @@
             <div class="popular2">
                 <h2>관련리뷰</h2>
                 <div class="tumbnail3">
-                    <img src="<%=contextPath%>/resources/image/cy/popmenuhojokban.jpg"style="width: 100%; height:100%;">
+                    <img src="<%=contextPath%>/<%=s.getReviewImg() %>"style="width: 100%; height:100%;">
                 </div>
-                <div class="info3">최근에 신사역 갈 일이있었는데 점심을 근처 호족반에서 먹게되었습니다. 워낙에 한식을 좋아해서 애매한 퓨전음식은 좀 경계하는 편이였는데 이곳은 차원이 달랐습니다.
-                    물론 주말이나 금요일 저녁에는 줄이 매우 길것 같았습니다. 따로 예약시스템이 없기때문에 근처 주민들은 포장을 해가던데 포장은 정말 빨리 나오는거 같더라구요</div>
+                <div class="info3"><b><%=s.getReviewWriter() %></b><br><%=s.getStoreReview()%></div>
             </div>
         </div>
     </div>

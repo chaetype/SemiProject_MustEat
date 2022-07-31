@@ -1,7 +1,6 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,21 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.store.model.dao.StoreDao;
 import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.StoreReview;
+import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class UserReviewListController
+ * Servlet implementation class StoreDetailController
  */
-@WebServlet("/urlist.st")
-public class UserReviewListController extends HttpServlet {
+@WebServlet("/detail.st")
+public class StoreDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserReviewListController() {
+    public StoreDetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,27 +30,28 @@ public class UserReviewListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String type_ = request.getParameter("select11");
-		String keyword_ = request.getParameter("findKeyword");
+		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
-		String type = "3";
-		if(type_ != null) {
-			type=type_;
-		} 
-//		else {
-//			System.out.println("type is null");
-//		}
+		StoreService sService = new StoreService();
 		
-		String keyword ="";
-		if(keyword_ != null) {
-			keyword = keyword_;
+		// 1) 조회수 증가
+		int result = sService.increaseCount(storeNo);
+		
+		if(result > 0) { // 유효한게시글 맞음 
+			// 2) 게시글, 첨부파일 조회 
+			Store s = sService.selectStore(storeNo);
+			
+			
+			// => 상세조회페이지
+			request.setAttribute("s", s);
+			
+			
+			request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
+			
+		}else { // 유효한게시글 아님 => 에러페이지
+			request.setAttribute("errorMsg", "공지사항 삭제 실패");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
-		
-		StoreService service = new StoreService();
-		ArrayList<StoreReview> list = service.userStoreReview(type, keyword);
-		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/kcy/userReviewLookup92p.jsp").forward(request, response);
 	}
 
 	/**

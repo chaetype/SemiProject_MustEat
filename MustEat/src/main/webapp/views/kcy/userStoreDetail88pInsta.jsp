@@ -117,7 +117,9 @@
 <body>
     <%@ include file="../common/menubar.jsp" %>
     <div class="wrap33">
-
+		<h6 style="float:right;">게시일 xxxx-xx-xx 조회수 nnn</h6>
+		<br>
+		<hr>
         <div class="outer111">
             <div class="tumbnail11">
                 <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 400px; height:400px;" alt="">
