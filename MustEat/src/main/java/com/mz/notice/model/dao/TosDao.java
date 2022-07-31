@@ -1,6 +1,6 @@
 package com.mz.notice.model.dao;
 
-import static com.mz.common.JDBCTemplate.*;
+import static com.mz.common.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -57,6 +57,42 @@ public class TosDao {
 					
 			return list;
 		}
+		
+		
+		// 관리자 이용약관 등록
+		
+		public int insertTos(Connection conn, Tos t) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("insertTos");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, t.getTosTitle());
+				pstmt.setString(2, t.getTosContent());
+				pstmt.setString(3, t.getTosNote());
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+			
+		}
+		
+		
+		// 이용약관 수정
+		
+		
+		
+		
+		
+		
+		
 		
 
 }
