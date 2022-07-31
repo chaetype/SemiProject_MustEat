@@ -1,6 +1,7 @@
 package com.mz.member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,8 @@ import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
 import com.mz.product.model.service.ProductService;
 import com.mz.product.model.vo.OrderPro;
+import com.mz.store.model.service.StoreService;
+import com.mz.store.model.vo.StoreReview;
 
 /**
  * Servlet implementation class MyPageForm
@@ -43,8 +46,12 @@ public class MyPageForm extends HttpServlet {
 		
 		// 상품 배송 현황에 따른 주문 갯수
 		OrderPro op = new ProductService().countOrder(memId);
+		
+		// 마이페이지에서 가게 리뷰 중 최신 2개 게시글 조회
+		ArrayList<StoreReview> srList = new StoreService().selectNewStoreReview(memId);
 
 		request.setAttribute("myPage", m);
+		request.setAttribute("storeReview", srList);
 		request.setAttribute("orderStatus", op);
 
 		

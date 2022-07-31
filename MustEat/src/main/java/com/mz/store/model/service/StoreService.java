@@ -54,4 +54,16 @@ public class StoreService {
 		close(conn);
 		return s;
 	}
+	
+	public ArrayList<StoreReview> selectNewStoreReview(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<StoreReview> srList = new StoreDao().selectNewStoreReview(conn, memId);
+		
+		close(conn);
+		
+		return srList;
+		
+	}
 }

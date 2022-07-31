@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.member.model.vo.MyPage, com.mz.product.model.vo.OrderPro"%>
- 
+    pageEncoding="UTF-8"%>
+<%@ page
+	import="com.mz.member.model.vo.MyPage, com.mz.product.model.vo.OrderPro
+		  , java.util.ArrayList, com.mz.store.model.vo.StoreReview"
+ %> 
 <%
 	// 식당 리뷰, 밀키트 리뷰, 적립금, 가고싶다, 팔로우 수량
 	MyPage mp = (MyPage)request.getAttribute("myPage");
+	// 식당 리뷰 최신 2개 게시글
+	ArrayList<StoreReview> storeReview = (ArrayList<StoreReview>)request.getAttribute("storeReview");
 	// 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문수량
 	OrderPro op = (OrderPro)request.getAttribute("orderStatus");
 	
@@ -141,20 +146,14 @@
 
       <tbody>
       <!-- 반복문 처리!!! -->
+      <% for(StoreReview sr : storeReview) { %>
         <tr>
-          <td class="categoryTd categoryTitle" >내 인생 최고의 맛집!</td>
-          <td class="categoryTd categoryTitle" >식당이름</td>
-          <td class="categoryTd categoryContent">130</td>
-          <td class="categoryTd categoryContent">2022.07.02</td>
+          <td class="categoryTd categoryTitle" ><%=sr.getReviewTitle() %></td>
+          <td class="categoryTd categoryTitle" ><%=sr.getStoreName() %></td>
+          <td class="categoryTd categoryContent"><%=sr.getScrapCount() %></td>
+          <td class="categoryTd categoryContent"><%=sr.getReviewEnrollDate() %></td>
         </tr>
-
-        <tr>
-          <td class="categoryTd categoryTitle">저만 믿고 오세요. 후회 안합니다. </td>
-          <td class="categoryTd categoryTitle" >식당이름</td>
-          <td class="categoryTd categoryContent">78</td>
-          <td class="categoryTd categoryContent">2022.06.30</td>
-        </tr>
-        <!-- 반복문!! -->
+	  <% } %>
     </tbody>
 
     </table>
