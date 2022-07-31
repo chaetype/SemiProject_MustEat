@@ -31,7 +31,15 @@ public class Tos {
 		this.tosContent = tosContent;
 		this.tosStatus = tosStatus;
 	}
-	
+		
+	public Tos(int tosNo, String tosNote, String tosTitle, String tosContent) {
+		super();
+		this.tosNo = tosNo;
+		this.tosNote = tosNote;
+		this.tosTitle = tosTitle;
+		this.tosContent = tosContent;
+	}
+
 	public Tos(int tosNo, String tosTitle, Date enrollDate, Date modifyDate, String tosNote) {
 		super();
 		this.tosNo = tosNo;
