@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .outer{
-        width:500px;
+        width:400px;
         margin:auto;
         margin-top:10%;
     }
@@ -26,8 +26,8 @@
         color: black;
     }
     img{
-    	width: 130px;
-        height: 120px;;
+    	width: 120px;
+        height: 100px;;
         margin: 0;
         margin-left: 36%;
     }
@@ -53,11 +53,11 @@
 
         <form>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="userId" placeholder="아이디">
+                <input type="text" class="form-control" name="userId" placeholder="아이디">
                 <label for="floatingInput">아이디</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="userPwd" placeholder="이메일 주소" >
+                <input type="password" class="form-control" name="userEmail" placeholder="이메일 주소" >
                 <label for="floatingPassword">이메일 주소</label>
             </div>
             <p style="font-size:small; color:gray; margin-top:0;">
@@ -67,10 +67,10 @@
         
         
             <div class="d-grid" style="padding-bottom: 10px;">
-                <button class="btn1" type="submit">비밀번호 찾기</button>
+                <button class="btn1" type="button" onclick="findPwd()">비밀번호 찾기</button>
             </div>
             <div class="d-grid">
-                <button class="btn1" type="submit">로그인</button>
+                <button class="btn1" type="button" onclick="location.href='<%=request.getContextPath() %>/login1.me';">로그인</button>
             </div>            
             
             <br>
@@ -82,6 +82,27 @@
                 
             </div>
         </form>
+
+
+        <script>
+            
+            function findPwd() {
+                
+                $.ajax({
+                    type: 'post',
+                    url : '/MustEat/findPwd2.me',
+                    data: {"email" : "<%= m.getMemEmail() %>", "id" : "<%= m.getMemId() %>"},
+                    dataType : "json",
+                    success : function(data){
+                        alert("ㅋㅋ안감");
+                    },
+                    error:function(request,status,error){
+                        alert("이메일 성공적으로 보내졌습니다.");
+                    }
+                });
+             }
+
+        </script>
     </div>
 </body>
 </html>
