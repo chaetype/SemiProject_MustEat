@@ -53,5 +53,22 @@
             FROM MEMBER M 
         WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 	</entry>
+	
+	<!-- 은영 (마이페이지에서 밀키트 리뷰 중 최신게시글 2개 조회) -->
+	<entry key="selectNewProductReview">
+	  SELECT ROWNUM, A.*
+		    FROM (
+		            SELECT MEM_ID
+		                 , PRODUCT_NAME
+		                 , SCRAP_COUNT
+		                 , PR_REVIEW_ENROLLDATE "REVIEW_ENROLLDATE"
+		             FROM PRODUCT_REVIEW
+		             JOIN MEMBER ON (MEM_NO = REVIEW_WRITER)
+		             JOIN PRODUCT USING (PRODUCT_CODE)
+		             WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		             ORDER BY PR_REVIEW_ENROLLDATE DESC
+		             ) A
+      WHERE ROWNUM BETWEEN 1 AND 2
+	</entry>
 
 </properties>
