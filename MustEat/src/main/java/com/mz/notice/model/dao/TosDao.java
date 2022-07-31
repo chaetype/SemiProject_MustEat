@@ -1,6 +1,6 @@
 package com.mz.notice.model.dao;
 
-import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -85,11 +85,86 @@ public class TosDao {
 		}
 		
 		
+		// 등록한 이용약관 상세 조회
+		public Tos selectTos(Connection conn, int tosNo) {
+			Tos t = null;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("selectTos");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, tosNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					t = new Tos(rset.getInt("tos_no"),
+								rset.getString("tos_title"),
+								rset.getString("tos_note"),
+								rset.getString("tos_content")							
+							);
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return t;
+			
+		}
+		
+		
 		// 이용약관 수정
+		public int updateTos(Connection conn, Tos t) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("updateTos");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, t.getTosTitle());
+				pstmt.setString(2, t.getTosNote());
+				pstmt.setString(3, t.getTosContent());
+				pstmt.setInt(4, t.getTosNo());
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;					
+			
+		}
 		
 		
-		
-		
+		// 이용약관 삭제
+		public int deleteTos(Connection conn, int tosNo) {
+			
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("deleteTos");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, tosNo);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+			
+			
+		}
 		
 		
 		
