@@ -35,6 +35,7 @@
 	
 	<!-- 서원 -->
 	<!-- 관리자 이용약관 페이지 -->
+	<!-- 이용약관 조회 -->
 	<entry key="selectAdminTosList">
 		SELECT 
 	     	   TOS_NO
@@ -46,6 +47,30 @@
 	 	WHERE TOS_STATUS = 'Y'
 	 	ORDER 
 	   	   BY TOS_NO DESC
-	</entry>  
+	</entry> 
+	
+	<!-- 이용약관 등록 -->
+	<entry key="insertTos">
+	INSERT
+	  INTO TOS
+	     (
+	       TOS_NO
+	     , ENROLL_DATE
+	     , MODIFY_DATE
+	     , TOS_TITLE
+	     , TOS_CONTENT
+	     , TOS_NOTE
+	     , TOS_STATUS
+	VALUES
+	     (
+	       SEQ_TOSNO.NEXTVAL
+	     , SYSDATE
+	     , SYSDATE
+	     , ?
+	     , ?
+	     , ?
+	     , Y
+	     )	
+	</entry> 
 
 </properties>
