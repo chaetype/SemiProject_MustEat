@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.notice.model.service.NoticeService;
-import com.mz.notice.model.vo.Notice;
+import com.mz.notice.model.service.TosService;
 import com.mz.notice.model.vo.Tos;
 
 /**
@@ -33,7 +32,7 @@ public class TosAdminListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Tos> list = new NoticeService().selectAdminTosList();
+		ArrayList<Tos> list = new TosService().selectAdminTosList();
 						
 		request.setAttribute("list", list);
 	    request.getRequestDispatcher("views/jsw/tosEnrollForm.jsp").forward(request, response);
