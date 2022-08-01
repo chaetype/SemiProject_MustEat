@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
+<%@ page import="java.util.ArrayList, com.mz.member.model.vo.Point" %>
+<%
+	ArrayList<Point> list = (ArrayList<Point>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,104 +116,34 @@
 				<table class="rwd-table">
 				    <tbody>
 				      <tr>
+				        <th>발생일</th>
 				        <th>회원번호</th>
-				        <th>이름</th>
+						<th>이름</th>
 						<th>아이디</th>
 						<th>전화번호</th>
-						<th>발생일</th>
+						<th>발생구분</th>
 						<th>적립 및 사용금액(원)</th>
-						<th>잔여 적립금(원)</th>
 				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-				      <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
-					  <tr>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>xxx-xxxx-xxxx</td>
-						<td>xxxx-xx-xx</td>
-						<td>-5000</td>
-						<td>10000</td>
-				      </tr>
+				      <% if(list.isEmpty()) { %>
+	                  <!--case1. 게시글이 없을경우-->
+	                  <tr>
+	                      <td colspan="6">조회된 게시글이 없습니다.</td>
+	                  </tr>
+					  <% }else { %>
+	                  <!--case2. 게시글이 있을경우-->
+	                  	<% for(Point p : list){ %>
+		                  <tr>
+		                  	  <td><%= p.getSuDate() %></td>
+		                      <td><%= p.getMemNo() %></td>
+		                      <td><%= p.getMemName() %></td>
+		                      <td><%= p.getMemId() %></td>
+		                      <td><%= p.getMemPhone() %></td>		       
+		                      <td><%= p.getMpsCategory() %></td>
+		                      <td><%= p.getMpsRecord() %></td>
+		                  </tr>   
+	                      <% } %>        
+	                  <% } %>
+
 				    </tbody>
 		  		</table>
 			
