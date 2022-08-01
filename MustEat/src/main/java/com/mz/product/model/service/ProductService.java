@@ -18,26 +18,6 @@ public class ProductService {
 	
 	// 은영
 	/**
-	 * 배송현황 리스트 조회하는 Service
-	 * @param delivery : 배송현황 정보가 담긴 문자열 (상품준비중, 배송중, 배송완료)
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : 배송현황 리스트 정보가 담긴 ArrayList<OrderPro>
-	 */
-	public ArrayList<OrderPro> deliveryStatusList(String delivery, String memId) {
-		
-		Connection conn = getConnection();
-		
-		// 배송 현황 조회
-		ArrayList<OrderPro> list = new ProductDao().deliveryStatusList(conn, delivery, memId);
-		
-		close(conn);
-		
-		return list;
-		
-	}
-
-	// 은영
-	/**
 	 * 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문 수량 조회하는 Service
 	 * @param memId : 로그인한 회원 아이디
 	 * @return : 배송현황에 따른 주문 수량 정보가 담긴 OrderPro 객체
@@ -171,6 +151,31 @@ public class ProductService {
 		close(conn);
 		
 		return p;
+	}
+	
+	// 은영
+	public ArrayList<OrderPro> selectOrderMonth(String str, String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> month = new ProductDao().selectOrderMonth(conn, str, memId);
+		
+		close(conn);
+		
+		return month;
+		
+	}
+	
+	public ArrayList<OrderPro> selectOrderList(String str, String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> opList = new ProductDao().selectOrderList(conn, str, memId);
+		
+		close(conn);
+		
+		return opList;
+		
 	}
 
 

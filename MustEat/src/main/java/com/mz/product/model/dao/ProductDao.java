@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -37,56 +36,6 @@ public class ProductDao {
 	
 	}
 	
-	// 은영
-	/**
-	 * 배송현황 리스트 조회하는 Dao
-	 * @param delivery : 배송현황 정보가 담긴 문자열 (상품준비중, 배송중, 배송완료)
-	 * @param memId : 로그인한 회원 아이디
-	 * @return : 배송현황 리스트 정보가 담긴 ArrayList<OrderPro>
-	 */
-	public ArrayList<OrderPro> deliveryStatusList(Connection conn, String delivery, String memId) {
-		
-		// 배송현황 조회 => ArrayList<OrderPro> => ResultSet
-		ArrayList<OrderPro> list = new ArrayList<>();
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("deliveryStatusList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, delivery);
-			pstmt.setString(2, memId);
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				list.add(new OrderPro(rset.getInt("order_no")
-						      		, rset.getInt("order_quentity")
-						      		, rset.getDate("order_date")
-						      		, rset.getInt("total_price")
-						      		, rset.getString("delivery_status")
-						      		, rset.getString("mem_id")
-						      		, rset.getString("product_name")
-						      		, rset.getString("seller")
-						      		, rset.getString("seller_phone")
-					));
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
-
 	// 은영
 	/**
 	 * 장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문 수량 조회하는 Dao
@@ -397,4 +346,92 @@ public class ProductDao {
 		
 		return p;
 	}
+
+	// 은영
+	public ArrayList<OrderPro> selectOrderMonth(Connection conn, String str, String memId) {
+		
+		// select => 여러행 조회 => ArrayList
+		ArrayList<OrderPro> month = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOrderMonth");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			pstmt.setString(2, str);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				month.add(new OrderPro(rset.getString("MONTH")));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			close(rset);
+			close(pstmt);
+		}
+		
+		return month;
+		
+	}
+	
+	public ArrayList<OrderPro> selectOrderList(Connection conn, String str, String memId) {
+		
+		// select => 여러행 조회 => ArrayList
+		ArrayList<OrderPro> opList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOrderList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			pstmt.setString(2, str);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+
+				opList.add(new OrderPro(
+									   rset.getInt("ORDER_NO")
+									 , rset.getInt("ORDER_QUENTITY")
+						 			 , rset.getDate("ORDER_DATE")
+									 , rset.getInt("TOTAL_PRICE")
+									 , rset.getString("PRODUCT_NAME")
+									 , rset.getString("SELLER")
+									 , rset.getString("SELLER_PHONE")
+									 , rset.getString("MONTH")
+									 ));
+			}
+		}catch(SQLException e)	{
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+			
+		
+		return opList;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

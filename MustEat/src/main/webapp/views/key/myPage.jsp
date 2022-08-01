@@ -133,7 +133,7 @@
   
 	  // '장바구니, 상품준비중, 배송중, 배송완료, 상품취소' 클릭하면 실행하는 함수
 	 	function orderStatus(no, status) { // 실행시 전달되는 값을 담는 매개변수
-		  location.href="<%=contextPath%>/orderStatusList.pro?no=" + no + "&status=" + status;
+		  location.href="<%=contextPath%>/orderStatusList.pro?status=" + status;
 	  }
   
   </script>
