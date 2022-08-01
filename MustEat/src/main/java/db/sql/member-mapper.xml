@@ -44,6 +44,18 @@
 		
 	</entry>
 	
+	<!-- 태민 (비밀번호 찾기) -->
+	<entry key="findPwd">
+		SELECT
+			  MEM_PWD
+			, MEM_EMAIL
+		  FROM
+		  	  MEMBER
+		 WHERE MEM_ID = ?
+		   AND MEM_EMAIL = ?
+		
+	</entry>
+	
 	
 	<!-- 은영 (회원 정보 수정) -->
 	<entry key="updateMember">

@@ -51,7 +51,7 @@
         <hr>
 
 
-        <form>
+        <form action="<%= request.getContextPath() %>/findPwd2.me" method="post">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="userId" placeholder="아이디">
                 <label for="floatingInput">아이디</label>
@@ -64,10 +64,13 @@
             	must-eat place 가입시 사용하신 이메일을 입력하세요. <br>
                 해당 이메일로 임시 비밀번호를 보내드립니다.
             </p>
-        
-        
+        	
+			<% if (request.getAttribute("errorMsg") != null) { %>
+				<p align="left" style="color:red; font-size:small" id="text";><%= request.getAttribute("errorMsg") %></p>
+			<% } %>
+        	
             <div class="d-grid" style="padding-bottom: 10px;">
-                <button class="btn1" type="button" onclick="findPwd()">비밀번호 찾기</button>
+                <button class="btn1" type="submit">비밀번호 찾기</button>
             </div>
             <div class="d-grid">
                 <button class="btn1" type="button" onclick="location.href='<%=request.getContextPath() %>/login1.me';">로그인</button>
@@ -77,32 +80,12 @@
 
             <div>
                 <div style="display:block" align="right">
-                    <a class="small" style="font-size: 15px;" href="">아이디 찾기 ></a>
+                    <a class="small" style="font-size: 15px;" href="<%=request.getContextPath() %>/findId1.me">아이디 찾기 ></a>
                 </div>
                 
             </div>
         </form>
 
-
-        <script>
-            
-            function findPwd() {
-                
-                $.ajax({
-                    type: 'post',
-                    url : '/MustEat/findPwd2.me',
-                    data: {"email" : "<%= m.getMemEmail() %>", "id" : "<%= m.getMemId() %>"},
-                    dataType : "json",
-                    success : function(data){
-                        alert("ㅋㅋ안감");
-                    },
-                    error:function(request,status,error){
-                        alert("이메일 성공적으로 보내졌습니다.");
-                    }
-                });
-             }
-
-        </script>
     </div>
 </body>
 </html>
