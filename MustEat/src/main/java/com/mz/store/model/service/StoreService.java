@@ -1,8 +1,8 @@
 package com.mz.store.model.service;
 
 import static com.mz.common.JDBCTemplate.close;
-import static com.mz.common.JDBCTemplate.getConnection;
 import static com.mz.common.JDBCTemplate.commit;
+import static com.mz.common.JDBCTemplate.getConnection;
 import static com.mz.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
@@ -91,4 +91,30 @@ public class StoreService {
 		close(conn);
 		return list;
 	}
+	
+	
+	
+	
+	
+
+	// 서원 관리자 식당조회 
+	public ArrayList<Store> selectAdminStorelist() {
+		Connection conn = getConnection();
+		ArrayList<Store> list = new StoreDao().selectAdminStorelist(conn); 
+		close(conn);
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
