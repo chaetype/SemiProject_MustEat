@@ -36,6 +36,9 @@
         font-weight: bold;
         font-size: 18px;
     }
+    #text{
+        white-space:pre 
+    }
 
 </style>
 </head>
@@ -57,7 +60,7 @@
                 <label for="floatingInput">아이디</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="form-control" name="userEmail" placeholder="이메일 주소" >
+                <input type="text" class="form-control" name="userEmail" placeholder="이메일 주소" >
                 <label for="floatingPassword">이메일 주소</label>
             </div>
             <p style="font-size:small; color:gray; margin-top:0;">
@@ -67,6 +70,10 @@
         	
 			<% if (request.getAttribute("errorMsg") != null) { %>
 				<p align="left" style="color:red; font-size:small" id="text";><%= request.getAttribute("errorMsg") %></p>
+			<% } %>
+
+            <% if (request.getAttribute("successMsg") != null) { %>
+				<script>alert('<%= request.getAttribute("successMsg") %>');</script>
 			<% } %>
         	
             <div class="d-grid" style="padding-bottom: 10px;">

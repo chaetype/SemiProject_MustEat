@@ -54,7 +54,11 @@ public class FindIdController2 extends HttpServlet {
 			
 		}else { // 아이디 찾기 성공
 			
-			System.out.println(m);
+			RequestDispatcher view = request.getRequestDispatcher("views/ltm/findIdCompleted.jsp");
+			
+			request.setAttribute("successMsg", m.getSecreatId());
+			
+			view.forward(request, response);
 			
 		}
 		
