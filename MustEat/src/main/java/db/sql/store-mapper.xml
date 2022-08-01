@@ -113,4 +113,23 @@
 			    )A
 		WHERE ROWNUM BETWEEN 1 AND 2
 	</entry>
+	
+	<!-- 서원 관리자 식당 조회 -->
+	<entry key="selectAdminStorelist">
+		SELECT 
+			   STORE_NO
+			 , STORE_NAME
+			 , STORE_ADDRESS 
+			 , STORE_PHONE
+		  FROM STORE
+		 ORDER 
+            BY STORE_NO DESC
+	</entry>
+	
+	
+	
+	
+	
+	
+	
 </properties>
