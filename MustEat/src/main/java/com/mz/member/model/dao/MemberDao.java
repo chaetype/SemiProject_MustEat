@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.mz.member.model.vo.Follow;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Point;
@@ -446,6 +447,40 @@ public class MemberDao {
 		return ssList;
 		
 	}
+	
+	
+	//채윤
+		/**
+		 * 팔로우목록 조회
+		 * @param conn
+		 * @return
+		 */
+		public ArrayList<Follow> myFollowList(Connection conn){
+			
+			ArrayList<Follow> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("myFollowList");
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Report(rset.getInt(
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;
+			
+		}
+	
 
 }
 	

@@ -10,10 +10,10 @@ public class Follow {
 	private int fMNo;
 	private int fingMNo;
 	private Date enrollDate;
-	private String ingMemName;
-	private String profileImg;
-	private int followCount;
-	private int reviewCount;
+	private String ingMemName;//팔로우하는 회원이름
+	private String profileImg;//팔로우하는 회원프로필이미지
+	private int followCount;//팔로우하는 회원을 팔로우하는 회원수
+	private int reviewCount;//팔로우하는 회원이 작성한 리뷰갯수
 	
 	
 	
