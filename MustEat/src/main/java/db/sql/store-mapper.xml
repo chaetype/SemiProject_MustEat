@@ -97,6 +97,7 @@
 		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
 	</entry>
 	
+	<!-- 은영 -->
 	<entry key="selectNewStoreReview">
 	        		SELECT ROWNUM, A.*
 			FROM (

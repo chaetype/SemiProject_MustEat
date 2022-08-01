@@ -172,4 +172,11 @@
 		WHERE ROWNUM BETWEEN 1 AND 2
 	</entry>
 
+
+	<!-- 채윤 나의 팔로우 목록 조회 -->
+	<entry key="myFollowList">
+	
+	</entry>
+	
+	
 </properties>
