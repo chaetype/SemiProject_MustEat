@@ -175,7 +175,7 @@
 
 	<!-- 채윤 나의 팔로우 목록 조회 -->
 	<entry key="myFollowList">
-	
+		SELECT 
 	</entry>
 	
 	

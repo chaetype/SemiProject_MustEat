@@ -434,7 +434,7 @@ public class MemberDao {
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
-					list.add(new Report(rset.getInt(
+//					list.add(new Report(rset.getInt(
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
