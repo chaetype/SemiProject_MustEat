@@ -15,7 +15,7 @@ import com.mz.notice.model.vo.Tos;
 /**
  * Servlet implementation class TosEnrollFormController
  */
-@WebServlet("/tosinsertlist.no")
+@WebServlet("/tosinsert.no")
 public class TosEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,7 +49,7 @@ public class TosEnrollFormController extends HttpServlet {
 		if(result > 0) {
 			// 등록 성공
 			session.setAttribute("alertMsg", "성공적으로 이용약관 등록되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/toslist.no");
+			response.sendRedirect(request.getContextPath() + "/tosadminlist.no");
 		}else { 
 			// 등록 실패
 			session.setAttribute("alertMsg", "이용약관 등록 실패");

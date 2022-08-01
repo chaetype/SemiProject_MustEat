@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.common.model.vo.PageInfo, java.util.ArrayList, com.mz.store.model.vo.Store"%>
+<%
+	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,147 +98,37 @@
 				<table class="rwd-table" style="width:100%;">
 				    <tbody>
 				      <tr>
-				        <th><input type="checkbox" id="storelist" name="storelist" value="storelist"></th>
 				        <th>식당번호</th>
 				        <th>식당명</th>
 						<th>주소</th>
 						<th>전화번호</th>
-						<th>대표메뉴</th>
-						<th>등록일</th>
 						<th>상세보기 및 수정</th>
+						<th>삭제</th>
 				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-					  <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
-					  <tr>
-				        <td><input type="checkbox" id="storelist" name="storelist" value="storelist"></td>
-				        <td>1</td>
-				        <td>김밥천국</td>
-						<td>xx시 xx구 xx동 xx</td>
-						<td>xx-xxx-xxxx</td>
-						<td>김밥</td>
-						<td>xxxx-xx-xx</td>
-						<td><button class="btn1"><strong>상세보기 및 수정</strong></button></td>
-				      </tr>
+				      <% if(list.isEmpty()) { %>
+	                  <!--case1. 게시글이 없을경우-->
+	                  <tr>
+	                  	<td colspan="6">조회된 게시글이 없습니다.</td>
+	                  </tr>
+					  <% }else { %>
+	                  <!--case2. 게시글이 있을경우-->
+	                  <% for(Store s : list){ %>
+		              <tr>
+		                    <td><%= s.getStoreNo() %></td>
+		                    <td><%= s.getStoreName() %></td>
+		                    <td><%= s.getStoreAddress() %></td>
+		                    <td><%= s.getStorePhone() %></td>
+		                    <td><button type="button" class="btn1"><strong>수정</strong></button></td>
+		                    <td><button type="button" class="btn1"><strong>삭제</strong></button></td>
+		               </tr>   
+	                   <% } %>        
+	                <% } %>
+
 				    </tbody>
 		  		</table>
-		  		
-		  		<script type="text/javascript">
-				   let check = false;
-				   // function checkAll(){
-				   //     let chk = document.getElementsByName("chk[]");
-				   //     console.log(chk);
-				   //     if(check==false){
-				   //         check=true;
-				   //         for(let i=0; i<chk.length; i++){
-				   //             chk[i].checked=true;
-				   //         }
-				   //     }else{
-				   //         check=false;
-				   //         for(let i=0; i<chk.length; i++){
-				   //             chi[i].checked=false;
-				   //         }
-				   //     }
-				   // }
-				
-				   function checkAll(checkAll){
-				      let checkboxes=document.getElementsByName("storelist");
-				      console.log(checkboxes);
-				      checkboxes.forEach((checkbox)=>{
-				         console.log(checkbox    );
-				         checkbox.checked=checkAll.checked;
-				      })
-				   }
-				
-				</script>
-		  		
+		  					
+		  					
+		  		</div>			  		
 
 				  <div>
 			
@@ -281,12 +174,7 @@
 						</table>
 					</div>
 				</div>	
-
-				<div class="store-delete">
-
-					<button class="btn1"><strong>삭제하기</strong></button>
-
-				</div>
+				
 			
 			
 		</div>

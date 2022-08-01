@@ -37,6 +37,10 @@
 		text-align:center;
 	}
 	
+	#tos-list-area>tbody>tr:hover{
+    	cursor:pointer;
+    }
+	
 	@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 	
 	html, body{height: 100%}
@@ -70,10 +74,9 @@
 		<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">이용약관</h1>
 			
 			<!-- 이용약관이 있을 경우 -->    				
-				<table class="rwd-table tos-table">
+				<table class="rwd-table tos-table" id="tos-list-area">
 			    <tbody>	
 				    <tr>
-				      	<th><input type="checkbox" id="" name="tosNum" value=""></th>
 				        <th>글번호</th>
 				        <th>제목</th>
 				        <th>등록일</th>
@@ -87,7 +90,6 @@
 					<% }else { %>		    
 				    <tr>
 				    	<% for(Tos t : list) { %>  
-				      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
 				        <td><%= t.getTosNo() %></td>
 				        <td><%= t.getTosTitle() %></td>
 				        <td><%= t.getEnrollDate() %></td>
@@ -100,19 +102,25 @@
 		  </table>
 						
 		</div>
+		
+		<script>
+           $(function(){
+              $("#tos-list-area>tbody>tr").click(function(){
+                 location.href = "<%= contextPath %>/tosdetail.no?no=" + $(this).children().eq(0).text();
+              })
+           })
+        </script>
 
 		
 		<div class="tos-enroll">
 			
 			<button type="button" class="btn1" id="tos-enroll-btn" data-toggle="modal" data-target="#myModal">등록하기</button>
-			<button type="button" class="btn1" id="tos-modify-btn" >수정하기</button>
-			<button type="button" class="btn1" id="tos-delete-btn" >삭제하기</button>
 
 		</div>
 		
-		<form action="<%= contextPath %>/tosinsertlist.no" id="tos-enroll-form" method="post">
+		<form action="<%= contextPath %>/tosinsert.no" id="tos-modify-form" method="post">
 				
-		<!-- The Modal -->
+		<!-- 등록 The Modal -->
 		<div class="modal fade" id="myModal">
 		    <div class="modal-dialog">
 		      <div class="modal-content">
@@ -148,10 +156,9 @@
 		  </div>
 		  
 		  </form>
-		
-		
-
-		
+		  
+		  
+			
 		
 		
 	</div>

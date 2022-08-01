@@ -37,6 +37,11 @@
         <button type="button" class="btn1" onclick="moveOrderList();">주문내역 상세보기</button>
     </div>
 
+    <script>
+        function moveOrderList(){
+            location.href = "<%=contextPath%>/mealkit.li";
+        }
+    </script>
    
     
 </body>

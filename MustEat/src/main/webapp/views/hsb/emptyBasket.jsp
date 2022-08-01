@@ -47,7 +47,7 @@
 
     <script>
         function goshopping(){
-            location.href = "mealkitList로 이동";
+            location.href = "<%=contextPath%>/mealkit.li";
         }
     </script>
     

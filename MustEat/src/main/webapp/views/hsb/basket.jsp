@@ -162,25 +162,6 @@
             margin-right: 0;
         }
 
-    .abutton, .abutton:link, .abutton:visited, .abutton:active, input[type=button] {
-        background-color: #383838;
-        border: 1px solid #888888;
-        color: #ffffff;
-        cursor: pointer;
-        letter-spacing: -1px;
-        padding: 3px 5px;
-        margin: 2px 3px;
-        width: auto;
-        word-break: keep-all;
-        border-radius: 5px;
-        text-decoration: none;
-        font-size: 0.9375em;
-    }
-
-.abutton-alt {
-    background-color: #d3e2c6;
-}
-
 .red {
     color:#b00;
 }
@@ -300,26 +281,29 @@
     
                     <!-- "장바구니 수량 변경" -->
     
-                    <div class="updown">
-    
-                        <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="1">
-    
-                        <span><i class="fas fa-arrow-alt-circle-up up"></i></span>
-    
-                        <span><i class="fas fa-arrow-alt-circle-down down"></i></span>
-    
-                    </div>
-    
+                   
                 </div>
                 
                 <!-- "장바구니 상품 합계" -->
     
-                <div class="sum">18,900원</div> <br>
-    
-                <div class="basketcmd"><a href="#" class="abutton">삭제</a></div>
+               
+                
+                
     
             </div>
+            <br>
+            <div class="updown">
     
+                <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="1">
+
+                <span><i class="fas fa-arrow-alt-circle-up up"></i></span>
+
+                <span><i class="fas fa-arrow-alt-circle-down down"></i></span>
+
+            </div>
+
+            <br>
+            <button class="btn1">삭제</button>
         </div>
     
         <!-- "장바구니 기능 버튼" -->
@@ -331,56 +315,16 @@
             <button class="btn1">주문하기</button>
     
         </div>
-        <hr><br><hr>
-        <div class="row data">
-    
-            <div class="check"><input type="checkbox" name="buy" value="260" checked="">&nbsp;</div>
-
-            <div class="img"><img src="" width="160"></div>
-
-            <div class="pname">
-
-                <span><b>놀부 부대찌개</b></span>
-
-            </div>
-
-            <div class="basketprice"><input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000원</div>
-
-            <div class="num">
-
-                <!-- "장바구니 수량 변경" -->
-
-                <div class="updown">
-
-                    <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2">
-
-                    <span><i class="fas fa-arrow-alt-circle-up up"></i></span>
-
-                    <span><i class="fas fa-arrow-alt-circle-down down"></i></span>
-
-                </div>
-
-            </div>
-
-            <!-- "장바구니 상품 합계" -->
-
-            <div class="sum">40,000원</div><br>
-            <div class="basketcmd"><a href="#" class="abutton">삭제</a></div>
-
-        </div>
+        <hr><br>
+        
 
     </div>
 <div class="wrap1313">
      <!-- "장바구니 기능 버튼" -->
 
 
-    <div class="right-align basketrowcmd">
-
-        <button class="btn1">선택상품삭제</button> <br> <br>
-        <button class="btn1">주문하기</button>
-
-    </div>
-    <hr>
+    
+   
         
          <!-- "장바구니 전체 합계 정보" -->
         <button class="btn1">전체선택</button>

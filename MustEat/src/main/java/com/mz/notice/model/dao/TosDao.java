@@ -69,8 +69,8 @@ public class TosDao {
 			try {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, t.getTosTitle());
-				pstmt.setString(2, t.getTosContent());
-				pstmt.setString(3, t.getTosNote());
+				pstmt.setString(2, t.getTosNote());
+				pstmt.setString(3, t.getTosContent());
 				
 				result = pstmt.executeUpdate();
 				
@@ -131,6 +131,8 @@ public class TosDao {
 				pstmt.setString(3, t.getTosContent());
 				pstmt.setInt(4, t.getTosNo());
 				
+				result = pstmt.executeUpdate();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
@@ -167,7 +169,7 @@ public class TosDao {
 		}
 		
 		
-		
+
 		
 
 }

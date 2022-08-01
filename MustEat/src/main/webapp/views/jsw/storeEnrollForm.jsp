@@ -99,10 +99,6 @@
 	<div class="wrap-review">		
 		
 		<div class="container">
-
-			<!-- <h1 style="font-family: 'OTWelcomeRA'; text-align:left;">식당 등록</h1>
-	
-			<hr noshade size = 1 style="background:black;"> -->
 		
 			<h1 style="text-align:center; font-family: 'OTWelcomeRA' !important;">식당 등록</h1>
 	
@@ -117,7 +113,7 @@
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
-							<input type="text" class="form-control" id="store-name" placeholder="식당명을 입력해주세요." value="" required>
+							<input type="text" class="form-control" id="store-name" onkeyup="storeName(this);" placeholder="식당명을 입력해주세요." value="" required>
 							<div class="invalid-feedback">
 							  식당명을 입력해주세요.
 							</div>
@@ -137,7 +133,7 @@
 							<select name="sido" id="sido"></select>
 							<select name="gugun" id="gugun"></select>	
 							
-							<script>
+							<script>						
 
 								$('document').ready(function() {
 								var area0 = ["시/도 선택","서울특별시","인천광역시", "경기도"];
@@ -178,12 +174,23 @@
 								});
 
 							</script>
-
-							<input type="text" class="form-control" id="store-address" placeholder="나머지 주소를 입력해주세요. ex) 이태원로 177" value="" required style="margin-top:1%;">
+							
+							<table>
+								<tr>
+									<td width="400px;">
+										<input type="text" class="form-control" id="store-address" placeholder="나머지 주소를 입력해주세요. ex) 이태원로 177" required style="margin-top:1%;">
+									</td>
+									<td>
+										<button type="button" class="btn btn-sm btn-primary" id="searchMap">클릭</button>
+									</td>
+								</tr>
+								
+							</table>
 							<div class="invalid-feedback">
 							  식당 주소를 입력해주세요.
 							</div>
 						</div>
+												
 						
 						<div class="mb-3" id="store-map">
 
@@ -193,7 +200,26 @@
 
 							<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ad501a6ae45c08e27025f470712da55&libraries=services"></script>
 							<script>
-							var mapContainer = document.getElementById('store-map'), // 지도를 표시할 div 
+							
+							$(function(){
+								storemap("서울 중구 회현동1가");
+								
+								
+								$("#searchMap").click(function(){
+									
+									//console.log($("#sido").val());
+									//console.log($("#gugun").val());
+									//console.log($("#store-address").val());
+									storemap( $("#sido").val() + " " +  $("#gugun").val() + " " + $("#store-address").val());
+									
+								})							
+								
+							})
+							
+																					
+							function storemap(fullAddress){
+								
+								var mapContainer = document.getElementById('store-map'), // 지도를 표시할 div 
 								mapOption = {
 									center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
 									level: 3 // 지도의 확대 레벨
@@ -204,9 +230,10 @@
 
 							// 주소-좌표 변환 객체를 생성합니다
 							var geocoder = new kakao.maps.services.Geocoder();
-
+	
 							// 주소로 좌표를 검색합니다 // *식당 주소 넣기*
-							geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+							
+							geocoder.addressSearch(fullAddress, function(result, status) {
 
 								// 정상적으로 검색이 완료됐으면 
 								if (status === kakao.maps.services.Status.OK) {
@@ -221,14 +248,17 @@
 
 									// 인포윈도우로 장소에 대한 설명을 표시합니다
 									var infowindow = new kakao.maps.InfoWindow({
-										content: '<div style="width:150px;text-align:center;padding:6px 0;">*식당이름넣기*</div>'
+										content: '<div style="width:150px;text-align:center;padding:6px 0;">입력한 식당 위치를 확인해주세요.</div>'
 									});
 									infowindow.open(map, marker);
 
 									// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 									map.setCenter(coords);
 								} 
-							});    
+							});   
+							}
+							
+							 
 							</script>
 							
 
