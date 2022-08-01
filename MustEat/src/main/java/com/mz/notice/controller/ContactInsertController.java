@@ -1,5 +1,6 @@
 package com.mz.notice.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -71,9 +72,11 @@ public class ContactInsertController extends HttpServlet {
 			if(result > 0) {
 				session.setAttribute("alertMsg", "성공적으로 등록되었습니다.");
 				// 문의내역페이지로 이동
-				request.getRequestDispatcher("views/chr/contactListView").forward(request, response);
+				response.sendRedirect(request.getContextPath() + "/contactList.no");
 			}else {
-				// 에러메세지?
+				if(attachment != null) {
+					new File(attachment).delete();
+				}
 			}
 			
 		}

@@ -116,9 +116,38 @@ public class NoticeDao {
 		
 	}
 	
-	
-	
-	
+	public ArrayList<Contact> selectContactList(Connection conn, String userId){
+		
+		ArrayList<Contact> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectContactList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Contact(rset.getInt("contact_no"),
+									 rset.getString("contact_type"),
+									 rset.getString("contact_title"),
+									 rset.getDate("enroll_date"),
+									 rset.getString("contact_status"),
+									 rset.getString("answer"),
+									 rset.getDate("answer_date")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
 	
 	
 	

@@ -42,6 +42,13 @@ public class NoticeService {
 		return result;
 	}
 	
+	public ArrayList<Contact> selectContactList(String userId){
+		Connection conn = getConnection();
+		ArrayList<Contact> list = new NoticeDao().selectContactList(conn, userId);
+		close(conn);
+		return list;
+	}
+	
 	
 	
 }
