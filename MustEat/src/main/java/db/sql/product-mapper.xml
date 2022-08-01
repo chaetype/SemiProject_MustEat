@@ -90,5 +90,27 @@
 		         ) A
 		WHERE ROWNUM BETWEEN 1 AND 2
 	</entry>
+	
+	<!-- 성범 (배송지입력에서 주문자 정보사항 insert -->
+	<entry key="insertAp">
+		INSERT
+		  INTO DELIVERY
+		  (
+		    DEL_NAME
+		  , DEL_PHONE
+		  , DEL_EMAIL
+		  , DEL_ADDRESS
+		  , DEL_REQUEST
+		  )
+		  VALUES
+		  (
+		    ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+		  
+	</entry>
 
 </properties>

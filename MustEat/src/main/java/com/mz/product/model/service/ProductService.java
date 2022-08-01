@@ -93,6 +93,10 @@ public class ProductService {
 		Connection conn = getConnection();
 		
 		int result = new ProductDao().insertAp(conn, ap);
+		
+		close(conn);
+		
+		return result;
 	}
 
 

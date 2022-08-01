@@ -215,6 +215,27 @@ public class ProductDao {
 	
 	// 성범
 	public int insertAp(Connection conn, AddressPayment ap) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAp");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ap.getMemName());
+			pstmt.setString(2, ap.getMemPhone());
+			pstmt.setString(3, ap.getMemEmail());
+			pstmt.setString(4, ap.getAddress());
+			pstmt.setString(5, ap.getRequest());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 		
 	}
 	
