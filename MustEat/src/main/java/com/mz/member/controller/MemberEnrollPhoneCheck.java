@@ -42,8 +42,8 @@ public class MemberEnrollPhoneCheck extends HttpServlet {
 				 * 서버에서 받은 API_KEY, API_SECRET를 입력해주세요.
 				 */
 		        
-		        String api_key = "NCSAMIA1EF6OR9RF";
-		        String api_secret = "WJ6PGWHWGCRZ6YQ8QV1FI7YGP6PICBIA";
+		        String api_key = "NCSAMIA1EF6OR9RF";   // coolsms 홈페이지에서 받아야함
+		        String api_secret = "WJ6PGWHWGCRZ6YQ8QV1FI7YGP6PICBIA";  // coolsms 홈페이지에서 받아야함
 		        
 		        Message coolsms = new Message(api_key, api_secret);
 

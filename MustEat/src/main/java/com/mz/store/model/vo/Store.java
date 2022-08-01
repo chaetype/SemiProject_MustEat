@@ -28,15 +28,9 @@ public class Store {
 	private String reviewWriter;//식당리뷰작성자
 	
 	
-	
-	
-	
 	public Store() {
 		
 	}
-
-
-
 
 
 	public Store(int storeNo, String localSi, String localGu, String localRo, String storeName, String storeTag,
@@ -85,6 +79,16 @@ public class Store {
 		this.storeReview = storeReview;
 		this.reviewImg = reviewImg;
 		this.reviewWriter = reviewWriter;
+	}
+
+	
+
+	public Store(int storeNo, String storeName, String storeAddress, String storePhone) {
+		super();
+		this.storeNo = storeNo;
+		this.storeName = storeName;
+		this.storeAddress = storeAddress;
+		this.storePhone = storePhone;
 	}
 
 

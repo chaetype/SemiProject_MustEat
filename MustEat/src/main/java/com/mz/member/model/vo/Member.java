@@ -37,9 +37,15 @@ public class Member {
 		this.memEmail = memEmail;
 		this.secreatId = secreatId;
 	}
+	
+	// 태민 비밀번호 찾기에 사용
+	public Member(String memPwd, String memEmail) {
+		super();
+		this.memPwd = memPwd;
+		this.memEmail = memEmail;
+	}
 
-
-
+	
 	public Member(int memNo, String memId, String memPwd, String memName, String memPhone, String memEmail,
 			Date enrollDate, Date modifyDate, String memStatus, String memNickname, String memGrade, int addressCode,
 			String address, String addressDetail, String addressRef, String memImgPath, String withDraw) {

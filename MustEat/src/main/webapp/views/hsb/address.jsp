@@ -12,6 +12,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     
     <style>
         .wrap1212{
@@ -265,8 +269,8 @@
                         
                     </tbody>
                 </table>
-                <input type="checkbox">  새벽 배송
-                <input type="checkbox">  일반 배송
+                <input type="radio" id="delivery" name="deli" value="새벽배송">  새벽 배송
+                <input type="radio" id="delivery" name="deli" value="일반배송">  일반 배송
             </form>
            
            
@@ -351,41 +355,52 @@
 
 <script>
     function requestPay() {
-      IMP.init('imp53614451'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
-      IMP.request_pay({
-        pg: "inicis",
-        pay_method: "card",
-        merchant_uid : 'merchant_'+new Date().getTime(),
-        name : '결제테스트',
-        amount : 14000,
-        buyer_email : 'iamport@siot.do',
-        buyer_name : '구매자',
-        buyer_tel : '010-1234-5678',
-        buyer_addr : '서울특별시 강남구 삼성동',
-        buyer_postcode : '123-456'
+        
+        var IMP = window.IMP; // 생략 가능
+       IMP.init("imp53614451"); // 예: imp00000000
+      // IMP.request_pay(param, callback) 결제창 호출
+      IMP.request_pay({ // param
+          pg: "html5_inicis",
+          pay_method: "card",
+          merchant_uid: "ORD20180131-0000011",
+          name: "노르웨이 회전 의자",
+          amount: 64900,
+          buyer_email: "gildong@gmail.com",
+          buyer_name: "홍길동",
+          buyer_tel: "010-4242-4242",
+          buyer_addr: "서울특별시 강남구 신사동",
+          buyer_postcode: "01181"
       }, function (rsp) { // callback
           if (rsp.success) {
-            alert("결제가 성공되었습니다.")
-            
+              alert("성공");
           } else {
-           alert("결제가 실패되었습니다.")
+              alert("실패");
           }
       });
     }
 
-    function (rsp) {
-    console.log(rsp);
-    if (rsp.success) {
-      var msg = '결제가 완료되었습니다.';
-      alert(msg);
-      location.href = "결제 완료 후 이동할 페이지 url"
-    } else {
-      var msg = '결제에 실패하였습니다.';
-      msg += '에러내용 : ' + rsp.error_msg;
-      alert(msg);
-    }
-  }
-    </script>
+    IMP.request_pay({
+      /* ...중략... */
+    }, function (rsp) { // callback
+      if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+        // jQuery로 HTTP 요청
+        jQuery.ajax({
+            url: "https://www.myservice.com/payments/complete", // 예: https://www.myservice.com/payments/complete
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            data: {
+                imp_uid: rsp.imp_uid,
+                merchant_uid: rsp.merchant_uid
+            }
+        }).done(function (data) {
+          // 가맹점 서버 결제 API 성공시 로직
+        })
+      } else {
+        alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+      }
+    });
+  </script>
+
 
    
 

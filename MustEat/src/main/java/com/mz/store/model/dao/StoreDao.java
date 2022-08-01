@@ -313,7 +313,6 @@ public class StoreDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
 			pstmt.setString(1, memId);
 			
 			rset = pstmt.executeQuery();
@@ -325,11 +324,51 @@ public class StoreDao {
 										 , rset.getInt("SCRAP_COUNT")
 										 , rset.getString("STORE_NAME")
 										 ));				
-			}
-
-		return srList;
-		
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
 		}
+		return srList;				
+		
 	}
+	
+	
+	// 서원 관리자 식당조회 
+	public ArrayList<Store> selectAdminStorelist(Connection conn){
+	ArrayList<Store> list = new ArrayList<>();
+	PreparedStatement pstmt = null;
+	ResultSet rset = null;
+	String sql = prop.getProperty("selectAdminStorelist");
+	
+	try {
+		pstmt = conn.prepareStatement(sql);		
+		rset = pstmt.executeQuery();
+		
+		while(rset.next()) {
+			list.add(new Store(rset.getInt("store_no"),
+								rset.getString("store_name"),
+								rset.getString("store_address"),
+								rset.getString("store_phone")
+								));
+		}
+		
+	} catch (SQLException e1) {
+		e1.printStackTrace();
+	} finally {
+		close(rset);
+		close(pstmt);
+	}
+	
+	return list;
+}
+	
+
+	
+	
+	
+	
 
 }

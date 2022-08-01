@@ -1,4 +1,4 @@
-package com.mz.notice.controller;
+package com.mz.store.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.notice.model.service.TosService;
-import com.mz.notice.model.vo.Tos;
+import com.mz.store.model.service.StoreService;
+import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class TosEnrollFormController
+ * Servlet implementation class StoreAdminListController
  */
-@WebServlet("/tosadminlist.no")
-public class TosAdminListController extends HttpServlet {
+@WebServlet("/storeadminlist.st")
+public class StoreAdminListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TosAdminListController() {
+    public StoreAdminListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,11 +31,13 @@ public class TosAdminListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		ArrayList<Store> list = new StoreService().selectAdminStorelist();
 		
-		ArrayList<Tos> list = new TosService().selectAdminTosList();
-						
 		request.setAttribute("list", list);
-	    request.getRequestDispatcher("views/jsw/tosEnrollForm.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("views/jsw/storeViewsAdmin.jsp").forward(request, response);
+		
 		
 	}
 
