@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.mz.product.model.dao.ProductDao;
 import com.mz.product.model.vo.AddressPayment;
+import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.ProductReview;
 
@@ -97,6 +98,42 @@ public class ProductService {
 		close(conn);
 		
 		return result;
+	}
+	
+	// 은영
+	/**
+	 * 장바구니 목록에서 '월'만 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 장바구니 담은 '월'이 담긴 ArrayList<Basket> 객체
+	 */
+	public ArrayList<Basket> selectMonth(String memId){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Basket> month = new ProductDao().selectMonth(conn, memId);
+		
+		close(conn);
+		
+		return month;
+		
+	}
+	
+	// 은영
+	/**
+	 * 장바구니에 담긴 상품 목록들을 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 장바구니에 담긴 상품 목록이 담긴 ArrayList<Basket> 객체
+	 */
+	public ArrayList<Basket> selectBasketList(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Basket> bList = new ProductDao().selectBasketList(conn, memId);
+		
+		close(conn);
+		
+		return bList;
+		
 	}
 
 

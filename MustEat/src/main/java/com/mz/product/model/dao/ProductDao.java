@@ -8,11 +8,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Properties;
 
 import com.mz.member.model.dao.MemberDao;
 import com.mz.product.model.vo.AddressPayment;
+import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.ProductReview;
 
@@ -236,6 +238,91 @@ public class ProductDao {
 		}
 		
 		return result;
+		
+	}
+	
+	// 은영
+	/**
+	 * 장바구니 목록에서 '월'만 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 장바구니 담은 '월'이 담긴 ArrayList<Basket> 객체
+	 */
+	public ArrayList<Basket> selectMonth(Connection conn, String memId) {
+		
+		// select => 여러행 조회 => ArrayList
+		ArrayList<Basket> month = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMonth");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				month.add(new Basket(rset.getString("MONTH")));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return month;
+		
+	}
+	
+	// 은영
+	/**
+	 * 장바구니에 담긴 상품 목록들을 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 장바구니에 담긴 상품 목록이 담긴 ArrayList<Basket> 객체
+	 */
+	public ArrayList<Basket> selectBasketList(Connection conn, String memId) {
+		
+		// select => 여러행 조회 => ArrayList
+		ArrayList<Basket> bList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectBasketList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				bList.add(new Basket(rset.getString("MEM_ID")
+						           , rset.getString("PRODUCT_NAME")
+						           , rset.getInt("AMOUNT")
+						           , rset.getDate("BASKET_DATE")
+						           , rset.getString("MONTH")
+						           , rset.getInt("PRICE")
+						           , rset.getString("SELLER")
+						           , rset.getString("SELLER_PHONE")
+						           ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return bList;
 		
 	}
 	
