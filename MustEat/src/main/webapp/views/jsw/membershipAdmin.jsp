@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
+<%@ page import="java.util.ArrayList, com.mz.member.model.vo.Point" %>
+<%
+	ArrayList<Point> list = (ArrayList<Point>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,6 +111,26 @@
 						<th>지급예정일</th>
 						<th>상태</th>
 				      </tr>
+				      <% if(list.isEmpty()) { %>
+	                  <!--case1. 게시글이 없을경우-->
+	                  <tr>
+	                      <td colspan="6">조회된 게시글이 없습니다.</td>
+	                  </tr>
+					  <% }else { %>
+	                  <!--case2. 게시글이 있을경우-->
+	                  	<% for(Point p : list){ %>
+		                  <tr>
+		                  	  <td><input type="checkbox"></td>
+		                      <td><%= p.getMemNo() %></td>
+		                      <td><%= p.getMemName() %></td>
+		                      <td><%= p.getMemId() %></td>
+		                      <td><%= %></td>
+		                      <td>5000</td>
+		                      <td><%=  %></td>
+		                      <td><%= p.getMpsStatus() %></td>
+		                  </tr>   
+	                      <% } %>        
+	                  <% } %>
 				      <tr>
 				        <td><input type="checkbox"></td>
 				        <td>1</td>
@@ -117,97 +141,7 @@
 						<td>xxxx-xx-xx</td>
 						<td>대기중</td>
 				      </tr>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>대기중</td>
-				      </tr>
-					  <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>대기중</td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>대기중</td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>대기중</td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>대기중</td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>대기중</td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>지급완료</td>
-				      </tr>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>지급완료</td>
-				      </tr>
-					  <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>지급완료</td>
-				      </tr>
-				    </tbody>
+				      
 		  		</table>
 
 				  <div>

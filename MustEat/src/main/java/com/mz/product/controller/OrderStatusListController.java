@@ -39,36 +39,39 @@ public class OrderStatusListController extends HttpServlet {
 		// 함수에서 전달된 매개변수 값 뽑기
 		String status = request.getParameter("status"); // 상품 배송현황 담는 변수
 		String memId = ((Member)request.getSession().getAttribute("loginUser")).getMemId(); // 회원 아이디 담는 변수
-				
+		int num = 1; // 구매확정/취소 담은 변수 
+		
 		// 장바구니 담은 '월'만 조회
 		ArrayList<Basket> bMonth = new ProductService().selectMonth(memId);
 		// 장바구니 목록 
 		ArrayList<Basket> bList = new ProductService().selectBasketList(memId);
 		// 주문현황 '월'만 조회
 		ArrayList<OrderPro> opMonth = new ArrayList<>();
-		// 상품준비중, 배송중, 배송완료 목록
+		// 상품준비중, 배송중, 배송완료, 구매취소 목록
 		ArrayList<OrderPro> opList = new ArrayList<>();
 		String str = ""; // 상품준비중, 배송중, 배송완료 문구 담는 변수
 		if (status.equals("preparing")) {
 			str = "상품준비중";
-			opMonth = new ProductService().selectOrderMonth(str, memId);
-			opList = new ProductService().selectOrderList(str, memId);
+			opMonth = new ProductService().selectOrderMonth(str, memId, num);
+			opList = new ProductService().selectOrderList(str, memId, num);
 		} else if (status.equals("transit")) {
 			str = "배송중";
-			opMonth = new ProductService().selectOrderMonth(str, memId);
-			opList = new ProductService().selectOrderList(str, memId);
+			opMonth = new ProductService().selectOrderMonth(str, memId, num);
+			opList = new ProductService().selectOrderList(str, memId, num);
 		} else if (status.equals("delivered")) {
 			str = "배송완료";
-			opMonth = new ProductService().selectOrderMonth(str, memId);
-			opList = new ProductService().selectOrderList(str, memId);
+			opMonth = new ProductService().selectOrderMonth(str, memId, num);
+			opList = new ProductService().selectOrderList(str, memId, num);
+		} else if (status.equals("cancel")) {
+			str="상품준비중";
+			num = 2; // 상품취소
+			opMonth = new ProductService().selectOrderMonth(str, memId, num);
+			opList = new ProductService().selectOrderList(str, memId, num);
 		}
-		
-		System.out.println(opList);  
 
 		// 상품 배송 현황에 따른 주문 갯수
 		OrderPro op = new ProductService().countOrder(memId);
-		
-		
+
 		request.setAttribute("basketMonth", bMonth);
 		request.setAttribute("orderMonth", opMonth);
 		request.setAttribute("orderList", opList);
