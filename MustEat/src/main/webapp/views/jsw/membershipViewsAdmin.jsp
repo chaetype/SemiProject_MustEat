@@ -117,11 +117,11 @@
 				    <tbody>
 				      <tr>
 				        <th>발생일</th>
-				        <th>회원번호</th>
 						<th>이름</th>
 						<th>아이디</th>
 						<th>전화번호</th>
 						<th>발생구분</th>
+						<th>적립/사용</th>
 						<th>적립 및 사용금액(원)</th>
 				      </tr>
 				      <% if(list.isEmpty()) { %>
@@ -134,11 +134,11 @@
 	                  	<% for(Point p : list){ %>
 		                  <tr>
 		                  	  <td><%= p.getSuDate() %></td>
-		                      <td><%= p.getMemNo() %></td>
 		                      <td><%= p.getMemName() %></td>
 		                      <td><%= p.getMemId() %></td>
 		                      <td><%= p.getMemPhone() %></td>		       
 		                      <td><%= p.getMpsCategory() %></td>
+		                      <td><%= p.getMpsStatus() %></td>
 		                      <td><%= p.getMpsRecord() %></td>
 		                  </tr>   
 	                      <% } %>        
