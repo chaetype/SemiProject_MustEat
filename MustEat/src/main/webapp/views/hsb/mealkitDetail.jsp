@@ -17,7 +17,7 @@
 </style>
 </head>
 <body>
-    <%@ include file="../../common/menubar.jsp"%>
+    <%@ include file="../common/menubar.jsp"%>
 		
 		<div class="outer">
 			
@@ -44,135 +44,100 @@
 					<div align="right">	
 						<hr>
 						<h4>~~~~~원</h4>
-						<button class="btn1">리뷰</button>
 						<button class="btn1">바로구매</button>
 						<button class="btn1">장바구니</button>
 					</div>
 					<hr>
 		</div>		
 			
-			
+		<div id="reply-area">
+            <table border="1" align="center" class="rwd-table">
+                
+                <tbody>
+                	<tr>
+                    	<td class="reviewDelete">댓글 삭제</td>
+                        <th>댓글작성</th>
+                        <td><textarea rows="3" cols="50" style="resize:none"></textarea></td>
+                        <td><button class="btn1">댓글등록</button></td>
+                    </tr>
+                    <tr>
+                    	<td class="reviewDelete"><input type="checkbox"></td>
+                        <td>김밥</td>
+                        <td>지난번에 여기 가봤는데 정말 맛있었어요<a herf="" class="a222">신고하기</a></td>
+                        <td>2022-07-25</td>
+                    </tr>
+                    <tr>
+                    	<td class="reviewDelete"><input type="checkbox"></td>
+                        <td>젤리아이스크림</td>
+                        <td>포장하면 양이 더 많습니다 추천해요<a herf="" class="a222">신고하기</a></td>
+                        <td>2022-07-25</td>
+                    </tr>
+                    <tr>
+                    	<td class="reviewDelete"><input type="checkbox"></td>
+                        <td>젤리아이스크림</td>
+                        <td>포장하면 양이 더 많습니다 추천해요<a herf="" class="a222">신고하기</a></td>
+                        <td>2022-07-25</td>
+                    </tr>
+                    <tr>
+                    	<td class="reviewDelete"><input type="checkbox"></td>
+                        <td>악성유저</td>
+                        <td>돈주고 왜먹냐 해먹으면 되는걸<a herf="" class="a222">신고하기</a></td>
+                        <td>2022-07-25</td>
+                    </tr>
+                    <tr>
+                    	<td class="reviewDelete"><input type="checkbox"></td>
+                        <td>캡슐커피 매니아</td>
+                        <td>재방문 하고싶습니다 맜있어요<a herf="" class="a222">신고하기</a></td>
+                        <td>2022-07-24</td>
+                    </tr>
+                    <tr>
+                    	<td class="reviewDelete"><input type="checkbox"></td>
+                        <td>노티드 도넛</td>
+                        <td>위생상태는 그리 좋은 것 같지않아요<a herf="" class="a222">신고하기</a></td>
+                        <td>2022-07-23</td>
+                    </tr>
+                    <tr>
+                    	<td class="reviewDelete"><input type="checkbox"></td>
+                        <td>젤리아이스크림</td>
+                        <td>포장하면 양이 더 많습니다 추천해요<a herf="" class="a222">신고하기</a></td>
+                        <td>2022-07-25</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+			<div class="list01">
+		        <button class="btn1" id="btn2">전체선택</button>
+		        <button class="btn1">선택삭제</button>
+	        </div>
+          <br><br><br>
+  
+	</div>
+	
+	<script>
+        const $container = document.querySelector('.wrap55');
+        const $inputs = [...$container.children];
+        const $agreeBtn = document.querySelector('#btn2');
 
-			<link rel="stylesheet" href="/css/bootstrap.css">
+        $agreeBtn.onclick = () => {
+        if ($inputs.filter(input => input.checked).length === 3) {
+            $inputs.forEach(input => { input.checked = false; });
+        } else {
+            $inputs.forEach(input => {
+            input.checked = true;
+            });
+        }
+        };
+    </script>
+
+			
 		
-	<div class="outer">
-		<div class="container">
-			<form id="commentForm" name="commentForm" method="post">
-			<br><br>
-				<div>
-					<div>
-						<span><strong>Review</strong></span> <span id="cCnt"></span>
-					</div>
-					<div>
-						<table class="table">                    
-							<tr>
-								<td>
-									<textarea rows="3" cols="20" id="comment" name="comment" placeholder="리뷰를 입력하세요" style="width :100%; resize:none"></textarea>
-									<br>
-									<div>
-										<a class="btn1" href='#' onClick="fn_comment('${result.code }')" style="text-decoration:none;" >등록</a>
-									</div>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<input type="hidden" id="b_code" name="b_code" value="${result.code }" />        
-			</form>
-		</div>
 		
-		<div class="container">
-			<form id="commentListForm" name="commentListForm" method="post">
-				<div id="commentList">
-				</div>
-			</form>
-		</div>
 	 
 </div>
 
 
 
 
-		<script>
-		/*
-		 * 댓글 등록하기(Ajax)
-		 */
-		function fn_comment(code){
-			
-			$.ajax({
-				type:'POST',
-				url : "/board/addComment.do",
-				data:$("#commentForm").serialize(),
-				success : function(data){
-					if(data=="success")
-					{
-						getCommentList();
-						$("#comment").val("");
-					}
-				},
-				error:function(request,status,error){
-					//alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-			   }
-				
-			});
-		}
-		 
-		/**
-		 * 초기 페이지 로딩시 댓글 불러오기
-		 */
-		$(function(){
-			
-			getCommentList();
-			
-		});
-		 
-		/**
-		 * 댓글 불러오기(Ajax)
-		 */
-		function getCommentList(){
-			
-			$.ajax({
-				type:'GET',
-				url : "/board/commentList.do",
-				dataType : "json",
-				data:$("#commentForm").serialize(),
-				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
-				success : function(data){
-					
-					var html = "";
-					var cCnt = data.length;
-					
-					if(data.length > 0){
-						
-						for(i=0; i<data.length; i++){
-							html += "<div>";
-							html += "<div><table class='table'><h6><strong>"+data[i].writer+"</strong></h6>";
-							html += data[i].comment + "<tr><td></td></tr>";
-							html += "</table></div>";
-							html += "</div>";
-						}
-						
-					} else {
-						
-						html += "<div>";
-						html += "<div><table class='table'><h6><strong>등록된 댓글이 없습니다.</strong></h6>";
-						html += "</table></div>";
-						html += "</div>";
-						
-					}
-					
-					$("#cCnt").html(cCnt);
-					$("#commentList").html(html);
-					
-				},
-				error:function(request,status,error){
-					
-			   }
-				
-			});
-		}
-		 
-		</script>
 		 
 
 

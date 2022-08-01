@@ -1,6 +1,7 @@
 package com.mz.product.model.service;
 
 import static com.mz.common.JDBCTemplate.*;
+import static com.mz.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ public class ProductService {
 		return op;
 	}
 	
+
 	// 은영
 	/**
 	 * 마이페이지에서 밀키트 리뷰 중 최신 2개글 조회하는 Dao
@@ -84,6 +86,7 @@ public class ProductService {
 		return opList;
 		
 	}
+
 
 	
 }

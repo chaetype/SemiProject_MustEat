@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+    
     <style>
         .wrap1212{
             margin: auto;
@@ -227,43 +228,44 @@
 </head>
 <body>
 
-    <%@ include file="../../common/menubar.jsp"%>
+    <%@ include file="../common/menubar.jsp"%>
         <div class="wrap1212">
             <div class="outer" align="center">
+            <form action="<%=contextPath%>/address.do">
                 <table>
-                    <caption>배송정보</caption>
+                    <b>배송정보</b>
                     <tbody>
                         <tr>
                             <th>* 이름</th>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="name"></td>
                         </tr>
                          <tr>
                             <th>* 휴대폰</th>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="phone"></td>
                         </tr>
                         <tr>
                         <tr>
                             <th>* 이메일</th>
-                            <td><input type="text"></td>
+                            <td><input type="email" name="email"></td>
                          </tr>
                             <th>* 주소</th>
                             <td>
-                                <input type="text">
-                                <button class="btn1">우편번호</button>
+                                <input type="text" name="address">
+                                <button type="button" class="btn1">우편번호</button>
                                
                             </td>    
                         </tr>
                         <tr>
                             <th></th>
-                            <td><textarea name="" id="" cols="30" rows="1]" style="resize: none ;"></textarea></td>
+                            <td><textarea name="address" cols="30" rows="1]" style="resize: none ;"></textarea></td>
                         </tr>
                         <tr>
                             <th>* 배송시 요청사항</th>
-                            <td><textarea name="" id="" cols="30" rows="10" style="resize: none ;"></textarea></td>
+                            <td><textarea name="delRequest" cols="30" rows="10" style="resize: none ;"></textarea></td>
                         
                     </tbody>
                 </table>
-
+            </form>
            
            
             <br><br>
@@ -283,7 +285,7 @@
             
                     <div class="buttongroup center-align cmd">
             
-                        <button class="btn1">주문하기</button>
+                        <button type="button" class="btn1">주문하기</button>
             
                     </div>
             

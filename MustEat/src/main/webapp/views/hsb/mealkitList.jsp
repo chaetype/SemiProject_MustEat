@@ -192,7 +192,7 @@ body {
 </style>
 </head>
 <body>
-    <%@ include file="../../common/menubar.jsp"%>
+    <%@ include file="../common/menubar.jsp"%>
     <div class="wrap">
     <div class="logo-bar con">
         <div class="logo">
