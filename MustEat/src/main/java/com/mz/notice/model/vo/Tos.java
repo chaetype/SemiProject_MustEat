@@ -32,12 +32,20 @@ public class Tos {
 		this.tosStatus = tosStatus;
 	}
 		
-	public Tos(int tosNo, String tosNote, String tosTitle, String tosContent) {
+	public Tos(int tosNo, String tosTitle, String tosNote, String tosContent) {
 		super();
 		this.tosNo = tosNo;
-		this.tosNote = tosNote;
 		this.tosTitle = tosTitle;
+		this.tosNote = tosNote;
 		this.tosContent = tosContent;
+	}
+	
+	public Tos(String tosTitle, String tosNote, String tosContent, int tosNo) {
+		super();
+		this.tosTitle = tosTitle;
+		this.tosNote = tosNote;
+		this.tosContent = tosContent;
+		this.tosNo = tosNo;
 	}
 
 	public Tos(int tosNo, String tosTitle, Date enrollDate, Date modifyDate, String tosNote) {

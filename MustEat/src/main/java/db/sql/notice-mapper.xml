@@ -84,8 +84,8 @@
 		     , ENROLL_DATE
 		     , MODIFY_DATE
 		     , TOS_TITLE
-		     , TOS_CONTENT
 		     , TOS_NOTE
+		     , TOS_CONTENT
 		     , TOS_STATUS
 		     )
 		VALUES
@@ -117,7 +117,7 @@
 		   SET TOS_TITLE = ?
 		     , TOS_NOTE = ?
 		     , TOS_CONTENT = ?
-		 WEHRE TOS_NO = ?
+		 WHERE TOS_NO = ?
 	</entry>
 	
 	<!-- 이용약관 삭제 -->
