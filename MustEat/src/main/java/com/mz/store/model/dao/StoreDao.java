@@ -313,7 +313,6 @@ public class StoreDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
 			pstmt.setString(1, memId);
 			
 			rset = pstmt.executeQuery();
@@ -325,11 +324,17 @@ public class StoreDao {
 										 , rset.getInt("SCRAP_COUNT")
 										 , rset.getString("STORE_NAME")
 										 ));				
-			}
-
-		return srList;
-		
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
 		}
+		return srList;
+			
+					
+		
 	}
 
 }
