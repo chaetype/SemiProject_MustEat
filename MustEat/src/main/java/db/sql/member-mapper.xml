@@ -200,6 +200,7 @@
 		     , SU_DATE
 		     , MPS_RECORD
 		     , MPS_CATEGORY
+		     , MPS_STATUS
 		  FROM MPS_POINT MP, MEMBER M
 		 WHERE MP.MEM_NO = M.MEM_NO
 		 ORDER
