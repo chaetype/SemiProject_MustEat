@@ -76,7 +76,7 @@
 	  <div class="orderDetailArea">
 	
 	    <div class="orderMonth">
-	      <h4>2022.07</h4>
+	      <h4><%=om.getOrderMonth() %></h4>
 	    </div>
 	
 	    <!-- 안쪽 for문 -->
