@@ -94,6 +94,17 @@
 		WHERE ROWNUM BETWEEN 1 AND 2
 	</entry>
 	
+	<!-- 성범 (밀키트 목록상품 조회) -->
+	<entry key="selectList">
+		SELECT
+			   PRODUCT_CODE 
+		     , PRODUCT_NAME
+		     , PRICE
+		     , IMG_PATH
+		  FROM PRODUCT
+	</entry>
+	
+	
 	<!-- 성범 (배송지입력에서 주문자 정보사항 insert -->
 	<entry key="insertAp">
 		INSERT
@@ -143,4 +154,29 @@
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 	</entry>
 
+	<!-- 성범 (밀키트 상세페이지에 들어갈 데이터 조회) -->
+	<entry key="detailProduct">
+		SELECT
+			   PRODUCT_CODE
+		     , PRODUCT_NAME
+		     , PRICE
+		     , SALES_UNIT
+		     , CAPACITY
+		     , PACKING
+		     , ALLERGY
+		     , EXPIRATION_DATE
+		     , IMG_PATH
+		  FROM PRODUCT
+		WHERE PRODUCT_CODE = ?
+	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </properties>

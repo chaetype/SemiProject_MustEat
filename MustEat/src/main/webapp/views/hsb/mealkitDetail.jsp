@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.product.model.vo.Product"%>
+<%
+	Product p = (Product)request.getAttribute("p");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,20 +33,19 @@
 				
 			
 				<div style="display:inline-block; margin-left: 50px;" >
-					<h3>상품이름넣을곳</h3>
-					<p>상품설명넣을곳<p>
-					<p><b>판매단위: </b></p>
-					<p><b>중량/용량: </b></p>
-					<p><b>배송구분: </b></p>
-                    <p><b>포장타입: </b></p>
-                    <p><b>알레르기정보: </b></p>
-                    <p><b>유통기한: </b></p>
-                    <p><b>구매수량: </b></p>
+					<h3><%= p.getProductName() %></h3>
+					<br>
+					<p><b>판매단위: <%= p.getSalesUnit() %></b></p>
+					<p><b>중량/용량: <%= p.getCapacity() %></b></p>
+					<p><b>배송구분: 일반배송/새벽배송</b></p>
+                    <p><b>포장타입: <%= p.getPacking() %></b></p>
+                    <p><b>알레르기정보: <%= p.getAllergy() %></b></p>
+                    <p><b>유통기한: <%= p.getExpirationDate() %></b></p>
 				</div>
 
 					<div align="right">	
 						<hr>
-						<h4>~~~~~원</h4>
+						<h4><%= p.getPrice() %></h4>
 						<button class="btn1">바로구매</button>
 						<button class="btn1">장바구니</button>
 					</div>

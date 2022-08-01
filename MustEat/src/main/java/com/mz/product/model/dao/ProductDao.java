@@ -16,6 +16,7 @@ import com.mz.member.model.dao.MemberDao;
 import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
+import com.mz.product.model.vo.Product;
 import com.mz.product.model.vo.ProductReview;
 
 public class ProductDao {
@@ -216,6 +217,40 @@ public class ProductDao {
 	}
 	
 	// 성범
+	public ArrayList<Product> selectList(Connection conn){
+		ArrayList<Product> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new Product(rset.getInt("product_code"),
+									 rset.getString("product_name"),
+									 rset.getInt("price"),
+									 rset.getString("img_path")));
+				
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	
+	
+	// 성범
 	public int insertAp(Connection conn, AddressPayment ap) {
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -326,4 +361,40 @@ public class ProductDao {
 		
 	}
 	
+	// 성범
+	/*
+	 * 밀키트 상세페이지
+	 */
+	public Product detailProduct(Connection conn, int productNo) {
+		Product p = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, productNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				new Product(rset.getInt("product_code"),
+						    rset.getString("product_name"),
+						    rset.getInt("price"),
+						    rset.getString("sales_unit"),
+						    rset.getString("capacity"),
+						    rset.getString("packing"),
+						    rset.getString("allergy"),
+						    rset.getString("expiration_date"),
+						    rset.getString("img_path"));	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return p;
+	}
 }

@@ -1,6 +1,6 @@
 package com.mz.product.model.service;
 
-import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.*;
 import static com.mz.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -10,6 +10,7 @@ import com.mz.product.model.dao.ProductDao;
 import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
+import com.mz.product.model.vo.Product;
 import com.mz.product.model.vo.ProductReview;
 
 public class ProductService {
@@ -89,13 +90,37 @@ public class ProductService {
 		
 	}
 	
+	// 성범
+	public ArrayList<Product> selectList(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().selectList(conn);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+	
+	// 성범
+	/*
+	 * 배송지입력 페이지
+	 */
 	public int insertAp(AddressPayment ap) {
 		
 		Connection conn = getConnection();
 		
 		int result = new ProductDao().insertAp(conn, ap);
 		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
 		close(conn);
+		
 		
 		return result;
 	}
@@ -134,6 +159,18 @@ public class ProductService {
 		
 		return bList;
 		
+	}
+	
+	// 성범
+	public Product detailProduct(int productNo) {
+		
+		Connection conn = getConnection();
+		
+		Product p = new ProductDao().detailProduct(conn, productNo);
+		
+		close(conn);
+		
+		return p;
 	}
 
 
