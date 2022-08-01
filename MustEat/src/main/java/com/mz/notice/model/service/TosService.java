@@ -19,6 +19,7 @@ public class TosService {
 		Connection conn = getConnection();
 		ArrayList<Tos> list = new TosDao().selectAdminTosList(conn);
 		close(conn);
+		
 		return list;
 	}
 	
@@ -83,6 +84,8 @@ public class TosService {
 		return result;		
 		
 	}
+	
+
 	
 	
 	
