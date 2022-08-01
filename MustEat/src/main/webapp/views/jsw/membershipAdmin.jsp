@@ -121,13 +121,13 @@
 	                  	<% for(Point p : list){ %>
 		                  <tr>
 		                  	  <td><input type="checkbox"></td>
+		                      <td><%= p.getMemNo() %></td>
+		                      <td><%= p.getMemName() %></td>
+		                      <td><%= p.getMemId() %></td>
+		                      <td><%= %></td>
+		                      <td>5000</td>
 		                      <td><%=  %></td>
-		                      <td><%=  %></td>
-		                      <td><%=  %></td>
-		                      <td><%=  %></td>
-		                      <td><%=  %></td>
-		                      <td><%=  %></td>
-		                      <td><%=  %></td>
+		                      <td><%= p.getMpsStatus() %></td>
 		                  </tr>   
 	                      <% } %>        
 	                  <% } %>
