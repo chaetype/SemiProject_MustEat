@@ -39,7 +39,6 @@ public class OrderStatusListController extends HttpServlet {
 		// 함수에서 전달된 매개변수 값 뽑기
 		String status = request.getParameter("status"); // 상품 배송현황 담는 변수
 		String memId = ((Member)request.getSession().getAttribute("loginUser")).getMemId(); // 회원 아이디 담는 변수
-		int num = 0; // 구매확정대기
 		
 		// 장바구니 담은 '월'만 조회
 		ArrayList<Basket> bMonth = new ProductService().selectMonth(memId);
@@ -52,21 +51,20 @@ public class OrderStatusListController extends HttpServlet {
 		String str = ""; // 상품준비중, 배송중, 배송완료 문구 담는 변수
 		if (status.equals("preparing")) {
 			str = "상품준비중";
-			opMonth = new ProductService().selectOrderMonth(str, memId, num);
-			opList = new ProductService().selectOrderList(str, memId, num);
+			opMonth = new ProductService().selectOrderMonth(str, memId);
+			opList = new ProductService().selectOrderList(str, memId);
 		} else if (status.equals("transit")) {
 			str = "배송중";
-			opMonth = new ProductService().selectOrderMonth(str, memId, num);
-			opList = new ProductService().selectOrderList(str, memId, num);
+			opMonth = new ProductService().selectOrderMonth(str, memId);
+			opList = new ProductService().selectOrderList(str, memId);
 		} else if (status.equals("delivered")) {
 			str = "배송완료";
-			opMonth = new ProductService().selectOrderMonth(str, memId, num);
-			opList = new ProductService().selectOrderList(str, memId, num);
+			opMonth = new ProductService().selectOrderMonth(str, memId);
+			opList = new ProductService().selectOrderList(str, memId);
 		} else if (status.equals("cancel")) {
-			str="상품준비중";
-			num = 2; // 상품취소
-			opMonth = new ProductService().selectOrderMonth(str, memId, num);
-			opList = new ProductService().selectOrderList(str, memId, num);
+			str="구매취소";
+			opMonth = new ProductService().selectOrderMonth(str, memId);
+			opList = new ProductService().selectOrderList(str, memId);
 		}
 
 		// 상품 배송 현황에 따른 주문 갯수

@@ -137,17 +137,7 @@
 	          </div>
 	
 	          <div class="orderButton">
-	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 => 배송완료 외의 것들 display:none 처리 -->
-	            <a href="" class="plain-btn btn">구매확정</a>
-	            <!-- <input type="hidden" name="orderStatus" value="배송완료"> -->
-	            
-	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
-	            <a href="" class="plain-btn btn">리뷰작성</a>
-	            <!-- <input type="hidden" name="orderStatus" value="구매확정"> -->
-	            
-	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	            <a href="" class="plain-btn btn">구매취소</a>
-	            <!-- <input type="hidden" name="orderStatus" value="배송준비중"> -->
+	            <a href="" class="plain-btn btn">구매하기</a>
 	          </div>
 	          
 	

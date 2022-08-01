@@ -159,7 +159,6 @@
 		JOIN MEMBER USING (MEM_NO)
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 		  AND DELIVERY_STATUS = ? <!-- 배송현황 -->
-		  AND ORDER_STATUS = ? <!-- 주문현황 (확정/취소) -->
 		GROUP BY TO_CHAR(ORDER_DATE, 'YYYY.MM')
 		ORDER BY MONTH ASC
 	</entry>
@@ -181,7 +180,6 @@
 		JOIN PRODUCT P ON (OL.PRODUCT_CODE = P.PRODUCT_CODE)
 		WHERE MEM_ID =  ? <!-- 로그인한 회원 아이디 -->
 		  AND DELIVERY_STATUS = ? <!-- 배송현황 -->
-		  AND ORDER_STATUS = ? <!-- 주문현황 (확정/취소) -->
 		ORDER BY ORDER_DATE ASC
 	</entry>
 
@@ -201,8 +199,13 @@
 		WHERE PRODUCT_CODE = ?
 	</entry>
 	
-	
-	
+	<!-- 은영 (구매보류 => 구매확정으로 변경) -->
+	<entry key="updatePurchaseConfirm">
+		UPDATE ORDER_PRO
+	    	SET ORDER_STATUS = 1 <!-- 구매확정 -->
+	    WHERE ORDER_NO = ? <!-- 구매번호 -->
+	</entry>
+
 	
 	
 	

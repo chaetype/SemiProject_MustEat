@@ -160,11 +160,11 @@ public class ProductService {
 	 * @param memId : 로그인한 회원 아이디
 	 * @return : 배송현황에 따라 진행된 '월'이 담긴 ArrayList<OrderPro> 객체
 	 */
-	public ArrayList<OrderPro> selectOrderMonth(String str, String memId, int num) {
+	public ArrayList<OrderPro> selectOrderMonth(String str, String memId) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<OrderPro> month = new ProductDao().selectOrderMonth(conn, str, memId, num);
+		ArrayList<OrderPro> month = new ProductDao().selectOrderMonth(conn, str, memId);
 		
 		close(conn);
 		
@@ -179,15 +179,38 @@ public class ProductService {
 	 * @param memId : 로그인한 회원 아이디
 	 * @return : 배송현황에 따라 담긴 상품 목록들이 담긴 ArrayList<OrderPro> 객체
 	 */
-	public ArrayList<OrderPro> selectOrderList(String str, String memId, int num) {
+	public ArrayList<OrderPro> selectOrderList(String str, String memId) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<OrderPro> opList = new ProductDao().selectOrderList(conn, str, memId, num);
+		ArrayList<OrderPro> opList = new ProductDao().selectOrderList(conn, str, memId);
 		
 		close(conn);
 		
 		return opList;
+		
+	}
+	
+	// 은영
+	/**
+	 * 상품준비중, 배송중, 배송완료에서 '구매확정'처리하는 Service
+	 * @param orderNo : 사용자가 선택한 주문번호
+	 * @return : 구매확정 성공여부가 담긴 int형 변수(성공 : 1 | 실패 : 0)
+	 */
+	public int updatePurchaseConfirm(int orderNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().updatePurchaseConfirm(conn, orderNo);
+		
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		 
+		return result;
 		
 	}
 

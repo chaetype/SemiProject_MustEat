@@ -7,6 +7,7 @@
 	ArrayList<OrderPro> opMonth = (ArrayList<OrderPro>)request.getAttribute("orderMonth");
 	// 상품준비중 상품 목록 리스트
 	ArrayList<OrderPro> opList = (ArrayList<OrderPro>)request.getAttribute("orderList");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -128,10 +129,8 @@
 	          <div class="sellerInfo">
 	
 	            <div class="inner">
-	              <span class="orderNo" style="font-weight:bold;">
-	                주문번호<br>
-	                [<%=ol.getOrderNo() %>]
-	              </span>
+	              <span class="orderTitle" style="font-weight:bold;">주문번호</span>
+	              <span class="orderNo" style="font-weight:bold;"><%=ol.getOrderNo() %></span>
 	              <span class="seller"><%=ol.getSeller() %></span>
 	              <span class="tel"><%=ol.getSellerPhone() %></span>
 	            </div>
@@ -139,15 +138,30 @@
 	
 	          <div class="orderButton">
 	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 => 배송완료 외의 것들 display:none 처리 -->
-	            <a href="" class="plain-btn btn">구매확정</a>
+	            <a class="plain-btn btn" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>);">구매확정</a>
 	            <!-- <input type="hidden" name="orderStatus" value="배송완료"> -->
 	            	            
 	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	            <a href="" class="plain-btn btn">구매취소</a>
+	            <a class="plain-btn btn" onclick="cancel();">구매취소</a>
 	            <!-- <input type="hidden" name="orderStatus" value="배송준비중"> -->
+
 	          </div>
 	          
-	
+	          <script>
+	          
+	          	function purchaseConfirm(orderNo){
+	          		
+	          		if(confirm("구매 확정하시겠습니까?\n확정 후 취소 불가능합니다.")) {
+	          			location.href="<%=contextPath%>/confirm.pro?orderNo=" + orderNo;
+	          		} else {
+	          			return false;
+	          		}
+	          		
+	          	}
+	          
+	          </script>
+	         
+
 	          </li>
 	
 	        </ul>

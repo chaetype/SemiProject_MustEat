@@ -150,7 +150,7 @@
 .sellerInfo{ width:250px; }
 .orderButton{ width:200px; }
 
-.seller, .tel, .orderNo{
+.seller, .tel, .orderNo, orderTitle{
   display:block;
   text-align:center;
   font-size:13px;
