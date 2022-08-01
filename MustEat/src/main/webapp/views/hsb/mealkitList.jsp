@@ -207,6 +207,7 @@ body {
         </div>
     </div>
     <div class="list con">
+        <table>
         <ul class="row">
             <li class="cell">
                 <a href="">
@@ -335,6 +336,7 @@ body {
                 </a>
             </li>
         </ul>
+    </table>
     </div>
 
     <div class="paging-area" align="center">

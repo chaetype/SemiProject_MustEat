@@ -25,7 +25,7 @@
     <div class="outer">
 
         <div class="img" align="center">
-            <img src="/SemiProject_MustEat/MustEat/src/main/webapp/resources/image/빈 장바구니.jpg" width="250px" height="250px">
+            <img src="<%=contextPath%>/resources/image/basket.jpg" width="250px" height="250px">
         </div>
 
         <br><br>

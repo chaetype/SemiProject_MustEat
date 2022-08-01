@@ -1,12 +1,13 @@
 package com.mz.product.model.service;
 
-import static com.mz.common.JDBCTemplate.*;
+import static com.mz.common.JDBCTemplate.close;
 import static com.mz.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.mz.product.model.dao.ProductDao;
+import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.ProductReview;
 
@@ -85,6 +86,13 @@ public class ProductService {
 		
 		return opList;
 		
+	}
+	
+	public int insertAp(AddressPayment ap) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertAp(conn, ap);
 	}
 
 

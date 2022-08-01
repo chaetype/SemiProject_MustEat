@@ -41,7 +41,7 @@ public class Address extends HttpServlet {
 		
 		AddressPayment ap = new AddressPayment(memName, memPhone, memEmail, memAddress, requested);
 		
-		AddressPayment insertAp = new ProductService().insertAp(ap);
+		int result = new ProductService().insertAp(ap);
 		
 	}
 

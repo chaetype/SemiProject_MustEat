@@ -1,5 +1,7 @@
 package com.mz.product.model.dao;
 
+import static com.mz.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,8 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import static com.mz.common.JDBCTemplate.*;
 import com.mz.member.model.dao.MemberDao;
+import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.ProductReview;
 
@@ -208,6 +210,11 @@ public class ProductDao {
 		}
 		
 		return opList;
+		
+	}
+	
+	// 성범
+	public int insertAp(Connection conn, AddressPayment ap) {
 		
 	}
 	
