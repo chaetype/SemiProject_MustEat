@@ -162,6 +162,7 @@
 		JOIN MEMBER USING (MEM_NO)
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 		  AND DELIVERY_STATUS = ? <!-- 배송현황 -->
+		  AND ORDER_STATUS = ? <!-- 주문현황 (확정/취소) -->
 		GROUP BY TO_CHAR(ORDER_DATE, 'YYYY.MM')
 		ORDER BY MONTH ASC
 	</entry>
@@ -181,9 +182,9 @@
 		JOIN MEMBER USING (MEM_NO)
 		JOIN ORDER_LIST OL ON (OP.ORDER_NO = OL.ORDER_NO)
 		JOIN PRODUCT P ON (OL.PRODUCT_CODE = P.PRODUCT_CODE)
-		WHERE MEM_ID =  ?
-		  AND DELIVERY_STATUS = ?
-		  AND ORDER_STATUS = 1
+		WHERE MEM_ID =  ? <!-- 로그인한 회원 아이디 -->
+		  AND DELIVERY_STATUS = ? <!-- 배송현황 -->
+		  AND ORDER_STATUS = ? <!-- 주문현황 (확정/취소) -->
 		ORDER BY ORDER_DATE ASC
 	</entry>
 

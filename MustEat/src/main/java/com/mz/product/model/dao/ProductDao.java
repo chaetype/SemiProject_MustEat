@@ -354,7 +354,7 @@ public class ProductDao {
 	 * @param memId : 로그인한 회원 아이디
 	 * @return : 배송현황에 따라 진행된 '월'이 담긴 ArrayList<OrderPro> 객체
 	 */
-	public ArrayList<OrderPro> selectOrderMonth(Connection conn, String str, String memId) {
+	public ArrayList<OrderPro> selectOrderMonth(Connection conn, String str, String memId, int num) {
 		
 		// select => 여러행 조회 => ArrayList
 		ArrayList<OrderPro> month = new ArrayList<>();
@@ -369,6 +369,7 @@ public class ProductDao {
 			
 			pstmt.setString(1, memId);
 			pstmt.setString(2, str);
+			pstmt.setInt(3, num); // 구매확정
 			
 			rset = pstmt.executeQuery();
 			
@@ -396,7 +397,7 @@ public class ProductDao {
 	 * @param memId : 로그인한 회원 아이디
 	 * @return : 배송현황에 따라 담긴 상품 목록들이 담긴 ArrayList<OrderPro> 객체
 	 */
-	public ArrayList<OrderPro> selectOrderList(Connection conn, String str, String memId) {
+	public ArrayList<OrderPro> selectOrderList(Connection conn, String str, String memId, int num) {
 		
 		// select => 여러행 조회 => ArrayList
 		ArrayList<OrderPro> opList = new ArrayList<>();
@@ -410,6 +411,7 @@ public class ProductDao {
 			
 			pstmt.setString(1, memId);
 			pstmt.setString(2, str);
+			pstmt.setInt(3, num);
 			
 			rset = pstmt.executeQuery();
 			

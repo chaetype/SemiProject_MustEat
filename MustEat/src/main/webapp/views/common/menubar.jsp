@@ -206,7 +206,7 @@
 						<span class="menu__item-name">Event</span>
 						<span class="menu__item-label">Read what others say</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/support.no">
 						<span class="menu__item-name">Contact</span>
 						<span class="menu__item-label">Get in touch and find us</span>
 					</a>
