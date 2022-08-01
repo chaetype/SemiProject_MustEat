@@ -10,6 +10,7 @@ public class Point {
 	private String mpsCategory;
 	private int mpsRecord;
 	private String mpsStatus;
+	private String pStatus;
 	private String memName;
 	private String memId;
 	private String memPhone;	
@@ -29,7 +30,7 @@ public class Point {
 	}
 		
 	
-	public Point(Date suDate, int memNo, String memName, String memId, String memPhone, int mpsRecord, String mpsCategory) {
+	public Point(Date suDate, int memNo, String memName, String memId, String memPhone, int mpsRecord, String mpsCategory, String mpsStatus) {
 		super();
 		this.suDate = suDate;
 		this.memNo = memNo;
@@ -38,6 +39,7 @@ public class Point {
 		this.memPhone = memPhone;		
 		this.mpsRecord = mpsRecord;
 		this.mpsCategory = mpsCategory;
+		this.mpsStatus = mpsStatus;
 	}
 
 	public Point(Date suDate, String mpsCategory, int mpsRecord, String mpsStatus) {
