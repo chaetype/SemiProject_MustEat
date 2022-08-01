@@ -158,7 +158,7 @@ public class StoreDao {
 							  rset.getString("store_popularity"),
 							  rset.getString("store_pop_info"),
 							  rset.getString("STORE_POP_PATH"),
-							  rset.getString("review_writer"),
+							  rset.getString("MEM_NICKNAME"),
 							  rset.getString("review_content"),
 							  rset.getString("review_img")
 							 );
@@ -197,5 +197,101 @@ public class StoreDao {
 		return result;
 		
 	}
+	
+	//채윤 식당 메인2
+	public ArrayList<Store> selectStoreList(Connection conn){
+		ArrayList<Store> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectStoreList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Store s = new Store();
+				s.setStoreNo(rset.getInt("store_no"));
+				s.setStoreImgPath(rset.getString("store_img_path"));
+				s.setStoreName(rset.getString("store_name"));
+				s.setStoreAddress(rset.getString("store_address"));
+				s.setStoreIntro(rset.getString("store_intro"));
+				s.setStorePopPath(rset.getString("store_popularity"));
+				s.setStorePopInfo(rset.getString("store_pop_info"));
+				s.setStoreReview(rset.getString("REVIEW_CONTENT"));
+				s.setReviewImg(rset.getString("REVIEW_IMG"));
+				s.setReviewWriter(rset.getString("review_writer"));
+				
+				list.add(s);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	
+	//채윤 메인2검색
+		public ArrayList<Store> userStoreSearch(Connection conn,String type, String keyword){
+			
+			ArrayList<Store> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("userStoreSearch");
+			
+		
+			switch(type) {
+				case "1": sql += "WHERE local_si like '서울특별시' and store_name like ? ";
+					break;
+				case "2":  sql += "WHERE local_si like '경기도' and store_name like ?";
+					break;
+				case "3":  sql += "WHERE local_si like '인천시' and store_name like ? ";
+					break;
+				
+				
+			}
+			
+			sql += "ORDER BY re_no desc";
+			
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, "%"+keyword+"%");
+			
+							
+				rset = pstmt.executeQuery();
+				
+				
+				
+				while(rset.next()) {
+					Store s = new Store();
+					s.setStoreNo(rset.getInt("store_no"));
+					s.setStoreImgPath(rset.getString("store_img_path"));
+					s.setStoreName(rset.getString("store_name"));
+					s.setStoreAddress(rset.getString("store_address"));
+					s.setStoreIntro(rset.getString("store_intro"));
+					s.setStorePopPath(rset.getString("store_popularity"));
+					s.setStorePopInfo(rset.getString("store_pop_info"));
+					s.setStoreReview(rset.getString("REVIEW_CONTENT"));
+					s.setReviewImg(rset.getString("REVIEW_IMG"));
+					s.setReviewWriter(rset.getString("review_writer"));
+					
+					list.add(s);
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(rset);
+				close(pstmt);
+			}
+			return list;
+		}
 	
 }

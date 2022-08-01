@@ -37,7 +37,7 @@
 	<!-- 채윤 : 식당 상세조회 -->
 	<entry key="selectStore">
 		SELECT 
-		       STORE_NO
+		       S.STORE_NO
 		     , STORE_NAME
 		     , STORE_ADDRESS
 		     , STORE_INTRO
@@ -45,12 +45,13 @@
 		     , STORE_POPULARITY
 		     , STORE_POP_INFO
 		     , STORE_POP_PATH
-		     , REVIEW_WRITER
+		     , M.MEM_NICKNAME
 		     , REVIEW_CONTENT
 		     , REVIEW_IMG
 		  FROM STORE S
 		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
-		 WHERE STORE_NO = ?
+		  JOIN MEMBER M ON(SR.REVIEW_WRITER = M.MEM_NO)
+		 WHERE S.STORE_NO = ?
 	</entry>
 	
 	<!-- 채윤 식당 조회수 -->
@@ -58,6 +59,41 @@
 		UPDATE STORE
 		   SET COUNT = COUNT+1
 		 WHERE STORE_NO = ?
-		   AND STATUS = 'Y'
+	</entry>
+	
+	<!-- 채윤 식당 메인2 -->
+	<entry key="selectStoreList">
+		SELECT 
+		       S.STORE_NO
+		     , STORE_IMG_PATH
+		     , STORE_NAME
+		     , STORE_ADDRESS
+		     , STORE_INTRO
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , SR.REVIEW_CONTENT
+		     , SR.REVIEW_IMG
+		     , SR.REVIEW_WRITER
+		  FROM STORE S
+		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
+		 ORDER
+		 	BY STORE_NO DESC
+	</entry>
+	
+	<!-- 채윤 : 메인2 식당 검색 -->
+	<entry key="userStoreSearch">
+		SELECT
+	         S.STORE_NO
+		     , STORE_IMG_PATH
+		     , STORE_NAME
+		     , STORE_ADDRESS
+		     , STORE_INTRO
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , SR.REVIEW_CONTENT
+		     , SR.REVIEW_IMG
+		     , SR.REVIEW_WRITER
+		  FROM STORE S
+		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
 	</entry>
 </properties>

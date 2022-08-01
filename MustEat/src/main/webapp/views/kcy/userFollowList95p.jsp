@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Follow "%>
+<%
+	ArrayList<Follow> list = (ArrayList<Follow>)request.getAttribute("list");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,41 +49,16 @@
 
 
         <div class="outer661">
-            <div class="outer66">
-                <div class="thumbnail66"> <img src="<%=contextPath%>/resources/image/mz.png" style="width: 100%; height:100%;"></div>
-                <div class="info66">
-                    <table>
-                        <tr>
-                            <td style="width: 70px;"><b>김김이</b></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>팔로워</td>
-                            <td style="color: white; cursor: pointer;">120</td>
-                        </tr>
-                        <tr>
-                            <td>리뷰</td>
-                            <td style="color: white; cursor: pointer;">20</td>
-                        </tr>
-                    </table>
-                    <br>
-                    <button class="btn1" style="padding: 0.2em 1.2em;
-                    margin: 0 0.1em 0.1em 0;">Unfollow</button>
-                </div>
-            </div>
-            <br>
-            <hr>
+        
 
+        	<% for (Follow f : list){ %>
             <div class="outer66">
-                <div class="thumbnail66"> <img src="<%=contextPath%>/resources/image/mz.png" style="width: 100%; height:100%;"></div>
+            <input type="hidden" value="<%=f.getFollowNo() %>">
+                <div class="thumbnail66"> <img src="<%=contextPath%><%=f.getProfileImg() %>" style="width: 100%; height:100%;"></div>
                 <div class="info66">
                     <table>
                         <tr>
-                            <td style="width: 70px;"><b>이이이</b></td>
+                            <td style="width: 70px;"><b><%=f.getIngMemName() %></b></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -88,11 +67,11 @@
                         </tr>
                         <tr>
                             <td>팔로워</td>
-                            <td style="color: white; cursor: pointer;">120</td>
+                            <td style="color: white; cursor: pointer;"><%=f.getFollowCount() %></td>
                         </tr>
                         <tr>
                             <td>리뷰</td>
-                            <td style="color: white; cursor: pointer;">20</td>
+                            <td style="color: white; cursor: pointer;"><%=f.getReviewCount() %></td>
                         </tr>
                     </table>
                     <br>
@@ -102,64 +81,8 @@
             </div>
             <br>
             <hr>
-
-            <div class="outer66">
-                <div class="thumbnail66"> <img src="<%=contextPath%>/resources/image/mz.png" style="width: 100%; height:100%;"></div>
-                <div class="info66">
-                    <table>
-                        <tr>
-                            <td style="width: 70px;"><b>김김김</b></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>팔로워</td>
-                            <td style="color: white; cursor: pointer;">120</td>
-                        </tr>
-                        <tr>
-                            <td>리뷰</td>
-                            <td style="color: white; cursor: pointer;">20</td>
-                        </tr>
-                    </table>
-                    <br>
-                    <button class="btn1" style="padding: 0.2em 1.2em;
-                    margin: 0 0.1em 0.1em 0;">Unfollow</button>
-                </div>
-            </div>
-            <br>
-            <hr>
-
-            <div class="outer66">
-                <div class="thumbnail66"> <img src="<%=contextPath%>/resources/image/mz.png" style="width: 100%; height:100%;"></div>
-                <div class="info66">
-                    <table>
-                        <tr>
-                            <td style="width: 70px;"><b>김김이</b></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>팔로워</td>
-                            <td style="color: white; cursor: pointer;">120</td>
-                        </tr>
-                        <tr>
-                            <td>리뷰</td>
-                            <td style="color: white; cursor: pointer;">20</td>
-                        </tr>
-                    </table>
-                    <br>
-                    <button class="btn1" style="padding: 0.2em 1.2em;
-                    margin: 0 0.1em 0.1em 0;">Unfollow</button>
-                </div>
-            </div>
-            <br>
-            <hr>
+			<%} %>
+           
 
         </div>
 

@@ -72,7 +72,7 @@ public class Store {
 	
 	public Store(int storeNo, String storeName, String storeAddress, String storeIntro,
 				 String storeImgPath, String storePopularity, String storePopPath,String storePopInfo,
-				 String reviewWriter, String storeReview, String reviewImg) {
+			 String reviewWriter, String storeReview, String reviewImg) {
 		super();
 		this.storeNo = storeNo;
 		this.storeName = storeName;

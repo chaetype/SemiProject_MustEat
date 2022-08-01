@@ -133,7 +133,7 @@
                 <h2>식당 위치</h2>
                 <br>
                 <div id="map" style="width:100%;height:350px;"></div>
-
+<!-- @@@@@@@@@@@@@@@@@@@@지도 마커 움직이게 다시 작성할 것 -->
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = { 

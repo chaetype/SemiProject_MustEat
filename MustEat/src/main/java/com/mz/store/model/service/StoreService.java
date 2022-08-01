@@ -54,4 +54,22 @@ public class StoreService {
 		close(conn);
 		return s;
 	}
+	
+	//채윤 식당 메인2페이지
+	public ArrayList<Store> selectStoreList(){
+		Connection conn = getConnection();
+		ArrayList<Store> list = new StoreDao().selectStoreList(conn);
+		
+		close(conn);
+		return list;
+	}
+	
+	//채윤 메인2 식당 검색
+	public ArrayList<Store> userStoreSearch(String type, String keyword){
+		
+		Connection conn = getConnection();
+		ArrayList<Store> list = new StoreDao().userStoreSearch(conn, type, keyword);
+		close(conn);
+		return list;
+	}
 }

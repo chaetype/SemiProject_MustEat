@@ -62,11 +62,13 @@
         <div class="number"><%=mp.getStoreScrap() %>곳</div>
         <div class="summary">가고싶다</div>
       </div>
-
-      <div class="item">
+	
+	<!-- 채윤 팔로우 조회 연결 -->	
+      <div class="item" OnClick="location.href ='<%=contextPath %>/myfollow.me>'" style="cursor:pointer;">
         <div class="number"><%=mp.getFollow() %>명</div>
         <div class="summary">팔로우</div>
       </div>
+     
   </div>  
   <div class="shippingStatusContainer">
     <div class="title">

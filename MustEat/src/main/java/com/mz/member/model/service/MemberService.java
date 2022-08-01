@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.mz.member.model.dao.MemberDao;
+import com.mz.member.model.vo.Follow;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Report;
@@ -124,6 +125,14 @@ public class MemberService {
 		
 		return my;
 		
+	}
+	
+	//채윤 팔로우 목록 조회
+	public ArrayList<Follow> myFollowList(){
+		Connection conn = getConnection();
+		ArrayList<Follow> list = new MemberDao().myFollowList(conn);
+		close(conn);
+		return list;
 	}
 	
 }

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Store"%>
+<%
+	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +22,11 @@
             width: 80%;
             margin: auto;
             text-align: center;
+        }
+        
+        .wrap32{
+            width: 100%;
+            
         }
 
         .outer11{
@@ -56,13 +64,14 @@
             <hr>
             <h3>(지역명)서울 금천구</h3><br>
             <!-- 검색폼 시작 -->
-		<form action="" class="outer33">
+            <!-- @@@@@@@@@@@전체 조회도 가능하게 해야함 -->
+		<form action="<%=contextPath %>/search.st" class="outer33">
 			<div class="test1" style="display: inline-block;">
-			<select name="select11" style="height: 48px; margin: 10px;">
+			<select name="select12" style="height: 48px; margin: 10px;">
 				<option value="1">서울</option>
 				<option value="2">경기</option>
                 <option value="3">인천</option>
-				<option value="4" selected>전체</option>
+                <option value="4" selected>전체</option>
 			</select>
 			</div>
 			<div class="wrap55" style="display: inline-block;">
@@ -77,27 +86,25 @@
 	<!-- 검색폼 끝 -->
         </div>
         <br><br><br><br><br>
-
-        <div class="thumb1">
-            <a href="<%=contextPath%>/detail.st"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" alt="" style="width:100%; height:400px;"></a>
-            <br>
-            <h4><b>식당이름</b></h4>
+		
+        <div class="wrap32">
+        	<% for(Store s : list) { %>
+        	<div class="thumb1">
+        		<input type="hidden" value="<%=s.getStoreNo() %>">
+            	<img src="<%=contextPath%>/<%=s.getStoreImgPath() %>" alt="" style="width:100%; height:400px;">
+	            <br>
+	            <h4><b><%=s.getStoreName() %></b></h4>
+	        </div>
+			<% } %>
+            
         </div>
-        <div class="thumb1">
-            <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" alt="" style="width:100%; height:400px;">
-            <br>
-            <h4><b>식당이름</b></h4>
-        </div>
-        <div class="thumb1">
-            <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" alt="" style="width:100%; height:400px;">
-            <br>
-            <h4><b>식당이름</b></h4>
-        </div>
-        <div class="thumb1">
-            <img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" alt="" style="width:100%; height:400px;">
-            <br>
-            <h4><b>식당이름</b></h4>
-        </div>
+        <script>
+        	$(function(){
+        		$(".thumb1").click(function(){
+        			location.href = '<%=contextPath%>/detail.st?no=' + $(this).children("input").val();
+        		})
+        	})
+        </script>
         
 
     </div>
