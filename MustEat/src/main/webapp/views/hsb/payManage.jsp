@@ -166,7 +166,7 @@
 </head>
 <body>
 
-    <%@ include file="../../common/adminMenubar.jsp"%>
+    <%@ include file="../common/adminMenubar.jsp"%>
     
     <div class="outer" align="center" width="10%">
         <table style="border-collapse: collapse;" style=" border-top: 1px solid #444444;" style="box-sizing: border-box;" class="rwd-table">

@@ -198,6 +198,7 @@ public class StoreDao {
 		
 	}
 	
+
 	//채윤 식당 메인2
 	public ArrayList<Store> selectStoreList(Connection conn){
 		ArrayList<Store> list = new ArrayList<>();
@@ -224,14 +225,14 @@ public class StoreDao {
 				
 				list.add(s);
 			}
-			
-		} catch (SQLException e) {
+			} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
 		
+
 		return list;
 	}
 	
@@ -294,4 +295,41 @@ public class StoreDao {
 			return list;
 		}
 	
+
+	// 은영
+	/**
+	 * 마이페이지에서 가게 리뷰 중 최신 2개글 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 조회된 밀키트 리뷰가 담긴 ArrayList<StoreReview> 객체
+	 */
+	public ArrayList<StoreReview> selectNewStoreReview(Connection conn, String memId) {
+		
+		// 조회된 행 수 반환 => ResultSet => ArrayList
+		ArrayList<StoreReview> srList = new  ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNewStoreReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				srList.add(new StoreReview(rset.getDate("REVIEW_ENROLLDATE")
+										 , rset.getString("REVIEW_TITLE")
+										 , rset.getInt("SCRAP_COUNT")
+										 , rset.getString("STORE_NAME")
+										 ));				
+			}
+
+		return srList;
+		
+		}
+	}
+
 }

@@ -1,23 +1,27 @@
-package com.mz.member.controller;
+package com.mz.product.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.product.model.service.ProductService;
+import com.mz.product.model.vo.AddressPayment;
+
 /**
- * Servlet implementation class MemberEnrollForm2
+ * Servlet implementation class Address
  */
-@WebServlet("/enroll2.me")
-public class MemberEnrollForm2 extends HttpServlet {
+@WebServlet("/address.do")
+public class Address extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberEnrollForm2() {
+    public Address() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,9 +30,19 @@ public class MemberEnrollForm2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setCharacterEncoding("utf-8");
 		
-		// 태민
-		// 실제 회원가입 하는 컨트롤러 (회원정보 db에 추가)
+		String memName = request.getParameter("name");
+		String memPhone = request.getParameter("memPhone");
+		String memEmail = request.getParameter("email");
+		String memAddress = request.getParameter("address");
+		String requested = request.getParameter("request");
+		
+		AddressPayment ap = new AddressPayment(memName, memPhone, memEmail, memAddress, requested);
+		
+		int result = new ProductService().insertAp(ap);
+		
 	}
 
 	/**

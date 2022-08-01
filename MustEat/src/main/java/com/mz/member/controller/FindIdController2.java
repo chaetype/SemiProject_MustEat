@@ -32,16 +32,21 @@ public class FindIdController2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//태민 
+		//아이디 찾아서 별표가 포함된 형태로 findIdCompleted.jsp 화면에 보여주는 컨트롤러
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String userName = request.getParameter("userName");
 		String userEmail = request.getParameter("userEmail");
 		
 		Member m = new MemberService().findId(userName, userEmail);
+		request.setAttribute("Member", m);
+		
 		
 		if(m == null) { // 아이디 찾기 실패 
 			
-			RequestDispatcher view = request.getRequestDispatcher("views/ltm/findId.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("views/ltm/findId.jsp");		
 			
 			request.setAttribute("errorMsg", "이름 또는 이메일주소를 잘못 입력했습니다. \n입력하신 내용을 다시 확인해주세요.");
 			
@@ -51,7 +56,7 @@ public class FindIdController2 extends HttpServlet {
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/ltm/findIdCompleted.jsp");
 			
-			request.setAttribute("successMsg", m.getMemId());
+			request.setAttribute("successMsg", m.getSecreatId());
 			
 			view.forward(request, response);
 			

@@ -1,12 +1,16 @@
 package com.mz.product.model.service;
 
-import static com.mz.common.JDBCTemplate.*;
+import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.mz.product.model.dao.ProductDao;
+import com.mz.product.model.vo.AddressPayment;
+import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
+import com.mz.product.model.vo.ProductReview;
 
 public class ProductService {
 	//메소드 위에 주석으로 이름 달아두기!!!
@@ -47,6 +51,91 @@ public class ProductService {
 		
 		return op;
 	}
+	
+
+	// 은영
+	/**
+	 * 마이페이지에서 밀키트 리뷰 중 최신 2개글 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 조회된 밀키트 리뷰가 담긴 ArrayList<ProductReview> 객체
+	 */
+	public ArrayList<ProductReview> selectNewProductReview(String memId) {
+		
+		Connection conn = getConnection();
+
+		ArrayList<ProductReview> proList = new ProductDao().selectNewProductReview(conn, memId);
+		
+		close(conn);
+		
+		return proList;
+		
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지 주문상세 리스트 중 최신 2개 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문상세 리스트가 들어간 ArrayList<OrderPro> 객체
+	 */
+	public ArrayList<OrderPro> selectNewOrder(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> opList = new ProductDao().selectNewOrder(conn, memId);
+		
+		close(conn);
+		
+		return opList;
+		
+	}
+	
+	public int insertAp(AddressPayment ap) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertAp(conn, ap);
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	// 은영
+	/**
+	 * 장바구니 목록에서 '월'만 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 장바구니 담은 '월'이 담긴 ArrayList<Basket> 객체
+	 */
+	public ArrayList<Basket> selectMonth(String memId){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Basket> month = new ProductDao().selectMonth(conn, memId);
+		
+		close(conn);
+		
+		return month;
+		
+	}
+	
+	// 은영
+	/**
+	 * 장바구니에 담긴 상품 목록들을 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 장바구니에 담긴 상품 목록이 담긴 ArrayList<Basket> 객체
+	 */
+	public ArrayList<Basket> selectBasketList(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Basket> bList = new ProductDao().selectBasketList(conn, memId);
+		
+		close(conn);
+		
+		return bList;
+		
+	}
+
 
 	
 }

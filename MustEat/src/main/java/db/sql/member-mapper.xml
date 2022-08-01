@@ -34,7 +34,9 @@
 	<!-- 태민 (아이디 찾기) -->
 	<entry key="findId">
 	SELECT
-		  RPAD(SUBSTR(MEM_ID,1,3), LENGTH(MEM_ID), '*') AS"MEM_ID"
+		  RPAD(SUBSTR(MEM_ID,1,3), LENGTH(MEM_ID), '*') AS"SECREAT_ID"
+		, MEM_ID
+		, MEM_EMAIL
 	  FROM
 	  	  MEMBER
      WHERE MEM_NAME = ?
@@ -129,6 +131,45 @@
 		    WHERE M.MEM_NO = F.F_MNO) AS FOLLOW <!-- 6. 팔로우한 인원 수 -->
 		FROM MEMBER M
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+	</entry>
+	
+	<!-- 은영 (마이페이지에서 적립금 내역 중 최신 2개 조회) -->
+	<entry key="selectNewPoint">
+		SELECT ROWNUM, A.* 
+		    FROM (
+		            SELECT MEM_ID
+		                 , MPS_CATEGORY
+		                 , MPS_RECORD
+		                 , MPS_STATUS
+		                 , SU_DATE
+		            FROM MPS_POINT
+		            JOIN MEMBER USING (MEM_NO)
+		            WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		            ORDER BY SU_DATE DESC
+		        )A
+		WHERE ROWNUM BETWEEN 1 AND 2
+	</entry>
+	
+	<!-- 은영 (마이페이지 가고싶다 스크랩 중 최신 2개 조회) -->
+	<entry key="selectNewScrap">
+		SELECT ROWNUM, A.*
+		    FROM (
+		        SELECT 
+		            (SELECT STORE_NAME <!-- 식당이름 -->
+		                FROM STORE S 
+		                WHERE SC.STORE_NO = S.STORE_NO) AS STORE_NAME,
+		            (SELECT STORE_ADDRESS <!-- 식당주소 -->
+		                FROM STORE S
+		                WHERE SC.STORE_NO = S.STORE_NO) AS STORE_ADDRESS,
+		            (SELECT AVG(REVIEW_RATE) <!-- 식당 평균 -->
+		                FROM STORE_RE SR
+		                WHERE SR.STORE_NO = SC.STORE_NO) AS RATE
+		        FROM STORE_SCRAP SC
+		        JOIN MEMBER USING (MEM_NO)
+		        WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		        ORDER BY SCRAP_DATE DESC
+		        ) A
+		WHERE ROWNUM BETWEEN 1 AND 2
 	</entry>
 
 </properties>

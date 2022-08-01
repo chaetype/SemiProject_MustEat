@@ -1,23 +1,27 @@
-package com.mz.member.controller;
+package com.mz.notice.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.notice.model.service.TosService;
+import com.mz.notice.model.vo.Tos;
+
 /**
- * Servlet implementation class MemberEnrollForm2
+ * Servlet implementation class TosDetailController
  */
-@WebServlet("/enroll2.me")
-public class MemberEnrollForm2 extends HttpServlet {
+@WebServlet("/tosdetail.no")
+public class TosDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberEnrollForm2() {
+    public TosDetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,9 +30,14 @@ public class MemberEnrollForm2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int tosNo = Integer.parseInt(request.getParameter("no"));
+				
+		Tos t = new TosService().selectTos(tosNo);
 		
-		// 태민
-		// 실제 회원가입 하는 컨트롤러 (회원정보 db에 추가)
+		request.setAttribute("Tos", t);
+		request.getRequestDispatcher("views/jsw/tosDetailView.jsp").forward(request, response);
+		
 	}
 
 	/**

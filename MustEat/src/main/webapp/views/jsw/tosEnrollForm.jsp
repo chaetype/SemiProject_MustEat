@@ -69,25 +69,7 @@
 		
 		<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">이용약관</h1>
 			
-			<!-- 이용약관이 없을 경우 -->
-			<% if(list.isEmpty()) { %>
-			<table class="rwd-table tos-table">
-		    <tbody>
-			    <tr>
-			      	<th></th>
-			        <th>글번호</th>
-			        <th>제목</th>
-			        <th>등록일</th>
-			        <th>수정일</th>
-			        <th/>비고</th>
-			    </tr>
-			<tr>
-				<td colspan="6">존재하는 이용약관이 없습니다.</td>
-			</tr>		      			
-			</table>
-			<% }else { %>			
-			<!-- 이용약관이 있을 경우 -->    
-				<% for(Tos t : list) { %>  
+			<!-- 이용약관이 있을 경우 -->    				
 				<table class="rwd-table tos-table">
 			    <tbody>	
 				    <tr>
@@ -97,8 +79,14 @@
 				        <th>등록일</th>
 				        <th>수정일</th>
 				        <th/>비고</th>
-				    </tr>		    
+				    </tr>	
+				    <% if(list.isEmpty()) { %>
 				    <tr>
+						<td colspan="6">존재하는 이용약관이 없습니다.</td>
+					</tr>		      			
+					<% }else { %>		    
+				    <tr>
+				    	<% for(Tos t : list) { %>  
 				      	<td><input type="checkbox" id="" name="tosNum" value=""></td>
 				        <td><%= t.getTosNo() %></td>
 				        <td><%= t.getTosTitle() %></td>
@@ -115,14 +103,14 @@
 
 		
 		<div class="tos-enroll">
-		
+			
 			<button type="button" class="btn1" id="tos-enroll-btn" data-toggle="modal" data-target="#myModal">등록하기</button>
 			<button type="button" class="btn1" id="tos-modify-btn" >수정하기</button>
 			<button type="button" class="btn1" id="tos-delete-btn" >삭제하기</button>
 
 		</div>
 		
-		<form action="<%= contextPath %>/tosInsertList.no" id="tos-enroll-form" method="post">
+		<form action="<%= contextPath %>/tosinsertlist.no" id="tos-enroll-form" method="post">
 				
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
@@ -139,8 +127,8 @@
 					    <div class="card px-5 py-5">
 					        <div class="row">
 					        <h1 style="font-family: 'OTWelcomeRA';">이용약관 등록하기</h1>
-					            <div class="col-md-6"> <input type="text" name="tosTitle" class="form-control" placeholder="이용약관 제목"> </div>
-					            <div class="col-md-6"> <input type="text" name="tosEtc" class="form-control" placeholder="비고"> </div>
+					            <div class="col-md-6"> <input type="text" name="tosTitle" class="form-control" placeholder="이용약관 제목"></div>
+					            <div class="col-md-6"> <input type="text" name="tosNote" class="form-control" placeholder="비고"></div>
 					        </div>
 					        <div class="row mt-3">
 					            <div class="col-md-12"> <textarea name="tosContent" rows="15" class="form-control" id="tos-content" style="width:100% !important; resize:none;" placeholder="이용약관 내용을 입력해주세요." ></textarea> </div>

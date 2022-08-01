@@ -241,9 +241,8 @@
 						<tr>
 							<td>
 								<div class="point-category">
-									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
-										<option value="">회원번호</option>										
-										<option value="">이름</option>
+									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">									
+										<option value="">회원명</option>
 										<option value="">아이디</option>
 									</select>
 								</div>

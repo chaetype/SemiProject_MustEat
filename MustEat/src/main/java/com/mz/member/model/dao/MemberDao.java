@@ -13,7 +13,9 @@ import java.util.Properties;
 
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
+import com.mz.member.model.vo.Point;
 import com.mz.member.model.vo.Report;
+import com.mz.member.model.vo.StoreScrap;
 
 public class MemberDao {
 	//메소드 위에 주석으로 이름 달아두기!!!
@@ -100,7 +102,10 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				m = new Member(rset.getString("MEM_ID"));
+				m = new Member(rset.getString("MEM_ID"),
+							   rset.getString("MEM_EMAIL"),
+							   rset.getString("SECREAT_ID")
+							  );
 			}
 			
 		} catch (SQLException e) {
@@ -313,7 +318,6 @@ public class MemberDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -324,6 +328,90 @@ public class MemberDao {
 		
 	}
 	
+	// 은영
+	/**
+	 * 마이페이지에서 적립금 내역 중 최신 2개 조회하는 Dao
+	 * @param memId : 로그인한 회원아이디 
+	 * @return : 적립금 내역이 담긴 ArrayList<Point> 객체
+	 */
+	public ArrayList<Point> selectNewPoint(Connection conn, String memId) {
+		
+		// 조회된 행 수 반환 => ResultSet => ArrayList
+		ArrayList<Point> mpsList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNewPoint");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				mpsList.add(new Point(rset.getDate("SU_DATE")
+						            , rset.getString("MPS_CATEGORY")
+						            , rset.getInt("MPS_RECORD")
+						            , rset.getString("MPS_STATUS")
+						            ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return mpsList;
+		
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지 식당 스크랩 중 최신 2개 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 식당 스크랩 리스트가 들어간 ArrayList<StoreScrap> 객체 
+	 */
+	public ArrayList<StoreScrap> selectNewScrap(Connection conn, String memId) {
+		
+		// 조회된 행 수 반환 => ResultSet => ArrayList
+		ArrayList<StoreScrap> ssList = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNewScrap");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				ssList.add(new StoreScrap( rset.getString("STORE_NAME")
+										 , rset.getString("STORE_ADDRESS")
+										 , rset.getInt("RATE")
+										 ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return ssList;
+		
+	}
 
 }
 	

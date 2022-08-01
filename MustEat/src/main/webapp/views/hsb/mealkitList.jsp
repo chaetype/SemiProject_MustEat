@@ -192,7 +192,7 @@ body {
 </style>
 </head>
 <body>
-    <%@ include file="../../common/menubar.jsp"%>
+    <%@ include file="../common/menubar.jsp"%>
     <div class="wrap">
     <div class="logo-bar con">
         <div class="logo">
@@ -207,6 +207,7 @@ body {
         </div>
     </div>
     <div class="list con">
+        <table>
         <ul class="row">
             <li class="cell">
                 <a href="">
@@ -335,6 +336,7 @@ body {
                 </a>
             </li>
         </ul>
+    </table>
     </div>
 
     <div class="paging-area" align="center">

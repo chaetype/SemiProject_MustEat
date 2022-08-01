@@ -96,4 +96,20 @@
 		  FROM STORE S
 		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
 	</entry>
+	
+	<entry key="selectNewStoreReview">
+	        		SELECT ROWNUM, A.*
+			FROM (
+			        SELECT REVIEW_TITLE
+			             , STORE_NAME
+			             , SCRAP_COUNT
+			             , REVIEW_ENROLLDATE
+			        FROM STORE_RE
+			        JOIN MEMBER ON (MEM_NO = REVIEW_WRITER)
+			        JOIN STORE USING (STORE_NO) 
+			        WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+			        ORDER BY REVIEW_ENROLLDATE DESC
+			    )A
+		WHERE ROWNUM BETWEEN 1 AND 2
+	</entry>
 </properties>

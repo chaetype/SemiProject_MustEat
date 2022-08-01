@@ -12,7 +12,9 @@ import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Follow;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
+import com.mz.member.model.vo.Point;
 import com.mz.member.model.vo.Report;
+import com.mz.member.model.vo.StoreScrap;
 
 public class MemberService {
 	//메소드 위에 이름 주석 꼭 달기!!!
@@ -127,7 +129,45 @@ public class MemberService {
 		
 	}
 	
-	//채윤 팔로우 목록 조회
+
+	// 은영
+	/**
+	 * 마이페이지에서 적립금 내역 중 최신 2개 조회하는 Service
+	 * @param memId : 로그인한 회원아이디 
+	 * @return : 적립금 내역이 담긴 ArrayList<Point> 객체
+	 */
+	public ArrayList<Point> selectNewPoint(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Point> mpsList = new MemberDao().selectNewPoint(conn, memId);
+		
+		close(conn);
+		
+		return mpsList;
+		
+	}
+	
+	// 은영
+	/**
+	 * 마이페이지 식당 스크랩 중 최신 2개 조회하는 Dao
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 식당 스크랩 리스트가 들어간 ArrayList<StoreScrap> 객체 
+	 */
+	public ArrayList<StoreScrap> selectNewScrap(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<StoreScrap> ssList = new MemberDao().selectNewScrap(conn, memId);
+		
+		close(conn);
+		
+		return ssList;
+		
+
+	}
+
+		//채윤 팔로우 목록 조회
 	public ArrayList<Follow> myFollowList(){
 		Connection conn = getConnection();
 		ArrayList<Follow> list = new MemberDao().myFollowList(conn);

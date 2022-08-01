@@ -41,17 +41,106 @@
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
-            		AND DELIVERY_STATUS = '상품준비중') AS READY, <!-- 상품준비중 -->
+            		AND DELIVERY_STATUS = '상품준비중'
+            		AND ORDER_STATUS = 1) AS READY, <!-- 상품준비중 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
-            		AND DELIVERY_STATUS = '배송중') AS TRANSIT, <!-- 배송중 -->
+            		AND DELIVERY_STATUS = '배송중'
+            		AND ORDER_STATUS = 1) AS TRANSIT, <!-- 배송중 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
-            		AND DELIVERY_STATUS = '배송완료') AS DELIVERED <!-- 배송완료 -->
+            		AND DELIVERY_STATUS = '배송완료'
+            		AND ORDER_STATUS = 1) AS DELIVERED <!-- 배송완료 -->
             FROM MEMBER M 
         WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+	</entry>
+	
+	<!-- 은영 (마이페이지에서 밀키트 리뷰 중 최신게시글 2개 조회) -->
+	<entry key="selectNewProductReview">
+	  SELECT ROWNUM, A.*
+		    FROM (
+		            SELECT MEM_ID
+		                 , PRODUCT_NAME
+		                 , SCRAP_COUNT
+		                 , PR_REVIEW_ENROLLDATE "REVIEW_ENROLLDATE"
+		             FROM PRODUCT_REVIEW
+		             JOIN MEMBER ON (MEM_NO = REVIEW_WRITER)
+		             JOIN PRODUCT USING (PRODUCT_CODE)
+		             WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		             ORDER BY PR_REVIEW_ENROLLDATE DESC
+		             ) A
+      WHERE ROWNUM BETWEEN 1 AND 2
+	</entry>
+	
+	<!-- 은영 (마이페이지에서 주문상세 내역 중 최신 2개 조회) -->
+	<entry key="selectNewOrder">
+		SELECT ROWNUM, A.* 
+		    FROM (
+		        SELECT PRODUCT_NAME
+		             , TOTAL_PRICE
+		             , ORDER_DATE
+		             , DELIVERY_STATUS
+		             , ORDER_STATUS
+		        FROM ORDER_PRO
+		        JOIN MEMBER USING (MEM_NO)
+		        JOIN ORDER_LIST USING (ORDER_NO)
+		        JOIN PRODUCT USING (PRODUCT_CODE)
+		        WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		          AND ORDER_STATUS = 1
+		        ORDER BY ORDER_DATE DESC
+		         ) A
+		WHERE ROWNUM BETWEEN 1 AND 2
+	</entry>
+	
+	<!-- 성범 (배송지입력에서 주문자 정보사항 insert -->
+	<entry key="insertAp">
+		INSERT
+		  INTO DELIVERY
+		  (
+		    DEL_NAME
+		  , DEL_PHONE
+		  , DEL_EMAIL
+		  , DEL_ADDRESS
+		  , DEL_REQUEST
+		  )
+		  VALUES
+		  (
+		    ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+		  
+	</entry>
+	
+	<!-- 은영 (장바구니 담은 '월'만 조회) -->
+	<entry key="selectMonth">
+		SELECT 
+		   TO_CHAR(BASKET_DATE, 'YYYY.MM') "MONTH" 
+		FROM BASKET
+		JOIN MEMBER USING (MEM_NO)
+		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		GROUP BY TO_CHAR(BASKET_DATE, 'YYYY.MM')
+	</entry>
+	
+	<!-- 은영 (장바구니 목록 조회) -->
+	<entry key="selectBasketList">
+		SELECT 
+		     MEM_ID
+		   , PRODUCT_NAME
+		   , TO_CHAR(BASKET_DATE, 'YYYY.MM') "MONTH" 
+		   , BASKET_DATE
+		   , AMOUNT
+		   , PRICE * AMOUNT "PRICE"
+		   , SELLER
+		   , SELLER_PHONE
+		FROM BASKET
+		JOIN MEMBER USING (MEM_NO)
+		JOIN PRODUCT USING (PRODUCT_CODE)
+		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 	</entry>
 
 </properties>

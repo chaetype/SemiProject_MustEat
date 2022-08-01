@@ -30,11 +30,38 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<entry key="insertContact">
+		INSERT
+		  INTO CONTACT
+		  (
+		    CONTACT_NO
+		  , CONTACT_TYPE
+		  , CONTACT_TITLE
+		  , CONTACT_CONTENT
+		  , CONTACT_WRITER
+		  , CONTACT_EMAIL
+		  , CONTACT_PHONE
+		  , CONTACT_ATTACH
+		  )
+		  VALUES
+		  (
+		    SEQ_CNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
 	
 	
 	
 	<!-- 서원 -->
 	<!-- 관리자 이용약관 페이지 -->
+	<!-- 이용약관 조회 -->
 	<entry key="selectAdminTosList">
 		SELECT 
 	     	   TOS_NO
@@ -46,6 +73,60 @@
 	 	WHERE TOS_STATUS = 'Y'
 	 	ORDER 
 	   	   BY TOS_NO DESC
-	</entry>  
+	</entry> 
+	
+	<!-- 이용약관 등록 -->
+	<entry key="insertTos">
+		INSERT 
+		  INTO TOS
+		     (
+		       TOS_NO
+		     , ENROLL_DATE
+		     , MODIFY_DATE
+		     , TOS_TITLE
+		     , TOS_CONTENT
+		     , TOS_NOTE
+		     , TOS_STATUS
+		     )
+		VALUES
+		     (
+		       SEQ_TOSNO.NEXTVAL
+		     , SYSDATE
+		     , SYSDATE
+		     , ?
+		     , ?
+		     , ?
+		     , 'Y'
+		     )
+	</entry> 
+	
+	<!-- 이용약관 상세 조회 -->
+	<entry key="selectTos">
+		SELECT
+		       TOS_NO
+		     , TOS_TITLE
+		     , TOS_NOTE
+		     , TOS_CONTENT
+		  FROM TOS
+		 WHERE TOS_NO = ?	
+	</entry>
+	
+	<!-- 이용약관 수정 -->
+	<entry key="updateTos">
+		UPDATE TOS
+		   SET TOS_TITLE = ?
+		     , TOS_NOTE = ?
+		     , TOS_CONTENT = ?
+		 WEHRE TOS_NO = ?
+	</entry>
+	
+	<!-- 이용약관 삭제 -->
+	<entry key="deleteTos">
+		UPDATE TOS
+		   SET TOS_STATUS = 'N'
+		 WHERE TOS_NO = ?
+	</entry>
+	
+	
 
 </properties>

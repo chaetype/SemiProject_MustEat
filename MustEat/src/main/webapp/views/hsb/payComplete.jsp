@@ -22,11 +22,11 @@
 </style>
 </head>
 <body>
-    <%@ include file="../../common/menubar.jsp"%>
+    <%@ include file="../common/menubar.jsp"%>
 
     <div class="outer" align="center">
 
-        <img src="<%=contextPath%>/resources/image/주문완료.jpg" width="250" height="200">
+        <img src="<%=contextPath%>/resources/image/complete.jpg" width="200" height="180">
         <br><br>
         <div style="font-weight:bold; font-size:20px">
             주문 접수가  <span style="color:rgb(155, 89, 182) ;">완료되었습니다.</span>  
@@ -34,8 +34,10 @@
         <br>
         <div>xxx 고객님의 주문을 진심으로 감사드립니다.</div>
         <br><br>
-        <button class="btn1">주문내역 상세보기</button>
+        <button type="button" class="btn1" onclick="moveOrderList();">주문내역 상세보기</button>
     </div>
+
+   
     
 </body>
 </html>

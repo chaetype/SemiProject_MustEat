@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mz.member.model.vo.Member;
 import com.mz.product.model.service.ProductService;
+import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
 
 /**
@@ -35,32 +36,36 @@ public class OrderStatusListController extends HttpServlet {
 		// 은영
 		// 주문 현황에 따른 주문 목록들을 요청하는 Servlet
 		
-		String deliveryStatus = request.getParameter("delivery"); // 상품 배송현황 담는 변수
-		// int orderStatus = Integer.parseInt(request.getParameter("status")); // 상품 확정 / 취소 담는 변수
-		String memId = ((Member)request.getSession().getAttribute("loginUser")).getMemId(); // 회원 아이디 담는 변수
-		
 		// 함수에서 전달된 매개변수 값 뽑기
-		int status = Integer.parseInt(request.getParameter("status")); // 상품준비중, 배송중, 배송완료, 상품취소 누르면 전달되는 데이터를 담음
+		String deliveryStatus = request.getParameter("status"); // 상품 배송현황 담는 변수
+		String memId = ((Member)request.getSession().getAttribute("loginUser")).getMemId(); // 회원 아이디 담는 변수
+		int no = Integer.parseInt(request.getParameter("no")); // 상품준비중, 배송중, 배송완료, 상품취소 누르면 전달되는 데이터를 담음
 				
 		// 상품 배송 현황
 		ArrayList<OrderPro> list = new ProductService().deliveryStatusList(deliveryStatus, memId);
+		// 장바구니 담은 '월'만 조회
+		ArrayList<Basket> bMonth = new ProductService().selectMonth(memId);
+		// 장바구니 목록 
+		ArrayList<Basket> bList = new ProductService().selectBasketList(memId);
 		// 상품 배송 현황에 따른 주문 갯수
 		OrderPro op = new ProductService().countOrder(memId);
 		
 		
+		request.setAttribute("basketMonth", bMonth);
 		request.setAttribute("orderList", list);
+		request.setAttribute("basketList", bList);
 		request.setAttribute("orderStatus", op);
 
 		
-		if (status == 0) { // 장바구니
+		if (no == 0) { // 장바구니
 			request.getRequestDispatcher("views/key/orderBasketList.jsp").forward(request, response);
-		} else if(status == 1) { // 상품준비중
+		} else if(no == 1) { // 상품준비중
 			request.getRequestDispatcher("views/key/orderReadyList.jsp").forward(request, response);
-		} else if (status == 2) { // 상품취소
+		} else if (no == 2) { // 상품취소
 			request.getRequestDispatcher("views/key/orderCancelList.jsp").forward(request, response);
-		} else if (status == 3) { // 배송중
+		} else if (no == 3) { // 배송중
 			request.getRequestDispatcher("views/key/orderInTransitList.jsp").forward(request, response);
-		} else if (status == 4) { // 배송완료
+		} else if (no == 4) { // 배송완료
 			request.getRequestDispatcher("views/key/orderDeliveredList.jsp").forward(request, response);
 		}
 		

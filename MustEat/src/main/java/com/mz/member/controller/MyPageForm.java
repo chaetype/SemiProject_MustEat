@@ -1,6 +1,7 @@
 package com.mz.member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.MyPage;
+import com.mz.member.model.vo.Point;
+import com.mz.member.model.vo.StoreScrap;
 import com.mz.product.model.service.ProductService;
 import com.mz.product.model.vo.OrderPro;
+import com.mz.product.model.vo.ProductReview;
+import com.mz.store.model.service.StoreService;
+import com.mz.store.model.vo.StoreReview;
 
 /**
  * Servlet implementation class MyPageForm
@@ -43,8 +49,24 @@ public class MyPageForm extends HttpServlet {
 		
 		// 상품 배송 현황에 따른 주문 갯수
 		OrderPro op = new ProductService().countOrder(memId);
-
+		
+		// 마이페이지에서 가게 리뷰 중 최신 2개 게시글 조회
+		ArrayList<StoreReview> srList = new StoreService().selectNewStoreReview(memId);
+		// 마이페이지에서 밀키트 리뷰 중 최신 2개 게시글 조회
+		ArrayList<ProductReview> proList = new ProductService().selectNewProductReview(memId);
+		// 마이페이지에서 적립금 내역 최신 2개 조회
+		ArrayList<Point> mpsList = new MemberService().selectNewPoint(memId);
+		// 마이페이지에서 주문상세 내역 최신 2개 조회
+		ArrayList<OrderPro> opList = new ProductService().selectNewOrder(memId);
+		// 마이페이지 가고싶다 내역 최신 2개 조회
+		ArrayList<StoreScrap> ssList = new MemberService().selectNewScrap(memId);
+				
 		request.setAttribute("myPage", m);
+		request.setAttribute("storeReview", srList);
+		request.setAttribute("productReview", proList);
+		request.setAttribute("mpsPoint", mpsList);
+		request.setAttribute("orderList", opList);
+		request.setAttribute("scrapList", ssList);
 		request.setAttribute("orderStatus", op);
 
 		

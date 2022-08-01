@@ -14,17 +14,18 @@
         .outer{
             width:80%;
             margin:auto;
+            margin-top: 10%;
         }
     </style>
 </head>
 <body>
 
-    <%@ include file="../../common/menubar.jsp"%>
+    <%@ include file="../common/menubar.jsp"%>
 
     <div class="outer">
 
         <div class="img" align="center">
-            <img src="<%=contextPath%>/resources/image/shopping-cart.png" width="250px" height="250px">
+            <img src="<%=contextPath%>/resources/image/basket.jpg" width="250px" height="250px">
         </div>
 
         <br><br>
@@ -38,11 +39,17 @@
         <br><br>
 
         <div align="center">
-            <button class="btn1" style="width:35%" >
+            <button type="button" class="btn1" style="width:35%" onclick="goshopping();">
                 <b>쇼핑계속하기</b>
             </button>
         </div>
     </div>
+
+    <script>
+        function goshopping(){
+            location.href = "mealkitList로 이동";
+        }
+    </script>
     
 </body>
 </html>
