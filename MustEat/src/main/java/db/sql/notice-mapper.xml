@@ -56,6 +56,22 @@
 		  )
 	</entry>
 	
+	<entry key="selectContactList">
+		SELECT
+		       CONTACT_NO
+		     , CONTACT_TYPE
+		     , CONTACT_TITLE
+		     , CONTACT_CONTENT
+		     , CONTACT_WRITER
+		     , ENROLL_DATE
+		     , CONTACT_STATUS
+		     , CONTACT_ATTACH
+		     , ANSWER
+		     , ANSWER_DATE
+		  FROM CONTACT
+		 WHERE CONTACT_WRITER = ?
+	</entry>
+	
 	
 	
 	
