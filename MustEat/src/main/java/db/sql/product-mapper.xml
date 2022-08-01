@@ -166,9 +166,10 @@
 		ORDER BY MONTH ASC
 	</entry>
 	
+	<!-- 은영 (배송현황에 따른 주문목록 조회) -->
 	<entry key="selectOrderList">
 		SELECT 
-			ORDER_NO
+			OP.ORDER_NO "ORDER_NO"
 		  , TO_CHAR(ORDER_DATE, 'YYYY.MM') "MONTH"
 		  , ORDER_DATE
 		  , ORDER_QUENTITY

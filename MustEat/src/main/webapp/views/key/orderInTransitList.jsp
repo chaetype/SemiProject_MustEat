@@ -3,9 +3,9 @@
 <%
 	//장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문수량
 	OrderPro op = (OrderPro)request.getAttribute("orderStatus");	
-	// 상품준비중 '월'
+	// 배송중 '월'
 	ArrayList<OrderPro> opMonth = (ArrayList<OrderPro>)request.getAttribute("orderMonth");
-	// 상품준비중 상품 목록 리스트
+	// 배송중 상품 목록 리스트
 	ArrayList<OrderPro> opList = (ArrayList<OrderPro>)request.getAttribute("orderList");
 %>
 <!DOCTYPE html>
@@ -111,7 +111,7 @@
 	                  <li class="goodsDate" style="font-weight:bold;"><%=ol.getOrderDate() %></li>
 	                </ul>
 	              </a>
-	              <span class="goodsStatus"><%=ol.getDeliveryStatus() %></span>
+	              <span class="goodsStatus">배송중</span>
 	            </div>
 	          </div>
 	
@@ -120,7 +120,7 @@
 	            <div class="inner">
 	              <span class="orderNo" style="font-weight:bold;">
 	                주문번호<br>
-	                [123]
+	                [<%=ol.getOrderNo() %>]
 	              </span>
 	              <span class="seller"><%=ol.getSeller() %></span>
 	              <span class="tel"><%=ol.getSellerPhone() %></span>

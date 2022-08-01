@@ -111,7 +111,7 @@
 	                  <li class="goodsDate" style="font-weight:bold;"><%=ol.getOrderDate() %></li>
 	                </ul>
 	              </a>
-	              <span class="goodsStatus"><%=ol.getDeliveryStatus() %></span>
+	              <span class="goodsStatus">상품준비중</span>
 	            </div>
 	          </div>
 	
@@ -120,7 +120,7 @@
 	            <div class="inner">
 	              <span class="orderNo" style="font-weight:bold;">
 	                주문번호<br>
-	                [12345678]
+	                [<%=ol.getOrderNo() %>]
 	              </span>
 	              <span class="seller"><%=ol.getSeller() %></span>
 	              <span class="tel"><%=ol.getSellerPhone() %></span>

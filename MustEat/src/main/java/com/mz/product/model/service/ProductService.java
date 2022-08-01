@@ -154,6 +154,12 @@ public class ProductService {
 	}
 	
 	// 은영
+	/**
+	 * 상품준비중, 배송중, 배송완료에서 '월'만 조회하는 Service
+	 * @param str : 배송현황이 담긴 문자열 (상품준비중, 배송중, 배송완료)
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 배송현황에 따라 진행된 '월'이 담긴 ArrayList<OrderPro> 객체
+	 */
 	public ArrayList<OrderPro> selectOrderMonth(String str, String memId) {
 		
 		Connection conn = getConnection();
@@ -166,6 +172,13 @@ public class ProductService {
 		
 	}
 	
+	// 은영
+	/**
+	 * 상품준비중, 배송중, 배송완료에서 상품 목록을 조회하는 Service
+	 * @param str : 배송현황이 담긴 문자열 (상품준비중, 배송중, 배송완료)
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 배송현황에 따라 담긴 상품 목록들이 담긴 ArrayList<OrderPro> 객체
+	 */
 	public ArrayList<OrderPro> selectOrderList(String str, String memId) {
 		
 		Connection conn = getConnection();
