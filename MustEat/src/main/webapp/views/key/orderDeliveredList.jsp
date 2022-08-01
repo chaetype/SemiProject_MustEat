@@ -34,42 +34,51 @@
 	    <div class="status">
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=op.getBasket() %></a>
+	          <div class="number orderStatus" onclick="orderStatus('basket');"><%=op.getBasket() %></div>
 	          <div class="text">장바구니</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div> <!-- href 예시 : $lt;%=request.getContextPath() %>/orderList.or?status=$lt;% list.getStatus().equals("배송준비중"); %> -->
-	          <a href= "" class="number"><%=op.getOrderReady() %></a> 
+	          <div class="number orderStatus" onclick="orderStatus('preparing');"><%=op.getOrderReady() %></div> 
 	          <div class="text">상품준비중</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=op.getOrderTransit() %></a>
+	          <div class="number orderStatus" onclick="orderStatus('transit');"><%=op.getOrderTransit() %></div>
 	          <div class="text">배송중</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=op.getOrderDelivered() %></a>
+	          <div class="number orderStatus" onclick="orderStatus('delivered');"><%=op.getOrderDelivered() %></div>
 	          <div class="text">배송완료</div>
 	        </div>
 	      </div>     
 	
 	      <div class="item">
 	        <div>
-	          <a href="" class="number"><%=op.getOrderCancel() %></a>
+	          <div class="number orderStatus" onclick="orderStatus('cancel');"><%=op.getOrderCancel() %></div>
 	          <div class="text">상품취소</div>
 	        </div>
 	      </div>
 	    </div>
 	
 	 	</div>
+	 	
+	<script>
 	
+		// '장바구니, 상품준비중, 배송중, 배송완료, 상품취소' 클릭하면 실행하는 함수
+			function orderStatus(status) { // 실행시 전달되는 값을 담는 매개변수
+			location.href="<%=contextPath%>/orderStatusList.pro?status=" + status;
+		}
+	
+	</script>
+		
 	<!-- 주문현황 리스트 -->
 	  <!-- 바깥쪽 for문 -->
 	   <% for (OrderPro om : opMonth) { %>

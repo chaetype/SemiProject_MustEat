@@ -39,7 +39,7 @@ public class OrderStatusListController extends HttpServlet {
 		// 함수에서 전달된 매개변수 값 뽑기
 		String status = request.getParameter("status"); // 상품 배송현황 담는 변수
 		String memId = ((Member)request.getSession().getAttribute("loginUser")).getMemId(); // 회원 아이디 담는 변수
-		int num = 1; // 구매확정/취소 담은 변수 
+		int num = 0; // 구매확정대기
 		
 		// 장바구니 담은 '월'만 조회
 		ArrayList<Basket> bMonth = new ProductService().selectMonth(memId);

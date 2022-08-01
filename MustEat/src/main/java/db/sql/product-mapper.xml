@@ -32,8 +32,7 @@
              	WHERE M.MEM_NO = B.MEM_NO) AS BASKET, <!-- 장바구니 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
-            		WHERE M.MEM_NO = O.MEM_NO 
-            		AND ORDER_STATUS = 1) AS CONFIRM, <!-- 구매확정 -->
+            		WHERE M.MEM_NO = O.MEM_NO ) AS CONFIRM, <!-- 구매확정 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
@@ -42,17 +41,15 @@
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
             		AND DELIVERY_STATUS = '상품준비중'
-            		AND ORDER_STATUS = 1) AS READY, <!-- 상품준비중 -->
+            		AND ORDER_STATUS = 0) AS READY, <!-- 상품준비중 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
-            		AND DELIVERY_STATUS = '배송중'
-            		AND ORDER_STATUS = 1) AS TRANSIT, <!-- 배송중 -->
+            		AND DELIVERY_STATUS = '배송중') AS TRANSIT, <!-- 배송중 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
-            		AND DELIVERY_STATUS = '배송완료'
-            		AND ORDER_STATUS = 1) AS DELIVERED <!-- 배송완료 -->
+            		AND DELIVERY_STATUS = '배송완료') AS DELIVERED <!-- 배송완료 -->
             FROM MEMBER M 
         WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 	</entry>
