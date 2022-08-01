@@ -327,7 +327,7 @@ public class ProductDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				new Product(rset.getInt("product_code"),
+				p = new Product(rset.getInt("product_code"),
 						    rset.getString("product_name"),
 						    rset.getInt("price"),
 						    rset.getString("sales_unit"),
