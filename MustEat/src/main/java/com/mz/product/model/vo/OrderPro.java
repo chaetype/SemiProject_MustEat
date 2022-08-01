@@ -22,13 +22,14 @@ public class OrderPro {
 	private String memId; // 주문현황에서 조회하는 아이디
 	private String productName; // 주문현황에서 조회하는 상품명
 	private String seller; // 주문현황에서 조회하는 상품판매자명
-	private String sellePhone; // 주문현황에서 조회하는 상품판매자 전화번호
+	private String sellerPhone; // 주문현황에서 조회하는 상품판매자 전화번호
 	private int basket; // 장바구니 수량
 	private int orderConfirm; // 구매확정 수량
 	private int orderCancel; // 구매취소 수량
 	private int orderReady; // 배송준비중 수량
 	private int orderTransit; // 배송중 수량
 	private int orderDelivered; // 배송완료 수량
+	private String orderMonth; // 주문한 월
 	
 	public OrderPro() {
 
@@ -59,7 +60,7 @@ public class OrderPro {
 	public OrderPro(int orderNo, String memNo, int orderQuentity, Date orderDate, String memo, Date modifyDate,
 			int orderStatus, int totalPrice, int deliveryPrice, int discountFee, String payment, String courier,
 			int courierNo, String deliveryStatus, String deliverType, String memId, String productName, String seller,
-			String sellePhone) {
+			String sellerPhone) {
 		super();
 		this.orderNo = orderNo;
 		this.memNo = memNo;
@@ -79,11 +80,11 @@ public class OrderPro {
 		this.memId = memId;
 		this.productName = productName;
 		this.seller = seller;
-		this.sellePhone = sellePhone;
+		this.sellerPhone = sellerPhone;
 	}
 
 	public OrderPro(int orderNo, int orderQuentity, Date orderDate, int totalPrice, String deliveryStatus, String memId,
-			String productName, String seller, String sellePhone) {
+			String productName, String seller, String sellerPhone) {
 		super();
 		this.orderNo = orderNo;
 		this.orderQuentity = orderQuentity;
@@ -93,7 +94,7 @@ public class OrderPro {
 		this.memId = memId;
 		this.productName = productName;
 		this.seller = seller;
-		this.sellePhone = sellePhone;
+		this.sellerPhone = sellerPhone;
 	}
 	
 	
@@ -116,6 +117,25 @@ public class OrderPro {
 		this.totalPrice = totalPrice;
 		this.deliveryStatus = deliveryStatus;
 		this.productName = productName;
+	}
+	
+	public OrderPro(int orderNo, int orderQuentity, Date orderDate, int totalPrice, String productName, String seller,
+			String sellerPhone, String orderMonth) {
+		super();
+		this.orderNo = orderNo;
+		this.orderQuentity = orderQuentity;
+		this.orderDate = orderDate;
+		this.totalPrice = totalPrice;
+		this.productName = productName;
+		this.seller = seller;
+		this.sellerPhone = sellerPhone;
+		this.orderMonth = orderMonth;
+	}
+
+
+	public OrderPro(String orderMonth) {
+		super();
+		this.orderMonth = orderMonth;
 	}
 
 
@@ -149,13 +169,13 @@ public class OrderPro {
 	}
 
 
-	public String getSellePhone() {
-		return sellePhone;
+	public String getSellerPhone() {
+		return sellerPhone;
 	}
 
 
-	public void setSellePhone(String sellePhone) {
-		this.sellePhone = sellePhone;
+	public void setSellerPhone(String sellerPhone) {
+		this.sellerPhone = sellerPhone;
 	}
 
 
@@ -367,6 +387,15 @@ public class OrderPro {
 	public void setOrderDelivered(int orderDelivered) {
 		this.orderDelivered = orderDelivered;
 	}
+	
+	public String getOrderMonth() {
+		return orderMonth;
+	}
+
+
+	public void setOrderMonth(String orderMonth) {
+		this.orderMonth = orderMonth;
+	}
 
 
 	@Override
@@ -376,10 +405,9 @@ public class OrderPro {
 				+ ", totalPrice=" + totalPrice + ", deliveryPrice=" + deliveryPrice + ", discountFee=" + discountFee
 				+ ", payment=" + payment + ", courier=" + courier + ", courierNo=" + courierNo + ", deliveryStatus="
 				+ deliveryStatus + ", deliverType=" + deliverType + ", memId=" + memId + ", productName=" + productName
-				+ ", seller=" + seller + ", sellePhone=" + sellePhone + ", basket=" + basket + ", orderConfirm="
+				+ ", seller=" + seller + ", sellerPhone=" + sellerPhone + ", basket=" + basket + ", orderConfirm="
 				+ orderConfirm + ", orderCancel=" + orderCancel + ", orderReady=" + orderReady + ", orderTransit="
-				+ orderTransit + ", orderDelivered=" + orderDelivered + "]";
+				+ orderTransit + ", orderDelivered=" + orderDelivered + ", orderMonth=" + orderMonth + "]";
 	}
-
 
 }

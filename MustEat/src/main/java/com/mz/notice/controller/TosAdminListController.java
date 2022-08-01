@@ -15,7 +15,7 @@ import com.mz.notice.model.vo.Tos;
 /**
  * Servlet implementation class TosEnrollFormController
  */
-@WebServlet("/toslist.no")
+@WebServlet("/tosadminlist.no")
 public class TosAdminListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -37,6 +37,18 @@ public class Contact {
 		this.answerDate = answerDate;
 	}
 
+	public Contact(int contactNo, String contactType, String contactTitle, Date enrollDate, String contactStatus,
+			String answer, Date answerDate) {
+		super();
+		this.contactNo = contactNo;
+		this.contactType = contactType;
+		this.contactTitle = contactTitle;
+		this.enrollDate = enrollDate;
+		this.contactStatus = contactStatus;
+		this.answer = answer;
+		this.answerDate = answerDate;
+	}
+
 	public int getContactNo() {
 		return contactNo;
 	}

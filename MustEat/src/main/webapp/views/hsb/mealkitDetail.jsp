@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.product.model.vo.Product"%>
+<%
+	Product p = (Product)request.getAttribute("p");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>상품 상세 정보</title>
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
@@ -14,6 +17,44 @@
 		width:80%;
 		margin:auto;
 	}
+    .rating {
+ display: flex;
+        margin-top: -10px;
+    flex-direction: row-reverse;
+    margin-left: -4px;
+        float: left;
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+        position: relative;
+    width: 19px;
+    font-size: 25px;
+    color: rgb(173, 101, 221);
+    cursor: pointer;
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
 </style>
 </head>
 <body>
@@ -21,8 +62,8 @@
 		
 		<div class="outer">
 			
-				<div class="col-md-5" style="display:inline-block;vertical-align:top;">
-					<img style="display:flex" width="300" height="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdInsHseLr8NDKrBFMtAht7th7Rww6Cf_wf41RJAcKAQhfNK-fwZqWyl63rAznrbiu6hw&usqp=CAUg">
+				<div style="display:inline-block;vertical-align:top;">
+					<img style="display:flex" width="300" height="300" src="<%= p.getImgPath() %>]">
 					 
 				</div>
 				
@@ -30,20 +71,19 @@
 				
 			
 				<div style="display:inline-block; margin-left: 50px;" >
-					<h3>상품이름넣을곳</h3>
-					<p>상품설명넣을곳<p>
-					<p><b>판매단위: </b></p>
-					<p><b>중량/용량: </b></p>
-					<p><b>배송구분: </b></p>
-                    <p><b>포장타입: </b></p>
-                    <p><b>알레르기정보: </b></p>
-                    <p><b>유통기한: </b></p>
-                    <p><b>구매수량: </b></p>
+					<h3><%= p.getProductName() %></h3>
+					<br>
+					<p><b>판매단위: </b><%= p.getSalesUnit() %></p>
+					<p><b>중량/용량: </b><%= p.getCapacity() %></p>
+					<p><b>배송구분: </b>일반배송/새벽배송</p>
+                    <p><b>포장타입: </b><%= p.getPacking() %></p>
+                    <p><b>알레르기정보: </b><%= p.getAllergy() %></p>
+                    <p><b>유통기한: </b><%= p.getExpirationDate() %></p>
 				</div>
 
 					<div align="right">	
 						<hr>
-						<h4>~~~~~원</h4>
+						<h4><%= p.getPrice() %>원</h4>
 						<button class="btn1">바로구매</button>
 						<button class="btn1">장바구니</button>
 					</div>
@@ -55,9 +95,16 @@
                 
                 <tbody>
                 	<tr>
-                    	<td class="reviewDelete">댓글 삭제</td>
+                    	
                         <th>댓글작성</th>
                         <td><textarea rows="3" cols="50" style="resize:none"></textarea></td>
+                        <td width="100"><div class="rating"> 
+                            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
+                            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                        </div></td>
                         <td><button class="btn1">댓글등록</button></td>
                     </tr>
                     <tr>
@@ -105,10 +152,7 @@
                 </tbody>
             </table>
         </div>
-			<div class="list01">
-		        <button class="btn1" id="btn2">전체선택</button>
-		        <button class="btn1">선택삭제</button>
-	        </div>
+			
           <br><br><br>
   
 	</div>

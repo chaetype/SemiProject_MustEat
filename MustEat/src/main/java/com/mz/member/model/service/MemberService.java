@@ -48,6 +48,21 @@ public class MemberService {
 		close(conn);
 		return m;
 	}
+	
+	
+	//태민 (비밀번호찾기 / FindPwdController2랑 연결)
+	/**
+	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
+	 * @param userId : 사용자에게 입력받은 유저아이디
+	 * @param userEmail : 사용자에게 입력받은 유저이메일
+	 * @return : 입력받은 name/email에 해당하는 유저ID정보가 담긴 Member 객체
+	 */
+	public Member findPwd(String userId, String userEmail) {
+		Connection conn = getConnection();
+		Member m  = new MemberDao().findPwd(conn, userId, userEmail);
+		close(conn);
+		return m;
+	}
 
 	
 	
@@ -174,5 +189,22 @@ public class MemberService {
 		close(conn);
 		return list;
 	}
+	
+	
+	// 서원 관리자 적립금 조회
+	public ArrayList<Point> membershipList(){
+		Connection conn = getConnection();
+		ArrayList<Point> list = new MemberDao().membershipList(conn);
+		close(conn);
+		return list;		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

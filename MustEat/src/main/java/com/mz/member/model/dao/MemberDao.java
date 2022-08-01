@@ -1,6 +1,6 @@
 package com.mz.member.model.dao;
 
-import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -118,6 +118,40 @@ public class MemberDao {
 
 		return m;
 	}
+	
+	// 태민 (비밀번호찾기 / FindPwdController2랑 연결)
+		public Member findPwd(Connection conn, String userId, String userEmail) {
+		
+			Member m = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("findPwd");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, userId);
+				pstmt.setString(2, userEmail);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					m = new Member(rset.getString("MEM_PWD"),
+								   rset.getString("MEM_EMAIL")
+								  );
+								 
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+
+			return m;
+		}
 	
 	
 	// 은영
@@ -434,7 +468,9 @@ public class MemberDao {
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
+
 //					list.add(new Report(rset.getInt(
+
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -446,7 +482,51 @@ public class MemberDao {
 			return list;
 			
 		}
+		
+		// 서원 관리자 적립금 조회
+		public ArrayList<Point> membershipList(Connection conn){
+			
+			ArrayList<Point> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("membershipList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Point(rset.getDate("su_date"),
+									   rset.getInt("mem_no"),
+									   rset.getString("mem_name"),
+									   rset.getString("mem_id"),
+									   rset.getString("mem_phone"),
+									   rset.getInt("mps_record"),
+									   rset.getString("mps_category"),
+									   rset.getString("mps_status")
+							          ));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;		
+		}
+		
+			
+}
+		
+		
+		
+		
+		
+		
+		
+		
 	
 
-}
-	

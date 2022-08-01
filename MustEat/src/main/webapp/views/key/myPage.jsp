@@ -93,35 +93,35 @@
       
       <div class="item">
         <div>
-          <div class="number basket" onclick="orderStatus(0, 'basket');"><%=op.getBasket() %></div>
+          <div class="number basket" onclick="orderStatus('basket');"><%=op.getBasket() %></div>
           <div class="text">장바구니</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus" onclick="orderStatus(1, 'preparing');" ><%=op.getOrderReady() %></div>
+          <div class="number orderStatus" onclick="orderStatus('preparing');" ><%=op.getOrderReady() %></div>
           <div class="text">상품준비중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus" onclick="orderStatus(3, 'transit');"><%=op.getOrderTransit() %></div>
+          <div class="number orderStatus" onclick="orderStatus('transit');"><%=op.getOrderTransit() %></div>
           <div class="text">배송중</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderStatus" onclick="orderStatus(4, 'delivered');"><%=op.getOrderDelivered() %></div>
+          <div class="number orderStatus" onclick="orderStatus('delivered');"><%=op.getOrderDelivered() %></div>
           <div class="text">배송완료</div>
         </div>
       </div>     
 
       <div class="item">
         <div>
-          <div class="number orderCancel" onclick="orderStatus(2, 'cancel');"><%=op.getOrderCancel() %></div>
+          <div class="number orderCancel" onclick="orderStatus('cancel');"><%=op.getOrderCancel() %></div>
           <div class="text">상품취소</div>
         </div>
       </div>
@@ -132,8 +132,8 @@
   <script>
   
 	  // '장바구니, 상품준비중, 배송중, 배송완료, 상품취소' 클릭하면 실행하는 함수
-	 	function orderStatus(no, status) { // 실행시 전달되는 값을 담는 매개변수
-		  location.href="<%=contextPath%>/orderStatusList.pro?no=" + no + "&status=" + status;
+	 	function orderStatus(status) { // 실행시 전달되는 값을 담는 매개변수
+		  location.href="<%=contextPath%>/orderStatusList.pro?status=" + status;
 	  }
   
   </script>

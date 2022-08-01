@@ -11,8 +11,8 @@
   .shippingStatusContainer{
     padding: 15px 15px;
     background-color: rgb(168, 99, 221);
-    margin-bottom: 10px;
-    height:150px;
+    margin-bottom: 25px;
+    height: 180px;
   }
   
   /* 주문/배송조회 타이틀 */
@@ -40,6 +40,7 @@
     display:block;
     color:white;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .shippingStatusContainer .text{

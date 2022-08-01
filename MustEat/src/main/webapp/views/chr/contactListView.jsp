@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.notice.model.vo.Contact"%>
+<%
+	ArrayList<Contact> list = (ArrayList<Contact>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +29,18 @@
         text-align:left;
         background-color:rgba(202, 183, 219, 0.479);
     }
+    #standby{
+        color:red;
+    }
+    #complete{
+        color:blue;
+    }
+    tbody th, tbody td{
+        font-weight:bold;
+    }
+    .table-act p{
+        padding-left:20px;
+    }
 </style>
 </head>
 <body>
@@ -48,35 +63,40 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr class="contact-title">
-                        <td>2</td>
-                        <td>[주문] 닭한마리 칼국수 품절이던데</td>
-                        <td>답변 대기</td>
-                        <td>2022-07-10</td>
-                    </tr>
-                    <tr class="table-act">
-                        <td colspan="4"></td>
-                    </tr>
-                    <tr class="contact-title">
-                        <td>1</td>
-                        <td>[배송] 배송 조회가 안 돼요.</td>
-                        <td>답변 완료</td>
-                        <td>2022-06-15</td>
-                    </tr>
-                    <tr class="table-act">
-                        <td colspan="4">
-                            <p>
-                                안녕하세요, 고객님. <br>
-                                머스트잇 고객관리팀 입니다. <br><br>
-
-                                먼저 불편하게 해드린 점에 죄송한 마음 전하며 답변 드리겠습니다. <br>
-                                현재 주문해주신 상품은 발송 처리 되었으나 택배사 사정으로 인해 택배 조회가 불가능한 것으로 확인됩니다. <br>
-                                문제가 해결되는대로 안내 드리겠습니다. <br><br>
-
-                                저희 머스트잇을 이용해 주셔서 감사합니다.
-                            </p>
-                        </td>
-                    </tr>
+                	<% if(list == null) { %>
+                		<tr class="contact-title">
+                			<th colspan="4">문의 내역이 없습니다.</th>
+                		</tr>
+                	<% }else{ %>
+	                	<% for(int i=0; i<list.size(); i++){ %>
+		                    <tr class="contact-title">
+		                        <td><%= list.size() - i %></td>
+		                        <td>[<%= list.get(i).getContactType() %>] <%= list.get(i).getContactTitle() %></td>
+		                        <% if(list.get(i).getContactStatus().equals("답변 대기")){ %>
+		                        	<td id="standby"><%=list.get(i).getContactStatus()%></td>
+		                        <% }else{ %>
+		                        	<td id="complete"><%=list.get(i).getContactStatus()%></td>
+		                        <% } %>
+		                        <td><%= list.get(i).getEnrollDate() %></td>
+		                    </tr>
+		                    <% if(list.get(i).getAnswer() != null){ %>
+			                    <tr class="table-act">
+			                        <td colspan="4">
+			                        	<p>
+			                        		<br><%= list.get(i).getAnswer() %> <br><br>
+			                        		<%= list.get(i).getAnswerDate() %>
+			                        	</p>
+			                        </td>
+			                    </tr>
+		                    <% }else{ %>
+		                    	<tr class="table-act">
+		                    		<td colspan="4" style="display:none">
+		                    			<p>잠시만 기다려주십시오.</p>
+		                    		</td>
+		                    	</tr>
+		                    <% } %>
+	                    <% } %>
+                    <% } %>
                 </tbody>
             </table>
         </div>

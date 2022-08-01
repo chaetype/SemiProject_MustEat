@@ -56,6 +56,22 @@
 		  )
 	</entry>
 	
+	<entry key="selectContactList">
+		SELECT
+		       CONTACT_NO
+		     , CONTACT_TYPE
+		     , CONTACT_TITLE
+		     , CONTACT_CONTENT
+		     , CONTACT_WRITER
+		     , ENROLL_DATE
+		     , CONTACT_STATUS
+		     , CONTACT_ATTACH
+		     , ANSWER
+		     , ANSWER_DATE
+		  FROM CONTACT
+		 WHERE CONTACT_WRITER = ?
+	</entry>
+	
 	
 	
 	
@@ -84,8 +100,8 @@
 		     , ENROLL_DATE
 		     , MODIFY_DATE
 		     , TOS_TITLE
-		     , TOS_CONTENT
 		     , TOS_NOTE
+		     , TOS_CONTENT
 		     , TOS_STATUS
 		     )
 		VALUES
@@ -117,7 +133,7 @@
 		   SET TOS_TITLE = ?
 		     , TOS_NOTE = ?
 		     , TOS_CONTENT = ?
-		 WEHRE TOS_NO = ?
+		 WHERE TOS_NO = ?
 	</entry>
 	
 	<!-- 이용약관 삭제 -->

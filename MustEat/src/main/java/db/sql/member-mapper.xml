@@ -44,6 +44,18 @@
 		
 	</entry>
 	
+	<!-- 태민 (비밀번호 찾기) -->
+	<entry key="findPwd">
+		SELECT
+			  MEM_PWD
+			, MEM_EMAIL
+		  FROM
+		  	  MEMBER
+		 WHERE MEM_ID = ?
+		   AND MEM_EMAIL = ?
+		
+	</entry>
+	
 	
 	<!-- 은영 (회원 정보 수정) -->
 	<entry key="updateMember">
@@ -176,6 +188,23 @@
 	<!-- 채윤 나의 팔로우 목록 조회 -->
 	<entry key="myFollowList">
 		SELECT 
+	</entry>
+	
+	<!-- 서원 관리자 적립금 조회 -->
+	<entry key="membershipList">
+		SELECT
+		       M.MEM_NO
+		     , M.MEM_NAME
+		     , M.MEM_ID
+		     , M.MEM_PHONE
+		     , SU_DATE
+		     , MPS_RECORD
+		     , MPS_CATEGORY
+		     , MPS_STATUS
+		  FROM MPS_POINT MP, MEMBER M
+		 WHERE MP.MEM_NO = M.MEM_NO
+		 ORDER
+		    BY SU_DATE DESC
 	</entry>
 	
 	

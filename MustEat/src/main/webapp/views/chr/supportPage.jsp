@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .container{
-        margin-top:7%;
+        margin-top:4%;
         margin-left:20%;
     }
 
@@ -45,10 +45,11 @@
     }
 
     .outer{
-        background-color:white;
+        background-color:#f8f9fa;
         width:80%;
         height:100%;    
         margin:auto;
+        border-radius:5%;
     }
 
     .support-button{
@@ -56,7 +57,7 @@
         background-color:rgb(231, 216, 241);
         width:150px;
         height:150px;
-        margin:7% 30px;
+        margin:5% 30px;
         border-radius:30%;
     }
 
@@ -99,7 +100,7 @@
 
     <div class="outer" align="center">
         <br>
-        <h1 align="center" style="margin-top:5%">무엇을 도와드릴까요?</h1>
+        <h1 align="center" style="margin-top:10%">무엇을 도와드릴까요?</h1>
         <div class="container justify-content-center" style="margin-left:20%">
     
             <div class="row">
@@ -107,7 +108,7 @@
                <div class="col-md-8">
                    
                    <div class="input-group mb-3">
-                        <input type="text" class="form-control input-text" placeholder="Search keyword...." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
                         </div>

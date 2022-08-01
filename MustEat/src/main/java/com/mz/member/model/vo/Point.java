@@ -10,6 +10,10 @@ public class Point {
 	private String mpsCategory;
 	private int mpsRecord;
 	private String mpsStatus;
+	private String pStatus;
+	private String memName;
+	private String memId;
+	private String memPhone;	
 	
 	public Point() {
 		
@@ -24,7 +28,20 @@ public class Point {
 		this.mpsRecord = mpsRecord;
 		this.mpsStatus = mpsStatus;
 	}
+		
 	
+	public Point(Date suDate, int memNo, String memName, String memId, String memPhone, int mpsRecord, String mpsCategory, String mpsStatus) {
+		super();
+		this.suDate = suDate;
+		this.memNo = memNo;
+		this.memName = memName;
+		this.memId = memId;
+		this.memPhone = memPhone;		
+		this.mpsRecord = mpsRecord;
+		this.mpsCategory = mpsCategory;
+		this.mpsStatus = mpsStatus;
+	}
+
 	public Point(Date suDate, String mpsCategory, int mpsRecord, String mpsStatus) {
 		super();
 		this.suDate = suDate;
@@ -32,6 +49,21 @@ public class Point {
 		this.mpsRecord = mpsRecord;
 		this.mpsStatus = mpsStatus;
 	}
+
+	public Point(int mpsNo, int memNo, Date suDate, String mpsCategory, int mpsRecord, String mpsStatus, String memName,
+			String memId, String memPhone) {
+		super();
+		this.mpsNo = mpsNo;
+		this.memNo = memNo;
+		this.suDate = suDate;
+		this.mpsCategory = mpsCategory;
+		this.mpsRecord = mpsRecord;
+		this.mpsStatus = mpsStatus;
+		this.memName = memName;
+		this.memId = memId;
+		this.memPhone = memPhone;
+	}
+	
 
 	public int getMpsNo() {
 		return mpsNo;
@@ -81,10 +113,36 @@ public class Point {
 		this.mpsStatus = mpsStatus;
 	}
 
+	public String getMemName() {
+		return memName;
+	}
+
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
+
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+	public String getMemPhone() {
+		return memPhone;
+	}
+
+	public void setMemPhone(String memPhone) {
+		this.memPhone = memPhone;
+	}
+
 	@Override
 	public String toString() {
 		return "Point [mpsNo=" + mpsNo + ", memNo=" + memNo + ", suDate=" + suDate + ", mpsCategory=" + mpsCategory
-				+ ", mpsRecord=" + mpsRecord + ", mpsStatus=" + mpsStatus + "]";
+				+ ", mpsRecord=" + mpsRecord + ", mpsStatus=" + mpsStatus + ", memName=" + memName + ", memId=" + memId
+				+ ", memPhone=" + memPhone + "]";
 	}
+
 	
 }
