@@ -501,7 +501,8 @@ public class MemberDao {
 									   rset.getString("mem_id"),
 									   rset.getString("mem_phone"),
 									   rset.getInt("mps_record"),
-									   rset.getString("mps_category")
+									   rset.getString("mps_category"),
+									   rset.getString("mps_status")
 							          ));
 				}
 				
