@@ -32,7 +32,7 @@
         font-weight: bold;
         font-size: 13px;
     }
-    #check{
+    #check, #check2{
         border: 0;
         padding: 0;
         font-size:12px;
@@ -48,51 +48,58 @@
         <img src="<%= request.getContextPath() %>/resources/image/mz.png" align="center">
         <p align="center" style="font-size: 30px; font-weight: bold; margin: 20px;">회원가입</p>
         
+        <div style="font-size:small; padding-left: 685px;">* 필수입력사항</div>
         <div align="center"><div style="width: 55%;"><hr></div></div>
         
         <form action="" id="enroll-form">
             <div align="center">
                 <table>
                     <tr>
-                        <th>아이디</th>
-                        <td><input type="text" placeholder="6~15글자" name= "userid" id="id" required></td>
+                        <th>*아이디</th>
+                        <td><input type="text" placeholder="6~15글자" name= "userId" id="id" required></td>
                         <td><button type="button" class="btn1" name="check-Id" onclick="checkId();">중복확인</button></td>
                     </tr>        
                     <tr>
-                        <th>비밀번호</th>
-                        <td colspan="2"><input type="password" name="userPW" id="pw" onchange="check_pw();" placeholder="8~20글자(특수문자 포함)" required></td>
+                        <th>*비밀번호</th>
+                        <td colspan="2"><input type="password" name="userPwd" id="pw" onchange="check_pw();" placeholder="8~20글자(특수문자 포함)" required></td>
                     </tr>
                     <tr>
-                        <th>비밀번호확인</th>
-                        <td colspan="2"><input type="password" name="userPW2" id="pw2" onchange="check_pw();" 
+                        <th>*비밀번호확인</th>
+                        <td colspan="2"><input type="password" name="userPwd2" id="pw2" onchange="check_pw();" 
                             placeholder="비밀번호를 한번 더 입력해주세요" required><br><span id="check"></span></td>
                     </tr>
                     <tr>
-                        <th>이름</th>
-                        <td colspan="2"><input type="text" name="userName"  placeholder="이름을 입력해주세요" required></td>
+                        <th>*이름</th>
+                        <td colspan="2"><input type="text" id="name" name="userName" placeholder="이름을 입력해주세요" required></td>
                     </tr>
                     <tr>
-                        <th>닉네임</th>
+                        <th>*닉네임</th>
                         <td><input type="text" id="nick" name="userNick" placeholder="닉네임을 입력해주세요" required></td>
                         <td><button type="button" class="btn1" onclick="checkNick();">중복확인</button></td>
                     </tr>
                     <tr>
-                        <th>이메일</th>
+                        <th>*이메일</th>
                         <td><input type="text" id="email" name="userEmail" placeholder="abc@naver.com" required></td>
                         <td><button class="btn1" type="button" onclick="checkEmail();">중복확인</button></td>
                     </tr>
                     <tr>
-                        <th>휴대전화</th>
-                        <td><input type="text" placeholder="-빼고 작성해주세요"></td>
-                        <td><button type="button" id="phoneChk" class="btn1" onclick="location.href='<%=request.getContextPath() %>/phoneCheck.me';">본인인증</button></td>
+                        <th>*휴대전화</th>
+                        <td><input type="text" name="userPhone" id=phone placeholder="-빼고 작성해주세요" required></td>
+                        <td><button type="button" id="phoneChk" class="btn1" onclick="phoneCheck();">인증번호발송</button></td>
+                    </tr>
+                    <tr id="show" style="display:none">
+                        <th></th>
+                        <td><input type="text" name="userPhone2" id="phone2" placeholder="인증번호를 입력해주세요">
+                            <br><span id="check2"></span></td>
+                        <td><button type="button" id="phoneChk2" class="btn1" onclick="phoneCheck2();">인증확인</button></td>
                     </tr>
                     <tr>
                         <th>주소</th>
                         <td>
-                            <input type="text" id="sample6_postcode" placeholder="우편번호"><br>
-                            <input type="text" id="sample6_address" placeholder="주소"><br>
-                            <input type="text" id="sample6_detailAddress" placeholder="상세주소"><br>
-                            <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+                            <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호"><br>
+                            <input type="text" name="address" id="sample6_address" placeholder="주소"><br>
+                            <input type="text" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소"><br>
+                            <input type="text" name="addressRef" id="sample6_extraAddress" placeholder="참고항목">
                         </td>
                         <td>
                             <input type="button" onclick="sample6_execDaumPostcode()" class="btn1" value="우편번호 찾기" style="width:145px; height: 40px;">
@@ -109,7 +116,7 @@
             <br><br>
             
             <div align="center">
-                <button type="submit" style="width: 30%; height: 50px;" class="btn1">회원가입하기</button>
+                <button type="button" style="width: 30%; height: 50px; font-size: 17px;" id="submit" class="btn1" onclick="submitForm();">회원가입하기</button>
             </div>
             
 
@@ -122,6 +129,10 @@
     <!-- 유효성 검사 -->
     <script>
         var check1 = 0;
+        var check2 = 0;
+        var check3 = 0;
+        var check4 = 0;
+        var check5 = 0;
 
         var regExpId =/^[A-Za-z0-9]+$/;
         
@@ -154,7 +165,7 @@
         					if(confirm("멋진 아이디네요! 사용하시겠습니까?")){ // 사용하겠다
         						$idInput.attr("readonly", true);
                                 //$("#enroll-form :submit").removeAttr("disabled");
-                                        						
+                                check1 = 1;        						
         					}else{ // 사용안하겠다
                                 //$idInput.val()=''; 왜 안먹는지...
                                 document.getElementById("id").value='';
@@ -185,7 +196,7 @@
                     }
                 }
                 if(check_SC == 0){
-                    window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
+                    window.alert('특수문자가 포함되어 있지 않습니다.')
                     document.getElementById('pw').value='';
                 }
             } 
@@ -194,12 +205,12 @@
                 if(document.getElementById('pw').value==document.getElementById('pw2').value){
                     document.getElementById('check').innerHTML='&nbsp;&nbsp;&nbsp;비밀번호가 일치합니다.'
                     document.getElementById('check').style.color='blue';
-                    check1 = 1;
+                    check2 = 1;
                 }
                 else{
                     document.getElementById('check').innerHTML='&nbsp;&nbsp;&nbsp;비밀번호가 일치하지 않습니다.';
                     document.getElementById('check').style.color='red';
-                    check1 = 0;
+                    check2 = 0;
                 }
             }
         }
@@ -223,6 +234,7 @@
         					if(confirm("멋진 닉네임이네요! 사용하시겠습니까?")){ // 사용하겠다
         						$nickInput.attr("readonly", true);
                                 //$("#enroll-form :submit").removeAttr("disabled");
+                                check3 = 1;
                                         						
         					}else{ // 사용안하겠다
                                 //$nickInput.val()=''; 왜 안먹는지...
@@ -232,7 +244,7 @@
         				}
         				
         			},error:function(){
-        				console.log("아이디 중복체크용 ajax 통신 실패");
+        				console.log("닉네임 중복체크용 ajax 통신 실패");
         			}
         		});
             }else{
@@ -273,6 +285,7 @@
                             if(confirm("사용가능한 이메일입니다. 사용하시겠습니까?")){ // 사용하겠다
                                 $emailInput.attr("readonly", true);
                                 //$("#enroll-form :submit").removeAttr("disabled");
+                                check4 = 1;
                                                                 
                             }else{ // 사용안하겠다
                                 //$nickInput.val()=''; 왜 안먹는지...
@@ -343,28 +356,104 @@
               }
             }).open();
         }
-        /*
-        $("#phoneChk").click(function(){
-            alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오.");
-            var phone = $("#phone").val();
-            $.ajax({
-                type:"GET",
-                url:'/MustEat/phoneCheck.me',
-                cache : false,
-                success:function(data){
-                    if(data == "error"){
-                        alert("휴대폰 번호가 올바르지 않습니다.")
+
+        // 휴대폰 본인인증 
+        var ranNum = "";
+
+        function phoneCheck(){
+            
+            const $phoneInput = $('#phone')
+            
+            if(document.getElementById('phone').value ==''){
+                alert("핸드폰 번호를 입력해주세요");
+                $phoneInput.focus();
+            }else{
+                $("#show").css("display", "");
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/phoneCheck.me",
+                    data:{checkPhone:$phoneInput.val()},
+                    success:function(result){ 
+                        ranNum = result;
+                        alert("문자가 정상적으로 발송되었습니다.")
                         
-                    }else{	        		
-                        alert("휴대폰 번호가 올바르지 않습니다.")
-                       
+                    },error:function(){
+                        console.log("휴대폰 본인인증 ajax 통신 실패");
                     }
+                });    
+            }
+        }    
+
+        function phoneCheck2(){
+
+            const $phoneInput = $('#phone');
+            
+            console.log(document.getElementById('phone2').value);
+            if(document.getElementById('phone2').value != ranNum){
+                document.getElementById('phone2').value='';
+                document.getElementById('check2').innerHTML='&nbsp;&nbsp;인증번호를 잘못입력하셨습니다.';
+                document.getElementById('check2').style.color='red';
+                document.getElementById('phone2').focus();
+            }else{
+                document.getElementById('check2').innerHTML='&nbsp;&nbsp;본인인증이 완료되었습니다.'
+                document.getElementById('check2').style.color='blue';
+                $phoneInput.attr("readonly", true);
+                check5 = 1;
+            }
+        }
+
+        function submitForm(){
+            
+            if( (document.getElementById("id").value != "") && (document.getElementById("pw").value !="") 
+                 && (document.getElementById("pw2").value !="") && (document.getElementById("email").value !="")
+                 && (document.getElementById("name").value !="") && (document.getElementById("nick").value !="")
+                 && (document.getElementById("phone").value !="") ){
+                    
+                    if(check1 != 1){
+                        alert("아이디 중복확인을 해주십시오.");
+                    }else if(check2 != 1){
+                        alert("비밀번호가 일치하지 않습니다.");
+                    }else if(check3 != 1){
+                        alert("닉네임 중복확인을 해주십시오.");       
+                    }else if(check4 != 1){
+                        alert("이메일 중복확인을 해주십시오");  
+                    }else if(check5 != 1){
+                        alert("문자인증을 완료해주십시오.");
+                    }else{
+
+                        $.ajax({
+                            url:"<%=request.getContextPath()%>/enroll2.me",
+                            data:{userId:$('[name=userId]').val(),
+                                  userPwd:$('[name=userPwd]').val(),
+                                  userName:$('[name=userName]').val(),  
+                                  userNick:$('[name=userNick]').val(),
+                                  userEmail:$('[name=userEmail]').val(),
+                                  userPhone:$('[name=userPhone]').val(),
+                                  addressCode:$('[name=addressCode]').val(),
+                                  address:$('[name=address]').val(),
+                                  addressDetail:$('[name=addressDetail]').val(),
+                                  addressRef:$('[name=addressRef]').val(),
+                                 },
+                            success:function(result){ 
+                                
+                                if(result=='YYY'){
+                                    alert("회원가입 완료")
+                                    url:"<%=request.getContextPath()%>/login1.me"
+                                }else{
+                                    alert("회원가입 실패")
+                                }       
+                                
+                            },error:function(){
+                                console.log("회원가입 ajax 통신 실패");
+                            }
+                        });    
+                        
+                    }           
+
+                }else{
+                    alert("필수입력사항을 입력해주십시오.")
                 }
-            });
-        });
-        */
-
-
+            
+        }
     </script>
 	
 </body>

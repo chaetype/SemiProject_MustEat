@@ -104,6 +104,28 @@ public class MemberService {
 		close(conn);
 		return count;
 	}
+	
+	//태민
+	/**
+	 * 회원가입시 member 테이블에 insert하는 Service
+	 * @param m
+	 * @return
+	 */
+	public int insertMember(Member m) {
+		Connection conn = getConnection();
+		int result = new MemberDao().insertMember(conn, m);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
 
 	
 	
@@ -259,11 +281,6 @@ public class MemberService {
 		close(conn);
 		return list;	
 	}
-	
-	
-	
-	
-	
 	
 	
 }

@@ -56,6 +56,39 @@
 		
 	</entry>
 	
+	<!-- 태민(회원가입 insert) -->
+	<entry key="insertMember">
+		INSERT
+		  INTO MEMBER
+		  (
+		    MEM_NO
+	   	  , MEM_ID
+		  , MEM_PWD
+		  , MEM_NAME
+		  , MEM_PHONE
+		  , MEM_EMAIL
+		  , MEM_NICKNAME
+		  , ADDRESS_CODE
+		  , ADDRESS
+	  	  , ADDRESS_DETAIL
+	  	  , ADDRESS_REF
+		  )
+		  VALUES
+		  (
+		    SEQ_MNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
 	
 	<!-- 은영 (회원 정보 수정) -->
 	<entry key="updateMember">
