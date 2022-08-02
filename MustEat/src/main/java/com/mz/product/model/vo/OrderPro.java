@@ -145,6 +145,18 @@ public class OrderPro {
 		super();
 		this.orderMonth = orderMonth;
 	}
+	
+	
+
+
+	public OrderPro(String delName, String delPhone, String delEmail, String delAddress, String memo ) {
+		super();
+		this.delName = delName;
+		this.delPhone = delPhone;
+		this.delEmail = delEmail;
+		this.delAddress = delAddress;
+		this.memo = memo;
+	}
 
 
 	public int getOrderNo() {
