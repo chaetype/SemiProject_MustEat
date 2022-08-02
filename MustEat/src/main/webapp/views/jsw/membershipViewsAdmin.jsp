@@ -27,7 +27,7 @@
 	}	
 	
 	.table-div {
-		margin-top:3%;
+		margin-top:1.5%;
 	}
 	
 	.rwd-table{
@@ -50,6 +50,10 @@
         width: 30px;
     }
 
+	.point-array{
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+	
 	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
 
 	body{
@@ -110,6 +114,14 @@
 			<h1 style="font-family: 'OTWelcomeRA'; text-align:center;">회원 적립금 조회</h1>
 	
 			<hr noshade size = 1 style="background:black;">
+			
+			<div class="mps-category" style="text-align:left;">
+				<select class="point-array" name="" id="" style="height: 40px; border-color:lightgrey;">									
+					<option value="">전체</option>
+					<option value="">적립</option>
+					<option value="">사용</option>
+				</select>
+			</div>
 
 			<div class="table-div">
 			
@@ -169,7 +181,7 @@
 			
 			</div>	
 
-			<div style="width:100%; margin-top:3%;">
+			<div style="width:100%; margin-top:0%;">
 				<div style="display:inline-block;">
 					<table style="display:inline-block;">
 						<tr>

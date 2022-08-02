@@ -199,6 +199,14 @@ public class MemberService {
 		return list;		
 	}
 	
+	// 서원 관리자 적립금 지급
+	public ArrayList<Point> membershipPayList(){
+		Connection conn = getConnection();
+		ArrayList<Point> list = new MemberDao().membershipPayList(conn);
+		close(conn);
+		return list;
+	}
+	
 	
 	
 	

@@ -208,4 +208,30 @@
 	</entry>
 	
 	
+	<!-- 서원 관리자 적립금 지급 -->
+	<entry key="membershipPayList">
+		SELECT MEM_NO, MEM_NAME, MEM_ID, REVIEW_MONTH, SAVE_POINT, MPS_DATE, P_STATUS
+		  FROM (
+		          SELECT
+		               M.MEM_NO
+		             , M.MEM_NAME
+		             , M.MEM_ID
+		             , (
+		                 SELECT COUNT(*)
+		                  FROM STORE_RE
+		                 WHERE REVIEW_WRITER = M.MEM_NO
+		                   AND EXTRACT(MONTH FROM SYSDATE) = EXTRACT(MONTH FROM REVIEW_ENROLLDATE)
+		               ) "REVIEW_MONTH"
+		             , 5000 "SAVE_POINT"
+		             , TO_CHAR(TRUNC(ADD_MONTHS(SR.REVIEW_ENROLLDATE, +1), 'mm'),'YYYY-MM-DD') "MPS_DATE"
+		             , P_STATUS
+		          FROM MPS_POINT MP
+		          JOIN MEMBER M ON (M.MEM_NO = MP.MEM_NO)
+		          JOIN STORE_RE SR ON (M.MEM_NO = SR.REVIEW_WRITER)
+		         WHERE MP.P_STATUS = '대기중'  
+		           AND MPS_STATUS = '적립'
+		       );
+	</entry>
+	
+	
 </properties>

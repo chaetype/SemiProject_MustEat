@@ -77,7 +77,7 @@
 		margin-top:2%;	
 	}
 
-	.point-select{font-family: 'Nanum Gothic Coding', monospace;}
+	.point-category{font-family: 'Nanum Gothic Coding', monospace;}
 	
 	body{
     	background-color: #eee;
@@ -145,8 +145,8 @@
 				<ul style="text-align:left; margin-top:2%;">
 	
 					<li>식당 리뷰 작성시 영수증 인증 필수입니다.</li>
-					<li>리뷰 10개 이상 작성시 신뢰 리뷰어 등급으로 자동등업됩니다.</li>
-					<li>한달간 최소 100자 이상의 리뷰 10개 이상 작성시 한달 최대 5000원의 적립금이 지급됩니다.</li>
+					<li>리뷰 10개 이상 작성시 신뢰 리뷰어 등급으로 등업됩니다.</li>
+					<li>한달간 리뷰 10개 이상 작성시 한달 최대 5000원의 적립금이 지급됩니다.</li>
 					<li>의미없거나 악의적인 리뷰 작성시 무통보 삭제 될 수 있습니다.</li>
 	
 				</ul>			
@@ -272,7 +272,7 @@
 			</div>
 			
 
-			<div style="width:100%; margin-top:1%;">
+			<div style="width:100%; margin-top:0%;">
 				<div style="display:inline-block;">
 					<table style="display:inline-block;">
 						<tr>

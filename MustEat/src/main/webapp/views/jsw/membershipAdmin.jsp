@@ -114,7 +114,7 @@
 				      <% if(list.isEmpty()) { %>
 	                  <!--case1. 게시글이 없을경우-->
 	                  <tr>
-	                      <td colspan="6">조회된 게시글이 없습니다.</td>
+	                      <td colspan="6">조회된 지급예정내역이 없습니다.</td>
 	                  </tr>
 					  <% }else { %>
 	                  <!--case2. 게시글이 있을경우-->
@@ -124,23 +124,13 @@
 		                      <td><%= p.getMemNo() %></td>
 		                      <td><%= p.getMemName() %></td>
 		                      <td><%= p.getMemId() %></td>
-		                      <td><%= %></td>
-		                      <td>5000</td>
-		                      <td><%=  %></td>
-		                      <td><%= p.getMpsStatus() %></td>
+		                      <td><%= p.getReviewMonth() %></td>
+		                      <td><%= p.getSavePoint() %></td>
+		                      <td><%= p.getMpsDate() %></td>
+		                      <td><%= p.getpStatus() %></td>
 		                  </tr>   
 	                      <% } %>        
 	                  <% } %>
-				      <tr>
-				        <td><input type="checkbox"></td>
-				        <td>1</td>
-				        <td>홍길동</td>
-						<td>hong1234</td>
-						<td>10</td>
-						<td>+5000</td>
-						<td>xxxx-xx-xx</td>
-						<td>대기중</td>
-				      </tr>
 				      
 		  		</table>
 
@@ -164,7 +154,7 @@
 				
 				</div>	
 	
-				<div style="width:100%; margin-top:3%;">
+				<div style="width:100%; margin-top:0%;">
 					<div style="display:inline-block;">
 						<table style="display:inline-block;">
 							<tr>

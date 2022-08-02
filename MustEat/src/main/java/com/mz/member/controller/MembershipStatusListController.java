@@ -15,7 +15,7 @@ import com.mz.member.model.vo.Point;
 /**
  * Servlet implementation class MembershipStatusListController
  */
-@WebServlet("/membershipStatusList.me")
+@WebServlet("/mpsPayList.me")
 public class MembershipStatusListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,7 +32,7 @@ public class MembershipStatusListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Point> list = new MemberService().membershipList();
+		ArrayList<Point> list = new MemberService().membershipPayList();
 		
 		request.setAttribute("list", list);
 		
