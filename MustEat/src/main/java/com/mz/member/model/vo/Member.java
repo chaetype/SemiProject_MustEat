@@ -87,7 +87,14 @@ public class Member {
 		this.addressRef = addressRef;
 	}
 
-
+	
+	public Member(int memNo,String memName, String memImgPath) {
+		super();
+		this.memNo = memNo;
+		this.memName = memName;
+		this.memImgPath = memImgPath;
+	}
+	
 	public String getSecreatId() {
 		return secreatId;
 	}
