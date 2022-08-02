@@ -469,31 +469,36 @@ public class ProductDao {
 		
 	}
 	
-
-	   public int updatePurchaseCancel(Connection conn, int orderNo) {
-		      
-		      // update => 처리된 행 수 반환 => int형 변수
-		      int result = 0;
-		      
-		      PreparedStatement pstmt = null;
-		      String sql = prop.getProperty("updatePurchaseCancel");
-		      
-		      try {
-		         pstmt = conn.prepareStatement(sql);
-		         
-		         pstmt.setInt(1, orderNo);
-		         
-		         result = pstmt.executeUpdate();
-		      } catch (SQLException e) {
-		         e.printStackTrace();
-		      } finally {
-		         close(pstmt);
-		      }
-		      
-		      return result;
-		      
-		   }
-
+	// 은영
+	/**
+	 * 상품준비중, 배송중, 배송완료에서 '구매취소'처리하는 Service
+	 * @param orderNo : 사용자가 선택한 주문번호
+	 * @return : 구매취소 성공여부가 담긴 int형 변수(성공 : 1 | 실패 : 0)
+	 */
+	 public int updatePurchaseCancel(Connection conn, int orderNo) {
+	      
+	      // update => 처리된 행 수 반환 => int형 변수
+	      int result = 0;
+	      
+	      PreparedStatement pstmt = null;
+	      String sql = prop.getProperty("updatePurchaseCancel");
+	      
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         
+	         pstmt.setInt(1, orderNo);
+	         
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	      
+	   }
+	
 	// 성범
 	/*
 	 * 밀키트 상세페이지 리뷰 insert
@@ -518,9 +523,8 @@ public class ProductDao {
 		}
 		
 		return result;
-		
+				
 	}
-
 	
 	// 성범
 	/*
