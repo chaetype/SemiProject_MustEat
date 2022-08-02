@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.mz.product.model.dao.ProductDao;
-import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
@@ -83,27 +82,6 @@ public class ProductService {
 		
 	}
 	
-	// 성범
-	/*
-	 * 배송지입력 페이지
-	 */
-	public int insertAp(AddressPayment ap) {
-		
-		Connection conn = getConnection();
-		
-		int result = new ProductDao().insertAp(conn, ap);
-		
-		if(result > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		
-		close(conn);
-		
-		
-		return result;
-	}
 	
 	// 은영
 	/**

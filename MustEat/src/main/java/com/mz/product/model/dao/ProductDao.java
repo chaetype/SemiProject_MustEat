@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.mz.member.model.dao.MemberDao;
-import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
@@ -104,7 +103,7 @@ public class ProductDao {
 			
 			while(rset.next()) {
 				
-				proList.add(new ProductReview(rset.getDate("REVIEW_ENROLLDATE")
+				proList.add(new ProductReview(rset.getString("REVIEW_ENROLLDATE")
 				                             ,rset.getInt("SCRAP_COUNT")
 				                             ,rset.getString("PRODUCT_NAME")
 				                             ));
@@ -198,32 +197,6 @@ public class ProductDao {
 	}
 	
 	
-	
-	// 성범
-	public int insertAp(Connection conn, AddressPayment ap) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertAp");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, ap.getMemName());
-			pstmt.setString(2, ap.getMemPhone());
-			pstmt.setString(3, ap.getMemEmail());
-			pstmt.setString(4, ap.getAddress());
-			pstmt.setString(5, ap.getRequest());
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-		
-	}
 	
 	// 은영
 	/**
@@ -514,6 +487,7 @@ public class ProductDao {
 			pstmt.setString(1, pr.getPrReviewContent());
 			pstmt.setInt(2, pr.getProductCode());
 			pstmt.setString(3, pr.getReviewWriter());
+			//pstmt.setInt(4, pr.getPrReviewRate());
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -545,8 +519,8 @@ public class ProductDao {
 			while(rset.next()) {
 				list.add(new ProductReview(rset.getInt("review_no"),
 										   rset.getString("mem_id"),
-										   rset.getString("pr_review_content"),
-										   rset.getDate("pr_review_enrolldate")));
+										   rset.getString("pr_review_content")
+										  /*, rset.getInt("pr_review_rate")*/));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

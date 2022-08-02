@@ -30,6 +30,12 @@ public class OrderPro {
 	private int orderTransit; // 배송중 수량
 	private int orderDelivered; // 배송완료 수량
 	private String orderMonth; // 주문한 월
+	// 추가문
+	private String delName; // 배송지입력시 이름
+	private String delPhone; // 배송지입력시 전화번호
+	private String delEmail; // 배송지입력시 이메일
+	private String delAddress; // 베송지입력시 주소
+	
 	
 	public OrderPro() {
 
@@ -137,46 +143,6 @@ public class OrderPro {
 	public OrderPro(String orderMonth) {
 		super();
 		this.orderMonth = orderMonth;
-	}
-
-
-	public String getMemId() {
-		return memId;
-	}
-
-
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-
-
-	public String getProductName() {
-		return productName;
-	}
-
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-
-	public String getSeller() {
-		return seller;
-	}
-
-
-	public void setSeller(String seller) {
-		this.seller = seller;
-	}
-
-
-	public String getSellerPhone() {
-		return sellerPhone;
-	}
-
-
-	public void setSellerPhone(String sellerPhone) {
-		this.sellerPhone = sellerPhone;
 	}
 
 
@@ -330,6 +296,46 @@ public class OrderPro {
 	}
 
 
+	public String getMemId() {
+		return memId;
+	}
+
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+
+	public String getProductName() {
+		return productName;
+	}
+
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+
+	public String getSeller() {
+		return seller;
+	}
+
+
+	public void setSeller(String seller) {
+		this.seller = seller;
+	}
+
+
+	public String getSellerPhone() {
+		return sellerPhone;
+	}
+
+
+	public void setSellerPhone(String sellerPhone) {
+		this.sellerPhone = sellerPhone;
+	}
+
+
 	public int getBasket() {
 		return basket;
 	}
@@ -388,7 +394,8 @@ public class OrderPro {
 	public void setOrderDelivered(int orderDelivered) {
 		this.orderDelivered = orderDelivered;
 	}
-	
+
+
 	public String getOrderMonth() {
 		return orderMonth;
 	}
@@ -396,6 +403,46 @@ public class OrderPro {
 
 	public void setOrderMonth(String orderMonth) {
 		this.orderMonth = orderMonth;
+	}
+
+
+	public String getDelName() {
+		return delName;
+	}
+
+
+	public void setDelName(String delName) {
+		this.delName = delName;
+	}
+
+
+	public String getDelPhone() {
+		return delPhone;
+	}
+
+
+	public void setDelPhone(String delPhone) {
+		this.delPhone = delPhone;
+	}
+
+
+	public String getDelEmail() {
+		return delEmail;
+	}
+
+
+	public void setDelEmail(String delEmail) {
+		this.delEmail = delEmail;
+	}
+
+
+	public String getDelAddress() {
+		return delAddress;
+	}
+
+
+	public void setDelAddress(String delAddress) {
+		this.delAddress = delAddress;
 	}
 
 
@@ -408,7 +455,10 @@ public class OrderPro {
 				+ deliveryStatus + ", deliverType=" + deliverType + ", memId=" + memId + ", productName=" + productName
 				+ ", seller=" + seller + ", sellerPhone=" + sellerPhone + ", basket=" + basket + ", orderConfirm="
 				+ orderConfirm + ", orderCancel=" + orderCancel + ", orderReady=" + orderReady + ", orderTransit="
-				+ orderTransit + ", orderDelivered=" + orderDelivered + ", orderMonth=" + orderMonth + "]";
+				+ orderTransit + ", orderDelivered=" + orderDelivered + ", orderMonth=" + orderMonth + ", delName="
+				+ delName + ", delPhone=" + delPhone + ", delEmail=" + delEmail + ", delAddress=" + delAddress + "]";
 	}
 
+
+	
 }

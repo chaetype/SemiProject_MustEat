@@ -227,6 +227,7 @@
 		  , PR_REVIEW_CONTENT
 		  , PRODUCT_CODE
 		  , REVIEW_WRITER
+		 <!--  , PR_REVIEW_RATE -->
 		  )
 		  VALUES
 		  (
@@ -234,6 +235,7 @@
 		  , ?
 		  , ?
 		  , ?
+		  <!--  , ?-->
 		  )
 	</entry>
 	
@@ -243,7 +245,7 @@
 		       REVIEW_NO
 		     , PR_REVIEW_CONTENT
 		     , MEM_ID
-		     , TO_CHAR(PR_REVIEW_ENROLLDATE, 'YY/MM/DD HH:MI') "PR_REVIEW_ENROLLDATE"
+		     <!--  , PR_REVIEW_RATE -->
 		  FROM PRODUCT_REVIEW R
 		  JOIN MEMBER ON (REVIEW_WRITER=MEM_NO)
 		 WHERE R.PR_REVIEW_STATUE = 'N'

@@ -30,10 +30,14 @@ public class MealkitDetail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
 	
 		int productNo = Integer.parseInt(request.getParameter("no"));
 		
 		Product p = new ProductService().detailProduct(productNo);
+		
+		
 		
 		request.setAttribute("p", p);
 		
