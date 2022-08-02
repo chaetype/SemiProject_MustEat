@@ -119,12 +119,13 @@ public class OrderPro {
 		this.productName = productName;
 	}
 	
-	public OrderPro(int orderNo, int orderQuentity, Date orderDate, int totalPrice, String productName, String seller,
-			String sellerPhone, String orderMonth) {
+	public OrderPro(int orderNo, int orderQuentity, Date orderDate, int orderStatus, int totalPrice, String productName,
+			String seller, String sellerPhone, String orderMonth) {
 		super();
 		this.orderNo = orderNo;
 		this.orderQuentity = orderQuentity;
 		this.orderDate = orderDate;
+		this.orderStatus = orderStatus;
 		this.totalPrice = totalPrice;
 		this.productName = productName;
 		this.seller = seller;

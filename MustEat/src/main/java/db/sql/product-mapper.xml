@@ -41,7 +41,7 @@
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
             		AND DELIVERY_STATUS = '상품준비중'
-            		AND ORDER_STATUS = 0) AS READY, <!-- 상품준비중 -->
+            		AND ORDER_STATUS != 2) AS READY, <!-- 상품준비중 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
@@ -170,6 +170,7 @@
 		  , TO_CHAR(ORDER_DATE, 'YYYY.MM') "MONTH"
 		  , ORDER_DATE
 		  , ORDER_QUENTITY
+		  , ORDER_STATUS
 		  , PRODUCT_NAME
 		  , TOTAL_PRICE + DELIVERY_PRICE "TOTAL_PRICE"
 		  , SELLER
@@ -205,9 +206,15 @@
 	    	SET ORDER_STATUS = 1 <!-- 구매확정 -->
 	    WHERE ORDER_NO = ? <!-- 구매번호 -->
 	</entry>
+	
+	<!-- 은영 (구매보류 => 구매취소로 변경) -->
+	<entry key="updatePurchaseCancel">
+		UPDATE ORDER_PRO
+	    	SET ORDER_STATUS = 2 <!-- 구매확정 -->
+	    	  , DELIVERY_STATUS = '구매취소' <!-- 배송현황 -->
+	    WHERE ORDER_NO = ? <!-- 구매번호 -->
+	</entry>
 
-	
-	
 	
 	
 	

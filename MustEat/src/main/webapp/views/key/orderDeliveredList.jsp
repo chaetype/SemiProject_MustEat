@@ -120,7 +120,11 @@
 	                  <li class="goodsDate" style="font-weight:bold;"><%=ol.getOrderDate() %></li>
 	                </ul>
 	              </a>
+	              <% if( ol.getOrderStatus() != 1) { %>
 	              <span class="goodsStatus">배송완료</span>
+	              <% } else { %>
+	              <span class="goodsStatus">구매확정</span>
+	              <% } %>
 	            </div>
 	          </div>
 	
@@ -137,14 +141,27 @@
 	          </div>
 	
 	          <div class="orderButton">
-	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 => 배송완료 외의 것들 display:none 처리 -->
-	            <a href="" class="plain-btn btn">구매확정</a>
-	            <!-- <input type="hidden" name="orderStatus" value="배송완료"> -->
-	            
-	            <!-- 주문상태 : 구매확정인 경우 보이도록 설정(기본적으로 전체 다 보이도록) -->
-	            <a href="" class="plain-btn btn">리뷰작성</a>
-	            <!-- <input type="hidden" name="orderStatus" value="구매확정"> -->
+				<% if( ol.getOrderStatus() != 1) { %>
+	            <a class="plain-btn btn" id="orderConfirm" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>, 'delivered');">구매확정</a>  
+	            <% } %>
+
+				<% if( ol.getOrderStatus() == 1) { %>
+				<!-- 구매확정시 보이도록 설정 -->
+	            <a class="plain-btn btn">리뷰작성</a>
+	            <% } %>
 	          </div>
+	          
+	          <script>
+	           // 구매확정 버튼 누르면 실행되는 함수
+	          	function purchaseConfirm(orderNo, status){
+	          		if(confirm("구매 확정하시겠습니까?\n확정 후 취소 불가능합니다.")) {
+	          			location.href="<%=contextPath%>/purchaseConfirm.pro?status=" + status  + "&orderNo=" + orderNo;
+	          		} else {
+	          			return false;
+	          		}
+	           }
+	          
+	          </script>
 	          
 	
 	          </li>

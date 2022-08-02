@@ -109,7 +109,7 @@
 	
 	            <div class="goodsItem">
 	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
-	              <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
+	              <img src="<%=contextPath %>/resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
 	            </a>
 	
 	            <div class="goodsInfo">
@@ -122,8 +122,12 @@
 	                  <li class="goodsDate" style="font-weight:bold;"><%=ol.getOrderDate() %></li>
 	                </ul>
 	              </a>
-	              <span class="goodsStatus">상품준비중</span>
-	            </div>
+				  <% if( ol.getOrderStatus() != 1) { %>
+	              <span class="goodsStatus">상품배송중</span>
+	              <% } else { %>
+	              <span class="goodsStatus">구매확정</span>
+	              <% } %>
+	               </div>
 	          </div>
 	
 	          <div class="sellerInfo">
@@ -137,27 +141,39 @@
 	          </div>
 	
 	          <div class="orderButton">
-	            <!-- 주문상태 : 배송완료인 경우 보이도록 설정 => 배송완료 외의 것들 display:none 처리 -->
-	            <a class="plain-btn btn" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>);">구매확정</a>
-	            <!-- <input type="hidden" name="orderStatus" value="배송완료"> -->
-	            	            
-	            <!-- 주문상태 : 배송준비중일때만 보이도록 설정 -->
-	            <a class="plain-btn btn" onclick="cancel();">구매취소</a>
-	            <!-- <input type="hidden" name="orderStatus" value="배송준비중"> -->
-
+				<% if( ol.getOrderStatus() != 1) { %>
+	            <a class="plain-btn btn" id="orderConfirm" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>, 'preparing');">구매확정</a>  
+	            <% } %>
+	            
+	            <% if( ol.getOrderStatus() != 1) { %>
+	            <!-- 상품준비중일때만 구매취소 가능 -->
+	            <a class="plain-btn btn" id="orderCancel" onclick="return purchaseCancel(<%=ol.getOrderNo() %>, 'preparing');">구매취소</a>
+				<% } %>
+				
+				<% if( ol.getOrderStatus() == 1) { %>
+				<!-- 구매확정시 보이도록 설정 -->
+	            <a class="plain-btn btn">리뷰작성</a>
+	            <% } %>
 	          </div>
 	          
 	          <script>
-	          
-	          	function purchaseConfirm(orderNo){
-	          		
+	          	
+	           // 구매확정/취소 버튼 누르면 실행되는 함수
+	          	function purchaseConfirm(orderNo, status){
 	          		if(confirm("구매 확정하시겠습니까?\n확정 후 취소 불가능합니다.")) {
-	          			location.href="<%=contextPath%>/confirm.pro?orderNo=" + orderNo;
+	          			location.href="<%=contextPath%>/purchaseConfirm.pro?status=" + status  + "&orderNo=" + orderNo;
 	          		} else {
 	          			return false;
 	          		}
-	          		
-	          	}
+	           }
+	           
+	           function purchaseCancel(orderNo, status) {
+	          		if(confirm("구매 취소하시겠습니까?\n취소 후 재구매가능합니다.")) {
+	          			location.href="<%=contextPath%>/purchaseCancel.pro?status=" + status  + "&orderNo=" + orderNo;
+	          		} else {
+	          			return false;
+	          		}
+	           }
 	          
 	          </script>
 	         

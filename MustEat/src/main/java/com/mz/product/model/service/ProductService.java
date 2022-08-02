@@ -213,7 +213,22 @@ public class ProductService {
 		return result;
 		
 	}
-
+	
+	public int updatePurchaseCancel(int orderNo) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().updatePurchaseCancel(conn, orderNo);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		return result;
+	}
+	
 
 	
 }

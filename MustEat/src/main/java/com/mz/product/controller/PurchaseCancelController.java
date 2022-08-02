@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.mz.product.model.service.ProductService;
 
 /**
- * Servlet implementation class PurchaseConfirmController
+ * Servlet implementation class PurchaseCancelController
  */
-@WebServlet("/purchaseConfirm.pro")
-public class PurchaseConfirmController extends HttpServlet {
+@WebServlet("/purchaseCancel.pro")
+public class PurchaseCancelController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PurchaseConfirmController() {
+    public PurchaseCancelController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,22 +29,23 @@ public class PurchaseConfirmController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		// 은영
-		// 구매확정 처리하는 Servlet
+		// 구매취소 처리하는 Servlet
 		
 		String status = request.getParameter("status");
 		int orderNo = Integer.parseInt(request.getParameter("orderNo"));
-
-		int orderStatus = new ProductService().updatePurchaseConfirm(orderNo);
 		
-		if(orderStatus > 0) { // 구매확정으로 변경 성공
-			request.setAttribute("confirm", orderStatus);
+		int result = new ProductService().updatePurchaseCancel(orderNo);
+		
+		if(result > 0) { // 구매취소 성공
+			request.setAttribute("cancel", result);
 			response.sendRedirect(request.getContextPath() + "/orderStatusList.pro?status=" +  status);
-		} else { // 구매확정으로 변경 실패
+		} else { // 구매취소 실패
 			request.getSession().setAttribute("alertMsg", "구매 확정을 실패하였습니다.\n다시 시도해주세요.");
 			response.sendRedirect(request.getContextPath() + "/myPage.me"); // 배송 전체페이지로 이동
 		}
+		
+		
 	}
 
 	/**

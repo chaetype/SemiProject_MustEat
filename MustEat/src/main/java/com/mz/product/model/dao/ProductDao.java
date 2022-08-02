@@ -419,6 +419,7 @@ public class ProductDao {
 									   rset.getInt("ORDER_NO")
 									 , rset.getInt("ORDER_QUENTITY")
 						 			 , rset.getDate("ORDER_DATE")
+						 			 , rset.getInt("ORDER_STATUS")
 									 , rset.getInt("TOTAL_PRICE")
 									 , rset.getString("PRODUCT_NAME")
 									 , rset.getString("SELLER")
@@ -468,9 +469,29 @@ public class ProductDao {
 		
 	}
 	
-
-	
-	
+	public int updatePurchaseCancel(Connection conn, int orderNo) {
+		
+		// update => 처리된 행 수 반환 => int형 변수
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updatePurchaseCancel");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, orderNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 	
 	
 	
