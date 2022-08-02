@@ -23,7 +23,7 @@
 		  AND MEM_ID = ? <!-- 주문자 아이디 -->
 	</entry>
 	
-	<!-- 은영(배송에 따른 주문 수량를 한꺼번에 실행할 코드 -->
+	<!-- 은영(배송에 따른 주문 수량를 한꺼번에 실행할 코드) -->
 	<entry key="countOrder">
         SELECT 
             M.MEM_ID,
@@ -171,6 +171,7 @@
 		  , ORDER_DATE
 		  , ORDER_QUENTITY
 		  , ORDER_STATUS
+		  , DELIVERY_STATUS
 		  , PRODUCT_NAME
 		  , TOTAL_PRICE + DELIVERY_PRICE "TOTAL_PRICE"
 		  , SELLER
@@ -251,8 +252,38 @@
 		 ORDER
 		    BY REVIEW_NO DESC
 	</entry>
-
 	
+	<!-- 은영 (주문 전체 리스트 '월'만 조회) -->
+	<entry key="selectAllOrderMonth">
+		SELECT 
+		   TO_CHAR(ORDER_DATE, 'YYYY.MM') "MONTH" 
+		FROM ORDER_PRO
+		JOIN MEMBER USING (MEM_NO)
+		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		GROUP BY TO_CHAR(ORDER_DATE, 'YYYY.MM')
+		ORDER BY MONTH ASC
+	</entry>
+
+	<!-- 은영 (주문 전체 리스트 조회) -->
+	<entry key="selectAllOrderList">
+		SELECT 
+			OP.ORDER_NO "ORDER_NO"
+		  , TO_CHAR(ORDER_DATE, 'YYYY.MM') "MONTH"
+		  , ORDER_DATE
+		  , ORDER_QUENTITY
+		  , ORDER_STATUS
+		  , DELIVERY_STATUS
+		  , PRODUCT_NAME
+		  , TOTAL_PRICE + DELIVERY_PRICE "TOTAL_PRICE"
+		  , SELLER
+		  , SELLER_PHONE
+		FROM ORDER_PRO OP
+		JOIN MEMBER USING (MEM_NO)
+		JOIN ORDER_LIST OL ON (OP.ORDER_NO = OL.ORDER_NO)
+		JOIN PRODUCT P ON (OL.PRODUCT_CODE = P.PRODUCT_CODE)
+		WHERE MEM_ID =  ? <!-- 로그인한 회원 아이디 -->
+		ORDER BY ORDER_DATE ASC
+	</entry>
 	
 	
 	
