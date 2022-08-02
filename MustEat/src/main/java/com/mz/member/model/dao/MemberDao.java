@@ -237,6 +237,41 @@ public class MemberDao {
 				}
 				return count;
 				
+			}
+	
+			// 태민 (회원가입시 member테이블에 insert하는 Dao)
+	
+			public int insertMember(Connection conn, Member m) {
+				// insert문 => 처리된 행수 
+				int result = 0;
+				
+				PreparedStatement pstmt = null;
+				String sql = prop.getProperty("insertMember");
+				
+				try {
+					pstmt = conn.prepareStatement(sql); 
+					
+					pstmt.setString(1, m.getMemPwd());
+					pstmt.setString(2, m.getMemName());
+					pstmt.setString(3, m.getMemPhone());
+					pstmt.setString(4, m.getMemEmail());
+					pstmt.setString(5, m.getMemNickname());
+					pstmt.setInt(6, m.getAddressCode());
+					pstmt.setString(7, m.getAddress());
+					pstmt.setString(8, m.getAddressDetail());
+					pstmt.setString(9, m.getAddressRef());
+					pstmt.setString(10, m.getMemId());
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+			}
 	
 	
 	// 은영
@@ -683,7 +718,6 @@ public class MemberDao {
 	
 		
 		
-			
 }
 		
 		
@@ -694,4 +728,3 @@ public class MemberDao {
 		
 		
 	
-
