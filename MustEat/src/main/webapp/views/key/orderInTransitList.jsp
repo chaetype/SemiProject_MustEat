@@ -143,7 +143,7 @@
 	
 	          <div class="orderButton">
 				<% if( ol.getOrderStatus() != 1) { %>
-	            <a class="plain-btn btn" id="orderConfirm" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>, 'transit');">구매확정</a>  
+	            <a class="plain-btn btn" id="orderConfirm" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>, '<%=ol.getDeliveryStatus()%>');">구매확정</a>  
 	            <% } %>
 
 				<% if( ol.getOrderStatus() == 1) { %>

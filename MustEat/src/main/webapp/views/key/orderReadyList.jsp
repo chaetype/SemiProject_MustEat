@@ -144,12 +144,12 @@
 	
 	          <div class="orderButton">
 				<% if( ol.getOrderStatus() != 1) { %>
-	            <a class="plain-btn btn" id="orderConfirm" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>, 'preparing');">구매확정</a>  
+	            <a class="plain-btn btn" id="orderConfirm" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>, '<%=ol.getDeliveryStatus()%>');">구매확정</a>  
 	            <% } %>
 	            
 	            <% if( ol.getOrderStatus() != 1) { %>
 	            <!-- 상품준비중일때만 구매취소 가능 -->
-	            <a class="plain-btn btn" id="orderCancel" onclick="return purchaseCancel(<%=ol.getOrderNo() %>, 'preparing');">구매취소</a>
+	            <a class="plain-btn btn" id="orderCancel" onclick="return purchaseCancel(<%=ol.getOrderNo() %>, '<%=ol.getDeliveryStatus()%>');">구매취소</a>
 				<% } %>
 				
 				<% if( ol.getOrderStatus() == 1) { %>

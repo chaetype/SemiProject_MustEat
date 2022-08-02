@@ -141,13 +141,18 @@
 	          </div>
 	
 	          <div class="orderButton">
-				<% if( ol.getOrderStatus() != 1) { %>
+				<% if( ol.getOrderStatus() == 0) { %>
 	            <a class="plain-btn btn" id="orderConfirm" onclick="return purchaseConfirm(<%=ol.getOrderNo() %>, '<%=ol.getDeliveryStatus()%>');">구매확정</a>  
 	            <% } %>
 	            
 	            <% if( ol.getOrderStatus() != 1 && ol.getDeliveryStatus().equals("상품준비중") )  { %>
 				<a class="plain-btn btn" id="orderConfirm" onclick="return purchaseCancel(<%=ol.getOrderNo() %>, '<%=ol.getDeliveryStatus()%>');">구매취소</a>
 				<% } %>
+				
+				<% if( ol.getOrderStatus() == 2) { %>
+				<!-- 구매확정시 보이도록 설정 -->
+	            <a class="plain-btn btn">구매하기</a>
+	            <% } %>
 				
 				<% if( ol.getOrderStatus() == 1) { %>
 				<!-- 구매확정시 보이도록 설정 -->
