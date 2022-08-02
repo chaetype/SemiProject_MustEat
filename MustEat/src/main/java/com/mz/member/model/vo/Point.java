@@ -77,6 +77,16 @@ public class Point {
 		this.mpsDate = mpsDate;
 		this.pStatus = pStatus;
 	}
+	
+	
+
+	public Point(Date suDate, String mpsCategory, String mpsStatus, int mpsRecord) {
+		super();
+		this.suDate = suDate;
+		this.mpsCategory = mpsCategory;
+		this.mpsStatus = mpsStatus;
+		this.mpsRecord = mpsRecord;
+	}
 
 	public int getMpsNo() {
 		return mpsNo;
