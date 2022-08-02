@@ -124,10 +124,10 @@
                     <th>2022-07-10</th>
                 </tr>
             </thead>
-            <tbody style="background:rgba(250, 243, 255, 0.568)">
+            <tbody>
                 <tr>
                     <td colspan="3">
-                        <div>
+                        <div style="padding:10% 0">
                             적립금 적용하는 방법을 모르겠어요ㅠ <br>
                             적립금 적용하는 방법을 모르겠어요ㅠ <br>
                             적립금 적용하는 방법을 모르겠어요ㅠ <br>
