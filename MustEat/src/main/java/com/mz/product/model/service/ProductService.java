@@ -214,6 +214,7 @@ public class ProductService {
 		
 	}
 	
+
 	public int updatePurchaseCancel(int orderNo) {
 		
 		Connection conn = getConnection();
@@ -227,8 +228,49 @@ public class ProductService {
 		}
 		
 		return result;
+		}
+		
+
+	// 성범
+	/*
+	 * 밀키트 상세페이지 리뷰 insert ajax
+	 */
+	public int insertReview(ProductReview pr) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertReview(conn, pr);
+
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		
+		return result;
 	}
 	
+
+		 
+	
+	// 성범
+	/*
+	 * 밀키트 상세페이지 리뷰 select ajax
+	 */
+	public ArrayList<ProductReview> selectReview(int productCode){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<ProductReview> list = new ProductDao().selectReview(conn, productCode);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+
 
 	
 }

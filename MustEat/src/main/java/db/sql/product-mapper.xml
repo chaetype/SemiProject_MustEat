@@ -206,6 +206,7 @@
 	    	SET ORDER_STATUS = 1 <!-- 구매확정 -->
 	    WHERE ORDER_NO = ? <!-- 구매번호 -->
 	</entry>
+
 	
 	<!-- 은영 (구매보류 => 구매취소로 변경) -->
 	<entry key="updatePurchaseCancel">
@@ -216,6 +217,41 @@
 	</entry>
 
 	
+
+	<!-- 성범 (밀키트 상세페이지 리뷰에 INSERT) -->
+	<entry key="insertReview">
+		INSERT
+		  INTO PRODUCT_REVIEW
+		  (
+		    REVIEW_NO
+		  , PR_REVIEW_CONTENT
+		  , PRODUCT_CODE
+		  , REVIEW_WRITER
+		  )
+		  VALUES
+		  (
+		    SEQ_REPNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
+	<!-- 성범 (밀키트 상세페이지 리뷰에 select -->
+	<entry key="selectReview">
+		SELECT
+		       REVIEW_NO
+		     , PR_REVIEW_CONTENT
+		     , MEM_ID
+		     , TO_CHAR(PR_REVIEW_ENROLLDATE, 'YY/MM/DD HH:MI') "PR_REVIEW_ENROLLDATE"
+		  FROM PRODUCT_REVIEW R
+		  JOIN MEMBER ON (REVIEW_WRITER=MEM_NO)
+		 WHERE R.PR_REVIEW_STATUE = 'N'
+		   AND PRODUCT_CODE = ?
+		 ORDER
+		    BY REVIEW_NO DESC
+	</entry>
+
 	
 	
 	

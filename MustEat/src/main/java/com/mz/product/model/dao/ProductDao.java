@@ -469,19 +469,47 @@ public class ProductDao {
 		
 	}
 	
-	public int updatePurchaseCancel(Connection conn, int orderNo) {
+
+	   public int updatePurchaseCancel(Connection conn, int orderNo) {
+		      
+		      // update => 처리된 행 수 반환 => int형 변수
+		      int result = 0;
+		      
+		      PreparedStatement pstmt = null;
+		      String sql = prop.getProperty("updatePurchaseCancel");
+		      
+		      try {
+		         pstmt = conn.prepareStatement(sql);
+		         
+		         pstmt.setInt(1, orderNo);
+		         
+		         result = pstmt.executeUpdate();
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close(pstmt);
+		      }
+		      
+		      return result;
+		      
+		   }
+
+	// 성범
+	/*
+	 * 밀키트 상세페이지 리뷰 insert
+	 */
+	public int insertReview(Connection conn, ProductReview pr) {
 		
-		// update => 처리된 행 수 반환 => int형 변수
 		int result = 0;
-		
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("updatePurchaseCancel");
+		String sql = prop.getProperty("insertReview");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, orderNo);
-			
+			pstmt.setString(1, pr.getPrReviewContent());
+			pstmt.setInt(2, pr.getProductCode());
+			pstmt.setString(3, pr.getReviewWriter());
+
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -492,6 +520,41 @@ public class ProductDao {
 		return result;
 		
 	}
+
+	
+	// 성범
+	/*
+	 * 밀키트 상세페이지 리뷰 select ajax
+	 */
+	public ArrayList<ProductReview> selectReview(Connection conn, int productCode){
+		ArrayList<ProductReview> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, productCode);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new ProductReview(rset.getInt("review_no"),
+										   rset.getString("mem_id"),
+										   rset.getString("pr_review_content"),
+										   rset.getDate("pr_review_enrolldate")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+
 	
 	
 	

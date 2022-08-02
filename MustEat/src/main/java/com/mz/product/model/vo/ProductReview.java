@@ -44,6 +44,16 @@ public class ProductReview {
 		this.scrapCount = scrapCount;
 		this.productName = productName;
 	}
+	
+
+
+	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent, Date prReviewErollDate) {
+		super();
+		this.reviewNo = reviewNo;
+		this.reviewWriter = reviewWriter;
+		this.prReviewContent = prReviewContent;
+		this.prReviewErollDate = prReviewErollDate;
+	}
 
 
 	public int getReviewNo() {
