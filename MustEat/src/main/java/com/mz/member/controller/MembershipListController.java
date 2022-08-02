@@ -15,7 +15,7 @@ import com.mz.member.model.vo.Point;
 /**
  * Servlet implementation class MembershipListController
  */
-@WebServlet("/membershipList.me")
+@WebServlet("/mpsList.me")
 public class MembershipListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
