@@ -211,6 +211,14 @@ public class MemberService {
 	// 서원 관리자 적립금 지급하기 버튼 클릭시 적립금 지급
 	
 	
+	// 서원 사용자 적립금 조회
+	public ArrayList<Point> membershipUserList(){
+		Connection conn = getConnection();
+		ArrayList<Point> list = new MemberDao().membershipUserList(conn);
+		close(conn);
+		return list;	
+	}
+	
 	
 	
 	
