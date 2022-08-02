@@ -533,6 +533,7 @@ public class ProductDao {
 		return list;
 	}
 
+
 	// 은영
 	/**
 	 * 주문 전체 목록 요청하는 Service
@@ -622,6 +623,35 @@ public class ProductDao {
 		
 	}
 	
+
+	
+	// 성범
+	/*
+	 * 밀키트 주문시 배송지 입력 insert
+	 */
+	public int insertAddress(Connection conn, OrderPro op) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAddress");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, op.getDelName());
+			pstmt.setString(2, op.getDelPhone());
+			pstmt.setString(3, op.getDelEmail());
+			pstmt.setString(4, op.getDelAddress());
+			pstmt.setString(5, op.getMemo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 	
 	
 	

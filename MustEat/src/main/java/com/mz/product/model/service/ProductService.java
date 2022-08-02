@@ -1,7 +1,9 @@
 package com.mz.product.model.service;
 
-import static com.mz.common.JDBCTemplate.*;
+import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.commit;
 import static com.mz.common.JDBCTemplate.getConnection;
+import static com.mz.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -254,6 +256,7 @@ public class ProductService {
 		
 	}
 
+
 	// 은영
 	/**
 	 * 주문 전체 목록 요청하는 Service
@@ -290,6 +293,27 @@ public class ProductService {
 		
 	}
 	
+
+	// 성범
+	/*
+	 * 밀키트 주문시 배송지 입력 insert
+	 */
+	public int insertAddress(OrderPro op) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertAddress(conn, op);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		
+		return result;
+	}
+
 
 	
 }

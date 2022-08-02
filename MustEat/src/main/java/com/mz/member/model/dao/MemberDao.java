@@ -455,21 +455,28 @@ public class MemberDao {
 		 * @param conn
 		 * @return
 		 */
-		public ArrayList<Follow> myFollowList(Connection conn){
+		public ArrayList<Follow> myFollowingList(Connection conn,int ffMNo){
 			
-			ArrayList<Follow> list = new ArrayList<>();
+			ArrayList<Follow> flist = new ArrayList<>();
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
-			String sql = prop.getProperty("myFollowList");
+			String sql = prop.getProperty("myFollowingList");
 			
 			try {
 				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, ffMNo);
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
-
-//					list.add(new Report(rset.getInt(
+					flist.add(new Follow(
+										rset.getString("mem_name"),
+										rset.getString("mem_imgpath"),
+										rset.getInt("STORE_REVIEW"),
+										rset.getInt("PRODUCT_REVIEW"),
+										rset.getInt("follow")
+										));
+							
 
 				}
 			} catch (SQLException e) {
@@ -479,7 +486,7 @@ public class MemberDao {
 				close(pstmt);
 			}
 			
-			return list;
+			return flist;
 			
 		}
 		
@@ -553,10 +560,7 @@ public class MemberDao {
 		
 		
 		
-		
-		
-		
-		
+	
 		
 		
 			

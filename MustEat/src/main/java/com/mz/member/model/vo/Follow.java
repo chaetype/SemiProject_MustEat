@@ -7,20 +7,34 @@ public class Follow {
 	
 	
 	private int followNo;
-	private int fMNo;
-	private int fingMNo;
+	private int fMNo;//팔로우하는 회원번호
+	private int fingMNo;//팔로우 당하는 회원번호
 	private Date enrollDate;
-	private String ingMemName;//팔로우하는 회원이름
-	private String profileImg;//팔로우하는 회원프로필이미지
-	private int followCount;//팔로우하는 회원을 팔로우하는 회원수
-	private int reviewCount;//팔로우하는 회원이 작성한 리뷰갯수
-	
+	private String ingMemName;//팔로우당하는 회원이름
+	private String profileImg;//팔로우당하는 회원프로필이미지
+	private int followCount;//팔로우당하는 회원을 팔로우하는 회원수
+	private int reviewCount;//팔로우당하는 회원이 작성한 식당리뷰갯수
+	private int proreviewCount;//팔로우당하는 회원이 작성한 밀키트 리뷰갯수
 	
 	
 	public Follow() {
 		
 	}
 
+
+	public Follow(int followNo, int fMNo, int fingMNo, Date enrollDate, String ingMemName, String profileImg,
+			int followCount, int reviewCount, int proreviewCount) {
+		super();
+		this.followNo = followNo;
+		this.fMNo = fMNo;
+		this.fingMNo = fingMNo;
+		this.enrollDate = enrollDate;
+		this.ingMemName = ingMemName;
+		this.profileImg = profileImg;
+		this.followCount = followCount;
+		this.reviewCount = reviewCount;
+		this.proreviewCount = proreviewCount;
+	}
 
 
 	public Follow(int followNo, int fMNo, int fingMNo, Date enrollDate, String ingMemName, String profileImg,
@@ -35,13 +49,20 @@ public class Follow {
 		this.followCount = followCount;
 		this.reviewCount = reviewCount;
 	}
-
-
-
+	
+	public Follow(String ingMemName, String profileImg, int reviewCount, int proreviewCount, int followCount ) {
+		
+		this.ingMemName = ingMemName;
+		this.profileImg = profileImg;
+		this.followCount = followCount;
+		this.reviewCount = reviewCount;
+		this.proreviewCount = proreviewCount;
+	}
+	
+	
 	public int getFollowNo() {
 		return followNo;
 	}
-
 
 
 	public void setFollowNo(int followNo) {
@@ -49,11 +70,9 @@ public class Follow {
 	}
 
 
-
 	public int getfMNo() {
 		return fMNo;
 	}
-
 
 
 	public void setfMNo(int fMNo) {
@@ -61,11 +80,9 @@ public class Follow {
 	}
 
 
-
 	public int getFingMNo() {
 		return fingMNo;
 	}
-
 
 
 	public void setFingMNo(int fingMNo) {
@@ -73,11 +90,9 @@ public class Follow {
 	}
 
 
-
 	public Date getEnrollDate() {
 		return enrollDate;
 	}
-
 
 
 	public void setEnrollDate(Date enrollDate) {
@@ -85,11 +100,9 @@ public class Follow {
 	}
 
 
-
 	public String getIngMemName() {
 		return ingMemName;
 	}
-
 
 
 	public void setIngMemName(String ingMemName) {
@@ -97,11 +110,9 @@ public class Follow {
 	}
 
 
-
 	public String getProfileImg() {
 		return profileImg;
 	}
-
 
 
 	public void setProfileImg(String profileImg) {
@@ -109,11 +120,9 @@ public class Follow {
 	}
 
 
-
 	public int getFollowCount() {
 		return followCount;
 	}
-
 
 
 	public void setFollowCount(int followCount) {
@@ -121,11 +130,9 @@ public class Follow {
 	}
 
 
-
 	public int getReviewCount() {
 		return reviewCount;
 	}
-
 
 
 	public void setReviewCount(int reviewCount) {
@@ -133,14 +140,25 @@ public class Follow {
 	}
 
 
+	public int getProreviewCount() {
+		return proreviewCount;
+	}
+
+
+	public void setProreviewCount(int proreviewCount) {
+		this.proreviewCount = proreviewCount;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Follow [followNo=" + followNo + ", fMNo=" + fMNo + ", fingMNo=" + fingMNo + ", enrollDate=" + enrollDate
 				+ ", ingMemName=" + ingMemName + ", profileImg=" + profileImg + ", followCount=" + followCount
-				+ ", reviewCount=" + reviewCount + "]";
+				+ ", reviewCount=" + reviewCount + ", proreviewCount=" + proreviewCount + "]";
 	}
 
-	
+
+
+
 	
 }

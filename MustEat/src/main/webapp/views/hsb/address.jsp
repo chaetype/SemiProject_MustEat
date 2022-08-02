@@ -265,7 +265,7 @@
                         </tr>
                         <tr>
                             <th>* 배송시 요청사항</th>
-                            <td><textarea name="delRequest" cols="30" rows="10" style="resize: none ;"></textarea></td>
+                            <td><textarea name="memo" cols="30" rows="10" style="resize: none ;"></textarea></td>
                         
                     </tbody>
                 </table>

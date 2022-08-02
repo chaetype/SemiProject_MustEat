@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mz.product.model.service.ProductService;
+import com.mz.product.model.vo.OrderPro;
 
 /**
  * Servlet implementation class Address
@@ -32,11 +33,15 @@ public class Address extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 		
-		String memName = request.getParameter("name");
-		String memPhone = request.getParameter("memPhone");
-		String memEmail = request.getParameter("email");
-		String memAddress = request.getParameter("address");
-		String requested = request.getParameter("request");
+		String delName = request.getParameter("name");
+		String delPhone = request.getParameter("memPhone");
+		String delEmail = request.getParameter("email");
+		String delAddress = request.getParameter("address");
+		String memo = request.getParameter("memo");
+		
+		OrderPro op = new OrderPro(delName, delPhone, delEmail, delAddress, memo);
+		
+		int result = new ProductService().insertAddress(op);
 		
 		
 		
