@@ -159,6 +159,12 @@
 		 WHERE TOS_NO = ?
 	</entry>
 	
+	<!-- 이용약관 게시 -->
+	<entry key="postTos">
+		UPDATE TOS
+		   SET TOS_STATUS = 'P'
+		 WHERE TOS_NO = ?
+	</entry>
 	
 
 </properties>
