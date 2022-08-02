@@ -230,6 +230,10 @@
 	
 	<!-- 서원 관리자 적립금 지급하기 버튼 클릭시 상태값 바꾸기 -->
 	<entry key="UpdateMembership">
+		UPDATE MPS_POINT
+		   SET P_STATUS = '지급완료'
+		     , MPS_RECORD = 5000
+		 WHERE TOS_NO = ?
 		
 
 	</entry>

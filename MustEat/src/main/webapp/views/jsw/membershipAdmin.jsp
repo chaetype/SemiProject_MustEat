@@ -127,7 +127,7 @@
 		                      <td><%= p.getSavePoint() %></td>
 		                      <td><%= p.getMpsDate() %></td>
 		                      <td><%= p.getpStatus() %></td>
-		                      <td><button class="btn1"><strong>지급하기</strong></button></td>
+		                      <td><button class="btn1" onclick=><strong>지급하기</strong></button></td>
 		                  </tr>   
 	                      <% } %>        
 	                  <% } %>
