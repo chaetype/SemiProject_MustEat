@@ -563,7 +563,7 @@ public class MemberDao {
 		
 		
 		// 서원 사용자 적립금 조회
-		public ArrayList<Point> membershipUserList(Connection conn){
+		public ArrayList<Point> membershipUserList(Connection conn, int memNo){
 			
 			ArrayList<Point> list = new ArrayList<>();
 			PreparedStatement pstmt = null;
@@ -572,18 +572,15 @@ public class MemberDao {
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, memNo);
 				
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
 					list.add(new Point(rset.getDate("su_date"),
-									   rset.getInt("mem_no"),
-									   rset.getString("mem_name"),
-									   rset.getString("mem_id"),
-									   rset.getString("mem_phone"),
-									   rset.getInt("mps_record"),
 									   rset.getString("mps_category"),
-									   rset.getString("mps_status")
+									   rset.getString("mps_status"),
+									   rset.getInt("mps_record")
 							          ));
 				}
 				
