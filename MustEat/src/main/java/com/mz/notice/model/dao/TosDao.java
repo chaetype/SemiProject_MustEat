@@ -205,8 +205,7 @@ public class TosDao {
 				rset = pstmt.executeQuery();
 				
 				if(rset.next()) {
-					t = new Tos(rset.getInt("tos_no"),
-								rset.getString("tos_title"),
+					t = new Tos(rset.getString("tos_title"),
 								rset.getString("tos_content")							
 							);
 				}
