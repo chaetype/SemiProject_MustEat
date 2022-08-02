@@ -148,58 +148,17 @@
 				      <tr>
 				        <th>발생일</th>
 				        <th>발생구분</th>
-				        <th>적립 및 사용금액</th>
+				        <th>적립/사용</th>
+				        <th>금액</th>
 				      </tr>
+				      
 				      <tr>
 				        <td>xxxx-xx-xx</td>
 				        <td>밀키트구매</td>
+				        <td>사용</td>
 				        <td>-5000원</td>
 				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>리뷰이벤트적립</td>
-				        <td>+5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>-5000원</td>
-				      </tr>
+				      
 				    </tbody>
 		  	</table>
 			
