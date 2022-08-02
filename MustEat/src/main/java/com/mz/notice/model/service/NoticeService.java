@@ -79,6 +79,22 @@ public class NoticeService {
 		return list;
 	}
 	
+	/** 공지사항 등록 메소드
+	 * @param n 등록하고자 하는 공지사항 객체
+	 * @return 성공/실패 결과
+	 */
+	public int insertNotice(Notice n) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().insertNotice(conn, n);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 	
 	
 }

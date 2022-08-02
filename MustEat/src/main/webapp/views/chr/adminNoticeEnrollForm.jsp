@@ -21,7 +21,7 @@
     <div id="bar"></div>
     <br><br>
 
-    <form action="" method="post" class="contactForm">
+    <form action="<%= contextPath %>/adminNoticeInsert.no" method="post" class="contactForm" enctype="multipart/form-data">
 
         <table style="width:800px; height:500px;">
             <tr>
