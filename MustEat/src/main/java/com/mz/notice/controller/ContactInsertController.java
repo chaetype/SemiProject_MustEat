@@ -56,7 +56,6 @@ public class ContactInsertController extends HttpServlet {
 			String writer = ((Member)session.getAttribute("loginUser")).getMemId();
 			String email = multiRequest.getParameter("contact-email");
 			String phone = multiRequest.getParameter("contact-phone");
-			String attachment = "resources/image/chr/" + multiRequest.getFilesystemName("contact-file");
 			
 			Contact c = new Contact();
 			c.setContactType(type);
@@ -65,7 +64,11 @@ public class ContactInsertController extends HttpServlet {
 			c.setContactWriter(writer);
 			c.setContactEmail(email);
 			c.setContactPhone(phone);
-			c.setContactAttach(attachment);
+			
+			if(multiRequest.getOriginalFileName("contact-file") != null) {
+				String attachment = "resources/image/chr/" + multiRequest.getFilesystemName("contact-file");
+				c.setContactAttach(attachment);
+			}
 			
 			int result = new NoticeService().insertContact(c);
 			
@@ -74,8 +77,8 @@ public class ContactInsertController extends HttpServlet {
 				// 문의내역페이지로 이동
 				response.sendRedirect(request.getContextPath() + "/contactList.no");
 			}else {
-				if(attachment != null) {
-					new File(attachment).delete();
+				if(multiRequest.getOriginalFileName("contact-file") != null) {
+					new File(savePath + multiRequest.getFilesystemName("contact-file")).delete();
 				}
 			}
 			
