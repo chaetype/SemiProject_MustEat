@@ -30,12 +30,14 @@ public class TosDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		int tosNo = Integer.parseInt(request.getParameter("no"));
 		
 		int result = new TosService().deleteTos(tosNo);
 		
 		if(result > 0) {
-			response.sendRedirect(request.getContextPath() + "/toslist.no");
+			response.sendRedirect(request.getContextPath() + "/tosadminlist.no");
 		}else {
 			request.setAttribute("errorMsg", "이용약관 삭제 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
