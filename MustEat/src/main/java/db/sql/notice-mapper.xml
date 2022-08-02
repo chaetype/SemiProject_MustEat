@@ -168,12 +168,14 @@
 	
 	<!-- 사용자 이용약관 페이지 -->
 	<entry key="selectTosUserList">
-		SELECT
-		       TOS_NO
-		     , TOS_TITLE
-		     , TOS_CONTENT
-		  FROM TOS
-		 WHERE TOS_STATUS = 'P'
+	SELECT T.TOS_TITLE, T.TOS_CONTENT
+	  FROM (
+		    SELECT TOS_TITLE
+		         , TOS_CONTENT
+		      FROM TOS
+		     ORDER BY ENROLL_DATE DESC
+	        ) T
+	 WHERE ROWNUM < 2
 	</entry>
 	
 	
