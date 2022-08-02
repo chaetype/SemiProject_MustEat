@@ -326,7 +326,7 @@ public class ProductService {
 		
 		Connection conn = getConnection();
 		
-		OrderDetail op = new ProductDao().selectOrderDetail(memId, orderNo);
+		OrderDetail op = new ProductDao().selectOrderDetail(conn, memId, orderNo);
 		
 		close(conn);
 		

@@ -339,6 +339,7 @@
 		     , DEL_ADDRESS
 		     , DEL_ADDRESS_DETAIL
 		     , DEL_ADDRESS_REF
+		     , MEMO
 		     , MEM_NAME
 		     , MEM_PHONE
 		FROM ORDER_PRO

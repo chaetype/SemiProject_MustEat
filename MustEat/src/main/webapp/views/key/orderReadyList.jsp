@@ -15,7 +15,9 @@
 <meta charset="UTF-8">
 <title>MustEat 주문현황</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderList.css">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+</style>
 </head>
 <body>
 
@@ -24,11 +26,11 @@
 <%@include file="../common/menubar.jsp" %>
 	
 		<!-- 나의 주문/배송현황 메뉴바 -->
-	<div class="orderDetail-area">
+	<div class="orderDetail-area" style="font-family: 'OTWelcomeRA' !important;">
 
 	  <div class="shippingStatusContainer">
 	
-	    <div class="title">
+	    <div class="title" >
 	      나의 주문/배송 현황
 	    </div>
 	
@@ -84,7 +86,7 @@
 	<!-- 주문현황 리스트 -->
 	  <!-- 바깥쪽 for문 -->
 	  <% for (OrderPro om : opMonth) { %>
-	  <div class="orderDetailArea">
+	  <div class="orderDetailArea" style="font-family: 'OTWelcomeRA' !important;">
 	
 	    <div class="orderMonth">
 	      <h4><%=om.getOrderMonth() %></h4>
@@ -108,12 +110,12 @@
 	          <li class="goodsPayItem">
 	
 	            <div class="goodsItem">
-	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
+	            <a href="<%=contextPath %>/detail.pro?orderNo=<%=ol.getOrderNo() %>" class="goodsThumb">
 	              <img src="<%=contextPath %>/resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
 	            </a>
 	
 	            <div class="goodsInfo">
-	              <a href="해당 상품 주문상세페이지" class="goods">
+	              <a href="<%=contextPath %>/detail.pro?orderNo=<%=ol.getOrderNo() %>" class="goods">
 	                <p class="goodsName"><%=ol.getProductName() %></p>
 	                <ul class="info">
 	                  <li class="goodsPrice"><%=df.format(price) %>원

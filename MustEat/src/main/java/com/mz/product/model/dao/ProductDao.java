@@ -684,15 +684,24 @@ public class ProductDao {
 			if(rset.next()) {
 				
 				op = new OrderDetail( rset.getInt("ORDER_NO")
-						            , rset.getString("ORDER_NAME")
-						            , rset.getInt("ORDER_QUENTITY")
+									, rset.getDate("ORDER_DATE")
 						            , rset.getInt("TOTAL_PRICE")
 						            , rset.getInt("DELIVERY_PRICE")
-						            , rset.getString("SELLER")
-						            , rset.getString("SELLER_PHONE")
-						            , rset.getString("DELIVERY_STATUS"));
+						            , rset.getInt("DISCOUNT_FEE")
+						            , rset.getInt("TOTAL")
+						            , rset.getString("DEL_NAME")
+						            , rset.getString("DEL_PHONE")
+						            , rset.getString("DEL_EMAIL")
+						            , rset.getInt("DEL_ADDRESS_CODE")
+						            , rset.getString("DEL_ADDRESS")
+						            , rset.getString("DEL_ADDRESS_DETAIL")
+						            , rset.getString("DEL_ADDRESS_REF")
+						            , rset.getString("MEMO")
+						            , rset.getString("MEM_NAME")
+						            , rset.getString("MEM_PHONE"));
 				
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -732,22 +741,14 @@ public class ProductDao {
 			while(rset.next()) {
 				
 				list.add(new OrderDetail( rset.getInt("ORDER_NO")
-										, rset.getDate("ORDER_DATE")
-						                , rset.getInt("TOTAL_PRICE")
-						                , rset.getInt("DELIVERY_PRICE")
-						                , rset.getInt("DISCOUNT_FEE")
-						                , rset.getInt("TOTAL")
-						                , rset.getString("DEL_NAME")
-						                , rset.getString("DEL_PHONE")
-						                , rset.getString("DEL_EMAIL")
-						                , rset.getInt("DEL_ADDRESS_CODE")
-						                , rset.getString("DEL_ADDRESS")
-						                , rset.getString("DEL_ADDRESS_DETAIL")
-						                , rset.getString("DEL_ADDRESS_REF")
-						                , rset.getString("MEMO")
-						                , rset.getString("MEM_NAME")
-						                , rset.getString("MEM_PHONE")
-						                ));
+							            , rset.getString("PRODUCT_NAME")
+							            , rset.getInt("ORDER_QUENTITY")
+							            , rset.getInt("TOTAL_PRICE")
+							            , rset.getInt("DELIVERY_PRICE")
+							            , rset.getString("SELLER")
+							            , rset.getString("SELLER_PHONE")
+							            , rset.getString("DELIVERY_STATUS")
+							            ));
 			}
 			
 		} catch (SQLException e) {
@@ -758,7 +759,7 @@ public class ProductDao {
 		}
 		
 		return list;
-
+	}
 
 	// 성범
 		/*

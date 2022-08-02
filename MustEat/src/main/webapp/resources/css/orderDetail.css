@@ -64,6 +64,10 @@
     table-layout: fixed;
 }
 
+.deliveryPrice, .seller{
+	margin-bottom:3px;
+}
+
 .send, .sellerInfo, .orderStatus{ background-color: #f7f7f7; }
 
 /* ====== 주문 결제 금액 ====== */

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.product.model.vo.OrderDetail"%>
+<%
+	OrderDetail od = (OrderDetail)request.getAttribute("detail");
+	ArrayList<OrderDetail> list = (ArrayList<OrderDetail>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,21 +19,21 @@
 	<%@ include file="../common/menubar.jsp" %>
 	
 	<!-- 주문된 상품의 상세페이지 -->
-
-      <div class="orderDetail-area">
+	
+      <div class="orderDetail-area" style="font-family: 'OTWelcomeRA' !important;">
         
       <h3 class="detailTitle">주문 상세정보</h3>
 
-
+		
         <ul class="order_detail">
           <li>
             <div>주문일자</div>
-            <div class="orderDate"><strong>2022.07.23</strong></div>
+            <div class="orderDate"><strong><%=od.getOrderDate() %></strong></div>
           </li>
 
           <li>
             <div>주문번호</div>
-             <div class="orderNo"><strong>2022072362395331</strong>
+             <div class="orderNo"><strong><%=od.getOrderNo() %></strong>
              </div>
           </li>
         </ul>
@@ -50,36 +54,38 @@
         </thead>
 
         <tbody>
+        <% for (OrderDetail odl : list) { %>
           <tr class="group">
 
             <td>
-              <span class="thm ordernum2">2022072319850950</span>
+              <span class="thm ordernum2"><%=odl.getOrderNo() %></span>
             </td>
             <td class="product">
           <div id="productName" align="left"> 
-            [채선당] 샤브샤브 밀키트
+            <%=odl.getProductName() %>
           </div>
           </td>
 
             <td class="money">
-              <em class="thm">12,650</em>원<br>
-                <span>(1개)</span>
+              <em class="thm"><%=odl.getPrice() %></em>원<br>
+                <span>(<%=odl.getAmount() %>개)</span>
             </td>
             <td class="sellerInfo" rowspan="1">
               <div class="send">
-                  <div class="deliveryPrice">무료</div> 
-                  <div class="seller">채선당</div>
+                  <div class="deliveryPrice"><%=odl.getDeliveryPrice() %>원</div> 
+                  <div class="seller"><%=odl.getSeller() %></div>
                   <div class="tel">
-                    <span>xxx-xxxx-xxxx</span>
+                    <span><%=odl.getSellerPhone() %></span>
                   </div>
               </div>
             </td>
 
             <td class="orderStatus">
-              상품준비중
+              <%=odl.getDeliveryStatus() %>
             </td>
 
           </tr>
+          <% } %>
         </tbody>
 
         </table>
@@ -98,15 +104,15 @@
                       <ul class="price_list">
                         <li>
                           <span>상품금액</span>
-                          <p class="thm"><em>12,650</em>원</p>
+                          <p class="thm"><em><%=od.getPrice() %></em>원</p>
                         </li>
                         <li>
                           <span>배송비</span>
-                          <p class="thm"><em>0</em>원</p>
+                          <p class="thm"><em><%=od.getDeliveryPrice() %></em>원</p>
                         </li>
                         <li>
                           <span>적립금사용</span>
-                          <p class="thm"><em>0</em>원</p>
+                          <p class="thm"><em><%=od.getDiscountPrice() %></em>원</p>
                         </li>
                       </ul>
                     </dd>
@@ -122,7 +128,7 @@
                   </dl>
                     <!-- 주문금액 -->
                     <div class="total_price">
-                        <p><em>15,650</em>원</p>
+                        <p><em><%=od.getTotalPrice() %></em>원</p>
                    </div>
                 </div>
             </td>
@@ -135,7 +141,7 @@
 
             <tr>
               <th width="15%" height="50px;" class="deliveryTh">수령인</th>
-              <td width="55%" height="50px;">김회원</td>
+              <td width="55%" height="50px;"><%=od.getDelName() %></td>
               <th class="deliveryInfo" width="30%"  height="50px;">주문자 정보
                 <button type="button" class="btn1">회원정보수정</button>
               </th>
@@ -144,28 +150,32 @@
             <tr>
               <th height="30px;" class="deliveryTh">연락처</th>
               <td>
-                <span class="tel">xxx-xxxx-xxxx</span>
+                <span class="tel"><%=od.getDelPhone() %></span>
                 <span></span>
               </td>
               <!-- 주문자 정보 -->
               <td class="deliveryInfo" rowspan="3">
-                <div class="orderName">홍길동</div>
-                <div class="orderPhone">xxx-xxxx-xxxx</div>
+                <div class="orderName"><%=od.getMemName() %></div>
+                <div class="orderPhone"><%=od.getMemPhone() %></div>
               </td> 
             </tr>
 
             <tr>
               <th height="70px;" class="deliveryTh">배송지</th>
               <td class="address">
-                11111<br> <!--우편번호-->
-                서울시 관악구 행운동 사랑아파트<br> <!-- 주소 -->
-                111동 1111호 <!-- 상세주소 -->
+                <%=od.getAddressCode() %><br> <!--우편번호-->
+                <%=od.getAddress() %><br> <!-- 주소 -->
+                <%=od.getAddressDetail() + od.getAddressRef() %> <!-- 상세주소 -->
               </td>
             </tr>
             
             <tr class="gap3">
               <th height="30px;" class="deliveryTh">배송메모</th>
-              <td>빨리 보내주세요</td>
+              <% if(od.getMemo() == null) { %>
+              <td> </td>
+              <% } else { %>
+              <td><%=od.getMemo() %></td>
+              <% } %>
             </tr>
         
         </table>	
