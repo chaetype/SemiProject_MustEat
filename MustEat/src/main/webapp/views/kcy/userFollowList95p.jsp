@@ -70,8 +70,12 @@
                             <td style="color: white; cursor: pointer;"><%=f.getFollowCount() %></td>
                         </tr>
                         <tr>
-                            <td>리뷰</td>
+                            <td>식당리뷰</td>
                             <td style="color: white; cursor: pointer;"><%=f.getReviewCount() %></td>
+                        </tr>
+                         <tr>
+                            <td>밀키트리뷰</td>
+                            <td style="color: white; cursor: pointer;"><%=f.getProreviewCount() %></td>
                         </tr>
                     </table>
                     <br>
