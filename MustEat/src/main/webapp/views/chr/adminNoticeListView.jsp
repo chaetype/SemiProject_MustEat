@@ -132,7 +132,7 @@
         <br><br>
 
         <div style="width:90%" align="right">
-            <button type="button" class="btn1" onclick="공지등록폼으로">공지 등록</button>
+            <button type="button" class="btn1" onclick="location.href='<%=contextPath%>/adminNoticeEnrollForm.no'">공지 등록</button>
             <button type="button" class="btn1" onclick="삭제창으로">선택 삭제</button>
         </div>
         

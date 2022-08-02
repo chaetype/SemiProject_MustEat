@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[관리자]공지사항등록</title>
-<link rel="stylesheet" type="text/css" href="../../resources/css/contactEnrollFormAdmin.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/contactEnrollFormAdmin.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 </head>
