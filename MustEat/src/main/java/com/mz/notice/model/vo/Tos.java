@@ -56,6 +56,13 @@ public class Tos {
 		this.modifyDate = modifyDate;
 		this.tosNote = tosNote;
 	}
+	
+	public Tos(int tosNo, String tosTitle, String tosContent) {
+		super();
+		this.tosNo = tosNo;
+		this.tosTitle = tosTitle;
+		this.tosContent = tosContent;
+	}
 
 	public int getTosNo() {
 		return tosNo;

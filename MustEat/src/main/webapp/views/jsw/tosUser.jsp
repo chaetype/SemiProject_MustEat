@@ -32,13 +32,13 @@
             <table  class="rwd-table tos-table" id="tos-detail-area" width="100%" style="border:1px solid rgb(231, 216, 241); border-collapse:collapse; margin-top:3%;">
 		
 			<tr>
-				<td><h2>이용약관제목들어갈자리</h2></td>
+				<td style="padding:3%; padding-bottom:1%;"><h2 style="font-family: 'OTWelcomeRA'' !important;"><%= t.getTosTitle() %></h2></td>
 			</tr>
 			<tr>
 				<th colspan="4"><br></th>
 			</tr>
 			<tr>
-				<td colspan="4" style="text-align:left;">이용약관내용들어갈자리</td>
+				<td colspan="4" style="padding:3%; padding-top:0%; text-align:left; font-family: 'OTWelcomeRA' !important;"><%= t.getTosContent() %></td>
 			</tr>			
 
             </table>

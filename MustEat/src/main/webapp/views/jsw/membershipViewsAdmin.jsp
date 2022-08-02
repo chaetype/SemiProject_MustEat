@@ -26,10 +26,6 @@
 		margin-bottom:2%;
 	}	
 	
-	.table-div {
-		margin-top:1.5%;
-	}
-	
 	.rwd-table{
 		width:100%;	
 	}
@@ -115,13 +111,38 @@
 	
 			<hr noshade size = 1 style="background:black;">
 			
-			<div class="mps-category" style="text-align:left;">
-				<select class="point-array" name="" id="" style="height: 40px; border-color:lightgrey;">									
-					<option value="">전체</option>
-					<option value="">적립</option>
-					<option value="">사용</option>
-				</select>
-			</div>
+			<div style="width:100%; margin-top:0%; text-align:left;">
+				<div style="display:inline-block;">
+					<table style="display:inline-block;">
+						<tr>
+							<td>
+								<select class="point-array" name="" id="" style="height: 48px; border-color:lightgrey;">									
+									<option value="">전체</option>
+									<option value="">적립</option>
+									<option value="">사용</option>
+								</select>
+							</td>
+							<td>
+								<div class="point-category">
+									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">									
+										<option value="">회원명</option>
+										<option value="">아이디</option>
+									</select>
+								</div>
+							</td>
+							<td>
+								<div class="input-group mb-3" style="margin-top:6.5%;">
+									<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
+									<div class="input-group-append">
+										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>	
+		
 
 			<div class="table-div">
 			
@@ -180,31 +201,7 @@
 				</div>
 			
 			</div>	
-
-			<div style="width:100%; margin-top:0%;">
-				<div style="display:inline-block;">
-					<table style="display:inline-block;">
-						<tr>
-							<td>
-								<div class="point-category">
-									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">									
-										<option value="">회원명</option>
-										<option value="">아이디</option>
-									</select>
-								</div>
-							</td>
-							<td>
-								<div class="input-group mb-3" style="margin-top:6.5%;">
-									<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
-									<div class="input-group-append">
-										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-									</div>
-								</div>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>	
+			
 			
 			
 		</div>

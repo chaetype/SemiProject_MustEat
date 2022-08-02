@@ -257,7 +257,7 @@
                             <td>
                                 <input type="text" id="sample6_postcode" placeholder="우편번호">
                                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                                <input type="text" id="sample6_address" placeholder="주소" style="width:240px"><br>
+                                <input type="text" name="address" id="sample6_address" placeholder="주소" style="width:240px"><br>
                                 <input type="text" id="sample6_detailAddress" placeholder="상세주소" style="width:240px"><br>
                                 <input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:240px"><br>
                                
@@ -265,7 +265,7 @@
                         </tr>
                         <tr>
                             <th>* 배송시 요청사항</th>
-                            <td><textarea name="delRequest" cols="30" rows="10" style="resize: none ;"></textarea></td>
+                            <td><textarea name="memo" cols="30" rows="10" style="resize: none ;"></textarea></td>
                         
                     </tbody>
                 </table>

@@ -85,6 +85,33 @@ public class TosService {
 		
 	}
 	
+	// 이용약관 관리자 게시
+	public int postTos(int tosNo) {
+		Connection conn = getConnection();
+		int result = new TosDao().postTos(conn, tosNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;		
+		
+	}
+	
+	
+	// 사용자 이용약관 페이지
+	public Tos selectTosUserList() {
+		Connection conn = getConnection();
+		Tos t = new TosDao().selectTosUserList(conn);
+		close(conn);
+		return t;
+		
+	}
+	
+	
 
 	
 	

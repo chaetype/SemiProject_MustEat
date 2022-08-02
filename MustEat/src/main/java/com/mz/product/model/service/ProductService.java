@@ -1,13 +1,14 @@
 package com.mz.product.model.service;
 
-import static com.mz.common.JDBCTemplate.*;
+import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.commit;
 import static com.mz.common.JDBCTemplate.getConnection;
+import static com.mz.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.mz.product.model.dao.ProductDao;
-import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
@@ -83,27 +84,6 @@ public class ProductService {
 		
 	}
 	
-	// 성범
-	/*
-	 * 배송지입력 페이지
-	 */
-	public int insertAp(AddressPayment ap) {
-		
-		Connection conn = getConnection();
-		
-		int result = new ProductDao().insertAp(conn, ap);
-		
-		if(result > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		
-		close(conn);
-		
-		
-		return result;
-	}
 	
 	// 은영
 	/**
@@ -274,6 +254,64 @@ public class ProductService {
 		
 		return list;
 		
+	}
+
+
+	// 은영
+	/**
+	 * 주문 전체 목록 요청하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문 목록이 들어가있는 ArrayList<OrderPro> 객체
+	 */
+	public ArrayList<OrderPro> selectAllOrderList(String memId){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> list = new ProductDao().selectAllOrderList(conn, memId);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+	
+	// 은영
+	/**
+	 * 주문 전체 '월'만 조회 요청하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문한 '월'이 들어가있는 ArrayList<OrderPro> 객체
+	 */
+	public ArrayList<OrderPro> selectAllOrderMonth(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> month = new ProductDao().selectAllOrderMonth(conn, memId);
+		
+		close(conn);
+		
+		return month;
+		
+	}
+	
+
+	// 성범
+	/*
+	 * 밀키트 주문시 배송지 입력 insert
+	 */
+	public int insertAddress(OrderPro op) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertAddress(conn, op);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+
+		
+		return result;
 	}
 
 

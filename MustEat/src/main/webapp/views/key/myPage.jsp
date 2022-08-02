@@ -79,7 +79,7 @@
       </div>
 	
 	<!-- 채윤 팔로우 조회 연결 -->	
-      <div class="item" OnClick="location.href ='<%=contextPath %>/myfollow.me>'" style="cursor:pointer;">
+      <div class="item" OnClick="location.href ='<%=contextPath %>/myfollow.me'" style="cursor:pointer;">
         <div class="number"><%=mp.getFollow() %>명</div>
         <div class="summary">팔로우</div>
       </div>
@@ -193,7 +193,7 @@
         <tr>
           <td class="categoryTd categoryTitle" ><%=pr.getProductName() %></td>
           <td class="categoryTd categoryContent"><%=pr.getScrapCount() %></td>
-          <td class="categoryTd categoryContent"><%=pr.getPrReviewErollDate() %></td>
+          <td class="categoryTd categoryContent"><%=pr.getPrReviewEnrollDate() %></td>
         </tr>
 	  <% } %>
     </tbody>
@@ -242,8 +242,8 @@
 
   <div class="myPageList">
 
-    <a href="" class="listTitle">주문상세</a>
-    <a href="" class="listMore">더보기 ></a>
+    <a href="<%=contextPath %>/orderList.pro" class="listTitle">주문상세</a>
+    <a href="<%=contextPath %>/orderList.pro" class="listMore">더보기 ></a>
 
     <table class="list" width="100%">
 

@@ -164,7 +164,61 @@ public class TosDao {
 			}
 			
 			return result;
+						
+		}
+		
+		// 이용약관 관리자 게시
+		public int postTos(Connection conn, int tosNo) {
 			
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("postTos");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, tosNo);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+						
+		}
+		
+		
+		// 사용자 이용약관 페이지
+		public Tos selectTosUserList(Connection conn) {
+			
+			Tos t = null;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("selectTosUserList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					t = new Tos(rset.getInt("tos_no"),
+								rset.getString("tos_title"),
+								rset.getString("tos_content")							
+							);
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return t;
 			
 		}
 		

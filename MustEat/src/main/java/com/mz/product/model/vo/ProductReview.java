@@ -8,10 +8,9 @@ public class ProductReview {
 	private String reviewWriter;
 	private String prReviewContent;
 	private int prReviewRate;
-	private Date prReviewErollDate;
+	private String prReviewEnrollDate;
 	private Date prReviewModifyDate;
 	private char prReviewStatue;
-	private int orderNo;
 	private int productCode;
 	private int scrapCount;
 	private String productName; // 상품명
@@ -23,36 +22,38 @@ public class ProductReview {
 
 
 	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent, int prReviewRate,
-			Date prReviewErollDate, Date prReviewModifyDate, char prReviewStatue, int orderNo, int productCode,
+			String prReviewEnrollDate, Date prReviewModifyDate, char prReviewStatue, int productCode,
 			int scrapCount) {
 		super();
 		this.reviewNo = reviewNo;
 		this.reviewWriter = reviewWriter;
 		this.prReviewContent = prReviewContent;
 		this.prReviewRate = prReviewRate;
-		this.prReviewErollDate = prReviewErollDate;
+		this.prReviewEnrollDate = prReviewEnrollDate;
 		this.prReviewModifyDate = prReviewModifyDate;
 		this.prReviewStatue = prReviewStatue;
-		this.orderNo = orderNo;
 		this.productCode = productCode;
 		this.scrapCount = scrapCount;
 	}
 
-	public ProductReview(Date prReviewErollDate, int scrapCount, String productName) {
+	public ProductReview(String prReviewEnrollDate, int scrapCount, String productName) {
 		super();
-		this.prReviewErollDate = prReviewErollDate;
+		this.prReviewEnrollDate = prReviewEnrollDate;
 		this.scrapCount = scrapCount;
 		this.productName = productName;
 	}
 	
 
 
-	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent, Date prReviewErollDate) {
+	
+
+
+	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent /*, int prReviewRate*/) {
 		super();
 		this.reviewNo = reviewNo;
 		this.reviewWriter = reviewWriter;
 		this.prReviewContent = prReviewContent;
-		this.prReviewErollDate = prReviewErollDate;
+		//this.prReviewRate = prReviewRate;
 	}
 
 
@@ -96,13 +97,13 @@ public class ProductReview {
 	}
 
 
-	public Date getPrReviewErollDate() {
-		return prReviewErollDate;
+	public String getPrReviewEnrollDate() {
+		return prReviewEnrollDate;
 	}
 
 
-	public void setPrReviewErollDate(Date prReviewErollDate) {
-		this.prReviewErollDate = prReviewErollDate;
+	public void setPrReviewErollDate(String prReviewEnrollDate) {
+		this.prReviewEnrollDate = prReviewEnrollDate;
 	}
 
 
@@ -123,16 +124,6 @@ public class ProductReview {
 
 	public void setPrReviewStatue(char prReviewStatue) {
 		this.prReviewStatue = prReviewStatue;
-	}
-
-
-	public int getOrderNo() {
-		return orderNo;
-	}
-
-
-	public void setOrderNo(int orderNo) {
-		this.orderNo = orderNo;
 	}
 
 
@@ -168,9 +159,9 @@ public class ProductReview {
 	@Override
 	public String toString() {
 		return "ProductReview [reviewNo=" + reviewNo + ", reviewWriter=" + reviewWriter + ", prReviewContent="
-				+ prReviewContent + ", prReviewRate=" + prReviewRate + ", prReviewErollDate=" + prReviewErollDate
-				+ ", prReviewModifyDate=" + prReviewModifyDate + ", prReviewStatue=" + prReviewStatue + ", orderNo="
-				+ orderNo + ", productCode=" + productCode + ", scrapCount=" + scrapCount + ", productName="
+				+ prReviewContent + ", prReviewRate=" + prReviewRate + ", prReviewEnrollDate=" + prReviewEnrollDate
+				+ ", prReviewModifyDate=" + prReviewModifyDate + ", prReviewStatue=" + prReviewStatue +
+				", productCode=" + productCode + ", scrapCount=" + scrapCount + ", productName="
 				+ productName + "]";
 	}
 

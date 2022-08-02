@@ -183,12 +183,13 @@ public class MemberService {
 	}
 
 		//채윤 팔로우 목록 조회
-	public ArrayList<Follow> myFollowList(){
+	public ArrayList<Follow> myFollowingList(int ffMNo){
 		Connection conn = getConnection();
-		ArrayList<Follow> list = new MemberDao().myFollowList(conn);
+		ArrayList<Follow> flist = new MemberDao().myFollowingList(conn, ffMNo);
 		close(conn);
-		return list;
+		return flist;
 	}
+
 	
 	
 	// 서원 관리자 적립금 조회
@@ -199,7 +200,7 @@ public class MemberService {
 		return list;		
 	}
 	
-	// 서원 관리자 적립금 지급
+	// 서원 관리자 적립금 지급 조회
 	public ArrayList<Point> membershipPayList(){
 		Connection conn = getConnection();
 		ArrayList<Point> list = new MemberDao().membershipPayList(conn);
@@ -207,6 +208,7 @@ public class MemberService {
 		return list;
 	}
 	
+	// 서원 관리자 적립금 지급하기 버튼 클릭시 적립금 지급
 	
 	
 	
