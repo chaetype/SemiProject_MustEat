@@ -296,8 +296,12 @@
 		    DEL_NAME
 		  , DEL_PHONE
 		  , DEL_EMAIL
-		  , DEL_ADDRESS
 		  , MEMO
+          , DELIVERY_STATUS
+          , DEL_ADDRESS
+          , DEL_ADDRESS_CODE
+          , DEL_ADDRESS_DETAIL
+          , DEL_ADDRESS_REF
 		  )
 		  VALUES
 		  (
@@ -306,10 +310,31 @@
 		  , ?
 		  , ?
 		  , ?
+          , ?
+          , ?
+          , ?
+          , ?
 		  )
 
 	</entry>
 	
+	<!-- 성범 (밀키트 상세페이지에서 장바구니 담기 INSERT) -->
+	<entry key="insertCart">
+		INSERT
+			  INTO BASKET
+			  (
+			    MEM_NO
+			  , PRODUCT_CODE
+			  , AMOUNT
+	          , BASKET_DATE
+			  )
+			  VALUES
+			  (
+			    ?
+			  , ?
+			  , ?
+			  , SYSDATE
+			  )
 	
-	
+	</entry>
 </properties>

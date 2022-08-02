@@ -35,7 +35,9 @@ public class OrderPro {
 	private String delPhone; // 배송지입력시 전화번호
 	private String delEmail; // 배송지입력시 이메일
 	private String delAddress; // 베송지입력시 주소
-	
+	private String delAddressCode; // 배송지입력시 우편번호
+	private String delAddressDetail; // 배송지입력시 상세주소
+	private String delAddressRef; // 배송지입력시 참고주소
 	
 	public OrderPro() {
 
@@ -145,17 +147,65 @@ public class OrderPro {
 		super();
 		this.orderMonth = orderMonth;
 	}
-	
-	
 
 
-	public OrderPro(String delName, String delPhone, String delEmail, String delAddress, String memo ) {
+	public OrderPro(int orderNo, String memNo, int orderQuentity, Date orderDate, String memo, Date modifyDate,
+			int orderStatus, int totalPrice, int deliveryPrice, int discountFee, String payment, String courier,
+			int courierNo, String deliveryStatus, String deliverType, String memId, String productName, String seller,
+			String sellerPhone, int basket, int orderConfirm, int orderCancel, int orderReady, int orderTransit,
+			int orderDelivered, String orderMonth, String delName, String delPhone, String delEmail, String delAddress,
+			String delAddressCode, String delAddressDetail, String delAddressRef) {
 		super();
+		this.orderNo = orderNo;
+		this.memNo = memNo;
+		this.orderQuentity = orderQuentity;
+		this.orderDate = orderDate;
+		this.memo = memo;
+		this.modifyDate = modifyDate;
+		this.orderStatus = orderStatus;
+		this.totalPrice = totalPrice;
+		this.deliveryPrice = deliveryPrice;
+		this.discountFee = discountFee;
+		this.payment = payment;
+		this.courier = courier;
+		this.courierNo = courierNo;
+		this.deliveryStatus = deliveryStatus;
+		this.deliverType = deliverType;
+		this.memId = memId;
+		this.productName = productName;
+		this.seller = seller;
+		this.sellerPhone = sellerPhone;
+		this.basket = basket;
+		this.orderConfirm = orderConfirm;
+		this.orderCancel = orderCancel;
+		this.orderReady = orderReady;
+		this.orderTransit = orderTransit;
+		this.orderDelivered = orderDelivered;
+		this.orderMonth = orderMonth;
 		this.delName = delName;
 		this.delPhone = delPhone;
 		this.delEmail = delEmail;
 		this.delAddress = delAddress;
+		this.delAddressCode = delAddressCode;
+		this.delAddressDetail = delAddressDetail;
+		this.delAddressRef = delAddressRef;
+	}
+	
+	
+
+
+	public OrderPro(String memo, String deliveryStatus, String delName, String delPhone, String delEmail,
+			String delAddress, String delAddressCode, String delAddressDetail, String delAddressRef) {
+		super();
 		this.memo = memo;
+		this.deliveryStatus = deliveryStatus;
+		this.delName = delName;
+		this.delPhone = delPhone;
+		this.delEmail = delEmail;
+		this.delAddress = delAddress;
+		this.delAddressCode = delAddressCode;
+		this.delAddressDetail = delAddressDetail;
+		this.delAddressRef = delAddressRef;
 	}
 
 
@@ -459,6 +509,36 @@ public class OrderPro {
 	}
 
 
+	public String getDelAddressCode() {
+		return delAddressCode;
+	}
+
+
+	public void setDelAddressCode(String delAddressCode) {
+		this.delAddressCode = delAddressCode;
+	}
+
+
+	public String getDelAddressDetail() {
+		return delAddressDetail;
+	}
+
+
+	public void setDelAddressDetail(String delAddressDetail) {
+		this.delAddressDetail = delAddressDetail;
+	}
+
+
+	public String getDelAddressRef() {
+		return delAddressRef;
+	}
+
+
+	public void setDelAddressRef(String delAddressRef) {
+		this.delAddressRef = delAddressRef;
+	}
+
+
 	@Override
 	public String toString() {
 		return "OrderPro [orderNo=" + orderNo + ", memNo=" + memNo + ", orderQuentity=" + orderQuentity + ", orderDate="
@@ -469,8 +549,15 @@ public class OrderPro {
 				+ ", seller=" + seller + ", sellerPhone=" + sellerPhone + ", basket=" + basket + ", orderConfirm="
 				+ orderConfirm + ", orderCancel=" + orderCancel + ", orderReady=" + orderReady + ", orderTransit="
 				+ orderTransit + ", orderDelivered=" + orderDelivered + ", orderMonth=" + orderMonth + ", delName="
-				+ delName + ", delPhone=" + delPhone + ", delEmail=" + delEmail + ", delAddress=" + delAddress + "]";
+				+ delName + ", delPhone=" + delPhone + ", delEmail=" + delEmail + ", delAddress=" + delAddress
+				+ ", delAddressCode=" + delAddressCode + ", delAddressDetail=" + delAddressDetail + ", delAddressRef="
+				+ delAddressRef + "]";
 	}
+	
+	
+	
+
+
 
 
 	

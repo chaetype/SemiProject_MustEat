@@ -55,6 +55,8 @@
 .rating:hover>input:checked~label:before {
     opacity: 0.4
 }
+
+div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; background:none; }
 </style>
 </head>
 <body>
@@ -73,19 +75,41 @@
 				<div style="display:inline-block; margin-left: 50px;" >
 					<h3><%= p.getProductName() %></h3>
 					<br>
-					<p><b>판매단위: </b><%= p.getSalesUnit() %></p>
-					<p><b>중량/용량: </b><%= p.getCapacity() %></p>
-					<p><b>배송구분: </b>일반배송/새벽배송</p>
-                    <p><b>포장타입: </b><%= p.getPacking() %></p>
-                    <p><b>알레르기정보: </b><%= p.getAllergy() %></p>
-                    <p><b>유통기한: </b><%= p.getExpirationDate() %></p>
+					<form action="<%=contextPath%>/insertCart.do">
+						<input type="hidden" name="productCode" value="<%=p.getProductCode()%>">
+						
+						<b>판매단위: </b><%= p.getSalesUnit() %>
+						<br><br>
+						<b>용량: </b><%= p.getCapacity() %>
+						<br><br>
+						<b>배송구분: </b>일반배송/새벽배송
+						<br><br>
+						<b>포장타입: </b><%= p.getPacking() %>
+						<br><br>
+						<b>알레르기정보: </b><%= p.getAllergy() %>
+						<br><br>
+						<b>유통기한: </b><%= p.getExpirationDate() %>
+						<br>
+					
 				</div>
 
 					<div align="right">	
 						<hr>
 						<h4><%= p.getPrice() %>원</h4>
+						
+						<p class="cartStock">
+							<span>구입 수량</span>
+							<button type="button" class="plus">+</button>
+							<input type="number" name="amount" class="numBox" min="1" max="1000" value="1" readonly="readonly" style="width:30px">
+							<button type="button" class="minus">-</button>
+							
+							
+							
+						   </p>
+						
 						<a href="<%=contextPath%>/address.do"><button class="btn1">바로구매</button></a>
-						<button class="btn1">장바구니</button>
+						<button type="submit" class="btn1">장바구니</button>
+					</form>
 					</div>
 					<hr>
 		</div>		
@@ -132,6 +156,30 @@
            
         </div>
 			
+		<script>
+			$(".plus").click(function(){
+			 var num = $(".numBox").val();
+			 var plusNum = Number(num) + 1;
+			 
+			 if(plusNum >= 1000) {
+			  $(".numBox").val(num);
+			 } else {
+			  $(".numBox").val(plusNum);          
+			 }
+			});
+			
+			$(".minus").click(function(){
+			 var num = $(".numBox").val();
+			 var minusNum = Number(num) - 1;
+			 
+			 if(minusNum <= 0) {
+			  $(".numBox").val(num);
+			 } else {
+			  $(".numBox").val(minusNum);          
+			 }
+			});
+		   </script>
+
         <script>
 			$(function(){ // 현재 이페이지상에 모든 요소가 다 로딩되자마자 곧바로 실행 
 				selectReplyList();

@@ -1,6 +1,7 @@
 package com.mz.product.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mz.product.model.service.ProductService;
-import com.mz.product.model.vo.OrderPro;
+import com.mz.product.model.vo.Product;
 
 /**
- * Servlet implementation class Address
+ * Servlet implementation class mealkitList
  */
-@WebServlet("/address.do")
-public class Address extends HttpServlet {
+@WebServlet("/mealkit.li")
+public class MealkitList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Address() {
+    public MealkitList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,25 +31,13 @@ public class Address extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("utf-8");
+	
+		ArrayList<Product> list = new ProductService().selectList();
 		
-		String delName = request.getParameter("name");
-		String delPhone = request.getParameter("memPhone");
-		String delEmail = request.getParameter("email");
-		String delAddress = request.getParameter("address");
-		String delAddressCode = request.getParameter("addressCode");
-		String delAddressDetail = request.getParameter("addressDetail");
-		String delAddressRef = request.getParameter("addressRef");
-		String memo = request.getParameter("memo");
-		String deliveryStatus = request.getParameter("deli");
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("views/hsb/mealkitList.jsp").forward(request, response);
 		
-		OrderPro op = new OrderPro(memo, deliveryStatus, delName, delPhone, delEmail, delAddress, delAddressCode, delAddressDetail, delAddressRef);
-		
-		int result = new ProductService().insertAddress(op);
-		
-		
-		
+	
 	}
 
 	/**

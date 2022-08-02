@@ -314,7 +314,25 @@ public class ProductService {
 		return result;
 	}
 
+	// 성범
+	/*
+	 * 밀키트 상세페이지에서 장바구니로 insert
+	 */
+	public int insertCart(Basket bs) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertCart(conn, bs);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
 
+		
+		return result;
+	}
 	
 }
 
