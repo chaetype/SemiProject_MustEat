@@ -33,6 +33,8 @@ public class TosPostUpdateController extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
+		
+		
 		int tosNo = Integer.parseInt(request.getParameter("no"));
 		
 		int result = new TosService().postTos(tosNo);
