@@ -212,9 +212,9 @@ public class MemberService {
 	
 	
 	// 서원 사용자 적립금 조회
-	public ArrayList<Point> membershipUserList(){
+	public ArrayList<Point> membershipUserList(int memNo){
 		Connection conn = getConnection();
-		ArrayList<Point> list = new MemberDao().membershipUserList(conn);
+		ArrayList<Point> list = new MemberDao().membershipUserList(conn, memNo);
 		close(conn);
 		return list;	
 	}
