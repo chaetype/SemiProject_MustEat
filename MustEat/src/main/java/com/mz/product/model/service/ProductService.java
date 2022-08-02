@@ -8,6 +8,7 @@ import static com.mz.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.product.model.dao.ProductDao;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderDetail;
@@ -370,6 +371,20 @@ public class ProductService {
 
 		
 		return result;
+	}
+	
+	public int selectListCount() {
+		Connection conn = getConnection();
+		int listCount = new ProductDao().selectListCount(conn);
+		close(conn);
+		return listCount;
+	}
+	
+	public ArrayList<Product> selectList(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Product> list = new ProductDao().selectList(conn, pi);
+		close(conn);
+		return list;
 	}
 	
 }
