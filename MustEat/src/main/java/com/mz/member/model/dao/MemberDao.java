@@ -559,6 +559,44 @@ public class MemberDao {
 		}
 		
 		
+		// 서원 관리자 적립금 지급하기 버튼 클릭시 적립금 지급
+		
+		
+		// 서원 사용자 적립금 조회
+		public ArrayList<Point> membershipUserList(Connection conn){
+			
+			ArrayList<Point> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("membershipUserList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Point(rset.getDate("su_date"),
+									   rset.getInt("mem_no"),
+									   rset.getString("mem_name"),
+									   rset.getString("mem_id"),
+									   rset.getString("mem_phone"),
+									   rset.getInt("mps_record"),
+									   rset.getString("mps_category"),
+									   rset.getString("mps_status")
+							          ));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;			
+		}
+		
 		
 	
 		
