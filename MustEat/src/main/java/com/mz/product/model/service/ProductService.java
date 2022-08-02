@@ -254,6 +254,42 @@ public class ProductService {
 		
 	}
 
+	// 은영
+	/**
+	 * 주문 전체 목록 요청하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문 목록이 들어가있는 ArrayList<OrderPro> 객체
+	 */
+	public ArrayList<OrderPro> selectAllOrderList(String memId){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> list = new ProductDao().selectAllOrderList(conn, memId);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+	
+	// 은영
+	/**
+	 * 주문 전체 '월'만 조회 요청하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문한 '월'이 들어가있는 ArrayList<OrderPro> 객체
+	 */
+	public ArrayList<OrderPro> selectAllOrderMonth(String memId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderPro> month = new ProductDao().selectAllOrderMonth(conn, memId);
+		
+		close(conn);
+		
+		return month;
+		
+	}
+	
 
 	
 }
