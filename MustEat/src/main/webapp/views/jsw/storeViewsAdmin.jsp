@@ -22,10 +22,6 @@
 		margin-bottom:5%;
 	}	
 	
-	.table-div {
-		margin-top:3%;
-	}
-	
 	.store-search{
 		margin-top:3%;		
 	}
@@ -93,6 +89,31 @@
 	
 		<hr noshade size = 1 style="background:black;">
 		
+				<div style="width:100%; margin-top:1%; text-align:left;" >
+					<div style="display:inline-block;">
+						<table style="display:inline-block;">
+							<tr>
+								<td>
+									<div class="point-category">
+										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey; font-family: Verdana, Geneva, Arial, sans-serif !important;">
+											<option value="">식당명</option>
+											<option value="">식당주소</option>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div class="input-group mb-3" style="margin-top:6%;">
+										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: Verdana, Geneva, Arial, sans-serif !important;">
+										<div class="input-group-append">
+											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>	
+		
 		<div class="table-div">
 			
 				<table class="rwd-table" style="width:100%;">
@@ -150,30 +171,6 @@
 				
 				</div>	
 	
-				<div style="width:100%; margin-top:3%;">
-					<div style="display:inline-block;">
-						<table style="display:inline-block;">
-							<tr>
-								<td>
-									<div class="point-category">
-										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey; font-family: Verdana, Geneva, Arial, sans-serif !important;">
-											<option value="">식당명</option>
-											<option value="">식당주소</option>
-										</select>
-									</div>
-								</td>
-								<td>
-									<div class="input-group mb-3" style="margin-top:6.5%;">
-										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: Verdana, Geneva, Arial, sans-serif !important;">
-										<div class="input-group-append">
-											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-										</div>
-									</div>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>	
 				
 			
 			

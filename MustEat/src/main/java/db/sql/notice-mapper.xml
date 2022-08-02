@@ -102,7 +102,7 @@
 	    	 , MODIFY_DATE
 	    	 , TOS_NOTE
 	 	 FROM TOS
-	 	WHERE TOS_STATUS = 'Y'
+	 	WHERE TOS_STATUS = 'Y' OR TOS_STATUS = 'P'
 	 	ORDER 
 	   	   BY TOS_NO DESC
 	</entry> 
@@ -128,7 +128,7 @@
 		     , ?
 		     , ?
 		     , ?
-		     , 'Y'
+		     , 'Y' 
 		     )
 	</entry> 
 	
@@ -157,6 +157,23 @@
 		UPDATE TOS
 		   SET TOS_STATUS = 'N'
 		 WHERE TOS_NO = ?
+	</entry>
+	
+	<!-- 이용약관 관리자 게시 -->
+	<entry key="postTos">
+		UPDATE TOS
+		   SET TOS_STATUS = 'P'
+		 WHERE TOS_NO = ?
+	</entry>
+	
+	<!-- 사용자 이용약관 페이지 -->
+	<entry key="selectTosUserList">
+		SELECT
+		       TOS_NO
+		     , TOS_TITLE
+		     , TOS_CONTENT
+		  FROM TOS
+		 WHERE TOS_STATUS = 'P'
 	</entry>
 	
 	

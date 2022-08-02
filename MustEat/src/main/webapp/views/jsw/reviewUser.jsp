@@ -272,30 +272,6 @@
 			</div>
 			
 
-			<div style="width:100%; margin-top:0%;">
-				<div style="display:inline-block;">
-					<table style="display:inline-block;">
-						<tr>
-							<td>
-								<div class="point-category">
-									<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
-										<option value="">식당명</option>
-										<option value="">밀키트명</option>
-									</select>
-								</div>
-							</td>
-							<td>
-								<div class="input-group mb-3" style="margin-top:6.5%;">
-									<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
-									<div class="input-group-append">
-										<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-									</div>
-								</div>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>	
 					
 			
 		</div>

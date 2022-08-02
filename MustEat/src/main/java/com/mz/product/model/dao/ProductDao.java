@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.mz.member.model.dao.MemberDao;
-import com.mz.product.model.vo.AddressPayment;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
@@ -104,7 +103,7 @@ public class ProductDao {
 			
 			while(rset.next()) {
 				
-				proList.add(new ProductReview(rset.getDate("REVIEW_ENROLLDATE")
+				proList.add(new ProductReview(rset.getString("REVIEW_ENROLLDATE")
 				                             ,rset.getInt("SCRAP_COUNT")
 				                             ,rset.getString("PRODUCT_NAME")
 				                             ));
@@ -198,32 +197,6 @@ public class ProductDao {
 	}
 	
 	
-	
-	// 성범
-	public int insertAp(Connection conn, AddressPayment ap) {
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertAp");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, ap.getMemName());
-			pstmt.setString(2, ap.getMemPhone());
-			pstmt.setString(3, ap.getMemEmail());
-			pstmt.setString(4, ap.getAddress());
-			pstmt.setString(5, ap.getRequest());
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-		
-	}
 	
 	// 은영
 	/**
@@ -421,6 +394,7 @@ public class ProductDao {
 						 			 , rset.getDate("ORDER_DATE")
 						 			 , rset.getInt("ORDER_STATUS")
 									 , rset.getInt("TOTAL_PRICE")
+									 , rset.getString("DELIVERY_STATUS")
 									 , rset.getString("PRODUCT_NAME")
 									 , rset.getString("SELLER")
 									 , rset.getString("SELLER_PHONE")
@@ -514,6 +488,7 @@ public class ProductDao {
 			pstmt.setString(1, pr.getPrReviewContent());
 			pstmt.setInt(2, pr.getProductCode());
 			pstmt.setString(3, pr.getReviewWriter());
+			//pstmt.setInt(4, pr.getPrReviewRate());
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -545,8 +520,8 @@ public class ProductDao {
 			while(rset.next()) {
 				list.add(new ProductReview(rset.getInt("review_no"),
 										   rset.getString("mem_id"),
-										   rset.getString("pr_review_content"),
-										   rset.getDate("pr_review_enrolldate")));
+										   rset.getString("pr_review_content")
+										  /*, rset.getInt("pr_review_rate")*/));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -557,8 +532,95 @@ public class ProductDao {
 		
 		return list;
 	}
-	
 
+	// 은영
+	/**
+	 * 주문 전체 목록 요청하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문 목록이 들어가있는 ArrayList<OrderPro> 객체
+	 */
+	public ArrayList<OrderPro> selectAllOrderList(Connection conn, String memId) {
+		
+		// select => 주문현황에 따른 주문수량 => ResultSet => ArrayList
+		ArrayList<OrderPro> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAllOrderList");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new OrderPro(
+									   rset.getInt("ORDER_NO")
+									 , rset.getInt("ORDER_QUENTITY")
+						 			 , rset.getDate("ORDER_DATE")
+						 			 , rset.getInt("ORDER_STATUS")
+									 , rset.getInt("TOTAL_PRICE")
+									 , rset.getString("DELIVERY_STATUS")
+									 , rset.getString("PRODUCT_NAME")
+									 , rset.getString("SELLER")
+									 , rset.getString("SELLER_PHONE")
+									 , rset.getString("MONTH")
+									 ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	// 은영
+	/**
+	 * 주문 전체 '월'만 조회 요청하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @return : 주문한 '월'이 들어가있는 ArrayList<OrderPro> 객체
+	 */
+	public ArrayList<OrderPro> selectAllOrderMonth(Connection conn, String memId) {
+		
+		// select => 주문현황에 따른 주문수량 => ResultSet => ArrayList
+		ArrayList<OrderPro> month = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAllOrderMonth");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				month.add(new OrderPro(rset.getString("MONTH")));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return month;
+		
+	}
 	
 	
 	

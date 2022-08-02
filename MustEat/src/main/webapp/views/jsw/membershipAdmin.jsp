@@ -102,7 +102,6 @@
 				<table class="rwd-table" style="width:100%;">
 				    <tbody>
 				      <tr>
-				        <th><input type="checkbox"></th>
 				        <th>회원번호</th>
 				        <th>이름</th>
 						<th>아이디</th>
@@ -110,6 +109,7 @@
 						<th>적립금액(원)</th>
 						<th>지급예정일</th>
 						<th>상태</th>
+						<th>지급하기</th>
 				      </tr>
 				      <% if(list.isEmpty()) { %>
 	                  <!--case1. 게시글이 없을경우-->
@@ -120,7 +120,6 @@
 	                  <!--case2. 게시글이 있을경우-->
 	                  	<% for(Point p : list){ %>
 		                  <tr>
-		                  	  <td><input type="checkbox"></td>
 		                      <td><%= p.getMemNo() %></td>
 		                      <td><%= p.getMemName() %></td>
 		                      <td><%= p.getMemId() %></td>
@@ -128,6 +127,7 @@
 		                      <td><%= p.getSavePoint() %></td>
 		                      <td><%= p.getMpsDate() %></td>
 		                      <td><%= p.getpStatus() %></td>
+		                      <td><button class="btn1"><strong>지급하기</strong></button></td>
 		                  </tr>   
 	                      <% } %>        
 	                  <% } %>
@@ -153,37 +153,6 @@
 					</div>
 				
 				</div>	
-	
-				<div style="width:100%; margin-top:0%;">
-					<div style="display:inline-block;">
-						<table style="display:inline-block;">
-							<tr>
-								<td>
-									<div class="point-category">
-										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey;">
-											<option value="">회원명</option>
-											<option value="">아이디</option>
-										</select>
-									</div>
-								</td>
-								<td>
-									<div class="input-group mb-3" style="margin-top:6.5%;">
-										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: 'Nanum Gothic Coding', monospace;">
-										<div class="input-group-append">
-											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-										</div>
-									</div>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>	
-
-				<div class="point-save">
-
-					<button class="btn1"><strong>지급하기</strong></button>
-
-				</div>
 
 			
 			

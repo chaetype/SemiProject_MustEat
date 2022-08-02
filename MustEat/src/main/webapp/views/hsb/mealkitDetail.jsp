@@ -84,7 +84,7 @@
 					<div align="right">	
 						<hr>
 						<h4><%= p.getPrice() %>원</h4>
-						<button class="btn1">바로구매</button>
+						<a href="<%=contextPath%>/address.do"><button class="btn1">바로구매</button></a>
 						<button class="btn1">장바구니</button>
 					</div>
 					<hr>
@@ -101,23 +101,24 @@
 	                        <td><textarea rows="3" cols="50" style="resize:none" readonly>로그인 후 이용가능한 서비스입니다.</textarea></td>
 	                        <td width="100">
                                 <div class="rating"> 
-                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
-                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                <input type="radio" class=rate name="rate" value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" class=rate name="rate" value="4" id="4"><label for="4">☆</label> 
+                                <input type="radio" class=rate name="rate" value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" class=rate name="rate" value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" class=rate name="rate" value="1" id="1"><label for="1">☆</label>
                             </div>
                             </td>
 	                        <td><button disabled>댓글등록</button></td>
+							<div align="center"><a href="<%=contextPath%>/login1.me"><button class="btn1">로그인하러가기</button></a></div>
                         <% }else{ // 로그인이 되어있을 경우 %>
 	                        <td><textarea rows="3" cols="50" style="resize:none" id="replyContent"></textarea></td>
                             <td width="100">
                                 <div class="rating"> 
-                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
-                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                <input type="radio" class=rate name="rate" value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" class=rate name="rate" value="4" id="4"><label for="4">☆</label> 
+                                <input type="radio" class=rate name="rate" value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" class=rate name="rate" value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" class=rate name="rate" value="1" id="1"><label for="1">☆</label>
                             </div>
                             </td>
 	                        <td><button onclick="insertReply();">댓글등록</button></td>
@@ -137,7 +138,7 @@
 			
 				// 1초주기마다 댓글 리스트 조회해오는 요청
 				// => 다른 사람이 쓴 댓글을 실시간으로 볼 수 있음
-				setInterval(selectReplyList, 1000);
+				//setInterval(selectReplyList, 1000);
 			})
 			
 			// ajax로 댓글 등록용 function
@@ -178,7 +179,7 @@
 							value += "<tr>"
 								   +	"<td>" + list[i].reviewWriter + "</td>"
 								   +	"<td>" + list[i].prReviewContent + "</td>"
-								   +	"<td>" + list[i].prReviewErollDate + "</td>"
+								   +	"<td>" + list[i].prReviewRate + "</td>"
 								   + "</tr>";
 						}
 						
