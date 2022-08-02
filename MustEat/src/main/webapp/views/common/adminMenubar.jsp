@@ -146,10 +146,10 @@
 					<a class="menu__item" href="#">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 리뷰관리</span>
 					</a>
-					<a class="menu__item" href="#" >
+					<a class="menu__item" href="<%=contextPath%>/mpsList.me" >
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 적립금 조회</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/mpsPayList.me">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 적립금 지급</span>
 					</a>
 					<a class="menu__item" href="#">
