@@ -88,6 +88,27 @@
 		  FROM FAQ
 	</entry>
 	
+	<!-- 공지사항 등록 -->
+	<entry key="insertNotice">
+		INSERT
+		  INTO NOTICE
+		  (
+		    NOTICE_NO
+		  , NOTICE_TITLE
+		  , NOTICE_CONTENT
+		  , NOTICE_WRITER
+		  , NOTICE_ATTACH
+		  )
+		  VALUES
+		  (
+		    SEQ_NNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
 	
 	
 	

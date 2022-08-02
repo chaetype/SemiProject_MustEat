@@ -1,6 +1,7 @@
 package com.mz.product.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.member.model.vo.Member;
 import com.mz.product.model.service.ProductService;
+import com.mz.product.model.vo.OrderPro;
 
 /**
- * Servlet implementation class PurchaseCancelController
+ * Servlet implementation class OrderListController
  */
-@WebServlet("/purchaseCancel.pro")
-public class PurchaseCancelController extends HttpServlet {
+@WebServlet("/orderList.pro")
+public class OrderListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PurchaseCancelController() {
+    public OrderListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,22 +33,24 @@ public class PurchaseCancelController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 은영
-		// 구매취소 처리하는 Servlet
+		// 주문 전체 페이지
 		
-		String status = request.getParameter("status"); // 배송현황 
-		int orderNo = Integer.parseInt(request.getParameter("orderNo")); // 주문번호
+		String memId = ((Member)request.getSession().getAttribute("loginUser")).getMemId();
 		
+		// 전체 주문 현황 '월'만 조회
+		ArrayList<OrderPro> month = new ProductService().selectAllOrderMonth(memId);
 		
-		int result = new ProductService().updatePurchaseCancel(orderNo);
+		// 전체 주문 현황
+		ArrayList<OrderPro> list = new ProductService().selectAllOrderList(memId);
 		
-		if(result > 0) { // 구매취소 성공
-			request.setAttribute("cancel", result);
-			response.sendRedirect(request.getContextPath() + "/orderStatusList.pro?status=cancel");
-		} else { // 구매취소 실패
-			request.getSession().setAttribute("alertMsg", "구매 확정을 실패하였습니다.\n다시 시도해주세요.");
-			response.sendRedirect(request.getContextPath() + "/myPage.me"); // 배송 전체페이지로 이동
-		}
+		// 상품 배송 현황에 따른 주문 갯수
+		OrderPro op = new ProductService().countOrder(memId);
 		
+		request.setAttribute("orderMonth", month);
+		request.setAttribute("orderList", list);
+		request.setAttribute("orderStatus", op);
+		
+		request.getRequestDispatcher("/views/key/orderList.jsp").forward(request, response);
 		
 	}
 

@@ -103,7 +103,7 @@ public class ProductDao {
 			
 			while(rset.next()) {
 				
-				proList.add(new ProductReview(rset.getString("REVIEW_ENROLLDATE")
+				proList.add(new ProductReview(rset.getDate("REVIEW_ENROLLDATE")
 				                             ,rset.getInt("SCRAP_COUNT")
 				                             ,rset.getString("PRODUCT_NAME")
 				                             ));

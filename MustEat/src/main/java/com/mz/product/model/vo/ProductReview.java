@@ -8,7 +8,7 @@ public class ProductReview {
 	private String reviewWriter;
 	private String prReviewContent;
 	private int prReviewRate;
-	private String prReviewEnrollDate;
+	private Date prReviewEnrollDate;
 	private Date prReviewModifyDate;
 	private char prReviewStatue;
 	private int productCode;
@@ -22,7 +22,7 @@ public class ProductReview {
 
 
 	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent, int prReviewRate,
-			String prReviewEnrollDate, Date prReviewModifyDate, char prReviewStatue, int productCode,
+			Date prReviewEnrollDate, Date prReviewModifyDate, char prReviewStatue, int productCode,
 			int scrapCount) {
 		super();
 		this.reviewNo = reviewNo;
@@ -36,7 +36,7 @@ public class ProductReview {
 		this.scrapCount = scrapCount;
 	}
 
-	public ProductReview(String prReviewEnrollDate, int scrapCount, String productName) {
+	public ProductReview(Date prReviewEnrollDate, int scrapCount, String productName) {
 		super();
 		this.prReviewEnrollDate = prReviewEnrollDate;
 		this.scrapCount = scrapCount;
@@ -97,12 +97,12 @@ public class ProductReview {
 	}
 
 
-	public String getPrReviewEnrollDate() {
+	public Date getPrReviewEnrollDate() {
 		return prReviewEnrollDate;
 	}
 
 
-	public void setPrReviewErollDate(String prReviewEnrollDate) {
+	public void setPrReviewErollDate(Date prReviewEnrollDate) {
 		this.prReviewEnrollDate = prReviewEnrollDate;
 	}
 
