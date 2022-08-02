@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mz.member.model.service.MemberService;
+import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.Point;
 
 /**
@@ -31,8 +32,10 @@ public class MembershipUserListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
+		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
-ArrayList<Point> list = new MemberService().membershipUserList();
+		ArrayList<Point> list = new MemberService().membershipUserList(memNo);
 		
 		request.setAttribute("list", list);
 		
