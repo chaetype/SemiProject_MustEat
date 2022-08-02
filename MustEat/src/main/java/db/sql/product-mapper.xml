@@ -286,7 +286,7 @@
 		JOIN PRODUCT P ON (OL.PRODUCT_CODE = P.PRODUCT_CODE)
 		WHERE MEM_ID =  ? <!-- 로그인한 회원 아이디 -->
 		ORDER BY ORDER_DATE ASC
-
+	</entry>
 
 	<!-- 성범 (밀키트 주문시 배송지정보 입력 INSERT) -->
 	<entry key="insertAddress">

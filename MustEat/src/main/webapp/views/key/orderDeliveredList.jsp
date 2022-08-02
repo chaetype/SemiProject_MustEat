@@ -121,7 +121,7 @@
 	                </ul>
 	              </a>
 	              <% if( ol.getOrderStatus() != 1) { %>
-	              <span class="goodsStatus">배송완료</span>
+	              <span class="goodsStatus"><%=ol.getDeliveryStatus() %></span>
 	              <% } else { %>
 	              <span class="goodsStatus">구매확정</span>
 	              <% } %>

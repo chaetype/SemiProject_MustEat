@@ -120,7 +120,7 @@
 	                  <li class="goodsDate" style="font-weight:bold;"><%=ol.getOrderDate() %></li>
 	                </ul>
 	              </a>
-	              <span class="goodsStatus">구매취소</span>
+	              <span class="goodsStatus"><%=ol.getDeliveryStatus() %></span>
 	            </div>
 	          </div>
 	

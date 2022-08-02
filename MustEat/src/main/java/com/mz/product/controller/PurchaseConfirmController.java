@@ -33,14 +33,23 @@ public class PurchaseConfirmController extends HttpServlet {
 		// 은영
 		// 구매확정 처리하는 Servlet
 		
-		String status = request.getParameter("status");
-		int orderNo = Integer.parseInt(request.getParameter("orderNo"));
+		String status = request.getParameter("status"); // 배송현황
+		int orderNo = Integer.parseInt(request.getParameter("orderNo")); // 주문번호
+		
+		String str = "";
+		if(status.equals("상품준비중")) {
+			str="preparing";
+		} else if (status.equals("배송중")) {
+			str="transit";
+		} else if (status.equals("배송완료")) {
+			str="delivered";
+		}
 
 		int orderStatus = new ProductService().updatePurchaseConfirm(orderNo);
 		
 		if(orderStatus > 0) { // 구매확정으로 변경 성공
 			request.setAttribute("confirm", orderStatus);
-			response.sendRedirect(request.getContextPath() + "/orderStatusList.pro?status=" +  status);
+			response.sendRedirect(request.getContextPath() + "/orderStatusList.pro?status=" +  str);
 		} else { // 구매확정으로 변경 실패
 			request.getSession().setAttribute("alertMsg", "구매 확정을 실패하였습니다.\n다시 시도해주세요.");
 			response.sendRedirect(request.getContextPath() + "/myPage.me"); // 배송 전체페이지로 이동
