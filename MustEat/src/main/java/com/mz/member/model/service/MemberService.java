@@ -183,12 +183,13 @@ public class MemberService {
 	}
 
 		//채윤 팔로우 목록 조회
-	public ArrayList<Follow> myFollowList(){
+	public ArrayList<Follow> myFollowingList(int ffMNo){
 		Connection conn = getConnection();
-		ArrayList<Follow> list = new MemberDao().myFollowList(conn);
+		ArrayList<Follow> flist = new MemberDao().myFollowingList(conn, ffMNo);
 		close(conn);
-		return list;
+		return flist;
 	}
+
 	
 	
 	// 서원 관리자 적립금 조회
