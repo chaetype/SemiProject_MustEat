@@ -267,6 +267,7 @@
 		     , MPS_STATUS
 		     , MPS_RECORD
   		  FROM MPS_POINT
+  		 WHERE MEM_NO = ?
 	</entry>
 	
 </properties>
