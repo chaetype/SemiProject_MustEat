@@ -161,7 +161,7 @@
 					<a class="menu__item" href="#">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ FAQ</span>
 					</a>		
-					<a class="menu__item" href="<%=contextPath%>/toslist.no">
+					<a class="menu__item" href="<%=contextPath%>/tosadminlist.no">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 이용약관</span>
 					</a>
 					<a class="menu__item" href="<%=contextPath%>/list.rp">
