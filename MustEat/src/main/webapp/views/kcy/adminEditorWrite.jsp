@@ -36,14 +36,16 @@
     <%@ include file="../common/menubar22.jsp"%>
     
     <div class="wrap88">
-        <form method="post">
+        <form method="post" action="<%= contextPath %>/ctinsert.st" enctype="multipart/form-data">
             <textarea class="yui3-cssreset" id="summernote" name="editordata"></textarea>
+        
+        	<button class="btn1" type="submit">작성완료</button>
         </form>
-
-        <button class="btn1">작성완료</button>
-    </div>
-      
-    <script>
+        
+        
+        
+        
+  <script>
         $(document).ready(function() {
 	//여기 아래 부분
 	$('#summernote').summernote({
@@ -52,13 +54,25 @@
 		  maxHeight: null,             // 최대 높이
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
 		  lang: "ko-KR",					// 한글 설정
-		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
-          
+		  placeholder: '최대 2048자까지 쓸 수 있습니다',	//placeholder 설정
+		  onImageUpload: function(files, editor, webEitable){
+              // 이미지 개수대로 함수 sendFile 호출
+              for(var i=0; i<files.length; i++){
+                  sendFile(files[i], editor, welEditable);
+              }
+
+
         });
-    });
+    };
+
+        
+        
 
     </script>
-
+        
+    </div>
+      
+  
 
     
 </body>

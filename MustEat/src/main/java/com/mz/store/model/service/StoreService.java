@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.mz.store.model.dao.StoreDao;
+import com.mz.store.model.vo.Editor;
 import com.mz.store.model.vo.Store;
 import com.mz.store.model.vo.StoreReview;
 
@@ -109,7 +110,21 @@ public class StoreService {
 	
 	
 	
-	
+	//채윤 써머노트 등록
+	public int insertEditor(String html) {
+		Connection conn = getConnection();
+		int result = new StoreService().insertEditor(html);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
 	
 	
 	

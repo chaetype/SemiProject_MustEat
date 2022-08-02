@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Follow "%>
 <%
-	ArrayList<Follow> list = (ArrayList<Follow>)request.getAttribute("list");
+	ArrayList<Follow> list = (ArrayList<Follow>)request.getAttribute("followlist");
 %>
 
 <!DOCTYPE html>
@@ -35,10 +35,13 @@
     .info66{
         /* border: 1px solid black; */
         display: inline-block;
+        margin-top: 50px;
     }
     .outer661{
         background-color: rgb(231, 216, 241);
         width: 70%;
+        margin-top: 50px;
+       
     }
 </style>
 </head>
@@ -58,7 +61,11 @@
                 <div class="info66">
                     <table>
                         <tr>
-                            <td style="width: 70px;"><b><%=f.getIngMemName() %></b></td>
+                            <td style="width: 200px;"><b><%=f.getIngMemName() %></b></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -67,15 +74,15 @@
                         </tr>
                         <tr>
                             <td>팔로워</td>
-                            <td style="color: white; cursor: pointer;"><%=f.getFollowCount() %></td>
+                            <td style="color: white; "><%=f.getFollowCount() %></td>
                         </tr>
                         <tr>
                             <td>식당리뷰</td>
-                            <td style="color: white; cursor: pointer;"><%=f.getReviewCount() %></td>
+                            <td style="color: white; "><%=f.getReviewCount() %></td>
                         </tr>
                          <tr>
                             <td>밀키트리뷰</td>
-                            <td style="color: white; cursor: pointer;"><%=f.getProreviewCount() %></td>
+                            <td style="color: white; "><%=f.getProreviewCount() %></td>
                         </tr>
                     </table>
                     <br>

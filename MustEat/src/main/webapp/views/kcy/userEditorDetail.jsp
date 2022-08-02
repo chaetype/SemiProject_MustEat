@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 <style>
     .wrap99{
-        width: 75%;
-        margin-left: 20%;
+        width: 80%;
+        margin:auto;
         border: 2px solid rgb(231, 216, 241);
     }
 

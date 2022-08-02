@@ -1,6 +1,9 @@
 package com.mz.store.model.dao;
 
 import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.commit;
+import static com.mz.common.JDBCTemplate.getConnection;
+import static com.mz.common.JDBCTemplate.rollback;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.mz.member.model.dao.MemberDao;
+import com.mz.store.model.service.StoreService;
+import com.mz.store.model.vo.Editor;
 import com.mz.store.model.vo.Store;
 import com.mz.store.model.vo.StoreReview;
 
@@ -366,8 +371,24 @@ public class StoreDao {
 }
 	
 
-	
-	
+	//채윤 summernote
+	public int insertEditor(Connection conn, String html) {
+	      int result = 0;
+	      PreparedStatement pstmt = null;
+	      String sql = prop.getProperty("insertEditor");
+	      
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, html);
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	   }
 	
 	
 

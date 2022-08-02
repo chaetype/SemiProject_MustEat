@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% String contextPath = request.getContextPath(); %>
+    pageEncoding="UTF-8" import="com.mz.member.model.vo.Member"%>
+<% String contextPath = request.getContextPath(); 
+	
+	Member loginUser = (Member)session.getAttribute("loginUser");
+
+	String alertMsg = (String)session.getAttribute("alertMsg");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +71,7 @@
 		
 		.main{
 			height:100%;
-			background-color:pink;
+			
 
 		}
 		.search-label{width:20%;}
@@ -99,18 +105,40 @@
 
 <body>
 
+		<!-- alert문구 생성할 때 -->
+	<% if(alertMsg != null) { %>
+	<script>
+		alert("<%=alertMsg%>");
+		
+		// 지우지 않으면 새로고침할 때마다 alert가 띄워짐
+		// => 확인 버튼을 누르면 아예 사라지도록 설정(한 번 띄우고 난 뒤 안띄우기)
+		// session.removeAttribute() : session 자체를 지우는 것이 아닌 안에 담긴 값을 삭제하는 것
+		<% session.removeAttribute("alertMsg"); %>
+	</script>
+	<% } %>
 
   <div class="wrap">
+    
 		<div class="header">
 			<!-- 로그인바 -->
 			<div>
 				<div class="webLogo">
+					
+					<% if(loginUser == null) { %> <!-- 로그인하지 않은 경우 -->
 						<div class="bbtn">
-		                	<button class="custom-btn btn-8"><span>SIGN IN</span></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/login1.me" style="text-decoration: none;">SIGN IN</a></button>
 		                	<button class="custom-btn btn-8"><span>SIGN OUT</span></button>
-		                	<button class="custom-btn btn-8"><span>SIGN UP</span></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;">SIGN UP</a></button>
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
+					<% } else { %> <!-- 로그인한 경우 -->
+						<div class="bbtn">
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">정보수정</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/myPage.me" style="text-decoration: none;">MY PAGE</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">로그아웃</a></button>
+            			</div>
+            			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
+            		<% } %>
 				</div>
 			</div>
 			<!-- 메뉴바 -->
@@ -124,19 +152,15 @@
 						<span class="menu__item-name">Meal Kit</span>
 						<span class="menu__item-label">We can get to deliver to your home</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/clist.st">
 						<span class="menu__item-name">MZ Pick</span>
-						<span class="menu__item-label">Recently popular restaurant of MZ</span>
-					</a>
-					<a class="menu__item" href="#">
-						<span class="menu__item-name">Editor Pick</span>
-						<span class="menu__item-label">Read what others choice</span>
+						<span class="menu__item-label">Meet what MZ choice</span>
 					</a>
 					<a class="menu__item" href="#">
 						<span class="menu__item-name">Event</span>
 						<span class="menu__item-label">Read what others say</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/support.no">
 						<span class="menu__item-name">Contact</span>
 						<span class="menu__item-label">Get in touch and find us</span>
 					</a>
@@ -150,23 +174,36 @@
 					<span class="fas fa-phone"></span>
 					<span>1234-5678 </span>
 				</h2>
-				<p class="font_basic">오전 9시~오후 6시 운영/주말,휴일 휴무</p>
+				<p class="font_basic" style="margin:15px 0px 10px 0px;">오전 9시~오후 6시 운영/주말,휴일 휴무</p>
 
 			</div>
 
 			<div class="menu-footer_down font_basic">
 				<p>
-					- 전화 전 <a href="#">자주 묻는 질문</a>을 확인하세요.
+					- 전화 전 <a href="#" style="color:black;">자주 묻는 질문</a>을 확인하세요.
 				</p>
 				<p>
-					- <a href="#">1:1문의</a>를 통해서도 상담이 가능합니다.
+					- <a href="#" style="color:black;">1:1문의</a>를 통해서도 상담이 가능합니다.
 				</p>
 				<p>- 상품 문의는 각 상품 Q&A를 이용하세요.</p>
 
 				<br> 
-				<a href="" class="plain-btn btn">회원후기</a> 
-				<a href="" class="plain-btn btn">적립금</a> 
-				<a href="" class="plain-btn btn">공지사항</a>
+				
+				<div class="mustEatInfo">
+					<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
+					<a href="" class="plain-btn btn" style="font-size:12px">적립금</a> 
+					<a href="" class="plain-btn btn" style="font-size:12px">공지사항</a>
+					</div>
+					
+					<div class="mustEatInfo">
+					<a href="" class="plain-btn btn" style="font-size:12px; width:55px; height:40px;">FAQ</a>
+					<a href="<%= contextPath %>/tosuserlist.no" class="plain-btn btn" style="font-size:12px">이용약관</a>
+					<a href="" class="plain-btn btn" style="font-size:12px">1대1 문의</a>
+					
+					<p align="center" style="color:lightgray;">
+						© MUSTEAT Corp.	
+					</p>
+				</div>
 				
 			<br><br>
 			
@@ -176,17 +213,15 @@
 
 		<div class="top-bar logo-bar">
 			<!-- 로고 넣는 바  -->
-			<div><h1 id="header-style">&nbsp;&nbsp;&nbsp;&nbsp;════════ Delicious ════════</h1></div>			
+			<div><h1 id="header-style" style="white-space : nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;════════ Delicious ════════</h1></div>			
 		</div>
 	    
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
 
-	여기에 메인 페이지 넣어주세요
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
-
 
 </body>
 
