@@ -214,7 +214,12 @@ public class ProductService {
 		
 	}
 	
-
+	// 은영
+	/**
+	 * 상품준비중, 배송중, 배송완료에서 '구매취소'처리하는 Service
+	 * @param orderNo : 사용자가 선택한 주문번호
+	 * @return : 구매취소 성공여부가 담긴 int형 변수(성공 : 1 | 실패 : 0)
+	 */
 	public int updatePurchaseCancel(int orderNo) {
 		
 		Connection conn = getConnection();

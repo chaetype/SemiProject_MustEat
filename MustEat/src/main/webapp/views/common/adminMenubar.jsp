@@ -152,7 +152,7 @@
 					<a class="menu__item" href="<%=contextPath%>/mpsPayList.me">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 적립금 지급</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/adminNoticeList.no?cpage=1">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 공지사항</span>
 					</a>
 					<a class="menu__item" href="#">
