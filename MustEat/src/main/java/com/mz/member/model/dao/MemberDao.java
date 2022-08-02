@@ -237,7 +237,6 @@ public class MemberDao {
 				}
 				return count;
 				
-			}	
 	
 	
 	// 은영
