@@ -259,4 +259,14 @@
 		WHERE MEM_NO = ?
 	</entry>
 	
+	<!-- 서원 사용자 적립금 조회 -->
+	<entry key="membershipUserList">
+		SELECT 
+		       SU_DATE
+		     , MPS_CATEGORY
+		     , MPS_STATUS
+		     , MPS_RECORD
+  		  FROM MPS_POINT
+	</entry>
+	
 </properties>
