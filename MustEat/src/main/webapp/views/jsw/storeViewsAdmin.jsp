@@ -66,6 +66,10 @@
 	    box-shadow: none;
 	}
 	
+	.store-array{
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+	
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
@@ -93,6 +97,13 @@
 					<div style="display:inline-block;">
 						<table style="display:inline-block;">
 							<tr>
+								<td>
+									<select class="store-array" name="" id="" style="height: 48px; border-color:lightgrey;">									
+										<option value="">번호순</option>
+										<option value="">이름순</option>
+										<option value="">주소순</option>
+									</select>
+								</td>
 								<td>
 									<div class="point-category">
 										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey; font-family: Verdana, Geneva, Arial, sans-serif !important;">
@@ -123,7 +134,7 @@
 				        <th>식당명</th>
 						<th>주소</th>
 						<th>전화번호</th>
-						<th>상세보기 및 수정</th>
+						<th>상세보기</th>
 						<th>삭제</th>
 				      </tr>
 				      <% if(list.isEmpty()) { %>
@@ -139,7 +150,7 @@
 		                    <td><%= s.getStoreName() %></td>
 		                    <td><%= s.getStoreAddress() %></td>
 		                    <td><%= s.getStorePhone() %></td>
-		                    <td><button type="button" class="btn1"><strong>수정</strong></button></td>
+		                    <td><button type="button" class="btn1"><strong>보기</strong></button></td>
 		                    <td><button type="button" class="btn1"><strong>삭제</strong></button></td>
 		               </tr>   
 	                   <% } %>        
