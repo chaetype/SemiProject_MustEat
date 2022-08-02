@@ -518,6 +518,47 @@ public class MemberDao {
 			return list;		
 		}
 		
+		// 서원 관리자 적립금 지급
+		public ArrayList<Point> membershipPayList(Connection conn){
+			ArrayList<Point> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("membershipPayList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Point(rset.getInt("mem_no"),
+									   rset.getString("mem_name"),
+									   rset.getString("mem_id"),
+									   rset.getInt("review_month"),
+									   rset.getInt("save_point"),
+									   rset.getString("mps_date"),
+									   rset.getString("p_status")									   
+							          ));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 			
 }
 		
