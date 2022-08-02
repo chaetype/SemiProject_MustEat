@@ -33,6 +33,8 @@ public class SelectReview extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		int productCode = Integer.parseInt(request.getParameter("no"));
 		
 		ArrayList<ProductReview> list = new ProductService().selectReview(productCode);

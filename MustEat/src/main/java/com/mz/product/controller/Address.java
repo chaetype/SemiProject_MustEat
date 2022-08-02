@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mz.product.model.service.ProductService;
-import com.mz.product.model.vo.AddressPayment;
 
 /**
  * Servlet implementation class Address
@@ -39,9 +38,7 @@ public class Address extends HttpServlet {
 		String memAddress = request.getParameter("address");
 		String requested = request.getParameter("request");
 		
-		AddressPayment ap = new AddressPayment(memName, memPhone, memEmail, memAddress, requested);
 		
-		int result = new ProductService().insertAp(ap);
 		
 	}
 

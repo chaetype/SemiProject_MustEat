@@ -32,7 +32,10 @@ public class InsertReview extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		String prReviewContent = request.getParameter("content");
+		//int rate = Integer.parseInt(request.getParameter("rate"));
 		int ProductCode = Integer.parseInt(request.getParameter("no"));
 		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
@@ -42,6 +45,7 @@ public class InsertReview extends HttpServlet {
 		pr.setPrReviewContent(prReviewContent);
 		pr.setProductCode(ProductCode);
 		pr.setReviewWriter(String.valueOf(memNo));
+		//pr.setPrReviewRate(rate);
 		
 		int result = new ProductService().insertReview(pr);
 		
