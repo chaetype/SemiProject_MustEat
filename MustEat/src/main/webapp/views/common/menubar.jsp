@@ -243,7 +243,7 @@
 					
 					<div class="mustEatInfo">
 					<a href="" class="plain-btn btn" style="font-size:12px; width:55px; height:40px;">FAQ</a>
-					<a href="" class="plain-btn btn" style="font-size:12px">이용약관</a>
+					<a href="<%= contextPath %>/tosuserlist.no" class="plain-btn btn" style="font-size:12px">이용약관</a>
 					<a href="" class="plain-btn btn" style="font-size:12px">1대1 문의</a>
 					
 					<p align="center" style="color:lightgray;">
