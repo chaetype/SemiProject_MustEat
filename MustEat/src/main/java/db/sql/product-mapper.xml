@@ -36,7 +36,8 @@
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
-            		AND ORDER_STATUS = 2) AS CANCEL, <!-- 구매취소 -->
+            		AND ORDER_STATUS = 2
+            		 OR DELIVERY_STATUS = '구매취소') AS CANCEL, <!-- 구매취소 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
@@ -85,7 +86,6 @@
 		        JOIN ORDER_LIST USING (ORDER_NO)
 		        JOIN PRODUCT USING (PRODUCT_CODE)
 		        WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
-		          AND ORDER_STATUS = 1
 		        ORDER BY ORDER_DATE DESC
 		         ) A
 		WHERE ROWNUM BETWEEN 1 AND 2
