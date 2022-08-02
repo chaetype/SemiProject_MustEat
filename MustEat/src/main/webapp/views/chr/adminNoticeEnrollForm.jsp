@@ -16,7 +16,7 @@
     <div class="contactEnroll-area">
 
         <br><br>
-        <h2>공지사항</h2>
+        <h2><b>공지사항</b></h2>
 
     <div id="bar"></div>
     <br><br>

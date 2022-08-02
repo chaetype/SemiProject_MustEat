@@ -44,7 +44,7 @@
 
     <div class="outer">
         <br><br>
-        <h2 style="margin-left:50px">1 : 1 문의하기</h2>
+        <h2 style="margin-left:50px"><b>1 : 1 문의하기</b></h2>
         <br><br>
 
         <div class="form-wrap">

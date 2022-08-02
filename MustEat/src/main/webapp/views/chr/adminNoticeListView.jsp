@@ -84,7 +84,7 @@
 
     <div class="outer">
         <br><br>
-        <h2>공지사항</h2>
+        <h2><b>공지사항</b></h2>
         <br><br>
 
         <div class="table-wrap"></div>

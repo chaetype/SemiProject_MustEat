@@ -45,7 +45,7 @@
 
     <div class="outer">
         <br><br>
-        <h2>FAQ</h2>
+        <h2><b>FAQ</b></h2>
         <br><br>
 
         <div class="accordion w-100" id="basicAccordion">

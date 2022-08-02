@@ -80,6 +80,10 @@
         height:100%;
     }
 
+    h1{
+        /* !! 폰트 수정 */
+    }
+
     /* #notice-button{
         background-color:rgb(231, 216, 241);
         width:100px;
@@ -100,19 +104,21 @@
 
     <div class="outer" align="center">
         <br>
-        <h1 align="center" style="margin-top:10%">무엇을 도와드릴까요?</h1>
+        <h1 align="center" style="margin-top:10%"><b>무엇을 도와드릴까요?</b></h1>
         <div class="container justify-content-center" style="margin-left:20%">
     
             <div class="row">
         
                <div class="col-md-8">
                    
-                   <div class="input-group mb-3">
-                        <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+                    <form action="<%=contextPath%>/supportList.no">
+                        <div class="input-group mb-3">
+                            <input type="text" id="keyword" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
+                            </div>
                         </div>
-                        </div>
+                    </form>
                    
                </div>        
                 

@@ -41,8 +41,13 @@
         padding-top:30px;
         width:90%;
     }
+    .table-subWrap{
+        border-top:1.5px solid black;
+        padding-top:30px;
+        width:90%;
+    }
     body{
-    	background-color: #eee;
+    	/* background-color: #eee; */
 	}
 </style>
 </head>
@@ -52,10 +57,11 @@
 
     <div class="outer">
         <br><br>
-        <h2>검색 결과</h2>
+        <h2><b>검색 결과</b></h2>
         <br><br>
 
         <div class="table-wrap"></div>
+        <h5><b>공지사항</b></h5><br>
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>
@@ -114,7 +120,8 @@
         </table>
         <br><br><br>
 
-        <div class="table-wrap"></div>
+        <div class="table-subWrap"></div>
+        <h5><b>1 : 1 문의</b></h5><br>
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>
@@ -173,7 +180,8 @@
         </table>
         <br><br><br>
 
-        <div class="table-wrap"></div>
+        <div class="table-subWrap"></div>
+        <h5><b>FAQ</b></h5><br>
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>

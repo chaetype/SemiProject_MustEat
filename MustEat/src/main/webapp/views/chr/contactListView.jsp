@@ -49,7 +49,7 @@
 
     <div class="outer">
         <br><br>
-        <h2>1 : 1 문의 내역</h2>
+        <h2><b>1 : 1 문의 내역</b></h2>
         <br><br>
 
         <div class="table-wrap">
