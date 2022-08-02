@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList,  com.mz.product.model.vo.Product"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,  com.mz.product.model.vo.Product, com.mz.common.model.vo.PageInfo"%>
 <%
 	ArrayList<Product> list =  (ArrayList<Product>)request.getAttribute("list");
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
 %>
 <!DOCTYPE html>
 <html>

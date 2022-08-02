@@ -369,4 +369,12 @@
 			  )
 	
 	</entry>
+	
+	<entry key="selectmealkit">
+		SELECT 
+		       PRODUCT_CODE
+		     , PRODUCT_NAME
+		     , IMG_PATH
+		  FROM PRODUCT
+	</entry>
 </properties>

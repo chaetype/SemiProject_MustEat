@@ -64,6 +64,15 @@ public class Product {
 		this.expirationDate = expirationDate;
 		this.imgPath = imgPath;
 	}
+	
+	
+
+	public Product(int productCode, String productName, String imgPath) {
+		super();
+		this.productCode = productCode;
+		this.productName = productName;
+		this.imgPath = imgPath;
+	}
 
 	public int getProductCode() {
 		return productCode;

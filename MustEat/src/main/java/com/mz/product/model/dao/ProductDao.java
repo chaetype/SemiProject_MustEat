@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderDetail;
@@ -838,13 +839,9 @@ public class ProductDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Product(rset.getInt("board_no"),
-								   rset.getString("category_name"),
-								   rset.getString("board_title"),
-								   rset.getString("user_id"),
-								   rset.getInt("count"),
-								   rset.getDate("create_date")
-						
+				list.add(new Product(rset.getInt("product_code"),
+								     rset.getString("product_name"),
+								     rset.getString("img_path")
 					      		   ));
 			}
 		} catch (SQLException e) {

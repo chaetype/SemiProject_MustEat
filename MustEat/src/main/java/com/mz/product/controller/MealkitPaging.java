@@ -91,7 +91,7 @@ public class MealkitPaging extends HttpServlet {
 		
 		request.getRequestDispatcher("views/hsb/mealkitList.jsp").forward(request, response);
 	}
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
