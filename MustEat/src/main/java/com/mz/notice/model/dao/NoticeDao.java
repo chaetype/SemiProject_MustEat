@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.mz.common.model.vo.PageInfo;
 import com.mz.notice.model.vo.Contact;
+import com.mz.notice.model.vo.FAQ;
 import com.mz.notice.model.vo.Notice;
 
 public class NoticeDao {
@@ -137,6 +138,34 @@ public class NoticeDao {
 									 rset.getString("contact_status"),
 									 rset.getString("answer"),
 									 rset.getDate("answer_date")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public ArrayList<FAQ> selectFaqList(Connection conn){
+		
+		ArrayList<FAQ> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectFaqList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				FAQ f = new FAQ();
+				f.setFaqNo(rset.getInt("faq_no"));
+				f.setFaqTitle(rset.getString("faq_title"));
+				f.setFaqContent(rset.getString("faq_content"));
+				list.add(f);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

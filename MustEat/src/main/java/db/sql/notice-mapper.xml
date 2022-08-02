@@ -3,12 +3,14 @@
 <properties>
 	
 	<!-- 혜림 -->
+	<!-- 공지사항 목록 수 -->
 	<entry key="selectNoticeListCount">
 		SELECT
 		       COUNT(*) AS COUNT
 		  FROM NOTICE
 	</entry>
 	
+	<!-- 공지사항 목록 조회 -->
 	<entry key="selectNoticeList">
 		SELECT *
 		  FROM (
@@ -30,6 +32,7 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<!-- 문의사항 입력 -->
 	<entry key="insertContact">
 		INSERT
 		  INTO CONTACT
@@ -56,6 +59,7 @@
 		  )
 	</entry>
 	
+	<!-- 문의내역 조회 -->
 	<entry key="selectContactList">
 		SELECT
 		       CONTACT_NO
@@ -70,6 +74,18 @@
 		     , ANSWER_DATE
 		  FROM CONTACT
 		 WHERE CONTACT_WRITER = ?
+	</entry>
+	
+	<!-- FAQ 조회 -->
+	<entry key="selectFaqList">
+		SELECT
+		       FAQ_NO
+		     , FAQ_TITLE
+		     , FAQ_CONTENT
+		     , FAQ_WRITER
+		     , ENROLL_DATE
+		     , FAQ_COUNT
+		  FROM FAQ
 	</entry>
 	
 	

@@ -130,7 +130,7 @@
 
         <div class="support-button" id="contact-button"><a href="<%=contextPath%>/contactEnrollForm.no"><b>1 : 1 문의하기</b></a></div>
 
-        <div class="support-button" id="faq-button"><a href="<%=contextPath%>/listFaq.no"><b>FAQ</b></a></div>
+        <div class="support-button" id="faq-button"><a href="<%=contextPath%>/faqList.no"><b>FAQ</b></a></div>
     </div>
 
 </body>
