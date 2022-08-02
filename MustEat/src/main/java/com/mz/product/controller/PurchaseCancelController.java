@@ -33,7 +33,6 @@ public class PurchaseCancelController extends HttpServlet {
 		// 구매취소 처리하는 Servlet
 		
 		String status = request.getParameter("status"); // 배송현황 
-		System.out.println(status);
 		int orderNo = Integer.parseInt(request.getParameter("orderNo")); // 주문번호
 		
 		
