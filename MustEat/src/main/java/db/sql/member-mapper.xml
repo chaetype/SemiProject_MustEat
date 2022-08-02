@@ -230,8 +230,14 @@
 		          JOIN STORE_RE SR ON (M.MEM_NO = SR.REVIEW_WRITER)
 		         WHERE MP.P_STATUS = '대기중'  
 		           AND MPS_STATUS = '적립'
-		       );
+		       )
 	</entry>
+	
+	<!-- 서원 관리자 적립금 지급하기 버튼 클릭시 상태값 바꾸기 -->
+	<entry key="UpdateMembership">
+		
+	</entry>
+	
 	
 	
 </properties>
