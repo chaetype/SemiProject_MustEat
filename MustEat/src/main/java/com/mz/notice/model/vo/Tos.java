@@ -62,6 +62,12 @@ public class Tos {
 		this.tosNo = tosNo;
 		this.tosTitle = tosTitle;
 		this.tosContent = tosContent;
+	}	
+
+	public Tos(String tosTitle, String tosContent) {
+		super();
+		this.tosTitle = tosTitle;
+		this.tosContent = tosContent;
 	}
 
 	public int getTosNo() {
