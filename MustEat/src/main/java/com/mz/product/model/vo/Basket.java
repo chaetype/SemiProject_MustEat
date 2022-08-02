@@ -44,6 +44,14 @@ public class Basket {
 		this.sellerPhone = sellerPhone;
 	}
 
+	
+	public Basket(String memNo, String productCode, int count) {
+		super();
+		this.memNo = memNo;
+		this.productCode = productCode;
+		this.count = count;
+	}
+
 	public Basket(String month) {
 		super();
 		this.month = month;

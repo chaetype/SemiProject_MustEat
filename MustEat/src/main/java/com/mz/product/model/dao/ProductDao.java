@@ -640,8 +640,12 @@ public class ProductDao {
 			pstmt.setString(1, op.getDelName());
 			pstmt.setString(2, op.getDelPhone());
 			pstmt.setString(3, op.getDelEmail());
-			pstmt.setString(4, op.getDelAddress());
-			pstmt.setString(5, op.getMemo());
+			pstmt.setString(4, op.getMemo());
+			pstmt.setString(5, op.getDeliveryStatus());
+			pstmt.setString(6, op.getDelAddress());
+			pstmt.setString(7, op.getDelAddressCode());
+			pstmt.setString(8, op.getDelAddressDetail());
+			pstmt.setString(9, op.getDelAddressRef());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -755,6 +759,29 @@ public class ProductDao {
 		
 		return list;
 
+
+	// 성범
+		/*
+		 * 밀키트 상세페이지에서 장바구니로 insert
+		 */
+	public int insertCart(Connection conn, Basket bs) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertCart");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bs.getMemNo());
+			pstmt.setString(2, bs.getProductCode());
+			pstmt.setInt(3, bs.getCount());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 	
 	

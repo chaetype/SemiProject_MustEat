@@ -132,7 +132,7 @@
 	          </div>
 	
 	          <div class="orderButton">
-	            <a href="" class="plain-btn btn">구매하기</a>
+	            <a href="<%=contextPath%>/address.do" class="plain-btn btn">구매하기</a>
 	          </div>
 	          
 	
