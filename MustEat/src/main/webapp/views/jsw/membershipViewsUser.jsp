@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.mz.member.model.vo.Point" %>
+<%
+	ArrayList<Point> list = (ArrayList<Point>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,13 +155,22 @@
 				        <th>적립/사용</th>
 				        <th>금액</th>
 				      </tr>
-				      
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>밀키트구매</td>
-				        <td>사용</td>
-				        <td>-5000원</td>
-				      </tr>
+				      <% if(list.isEmpty()) { %>
+	                  <!--case1. 게시글이 없을경우-->
+	                  <tr>
+	                      <td colspan="4">조회된 게시글이 없습니다.</td>
+	                  </tr>
+					  <% }else { %>
+	                  <!--case2. 게시글이 있을경우-->
+	                  	<% for(Point p : list){ %>
+		                  <tr>
+		                  	  <td><%= p.getSuDate() %></td>
+		                      <td><%= p.getMpsCategory() %></td>
+		                      <td><%= p.getMpsStatus() %></td>
+		                      <td><%= p.getMpsRecord() %></td>		       
+		                  </tr>   
+	                      <% } %>        
+	                  <% } %>
 				      
 				    </tbody>
 		  	</table>
