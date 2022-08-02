@@ -32,6 +32,8 @@ public class MembershipStatusListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 서원 관리자 적립금 지급 조회
+		
 		ArrayList<Point> list = new MemberService().membershipPayList();
 		
 		request.setAttribute("list", list);
