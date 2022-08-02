@@ -22,15 +22,20 @@
         border: 1px solid rgb(167, 112, 239);
     }
     img{
-    	width: 170px;
-        height: 150px;;
+    	width: 120px;
+        height: 100px;;
         margin: 0;
-        margin-left: 42%;
+        margin-left: 44%;
     }
     .btn1{
         border-radius: 2%;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 13px;
+    }
+    #check{
+        border: 0;
+        padding: 0;
+        font-size:12px;
     }
 
 
@@ -50,34 +55,35 @@
                 <table>
                     <tr>
                         <th>아이디</th>
-                        <td><input type="text" placeholder="6~15글자"></td>
-                        <td><button class="btn1">중복확인</button></td>
+                        <td><input type="text" placeholder="6~15글자" name= "userid" id="id" required></td>
+                        <td><button type="button" class="btn1" name="check-Id" onclick="checkId();">중복확인</button></td>
                     </tr>        
                     <tr>
                         <th>비밀번호</th>
-                        <td colspan="2"><input type="password" placeholder="영문/숫자/특수문자 2가지 이상 (8~20글자)"></td>
+                        <td colspan="2"><input type="password" name="userPW" id="pw" onchange="check_pw();" placeholder="8~20글자(특수문자 포함)" required></td>
                     </tr>
                     <tr>
                         <th>비밀번호확인</th>
-                        <td colspan="2"><input type="password" placeholder="비밀번호를 한번 더 입력해주세요"></td>
+                        <td colspan="2"><input type="password" name="userPW2" id="pw2" onchange="check_pw();" 
+                            placeholder="비밀번호를 한번 더 입력해주세요" required><br><span id="check"></span></td>
                     </tr>
                     <tr>
                         <th>이름</th>
-                        <td colspan="2"><input type="text" placeholder="이름을 입력해주세요"></td>
+                        <td colspan="2"><input type="text" name="userName"  placeholder="이름을 입력해주세요" required></td>
                     </tr>
                     <tr>
                         <th>닉네임</th>
-                        <td><input type="text" placeholder="닉네임을 입력해주세요"></td>
-                        <td><button class="btn1">중복확인</button></td>
+                        <td><input type="text" id="nick" name="userNick" placeholder="닉네임을 입력해주세요" required></td>
+                        <td><button type="button" class="btn1" onclick="checkNick();">중복확인</button></td>
                     </tr>
                     <tr>
                         <th>이메일</th>
-                        <td><input type="text" placeholder="abc@naver.com"></td>
-                        <td><button class="btn1">중복확인</button></td>
+                        <td><input type="text" id="email" name="userEmail" placeholder="abc@naver.com" required></td>
+                        <td><button class="btn1" type="button" onclick="checkEmail();">중복확인</button></td>
                     </tr>
                     <tr>
                         <th>휴대전화</th>
-                        <td><input type="text" placeholder="-포함해서 작성해주세요"></td>
+                        <td><input type="text" placeholder="-빼고 작성해주세요"></td>
                         <td><button type="button" id="phoneChk" class="btn1" onclick="location.href='<%=request.getContextPath() %>/phoneCheck.me';">본인인증</button></td>
                     </tr>
                     <tr>
@@ -113,9 +119,181 @@
 
     <br><br><br><br>
 
+    <!-- 유효성 검사 -->
+    <script>
+        var check1 = 0;
+
+        var regExpId =/^[A-Za-z0-9]+$/;
+        
+        // 아이디 유효성검사 & 중복검사
+        function checkId(){
+            //alert(document.getElementById("id").value.length)
+            if(document.getElementById("id").value.length < 6 || document.getElementById("id").value.length > 15) {
+			    alert("아이디는 6 - 15자 이내로 입력바랍니다!");
+                document.getElementById("id").value='';
+		    }else if(!regExpId.test(document.getElementById("id").value)){
+                alert("아이디는 영어와 숫자로만 입력바랍니다!");
+                document.getElementById("id").value='';
+            }else{
+               
+                // 아이디 입력하는 input요소 객체
+        		const $idInput = $('#id');
+
+        		// $idInput.val() => 사용자가 입력한 아이디값
+        		
+        		$.ajax({
+        			url:"<%=request.getContextPath()%>/idCheck.me",
+        			data:{checkId:$idInput.val()},
+        			success:function(result){   
+        				//console.log(result);
+        				if(result == "NNNNN"){ // 사용불가능일 경우
+        					alert("이미 존재하거나 탈퇴한 회원의 아이디입니다.");
+                            document.getElementById("id").value='';
+        					$idInput.focus();
+        				}else{ // 사용가능일 경우
+        					if(confirm("멋진 아이디네요! 사용하시겠습니까?")){ // 사용하겠다
+        						$idInput.attr("readonly", true);
+                                //$("#enroll-form :submit").removeAttr("disabled");
+                                        						
+        					}else{ // 사용안하겠다
+                                //$idInput.val()=''; 왜 안먹는지...
+                                document.getElementById("id").value='';
+        						$idInput.focus();
+        					}
+        				}
+        				
+        			},error:function(){
+        				console.log("아이디 중복체크용 ajax 통신 실패");
+        			}
+        		});
+            }
+        }
+
+        // 비밀번호 유효성검사
+        function check_pw(){
+            var pw = document.getElementById('pw').value;
+            var SC = ["!","@","#","$","%","^","&","*"];
+            var check_SC = 0;
+ 
+            if(pw.length < 6 || pw.length>16){
+                window.alert('비밀번호는 8글자 이상, 20글자 이하만 이용 가능합니다.');
+                document.getElementById('pw').value='';
+            }else{
+                for(var i=0;i<SC.length;i++){
+                    if(pw.indexOf(SC[i]) != -1){
+                        check_SC = 1;
+                    }
+                }
+                if(check_SC == 0){
+                    window.alert('!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.')
+                    document.getElementById('pw').value='';
+                }
+            } 
+            
+            if(document.getElementById('pw').value !='' && document.getElementById('pw2').value!=''){
+                if(document.getElementById('pw').value==document.getElementById('pw2').value){
+                    document.getElementById('check').innerHTML='&nbsp;&nbsp;&nbsp;비밀번호가 일치합니다.'
+                    document.getElementById('check').style.color='blue';
+                    check1 = 1;
+                }
+                else{
+                    document.getElementById('check').innerHTML='&nbsp;&nbsp;&nbsp;비밀번호가 일치하지 않습니다.';
+                    document.getElementById('check').style.color='red';
+                    check1 = 0;
+                }
+            }
+        }
+        
+        // 닉네임 중복검사
+        function checkNick(){
+            
+            const $nickInput = $('#nick');
+
+            if(document.getElementById('nick').value !=''){
+                $.ajax({
+        			url:"<%=request.getContextPath()%>/nickCheck.me",
+        			data:{checkNick:$nickInput.val()},
+        			success:function(result){   
+        				//console.log(result);
+        				if(result == "NNNN"){ // 사용불가능일 경우
+        					alert("이미 존재하거나 탈퇴한 회원의 닉네임입니다.");
+                            document.getElementById("nick").value='';
+        					$nickInput.focus();
+        				}else{ // 사용가능일 경우
+        					if(confirm("멋진 닉네임이네요! 사용하시겠습니까?")){ // 사용하겠다
+        						$nickInput.attr("readonly", true);
+                                //$("#enroll-form :submit").removeAttr("disabled");
+                                        						
+        					}else{ // 사용안하겠다
+                                //$nickInput.val()=''; 왜 안먹는지...
+                                document.getElementById("nick").value='';
+        						$nickInput.focus();
+        					}
+        				}
+        				
+        			},error:function(){
+        				console.log("아이디 중복체크용 ajax 통신 실패");
+        			}
+        		});
+            }else{
+                alert("닉네임을 입력해주세요");
+                $nickInput.focus();
+            }
+            
+        }
+
+        // 이메일 중복검사
+        function checkEmail(){
+            
+            const $emailInput = $('#email');
+            var regExpEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+            //숫자 (0~9) or 알파벳 (a~z, A~Z) 으로 시작하며 중간에 -_. 문자가 있을 수 있으며 
+            //그 후 숫자 (0~9) or 알파벳 (a~z, A~Z)이 올 수도 있고 연달아 올 수도 있고 없을 수도 있다. 
+            //@ 는 반드시 존재하며 . 도 반드시 존재하고 a~z, A~Z 의 문자가 2,3개 존재하고 i = 대소문자 구분 안한다.
+            
+            if(document.getElementById('email').value ==''){
+                alert("이메일을 입력해주세요");
+                $emailInput.focus();
+            }else if(!regExpEmail.test(document.getElementById("email").value)){
+                alert("이메일 형식이 올바르지 않습니다.");
+                document.getElementById("email").value='';
+                $emailInput.focus();
+            }else{
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/emailCheck.me",
+                    data:{checkEmail:$emailInput.val()},
+                    success:function(result){   
+                        //console.log(result);
+                        if(result == "NNN"){ // 사용불가능일 경우
+                            alert("이미 존재하거나 탈퇴한 회원의 이메일입니다.");
+                            document.getElementById("email").value='';
+                            $emailInput.focus();
+                        }else{ // 사용가능일 경우
+                            if(confirm("사용가능한 이메일입니다. 사용하시겠습니까?")){ // 사용하겠다
+                                $emailInput.attr("readonly", true);
+                                //$("#enroll-form :submit").removeAttr("disabled");
+                                                                
+                            }else{ // 사용안하겠다
+                                //$nickInput.val()=''; 왜 안먹는지...
+                                document.getElementById("email").value='';
+                                $emailInput.focus();
+                            }
+                        }
+                        
+                    },error:function(){
+                        console.log("아이디 중복체크용 ajax 통신 실패");
+                    }
+                });
+            }
+        }
+
+       
+        
+	</script>
 
 
-
+    <!-- 우편번호 찾기 관련-->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         function sample6_execDaumPostcode() {

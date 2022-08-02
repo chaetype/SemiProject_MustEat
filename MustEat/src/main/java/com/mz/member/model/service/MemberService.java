@@ -35,7 +35,7 @@ public class MemberService {
 	
 
 
-	//태민 (아이디찾기 / FindIdController2랑 연결)
+	//태민 
 	/**
 	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
 	 * @param userName : 사용자에게 입력받은 유저이름
@@ -50,7 +50,7 @@ public class MemberService {
 	}
 	
 	
-	//태민 (비밀번호찾기 / FindPwdController2랑 연결)
+	//태민 
 	/**
 	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
 	 * @param userId : 사용자에게 입력받은 유저아이디
@@ -62,6 +62,47 @@ public class MemberService {
 		Member m  = new MemberDao().findPwd(conn, userId, userEmail);
 		close(conn);
 		return m;
+	}
+	
+	//태민
+	
+	/**
+	 * 회원가입시 아이디 중복검사 MemberEnrollIdCheck랑 연결
+	 * @param checkId : 사용자가 입력한 id
+	 * @return : 중복 값이 있으면 1 없으면 0
+	 */
+	public int idCheck(String checkId) {
+		Connection conn = getConnection();
+		int count = new MemberDao().idCheck(conn, checkId);
+		close(conn);
+		return count;
+	}
+	
+	//태민
+	
+	/**
+	 * 회원가입시 닉네임 중복검사 MemberEnrollNIckCheck랑 연결
+	 * @param checkId : 사용자가 입력한 닉네임
+	 * @return 중복 값이 있으면 1 없으면 0
+	 */
+	public int nickCheck(String checkNick) {
+		Connection conn = getConnection();
+		int count = new MemberDao().nickCheck(conn, checkNick);
+		close(conn);
+		return count;
+	}
+	
+	//태민
+	/**
+	 * 회원가입시 이메일 중복검사 MemberEnrollEamilCheck랑 연결
+	 * @param checkNick : 사용자가 입력한 이메일
+	 * @return 중복 값이 있으면 1 없으면 0
+	 */
+	public int emailCheck(String checkEmail) {
+		Connection conn = getConnection();
+		int count = new MemberDao().emailCheck(conn, checkEmail);
+		close(conn);
+		return count;
 	}
 
 	

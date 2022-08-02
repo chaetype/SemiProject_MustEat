@@ -48,10 +48,10 @@ public class MemberEnrollPhoneCheck extends HttpServlet {
 		        Message coolsms = new Message(api_key, api_secret);
 
 		        HashMap<String, String> params = new HashMap<String, String>();
-		        params.put("to", "01034533619");    // 수신전화번호
+		        params.put("to", "01046867155");    // 수신전화번호
 		        params.put("from", "01034533619");    // 발신전화번호
 		        params.put("type", "SMS");
-		        params.put("text", "핫띵크 휴대폰인증 테스트 메시지 : 인증번호는입니다.");
+		        params.put("text", "주원 ㅎㅇ");
 		        params.put("app_version", "test app 1.2"); // application name and version
 
 		        try {

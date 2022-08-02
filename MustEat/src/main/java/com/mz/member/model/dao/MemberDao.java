@@ -152,6 +152,92 @@ public class MemberDao {
 
 			return m;
 		}
+		
+		
+		// 태민(회원가입시 아이디 중복검사) 
+		public int idCheck(Connection conn, String checkId) {
+			
+			int count = 0;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("idCheck");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, checkId);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					count = rset.getInt("count");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return count;
+			
+		}	
+		
+		// 태민(회원가입시 닉네임 중복검사) 
+		public int nickCheck(Connection conn, String checkNick) {
+			
+			int count = 0;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("nickCheck");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, checkNick);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					count = rset.getInt("count");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			return count;
+			
+		}	
+		
+		// 태민(회원가입시 이메일 중복검사) 
+			public int emailCheck(Connection conn, String checkEmail) {
+				
+				int count = 0;
+				PreparedStatement pstmt = null;
+				ResultSet rset = null;
+				
+				String sql = prop.getProperty("emailCheck");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, checkEmail);
+					
+					rset = pstmt.executeQuery();
+					
+					if(rset.next()) {
+						count = rset.getInt("count");
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(pstmt);
+				}
+				return count;
+				
+			}	
 	
 	
 	// 은영
