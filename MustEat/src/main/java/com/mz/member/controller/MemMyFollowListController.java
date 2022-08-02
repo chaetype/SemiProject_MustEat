@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Follow;
+import com.mz.member.model.vo.Member;
 
 
 /**
@@ -32,10 +33,17 @@ public class MemMyFollowListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Follow> list = new MemberService().myFollowList();
+
+		int ffMNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
-		// 4) 응답뷰 => noticeListView.jsp
-		request.setAttribute("list", list);
+		
+		ArrayList<Follow> flist = new MemberService().myFollowingList(ffMNo);
+
+		
+		
+		request.setAttribute("followlist", flist);
+
+		
 		request.getRequestDispatcher("views/kcy/userFollowList95p.jsp").forward(request, response);
 	}
 
