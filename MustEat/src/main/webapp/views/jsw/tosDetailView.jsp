@@ -68,8 +68,18 @@
 		<div class="modify-button">
 			<button type="button" class="btn1" id="tos-modify-btn" onclick="location.href='<%= contextPath %>/tosupdateForm.no?no=<%= t.getTosNo() %>'" style="color:blue;">수정하기</button>
 			<button type="button" class="btn1" id="tos-delete-btn" onclick="location.href='<%= contextPath %>/tosdelete.no?no=<%= t.getTosNo() %>'" style="color:red;">삭제하기</button>
+			<button type="button" class="btn1" id="tos-modify-btn" onclick="confirmPost();" style="color:black;">게시하기</button>
+			<script>
+				function confirmPost(){
+					if(window.confirm("이용약관을 게시하겠습니까?")) {
+						location.href="<%= contextPath %>/tospostupdate.no?no=<%= t.getTosNo() %>"
+					}
+				}
+			</script>
 			<button type="button" class="btn1" id="tos-delete-btn" onclick="history.back();">목록가기</button>
 		</div>		 
+		
+
 				  
 				  
 						
