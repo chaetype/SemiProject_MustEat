@@ -231,9 +231,10 @@
 	<!-- 서원 관리자 적립금 지급하기 버튼 클릭시 상태값 바꾸기 -->
 	<entry key="UpdateMembership">
 		
+
 	</entry>
 	
-	<!-- 채윤 나의 팔로우 목록 조회 -->
+		<!-- 채윤 나의 팔로우 목록 조회 -->
 	<entry key="myFollowingList">
 		SELECT 
 			MEM_NAME,
@@ -253,6 +254,5 @@
         JOIN MEMBER M ON (M.MEM_NO = F.F_MNO)
 		WHERE MEM_NO = ?
 	</entry>
-	
 	
 </properties>
