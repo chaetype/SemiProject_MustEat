@@ -14,6 +14,9 @@ public class Point {
 	private String memName;
 	private String memId;
 	private String memPhone;	
+	private int reviewMonth;
+	private int savePoint;
+	private String mpsDate;
 	
 	public Point() {
 		
@@ -64,6 +67,16 @@ public class Point {
 		this.memPhone = memPhone;
 	}
 	
+	public Point(int memNo, String memName, String memId, int reviewMonth, int savePoint, String mpsDate, String pStatus) {
+		super();
+		this.memNo = memNo;
+		this.memName = memName;
+		this.memId = memId;
+		this.reviewMonth = reviewMonth;
+		this.savePoint = savePoint;
+		this.mpsDate = mpsDate;
+		this.pStatus = pStatus;
+	}
 
 	public int getMpsNo() {
 		return mpsNo;
@@ -135,6 +148,38 @@ public class Point {
 
 	public void setMemPhone(String memPhone) {
 		this.memPhone = memPhone;
+	}
+	
+	public String getpStatus() {
+		return pStatus;
+	}
+
+	public void setpStatus(String pStatus) {
+		this.pStatus = pStatus;
+	}
+
+	public int getReviewMonth() {
+		return reviewMonth;
+	}
+
+	public void setReviewMonth(int reviewMonth) {
+		this.reviewMonth = reviewMonth;
+	}
+
+	public int getSavePoint() {
+		return savePoint;
+	}
+
+	public void setSavePoint(int savePoint) {
+		this.savePoint = savePoint;
+	}
+
+	public String getMpsDate() {
+		return mpsDate;
+	}
+
+	public void setMpsDate(String mpsDate) {
+		this.mpsDate = mpsDate;
 	}
 
 	@Override
