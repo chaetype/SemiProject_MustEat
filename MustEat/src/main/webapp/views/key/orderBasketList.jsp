@@ -105,7 +105,7 @@
 	              <img src="<%=contextPath %>/resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
 	            </a>
 	
-	            <div class="goodsInfo">
+	            <div class="goodsInfo" onclick="orderDetail();">
 	              <a href="해당 상품 주문상세페이지" class="goods">
 	                <p class="goodsName"><%=bk.getProductCode() %></p>
 	                <ul class="info">

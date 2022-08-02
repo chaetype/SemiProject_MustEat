@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.mz.product.model.dao.ProductDao;
 import com.mz.product.model.vo.Basket;
+import com.mz.product.model.vo.OrderDetail;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
 import com.mz.product.model.vo.ProductReview;
@@ -312,6 +313,43 @@ public class ProductService {
 
 		
 		return result;
+	}
+	
+	// 은영
+	/**
+	 * 주문 상세 페이지에서 주문 페이지에 담긴 정보들을 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @param orderNo : 주문 번호 (해당 번호의 주문 상세페이지로 이동)
+	 * @return : 해당 주문 번호에 속해있는 주문 페이지 정보가 담겨있는 OrderDetail객체
+	 */
+	public OrderDetail selectOrderDetail(String memId, int orderNo) {
+		
+		Connection conn = getConnection();
+		
+		OrderDetail op = new ProductDao().selectOrderDetail(memId, orderNo);
+		
+		close(conn);
+		
+		return op;
+	}
+	
+	// 은영
+	/**
+	 * 주문 상세 페이지에서 주문 상품들을 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @param orderNo : 주문 번호 (해당 번호의 주문 상세페이지로 이동)
+	 * @return : 해당 주문 번호에 속해있는 주문 상품 정보가 담겨있는 ArrayList<OrderDetail>객체
+	 */
+	public ArrayList<OrderDetail> selectOrderDetailList(String memId, int orderNo) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderDetail> list = new ProductDao().selectOrderDetailList(conn, memId, orderNo);
+		
+		close(conn);
+		
+		return list;
+		
 	}
 
 

@@ -310,6 +310,37 @@
 
 	</entry>
 	
+	<!-- 은영 (주문 상세 페이지 조회시 실행할 sql문) -->
+	<entry key="selectOrderDetail">
+		SELECT ORDER_NO
+		     , ORDER_DATE
+		     , PRODUCT_CODE
+		     , PRODUCT_NAME
+		     , ORDER_QUENTITY
+		     , TOTAL_PRICE
+		     , DELIVERY_PRICE
+		     , DISCOUNT_FEE
+		     , TOTAL_PRICE + DELIVERY_PRICE - DISCOUNT_FEE "TOTAL"
+		     , SELLER
+		     , SELLER_PHONE
+		     , DELIVERY_STATUS
+		     , DEL_NAME
+		     , DEL_PHONE
+		     , DEL_EMAIL
+		     , DEL_ADDRESS_CODE
+		     , DEL_ADDRESS
+		     , DEL_ADDRESS_DETAIL
+		     , DEL_ADDRESS_REF
+		     , MEM_NAME
+		     , MEM_PHONE
+		FROM ORDER_PRO
+		JOIN ORDER_LIST USING (ORDER_NO)
+		JOIN PRODUCT USING (PRODUCT_CODE)
+		JOIN MEMBER USING (MEM_NO)
+		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		 AND ORDER_NO = ? <!-- 주문번호 -->
+	</entry>
+	
 	
 	
 </properties>

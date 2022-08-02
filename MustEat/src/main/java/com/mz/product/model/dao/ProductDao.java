@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.mz.member.model.dao.MemberDao;
 import com.mz.product.model.vo.Basket;
+import com.mz.product.model.vo.OrderDetail;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
 import com.mz.product.model.vo.ProductReview;
@@ -651,8 +652,110 @@ public class ProductDao {
 		
 		return result;
 	}
-
 	
+	// 은영
+	/**
+	 * 주문 상세 페이지에서 주문 페이지에 담긴 정보들을 조회하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @param orderNo : 주문 번호 (해당 번호의 주문 상세페이지로 이동)
+	 * @return : 해당 주문 번호에 속해있는 주문 페이지 정보가 담겨있는 OrderDetail객체
+	 */
+	public OrderDetail selectOrderDetail(Connection conn, String memId, int orderNo) {
+		
+		// 조회 => 한 행 => ResultSet => OrderDetail
+		OrderDetail op = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOrderDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			pstmt.setInt(2, orderNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				op = new OrderDetail( rset.getInt("ORDER_NO")
+						            , rset.getString("ORDER_NAME")
+						            , rset.getInt("ORDER_QUENTITY")
+						            , rset.getInt("TOTAL_PRICE")
+						            , rset.getInt("DELIVERY_PRICE")
+						            , rset.getString("SELLER")
+						            , rset.getString("SELLER_PHONE")
+						            , rset.getString("DELIVERY_STATUS"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return op;
+
+	}
+
+	// 은영
+	/**
+	 * 주문 상세 페이지 조회처리하는 Service
+	 * @param memId : 로그인한 회원 아이디
+	 * @param orderNo : 주문 번호 (해당 번호의 주문 상세페이지로 이동)
+	 * @return : 해당 주문 번호에 속해있는 주문 상세 정보가 담겨있는 ArrayList<OrderDetail>객체
+	 */
+	public ArrayList<OrderDetail> selectOrderDetailList(Connection conn, String memId, int orderNo) {
+		
+		// 조회 => 한 행 또는 여러행 => ResultSet => ArrayList<OrderDetail>
+		ArrayList<OrderDetail> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOrderDetail");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memId);
+			pstmt.setInt(2, orderNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new OrderDetail( rset.getInt("ORDER_NO")
+										, rset.getDate("ORDER_DATE")
+						                , rset.getInt("TOTAL_PRICE")
+						                , rset.getInt("DELIVERY_PRICE")
+						                , rset.getInt("DISCOUNT_FEE")
+						                , rset.getInt("TOTAL")
+						                , rset.getString("DEL_NAME")
+						                , rset.getString("DEL_PHONE")
+						                , rset.getString("DEL_EMAIL")
+						                , rset.getInt("DEL_ADDRESS_CODE")
+						                , rset.getString("DEL_ADDRESS")
+						                , rset.getString("DEL_ADDRESS_DETAIL")
+						                , rset.getString("DEL_ADDRESS_REF")
+						                , rset.getString("MEMO")
+						                , rset.getString("MEM_NAME")
+						                , rset.getString("MEM_PHONE")
+						                ));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+
+	}
 	
 	
 }
