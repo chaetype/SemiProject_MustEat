@@ -149,4 +149,16 @@
 		  FROM EDITOR
 	</entry>
 	
+	
+	<!-- 채윤 : 에디터글 상세조회 -->
+	<entry key="selectDetailEdior">
+		SELECT 
+		       EDITOR_NO
+			 , EDITOR_ATTACH
+			 , ENROLL_DATE
+			 , EDITOR_CONTENT
+	 	 FROM EDITOR
+		 WHERE EDITOR_NO = ?
+	</entry>
+	
 </properties>

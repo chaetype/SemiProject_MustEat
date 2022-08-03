@@ -190,7 +190,7 @@
 			<!-- 메뉴바 -->
 			<nav class="demo-dust menu menu--dustu">
 					
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/list.st">
 						<span class="menu__item-name">Restaurant</span>
 						<span class="menu__item-label">View all our Restaurant</span>
 					</a>

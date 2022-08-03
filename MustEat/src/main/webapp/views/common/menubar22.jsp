@@ -53,14 +53,20 @@
 
 
 
+<!-- favicon -->
+		<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
-	
 		body{margin:0 auto;}
 		
 		.wrap {
 		  display: grid;
 		  grid-template-columns: 270px minmax(420px, 1fr);
 		  grid-template-rows: 150px 1fr; /* search Form */
+		}
+
+		.menu__item-name, .menu__item-label{
+			font-family: 'Sriracha', cursive;
+
 		}
 		
 		.header {
@@ -71,7 +77,7 @@
 		
 		.main{
 			height:100%;
-			
+			background-color:white;
 
 		}
 		.search-label{width:20%;}
@@ -99,6 +105,43 @@
         .font-basic *{
 			font-size:12px;
 			color:black;
+		}
+
+		.menu-footer_down{
+			border:1px solid rgb(231, 216, 241);
+			width:270px;
+			height:79%;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			font-size:11.5px;
+			background-color: white;
+		}
+
+		.btn-outline-warning{
+			color:rgb(231, 216, 241);
+			background-color:transparent;
+			background-image:none;
+			border-color:rgb(231, 216, 241);
+		}
+
+		.btn-outline-warning:hover{
+			background:rgb(213, 164, 247);
+			border-color:rgb(213, 164, 247);
+		}
+		
+		.input-text{
+			height:50px;
+		}
+		.bbtn a{
+			color: white;
+		}
+		.mustEatInfo{
+			text-align:center;
+		}
+		.mustEatInfo>a{
+			margin-left:2px;
+			margin-bottom:7px;
 		}
 </style>
 </head>
@@ -144,7 +187,7 @@
 			<!-- 메뉴바 -->
 			<nav class="demo-dust menu menu--dustu">
 					
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/list.st">
 						<span class="menu__item-name">Restaurant</span>
 						<span class="menu__item-label">View all our Restaurant</span>
 					</a>

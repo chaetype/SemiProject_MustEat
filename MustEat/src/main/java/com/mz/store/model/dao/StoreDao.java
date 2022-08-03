@@ -420,5 +420,37 @@ public class StoreDao {
 
 		return list;
 	}
+	
+	
+	//채윤 에디터글 상세조회
+	public Editor selectDetailEdior(Connection conn, int editorNo) {
+		Editor e = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectDetailEdior");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, editorNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				e = new Editor(rset.getInt("EDITOR_NO")
+							, rset.getString("EDITOR_ATTACH")
+							, rset.getDate("ENROLL_DATE")
+							, rset.getString("EDITOR_CONTENT")
+							 );
+			}
+			
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return e;
+	}
 
 }

@@ -110,7 +110,9 @@
         <h1 style="text-align: center;"><b>MZ EDITOR PICK!</b></h1>
 
         	<%for(Editor e : list) {%>
+     		<input type="hidden" value="<%= e.getEditorNo() %>">
             <div class="thumbnail2" align="center">
+            	<input type="hidden" value="<%= e.getEditorNo() %>">
                 <img src="<%=contextPath%>/<%=e.getEditorAttach() %>" width="400" height="250">
                 
             </div>
@@ -121,7 +123,13 @@
         </div>
         
         
-       
+        <script>
+        	$(function(){
+        		$(".thumbnail2").click(function(){
+        			location.href = '<%=contextPath%>/cdetail.st?no=' + $(this).children("input").val();
+        		})
+        	})
+        </script>
         
         
         

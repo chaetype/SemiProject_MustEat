@@ -40,7 +40,59 @@
   <%@ include file="../common/menubar22.jsp"%>
   
   <div class=wrap88>
+  
    <form method="post" action="<%= contextPath %>/ctinsert.st" enctype="multipart/form-data">
+   
+   <table align="center">
+                
+                <tr>
+                    <th>대표이미지</th>
+                    <td colspan="3" align="center">
+                        <img id="titleImg" width="250" height="120" onclick="chooseFile(1);">
+                    </td>
+                </tr>
+                
+            </table>
+
+            <div id="file-area" style="display:none">
+                <input type="file" name="file1" onchange="loadImg(this, 1);" required>
+            </div>
+
+            <script>
+                function chooseFile(num){
+                    $("input[name=file" + num + "]").click();
+                }
+
+                function loadImg(inputFile, num){
+         
+
+                    if(inputFile.files.length == 1){ 
+
+                       
+                        const reader = new FileReader();
+
+                       
+                        reader.readAsDataURL(inputFile.files[0]);
+
+                        
+                        reader.onload = function(e){
+                            
+                            switch(num){
+                                case 1: $("#titleImg").attr("src", e.target.result); break;
+                           
+                            }
+                        }
+
+                    }else{ // 파일취소됐을경우 => 미리보기된것도 사라지게 
+                        switch(num){
+                            case 1: $("#titleImg").attr("src", null); break;
+                           
+                        }
+                    }
+
+                }
+            </script>
+  
             <textarea class="yui3-cssreset" id="summernote" name="editcontent"></textarea>
         
         	<button class="btn1" type="submit">작성완료</button>
