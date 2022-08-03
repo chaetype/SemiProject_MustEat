@@ -237,8 +237,9 @@
         <div class="wrap1212">
             <div class="outer" align="center">
             <form action="<%=contextPath%>/address.do">
-                <table>
-                    <b>배송정보</b>
+                <b>배송정보</b><br>
+                <table style="margin: top 10% ;">
+                   
                     <tbody>
                         <tr>
                             <th>* 이름</th>
@@ -290,9 +291,11 @@
                     <div class="clear"></div>
             
                     <div class="buttongroup center-align cmd">
-            
-                        <button class="btn1" onclick="requestPay()">결제하기</button>
-            
+                        <% if(loginUser == null){ // 로그인이 안되어있을 경우 %>
+                            <button class="btn1" onclick="noPay();">결제하기</button>
+                        <% }else{ // 로그인이 되어있을 경우 %>
+                            <button class="btn1" onclick="requestPay()">결제하기</button>
+                        <% } %>
                     </div>
             
                 </div>
@@ -302,6 +305,11 @@
         </div>
        
    </div>
+   <script>
+        function noPay(){
+            alert("로그인하셔야 합니다.")
+        }
+   </script>
     
    <script>
     function sample6_execDaumPostcode() {
@@ -379,26 +387,7 @@
       });
     }
 
-    IMP.request_pay({
-      /* ...중략... */
-    }, function (rsp) { // callback
-      if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
-        // jQuery로 HTTP 요청
-        jQuery.ajax({
-            url: "https://www.myservice.com/payments/complete", // 예: https://www.myservice.com/payments/complete
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            data: {
-                imp_uid: rsp.imp_uid,
-                merchant_uid: rsp.merchant_uid
-            }
-        }).done(function (data) {
-          // 가맹점 서버 결제 API 성공시 로직
-        })
-      } else {
-        alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
-      }
-    });
+    
   </script>
 
 

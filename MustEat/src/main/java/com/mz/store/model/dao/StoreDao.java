@@ -454,14 +454,16 @@ public class StoreDao {
 
 	
 	//채윤 식당 리뷰 등록
-		public int insertStoreReview(Connection conn, String html) {
+		public int insertStoreReview(Connection conn, String html,StoreReview sr) {
 		      int result = 0;
 		      PreparedStatement pstmt = null;
 		      String sql = prop.getProperty("insertStoreReview");
 		      
 		      try {
 		         pstmt = conn.prepareStatement(sql);
-		         pstmt.setString(1, html);
+		         pstmt.setString(1,sr.getReviewWriter());
+		         pstmt.setString(2, sr.getReviewTitle());
+		         pstmt.setString(3, html);
 		         result = pstmt.executeUpdate();
 		      } catch (SQLException e) {
 		         e.printStackTrace();

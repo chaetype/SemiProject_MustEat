@@ -48,12 +48,12 @@ public class ProductReview {
 	
 
 
-	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent /*, int prReviewRate*/) {
+	public ProductReview(int reviewNo, String reviewWriter, String prReviewContent , int prReviewRate) {
 		super();
 		this.reviewNo = reviewNo;
 		this.reviewWriter = reviewWriter;
 		this.prReviewContent = prReviewContent;
-		//this.prReviewRate = prReviewRate;
+		this.prReviewRate = prReviewRate;
 	}
 
 

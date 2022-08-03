@@ -8,6 +8,7 @@ import static com.mz.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Follow;
 import com.mz.member.model.vo.Member;
@@ -125,6 +126,26 @@ public class MemberService {
 		
 		return result;
 		
+	}
+	
+	// 태민
+	/**
+	 * 페이징처리하는중
+	 * @param pi
+	 * @return
+	 */
+	public ArrayList<Member> selectList(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList(conn, pi);
+		close(conn);
+		return list;
+	}
+	
+	public int selectListCount() {
+		Connection conn = getConnection();
+		int listCount = new MemberDao().selectListCount(conn);
+		close(conn);
+		return listCount;
 	}
 
 	

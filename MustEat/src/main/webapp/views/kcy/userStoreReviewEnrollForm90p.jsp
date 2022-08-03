@@ -48,12 +48,12 @@
         <h2 align="center">식당 리뷰 작성하기</h2>
         <br>
 
-        <form id="enroll-form" action="<%= contextPath %>/insert.bo" method="post" enctype="multipart/form-data">
+        <form id="enroll-form" action="<%= contextPath %>/srinsert.st" method="post" enctype="multipart/form-data">
             <!-- 카테고리번호, 제목, 내용, 로그인한회원번호, 첨부파일 한개 -->
             <table align="center">
                 <tr>
                     <th>제목</th>
-                    <td><input type="text" name="title" required></td>
+                    <td><input type="review-title" name="title" required></td>
                 </tr>
                 <tr>
                     <th>내용</th>

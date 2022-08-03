@@ -1,6 +1,7 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.mz.common.MyFileRenamePolicy;
+import com.mz.member.model.vo.Member;
 import com.mz.store.model.service.StoreService;
+import com.mz.store.model.vo.StoreReview;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
@@ -45,11 +48,23 @@ public class StoreReviewInsertController extends HttpServlet {
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 	       
 			
-			String html = multiRequest.getParameter("reviewcontent");
+			
 //	        System.out.println(html);
 	        
+			StoreReview sr = new StoreReview();
+
 	        
-	        int result = new StoreService().insertStoreReview(html);
+	        
+	        String writer = String.valueOf(((Member)session.getAttribute("loginUser")).getMemNo());
+	        String title = multiRequest.getParameter("review-title");
+			String html = multiRequest.getParameter("reviewcontent");
+			
+			
+			
+			sr.setReviewWriter(writer);
+			sr.setReviewTitle(title);
+		
+			int result = new StoreService().insertStoreReview(html, sr);
 	        
 	        if(result > 0) {
 	          response.sendRedirect(request.getContextPath() + "/srlist.st");

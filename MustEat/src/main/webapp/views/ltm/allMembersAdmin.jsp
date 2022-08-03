@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "com.mz.common.model.vo.PageInfo, java.util.ArrayList, com.mz.member.model.vo.Member" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,159 +126,73 @@
         <br>
 
         <table class="rwd-table" width="80%">   
-            <tbody>
-                <tr>
-                    <th></th>
-                    <th>번호</th>
-                    <th>아이디</th>
-                    <th>이름</th>
-                    <th>회원 등급</th>
-                    <th>휴대폰 번호</th>
-                    <th>가입일</th>
-                    <th>구매 횟수</th>
-                    <th>구매 누적액</th>
-                    <th>적립금</th>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>신뢰</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>신뢰</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>7</td>
-                    <td>120,000</td>
-                    <td>5000</td>
-                </tr>
                 
-            </tbody>
+                <tbody>
+
+                    <% if(list.isEmpty()){ %>
+                    <!--case1. 게시글이 없을경우-->
+                    <tr>
+                        <td colspan="10">조회된 멤버가 없습니다.</td>
+                    </tr>
+                    
+                    <%}else { %>
+                    <!--case2. 게시글이 있을경우-->
+                    <tr>
+                        <th></th>
+                        <th>번호</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>회원 등급</th>
+                        <th>휴대폰 번호</th>
+                        <th>가입일</th>
+                        <th>구매 횟수</th>
+                        <th>구매 누적액</th>
+                        <th>적립금</th>
+                    </tr>
+                    
+                    <% for(Member m : list){ %>
+                        <tr>
+		                    <th><input type="checkbox"></th>
+		                    <td><%= m.getMemNo() %></td>
+		                    <td><%= m.getMemId() %></td>
+		                    <td><%= m.getMemName() %></td>
+		                    <td><%= m.getMemGrade() %></td>
+		                    <td><%= m.getMemPhone() %></td>
+		                    <td><%= m.getEnrollDate() %></td>
+		                    <td><%= m.getAddress() %></td>
+		                    <td><%= m.getAddressDetail() %></td>
+		                    <td><%= m.getMemEmail() %></td>
+		                </tr>
+                     <%} %>
+                <%} %>
+                </tbody>
+                
         </table> 
 
         <!--페이징바 영역-->
         <div class="wrapper-paging">
 					    
             <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-                </ul>
+                <% if(currentPage != 1) {%>
+                    <button onclick="location.href='<%= contextPath %>/allMembersList.bo?cpage=<%=currentPage-1%>';">&lt;</button>
+                <% } %>
+                
+                <% for(int p=startPage; p<=endPage; p++){ %>
+                    
+                    <% if(p == currentPage){ %>
+                        <button disabled><%= p %></button>        		
+                    <% }else { %>
+                        <button onclick="location.href='<%=contextPath%>/allMembersList.bo?cpage=<%= p %>';"><%= p %></button>
+                    <% } %>
+                    
+                <% } %>
+                
+                <% if(currentPage != maxPage) {%>
+                <button onclick="location.href='<%= contextPath %>/allMembersList.bo?cpage=<%=currentPage+1%>';">&gt;</button>
+                <% } %>
             </nav>					
         
-        </div>
+        </div> 
         
         <br>
         

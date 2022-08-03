@@ -147,9 +147,9 @@ public class StoreService {
 	
 	
 	//채윤 식당리뷰 등록
-		public int insertStoreReview(String html) {
+		public int insertStoreReview(String html,StoreReview sr ) {
 			Connection conn = getConnection();
-			int result = new StoreDao().insertStoreReview(conn, html);
+			int result = new StoreDao().insertStoreReview(conn, html,sr);
 			
 			if(result > 0) {
 				commit(conn);
