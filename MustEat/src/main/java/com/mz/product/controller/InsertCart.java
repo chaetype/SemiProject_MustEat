@@ -40,8 +40,13 @@ public class InsertCart extends HttpServlet {
 		Basket bs = new Basket(String.valueOf(memNo), productCode, amount);
 		
 		int result = new ProductService().insertCart(bs);
+		if(result > 0) {
+			System.out.println("성공");
+		}else {
+			
+		}
+		response.sendRedirect(request.getContextPath()+"/detail.li?no=" + productCode);
 		
-		request.getRequestDispatcher("views/hsb/mealkitDetail.jsp").forward(request, response);
 	}
 
 	/**

@@ -34,7 +34,7 @@
             <tr>
                 <th id="contactCT">공지내용</th>
                 <td>
-                    <textarea name="contactContent" cols="30" rows="10" style="resize:none"></textarea>
+                    <textarea name="contactContent" cols="30" rows="10" style="resize:none" required></textarea>
                 </td>
             </tr>
 

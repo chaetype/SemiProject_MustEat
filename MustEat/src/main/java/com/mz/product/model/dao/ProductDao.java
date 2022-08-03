@@ -527,8 +527,8 @@ public class ProductDao {
 			while(rset.next()) {
 				list.add(new ProductReview(rset.getInt("review_no"),
 										   rset.getString("mem_id"),
-										   rset.getString("pr_review_content")
-										  /*, rset.getInt("pr_review_rate")*/));
+										   rset.getString("pr_review_content"),
+										   rset.getInt("pr_review_rate")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

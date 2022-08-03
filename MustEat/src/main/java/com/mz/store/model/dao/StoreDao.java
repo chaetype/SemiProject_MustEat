@@ -326,7 +326,6 @@ public class StoreDao {
 				
 				srList.add(new StoreReview(rset.getDate("REVIEW_ENROLLDATE")
 										 , rset.getString("REVIEW_TITLE")
-										 , rset.getInt("SCRAP_COUNT")
 										 , rset.getString("STORE_NAME")
 										 ));				
 				}

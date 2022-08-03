@@ -35,16 +35,6 @@ public class MemberEnrollForm2 extends HttpServlet {
 		
 		// 1) 인코딩 작업 (post방식이고 한글값 넘어올때)
 		request.setCharacterEncoding("UTF-8");
-		
-		int a = 0;
-		int addressCode;
-		if(request.getParameter("addressCode") == "") {
-			a = 1;
-			addressCode = a;
-		}else {
-			addressCode = request.getParameter("addressCode");
-		}
-
 				
 		// 2) 요청시 전달값 뽑아서 변수 및 객체에 기록하기
 		String userId = request.getParameter("userId");
@@ -53,7 +43,7 @@ public class MemberEnrollForm2 extends HttpServlet {
 		String userNick = request.getParameter("userNick");
 		String userEmail = request.getParameter("userEmail");
 		String userPhone = request.getParameter("userPhone");
-		int addressCode = a;
+		String addressCode = request.getParameter("addressCode");
 		String address = request.getParameter("address");
 		String addressDetail = request.getParameter("addressDetail");
 		String addressRef = request.getParameter("addressRef");

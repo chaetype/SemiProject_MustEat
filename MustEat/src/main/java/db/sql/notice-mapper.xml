@@ -131,6 +131,17 @@
 		 WHERE NOTICE_NO = ?
 	</entry>
 	
+	<!-- 공지사항 수정 -->
+	<entry key="updateNotice">
+		UPDATE
+		       NOTICE
+		   SET NOTICE_TITLE = ?
+		     , NOTICE_CONTENT = ?
+		     , NOTICE_WRITER = ?
+		     , NOTICE_ATTACH = ?
+		 WHERE NOTICE_NO = ?
+	</entry>
+	
 	
 	
 	
