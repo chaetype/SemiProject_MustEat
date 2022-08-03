@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+
 <!-- 파비콘 -->
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
@@ -44,6 +45,42 @@
         padding: 2px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
+
+    body{
+    	background-color: #eee;
+	}
+
+	.wrapper-paging{	
+		margin-top:4%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	.page-link {
+	    position: relative;
+	    display: block;
+	    color: #673AB7 !important;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #673AB7 !important;
+	}
+	
+	
+	.page-link:hover {
+	    z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
+	}
+	
+	
+	.page-link:focus {
+		border-color: rgb(167, 112, 239) !important;
+	    z-index: 3;
+	    outline: 0;
+	    box-shadow: none;
+	}
 </style>
 </head>
 <body>
@@ -215,18 +252,22 @@
                 
             </tbody>
         </table> 
-       
-        <br>
 
         <!--페이징바 영역-->
-        <div class="paging-area" align="center">
-            <button>&lt;</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>&gt;</button>
+        <div class="wrapper-paging">
+					    
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                </ul>
+            </nav>					
+        
         </div>
         
         <br>

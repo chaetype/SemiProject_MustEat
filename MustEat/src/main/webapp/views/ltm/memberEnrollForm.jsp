@@ -85,7 +85,7 @@
                     <tr>
                         <th>*휴대전화</th>
                         <td><input type="text" name="userPhone" id=phone placeholder="-빼고 작성해주세요" required></td>
-                        <td><button type="button" id="phoneChk" class="btn1" onclick="phoneCheck();">인증번호발송</button></td>
+                        <td><button type="button" id="phoneChk" class="btn1" onclick="phoneCheck();">본인인증</button></td>
                     </tr>
                     <tr id="show" style="display:none">
                         <th></th>
@@ -374,7 +374,7 @@
                     data:{checkPhone:$phoneInput.val()},
                     success:function(result){ 
                         ranNum = result;
-                        alert("문자가 정상적으로 발송되었습니다.")
+                        alert("인증번호가 정상적으로 발송되었습니다.")
                         
                     },error:function(){
                         console.log("휴대폰 본인인증 ajax 통신 실패");
