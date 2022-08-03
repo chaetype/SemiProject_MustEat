@@ -835,6 +835,8 @@ public class MemberDao {
 			
 		}
 	
+		// 서원 사용자 리뷰 조회 
+		
 		
 		
 }
