@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.product.model.vo.OrderDetail"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.product.model.vo.OrderDetail, java.text.DecimalFormat"%>
 <%
 	OrderDetail od = (OrderDetail)request.getAttribute("detail");
 	ArrayList<OrderDetail> list = (ArrayList<OrderDetail>)request.getAttribute("list");
+	
+ 	DecimalFormat df = new DecimalFormat("#,##0"); // 가격 천단위로 보여지도록 설정
 %>
 <!DOCTYPE html>
 <html>
@@ -65,14 +67,14 @@
             <%=odl.getProductName() %>
           </div>
           </td>
-
+          
             <td class="money">
-              <em class="thm"><%=odl.getPrice() %></em>원<br>
+              <em class="thm"><%=df.format(odl.getPrice()) %></em>원<br>
                 <span>(<%=odl.getAmount() %>개)</span>
             </td>
             <td class="sellerInfo" rowspan="1">
               <div class="send">
-                  <div class="deliveryPrice"><%=odl.getDeliveryPrice() %>원</div> 
+                  <div class="deliveryPrice"><%=df.format(odl.getDeliveryPrice()) %>원</div> 
                   <div class="seller"><%=odl.getSeller() %></div>
                   <div class="tel">
                     <span><%=odl.getSellerPhone() %></span>
@@ -104,15 +106,15 @@
                       <ul class="price_list">
                         <li>
                           <span>상품금액</span>
-                          <p class="thm"><em><%=od.getPrice() %></em>원</p>
+                          <p class="thm"><em><%=df.format(od.getPrice()) %></em>원</p>
                         </li>
                         <li>
                           <span>배송비</span>
-                          <p class="thm"><em><%=od.getDeliveryPrice() %></em>원</p>
+                          <p class="thm"><em><%=df.format(od.getDeliveryPrice()) %></em>원</p>
                         </li>
                         <li>
                           <span>적립금사용</span>
-                          <p class="thm"><em><%=od.getDiscountPrice() %></em>원</p>
+                          <p class="thm"><em><%=df.format(od.getDiscountPrice()) %></em>원</p>
                         </li>
                       </ul>
                     </dd>
@@ -128,7 +130,7 @@
                   </dl>
                     <!-- 주문금액 -->
                     <div class="total_price">
-                        <p><em><%=od.getTotalPrice() %></em>원</p>
+                        <p><em><%=df.format(od.getTotalPrice()) %></em>원</p>
                    </div>
                 </div>
             </td>
@@ -143,9 +145,17 @@
               <th width="15%" height="50px;" class="deliveryTh">수령인</th>
               <td width="55%" height="50px;"><%=od.getDelName() %></td>
               <th class="deliveryInfo" width="30%"  height="50px;">주문자 정보
-                <button type="button" class="btn1">회원정보수정</button>
+                <button type="button" class="btn1" onclick="updateMem();">회원정보수정</button>
               </th>
             </tr>
+            
+            <script>
+            	
+            	function updateMem() {
+            		location.href="<%=contextPath%>/updateForm.me";
+            	}
+            
+            </script>
 
             <tr>
               <th height="30px;" class="deliveryTh">연락처</th>

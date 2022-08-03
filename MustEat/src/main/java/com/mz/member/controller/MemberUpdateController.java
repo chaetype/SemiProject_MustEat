@@ -37,6 +37,11 @@ public class MemberUpdateController extends HttpServlet {
 		// 1) 인코딩 처리
 		request.setCharacterEncoding("UTF-8");
 		
+		int a = 0; // 주소 입력한 경우
+		if(request.getParameter("addressCode") == "") { // 주소 입력하지 않은 경우
+			a = 1;
+		}
+		
 		// 2) 요청시 전달값 뽑기 => 변수 및 객체 담기
 		String memId = request.getParameter("userId");
 		String updatePwd = request.getParameter("updatePwd");
@@ -44,7 +49,7 @@ public class MemberUpdateController extends HttpServlet {
 		String memNickname = request.getParameter("userNickname");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
-		int addressCode = Integer.parseInt(request.getParameter("addressCode"));
+		int addressCode = a;
 		String address = request.getParameter("address");
 		String addressDetail = request.getParameter("addressDetail");
 		String addressRef = request.getParameter("addressRef");

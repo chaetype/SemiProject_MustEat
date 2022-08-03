@@ -86,10 +86,29 @@
                 <tr class="updateInfo">
                     <th>주소</th>
                     <td colspan="3">
+                    	<% if( addressCode == 0) { %>
+                    	<input type="text" name="addressCode" value=""> <button class="addressCheck btn1">주소검색</button>  <br>
+                    	<% } else { %>
                         <input type="text" name="addressCode" value="<%=addressCode %>"> <button class="addressCheck btn1">주소검색</button>  <br>
+                        <% } %>
+                        
+                        <% if ( address == null) { %>
+                       	 <input type="text" name="address" value=""> <br>
+                       	<% } else { %>
                         <input type="text" name="address" value="<%=address %>"> <br>
+                        <% } %>
+                        
+                        <% if( addressDetail == null) { %>
+                        <input type="text" name="addressDetail" value="" style="width:50%;">
+                        <% } else { %>
                         <input type="text" name="addressDetail" value="<%=addressDetail%>" style="width:50%;">
+                        <% } %>
+                        
+                        <% if( addressRef == null) { %>
+                        <input type="text" name="addressRef" value="" style="width:50%;">
+                        <% } else { %>
                         <input type="text" name="addressRef" value="<%=addressRef%>" style="width:50%;">
+                        <% } %>
                     </td>
                 </tr>
               

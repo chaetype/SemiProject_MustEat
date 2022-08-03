@@ -300,7 +300,11 @@ public class MemberDao {
 			pstmt.setString(3, m.getMemPhone());
 			pstmt.setString(4, m.getMemEmail());
 			pstmt.setString(5, m.getMemNickname());
-			pstmt.setInt(6, m.getAddressCode());
+			if(m.getAddressCode() == 1) {
+				pstmt.setString(6, null);
+			}else {
+				pstmt.setInt(6, m.getAddressCode());
+			}
 			pstmt.setString(7, m.getAddress());
 			pstmt.setString(8, m.getAddressDetail());
 			pstmt.setString(9, m.getAddressRef());
@@ -343,7 +347,7 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				
+								
 				updateMem = new Member(rset.getString("mem_id")
 									 , rset.getString("mem_pwd")
 									 , rset.getString("mem_name")

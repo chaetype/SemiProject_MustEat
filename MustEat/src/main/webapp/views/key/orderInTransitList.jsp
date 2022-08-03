@@ -107,12 +107,12 @@
 	          <li class="goodsPayItem">
 	
 	            <div class="goodsItem">
-	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
+	            <a href="<%=contextPath %>/detail.pro?orderNo=<%=ol.getOrderNo() %>" class="goodsThumb">
 	              <img src="../../resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
 	            </a>
 	
 	            <div class="goodsInfo">
-	              <a href="해당 상품 주문상세페이지" class="goods">
+	              <a href="<%=contextPath %>/detail.pro?orderNo=<%=ol.getOrderNo() %>" class="goods">
 	                <p class="goodsName"><%=ol.getProductName() %></p>
 	                <ul class="info">
 	                  <li class="goodsPrice"><%=df.format(price) %>원
