@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.member.model.vo.Member"%>
-<% String contextPath = request.getContextPath(); 
+    pageEncoding="UTF-8" import="com.mz.member.model.vo.Member, com.mz.store.model.vo.Store"%>
+<%  
+	String contextPath = request.getContextPath(); 
+
+	Store thatStore = (Store)session.getAttribute("thatStore");
 	
 	Member loginUser = (Member)session.getAttribute("loginUser");
-
+	
 	String alertMsg = (String)session.getAttribute("alertMsg");
 %>
 <!DOCTYPE html>
@@ -265,6 +268,7 @@
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
+
 
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>

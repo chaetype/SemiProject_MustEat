@@ -1,23 +1,28 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mz.store.model.service.StoreService;
+import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class StoreReviewEnrollController
+ * Servlet implementation class StoreReviewSessionController
  */
-@WebServlet("/reenroll.st")
-public class StoreReviewEnrollController extends HttpServlet {
+@WebServlet("/Session.st")
+public class StoreReviewSessionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreReviewEnrollController() {
+    public StoreReviewSessionController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,12 +31,18 @@ public class StoreReviewEnrollController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		
-		int storeNo = Integer.parseInt(request.getParameter("storeNo"));
+		String storename = request.getParameter("storename");
+		String storeno = request.getParameter("storeno");
 		
-		request.setAttribute("storeNo", storeNo);
+		Store thatStore = new StoreService().storeSession(storename, storeno);
 		
-		request.getRequestDispatcher("views/kcy/userStoreReviewEnrollForm90p.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("thatStore", thatStore);
+		
+		response.sendRedirect(request.getContextPath());
 	}
 
 	/**

@@ -116,7 +116,7 @@
             </div>
            
             <div class="info">
-            
+                
                 <h2><%= s.getStoreName() %></h2>
                 <br>
                 <%= s.getStoreAddress() %>
@@ -124,7 +124,12 @@
                 <%= s.getStoreIntro()%>
             </div>
             <button class="btn1" style="margin: 5px;"> ❥ 찜 ❥</button>
-            
+            <% if(loginUser != null) { %>
+        <div align="right" style="width:80%; float: right;">
+        	<a href="<%= contextPath %>/reenroll.st?storeNo=<%=s.getStoreNo() %>"  class="btn1" style="float: right;">리뷰쓰기</a>
+        	<br><br>
+        </div>
+        <% } %>
         </div>
         <div class="outer222">
             

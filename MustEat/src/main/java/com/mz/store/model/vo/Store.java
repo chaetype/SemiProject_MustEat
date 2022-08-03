@@ -26,6 +26,7 @@ public class Store {
 	private String storeReview;//식당리뷰내용
 	private String reviewImg;//식당리뷰이미지
 	private String reviewWriter;//식당리뷰작성자
+	private int count;//식당 조회수
 	
 	
 	public Store() {
@@ -37,7 +38,7 @@ public class Store {
 			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
 			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
 			String dayOff, String storeUrl, Date storeEnrollDate, String storeReview, String reviewImg,
-			String reviewWriter) {
+			String reviewWriter,int count) {
 		super();
 		this.storeNo = storeNo;
 		this.localSi = localSi;
@@ -61,7 +62,38 @@ public class Store {
 		this.storeReview = storeReview;
 		this.reviewImg = reviewImg;
 		this.reviewWriter = reviewWriter;
+		this.count= count;
 	}
+	
+	
+	public Store(int storeNo, String localSi, String localGu, String localRo, String storeName, String storeTag,
+			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
+			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
+			String dayOff, String storeUrl, Date storeEnrollDate,int count) {
+		super();
+		this.storeNo = storeNo;
+		this.localSi = localSi;
+		this.localGu = localGu;
+		this.localRo = localRo;
+		this.storeName = storeName;
+		this.storeTag = storeTag;
+		this.storeAddress = storeAddress;
+		this.storePhone = storePhone;
+		this.storeIntro = storeIntro;
+		this.storeImgPath = storeImgPath;
+		this.storePopularity = storePopularity;
+		this.storePopInfo = storePopInfo;
+		this.storePopPath = storePopPath;
+		this.storeOperating = storeOperating;
+		this.storeBreaktime = storeBreaktime;
+		this.naverAddress = naverAddress;
+		this.dayOff = dayOff;
+		this.storeUrl = storeUrl;
+		this.storeEnrollDate = storeEnrollDate;
+		this.count= count;
+	}
+	
+	
 	
 	
 	public Store(int storeNo, String storeName, String storeAddress, String storeIntro,

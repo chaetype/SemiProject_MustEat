@@ -462,9 +462,10 @@ public class StoreDao {
 		      
 		      try {
 		         pstmt = conn.prepareStatement(sql);
-		         pstmt.setString(1,sr.getReviewWriter());
-		         pstmt.setString(2, sr.getReviewTitle());
-		         pstmt.setString(3, html);
+		         pstmt.setInt(1, sr.getStoreNo());
+		         pstmt.setString(2,sr.getReviewWriter());
+		         pstmt.setString(3, sr.getReviewTitle());
+		         pstmt.setString(4, html);
 		         result = pstmt.executeUpdate();
 		      } catch (SQLException e) {
 		         e.printStackTrace();
@@ -474,4 +475,55 @@ public class StoreDao {
 		      
 		      return result;
 		   }
+		
+		
+		
+	//채윤 식당 세션
+		
+		public Store storeSession(Connection conn,String storename, String storeno) {
+			Store s = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("storeSession");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, storename);
+				pstmt.setString(2, storeno);
+				
+				
+				rset=pstmt.executeQuery();
+				
+				if(rset.next()) {
+					s = new Store(rset.getInt("STORE_NO")
+							    , rset.getString("LOCAL_SI")
+							    , rset.getString("LOCAL_GU")
+							    , rset.getString("LOCAL_RO")
+							    , rset.getString("STORE_NAME")
+							    , rset.getString("STORE_TAG")
+							    , rset.getString("STORE_ADDRESS")
+							    , rset.getString("STORE_PHONE")
+							    , rset.getString("STORE_INTRO")
+							    , rset.getString("STORE_IMG_PATH")
+							    , rset.getString("STORE_POPULARITY")
+							    , rset.getString("STORE_POP_INFO")
+							    , rset.getString("STORE_POP_PATH")
+							    , rset.getString("STORE_OPERATING")
+							    , rset.getString("STORE_BREAKTIME")
+							    , rset.getString("NAVER_ADDRESS")
+							    , rset.getString("DAY_OFF")
+							    , rset.getString("STORE_URL")
+							    , rset.getDate("STORE_ENROLLDATE")
+							    , rset.getInt("COUNT"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			return s;
+		}
 }

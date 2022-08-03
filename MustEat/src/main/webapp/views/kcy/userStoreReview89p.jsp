@@ -316,12 +316,7 @@
 					</div>
 				</div>
 			</div>
-			<% if(loginUser != null) { %>
-        <div align="right" style="width:80%; float: right;">
-        	<a href="<%= contextPath %>/reenroll.st"  class="btn1" style="float: right;">글쓰기</a>
-        	<br><br>
-        </div>
-        <% } %>
+			
 			
 			
 			

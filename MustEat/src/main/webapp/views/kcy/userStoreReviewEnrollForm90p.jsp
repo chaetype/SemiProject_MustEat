@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
-
+    pageEncoding="UTF-8" import="com.mz.store.model.vo.*"%>
+<%
+	int storeNo = (int)request.getAttribute("storeNo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +49,11 @@
         <br>
         <h2 align="center">식당 리뷰 작성하기</h2>
         <br>
-
-        <form id="enroll-form" action="<%= contextPath %>/srinsert.st" method="post" enctype="multipart/form-data">
+	
+        <form id="enroll-form" action="<%= contextPath %>/srinsert.st?no=<%=storeNo %>" method="post" enctype="multipart/form-data">
             <!-- 카테고리번호, 제목, 내용, 로그인한회원번호, 첨부파일 한개 -->
+            <input type="hidden" name="no" value="<%=storeNo%>">
+      
             <table align="center">
                 <tr>
                     <th>제목</th>
@@ -57,7 +61,7 @@
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td> <textarea class="yui3-cssreset" id="summernote" name="reviewcontent"></textarea></textarea></td>
+                    <td> <textarea class="yui3-cssreset" id="summernote" name="reviewcontent"></textarea></td>
                 </tr>
 
             </table>

@@ -22,6 +22,7 @@ public class StoreReview {
 	private String reviewMemId;//리뷰작성 회원 아이디
 	private String memLevel;//리뷰작성 회원 등급
 	private String storeName; // 식당명
+	private String reMemNick;//리뷰작성 회원 닉네임
 	
 	public StoreReview() {
 		
@@ -70,6 +71,15 @@ public class StoreReview {
 		this.reviewTitle = reviewTitle;
 		this.scrapCount = scrapCount;
 		this.storeName = storeName;
+	}
+
+	
+	public String getReMemNick() {
+		return reMemNick;
+	}
+
+	public void setReMemNick(String reMemNick) {
+		this.reMemNick = reMemNick;
 	}
 
 	public int getReNo() {

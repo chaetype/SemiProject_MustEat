@@ -8,6 +8,8 @@ import static com.mz.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.mz.member.model.dao.MemberDao;
+import com.mz.member.model.vo.Member;
 import com.mz.store.model.dao.StoreDao;
 import com.mz.store.model.vo.Editor;
 import com.mz.store.model.vo.Store;
@@ -160,6 +162,14 @@ public class StoreService {
 			close(conn);
 			
 			return result;
+		}
+		
+	//채윤 식당리뷰 세선
+		public Store storeSession(String storename, String storeno) {
+			Connection conn = getConnection();
+			Store s = new StoreDao().storeSession(conn, storename, storeno);
+			close(conn);
+			return s;
 		}
 	
 }

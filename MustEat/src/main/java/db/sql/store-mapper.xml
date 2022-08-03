@@ -167,6 +167,7 @@
 		  INTO STORE_RE
 		  (
 		    RE_NO
+		  , STORE_NO
 		  , REVIEW_WRITER
 		  , REVIEW_TITLE
 		  , REVIEW_CONTENT
@@ -174,7 +175,8 @@
 		  )
 		  VALUES
 		  (
-		    SEQ_ENO.NEXTVAL
+		    SEQ_RNO.NEXTVAL
+		  , ?
 		  , ?
 		  , ?
 		  , ?
@@ -182,4 +184,33 @@
 		  )
 	</entry>
 	
+	
+	<!-- 채윤 식당 세션 -->
+	
+	<entry key="storeSession">
+		SELECT
+			   STORE_NO
+			 , LOCAL_SI
+			 , LOCAL_GU
+			 , LOCAL_RO
+			 , STORE_NAME
+			 , STORE_TAG
+			 , STORE_ADDRESS
+			 , STORE_PHONE
+			 , STORE_INTRO
+			 , STORE_IMG_PATH
+			 , STORE_POPULARITY
+			 , STORE_POP_INFO
+			 , STORE_POP_PATH
+			 , STORE_OPERATING
+			 , STORE_BREAKTIME
+			 , NAVER_ADDRESS
+			 , DAY_OFF
+			 , STORE_URL
+			 , STORE_ENROLLDATE
+			 , COUNT
+		  FROM STORE
+		 WHERE STORE_NAME=?
+		   AND STORE_NO=?
+	</entry>
 </properties>

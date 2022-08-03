@@ -54,15 +54,16 @@ public class StoreReviewInsertController extends HttpServlet {
 			StoreReview sr = new StoreReview();
 
 	        
-	        
+	        int storeNo = Integer.parseInt(request.getParameter("no"));
 	        String writer = String.valueOf(((Member)session.getAttribute("loginUser")).getMemNo());
-	        String title = multiRequest.getParameter("review-title");
+	        String title = multiRequest.getParameter("title");
 			String html = multiRequest.getParameter("reviewcontent");
 			
 			
-			
+			sr.setStoreNo(storeNo);
 			sr.setReviewWriter(writer);
 			sr.setReviewTitle(title);
+		System.out.println(sr);
 		
 			int result = new StoreService().insertStoreReview(html, sr);
 	        

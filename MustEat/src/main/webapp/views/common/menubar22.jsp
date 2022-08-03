@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.mz.member.model.vo.Member"%>
-<% String contextPath = request.getContextPath(); 
+<%  
+	String contextPath = request.getContextPath(); 
+
+	Store thatStore = (Store)session.getAttribute("thatStore");
 	
 	Member loginUser = (Member)session.getAttribute("loginUser");
-
+	
 	String alertMsg = (String)session.getAttribute("alertMsg");
 %>
 
