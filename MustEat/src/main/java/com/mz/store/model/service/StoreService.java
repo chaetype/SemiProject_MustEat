@@ -144,4 +144,22 @@ public class StoreService {
 		close(conn);
 		return e;
 	}
+	
+	
+	//채윤 식당리뷰 등록
+		public int insertStoreReview(String html) {
+			Connection conn = getConnection();
+			int result = new StoreDao().insertStoreReview(conn, html);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
+	
 }

@@ -1,8 +1,6 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,22 +11,20 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.mz.common.MyFileRenamePolicy;
-import com.mz.member.model.vo.Member;
 import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.Editor;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
- * Servlet implementation class CategoryInsertContoller
+ * Servlet implementation class StoreReviewInsertController
  */
-@WebServlet("/ctinsert.st")
-public class CategoryInsertContoller extends HttpServlet {
+@WebServlet("/srinsert.st")
+public class StoreReviewInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CategoryInsertContoller() {
+    public StoreReviewInsertController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,9 +32,8 @@ public class CategoryInsertContoller extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-    	request.setCharacterEncoding("UTF-8");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         
         if(ServletFileUpload.isMultipartContent(request)) {
@@ -50,20 +45,19 @@ public class CategoryInsertContoller extends HttpServlet {
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 	       
 			
-			String html = multiRequest.getParameter("editcontent");
+			String html = multiRequest.getParameter("reviewcontent");
 //	        System.out.println(html);
 	        
 	        
-	        int result = new StoreService().insertEditor(html);
+	        int result = new StoreService().insertStoreReview(html);
 	        
 	        if(result > 0) {
-	          response.sendRedirect(request.getContextPath() + "/clist.st");
+	          response.sendRedirect(request.getContextPath() + "/srlist.st");
 	           session.setAttribute("successMsg", "성공적으로 등록하였습니다.");
 	        }
 	        
         }    
-        
-     }
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

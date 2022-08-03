@@ -57,7 +57,7 @@
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td> <textarea class="yui3-cssreset" id="summernote" name="editcontent"></textarea></textarea></td>
+                    <td> <textarea class="yui3-cssreset" id="summernote" name="reviewcontent"></textarea></textarea></td>
                 </tr>
 
             </table>

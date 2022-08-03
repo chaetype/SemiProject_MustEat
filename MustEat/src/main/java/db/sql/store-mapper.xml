@@ -161,4 +161,22 @@
 		 WHERE EDITOR_NO = ?
 	</entry>
 	
+	<!-- 채윤 식당리뷰 -->
+	<entry key="insertStoreReview">
+	INSERT
+		  INTO STORE_RE
+		  (
+		    RE_NO
+		  , REVIEW_TITLE
+		  , REVIEW_CONTENT
+		  , COUNT
+		  , SCRAP_COUNT
+		  )
+		  VALUES
+		  (
+		    SEQ_ENO.NEXTVAL
+		  , ?
+		  )
+	</entry>
+	
 </properties>
