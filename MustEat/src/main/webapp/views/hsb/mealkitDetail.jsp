@@ -109,9 +109,11 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 							<% if(loginUser == null){ // 로그인이 안되어있을 경우 %>
 								<button type="button" class="btn1" onclick="log1();">바로구매</button>
 								<button type="button" class="btn1" onclick="log2();">장바구니</button>
+								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% }else{ // 로그인이 되어있을 경우 %>
 								<a href="<%=contextPath%>/address.do"><button type="button" class="btn1">바로구매</button></a>
 								<button type="submit" class="btn1">장바구니</button>
+								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% } %>
 					</div>
 				</form>

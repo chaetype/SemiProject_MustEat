@@ -22,27 +22,20 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 
+
 <style>
  
 
 
-.paging-area>button{
-        background-color: rgb(167, 112, 239);
-        color: white;
-        font-family: 'OTWelcomeRA';
-        line-height: 0.28in;
-        border: none;
-        border-radius: 10%;
-        height: 38px;
-        width: 30px;
-    }
+
     
      .list-area{
         border:1px solid white;
         text-align:center;
+        margin:auto;
     }
     .mealkit>img:hover, .mealkit>p:hover{
-    	
+    	opacity:0.7;
     	cursor:pointer;
     }
    
@@ -51,10 +44,11 @@
 	}
 
 	.wrapper-paging{	
-		margin-top:4%;
-	    display: flex;
 	    justify-content: center;
 	    align-items: center;
+        
+        
+
 	}
 	
 	.page-link {
@@ -82,22 +76,37 @@
 	    box-shadow: none;
 	}
 
+    .list-area{
+        width:760px;
+        
+    }
+    .mealkit{
+        border:1px solid white;
+        width:220px;
+        display:inline-block;
+        margin:14px;
+    }
+    .thumbnail:hover{
+    	cursor:pointer;
+    	opacity:0.7;
+    }
+
+    .wrap{
+        
+    }
+
 </style>
 </head>
 <body>
     <%@ include file="../common/menubar.jsp"%>
-    <div class="wrap">
-    <div class="logo-bar con">
-        <div align="center">
-            <h1>MEALKIT</h1>
-            <br>
-        </div>
-      
-    </div>
    
+    <div class="outer">
     
-    
-     <div class="list con">
+        
+            <h1 align="center">MEALKIT</h1>
+            <br>
+        
+     <div class="list-area" align="center">
      
      	<% if(listP.isEmpty()) { %>
                        
@@ -105,12 +114,12 @@
               
 			<% }else { %>
 				<% for(Product p : listP) { %>
-	            <div class="mealkit" align="center">
+	            <div class="mealkit" align="center" style="margin-top: 0%; height:300px;">
 	            	<input type="hidden" value="<%= p.getProductCode() %>">
 	                <img src="<%= contextPath %>/<%= p.getImgPath() %>" width="200" height="150">
 	                <p>
-	                    No.<%= p.getProductCode() %> <%= p.getProductName() %> <br>
-	                    <%= p.getPrice() %>원
+	                    No.<%= p.getProductCode() %> <%= p.getProductName() %> <br><br>
+	                    <b>가격:</b> <%= p.getPrice() %>원
 	                </p>
 	            </div>
 				<% } %>
@@ -124,43 +133,36 @@
         		})
         	})
         </script>
+      </div>
 
-        <!-- 페이징바 영역 -->
-        <div class="paging-area" align="center">
-        	<% if(currentPage != 1){ %>
-            <button onclick="location.href='<%=contextPath%>/mealList.bo?cpage=<%=currentPage-1%>';">&lt;</button>
-            <% } %>
-            
-			<% for(int p=startPage; p<=endPage; p++) {%>
-			
-				<% if(p == currentPage){ %>
-				<button disabled><%= p %></button>
-				<% }else { %>
-            	<button onclick="location.href='<%=contextPath%>/mealList.bo?cpage=<%= p %>';"><%= p %></button>
-            	<% } %>
-            <% } %>
-			
-			<% if(currentPage != maxPage){ %>
-            <button onclick="location.href='<%=contextPath%>/mealList.bo?cpage=<%=currentPage+1%>';">&gt;</button>
-            <% } %>
-        </div>
-        
-        <div class="wrapper-paging">
-					    
-			    <nav aria-label="Page navigation example">
-					<ul class="pagination">
-					    <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-					    <li class="page-item"><a class="page-link" href="#">1</a></li>
-					    <li class="page-item"><a class="page-link" href="#">2</a></li>
-					    <li class="page-item"><a class="page-link" href="#">3</a></li>
-					    <li class="page-item"><a class="page-link" href="#">4</a></li>
-					    <li class="page-item"><a class="page-link" href="#">5</a></li>
-					    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-				    </ul>
-				</nav>					
-			
-			</div>
+
+
+            <div class="wrapper-paging">
+						    
+                <nav aria-label="Page navigation example" style="width : 100%;">
+                    <ul class="pagination" style="width : 100%; justify-content: center;">
+                        <% if(currentPage != 1) { %>
+                            <li class="page-item"><a class="page-link" href="<%=contextPath%>/mealList.bo?cpage=<%=currentPage-1%>">&lt;</a></li>
+                        <% } %>
+                        
+                        <% for(int p=startPage; p<=endPage; p++) { %>
+                            
+                            <% if(p == currentPage) { %>
+                                <li class="page-item"><a class="page-link focus" href="<%=contextPath%>/mealList.bo?cpage=<%= p %>"><%= p %></a></li>
+                            <% } else { %>
+                                <li class="page-item"><a class="page-link" href="<%=contextPath%>/mealList.bo?cpage=<%=p%>"><%= p %></a></li>
+                            <% } %>
+                            
+                        <% } %>
+                        
+                        <% if(currentPage != maxPage) { %>
+                            <li class="page-item"><a class="page-link" href="<%=contextPath%>/mealList.bo?cpage=<%=currentPage+1%>">&gt;</a></li>
+                        <% } %>
+                    </ul>
+                </nav>					
+                    
+            </div>
     
-</div>
+
 </body>
 </html>
