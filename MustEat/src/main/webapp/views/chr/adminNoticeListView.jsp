@@ -118,7 +118,7 @@
             </thead>
             <tbody>
             	<% for(int i=0; i<list.size(); i++){ %>
-	                <tr onclick="location.href='<%=contextPath%>/adminNoticeDetail.no?no=<%=list.get(i).getNoticeNo()%>'">
+	                <tr onclick="location.href='<%=contextPath%>/adminNoticeDetail.no?no=<%=list.get(i).getNoticeNo()%>&cpage=<%=currentPage%>'">
 	                    <td><input type="checkbox" name="check" id="chkbox"></td>
 	                    <td><%= list.get(i).getNoticeNo() %></td>
 	                    <td><%= list.get(i).getNoticeTitle() %></td>
