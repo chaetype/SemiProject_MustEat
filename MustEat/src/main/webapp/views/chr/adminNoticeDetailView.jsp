@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="com.mz.notice.model.vo.Notice"%>
 <%
 	Notice n = (Notice)request.getAttribute("n");
+	int currentPage = (int)request.getAttribute("currentPage");
 %>
 <!DOCTYPE html>
 <html>
@@ -114,8 +115,10 @@
             </div>
 
             <div align="center">
-                <button type="submit" class="btn1">수정하기</button>
-                <button type="reset" class="btn1">목록으로</button>
+            	<% if(loginUser != null && loginUser.getMemId().equals(n.getNoticeWriter())){ %>
+                <button type="submit" class="btn1" onclick="location.href='<%=contextPath%>/adminNoticeUpdateForm.no?no=<%=n.getNoticeNo()%>&cpage=<%=currentPage%>'">수정하기</button>
+                <% } %>
+                <button type="reset" class="btn1" onclick="location.href='<%=contextPath%>/adminNoticeList.no?cpage=<%=currentPage%>'">목록으로</button>
             </div>
             
             

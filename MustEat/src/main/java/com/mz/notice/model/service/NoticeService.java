@@ -122,6 +122,22 @@ public class NoticeService {
 		return n;
 	}
 	
+	/** 공지사항 수정 메소드
+	 * @param n 수정할 정보가 담긴 공지사항 객체
+	 * @return 성공/실패 결과
+	 */
+	public int updateNotice(Notice n) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().updateNotice(conn, n);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 	
 	
 }

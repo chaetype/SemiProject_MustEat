@@ -12,16 +12,16 @@ import com.mz.notice.model.service.NoticeService;
 import com.mz.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class AdminNoticeDetailController
+ * Servlet implementation class AdminNoticeUpdateFormController
  */
-@WebServlet("/adminNoticeDetail.no")
-public class AdminNoticeDetailController extends HttpServlet {
+@WebServlet("/adminNoticeUpdateForm.no")
+public class AdminNoticeUpdateFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminNoticeDetailController() {
+    public AdminNoticeUpdateFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +34,11 @@ public class AdminNoticeDetailController extends HttpServlet {
 		int noticeNo = Integer.parseInt(request.getParameter("no"));
 		int currentPage = Integer.parseInt(request.getParameter("cpage"));
 		
-		int result = new NoticeService().increaseCount(noticeNo);
+		Notice n = new NoticeService().selectNotice(noticeNo);
 		
-		if(result > 0) {
-			
-			Notice n = new NoticeService().selectNotice(noticeNo);
-			
-			request.setAttribute("n", n);
-			request.setAttribute("currentPage", currentPage);
-			request.getRequestDispatcher("views/chr/adminNoticeDetailView.jsp").forward(request, response);
-			
-		}
+		request.setAttribute("n", n);
+		request.setAttribute("currentPage", currentPage);
+		request.getRequestDispatcher("views/chr/adminNoticeUpdateForm.jsp").forward(request, response);
 		
 	}
 
