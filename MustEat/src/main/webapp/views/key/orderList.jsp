@@ -151,12 +151,12 @@
 				
 				<% if( ol.getOrderStatus() == 2) { %>
 				<!-- 구매확정시 보이도록 설정 -->
-	            <a class="plain-btn btn">구매하기</a>
+	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">구매하기</a>
 	            <% } %>
 				
 				<% if( ol.getOrderStatus() == 1) { %>
 				<!-- 구매확정시 보이도록 설정 -->
-	            <a class="plain-btn btn">리뷰작성</a>
+	            <a href="<%=contextPath %>/detail.li?no=<%=ol.getProductCode() %>" class="plain-btn btn">리뷰작성</a>
 	            <% } %>
 	          </div>
 	          

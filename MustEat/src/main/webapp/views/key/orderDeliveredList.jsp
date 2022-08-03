@@ -147,7 +147,7 @@
 
 				<% if( ol.getOrderStatus() == 1) { %>
 				<!-- 구매확정시 보이도록 설정 -->
-	            <a class="plain-btn btn">리뷰작성</a>
+	            <a href="<%=contextPath %>/detail.li?no=<%=ol.getProductCode() %>" class="plain-btn btn">리뷰작성</a>
 	            <% } %>
 	          </div>
 	          

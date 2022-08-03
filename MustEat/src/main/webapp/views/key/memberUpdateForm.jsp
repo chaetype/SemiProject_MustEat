@@ -271,8 +271,8 @@
 	        			 $("#alert-none").show(); // 비밀번호 미입력시 안내창 보이도록 설정
 	        			 return false;
 	        		 } else if( $("#deletePwd").val() != <%=memPwd %>) {
-	        			$("#alert-fail").show(); // 비밀번호 불일치시 안내창 보이도록 설정
-	        			return false; // 탈퇴 불가능하도록 설정
+	        			 $("#alert-fail").show(); // 비밀번호 불일치시 안내창 보이도록 설정
+	        			 return false; // 탈퇴 불가능하도록 설정
 	        		}
 	        		
 	        	}

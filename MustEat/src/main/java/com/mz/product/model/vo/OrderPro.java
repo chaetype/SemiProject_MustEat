@@ -21,6 +21,7 @@ public class OrderPro {
 	// 추가문
 	private String memId; // 주문현황에서 조회하는 아이디
 	private String productName; // 주문현황에서 조회하는 상품명
+	private String productCode; // 주문현황에서 조회하는 상품번호
 	private String seller; // 주문현황에서 조회하는 상품판매자명
 	private String sellerPhone; // 주문현황에서 조회하는 상품판매자 전화번호
 	private int basket; // 장바구니 수량
@@ -128,7 +129,7 @@ public class OrderPro {
 	}
 	
 	public OrderPro(int orderNo, int orderQuentity, Date orderDate, int orderStatus, int totalPrice,
-			String deliveryStatus, String productName, String seller, String sellerPhone, String orderMonth) {
+			String deliveryStatus, String productName, String productCode, String seller, String sellerPhone, String orderMonth) {
 		super();
 		this.orderNo = orderNo;
 		this.orderQuentity = orderQuentity;
@@ -137,6 +138,7 @@ public class OrderPro {
 		this.totalPrice = totalPrice;
 		this.deliveryStatus = deliveryStatus;
 		this.productName = productName;
+		this.productCode = productCode;
 		this.seller = seller;
 		this.sellerPhone = sellerPhone;
 		this.orderMonth = orderMonth;
@@ -538,6 +540,15 @@ public class OrderPro {
 		this.delAddressRef = delAddressRef;
 	}
 
+	public String getProductCode() {
+		return productCode;
+	}
+
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
 
 	@Override
 	public String toString() {
@@ -546,19 +557,13 @@ public class OrderPro {
 				+ ", totalPrice=" + totalPrice + ", deliveryPrice=" + deliveryPrice + ", discountFee=" + discountFee
 				+ ", payment=" + payment + ", courier=" + courier + ", courierNo=" + courierNo + ", deliveryStatus="
 				+ deliveryStatus + ", deliverType=" + deliverType + ", memId=" + memId + ", productName=" + productName
-				+ ", seller=" + seller + ", sellerPhone=" + sellerPhone + ", basket=" + basket + ", orderConfirm="
-				+ orderConfirm + ", orderCancel=" + orderCancel + ", orderReady=" + orderReady + ", orderTransit="
-				+ orderTransit + ", orderDelivered=" + orderDelivered + ", orderMonth=" + orderMonth + ", delName="
-				+ delName + ", delPhone=" + delPhone + ", delEmail=" + delEmail + ", delAddress=" + delAddress
-				+ ", delAddressCode=" + delAddressCode + ", delAddressDetail=" + delAddressDetail + ", delAddressRef="
-				+ delAddressRef + "]";
+				+ ", productCode=" + productCode + ", seller=" + seller + ", sellerPhone=" + sellerPhone + ", basket="
+				+ basket + ", orderConfirm=" + orderConfirm + ", orderCancel=" + orderCancel + ", orderReady="
+				+ orderReady + ", orderTransit=" + orderTransit + ", orderDelivered=" + orderDelivered + ", orderMonth="
+				+ orderMonth + ", delName=" + delName + ", delPhone=" + delPhone + ", delEmail=" + delEmail
+				+ ", delAddress=" + delAddress + ", delAddressCode=" + delAddressCode + ", delAddressDetail="
+				+ delAddressDetail + ", delAddressRef=" + delAddressRef + "]";
 	}
-	
-	
-	
-
-
-
 
 	
 }

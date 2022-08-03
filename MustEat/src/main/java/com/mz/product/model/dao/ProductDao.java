@@ -264,13 +264,14 @@ public class ProductDao {
 			while(rset.next()) {
 				
 				bList.add(new Basket(rset.getString("MEM_ID")
-						           , rset.getString("PRODUCT_NAME")
+						           , rset.getString("PRODUCT_CODE")
 						           , rset.getInt("AMOUNT")
 						           , rset.getDate("BASKET_DATE")
 						           , rset.getString("MONTH")
 						           , rset.getInt("PRICE")
 						           , rset.getString("SELLER")
 						           , rset.getString("SELLER_PHONE")
+						           , rset.getString("PRODUCT_NAME")
 						           ));
 			}
 			
@@ -401,6 +402,7 @@ public class ProductDao {
 									 , rset.getInt("TOTAL_PRICE")
 									 , rset.getString("DELIVERY_STATUS")
 									 , rset.getString("PRODUCT_NAME")
+									 , rset.getString("PRODUCT_CODE")
 									 , rset.getString("SELLER")
 									 , rset.getString("SELLER_PHONE")
 									 , rset.getString("MONTH")
@@ -572,6 +574,7 @@ public class ProductDao {
 									 , rset.getInt("TOTAL_PRICE")
 									 , rset.getString("DELIVERY_STATUS")
 									 , rset.getString("PRODUCT_NAME")
+									 , rset.getString("PRODUCT_CODE")
 									 , rset.getString("SELLER")
 									 , rset.getString("SELLER_PHONE")
 									 , rset.getString("MONTH")

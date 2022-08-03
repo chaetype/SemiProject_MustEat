@@ -135,8 +135,10 @@
 	          <div class="sellerInfo">
 	
 	            <div class="inner">
-	              <span class="orderTitle" style="font-weight:bold;">주문번호</span>
-	              <span class="orderNo" style="font-weight:bold;"><%=ol.getOrderNo() %></span>
+	              <span class="orderNo" style="font-weight:bold;">
+	                주문번호<br>
+	                [<%=ol.getOrderNo() %>]
+	              </span>
 	              <span class="seller"><%=ol.getSeller() %></span>
 	              <span class="tel"><%=ol.getSellerPhone() %></span>
 	            </div>
@@ -154,7 +156,7 @@
 				
 				<% if( ol.getOrderStatus() == 1) { %>
 				<!-- 구매확정시 보이도록 설정 -->
-	            <a class="plain-btn btn">리뷰작성</a>
+	            <a href="<%=contextPath %>/detail.li?no=<%=ol.getProductCode() %>" class="plain-btn btn">리뷰작성</a>
 	            <% } %>
 	          </div>
 	          
