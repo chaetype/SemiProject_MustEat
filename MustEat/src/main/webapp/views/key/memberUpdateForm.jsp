@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.member.model.vo.*, java.text.DecimalFormat"%>
+<%
+	MyPage mp = (MyPage)request.getAttribute("myPage");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -180,7 +183,7 @@
     <script>
 
       function updateMember() {
-
+    	  
         if( $("input[name=updatePwd]").val() != $("input[name=checkPwd").val() ) {
               alert("동일한 비밀번호를 입력해주세요");
               return false;
@@ -211,11 +214,15 @@
 	      
 	        <form action="<%=contextPath %>/delete.me" method="post" id="delete-form">
 	        	<input type="hidden" name="userId" value="<%=memId%>">
+	        	
+	        	<%
+	       			DecimalFormat df = new DecimalFormat("#,##0"); // 가격 천단위로 보여지도록 설정
+	       		%>
 				
           <div class="deleteContent">
             <b>혜택 내역</b>  <br> 
             탈퇴하면 적립금이 삭제됩니다. <br>
-            현재 적립금 : 7000
+            현재 적립금 : <%=df.format(mp.getMpsPoint()) %>
           </div>
 
           <div class="deleteSelect">
@@ -240,7 +247,8 @@
               <div><input type="password" name="deletePwd" id="deletePwd"></div>
 			</div>
 			
-			 <div id="alert-fail" style="padding-left:31px; font-size:12px; color:red;">비밀번호를 다시 입력해주세요.</div>
+			 <div id="alert-fail" style="padding-left:31px; font-size:12px; color:red;">비밀번호를 잘못 입력하셨습니다. 다시 입력해주세요.</div>
+			 <div id="alert-none" style="padding-left:31px; font-size:12px; color:red;">비밀번호를 입력해주세요.</div>
 
 			<br>
             <div align="center">
@@ -254,13 +262,17 @@
 	        
 	        <script>
 
+	       		 $("#alert-none").hide(); // 비밀번호 미입력 안내창 숨기기
 	        	 $("#alert-fail").hide(); // 비밀번호 불일치 안내창 숨기기
 	        	
 	        	function deleteMember() {
-	        		
-	        		if( $("#deletePwd").val() != <%=memPwd %>) {
-	        			$("#alert-fail").show(); // 비밀번호 불일치시 안내창 보이도록 설정
-	        			return false; // 탈퇴 불가능하도록 설정
+	        		 
+	        		 if( $("deletePwd").val() == null ) {
+	        			 $("#alert-none").show(); // 비밀번호 미입력시 안내창 보이도록 설정
+	        			 return false;
+	        		 } else if( $("#deletePwd").val() != <%=memPwd %>) {
+	        			 $("#alert-fail").show(); // 비밀번호 불일치시 안내창 보이도록 설정
+	        			 return false; // 탈퇴 불가능하도록 설정
 	        		}
 	        		
 	        	}

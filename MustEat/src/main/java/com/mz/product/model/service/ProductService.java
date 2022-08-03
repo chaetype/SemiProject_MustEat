@@ -368,7 +368,7 @@ public class ProductService {
 		} else {
 			rollback(conn);
 		}
-
+		close(conn);
 		
 		return result;
 	}
@@ -382,9 +382,9 @@ public class ProductService {
 	
 	public ArrayList<Product> selectList(PageInfo pi){
 		Connection conn = getConnection();
-		ArrayList<Product> list = new ProductDao().selectList(conn, pi);
+		ArrayList<Product> listP = new ProductDao().selectList(conn, pi);
 		close(conn);
-		return list;
+		return listP;
 	}
 	
 }

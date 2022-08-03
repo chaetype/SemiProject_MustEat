@@ -95,6 +95,33 @@ public class NoticeService {
 		return result;
 	}
 	
+	/** 조회수 증가 메소드
+	 * @param noticeNo 증가시킬 글번호
+	 * @return 성공/실패 결과
+	 */
+	public int increaseCount(int noticeNo) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().increaseCount(conn, noticeNo);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	/** 공지사항 세무페이지 조회 메소드
+	 * @param noticeNo 조회할 공지사항 글번호
+	 * @return 조회된 공지사항 객체
+	 */
+	public Notice selectNotice(int noticeNo) {
+		Connection conn = getConnection();
+		Notice n = new NoticeDao().selectNotice(conn, noticeNo);
+		close(conn);
+		return n;
+	}
+	
 	
 	
 }

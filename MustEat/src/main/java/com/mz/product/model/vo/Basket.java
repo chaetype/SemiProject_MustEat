@@ -17,6 +17,7 @@ public class Basket {
 	private int price; // 총금액 
 	private String seller; // 판매자
 	private String sellerPhone; // 판매자 연락처
+	private String productName; // 상품명
 	
 	public Basket() {
 		
@@ -30,10 +31,8 @@ public class Basket {
 		this.basketDate = basketDate;
 	}
 
-
 	public Basket(String memNo, String productCode, int count, Date basketDate, String month, int price, String seller,
-			String sellerPhone) {
-		super();
+			String sellerPhone, String productName) {
 		this.memNo = memNo;
 		this.productCode = productCode;
 		this.count = count;
@@ -42,9 +41,17 @@ public class Basket {
 		this.price = price;
 		this.seller = seller;
 		this.sellerPhone = sellerPhone;
+		this.productName = productName;
 	}
 
-	
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
 	public Basket(String memNo, String productCode, int count) {
 		super();
 		this.memNo = memNo;

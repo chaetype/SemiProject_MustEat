@@ -227,7 +227,7 @@
 }
 
 .outer{
-    margin-top: 15%;
+    margin-top: 10%;
 }
     </style>
 </head>

@@ -139,6 +139,7 @@
 		SELECT 
 		     MEM_ID
 		   , PRODUCT_NAME
+		   , PRODUCT_CODE
 		   , TO_CHAR(BASKET_DATE, 'YYYY.MM') "MONTH" 
 		   , BASKET_DATE
 		   , AMOUNT
@@ -173,6 +174,7 @@
 		  , ORDER_STATUS
 		  , DELIVERY_STATUS
 		  , PRODUCT_NAME
+		  , P.PRODUCT_CODE "PRODUCT_CODE"
 		  , TOTAL_PRICE + DELIVERY_PRICE "TOTAL_PRICE"
 		  , SELLER
 		  , SELLER_PHONE
@@ -191,6 +193,9 @@
 			   PRODUCT_CODE
 		     , PRODUCT_NAME
 		     , PRICE
+		     , ENROLL_DATE
+		     , SELLER
+		     , SELLER_PHONE
 		     , SALES_UNIT
 		     , CAPACITY
 		     , PACKING
@@ -277,6 +282,7 @@
 		  , ORDER_STATUS
 		  , DELIVERY_STATUS
 		  , PRODUCT_NAME
+		  , P.PRODUCT_CODE "PRODUCT_CODE"
 		  , TOTAL_PRICE + DELIVERY_PRICE "TOTAL_PRICE"
 		  , SELLER
 		  , SELLER_PHONE
@@ -371,10 +377,25 @@
 	</entry>
 	
 	<entry key="selectmealkit">
-		SELECT 
-		       PRODUCT_CODE
-		     , PRODUCT_NAME
-		     , IMG_PATH
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM, A.*
+		          FROM (
+		                SELECT 
+		                       PRODUCT_CODE
+                             , PRODUCT_NAME
+                             , PRICE
+                             , IMG_PATH
+		                   FROM PRODUCT
+                          ORDER
+                             BY PRODUCT_CODE DESC
+		               ) A
+		        )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="selectListCount">
+		SELECT COUNT(*) as "COUNT"
 		  FROM PRODUCT
 	</entry>
 </properties>

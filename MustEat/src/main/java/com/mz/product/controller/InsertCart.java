@@ -36,11 +36,12 @@ public class InsertCart extends HttpServlet {
 		String productCode = request.getParameter("productCode");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		
+		
 		Basket bs = new Basket(String.valueOf(memNo), productCode, amount);
 		
 		int result = new ProductService().insertCart(bs);
 		
-		request.getRequestDispatcher("views/key/orderBasketList.jsp").forward(request, response);
+		request.getRequestDispatcher("views/hsb/mealkitDetail.jsp").forward(request, response);
 	}
 
 	/**

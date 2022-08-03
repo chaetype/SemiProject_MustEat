@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.product.model.vo.*, java.util.ArrayList"%>
+    pageEncoding="UTF-8" import="com.mz.product.model.vo.*, java.util.ArrayList, java.text.DecimalFormat"%>
 <%
 	//장바구니, 상품준비중, 배송중, 배송완료, 상품취소, 구매확정 주문수량
 	OrderPro op = (OrderPro)request.getAttribute("orderStatus");
@@ -104,12 +104,17 @@
 	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
 	              <img src="<%=contextPath %>/resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
 	            </a>
+		    	
+		    	<%
+	       			DecimalFormat df = new DecimalFormat("#,##0"); // 가격 천단위로 보여지도록 설정
+	       		%>	            
+	            
 	
 	            <div class="goodsInfo" onclick="orderDetail();">
 	              <a href="해당 상품 주문상세페이지" class="goods">
-	                <p class="goodsName"><%=bk.getProductCode() %></p>
+	                <p class="goodsName"><%=bk.getProductName() %></p>
 	                <ul class="info">
-	                  <li class="goodsPrice"><%=bk.getPrice() %>원
+	                  <li class="goodsPrice"><%=df.format(bk.getPrice()) %>원
 	                    <span class="goodsAmount">/ <%=bk.getCount() %>개</span>
 	                  </li>
 	                  <li class="goodsDate" style="font-weight:bold;"><%=bk.getBasketDate() %></li>
@@ -122,9 +127,9 @@
 	          <div class="sellerInfo">
 	
 	            <div class="inner">
-	              <span class="orderNo" style="font-weight:bold;">
-	                주문번호<br>
-	                [12345678]
+	            <span class="orderNo" style="font-weight:bold;">
+	                상품번호<br>
+	                [<%=bk.getProductCode() %>]
 	              </span>
 	              <span class="seller"><%=bk.getSeller() %></span>
 	              <span class="tel"><%=bk.getSellerPhone() %></span>
@@ -132,7 +137,7 @@
 	          </div>
 	
 	          <div class="orderButton">
-	            <a href="<%=contextPath%>/address.do" class="plain-btn btn">구매하기</a>
+	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">구매하기</a>
 	          </div>
 	          
 	
