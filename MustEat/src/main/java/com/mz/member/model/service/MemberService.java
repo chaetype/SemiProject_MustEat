@@ -303,5 +303,13 @@ public class MemberService {
 		return list;	
 	}
 	
+	// 서원 사용자 적립금 조회 페이지 사용 가능한 적립금 조회
+	public Point membershipUseable(int memNo) {
+		Connection conn = getConnection();
+		Point p = new MemberDao().membershipUseable(conn, memNo);
+		close(conn);
+		return p;
+	}
+	
 	
 }
