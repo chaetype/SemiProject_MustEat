@@ -86,6 +86,7 @@ public class Member {
 		this.addressDetail = addressDetail;
 		this.addressRef = addressRef;
 	}
+	
 
 	
 	public Member(int memNo,String memName, String memImgPath) {

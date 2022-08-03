@@ -437,9 +437,10 @@
                                 
                                 if(result=='YYY'){
                                     alert("회원가입 완료")
-                                    url:"<%=request.getContextPath()%>/login1.me"
+                                    location.href = "<%=request.getContextPath()%>/login1.me";
                                 }else{
                                     alert("회원가입 실패")
+                                    location.href = "<%=request.getContextPath()%>/enroll1.me";
                                 }       
                                 
                             },error:function(){

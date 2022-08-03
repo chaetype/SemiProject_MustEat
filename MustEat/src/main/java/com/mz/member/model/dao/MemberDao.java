@@ -251,16 +251,20 @@ public class MemberDao {
 				try {
 					pstmt = conn.prepareStatement(sql); 
 					
-					pstmt.setString(1, m.getMemPwd());
-					pstmt.setString(2, m.getMemName());
-					pstmt.setString(3, m.getMemPhone());
-					pstmt.setString(4, m.getMemEmail());
-					pstmt.setString(5, m.getMemNickname());
-					pstmt.setInt(6, m.getAddressCode());
-					pstmt.setString(7, m.getAddress());
-					pstmt.setString(8, m.getAddressDetail());
-					pstmt.setString(9, m.getAddressRef());
-					pstmt.setString(10, m.getMemId());
+					pstmt.setString(1, m.getMemId());
+					pstmt.setString(2, m.getMemPwd());
+					pstmt.setString(3, m.getMemName());
+					pstmt.setString(4, m.getMemPhone());
+					pstmt.setString(5, m.getMemEmail());
+					pstmt.setString(6, m.getMemNickname());
+					if(m.getAddressCode() == 1) {
+						pstmt.setString(7, null);
+					}else {
+						pstmt.setInt(7, m.getAddressCode());
+					}
+					pstmt.setString(8, m.getAddress());
+					pstmt.setString(9, m.getAddressDetail());
+					pstmt.setString(10, m.getAddressRef());
 					
 					result = pstmt.executeUpdate();
 					
