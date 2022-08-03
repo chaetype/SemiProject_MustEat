@@ -202,6 +202,59 @@ public class NoticeDao {
 		
 	}
 	
+	public int increaseCount(Connection conn, int noticeNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, noticeNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	public Notice selectNotice(Connection conn, int noticeNo) {
+		
+		Notice n = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectNotice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, noticeNo);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				n = new Notice(rset.getInt("notice_no"),
+							   rset.getString("notice_title"),
+							   rset.getString("notice_content"),
+							   rset.getString("notice_writer"),
+							   rset.getDate("enroll_date"),
+							   rset.getInt("notice_count"),
+							   rset.getString("notice_attach"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return n;
+		
+	}
+	
 	
 	
 	

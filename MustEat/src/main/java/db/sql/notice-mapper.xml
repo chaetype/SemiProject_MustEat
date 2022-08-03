@@ -109,6 +109,28 @@
 		  )
 	</entry>
 	
+	<!-- 공지사항 조회수 증가 -->
+	<entry key="increaseCount">
+		UPDATE
+		       NOTICE
+		   SET NOTICE_COUNT = NOTICE_COUNT + 1
+		 WHERE NOTICE_NO = ?
+	</entry>
+	
+	<!-- 공지사항 세부페이지 조회 -->
+	<entry key="selectNotice">
+		SELECT
+		       NOTICE_NO
+		     , NOTICE_TITLE
+		     , NOTICE_CONTENT
+		     , NOTICE_WRITER
+		     , ENROLL_DATE
+		     , NOTICE_COUNT
+		     , NOTICE_ATTACH
+		  FROM NOTICE
+		 WHERE NOTICE_NO = ?
+	</entry>
+	
 	
 	
 	
