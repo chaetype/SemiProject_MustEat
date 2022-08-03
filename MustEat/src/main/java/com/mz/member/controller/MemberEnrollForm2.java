@@ -37,8 +37,12 @@ public class MemberEnrollForm2 extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int a = 0;
+		int addressCode;
 		if(request.getParameter("addressCode") == "") {
 			a = 1;
+			addressCode = a;
+		}else {
+			addressCode = request.getParameter("addressCode");
 		}
 
 				
