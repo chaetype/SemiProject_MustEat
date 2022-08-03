@@ -64,11 +64,10 @@ public class StoreReview {
 		this.count = count;
 	}
 
-	public StoreReview(Date reviewEnrollDate, String reviewTitle, int scrapCount, String storeName) {
+	public StoreReview(Date reviewEnrollDate, String reviewTitle, String storeName) {
 		super();
 		this.reviewEnrollDate = reviewEnrollDate;
 		this.reviewTitle = reviewTitle;
-		this.scrapCount = scrapCount;
 		this.storeName = storeName;
 	}
 
