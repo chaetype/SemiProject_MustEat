@@ -3,6 +3,8 @@
 <%@ page import="java.util.ArrayList, com.mz.member.model.vo.Point" %>
 <%
 	ArrayList<Point> list = (ArrayList<Point>)request.getAttribute("list");
+	
+	Point p = (Point)request.getAttribute("p");
 %>
 <!DOCTYPE html>
 <html>
@@ -132,7 +134,7 @@
 		
 			<div class="point-sum" style="background:rgb(231, 216, 241)">
 				
-				&nbsp;<h2><span style="color:blue;">사용 가능</span>한 적립금 : <span>xxxx원(수정)총적립금들어갈자리</span></h2>
+				&nbsp;<h2><span style="color:blue;">사용 가능</span>한 적립금 : <span><%= p.getUseableMps() %>원(수정)총적립금들어갈자리</span></h2>
 				
 			</div>
 		
