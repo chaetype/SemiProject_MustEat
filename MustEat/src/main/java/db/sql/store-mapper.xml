@@ -167,15 +167,18 @@
 		  INTO STORE_RE
 		  (
 		    RE_NO
+		  , REVIEW_WRITER
 		  , REVIEW_TITLE
 		  , REVIEW_CONTENT
-		  , COUNT
-		  , SCRAP_COUNT
+		  , REVIEW_ENROLLDATE
 		  )
 		  VALUES
 		  (
 		    SEQ_ENO.NEXTVAL
 		  , ?
+		  , ?
+		  , ?
+		  , SYSDATE
 		  )
 	</entry>
 	
