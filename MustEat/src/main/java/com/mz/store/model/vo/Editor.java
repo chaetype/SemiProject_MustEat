@@ -8,7 +8,7 @@ public class Editor {
 	private int editorNo;
 	private String editorTitle;
 	private String editorContent;
-	private int editorWriter;
+	private String editorWriter;
 	private Date enrollDate;
 	private String editorAttach;
 	
@@ -16,7 +16,7 @@ public class Editor {
 		
 	}
 
-	public Editor(int editorNo, String editorTitle, String editorContent, int editorWriter, Date enrollDate,
+	public Editor(int editorNo, String editorTitle, String editorContent, String editorWriter, Date enrollDate,
 			String editorAttach) {
 		super();
 		this.editorNo = editorNo;
@@ -51,11 +51,11 @@ public class Editor {
 		this.editorContent = editorContent;
 	}
 
-	public int getEditorWriter() {
+	public String getEditorWriter() {
 		return editorWriter;
 	}
 
-	public void setEditorWriter(int editorWriter) {
+	public void setEditorWriter(String editorWriter) {
 		this.editorWriter = editorWriter;
 	}
 
@@ -81,6 +81,8 @@ public class Editor {
 				+ ", editorWriter=" + editorWriter + ", enrollDate=" + enrollDate + ", editorAttach=" + editorAttach
 				+ "]";
 	}
+
+	
 	
 	
 }

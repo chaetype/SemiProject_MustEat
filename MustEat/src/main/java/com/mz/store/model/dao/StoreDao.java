@@ -372,7 +372,7 @@ public class StoreDao {
 	
 
 	//채윤 summernote
-	public int insertEditor(Connection conn, String html) {
+	public int insertPost(Connection conn, String html) {
 	      int result = 0;
 	      PreparedStatement pstmt = null;
 	      String sql = prop.getProperty("insertEditor");
@@ -390,6 +390,35 @@ public class StoreDao {
 	      return result;
 	   }
 	
-	
+	//채윤 카테고리 에디터글 조회
+	public ArrayList<Editor> editorWritelist(Connection conn){
+		ArrayList<Editor> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("editorWritelist");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			
+			while(rset.next()) {
+				Editor e = new Editor();
+				e.setEditorNo(rset.getInt("editor_no"));
+				e.setEditorAttach(rset.getString("EDITOR_ATTACH"));
+				
+				list.add(e);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+
+		return list;
+	}
 
 }

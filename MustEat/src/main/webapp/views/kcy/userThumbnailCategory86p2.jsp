@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Editor" %>
-<%
-	ArrayList<Editor> list = (ArrayList<Editor>)request.getAttribute("list");
-%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,21 +100,61 @@
         </div>
         <% } %>
         </div>
-        
-        
-        
         <br><br><br>
         <h1 style="text-align: center;"><b>MZ EDITOR PICK!</b></h1>
-
-        	<%for(Editor e : list) {%>
+        
+		
+	
             <div class="thumbnail2" align="center">
-                <img src="<%=contextPath%>/<%=e.getEditorAttach() %>" width="400" height="250">
+                <img src="<%=contextPath%>/resources/image/cy/rooftop.jpg" width="400" height="250">
                 
             </div>
-			<% } %>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/neyorkcafe.jpg" width="410" height="250">
+            </div>
+
+
+     
+		
+		
+	
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/bankan.jpg" width="400" height="250">
+                
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/makgeolli.jpg" width="400" height="250">
+            </div>
+
+
+			 <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/hapjung.jpg" width="400" height="250">
+            </div>
+        
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/dosirak.jpg" width="400" height="250">
+                
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/shrimp.jpg" width="400" height="250">
+            </div>
+
+        	
 
 
 
+
+
+
+
+
+
+
+           
+       
         </div>
         
         

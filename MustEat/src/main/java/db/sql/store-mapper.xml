@@ -128,10 +128,25 @@
 	
 	<!-- 채윤 썸머노트 -->
 	<entry key="insertEditor">
-	
+	INSERT
+		  INTO EDITOR
+		  (
+		    EDITOR_NO
+		  , EDITOR_CONTENT
+		  )
+		  VALUES
+		  (
+		    SEQ_ENO.NEXTVAL
+		  , ?
+		  )
 	</entry>
 	
-	
-	
+	<!-- 채윤 에디터글 조회 -->
+	<entry key="editorWritelist">
+		SELECT 
+			   EDITOR_NO
+			 , EDITOR_ATTACH
+		  FROM EDITOR
+	</entry>
 	
 </properties>

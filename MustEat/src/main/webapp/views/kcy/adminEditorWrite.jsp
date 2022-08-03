@@ -2,23 +2,27 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<!-- include summernote css/js -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>Must Eat</title>
+    
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 
 <link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
-<style>
-    .wrap88{
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+  
+  <style>
+  	.wrap88{
         width: 70%;
         margin-left: 20%;
         margin-top: 20px;
@@ -28,52 +32,76 @@
     .btn1{
         width: 300px;
     }
-</style>
-
-</head>
-<body>
-    <!-- 에디터 글 조회에서 관리자만 글쓰기 버튼 활성화 시켜서 들어오기 -->
-    <%@ include file="../common/menubar22.jsp"%>
-    
-    <div class="wrap88">
-        <form method="post" action="<%= contextPath %>/ctinsert.st" enctype="multipart/form-data">
-            <textarea class="yui3-cssreset" id="summernote" name="editordata"></textarea>
+  </style>
+  
+  
+  </head>
+  <body>
+  <%@ include file="../common/menubar22.jsp"%>
+  
+  <div class=wrap88>
+   <form method="post" action="<%= contextPath %>/ctinsert.st" enctype="multipart/form-data">
+            <textarea class="yui3-cssreset" id="summernote" name="editcontent"></textarea>
         
         	<button class="btn1" type="submit">작성완료</button>
-        </form>
-        
-        
-        
-        
-  <script>
-        $(document).ready(function() {
-	//여기 아래 부분
-	$('#summernote').summernote({
-		  height: 600,                 // 에디터 높이
-		  minHeight: null,             // 최소 높이
-		  maxHeight: null,             // 최대 높이
-		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-		  lang: "ko-KR",					// 한글 설정
-		  placeholder: '최대 2048자까지 쓸 수 있습니다',	//placeholder 설정
-		  onImageUpload: function(files, editor, webEitable){
-              // 이미지 개수대로 함수 sendFile 호출
-              for(var i=0; i<files.length; i++){
-                  sendFile(files[i], editor, welEditable);
-              }
-
-
-        });
-    };
-
-        
-        
-
-    </script>
-        
-    </div>
-      
-  
-
+   </form>
     
-</body>
+    
+   <script>
+                    $('#summernote').summernote({
+                       spellCheck: true,
+                       disableDragAndDrop: true,
+                  codeviewFilter: false,
+                  codeviewIframeFilter: true,
+                  placeholder: '에디터글 작성',
+                  tabsize: 2,
+                  height: 600,
+                  toolbar: [
+                     ['style', ['fontname', 'fontsize', 'bold', 'italic', 'underline', 'clear']],
+                     ['color', ['color']],
+                     ['para', ['ul', 'ol', 'paragraph']],
+                     ['insert', ['link', 'picture', 'hr']],
+                     ['view', ['fullscreen']]
+                         ],
+                            // 이미지 업로드하면 이벤트 발생시킴
+                        onImageUpload: function(files, editor, webEitable){
+                            // 이미지 개수대로 함수 sendFile 호출
+                            for(var i=0; i<files.length; i++){
+                                sendFile(files[i], editor, welEditable);
+                            }
+                        }
+                        
+                    });
+
+                    function sendFile(file, editor, welEditable){
+                        var imgUrl = 'resources/image/cy/attachment/'
+
+                        // 파일 전송을 위한 form 생성
+                        form_data = new FormData();
+                        form_data.append("image", file);
+                        $.ajax({
+                            data: form_data,
+                            type: "post",
+                            url: "summernote_imageUpload.do",
+                            dataType: "text",
+                            cache: "false",
+                            enctype: "multipart/form-data",
+                            processData:"false",
+                            processData: "false",
+                            success: function(savename){
+                                imgUrl = imgUrl + savename;
+                                editor.insertImage(welEditable, imgUrl); // 에디터에 업로드된 이미지 삽입
+                            },
+                            error: function(){
+                                alert("error");
+                            }
+
+                        })
+                    }
+                    // $(".note-editable").change( console.log( $(this).html() ) )
+                    
+                  </script>
+    
+    </div>
+  </body>
 </html>

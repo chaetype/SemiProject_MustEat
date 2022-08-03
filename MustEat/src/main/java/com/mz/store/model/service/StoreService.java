@@ -113,7 +113,7 @@ public class StoreService {
 	//채윤 써머노트 등록
 	public int insertEditor(String html) {
 		Connection conn = getConnection();
-		int result = new StoreService().insertEditor(html);
+		int result = new StoreDao().insertPost(conn, html);
 		
 		if(result > 0) {
 			commit(conn);
@@ -127,8 +127,14 @@ public class StoreService {
 	}
 	
 	
-	
-	
+	//채윤 에디터글 조회
+	public ArrayList<Editor> editorWritelist(){
+		Connection conn = getConnection();
+		ArrayList<Editor> list = new StoreDao().editorWritelist(conn);
+		
+		close(conn);
+		return list;
+	}
 	
 	
 	
