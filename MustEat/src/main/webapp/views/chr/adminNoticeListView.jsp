@@ -127,8 +127,8 @@
 	                    <td class="noDetail"><%= list.get(i).getNoticeCount() %></td>
 	                </tr>
 	                <script>
-		                $("tbody>tr>td").click(function(){
-		                	location.href="<%=contextPath%>/adminNoticeDetail.no?cpage=<%=currentPage%>&no=" + $(this).eq(1).text();
+		                $("tbody>tr>.noDetail").click(function(){
+		                	location.href="<%=contextPath%>/adminNoticeDetail.no?cpage=<%=currentPage%>&no=" + $(this).siblings().eq(1).text();
 		                })
 	                </script>
                 <% } %>
@@ -140,6 +140,21 @@
             <button type="button" class="btn1" onclick="location.href='<%=contextPath%>/adminNoticeEnrollForm.no'">공지 등록</button>
             <button type="button" class="btn1" onclick="deleteNo();">선택 삭제</button>
         </div>
+        
+        <script>
+         	function deleteNo(){
+         		confirm("선택한 게시글을 삭제하시겠습니까?");
+         		
+         		val delArr = []
+            	if(con){
+    	        	if($("tbody .check").attr("checked", true)){
+    	        		delArr += $(this).val();
+    	        	}
+    	        	console.log(delArr);
+            	}
+         		
+         	}
+        </script>
         
         <br>
         <div class="wrapper-paging">
@@ -198,11 +213,13 @@
         
         val delArr = []
         function deleteNo(){
-        	if(alert("선택한 게시글을 삭제하시겠습니까?")){
+        	alert("선택한 게시글을 삭제하시겠습니까?");
+        	
+        	/*if(alert("선택한 게시글을 삭제하시겠습니까?")){
 	        	if($("tbody .check").attr("checked", true)){
 	        		delArr += $(this).val();
 	        	}
-	        	console.log(delArr);
+	        	console.log(delArr);*/
         	}
         }
      
