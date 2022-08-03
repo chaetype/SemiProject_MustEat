@@ -15,7 +15,7 @@ public class Member {
 	private String memStatus;
 	private String memNickname;
 	private String memGrade;
-	private int addressCode;
+	private String addressCode;
 	private String address;
 	private String addressDetail;
 	private String addressRef;
@@ -47,7 +47,7 @@ public class Member {
 
 	
 	public Member(int memNo, String memId, String memPwd, String memName, String memPhone, String memEmail,
-			Date enrollDate, Date modifyDate, String memStatus, String memNickname, String memGrade, int addressCode,
+			Date enrollDate, Date modifyDate, String memStatus, String memNickname, String memGrade, String addressCode,
 			String address, String addressDetail, String addressRef, String memImgPath, String withDraw) {
 		super();
 		this.memNo = memNo;
@@ -73,7 +73,7 @@ public class Member {
 
 
 	public Member(String memId, String memPwd, String memName, String memPhone, String memEmail, String memNickname,
-			int addressCode, String address, String addressDetail, String addressRef) {
+			String addressCode, String address, String addressDetail, String addressRef) {
 		super();
 		this.memId = memId;
 		this.memPwd = memPwd;
@@ -189,11 +189,11 @@ public class Member {
 		this.memGrade = memGrade;
 	}
 
-	public int getAddressCode() {
+	public String getAddressCode() {
 		return addressCode;
 	}
 
-	public void setAddressCode(int addressCode) {
+	public void setAddressCode(String addressCode) {
 		this.addressCode = addressCode;
 	}
 

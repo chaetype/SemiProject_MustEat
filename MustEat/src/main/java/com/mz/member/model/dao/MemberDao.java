@@ -65,7 +65,7 @@ public class MemberDao {
 							   rset.getString("MEM_STATUS"),
 							   rset.getString("MEM_NICKNAME"),
 							   rset.getString("MEM_GRADE"),
-							   rset.getInt("ADDRESS_CODE"),
+							   rset.getString("ADDRESS_CODE"),
 							   rset.getString("ADDRESS"),
 							   rset.getString("ADDRESS_DETAIL"),
 							   rset.getString("ADDRESS_REF"),
@@ -257,11 +257,7 @@ public class MemberDao {
 					pstmt.setString(4, m.getMemPhone());
 					pstmt.setString(5, m.getMemEmail());
 					pstmt.setString(6, m.getMemNickname());
-					if(m.getAddressCode() == 1) {
-						pstmt.setString(7, null);
-					}else {
-						pstmt.setInt(7, m.getAddressCode());
-					}
+					pstmt.setString(7, m.getAddressCode());
 					pstmt.setString(8, m.getAddress());
 					pstmt.setString(9, m.getAddressDetail());
 					pstmt.setString(10, m.getAddressRef());
@@ -300,11 +296,7 @@ public class MemberDao {
 			pstmt.setString(3, m.getMemPhone());
 			pstmt.setString(4, m.getMemEmail());
 			pstmt.setString(5, m.getMemNickname());
-			if(m.getAddressCode() == 1) {
-				pstmt.setString(6, null);
-			}else {
-				pstmt.setInt(6, m.getAddressCode());
-			}
+			pstmt.setString(6, m.getAddressCode());
 			pstmt.setString(7, m.getAddress());
 			pstmt.setString(8, m.getAddressDetail());
 			pstmt.setString(9, m.getAddressRef());
@@ -354,7 +346,7 @@ public class MemberDao {
 									 , rset.getString("mem_phone")
 									 , rset.getString("mem_email")
 									 , rset.getString("mem_nickname")
-									 , rset.getInt("address_code")
+									 , rset.getString("address_code")
 									 , rset.getString("address")
 									 , rset.getString("address_detail")
 									 , rset.getString("address_ref")
