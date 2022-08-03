@@ -127,7 +127,7 @@ public class StoreService {
 	}
 	
 	
-	//채윤 에디터글 조회
+	//채윤 에디터글 리스트 조회
 	public ArrayList<Editor> editorWritelist(){
 		Connection conn = getConnection();
 		ArrayList<Editor> list = new StoreDao().editorWritelist(conn);
@@ -137,5 +137,11 @@ public class StoreService {
 	}
 	
 	
-	
+	//채윤 에디터글 상세조회
+	public Editor selectDetailEdior(int editorNo) {
+		Connection conn = getConnection();
+		Editor e = new StoreDao().selectDetailEdior(conn, editorNo);
+		close(conn);
+		return e;
+	}
 }

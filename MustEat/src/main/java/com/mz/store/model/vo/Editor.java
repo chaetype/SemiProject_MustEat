@@ -26,6 +26,16 @@ public class Editor {
 		this.enrollDate = enrollDate;
 		this.editorAttach = editorAttach;
 	}
+	
+	public Editor(int editorNo, String editorAttach,Date enrollDate,String editorContent
+			) {
+		super();
+		this.editorNo = editorNo;
+		this.editorAttach = editorAttach;
+		this.enrollDate = enrollDate;
+		this.editorContent = editorContent;
+		
+	}
 
 	public int getEditorNo() {
 		return editorNo;

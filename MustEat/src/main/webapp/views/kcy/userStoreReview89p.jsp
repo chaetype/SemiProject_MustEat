@@ -316,7 +316,17 @@
 					</div>
 				</div>
 			</div>
-			<button class="btn1" style="float: right; margin:10px;">글쓰기</button>
+			
+			<% if(loginUser != null) { %>
+        <div align="right" style="width:850px">
+        	<a href="<%= contextPath %>/reenroll.st"  class="btn1" style="float: right; margin:10px;">글쓰기</a>
+        	<br><br>
+        </div>
+        <% } %>
+			
+			
+			
+			
 		</form>
 	<!-- 검색폼 끝 -->
 	</div>

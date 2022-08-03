@@ -51,7 +51,7 @@ public class CategoryInsertContoller extends HttpServlet {
 	       
 			
 			String html = multiRequest.getParameter("editcontent");
-	        System.out.println(html);
+//	        System.out.println(html);
 	        
 	        
 	        int result = new StoreService().insertEditor(html);
