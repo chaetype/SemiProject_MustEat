@@ -311,5 +311,8 @@ public class MemberService {
 		return p;
 	}
 	
+	// 서원 사용자 리뷰 조회 
+	
+	
 	
 }
