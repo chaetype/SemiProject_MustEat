@@ -34,6 +34,8 @@ public class MemberDeleteController extends HttpServlet {
 		// 은영
 		// 회원 탈퇴 처리하는 Servlet
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		// 탈퇴 사유
 		String withdraw = request.getParameter("withdraw");
 		// 회원 아이디
