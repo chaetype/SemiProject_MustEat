@@ -145,21 +145,21 @@
 		    <nav aria-label="Page navigation example">
 				<ul class="pagination">
 					<% if(currentPage != 1) { %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/listNotice.no?cpage=<%= currentPage-1 %>">&lt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/noticeList.no?cpage=<%= currentPage-1 %>">&lt;</a></li>
 				    <% } %>
 				    
 				    <% for(int p=startPage; p<=endPage; p++) { %>
 				    	
 				    	<% if(p == currentPage) { %>
-				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/listNotice.no?cpage=<%=p%>"><%= p %></a></li>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/noticeList.no?cpage=<%=p%>"><%= p %></a></li>
 				    	<% } else { %>
-				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/listNotice.no?cpage=<%=p%>"><%= p %></a></li>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/noticeList.no?cpage=<%=p%>"><%= p %></a></li>
 				    	<% } %>
 				    	
 				    <% } %>
 				    
 				    <% if(currentPage != maxPage) { %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/listNotice.no?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/noticeList.no?cpage=<%=currentPage+1%>">&gt;</a></li>
 				    <% } %>
 			    </ul>
 			</nav>					
