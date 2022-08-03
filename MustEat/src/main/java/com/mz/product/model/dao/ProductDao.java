@@ -305,6 +305,9 @@ public class ProductDao {
 				p = new Product(rset.getInt("product_code"),
 						    rset.getString("product_name"),
 						    rset.getInt("price"),
+						    rset.getDate("enroll_date"),
+						    rset.getString("seller"),
+						    rset.getString("seller_phone"),
 						    rset.getString("sales_unit"),
 						    rset.getString("capacity"),
 						    rset.getString("packing"),
@@ -798,7 +801,7 @@ public class ProductDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				listCount = rset.getInt("count");
+				listCount = rset.getInt("COUNT");
 			}
 			
 		} catch (SQLException e) {
@@ -812,24 +815,14 @@ public class ProductDao {
 		
 	}
 	public ArrayList<Product> selectList(Connection conn, PageInfo pi){
-		ArrayList<Product> list = new ArrayList<>();
+		ArrayList<Product> listP = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectList");
+		String sql = prop.getProperty("selectmealkit");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			/*
-			 * ex) boardLimit : 10이라는 가정하에
-			 * 
-			 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
-			 * currentPage : 2 => 시작값 : 11| 끝값 : 20
-			 * currentPage : 3 => 시작값 : 21| 끝값 : 30
-			 * 
-			 * 시작값 : (currentPage - 1) * boardLimit + 1
-			 * 끝값 : 시작값 + boardLimit - 1
-			 */
 			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
 			int endRow = startRow + pi.getBoardLimit() - 1;
 			
@@ -839,8 +832,9 @@ public class ProductDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Product(rset.getInt("product_code"),
+				listP.add(new Product(rset.getInt("product_code"),
 								     rset.getString("product_name"),
+								     rset.getInt("price"),
 								     rset.getString("img_path")
 					      		   ));
 			}
@@ -851,7 +845,7 @@ public class ProductDao {
 			close(rset);
 		}
 		
-		return list;
+		return listP;
 		
 		
 	}

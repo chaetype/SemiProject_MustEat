@@ -191,6 +191,9 @@
 			   PRODUCT_CODE
 		     , PRODUCT_NAME
 		     , PRICE
+		     , ENROLL_DATE
+		     , SELLER
+		     , SELLER_PHONE
 		     , SALES_UNIT
 		     , CAPACITY
 		     , PACKING
@@ -371,10 +374,25 @@
 	</entry>
 	
 	<entry key="selectmealkit">
-		SELECT 
-		       PRODUCT_CODE
-		     , PRODUCT_NAME
-		     , IMG_PATH
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM, A.*
+		          FROM (
+		                SELECT 
+		                       PRODUCT_CODE
+                             , PRODUCT_NAME
+                             , PRICE
+                             , IMG_PATH
+		                   FROM PRODUCT
+                          ORDER
+                             BY PRODUCT_CODE DESC
+		               ) A
+		        )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="selectListCount">
+		SELECT COUNT(*) as "COUNT"
 		  FROM PRODUCT
 	</entry>
 </properties>

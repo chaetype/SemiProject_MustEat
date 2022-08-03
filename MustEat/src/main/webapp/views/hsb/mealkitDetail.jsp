@@ -71,13 +71,16 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 				
 
 				
-			
+				<form action="<%=contextPath%>/insertCart.do" style="display:inline-block; margin-left: 50px;">
 				<div style="display:inline-block; margin-left: 50px;" >
+					
 					<h3><%= p.getProductName() %></h3>
 					<br>
-					<form action="<%=contextPath%>/insertCart.do">
+					
 						<input type="hidden" name="productCode" value="<%=p.getProductCode()%>">
-						
+						<input type="hidden" name="seller" value="<%=p.getSeller()%>">
+						<input type="hidden" name="selPhone" value="<%=p.getSellerPhone()%>">
+						<input type="hidden" name="enrollDate" value="<%=p.getEnrollDate()%>">
 						<b>판매단위: </b><%= p.getSalesUnit() %>
 						<br><br>
 						<b>용량: </b><%= p.getCapacity() %>
@@ -100,19 +103,35 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 						<p class="cartStock">
 							<span>구입 수량</span>
 							<button type="button" class="plus">+</button>
-							<input type="number" name="amount" class="numBox" min="1" max="1000" value="1" readonly="readonly" style="width:30px">
+							<input type="number" name="amount" class="numBox" min="1" max="1000" value="1" readonly="readonly" style="width:50px">
 							<button type="button" class="minus">-</button>
-							
-							
-							
-						   </p>
-						
-						<a href="<%=contextPath%>/address.do"><button class="btn1">바로구매</button></a>
-						<button type="submit" class="btn1">장바구니</button>
-					</form>
+					    </p>
+							<% if(loginUser == null){ // 로그인이 안되어있을 경우 %>
+								<button type="button" class="btn1" onclick="log1();">바로구매</button>
+								<button type="button" class="btn1" onclick="log2();">장바구니</button>
+							<% }else{ // 로그인이 되어있을 경우 %>
+								<a href="<%=contextPath%>/address.do"><button type="button" class="btn1">바로구매</button></a>
+								<button type="submit" class="btn1">장바구니</button>
+							<% } %>
 					</div>
+				</form>
 					<hr>
-		</div>		
+		        </div>		
+
+				<script>
+				$({
+					
+				})
+				
+					function log1(){
+						alert("로그인 후 이용가능합니다.");
+					}
+
+					function log2(){
+						alert("로그인 후 이용가능합니다.");
+					}
+
+				</script>
 			
 		<div id="reply-area">
             <table border="1" align="center" class="rwd-table">

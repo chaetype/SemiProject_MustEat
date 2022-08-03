@@ -32,10 +32,8 @@ public class MealkitList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		ArrayList<Product> list = new ProductService().selectList();
 		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/hsb/mealkitList.jsp").forward(request, response);
+	
 		
 	
 	}

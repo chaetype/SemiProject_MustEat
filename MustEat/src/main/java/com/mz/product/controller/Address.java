@@ -47,7 +47,7 @@ public class Address extends HttpServlet {
 		
 		int result = new ProductService().insertAddress(op);
 		
-		
+		request.getRequestDispatcher("views/hsb/address.jsp").forward(request, response);
 		
 	}
 

@@ -16,7 +16,7 @@ import com.mz.product.model.vo.Product;
 /**
  * Servlet implementation class MealkitPaging
  */
-@WebServlet("/list.bo")
+@WebServlet("/mealList.bo")
 public class MealkitPaging extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,38 +33,27 @@ public class MealkitPaging extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int listCount;		// 현재 총 게시글 갯수
-		int currentPage;	// 사용자가 보게될 페이지 (즉, 사용자가 요청한 페이지)
-		int pageLimit; 		// 페이징바의 페이지 최대갯수 (몇개 단위씩)
-		int boardLimit;		// 한 페이지당 보여질 게시글 최대갯수 (몇개 단위씩)
-		// 위의 4개를 가지고 아래 3개의 값을 구해낼거임
-		int maxPage;		// 가장 마지막 페이지 (총 페이지 수)
-		int startPage;		// 페이징바의 시작수
-		int endPage;		// 페이징바의 끝수
+		int listCount;		
+		int currentPage;	
+		int pageLimit; 		
+		int boardLimit;		
+		
+		int maxPage;		
+		int startPage;		
+		int endPage;		
 		
 		// * listCount : 현재 게시글 총갯수
 		listCount = new ProductService().selectListCount();
 		
 		// * currentPage : 사용자가 보게될 페이지 (즉, 사용자가 요청한 페이지)
+		
 		currentPage = Integer.parseInt(request.getParameter("cpage"));
 		
 		// * pageLimit : 페이징바의 페이지 최대 갯수 (몇개 단위씩)
-		pageLimit = 10;
+		pageLimit = 5;
 		
 		// * boardLimit : 한 페이지당 보여질 게시글의 최대 갯수 (몇개 단위씩)
-		boardLimit = 10;
-		
-		// * listCount : 현재 게시글 총갯수
-		listCount = new ProductService().selectListCount();
-		
-		// * currentPage : 사용자가 보게될 페이지 (즉, 사용자가 요청한 페이지)
-		currentPage = Integer.parseInt(request.getParameter("cpage"));
-		
-		// * pageLimit : 페이징바의 페이지 최대 갯수 (몇개 단위씩)
-		pageLimit = 10;
-		
-		// * boardLimit : 한 페이지당 보여질 게시글의 최대 갯수 (몇개 단위씩)
-		boardLimit = 10;
+		boardLimit = 9;
 		
 		
 		maxPage =  (int)Math.ceil( (double)listCount / boardLimit );
@@ -72,22 +61,19 @@ public class MealkitPaging extends HttpServlet {
 		
 		endPage = startPage + pageLimit - 1;
 
-		// startPage가 11이면 endPage는 20으로 됨 (근데 maxPage가 고작 13까지 밖에 안되면?)
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
 		
 		
-		// com.br.common.model.vo.PageInfo
-		
-		// * 페이징바를 만들 때 필요한 객체
+
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
 		// * 현재 요청한 페이지(currentPage)에 보여질 게시글 리스트 조회해야됨 (boardLimit수만큼 조회)
-		ArrayList<Product> list = new ProductService().selectList(pi);
+		ArrayList<Product> listP = new ProductService().selectList(pi);
 		
 		request.setAttribute("pi", pi);
-		request.setAttribute("list", list);
+		request.setAttribute("listP", listP);
 		
 		request.getRequestDispatcher("views/hsb/mealkitList.jsp").forward(request, response);
 	}

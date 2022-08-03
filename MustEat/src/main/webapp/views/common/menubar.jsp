@@ -194,7 +194,7 @@
 						<span class="menu__item-name">Restaurant</span>
 						<span class="menu__item-label">View all our Restaurant</span>
 					</a>
-					<a class="menu__item" href="<%=contextPath%>/mealkit.li">
+					<a class="menu__item" href="<%=contextPath%>/mealList.bo?cpage=1">
 						<span class="menu__item-name">Meal Kit</span>
 						<span class="menu__item-label">We can get to deliver to your home</span>
 					</a>
