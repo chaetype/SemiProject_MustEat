@@ -34,7 +34,36 @@ public class StoreService {
 		
 		return result;
 	}
-	
+	//채윤(에디터상세조회수)
+		public int increaseCountE(int editorNo) {
+			Connection conn = getConnection();
+			int result = new StoreDao().increaseCountE(conn,editorNo);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
+		//채윤(식당리뷰상세조회수)
+		public int increaseCountR(int reviewNo) {
+			Connection conn = getConnection();
+			int result = new StoreDao().increaseCountR(conn,reviewNo);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
 	//채윤 (식당 리뷰 목록 조회/ StoreReviewListController와 연결)
 	public ArrayList<StoreReview> selectStoreReviewList(){
 		Connection conn = getConnection();

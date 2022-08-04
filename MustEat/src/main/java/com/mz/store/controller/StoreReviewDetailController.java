@@ -35,7 +35,7 @@ public class StoreReviewDetailController extends HttpServlet {
 		StoreService sService = new StoreService();
 		
 		// 1) 조회수 증가
-		int result = sService.increaseCount(reviewNo);
+		int result = sService.increaseCountR(reviewNo);
 		
 		if(result > 0) { // 유효한게시글 맞음 
 			// 2) 게시글, 첨부파일 조회 

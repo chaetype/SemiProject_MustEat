@@ -1,4 +1,4 @@
-package com.mz.store.controller;
+package com.mz.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class FollowSearchController
+ * Servlet implementation class SearchingMem
  */
-@WebServlet("/search.fo")
-public class FollowSearchController extends HttpServlet {
+@WebServlet("/Search.fo")
+public class SearchingMem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FollowSearchController() {
+    public SearchingMem() {
         super();
         // TODO Auto-generated constructor stub
     }

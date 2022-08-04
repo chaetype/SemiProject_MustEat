@@ -298,9 +298,9 @@
 		    (SELECT COUNT(MEM_NO) 
 		            FROM STORE_SCRAP SS 
 		    WHERE M.MEM_NO = SS.MEM_NO) AS STORE_SCRAP, <!-- 5. 식당 스크랩 갯수 -->
-		    (SELECT COUNT(FING_MNO) 
+		    (SELECT COUNT(F_MNO) 
 		            FROM FOLLOW F 
-		    WHERE M.MEM_NO = F.FING_MNO) AS FOLLOW <!-- 6. 팔로우한 인원 수 -->
+		    WHERE M.MEM_NO = F.F_MNO) AS FOLLOW <!-- 6. 팔로우한 인원 수 -->
 		FROM MEMBER M
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 	</entry>
