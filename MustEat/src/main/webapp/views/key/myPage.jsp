@@ -6,6 +6,7 @@
 		  , java.text.DecimalFormat"
  %> 
 <%
+	Member m = (Member)session.getAttribute("loginUser");
 	// 식당 리뷰, 밀키트 리뷰, 적립금, 가고싶다, 팔로우 수량
 	MyPage mp = (MyPage)request.getAttribute("myPage");
 	// 식당 리뷰 최신 2개 게시글
@@ -43,10 +44,10 @@
       <div class="myPage-user">
         <img src="<%=request.getContextPath() %>/resources/image/user.png" id="userIcon">
         <div class="userInfo">
-          <div class="name"><%=loginUser.getMemName() %>님 반갑습니다!
+          <div class="name"><%=m.getMemName() %>님 반갑습니다!
             <button type="button" class="btn1" onclick="myPageOpen();">내정보</button>
           </div>
-          <div class="grade"><strong>등급 : <%=loginUser.getMemGrade() %> 리뷰어</strong></div>
+          <div class="grade"><strong>등급 : <%=m.getMemGrade() %> 리뷰어</strong></div>
         </div>
       </div>    
       

@@ -164,7 +164,7 @@
 					<a class="menu__item" href="<%=contextPath%>/adminNoticeList.no?cpage=1">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 공지사항</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/adminContactList.no">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 1:1문의</span>
 					</a>
 					<a class="menu__item" href="#">

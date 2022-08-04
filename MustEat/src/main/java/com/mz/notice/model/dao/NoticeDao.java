@@ -305,6 +305,35 @@ public class NoticeDao {
 		
 	}
 	
+	public ArrayList<Contact> selectContactListAll(Connection conn){
+		
+		ArrayList<Contact> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectContactListAll");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(new Contact(rset.getInt("contact_no"),
+									 rset.getString("contact_type"),
+									 rset.getString("contact_title"),
+									 rset.getString("contact_writer"),
+									 rset.getDate("enroll_date"),
+									 rset.getString("contact_status")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
 	
 	
 	

@@ -48,6 +48,10 @@
     width:25%;
 }
 
+.updateInfo input[name=userPhone2] {
+	width:35%;
+}
+
 .updateInfo select[name=bank] {
     margin:20px 10px 0px 15px;
     font-size:14.5px;
@@ -149,9 +153,16 @@
 
 .checkDouble{
 	font-size: 13px;
-    width: 1px;
+    width: 105px;
     height: 30px;
     background-color: white;
     line-height: 2px;
+}
+
+#short, #noneSign, #exist, #noneExist{
+	display:none;
+	font-size:12px;
+	color:red;
+	margin: 0px 15px;
 }
 

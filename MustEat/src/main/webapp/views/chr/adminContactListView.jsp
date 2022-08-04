@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.notice.model.vo.Contact"%>
+<%
+	ArrayList<Contact> list = (ArrayList<Contact>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>[관리자]문의내역</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bootswatch@5.1.3/dist/lux/bootstrap.min.css,npm/bootswatch@5.1.3/dist/lux/bootstrap.min.css">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
     .outer{
         background-color:white;
-        width:80%;
+        width:70%;
         height:100%;    
         margin:auto;
     }
@@ -20,13 +25,17 @@
         text-align:center;
     }
     #standby{
-        color:red;
+        color:rgb(250, 60, 60);
     }
     #complete{
-        color:blue;
+        color:rgb(66, 66, 253);
     }
     tbody th, tbody td{
         font-weight:bold;
+    }
+    h1{
+        text-transform:none;
+        letter-spacing:normal;
     }
 </style>
 </head>
@@ -44,6 +53,7 @@
                 <thead>
                 <tr style="background:rgba(168, 108, 203, 0.518);">
                     <th style="font-size:medium; text-align:center;" scope="col">번호</th>
+                    <th style="font-size:medium; text-align:center;" scope="col">유형</th>
                     <th style="font-size:medium; text-align:center;" scope="col">문의</th>
                     <th style="font-size:medium; text-align:center;" scope="col">작성자</th>
                     <th style="font-size:medium; text-align:center;" scope="col">상태</th>
@@ -53,14 +63,15 @@
                 <tbody>
                 	<% if(list == null) { %>
                 		<tr class="contact-title">
-                			<th colspan="5">문의 내역이 없습니다.</th>
+                			<th colspan="6">문의 내역이 없습니다.</th>
                 		</tr>
                 	<% }else{ %>
 	                	<% for(int i=0; i<list.size(); i++){ %>
-		                    <tr class="contact-title">
-		                        <td><%= list.size() - i %></td>
-		                        <td>[<%= list.get(i).getContactType() %>] <%= list.get(i).getContactTitle() %></td>
-                                <td>작성자</td>
+		                    <tr class="contact-title" onclick="location.href='<%=contextPath%>/reply.no?no=<%= list.get(i).getContactNo() %>'">
+		                        <td><%= list.get(i).getContactNo() %></td>
+		                        <td><%= list.get(i).getContactType() %></td>
+		                        <td><%= list.get(i).getContactTitle() %></td>
+                                <td><%= list.get(i).getContactWriter() %></td>
 		                        <% if(list.get(i).getContactStatus().equals("답변 대기")){ %>
 		                        	<td id="standby"><%=list.get(i).getContactStatus()%></td>
 		                        <% }else{ %>
