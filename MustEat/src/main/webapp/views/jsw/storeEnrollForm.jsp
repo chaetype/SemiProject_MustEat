@@ -110,7 +110,7 @@
 					 
 					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
 						
-						<input type="hidden"  name="storeaddress" value="" id="tt" >
+						<input type="hidden"  name="storefulladdress" value="" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
