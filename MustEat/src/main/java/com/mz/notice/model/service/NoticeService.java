@@ -138,6 +138,22 @@ public class NoticeService {
 		return result;
 	}
 	
+	/** 공지사항 삭제 메소드
+	 * @param delArr 삭제하고자 하는 글번호 배열
+	 * @return 성공/실패 결과
+	 */
+	public int deleteNotice(String delArr) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().deleteNotice(conn, delArr);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 	
 	
 }
