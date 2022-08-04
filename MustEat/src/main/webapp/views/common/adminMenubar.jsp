@@ -104,6 +104,18 @@
 
 <body>
 
+		<!-- alert문구 생성할 때 -->
+	<% if(alertMsg != null) { %>
+	<script>
+		alert("<%=alertMsg%>");
+		
+		// 지우지 않으면 새로고침할 때마다 alert가 띄워짐
+		// => 확인 버튼을 누르면 아예 사라지도록 설정(한 번 띄우고 난 뒤 안띄우기)
+		// session.removeAttribute() : session 자체를 지우는 것이 아닌 안에 담긴 값을 삭제하는 것
+		<% session.removeAttribute("alertMsg"); %>
+	</script>
+	<% } %>
+
 
   <div class="wrap">
 		<div class="header">

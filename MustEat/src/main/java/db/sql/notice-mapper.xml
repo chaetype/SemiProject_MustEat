@@ -190,6 +190,16 @@
 		 WHERE CONTACT_NO = ?
 	</entry>
 	
+	<!-- 문의 답변 업데이트 -->
+	<entry key="updateContactReply">
+		UPDATE
+		       CONTACT
+		   SET CONTACT_STATUS = '답변 완료'
+		     , ANSWER = ?
+		     , ANSWER_DATE = SYSDATE
+		 WHERE CONTACT_NO = ?
+	</entry>
+	
 	
 	
 	

@@ -369,6 +369,28 @@ public class NoticeDao {
 		
 	}
 	
+	public int updateContactReply(Connection conn, int contactNo, String answer) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateContactReply");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, answer);
+			pstmt.setInt(2, contactNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
 	
 	
 	

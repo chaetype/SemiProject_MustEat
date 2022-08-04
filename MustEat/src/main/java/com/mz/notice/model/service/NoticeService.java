@@ -175,6 +175,23 @@ public class NoticeService {
 		return c;
 	}
 	
+	/** 문의 답변 업데이트 메소드
+	 * @param contactNo 문의번호
+	 * @param answer 답변
+	 * @return 성공/실패 결과
+	 */
+	public int updateContactReply(int contactNo, String answer) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().updateContactReply(conn, contactNo, answer);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 	
 	
 }

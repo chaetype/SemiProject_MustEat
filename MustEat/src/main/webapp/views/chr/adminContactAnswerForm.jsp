@@ -132,10 +132,11 @@
                 
             </div>
             
-            <form action="">
+            <form action="<%= contextPath %>/reply.no" method="post">
+            	<input type="hidden" name="no" value="<%=c.getContactNo()%>">
             	<% if(c.getAnswer() != null){ %>
             		<div class="form-outline" style="width:600px; margin:auto;">
-		                <textarea class="form-control" id="textAreaExample" rows="4"><%= c.getAnswer() %></textarea>
+		                <textarea class="form-control" name="answer" id="textAreaExample" rows="4"><%= c.getAnswer() %></textarea>
 		                <label class="form-label" for="textAreaExample">답변</label>
 		            </div>
 		            <br>
@@ -145,7 +146,7 @@
 		            </div>
             	<% }else{ %>
 	            <div class="form-outline" style="width:600px; margin:auto;">
-	                <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+	                <textarea class="form-control" name="answer" id="textAreaExample" rows="4"></textarea>
 	                <label class="form-label" for="textAreaExample">답변 입력</label>
 	            </div>
 	            <br>
