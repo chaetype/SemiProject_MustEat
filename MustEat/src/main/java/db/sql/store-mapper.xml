@@ -249,9 +249,6 @@
 		  INTO STORE
 		     ( 
 		       STORE_NO
-		     , LOCAL_SI
-		     , LOCAL_GU
-		     , LOCAL_RO
 		     , STORE_NAME
 		     , STORE_TAG
 		     , STORE_ADDRESS
@@ -270,10 +267,7 @@
 		     )
 		VALUES
 		     (
-		       SEQ_STORENO
-		     , ?
-		     , ?
-		     , ?
+		       SEQ_STORENO.NEXTVAL
 		     , ?
 		     , ?
 		     , ?
