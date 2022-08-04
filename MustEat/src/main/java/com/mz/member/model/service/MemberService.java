@@ -306,9 +306,17 @@ public class MemberService {
 	// 서원 사용자 적립금 조회 페이지 사용 가능한 적립금 조회
 	public Point membershipUseable(int memNo) {
 		Connection conn = getConnection();
-		Point p = new MemberDao().membershipUseable(conn, memNo);
+		Point pu = new MemberDao().membershipUseable(conn, memNo);
 		close(conn);
-		return p;
+		return pu;
+	}
+	
+	// 서원 사용자 적립금 조회 페이지 소멸 예정 적립금 조회
+	public Point membershipDelete(int memNo) {
+		Connection conn = getConnection();
+		Point pd = new MemberDao().membershipUseable(conn, memNo);
+		close(conn);
+		return pd;
 	}
 	
 	// 서원 사용자 리뷰 조회 
