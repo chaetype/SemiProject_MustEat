@@ -49,12 +49,9 @@ public class StoreEnrollFormController extends HttpServlet {
 		
 		MultipartRequest multiRequest = new MultipartRequest(request, SavePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
-		String storeName = request.getParameter("storeName");
-		String storePhone = request.getParameter("storePhone");
-		String localSi = request.getParameter("sido");
-		String localGu = request.getParameter("gugun");
-		String localRo = request.getParameter("storeaddress");
-		String storeAddress = request.getParameter("sido") + request.getParameter("gugun") + request.getParameter("storeaddress");
+		String storeName = request.getParameter("storename");
+		String storePhone = request.getParameter("storephone");
+		String storeAddress = request.getParameter("tt");
 		String storeImgPath = request.getParameter("storeimg");
 		String storeIntro = request.getParameter("storeintro");
 		String storePopularity = request.getParameter("storemenu");
@@ -77,24 +74,22 @@ public class StoreEnrollFormController extends HttpServlet {
 			storeTag = String.join(",", storeTagArr);
 		}
 		
-		Store se = new Store(storeName, storePhone, localSi, localGu, localRo, storeAddress, storeImgPath, storeIntro, storePopularity, storePopPath, storePopInfo, storeOperating, storeBreaktime, naverAddress, storeUrl, dayOff, storeTag);
+		Store se = new Store(storeName, storeTag, storeAddress, storePhone, storeIntro, storeImgPath, storePopularity, storePopInfo, storePopPath, storeOperating, storeBreaktime, naverAddress, dayOff, storeUrl);		
 		se.setStoreName(storeName);
-		se.setStorePhone(storePhone);
-		se.setLocalSi(localSi);
-		se.setLocalGu(localGu);
-		se.setLocalRo(localRo);
+		se.setStoreTag(storeTag);
 		se.setStoreAddress(storeAddress);
-		se.setStoreImgPath("resources/image/jsw/store_upfiles/");
+		se.setStorePhone(storePhone);
 		se.setStoreIntro(storeIntro);
+		se.setStoreImgPath("resources/image/jsw/store_upfiles/");
 		se.setStorePopularity(storePopularity);
-		se.setStorePopPath("resources/image/jsw/store_upfiles/");
 		se.setStorePopInfo(storePopInfo);
+		se.setStorePopPath("resources/image/jsw/store_upfiles/");
 		se.setStoreOperating(storeOperating);
 		se.setStoreBreaktime(storeBreaktime);
 		se.setNaverAddress(naverAddress);
-		se.setStoreUrl(storeUrl);
 		se.setDayOff(dayOff);
-		se.setStoreTag(storeTag);		
+		se.setStoreUrl(storeUrl);
+				
 
 		int result = new StoreService().storeInsert(se);
 				
