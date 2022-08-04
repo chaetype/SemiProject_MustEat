@@ -482,9 +482,27 @@
 		   AND MONTHS_BETWEEN(SYSDATE,SU_DATE) BETWEEN 11 AND 12
 	</entry>
 	
-	<!-- 서원 관리자 식당 등록 -->
+	<!-- 서원 사용자 my리뷰 조회 -->
 	<entry key="storeInsert">
-		
+		SELECT 
+		       REVIEW_ENROLLDATE 
+		     , STORE_NAME
+		     , SR_CATEGORY
+		     , REVIEW_RATE
+		  FROM STORE_RE
+		  JOIN STORE USING(STORE_NO)
+		 WHERE REVIEW_WRITER = ?
+		UNION
+		SELECT
+		       PR_REVIEW_ENROLLDATE
+		     , PRODUCT_NAME
+		     , PR_CATEGORY
+		     , PR_REVIEW_RATE
+		  FROM PRODUCT_REVIEW
+		  JOIN PRODUCT USING(PRODUCT_CODE)
+		 WHERE REVIEW_WRITER = ?
+		 ORDER
+		    BY REVIEW_ENROLLDATE DESC
 	</entry>
 	
 	
