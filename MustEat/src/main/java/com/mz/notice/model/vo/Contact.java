@@ -60,6 +60,21 @@ public class Contact {
 		this.contactStatus = contactStatus;
 	}
 
+	public Contact(int contactNo, String contactType, String contactTitle, String contactContent, String contactWriter,
+			Date enrollDate, String contactStatus, String contactAttach, String answer, Date answerDate) {
+		super();
+		this.contactNo = contactNo;
+		this.contactType = contactType;
+		this.contactTitle = contactTitle;
+		this.contactContent = contactContent;
+		this.contactWriter = contactWriter;
+		this.enrollDate = enrollDate;
+		this.contactStatus = contactStatus;
+		this.contactAttach = contactAttach;
+		this.answer = answer;
+		this.answerDate = answerDate;
+	}
+
 	public int getContactNo() {
 		return contactNo;
 	}

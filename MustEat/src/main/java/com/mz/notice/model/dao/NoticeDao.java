@@ -334,6 +334,41 @@ public class NoticeDao {
 		
 	}
 	
+	public Contact selectContact(Connection conn, int contactNo) {
+		
+		Contact c = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectContact");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, contactNo);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				c = new Contact(rset.getInt("contact_no"),
+								rset.getString("contact_type"),
+								rset.getString("contact_title"),
+								rset.getString("contact_content"),
+								rset.getString("contact_writer"),
+								rset.getDate("enroll_date"),
+								rset.getString("contact_status"),
+								rset.getString("contact_attach"),
+								rset.getString("answer"),
+								rset.getDate("answer_date"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return c;
+		
+	}
+	
 	
 	
 	

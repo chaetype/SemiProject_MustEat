@@ -173,6 +173,23 @@
 		    BY CONTACT_NO DESC
 	</entry>
 	
+	<!-- 문의내역 세부페이지 조회 -->
+	<entry key="selectContact">
+		SELECT
+		       CONTACT_NO
+		     , CONTACT_TYPE
+		     , CONTACT_TITLE
+		     , CONTACT_CONTENT
+		     , CONTACT_WRITER
+		     , ENROLL_DATE
+		     , CONTACT_STATUS
+		     , CONTACT_ATTACH
+		     , ANSWER
+		     , ANSWER_DATE
+		  FROM CONTACT
+		 WHERE CONTACT_NO = ?
+	</entry>
+	
 	
 	
 	

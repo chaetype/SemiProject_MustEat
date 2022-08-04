@@ -61,10 +61,15 @@
     }
     .post div{
         text-align:center;
-        margin:10%;
+    }
+    #noticeImg{
+    	margin-top:10%;
+    	margin-bottom:3%;
     }
     .noticeContent{
         line-height:30px;
+        margin-bottom:10%;
+        font-size:larger;
     }
     @import url(solarized_light.css);@import url(//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css);
 
@@ -94,8 +99,8 @@
             <div class="post">
                 
                 <% if(n.getNoticeAttach() != null){ %>
-	                <div>
-	                    <img src="<%= contextPath %>/<%= n.getNoticeAttach() %>" width="800" height="400">
+	                <div id="noticeImg">
+	                    <img src="<%= contextPath %>/<%= n.getNoticeAttach() %>" width="600" height="300">
 	                </div>
                 <% } %>
 
