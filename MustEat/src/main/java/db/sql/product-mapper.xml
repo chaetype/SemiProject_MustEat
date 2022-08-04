@@ -37,7 +37,7 @@
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
             		AND ORDER_STATUS = 2
-            		 OR DELIVERY_STATUS = '구매취소') AS CANCEL, <!-- 구매취소 -->
+            		AND DELIVERY_STATUS = '구매취소') AS CANCEL, <!-- 구매취소 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
