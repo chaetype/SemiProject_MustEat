@@ -109,11 +109,12 @@
 					<div class="input-form col-md-12 mx-auto">
 					 
 					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
-
+						
+						<input type="hidden"  name="storeaddress" value="" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
-							<input type="text" class="form-control" name="storename" id="store-name" onkeyup="storeName(this);" placeholder="식당명을 입력해주세요." value="" required>
+							<input type="text" class="form-control" name="storename" id="store-name"placeholder="식당명을 입력해주세요." required>
 							<div class="invalid-feedback">
 							  식당명을 입력해주세요.
 							</div>
@@ -169,8 +170,8 @@
 								});
 								}
 								});
-
-
+								
+							
 								});
 
 							</script>
@@ -211,6 +212,7 @@
 									//console.log($("#gugun").val());
 									//console.log($("#store-address").val());
 									storemap( $("#sido").val() + " " +  $("#gugun").val() + " " + $("#store-address").val());
+									$("#tt").val($("#sido").val() + " " +  $("#gugun").val() + " " + $("#store-address").val());
 									
 								})							
 								
@@ -425,7 +427,7 @@
 								<div class="mb-3">
 									<table>
 										<tr>											
-											<td>
+											
 											
 											<!-- 분위기 체크박스 체크 3개 제한 -->
 												<script type="text/javascript">
@@ -448,21 +450,22 @@
 												</script>
 											
 												<td><label for="storemood" style="color:#4B088A;"><b>* 분위기 태그</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood1" value="가성비좋은" required>
+												<td>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood1" value="가성비좋은">
 												<lable for="mood1">가성비좋은</lable>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood2" value="분위기좋은" required>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood2" value="분위기좋은">
 												<lable for="mood2">분위기좋은</lable>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood3" value="격식있는" required>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood3" value="격식있는">
 												<lable for="mood3">격식있는</lable>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood4" value="고급스러운" required>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood4" value="고급스러운">
 												<lable for="mood4">고급스러운</lable>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood5" value="시끌벅적한" required>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood5" value="시끌벅적한">
 												<lable for="mood5">시끌벅적한</lable>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood6" value="조용한" required>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood6" value="조용한">
 												<lable for="mood6">조용한</lable>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood7" value="깔끔한" required>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood7" value="깔끔한">
 												<lable for="mood7">깔끔한</lable>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="CountChecked(this);" name="storemood" id="mood8" value="이색적인" required>
+												<input type="checkbox" onclick="CountChecked(this);" name="storemood" id="mood8" value="이색적인">
 												<lable for="mood8">이색적인</lable>																				
 											</td>
 										</tr>
