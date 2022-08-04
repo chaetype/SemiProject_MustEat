@@ -120,6 +120,7 @@
 		       NOTICE
 		   SET NOTICE_COUNT = NOTICE_COUNT + 1
 		 WHERE NOTICE_NO = ?
+		   AND STATUS = 'Y'
 	</entry>
 	
 	<!-- 공지사항 세부페이지 조회 -->

@@ -95,6 +95,7 @@
                 </table>
                 <br><br>
                 <div style="width:850px" align="right">
+                	<button type="button" class="btn1" onclick="location.href='<%=contextPath%>/contactList.no'">나의 문의내역</button>
                     <button type="submit" class="btn1">문의하기</button>
                     <button type="reset" class="btn1">초기화</button>
                 </div>

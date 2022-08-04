@@ -117,21 +117,58 @@
                 </tr>
             </thead>
             <tbody>
-            	<% for(int i=0; i<list.size(); i++){ %>
+            	<% for(Notice n : list){ %>
 	                <tr>
-	                    <td><input type="checkbox" name="check" id="chkbox<%=i%>" value="<%=list.get(i).getNoticeNo()%>"></td>
-	                    <td class="noDetail"><%= list.get(i).getNoticeNo() %></td>
-	                    <td class="noDetail"><%= list.get(i).getNoticeTitle() %></td>
-	                    <td class="noDetail"><%= list.get(i).getNoticeWriter() %></td>
-	                    <td class="noDetail"><%= list.get(i).getEnrollDate() %></td>
-	                    <td class="noDetail"><%= list.get(i).getNoticeCount() %></td>
+	                    <td><input type="checkbox" class="chkbox" name="check" id="chkbox<%=n%>" value="<%=n.getNoticeNo()%>"></td>
+	                    <td class="noDetail"><%= n.getNoticeNo() %></td>
+	                    <td class="noDetail"><%= n.getNoticeTitle() %></td>
+	                    <td class="noDetail"><%= n.getNoticeWriter() %></td>
+	                    <td class="noDetail"><%= n.getEnrollDate() %></td>
+	                    <td class="noDetail"><%= n.getNoticeCount() %></td>
 	                </tr>
+                <% } %>
 	                <script>
 		                $("tbody>tr>.noDetail").click(function(){
 		                	location.href="<%=contextPath%>/adminNoticeDetail.no?cpage=<%=currentPage%>&no=" + $(this).siblings().eq(1).text();
 		                })
+		                
+		                let check = false;
+				        // function checkAll(){
+				        //     let chk = document.getElementsByName("chk[]");
+				        //     console.log(chk);
+				        //     if(check==false){
+				        //         check=true;
+				        //         for(let i=0; i<chk.length; i++){
+				        //             chk[i].checked=true;
+				        //         }
+				        //     }else{
+				        //         check=false;
+				        //         for(let i=0; i<chk.length; i++){
+				        //             chi[i].checked=false;
+				        //         }
+				        //     }
+				        // }
+				     
+				        function checkAll(checkAll){
+				           let checkboxes=document.getElementsByName("check");
+				           //console.log(checkboxes);
+				           checkboxes.forEach((checkbox)=>{
+				              //console.log(checkbox    );
+				              checkbox.checked=checkAll.checked;
+				           })
+				        }
+				        
+				        function deleteNo(){
+				        	if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+				        		let delArr = []
+					        	if($("tbody .chkbox").attr("checked", true)){
+					        		delArr += $(this).siblings().eq(1).text();
+					        	}
+					        	console.log(delArr);
+				        	}
+				        }
+				        
 	                </script>
-                <% } %>
             </tbody>
         </table>
         <br><br>
@@ -141,20 +178,7 @@
             <button type="button" class="btn1" onclick="deleteNo();">선택 삭제</button>
         </div>
         
-        <script>
-         	function deleteNo(){
-         		confirm("선택한 게시글을 삭제하시겠습니까?");
-         		
-         		val delArr = []
-            	if(con){
-    	        	if($("tbody .check").attr("checked", true)){
-    	        		delArr += $(this).val();
-    	        	}
-    	        	console.log(delArr);
-            	}
-         		
-         	}
-        </script>
+        
         
         <br>
         <div class="wrapper-paging">

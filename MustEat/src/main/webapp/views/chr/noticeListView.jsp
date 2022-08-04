@@ -98,6 +98,13 @@
 	    background-color: rgb(167, 112, 239) !important;
 	    border-color: rgb(167, 112, 239) !important;
 	}
+	
+	.post div{
+        margin:2% 0;
+    }
+    .noticeContent{
+        line-height:30px;
+    }
     
 </style>
 </head>
@@ -133,7 +140,20 @@
 		              data-mdb-parent="#accordionFlushExample"
 		            >
 		              <div class="accordion-body">
-		                <%= list.get(i).getNoticeContent() %>
+		              	 <div class="post">
+                
+			                <% if(list.get(i).getNoticeAttach() != null){ %>
+				                <div>
+				                    <img src="<%= contextPath %>/<%= list.get(i).getNoticeAttach() %>" width="400" height="200">
+				                </div>
+			                <% } %>
+			
+			                <div class="noticeContent">
+			                    <%= list.get(i).getNoticeContent() %><br>
+			                    
+			                </div>
+			                
+			            </div>
 		              </div>
 		            </div>
 	          </div>
