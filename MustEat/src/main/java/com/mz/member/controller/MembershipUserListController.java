@@ -37,7 +37,15 @@ public class MembershipUserListController extends HttpServlet {
 		
 		ArrayList<Point> list = new MemberService().membershipUserList(memNo);
 		
+		Point pu = new MemberService().membershipUseable(memNo);
+		
+		Point pd = new MemberService().membershipDelete(memNo);		
+		
 		request.setAttribute("list", list);
+		
+		request.setAttribute("pu", pu);
+		
+		request.setAttribute("pd", pd);
 		
 		request.getRequestDispatcher("views/jsw/membershipViewsUser.jsp").forward(request, response);
 		
