@@ -248,18 +248,24 @@
 	<!-- 은영 (수정된 회원 정보 조회) -->
 	<entry key="selectUpdateMember">
 	<!-- 수정된 회원정보 조회시 실행할 sql문 -->
-		SELECT
-			MEM_ID
-		  , MEM_PWD
-		  , MEM_NAME
-		  , MEM_PHONE
-		  , MEM_EMAIL
-		  , MEM_NICKNAME
-		  , MEM_IMGPATH
-		  , ADDRESS_CODE
-		  , ADDRESS
-		  , ADDRESS_DETAIL
-		  , ADDRESS_REF
+		SELECT		
+		      MEM_NO
+			, MEM_ID
+			, MEM_PWD
+			, MEM_NAME
+			, MEM_PHONE
+			, MEM_EMAIL
+			, MEM_ENROLLDATE
+			, MEM_MODIFYDATE
+			, MEM_STATUS
+			, MEM_NICKNAME
+			, MEM_GRADE
+			, ADDRESS_CODE
+			, ADDRESS
+			, ADDRESS_DETAIL
+			, ADDRESS_REF
+			, MEM_IMGPATH
+			, WITHDRAW
 		FROM MEMBER
 		WHERE MEM_ID = ?
 	</entry>

@@ -575,17 +575,23 @@ public class MemberDao {
 			
 			if(rset.next()) {
 								
-				updateMem = new Member(rset.getString("mem_id")
-									 , rset.getString("mem_pwd")
-									 , rset.getString("mem_name")
-									 , rset.getString("mem_phone")
-									 , rset.getString("mem_email")
-									 , rset.getString("mem_nickname")
-									 , rset.getString("address_code")
-									 , rset.getString("address")
-									 , rset.getString("address_detail")
-									 , rset.getString("address_ref")
-									 , rset.getString("mem_imgpath")
+				updateMem = new Member(rset.getInt("MEM_NO"),
+									   rset.getString("MEM_ID"),
+									   rset.getString("MEM_PWD"),
+									   rset.getString("MEM_NAME"),
+									   rset.getString("MEM_PHONE"),
+									   rset.getString("MEM_EMAIL"),
+									   rset.getDate("MEM_ENROLLDATE"),
+									   rset.getDate("MEM_MODIFYDATE"),
+									   rset.getString("MEM_STATUS"),
+									   rset.getString("MEM_NICKNAME"),
+									   rset.getString("MEM_GRADE"),
+									   rset.getString("ADDRESS_CODE"),
+									   rset.getString("ADDRESS"),
+									   rset.getString("ADDRESS_DETAIL"),
+									   rset.getString("ADDRESS_REF"),
+									   rset.getString("MEM_IMGPATH"),
+									   rset.getString("WITHDRAW")
 									 );
 			}
 			
