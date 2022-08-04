@@ -563,5 +563,54 @@ public class StoreDao {
 			
 			return sr;
 		}
+		
+		//서원 관리자 식당 등록
+		public int storeInsert(Connection conn, Store se) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("insertNotice");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, se.getStoreName());
+				pstmt.setString(2, se.getStorePhone());
+				pstmt.setString(3, se.getLocalSi());
+				pstmt.setString(4, se.getLocalGu());
+				pstmt.setString(5, se.getLocalRo());
+				pstmt.setString(6, se.getStoreAddress());
+				pstmt.setString(7, se.getStoreImgPath());
+				pstmt.setString(8, se.getStoreIntro());
+				pstmt.setString(9, se.getStorePopularity());
+				pstmt.setString(10, se.getStorePopPath());
+				pstmt.setString(11, se.getStorePopInfo());
+				pstmt.setString(12, se.getStoreOperating());
+				pstmt.setString(13, se.getStoreBreaktime());
+				pstmt.setString(14, se.getNaverAddress());
+				pstmt.setString(15, se.getStoreUrl());
+				pstmt.setString(16, se.getDayOff());
+				pstmt.setString(17, se.getStoreTag());				
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 }
