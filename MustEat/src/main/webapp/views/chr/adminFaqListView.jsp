@@ -129,7 +129,7 @@
                 <% } %>
 	                <script>
 		                $("tbody>tr>.noDetail").click(function(){
-		                	location.href="<%=contextPath%>/adminNoticeDetail.no?cpage=<%=currentPage%>&no=" + $(this).siblings().eq(1).text();
+		                	location.href="<%=contextPath%>/adminFaqDetail.no?cpage=<%=currentPage%>&no=" + $(this).siblings().eq(1).text();
 		                })
 		                
 		                let check = false;
@@ -172,7 +172,7 @@
 				        		
 				        		const str = delArr.toString();
 				        		
-				        		location.href="<%=contextPath%>/deleteNotice.no?cpage=<%=currentPage%>&delNo=" + str;
+				        		location.href="<%=contextPath%>/deleteFaq.no?cpage=<%=currentPage%>&delNo=" + str;
 				        	}
 				        }
 				        
