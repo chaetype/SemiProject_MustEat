@@ -5,6 +5,8 @@
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
 	int count = (int)request.getAttribute("count");
+    int a = (int)request.getAttribute("a");
+    String c = (String)request.getAttribute("c");
 
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
@@ -109,11 +111,23 @@
 
         <div style="display: inline; padding-left: 10%">
             <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
-                <option value="no">회원번호</option>
-                <option value="name">이름</option>
-                <option value="grade">회원등급</option>
+                <option id="x" value="no">회원번호</option>
+                <option id="y" value="name">이름</option>
+                <option id="z" value="grade">회원등급</option>
             </select>
         </div>
+
+        <script>
+            $(function(){
+                if(<%=c.equals("no")%>){
+                    $('#x').prop('selected',true);
+                }else if(<%=c.equals("name")%>){
+                    $('#y').prop('selected',true);
+                }else{
+                    $('#z').prop('selected',true);
+                }
+            });
+        </script>
 
 		&nbsp; &nbsp;
 		
@@ -183,21 +197,21 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
 					<% if(currentPage != 1) { %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%= currentPage-1 %>">&lt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%= currentPage-1 %>&a=<%=a%>&c=<%=c%>">&lt;</a></li>
 				    <% } %>
 				    
 				    <% for(int p=startPage; p<=endPage; p++) { %>
 				    	
 				    	<% if(p == currentPage) { %>
-				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>"><%= p %></a></li>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>&a=<%=a%>&c=<%=c%>"><%= p %></a></li>
 				    	<% } else { %>
-				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>"><%= p %></a></li>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>&a=<%=a%>&c=<%=c%>"><%= p %></a></li>
 				    	<% } %>
 				    	
 				    <% } %>
 				    
 				    <% if(currentPage != maxPage) { %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage+1%>&a=<%=a%>&c=<%=c%>">&gt;</a></li>
 				    <% } %>
 			    </ul>
             </nav>					
@@ -237,13 +251,11 @@
                 let val = $(this).val();
 
                 switch(val) {
-                    case 'no' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&&a=1";
-                    
-                    
+                    case 'no' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=1&c=no";                    
                     break;
-                    case 'name' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&&a=2";
+                    case 'name' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=2&c=name";
                     break;
-                    case 'grade' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&&a=3";
+                    case 'grade' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=3&c=grade";
                     break; 
 			    }
 	        });

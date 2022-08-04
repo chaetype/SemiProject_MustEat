@@ -46,7 +46,9 @@ public class StoreEnrollFormController extends HttpServlet {
 		String storeSavePath = session.getServletContext().getRealPath("/resources/image/jsw/store_upfiles/");
 		String storeMenuSavePath = session.getServletContext().getRealPath("/resources/image/jsw/storemenu_upfiles/");
 		
-		MultipartRequest multiRequest = new MultipartRequest(request, storeSavePath, 0, "UTF-8", new MyFileRenamePolicy());
+		int maxSize = 10 * 1024 * 1024;
+		
+		MultipartRequest multiRequest = new MultipartRequest(request, storeSavePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
 		String storeName = request.getParameter("storeName");
 		String storePhone = request.getParameter("storePhone");
@@ -103,7 +105,8 @@ public class StoreEnrollFormController extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/storeadminlist.st");
 		}else { 
 			// 등록 실패
-			session.setAttribute("alertMsg", "식당 등록 실패");
+			
+			request.setAttribute("alertMsg", "식당 등록 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 		

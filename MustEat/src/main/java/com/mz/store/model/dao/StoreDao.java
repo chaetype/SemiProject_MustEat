@@ -613,7 +613,7 @@ public class StoreDao {
 		public int storeInsert(Connection conn, Store se) {
 			int result = 0;
 			PreparedStatement pstmt = null;
-			String sql = prop.getProperty("insertNotice");
+			String sql = prop.getProperty("storeInsert");
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
