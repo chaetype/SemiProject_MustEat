@@ -24,6 +24,12 @@ public class Member {
 	
 	private String secreatId;
 	
+	private String following;//나를 팔로우 하는 회원들
+	private String streview;//내가쓴 식당리뷰
+	private int cfollowing;//나를 팔로우 하는 회원들수
+	private int cstreview;//내가쓴 식당리뷰수
+	
+	
 	
 	// 태민 아이디 찾기에 사용
 	
@@ -97,6 +103,54 @@ public class Member {
 		this.memImgPath = memImgPath;
 	}
 	
+	
+	
+	
+	
+	
+
+	public Member(int memNo, String memImgPath,String memNickname,String memId,   /* int cfollowing, */ int cstreview) {
+		super();
+		this.memNo = memNo;
+		this.memImgPath = memImgPath;
+		this.memNickname = memNickname;
+		this.memId = memId;
+		/* this.cfollowing = cfollowing; */
+		this.cstreview = cstreview;
+	}
+
+	public int getCfollowing() {
+		return cfollowing;
+	}
+
+	public void setCfollowing(int cfollowing) {
+		this.cfollowing = cfollowing;
+	}
+
+	public int getCstreview() {
+		return cstreview;
+	}
+
+	public void setCstreview(int cstreview) {
+		this.cstreview = cstreview;
+	}
+
+	public String getStreview() {
+		return streview;
+	}
+
+	public void setStreview(String streview) {
+		this.streview = streview;
+	}
+
+	public String getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(String following) {
+		this.following = following;
+	}
+
 	public String getSecreatId() {
 		return secreatId;
 	}

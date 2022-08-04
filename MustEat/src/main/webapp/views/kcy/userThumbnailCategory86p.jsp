@@ -79,8 +79,10 @@
             </div>
 
             <div class="thumbnail33" align="center">
+            <a href="<%=contextPath%>/mlist.fo " style="text-decoration: none;">
                 <img src="<%=contextPath%>/resources/image/mz.png" width="270" height="170">
                 <p>MZ유저들 찾아보기</p>
+             </a>
             </div>
 
         </div>

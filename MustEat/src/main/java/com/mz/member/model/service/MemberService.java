@@ -344,4 +344,17 @@ public class MemberService {
 	
 	
 	
+	
+	
+	
+	
+	
+	//채윤 팔로우할 회원 목록 조회
+	//채윤(신고 목록 조회 / ReportListController와 연결)
+		public ArrayList<Member> selectFMemList() {
+			Connection conn = getConnection();
+			ArrayList<Member> list = new MemberDao().selectFMemList(conn);
+			close(conn);
+			return list;
+		}
 }

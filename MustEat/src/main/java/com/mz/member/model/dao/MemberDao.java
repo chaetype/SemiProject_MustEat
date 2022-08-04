@@ -801,7 +801,7 @@ public class MemberDao {
 				while(rset.next()) {
 					flist.add(new Follow(
 										rset.getInt("follow_no"),
-										rset.getString("mem_name"),
+										rset.getString("mem_nickname"),
 										rset.getString("mem_imgpath"),
 										rset.getInt("STORE_REVIEW"),
 										rset.getInt("PRODUCT_REVIEW"),
@@ -994,7 +994,44 @@ public class MemberDao {
 	
 		// 서원 사용자 리뷰 조회 
 		
+		//채윤
+		/**
+		 * 회원목록 조회
+		 * @param conn
+		 * @return
+		 */
+		public ArrayList<Member> selectFMemList(Connection conn){
+			
+			ArrayList<Member> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("selectFMemList");
 		
+			try {
+				pstmt=conn.prepareStatement(sql);
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+		
+					list.add(new Member(rset.getInt("mem_no"),
+										rset.getString("MEM_IMGPATH"),
+										rset.getString("mem_nickname"),
+										rset.getString("mem_id"),
+							/* rset.getInt("FOLLOW"), */
+										rset.getInt("STORE_REVIEW")
+										));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;
+			
+		}	
 		
 }
 		

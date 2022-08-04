@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mz.member.model.service.MemberService;
-import com.mz.member.model.vo.Report;
+import com.mz.member.model.vo.Member;
 
 /**
- * Servlet implementation class ReportListController
+ * Servlet implementation class MemForFollowListController
  */
-@WebServlet("/list.rp")
-public class ReportListController extends HttpServlet {
+@WebServlet("/mlist.fo")
+public class MemForFollowListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReportListController() {
+    public MemForFollowListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,12 +31,11 @@ public class ReportListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 신고 목록 조회용 
 		
-		ArrayList<Report> list = new MemberService().selectReportList();
-				
+		ArrayList<Member> list = new MemberService().selectFMemList();
+		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/kcy/adminReportList.jsp").forward(request, response);
+		request.getRequestDispatcher("views/kcy/userFollowMemSearching.jsp").forward(request, response);
 	}
 
 	/**
