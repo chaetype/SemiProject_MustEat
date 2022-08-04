@@ -3,8 +3,8 @@
 <%@ page import="java.util.ArrayList, com.mz.member.model.vo.Point" %>
 <%
 	ArrayList<Point> list = (ArrayList<Point>)request.getAttribute("list");
-	Point pu = (Point)request.getAttribute("pu");
-	Point pd = (Point)request.getAttribute("pd");
+	int pu = (int)request.getAttribute("pu");
+	int pd = (int)request.getAttribute("pd");
 	
 %>
 <!DOCTYPE html>
@@ -135,14 +135,14 @@
 		
 			<div class="point-sum" style="background:rgb(231, 216, 241)">
 				
-				&nbsp;<h2><span style="color:blue;">사용 가능</span>한 적립금 : <span><%= pu.getUseableMps() %>원</span></h2>
+				&nbsp;<h2><span style="color:blue;">사용 가능</span>한 적립금 : <span><%= pu %>원</span></h2>
 				
 			</div>
 		
 		
 			<div class="point-delete" style="background:rgb(231, 216, 241)">
 			
-				&nbsp;<h2>이번달 <span style="color:red;">소멸예정</span> 적립금 : <span><%= pd.getMpsDelete() %>원</span></h2>
+				&nbsp;<h2>이번달 <span style="color:red;">소멸예정</span> 적립금 : <span><%= pd %>원</span></h2>
 			
 			</div>
 			
