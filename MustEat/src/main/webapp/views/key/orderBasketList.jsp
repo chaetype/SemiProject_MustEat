@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MustEat 주문현황</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderList.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/orderList.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
@@ -144,9 +144,11 @@
 	
 	          <div class="orderButton">
 	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">구매하기</a>
+	            <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal">주문수정</button>
+	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">상품삭제</a>
 	          </div>
-	          
-			 	
+	      
+
 		 <script>
   
 			// '장바구니, 상품준비중, 배송중, 배송완료, 상품취소' 클릭하면 실행하는 함수
@@ -196,10 +198,80 @@
 			});
 		
    </script>	
+   
+   
+   <!-- 장바구니 수정에 해당하는 Modal창 -->
+	<div class="modal" id="updateModal" style="height: 100%; max-height: 700px;">
+	  <div class="modal-dialog">
+	    <div class="modal-content" style="display:inline-block;">
+	
+	      <!-- Modal Header -->
+	      <div class="modal-header updateCart">
+	        <h4 class="modal-title">주문수정</h4>
+	        <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+	        <!-- 해당 버튼 클릭시 모달과 연결해제 -->
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body" align="center">
+	      
+	        <form action="" method="post" id="update-form">
+	        	<input type="hidden" name="userId" value="<%=loginUser.getMemId() %>">
+	        	
+	        	<%
+	       			DecimalFormat df = new DecimalFormat("#,##0"); // 가격 천단위로 보여지도록 설정
+	       		%>
+				
+          <div class="updateContent">
+            <div class="delivery_item">
+            	<span class="delivery_title">배송방법 : </span>
+            	<span class="delivery">택배</span>
+            </div>
+            <div class="delivery_item">
+            	<span class="delivery_title">배송비결제 : </span>
+            	<span class="delivery">2,500원</span>
+            </div>
+          </div>
+	</div>
+	
+	<div class="changePrice">
+	  <div class="num">
+         <div class="updown">
+         	<span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-up up"></i></span>
+           <input type="text" name="p_num1" id="p_num1" class="p_num" value="2" onkeyup="javascript:basket.changePNum(1);">
+           <span onclick="javascript:basket.changePNum(1);"><i class="fas fa-arrow-alt-circle-down down"></i></span>
+         </div>
+      </div>
+      <div class="sum">40,000원</div>
+	</div>
+            
+    <br><br>
+            
+    <div class="changePrice">
+	  <div class="finalPrice">
+	  	<span class="final_t">상품금액</span>
+	  	<span class="final_p">10000원</span>
+	  </div>
+	  <div class="finalDelivery">
+	  	<span class="final_t">배송비</span>
+	  	<span class="final_p">2500원</span>
+	  </div>
+	</div>
+	
+	<br>
+	<div align="center">
+       <button type="submit" class="plain-btn btn" onclick="updateBasket();">확인</button>
+       <button type="button" class="plain-btn btn" onclick="history.back();">취소</button>
+    </div>
+
+	        </form>
+	          
 	
 	    <br>
     
- 	</div>
+	 	</div>
+	 </div>
+	</div>
 
 </body>
 </html>
