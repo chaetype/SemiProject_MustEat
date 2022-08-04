@@ -118,14 +118,19 @@
             </thead>
             <tbody>
             	<% for(int i=0; i<list.size(); i++){ %>
-	                <tr onclick="location.href='<%=contextPath%>/adminNoticeDetail.no?no=<%=list.get(i).getNoticeNo()%>&cpage=<%=currentPage%>'">
-	                    <td><input type="checkbox" name="check" id="chkbox"></td>
-	                    <td><%= list.get(i).getNoticeNo() %></td>
-	                    <td><%= list.get(i).getNoticeTitle() %></td>
-	                    <td><%= list.get(i).getNoticeWriter() %></td>
-	                    <td><%= list.get(i).getEnrollDate() %></td>
-	                    <td><%= list.get(i).getNoticeCount() %></td>
+	                <tr>
+	                    <td><input type="checkbox" name="check" id="chkbox<%=i%>" value="<%=list.get(i).getNoticeNo()%>"></td>
+	                    <td class="noDetail"><%= list.get(i).getNoticeNo() %></td>
+	                    <td class="noDetail"><%= list.get(i).getNoticeTitle() %></td>
+	                    <td class="noDetail"><%= list.get(i).getNoticeWriter() %></td>
+	                    <td class="noDetail"><%= list.get(i).getEnrollDate() %></td>
+	                    <td class="noDetail"><%= list.get(i).getNoticeCount() %></td>
 	                </tr>
+	                <script>
+		                $("tbody>tr>.noDetail").click(function(){
+		                	location.href="<%=contextPath%>/adminNoticeDetail.no?cpage=<%=currentPage%>&no=" + $(this).siblings().eq(1).text();
+		                })
+	                </script>
                 <% } %>
             </tbody>
         </table>
@@ -133,8 +138,23 @@
 
         <div style="width:90%" align="right">
             <button type="button" class="btn1" onclick="location.href='<%=contextPath%>/adminNoticeEnrollForm.no'">공지 등록</button>
-            <button type="button" class="btn1" onclick="삭제창으로">선택 삭제</button>
+            <button type="button" class="btn1" onclick="deleteNo();">선택 삭제</button>
         </div>
+        
+        <script>
+         	function deleteNo(){
+         		confirm("선택한 게시글을 삭제하시겠습니까?");
+         		
+         		val delArr = []
+            	if(con){
+    	        	if($("tbody .check").attr("checked", true)){
+    	        		delArr += $(this).val();
+    	        	}
+    	        	console.log(delArr);
+            	}
+         		
+         	}
+        </script>
         
         <br>
         <div class="wrapper-paging">
@@ -163,6 +183,8 @@
     </div>
 
     <script type="text/javascript">
+    	
+    	
         let check = false;
         // function checkAll(){
         //     let chk = document.getElementsByName("chk[]");
@@ -187,6 +209,18 @@
               console.log(checkbox    );
               checkbox.checked=checkAll.checked;
            })
+        }
+        
+        val delArr = []
+        function deleteNo(){
+        	alert("선택한 게시글을 삭제하시겠습니까?");
+        	
+        	/*if(alert("선택한 게시글을 삭제하시겠습니까?")){
+	        	if($("tbody .check").attr("checked", true)){
+	        		delArr += $(this).val();
+	        	}
+	        	console.log(delArr);*/
+        	}
         }
      
      </script>

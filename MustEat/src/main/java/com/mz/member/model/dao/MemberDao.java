@@ -803,8 +803,40 @@ public class MemberDao {
 			return list;			
 		}
 		
+		// 서원 사용자 적립금 조회 페이지 사용 가능한 적립금 조회
+		public Point membershipUseable(Connection conn, int memNo) {
 		
+			Point p = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("membershipUseable");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, memNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					
+					p = new Point(rset.getInt("USEABLE_MPS"));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return p;
+			
+		}
 	
+		// 서원 사용자 리뷰 조회 
+		
 		
 		
 }

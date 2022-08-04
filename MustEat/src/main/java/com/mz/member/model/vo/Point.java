@@ -17,6 +17,8 @@ public class Point {
 	private int reviewMonth;
 	private int savePoint;
 	private String mpsDate;
+	private int useableMps;
+	private int mpsDelete;
 	
 	public Point() {
 		
@@ -78,8 +80,6 @@ public class Point {
 		this.pStatus = pStatus;
 	}
 	
-	
-
 	public Point(Date suDate, String mpsCategory, String mpsStatus, int mpsRecord) {
 		super();
 		this.suDate = suDate;
@@ -87,7 +87,12 @@ public class Point {
 		this.mpsStatus = mpsStatus;
 		this.mpsRecord = mpsRecord;
 	}
-
+	
+	public Point(int useableMps) {
+		super();
+		this.useableMps = useableMps;
+	}
+	
 	public int getMpsNo() {
 		return mpsNo;
 	}
@@ -190,6 +195,22 @@ public class Point {
 
 	public void setMpsDate(String mpsDate) {
 		this.mpsDate = mpsDate;
+	}
+	
+	public int getUseableMps() {
+		return useableMps;
+	}
+
+	public void setUseableMps(int useableMps) {
+		this.useableMps = useableMps;
+	}	
+
+	public int getMpsDelete() {
+		return mpsDelete;
+	}
+
+	public void setMpsDelete(int mpsDelete) {
+		this.mpsDelete = mpsDelete;
 	}
 
 	@Override

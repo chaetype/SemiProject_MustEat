@@ -172,3 +172,24 @@
   color:white;
   background:rgb(167, 112, 239);
 }
+
+
+ /* ================== 더보기 ==================== */
+ 
+.orderMonth, .paySection {
+	display:none;
+}
+
+.viewMore{
+  display: block;
+    width: 100%;
+    padding: 18px 0;
+    color: #000;
+    font-size: 13px;
+    border: none 0;
+    text-align: center;
+}
+
+
+
+

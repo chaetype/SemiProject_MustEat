@@ -382,5 +382,24 @@
 		 WHERE MEM_EMAIL = ?
 	</entry>
 
+	<!-- 서원 사용자 적립금 조회 페이지 사용가능한 적립금 조회 -->
+	<entry key="membershipUseable">
+		SELECT NVL(SUM(MPS_RECORD), 0) "USEABLE_MPS"
+		  FROM MPS_POINT
+		 WHERE MEM_NO = ?
+	</entry>
+	
+	<!-- 서원 사용자 적립금 조회 페이지 사용가능한 적립금 조회 -->
+	<entry key="membershipDelete">
+		SELECT NVL(SUM(MPS_RECORD), 0) "MPS_DELETE"
+		  FROM MPS_POINT
+		 WHERE MEM_NO = ?
+		   AND MPS_STATUS = '적립'
+		   AND MONTHS_BETWEEN(SYSDATE,SU_DATE) BETWEEN 11 AND 12;
+	</entry>
+	
+	
+	
+	
 	
 </properties>
