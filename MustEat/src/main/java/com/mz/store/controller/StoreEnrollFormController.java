@@ -54,7 +54,7 @@ public class StoreEnrollFormController extends HttpServlet {
 		String localGu = multiRequest.getParameter("gugun");
 		String localRo = multiRequest.getParameter("storeaddress");
 		String storePhone = multiRequest.getParameter("storephone");
-		String storeAddress = multiRequest.getParameter("tt");
+		String storeAddress = multiRequest.getParameter("storefulladdress");
 		String storeImgPath = multiRequest.getParameter("storeimg");
 		String storeIntro = multiRequest.getParameter("storeintro");
 		String storePopularity = multiRequest.getParameter("storemenu");
