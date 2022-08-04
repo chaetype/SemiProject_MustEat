@@ -49,20 +49,20 @@ public class StoreEnrollFormController extends HttpServlet {
 		
 		MultipartRequest multiRequest = new MultipartRequest(request, SavePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
-		String storeName = request.getParameter("storename");
-		String storePhone = request.getParameter("storephone");
-		String storeAddress = request.getParameter("tt");
-		String storeImgPath = request.getParameter("storeimg");
-		String storeIntro = request.getParameter("storeintro");
-		String storePopularity = request.getParameter("storemenu");
-		String storePopPath = request.getParameter("storemenuimg");
-		String storePopInfo = request.getParameter("storemenuintro");
-		String storeOperating = request.getParameter("storeoperating1") + "~" + request.getParameter("storeoperating2");
-		String storeBreaktime = request.getParameter("storebreak1") + "~" + request.getParameter("storebreak2");
-		String naverAddress = request.getParameter("storenaverurl");
-		String storeUrl = request.getParameter("storeurl");
-		String[] dayOffArr = request.getParameterValues("storeholiday");
-		String[] storeTagArr = request.getParameterValues("storemood");
+		String storeName = multiRequest.getParameter("storename");
+		String storePhone = multiRequest.getParameter("storephone");
+		String storeAddress = multiRequest.getParameter("tt");
+		String storeImgPath = multiRequest.getParameter("storeimg");
+		String storeIntro = multiRequest.getParameter("storeintro");
+		String storePopularity = multiRequest.getParameter("storemenu");
+		String storePopPath = multiRequest.getParameter("storemenuimg");
+		String storePopInfo = multiRequest.getParameter("storemenuintro");
+		String storeOperating = multiRequest.getParameter("storeoperating1") + "~" + request.getParameter("storeoperating2");
+		String storeBreaktime = multiRequest.getParameter("storebreak1") + "~" + request.getParameter("storebreak2");
+		String naverAddress = multiRequest.getParameter("storenaverurl");
+		String storeUrl = multiRequest.getParameter("storeurl");
+		String[] dayOffArr = multiRequest.getParameterValues("storeholiday");
+		String[] storeTagArr = multiRequest.getParameterValues("storemood");
 		
 		String dayOff = "";
 		if(dayOffArr != null) {
@@ -80,10 +80,10 @@ public class StoreEnrollFormController extends HttpServlet {
 		se.setStoreAddress(storeAddress);
 		se.setStorePhone(storePhone);
 		se.setStoreIntro(storeIntro);
-		se.setStoreImgPath("resources/image/jsw/store_upfiles/");
+		se.setStoreImgPath("/resources/image/jsw/store_upfiles/");
 		se.setStorePopularity(storePopularity);
 		se.setStorePopInfo(storePopInfo);
-		se.setStorePopPath("resources/image/jsw/store_upfiles/");
+		se.setStorePopPath("/resources/image/jsw/store_upfiles/");
 		se.setStoreOperating(storeOperating);
 		se.setStoreBreaktime(storeBreaktime);
 		se.setNaverAddress(naverAddress);
