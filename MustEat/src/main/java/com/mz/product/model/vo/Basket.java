@@ -63,6 +63,15 @@ public class Basket {
 		super();
 		this.month = month;
 	}
+	
+
+	public Basket(String productCode, int count, int price, String productName) {
+		super();
+		this.productCode = productCode;
+		this.count = count;
+		this.price = price;
+		this.productName = productName;
+	}
 
 	public String getMemNo() {
 		return memNo;

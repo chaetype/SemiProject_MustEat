@@ -233,7 +233,7 @@
 		  , PR_REVIEW_CONTENT
 		  , PRODUCT_CODE
 		  , REVIEW_WRITER
-		 <!--  , PR_REVIEW_RATE -->
+		  , PR_REVIEW_RATE 
 		  )
 		  VALUES
 		  (
@@ -241,7 +241,7 @@
 		  , ?
 		  , ?
 		  , ?
-		  <!--  , ?-->
+		  , ?
 		  )
 	</entry>
 	
@@ -299,7 +299,8 @@
 		INSERT
 		  INTO ORDER_PRO
 		  (
-		    DEL_NAME
+		    ORDER_NO
+		  , DEL_NAME
 		  , DEL_PHONE
 		  , DEL_EMAIL
 		  , MEMO
@@ -311,11 +312,12 @@
 		  )
 		  VALUES
 		  (
-		    ?
+		    SEQ_ORDERNO.NEXTVAL
 		  , ?
 		  , ?
 		  , ?
 		  , ?
+          , ?
           , ?
           , ?
           , ?
@@ -376,6 +378,7 @@
 	
 	</entry>
 	
+	<!-- 성범  -->
 	<entry key="selectmealkit">
 		SELECT *
 		  FROM (
@@ -394,8 +397,54 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<!-- 성범  -->
 	<entry key="selectListCount">
 		SELECT COUNT(*) as "COUNT"
 		  FROM PRODUCT
 	</entry>
+	
+	<!-- 성범  -->
+	<entry key="insertProduct">
+		INSERT
+		  INTO PRODUCT
+		  (
+		  PRODUCT_CODE
+        , PRODUCT_NAME
+        , PRICE
+        , ENROLL_DATE
+        , SELLER
+        , SELLER_PHONE
+        , SALES_UNIT
+        , CAPACITY
+        , PACKING
+        , ALLERGY
+        , EXPIRATION_DATE
+        , IMG_PATH
+		  )
+		  VALUES
+		  (
+			SEQ_PRNO.NEXTVAL		   
+		  , ?  
+		  , ?
+		  , SYSDATE
+		  , ?
+          , ?
+          , ?
+          , ?
+          , ?
+          , ?
+          , ?
+          , ?
+		  )
+
+	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </properties>

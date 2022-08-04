@@ -31,7 +31,7 @@
 	
 	
 	<div class=wrap101>
-		<form action="">
+		<form action="<%=contextPath %>/insertProduct.do" method="post" enctype="multipart/form-data">
 			<table class="rwd-table">
 				<tbody>
 				<tr>
@@ -39,43 +39,59 @@
 				</tr>
 				<tr>
 					<td data-th="Supplier Code">*상품명</td>
-					<td data-th="Supplier Name"><input type="text" name="proname" placeholder="상품명을 입력해주세요" size=70></td>
+					<td data-th="Supplier Name"><input type="text" name="pName" placeholder="상품명을 입력해주세요" size=70 required></td>
 				</tr>
 				<tr>
 					<td data-th="Supplier Code">*판매가</td>
-					<td data-th="Supplier Name"><input type="text" name="proprice" placeholder="가격을 입력해주세요" size=70></td>
+					<td data-th="Supplier Name"><input type="text" name="price" placeholder="가격을 입력해주세요" size=70 required></td>
 				</tr>
 				<tr>
-					<td data-th="Supplier Code">판매자</td>
-					<td data-th="Supplier Name"><input type="text" name="proseller" placeholder="판매자를 입력해주세요" size=70></td>
+					<td data-th="Supplier Code">등록일</td>
+					<td data-th="Supplier Name"><input type="text" name="enrollDate" placeholder="등록일을 입력해주세요" size=70></td>
 				</tr>
 				<tr>
-					<td data-th="Supplier Code">상품정보</td>
-					<td data-th="Supplier Name"><input type="text" name="proname" placeholder="상품정보를 입력해주세요" size=70></td>
+					<td data-th="Supplier Code">*판매자</td>
+					<td data-th="Supplier Name"><input type="text" name="seller" placeholder="판매자를 입력해주세요" size=70 required></td>
 				</tr>
 				<tr>
-					<td data-th="Supplier Code">키워드</td>
-					<td data-th="Supplier Name"><input type="text" name="proname" placeholder="키워드를 입력해주세요" size=70></td>
+					<td data-th="Supplier Code">판매자연락처</td>
+					<td data-th="Supplier Name"><input type="text" name="sPhone" placeholder="판매자연락처를 입력해주세요" size=70 required></td>
 				</tr>
 				<tr>
-					<td data-th="Supplier Code">정가</td>
-					<td data-th="Supplier Name"><input type="text" name="proname" placeholder="정가를 입력해주세요" size=70></td>
+					<td data-th="Supplier Code">*판매단위</td>
+					<td data-th="Supplier Name"><input type="text" name="saUnit" placeholder="판매단위를 입력해주세요" size=70 required></td>
 				</tr>
 				<tr>
-					<td data-th="Supplier Code">표지이미지</td>
-					<td data-th="Supplier Name"><button class="btn1">파일첨부</button></td>
+					<td data-th="Supplier Code">*용량</td>
+					<td data-th="Supplier Name"><input type="text" name="capacity" placeholder="용량을 입력해주세요" size=70 required></td>
 				</tr>
 				<tr>
-					<td data-th="Supplier Code">상세이미지</td>
-					<td data-th="Supplier Name"><button class="btn1">파일첨부</button></td>
+					<td data-th="Supplier Code">*포장타입</td>
+					<td data-th="Supplier Name"><input type="text" name="packing" placeholder="포장타입을 입력해주세요" size=70 required></td>
 				</tr>
+				<tr>
+					<td data-th="Supplier Code">*알레르기정보</td>
+					<td data-th="Supplier Name"><input type="text" name="allergy" placeholder="알레르기정보를 입력해주세요" size=70 required></td>
+				</tr>
+				<tr>
+					<td data-th="Supplier Code">*유통기한</td>
+					<td data-th="Supplier Name"><input type="text" name="exDate" placeholder="유통기한을 입력해주세요" size=70 required></td>
+				</tr>						
+				<tr>
+					<td data-th="Supplier Code">*상품이미지</td>
+					<td data-th="Supplier Name"><input type="file" name="upfile" required></td>
+				</tr>
+			
+
+				
 				</tbody>
 		  </table>
-		</form>  
-			<div class="list01">
+		  <div class="list01">
 		        <button class="btn1">등록</button>
 		        <button class="btn1">취소</button>
 	        </div>
+		</form>  
+			
           <br><br><br>
 	</div>
 </body>

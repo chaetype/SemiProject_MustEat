@@ -196,9 +196,10 @@ public class OrderPro {
 	
 
 
-	public OrderPro(String memo, String deliveryStatus, String delName, String delPhone, String delEmail,
+	public OrderPro(String memNo, String memo, String deliveryStatus, String delName, String delPhone, String delEmail,
 			String delAddress, String delAddressCode, String delAddressDetail, String delAddressRef) {
 		super();
+		this.memNo = memNo;
 		this.memo = memo;
 		this.deliveryStatus = deliveryStatus;
 		this.delName = delName;
