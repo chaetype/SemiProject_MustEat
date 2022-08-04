@@ -155,6 +155,24 @@
 		   SET STATUS = 'N'
 	</entry>
 	
+	<!-- 문의내역 전체 조회 -->
+	<entry key="selectContactListAll">
+		SELECT
+		       CONTACT_NO
+		     , CONTACT_TYPE
+		     , CONTACT_TITLE
+		     , CONTACT_CONTENT
+		     , CONTACT_WRITER
+		     , ENROLL_DATE
+		     , CONTACT_STATUS
+		     , CONTACT_ATTACH
+		     , ANSWER
+		     , ANSWER_DATE
+		  FROM CONTACT
+		 ORDER
+		    BY CONTACT_NO DESC
+	</entry>
+	
 	
 	
 	

@@ -154,6 +154,16 @@ public class NoticeService {
 		return result;
 	}
 	
+	/** 문의내역 전체 조회 메소드
+	 * @return 조회된 문의 객체
+	 */
+	public ArrayList<Contact> selectContactListAll(){
+		Connection conn = getConnection();
+		ArrayList<Contact> list = new NoticeDao().selectContactListAll(conn);
+		close(conn);
+		return list;
+	}
+	
 	
 	
 }
