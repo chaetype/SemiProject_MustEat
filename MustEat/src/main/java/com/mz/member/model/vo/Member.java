@@ -35,9 +35,7 @@ public class Member {
 		
 	}
 	
-	public Member() {
-		
-	}
+
 	
 	// 태민 아이디 찾기에 사용
 	
