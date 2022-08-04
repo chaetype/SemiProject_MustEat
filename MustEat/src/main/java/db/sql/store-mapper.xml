@@ -250,6 +250,9 @@
 		     ( 
 		       STORE_NO
 		     , STORE_NAME
+		     , LOCAL_SI
+		     , LOCAL_GU
+		     , LOCAL_RO
 		     , STORE_TAG
 		     , STORE_ADDRESS
 		     , STORE_PHONE
