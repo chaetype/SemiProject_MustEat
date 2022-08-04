@@ -80,7 +80,7 @@
 
             <div class="thumbnail33" align="center">
                 <img src="<%=contextPath%>/resources/image/mz.png" width="270" height="170">
-                <p>MZ에디터들 글 구경하기</p>
+                <p>MZ유저들 찾아보기</p>
             </div>
 
         </div>

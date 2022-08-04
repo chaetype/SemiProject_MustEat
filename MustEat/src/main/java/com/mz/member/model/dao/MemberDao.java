@@ -680,6 +680,7 @@ public class MemberDao {
 				
 				while(rset.next()) {
 					flist.add(new Follow(
+										rset.getInt("follow_no"),
 										rset.getString("mem_name"),
 										rset.getString("mem_imgpath"),
 										rset.getInt("STORE_REVIEW"),
