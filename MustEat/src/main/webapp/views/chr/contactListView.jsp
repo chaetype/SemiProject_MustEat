@@ -13,7 +13,7 @@
 <style>
     .outer{
         background-color:white;
-        width:80%;
+        width:70%;
         height:100%;    
         margin:auto;
     }
@@ -30,10 +30,10 @@
         background-color:rgba(202, 183, 219, 0.479);
     }
     #standby{
-        color:red;
+        color:rgb(250, 60, 60);
     }
     #complete{
-        color:blue;
+        color:rgb(66, 66, 253);
     }
     tbody th, tbody td{
         font-weight:bold;
@@ -41,6 +41,11 @@
     .table-act p{
         padding-left:20px;
     }
+    h1{
+        text-transform:none;
+        letter-spacing:normal;
+    }
+    
 </style>
 </head>
 <body>

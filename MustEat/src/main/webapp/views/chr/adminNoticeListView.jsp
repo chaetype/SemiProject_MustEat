@@ -23,7 +23,7 @@
 <style>
     .outer{
         background-color:white;
-        width:80%;
+        width:70%;
         height:100%;    
         margin:auto;
     }
@@ -155,16 +155,24 @@
 				           checkboxes.forEach((checkbox)=>{
 				              //console.log(checkbox    );
 				              checkbox.checked=checkAll.checked;
-				           })
+				           });
 				        }
 				        
 				        function deleteNo(){
 				        	if(confirm("선택한 게시글을 삭제하시겠습니까?")){
-				        		let delArr = []
-					        	if($("tbody .chkbox").attr("checked", true)){
-					        		delArr += $(this).siblings().eq(1).text();
-					        	}
-					        	console.log(delArr);
+				        		let delArr = [];
+				        		
+				        		$("tbody .chkbox").each(function(){
+				        			if($(this).prop("checked")){
+				        				delArr.push($(this).val());
+				        			}
+				        		});
+				        		
+					        	console.log(delArr.toString());
+				        		
+				        		const str = delArr.toString();
+				        		
+				        		location.href="<%=contextPath%>/deleteNotice.no?cpage=<%=currentPage%>&delNo=" + str;
 				        	}
 				        }
 				        
@@ -235,17 +243,6 @@
            })
         }
         
-        val delArr = []
-        function deleteNo(){
-        	alert("선택한 게시글을 삭제하시겠습니까?");
-        	
-        	/*if(alert("선택한 게시글을 삭제하시겠습니까?")){
-	        	if($("tbody .check").attr("checked", true)){
-	        		delArr += $(this).val();
-	        	}
-	        	console.log(delArr);*/
-        	}
-        }
      
      </script>
 
