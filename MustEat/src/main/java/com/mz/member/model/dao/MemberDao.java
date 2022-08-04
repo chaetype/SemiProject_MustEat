@@ -805,9 +805,10 @@ public class MemberDao {
 		}
 		
 		// 서원 사용자 적립금 조회 페이지 사용 가능한 적립금 조회
-		public Point membershipUseable(Connection conn, int memNo) {
-		
-			Point pu = new Point();
+		public int membershipUseable(Connection conn, int memNo) {
+					
+			
+			int pu = 0;
 			
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
@@ -821,8 +822,8 @@ public class MemberDao {
 				rset = pstmt.executeQuery();
 				
 				if(rset.next()) {
-																					
-					pu.setUseableMps(rset.getsUseableMps("useable-mps"));
+					pu = rset.getInt("USEABLE_MPS");															
+					
 							
 				}
 				
@@ -838,9 +839,9 @@ public class MemberDao {
 		}
 		
 		// 서원 사용자 적립금 조회 페이지 소멸 예정 적립금 조회
-		public Point membershipDelete(Connection conn, int memNo) {
+		public int membershipDelete(Connection conn, int memNo) {
 			
-			Point pd = new Point();
+			int pd = 0;
 			
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
@@ -855,9 +856,10 @@ public class MemberDao {
 				
 				if(rset.next()) {
 					
-					pd.setMpsDelete(rset.getMpsDelete("mps_delete"));
+					pd = rset.getInt("MPS_DELETE");
 					
 				}
+				//System.out.println(pd);
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
