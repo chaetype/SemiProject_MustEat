@@ -214,6 +214,8 @@
 		<!-- 현재 멤버 총 갯수 조회용 --> 
 		SELECT COUNT(*) as "COUNT"
 		  FROM MEMBER
+		 WHERE MEM_STATUS ='Y'
+		    OR MEM_STATUS ='A'
 	</entry>
 	
 	

@@ -134,7 +134,7 @@
         <p style="display:inline-block; font-size: larger; font-size: x-large;">총 회원 : <%=count%> 명</p>
 
         <div style="display:inline; padding-left:55%">
-            <button class="btn1" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">강제 탈퇴</button>
+            <button onclick="deleteNo();" class="btn1" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" >강제 탈퇴</button>
         </div>
         
         <br>
@@ -162,10 +162,10 @@
                         <th>주소</th>
                         <th>이메일</th>
                     </tr>
-                    
+                     
                     <% for(Member m : list){ %>
                         <tr>
-		                    <th><input type="checkbox" name="check"></th>
+		                    <th><input type="checkbox" class="chkbox" name="check"></th>
 		                    <td><%= m.getMemNo() %></td>
 		                    <td><%= m.getMemId() %></td>
 		                    <td><%= m.getMemName() %></td>
@@ -189,7 +189,49 @@
                 <%} %>
                 </tbody>
                 
-        </table> 
+        </table>
+
+        <script>
+            // 선택한 체크박스 삭제
+            // prev
+            function deleteNo(){
+                if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+                    let delArr = []
+                    let tr = $('input[class="chkbox"]:checked')
+                    $(tr).each(function(){
+                       delArr.push( $(this).parent().next().text())
+                    })
+                    //console.log(delArr);
+                    $.ajax({
+        			url:"<%=request.getContextPath()%>/nickCheck.me",
+        			data:{checkNick:$nickInput.val()},
+        			success:function(result){   
+        				//console.log(result);
+        				if(result == "NNNN"){ // 사용불가능일 경우
+        					alert("이미 존재하거나 탈퇴한 회원의 닉네임입니다.");
+                            document.getElementById("nick").value='';
+        					$nickInput.focus();
+        				}else{ // 사용가능일 경우
+        					if(confirm("멋진 닉네임이네요! 사용하시겠습니까?")){ // 사용하겠다
+        						$nickInput.attr("readonly", true);
+                                //$("#enroll-form :submit").removeAttr("disabled");
+                                check3 = 1;
+                                        						
+        					}else{ // 사용안하겠다
+                                //$nickInput.val()=''; 왜 안먹는지...
+                                document.getElementById("nick").value='';
+        						$nickInput.focus();
+        					}
+        				}
+        				
+        			},error:function(){
+        				console.log("닉네임 중복체크용 ajax 통신 실패");
+        			}
+        		});
+                }
+            }
+
+        </script> 
         
         <!--페이징바 영역-->
         <div class="wrapper-paging">
@@ -227,7 +269,7 @@
 	            <div class="input-group mb-3" >
 	              <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 	                <div class="input-group-append">
-	                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search">검색</i></button>
+	                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search" onclick="search();">검색</i></button>
 	                </div>
 	            </div>
 	            
@@ -259,6 +301,9 @@
                     break; 
 			    }
 	        });
+
+            // 검색하는 ajax
+            
         </script>
 
     </div>
