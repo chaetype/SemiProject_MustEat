@@ -148,6 +148,13 @@
 		 WHERE NOTICE_NO = ?
 	</entry>
 	
+	<!-- 공지사항 삭제 -->
+	<entry key="deleteNotice">
+		UPDATE
+		       NOTICE
+		   SET STATUS = 'N'
+	</entry>
+	
 	
 	
 	

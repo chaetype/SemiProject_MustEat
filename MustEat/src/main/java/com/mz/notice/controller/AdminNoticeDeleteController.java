@@ -1,4 +1,4 @@
-package com.mz.store.controller;
+package com.mz.notice.controller;
 
 import java.io.IOException;
 
@@ -7,21 +7,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.Store;
+import com.mz.notice.model.service.NoticeService;
 
 /**
- * Servlet implementation class StoreDetailController
+ * Servlet implementation class AdminNoticeDeleteController
  */
-@WebServlet("/detail.st")
-public class StoreDetailController extends HttpServlet {
+@WebServlet("/deleteNotice.no")
+public class AdminNoticeDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreDetailController() {
+    public AdminNoticeDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,19 +30,21 @@ public class StoreDetailController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
-		StoreService sService = new StoreService();
+		int cpage = Integer.parseInt(request.getParameter("cpage"));
+		String delArr = request.getParameter("delNo");
 		
-		int result = sService.increaseCount(storeNo);
+		int result = new NoticeService().deleteNotice(delArr);
 		
+		HttpSession session = request.getSession();
 		if(result > 0) {
-			Store s = sService.selectStore(storeNo);
-			request.setAttribute("s", s);
+			session.setAttribute("alertMsg", "성공적으로 삭제되었습니다.");
 			
-			request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
-			
+			response.sendRedirect(request.getContextPath() + "/adminNoticeList.no?cpage=" + cpage);
+		}else {
+			System.out.println("실패");
 		}
+		
 	}
 
 	/**

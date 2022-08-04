@@ -280,6 +280,31 @@ public class NoticeDao {
 		
 	}
 	
+	public int deleteNotice(Connection conn, String delArr) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+//		String str = "";
+//		for(String s : delArr) {
+//			str += s;
+//		}
+		
+		String sql = prop.getProperty("deleteNotice") + "WHERE NOTICE_NO IN (" + delArr + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
 	
 	
 	

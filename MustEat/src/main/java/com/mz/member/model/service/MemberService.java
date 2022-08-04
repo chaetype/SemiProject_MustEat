@@ -141,6 +141,27 @@ public class MemberService {
 		return list;
 	}
 	
+	public ArrayList<Member> selectList1(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList1(conn, pi);
+		close(conn);
+		return list;
+	}
+	
+	public ArrayList<Member> selectList2(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList2(conn, pi);
+		close(conn);
+		return list;
+	}
+	
+	public ArrayList<Member> selectList3(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList2(conn, pi);
+		close(conn);
+		return list;
+	}
+	
 	public int selectListCount() {
 		Connection conn = getConnection();
 		int listCount = new MemberDao().selectListCount(conn);

@@ -41,7 +41,7 @@
   
   <div class=wrap88>
   
-   <form method="post" action="<%= contextPath %>/ctinsert.st" enctype="multipart/form-data">
+   <form method="post" action="<%=contextPath%>/ctinsert.st" enctype="multipart/form-data">
    
    <table align="center">
                 
@@ -55,7 +55,7 @@
             </table>
 
             <div id="file-area" style="display:none">
-                <input type="file" name="file1" onchange="loadImg(this, 1);" required>
+                <input type="file" name="file1" onchange="loadImg(this, 1);">
             </div>
 
             <script>

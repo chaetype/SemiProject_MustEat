@@ -22,6 +22,17 @@
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../resources/css/fontawesome-stars.css">
+	<script type="text/javascript" src="../resources/js/jquery.barrating.min.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
 <style>
     #enroll-form table{
         border:1px solid white;
@@ -32,8 +43,31 @@
         box-sizing:border-box;
     }
     .outer{
-        margin-left: 50px ;
+        margin:auto;
+        width:80%;
+        text-align:center;
     }
+    .star-container{
+    	margin-left : 200px ;
+    }
+    #star {
+  display: flex;
+}
+
+.star {
+  font-size: 2rem;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.star:not(.on) {
+  color: #ccc;
+}
+
+.star.on {
+  color: orange;
+}
+    
 </style>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
@@ -49,10 +83,11 @@
         <br>
         <h2 align="center">식당 리뷰 작성하기</h2>
         <br>
-	
-        <form id="enroll-form" action="<%= contextPath %>/srinsert.st?no=<%=storeNo %>" method="post" enctype="multipart/form-data">
-            <!-- 카테고리번호, 제목, 내용, 로그인한회원번호, 첨부파일 한개 -->
-            <input type="hidden" name="no" value="<%=storeNo%>">
+        
+		
+        <form id="enroll-form" action="<%= contextPath %>/srinsert.st?no=<%=storeNo%>" method="post" enctype="multipart/form-data">
+        <%-- <input type="hidden" name="no" value="<%=storeNo%>"> --%>
+      
       
             <table align="center">
                 <tr>
@@ -66,7 +101,46 @@
 
             </table>
             <br>
+			 <!-- 별점선택 -->
+			 <!-- <div class="star-container" id="star">
+		 이 식당에 대한 당신의 별점은 ?<span class="star">★</span>
+		  <span class="star">★</span>
+		  <span class="star">★</span>
+		  <span class="star">★</span>
+		  <span class="star">★</span>
+		</div>
+      	<script>
+      	(function () {
+      	    var starEls = document.querySelectorAll('#star span.star');
+      	    var rate = 0;
 
+      	    loop(starEls, function (el, index) {
+      	        el.addEventListener('click', function () {
+      	            rating(index + 1);
+      	        });
+      	    });
+
+      	    function loop(list, func) {
+      	        Array.prototype.forEach.call(list, func);
+      	    }
+
+      	    function rating(score) {
+      	        loop(starEls, function (el, index) {
+      	            if (index < score) {
+      	                el.classList.add('on');
+      	            } else {
+      	                el.classList.remove('on');
+      	            }
+      	        });
+
+      	        rate = score;
+      	        
+      	      
+      	    }
+      	})(); -->
+      	</script> 
+	     
+      	
             <div align="center">
                 <button class="btn1" type="submit">작성하기</button>
                 <button class="btn1" type="reset">취소하기</button>
@@ -86,7 +160,7 @@
                        disableDragAndDrop: true,
                   codeviewFilter: false,
                   codeviewIframeFilter: true,
-                  placeholder: '에디터글 작성',
+                  placeholder: '식당 리뷰 작성',
                   tabsize: 2,
                   height: 600,
                   toolbar: [

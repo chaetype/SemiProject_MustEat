@@ -4,7 +4,8 @@
 <%
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
-	
+	int count = (int)request.getAttribute("count");
+
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
@@ -107,20 +108,19 @@
         <br>
 
         <div style="display: inline; padding-left: 10%">
-            <select name="select" id="select" style="height: 40px; width: 120px; font-weight: bold;">
-                <option>번호</option>
-                <option>이름</option>
-                <option>가입일</option>
-                <option>회원등급</option>
+            <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
+                <option value="no">회원번호</option>
+                <option value="name">이름</option>
+                <option value="grade">회원등급</option>
             </select>
         </div>
 
 		&nbsp; &nbsp;
 		
-        <p style="display:inline-block; font-size: larger; font-size: x-large;">총 회원 : 10 명</p>
+        <p style="display:inline-block; font-size: larger; font-size: x-large;">총 회원 : <%=count%> 명</p>
 
         <div style="display:inline; padding-left:55%">
-            <button class="btn1">삭제하기</button>
+            <button class="btn1" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">강제 탈퇴</button>
         </div>
         
         <br>
@@ -138,29 +138,37 @@
                     <%}else { %>
                     <!--case2. 게시글이 있을경우-->
                     <tr>
-                        <th></th>
+                        <th><input type="checkbox" name="check" onclick="selectAll(this)"></th>
                         <th>번호</th>
                         <th>아이디</th>
                         <th>이름</th>
+                        <th>닉네임</th>
                         <th>회원 등급</th>
                         <th>휴대폰 번호</th>
-                        <th>가입일</th>
-                        <th>구매 횟수</th>
-                        <th>구매 누적액</th>
-                        <th>적립금</th>
+                        <th>주소</th>
+                        <th>이메일</th>
                     </tr>
                     
                     <% for(Member m : list){ %>
                         <tr>
-		                    <th><input type="checkbox"></th>
+		                    <th><input type="checkbox" name="check"></th>
 		                    <td><%= m.getMemNo() %></td>
 		                    <td><%= m.getMemId() %></td>
 		                    <td><%= m.getMemName() %></td>
-		                    <td><%= m.getMemGrade() %></td>
+                            <td><%= m.getMemNickname() %></td>
+                            <% if(m.getMemGrade().equals("일반")){ %>
+                                <td style="color:black"><%= m.getMemGrade() %></td>
+                            <% }else if(m.getMemGrade().equals("관리자")){ %>
+                                <td style="color:red"><%= m.getMemGrade() %></td>
+                            <% }else {%>
+                                <td style="color:blue"><%= m.getMemGrade() %></td>
+                            <% } %>    
 		                    <td><%= m.getMemPhone() %></td>
-		                    <td><%= m.getEnrollDate() %></td>
-		                    <td><%= m.getAddress() %></td>
-		                    <td><%= m.getAddressDetail() %></td>
+                            <% if(m.getAddress() == null && m.getAddressDetail() == null) {%>
+                                <td> </td>
+                            <% }else{ %>
+                                <td><%= m.getAddress() %><br><%= m.getAddressDetail() %></td>
+                            <% } %>
 		                    <td><%= m.getMemEmail() %></td>
 		                </tr>
                      <%} %>
@@ -168,28 +176,30 @@
                 </tbody>
                 
         </table> 
-
+        
         <!--페이징바 영역-->
         <div class="wrapper-paging">
 					    
             <nav aria-label="Page navigation example">
-                <% if(currentPage != 1) {%>
-                    <button onclick="location.href='<%= contextPath %>/allMembersList.bo?cpage=<%=currentPage-1%>';">&lt;</button>
-                <% } %>
-                
-                <% for(int p=startPage; p<=endPage; p++){ %>
-                    
-                    <% if(p == currentPage){ %>
-                        <button disabled><%= p %></button>        		
-                    <% }else { %>
-                        <button onclick="location.href='<%=contextPath%>/allMembersList.bo?cpage=<%= p %>';"><%= p %></button>
-                    <% } %>
-                    
-                <% } %>
-                
-                <% if(currentPage != maxPage) {%>
-                <button onclick="location.href='<%= contextPath %>/allMembersList.bo?cpage=<%=currentPage+1%>';">&gt;</button>
-                <% } %>
+                <ul class="pagination">
+					<% if(currentPage != 1) { %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%= currentPage-1 %>">&lt;</a></li>
+				    <% } %>
+				    
+				    <% for(int p=startPage; p<=endPage; p++) { %>
+				    	
+				    	<% if(p == currentPage) { %>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>"><%= p %></a></li>
+				    	<% } else { %>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>"><%= p %></a></li>
+				    	<% } %>
+				    	
+				    <% } %>
+				    
+				    <% if(currentPage != maxPage) { %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    <% } %>
+			    </ul>
             </nav>					
         
         </div> 
@@ -211,7 +221,33 @@
         </div>
 
         
+        <script>
 
+            // 체크박스 전체 선택, 전체 해제 
+            function selectAll(selectAll)  {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+                checkboxes.forEach((checkbox) => {
+                checkbox.checked = selectAll.checked
+                })
+            }
+
+            // 셀렉트 박스 선택 
+            $("select[name=selectbox]").change(function(){
+                let val = $(this).val();
+
+                switch(val) {
+                    case 'no' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&&a=1";
+                    
+                    
+                    break;
+                    case 'name' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&&a=2";
+                    break;
+                    case 'grade' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&&a=3";
+                    break; 
+			    }
+	        });
+        </script>
 
     </div>
 </body>

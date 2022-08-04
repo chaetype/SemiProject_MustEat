@@ -14,7 +14,22 @@
 <meta charset="UTF-8">
 <title>MustEat 주문현황</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/orderList.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+<style>
+	.paySection {
+		display:none;
+	}
+	.viewMore{
+	  display: block;
+	    width: 100%;
+	    padding: 18px 0;
+	    color: #000;
+	    font-size: 13px;
+	    border: none 0;
+	    text-align: center;
+	}
+</style>
 </head>
 <body>
 
@@ -85,7 +100,7 @@
 	   <% for (OrderPro om : opMonth) { %>
 	  <div class="orderDetailArea">
 	
-	    <div class="orderMonth">
+	    <div class="paySection orderMonth">
 	      <h4><%=om.getOrderMonth() %></h4>
 	    </div>
 	
@@ -181,8 +196,31 @@
 	  <% } %>
 	  <!-- 바깥쪽 for문 끝-->
 	
-	        <!-- 여유되면 <더보기> 버튼 구현하기 -->
-	
+	  <!-- 상품 '더보기' 영역!!! -->
+	  <% if ( opList.size() >= 10) { %> <!-- 상품 10개 이하면 안보이도록 설정 -->
+	  <div class="viewMore">
+	  	<a href='#' id='load' class='btn1'>더 보기</a>
+	  </div>
+ 	  <% }  %>
+ 
+ 	<script>
+
+		$(function(){
+			
+			<!-- 상품 10개 이상이면 보이도록 설정 => 더보기로 상품 목록 펼치기 -->
+			    $(".paySection").slice(0, 10).show(); // 처음에 상품목록 10개씩 보이기
+			    $("#load").click(function(e){ // '더보기' 버튼 클릭시 함수 실행
+				        e.preventDefault();
+				        $(".paySection:hidden").slice(0, 8).show(); // 상품 목록 8개씩 보이기
+				        if($(".paySection:hidden").length == 0){ // 상품 목록 리스트 전부 조회하면 사라짐
+				           $("#load").fadeOut();
+				        }
+				    });
+			
+			});
+		
+   </script>	
+		
 	    <br>
     
  	</div>
