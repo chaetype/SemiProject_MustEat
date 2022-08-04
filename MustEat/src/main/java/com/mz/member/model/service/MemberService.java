@@ -141,6 +141,27 @@ public class MemberService {
 		return list;
 	}
 	
+	public ArrayList<Member> selectList1(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList1(conn, pi);
+		close(conn);
+		return list;
+	}
+	
+	public ArrayList<Member> selectList2(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList2(conn, pi);
+		close(conn);
+		return list;
+	}
+	
+	public ArrayList<Member> selectList3(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList2(conn, pi);
+		close(conn);
+		return list;
+	}
+	
 	public int selectListCount() {
 		Connection conn = getConnection();
 		int listCount = new MemberDao().selectListCount(conn);
@@ -304,17 +325,17 @@ public class MemberService {
 	}
 	
 	// 서원 사용자 적립금 조회 페이지 사용 가능한 적립금 조회
-	public Point membershipUseable(int memNo) {
+	public int membershipUseable(int memNo) {
 		Connection conn = getConnection();
-		Point pu = new MemberDao().membershipUseable(conn, memNo);
+		int pu = new MemberDao().membershipUseable(conn, memNo);
 		close(conn);
 		return pu;
 	}
 	
 	// 서원 사용자 적립금 조회 페이지 소멸 예정 적립금 조회
-	public Point membershipDelete(int memNo) {
+	public int membershipDelete(int memNo) {
 		Connection conn = getConnection();
-		Point pd = new MemberDao().membershipUseable(conn, memNo);
+		int pd = new MemberDao().membershipDelete(conn, memNo);
 		close(conn);
 		return pd;
 	}

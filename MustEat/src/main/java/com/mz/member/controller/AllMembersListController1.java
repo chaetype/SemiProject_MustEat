@@ -94,11 +94,31 @@ public class AllMembersListController1 extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
 		// * 현재 요청한 페이지(currentPage)에 보여질 게시글 리스트 조회해야됨 (boardLimit 수만큼조회)
-		ArrayList<Member> list = new MemberService().selectList(pi);
+		
+		
+		int a = Integer.parseInt(request.getParameter("a"));
+		System.out.println(a); 
+		
+		ArrayList<Member> list = null;
+		int count = new MemberService().selectListCount();
+				
+		if(a==1) {
+			list = new MemberService().selectList(pi);
+			request.setAttribute("b", 1);
+		}else if(a==2) {
+			list = new MemberService().selectList1(pi);
+			request.setAttribute("b", 2);
+		}else if(a==3) {
+			list = new MemberService().selectList2(pi);
+			request.setAttribute("b", 3);
+		}
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
+
+		request.setAttribute("count", count);
 		
+
 		request.getRequestDispatcher("views/ltm/allMembersAdmin.jsp").forward(request, response);
 				
 	}

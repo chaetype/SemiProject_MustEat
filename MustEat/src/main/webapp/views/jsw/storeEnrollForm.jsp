@@ -108,7 +108,7 @@
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
 					 
-					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" style="margin-top:1%;">
+					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
 
 						<div class="row">
 						  <div class="col-md-6 mb-3">
@@ -360,7 +360,7 @@
 								<div class="mb-3">
 									<tr>
 										<td><label for="store-operating-start" style="color:#4B088A;"><b>* 운영시간</b></label></td>
-										<td><input type="time" name="storeoperating" id="store-operating-start">&nbsp;~&nbsp;<input type="time" id="store-operating-end"></td>
+										<td><input type="time" name="storeoperating1" id="store-operating-start">&nbsp;~&nbsp;<input type="time" name="storeoperating2" id="store-operating-end"></td>
 									</tr>
 									<div class="invalid-feedback">
 										운영시간을 입력해주세요.
@@ -369,7 +369,7 @@
 								<div class="mb-3">
 									<tr>
 										<td><label for="store-break-start" style="color:#4B088A;"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td><input type="time" name="storebreak" id="store-break-start">&nbsp;~&nbsp;<input type="time"id="store-break-end"></td>
+										<td><input type="time" name="storebreak1" id="store-break-start">&nbsp;~&nbsp;<input type="time" name="storebreak2" id="store-break-end"></td>
 									</tr>
 									<div class="invalid-feedback">
 										브레이크 타임을 입력해주세요.
