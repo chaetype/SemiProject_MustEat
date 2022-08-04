@@ -147,3 +147,11 @@
     margin-left:10px;
 }
 
+.checkDouble{
+	font-size: 13px;
+    width: 1px;
+    height: 30px;
+    background-color: white;
+    line-height: 2px;
+}
+

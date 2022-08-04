@@ -214,25 +214,21 @@
 	  <!-- 바깥쪽 for문 끝-->
 	  
 	  <!-- 상품 '더보기' 영역!!! -->
-	  <div class="viewMore"> </div>
+	  <% if ( opList.size() >= 10) { %> <!-- 상품 10개 이하면 안보이도록 설정 -->
+	  <div class="viewMore">
+	  	<a href='#' id='load' class='btn1'>더 보기</a>
+	  </div>
+ 	  <% }  %>
  
  	<script>
 
 		$(function(){
 			
-			<!-- case1. 상품이 없는 경우 '더보기' 버튼 안보이기 -->
-			if ( $(".paySection:hidden").length == 0 ) {
-				$(".viewMore").html("상품 끝").css("display", 'none');
-			} else { <!-- case2. 상품이 있는 경우 '더보기' 버튼 구문 추가 -->
-				$(".viewMore").html("<a href='#' id='load' class='btn1'>더 보기</a>");
-			 } 
-	
-			
-			<!-- case3. 1,2번 조회 전 상품 목록 리스트들 보이도록 설정 -->
-			    $(".paySection").slice(0, 10).show(); // 처음에 상품목록 5개씩 보이기
+			<!-- 상품 10개 이상이면 보이도록 설정 => 더보기로 상품 목록 펼치기 -->
+			    $(".paySection").slice(0, 10).show(); // 처음에 상품목록 10개씩 보이기
 			    $("#load").click(function(e){ // '더보기' 버튼 클릭시 함수 실행
 				        e.preventDefault();
-				        $(".paySection:hidden").slice(0, 8).show(); // 상품 목록 5개씩 보이기
+				        $(".paySection:hidden").slice(0, 8).show(); // 상품 목록 8개씩 보이기
 				        if($(".paySection:hidden").length == 0){ // 상품 목록 리스트 전부 조회하면 사라짐
 				           $("#load").fadeOut();
 				        }
@@ -240,7 +236,7 @@
 			
 			});
 		
-   </script>
+   </script>	
 	
 	    <br>
     
