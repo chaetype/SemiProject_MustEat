@@ -20,7 +20,7 @@ import com.oreilly.servlet.MultipartRequest;
 /**
  * Servlet implementation class StoreEnrollFormController
  */
-@WebServlet("/storeenroll.st")
+@WebServlet("/storeinsert.st")
 public class StoreEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
