@@ -108,19 +108,19 @@
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
 					 
-					  <form class="store-enroll-form" action="" method="post" style="margin-top:1%;">
+					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" style="margin-top:1%;">
 
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
-							<input type="text" class="form-control" id="store-name" onkeyup="storeName(this);" placeholder="식당명을 입력해주세요." value="" required>
+							<input type="text" class="form-control" name="storename" id="store-name" onkeyup="storeName(this);" placeholder="식당명을 입력해주세요." value="" required>
 							<div class="invalid-feedback">
 							  식당명을 입력해주세요.
 							</div>
 						  </div>
 						  <div class="col-md-6 mb-3">
 							<label for="store-phone" style="color:#4B088A;"><b>* 전화번호(-포함)</b></label>
-							<input type="tel" class="form-control" id="store-phone" placeholder="전화번호를 입력해주세요. ex) xx-xxx-xxxx / xxx-xxx-xxxx" required>
+							<input type="tel" class="form-control" name="storephone" id="store-phone" placeholder="전화번호를 입력해주세요. ex) xx-xxx-xxxx / xxx-xxx-xxxx" required>
 						 	<div class="invalid-feedback">
 							  전화번호를 입력해주세요.
 						  </div>
@@ -178,7 +178,7 @@
 							<table>
 								<tr>
 									<td width="400px;">
-										<input type="text" class="form-control" id="store-address" placeholder="나머지 주소를 입력해주세요. ex) 이태원로 177" required style="margin-top:1%;">
+										<input type="text" class="form-control" name="storeaddress" id="store-address" placeholder="나머지 주소를 입력해주세요. ex) 이태원로 177" required style="margin-top:1%;">
 									</td>
 									<td>
 										<button type="button" class="btn btn-sm btn-primary" id="searchMap">클릭</button>
@@ -196,7 +196,7 @@
 
 							<label for="store-map" style="color:#4B088A;"><b>* 식당지도</b></label>
 
-							<div id="map" style="width:100%;height:350px;"></div>
+							<div id="map" name="storemap" style="width:100%;height:350px;"></div>
 
 							<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ad501a6ae45c08e27025f470712da55&libraries=services"></script>
 							<script>
@@ -269,7 +269,7 @@
 							<table>
 								<tr>
 									<td><label for="store-img" style="color:#4B088A;"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-									<td><input type="file"></td>
+									<td><input type="file" name="storeimg"></td>
 								</tr>
 								<tr>
 									<td colspan="2">
@@ -281,9 +281,9 @@
 						</div>
 
 						<div class="mb-3">
-						  <label for="store-introduce" style="color:#4B088A;"><b>* 식당소개</b></label>
+						  <label for="store-introduce" name="storeintro" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
-						  <textarea name="store-introduce" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
+						  <textarea name="store-introduce" name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div style="text-align:right; margin-right:1%;"><span id="store-count">0 / 1200</span></div>
 						  <div class="invalid-feedback">
 							식당 소개글을 입력해주세요.
@@ -306,8 +306,8 @@
 						</script>
 			  
 						<div class="mb-3">
-							<label for="store-menu" style="color:#4B088A;"><b>* 인기메뉴</b></label>
-						  <input type="text" class="form-control" id="store-menu" placeholder="인기메뉴를 입력해주세요.">
+							<label for="store-menu" name="storemenu" style="color:#4B088A;"><b>* 인기메뉴</b></label>
+						  <input type="text" class="form-control" name="storemenu" id="store-menu" placeholder="인기메뉴를 입력해주세요.">
 						  <div class="invalid-feedback">
 							인기메뉴를 입력해주세요.
 						  </div>
@@ -318,7 +318,7 @@
 							<table>
 								<tr>
 									<td><label for="menu-img" style="color:#4B088A;"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
-									<td><input type="file"></td>
+									<td><input type="file" name="storemenuimg"></td>
 								</tr>
 								<tr>
 									<td colspan="2">
@@ -332,7 +332,7 @@
 						<div class="mb-3">
 							<label for="menu-introduce" style="color:#4B088A;"><b>* 인기메뉴 설명</b></label>
 							<br>
-							<textarea name="menu-introduce" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;"></textarea>
+							<textarea name="menu-introduce" name="storemenuintro" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div style="text-align:right; margin-right:1%;"><span id="menu-count">0 / 600</span></div>
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
@@ -360,7 +360,7 @@
 								<div class="mb-3">
 									<tr>
 										<td><label for="store-operating-start" style="color:#4B088A;"><b>* 운영시간</b></label></td>
-										<td><input type="time" id="store-operating-start">&nbsp;~&nbsp;<input type="time" id="store-operating-end"></td>
+										<td><input type="time" name="storeoperating" id="store-operating-start">&nbsp;~&nbsp;<input type="time" id="store-operating-end"></td>
 									</tr>
 									<div class="invalid-feedback">
 										운영시간을 입력해주세요.
@@ -368,8 +368,8 @@
 								</div>
 								<div class="mb-3">
 									<tr>
-										<td><label for="store-break-start"  style="color:#4B088A;"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td><input type="time" id="store-break-start">&nbsp;~&nbsp;<input type="time"id="store-break-end"></td>
+										<td><label for="store-break-start" style="color:#4B088A;"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										<td><input type="time" name="storebreak" id="store-break-start">&nbsp;~&nbsp;<input type="time"id="store-break-end"></td>
 									</tr>
 									<div class="invalid-feedback">
 										브레이크 타임을 입력해주세요.
@@ -383,7 +383,7 @@
 						
 						<div class="mb-3">
 							<label for="store-naver" style="color:#4B088A;"><b>* 네이버 주소 URL</b></label>
-						  <input type="url" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
+						  <input type="url" name="storenaverurl" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
 						  <div class="invalid-feedback">
 							네이버 주소 URL을 입력해주세요.
 						  </div>
@@ -391,7 +391,7 @@
 
 						<div class="mb-3">
 							<label for="store-url" style="color:#4B088A;"><b>* 식당 주소 URL</b></label>
-						  <input type="text" class="form-control" id="store-url" placeholder="식당 주소 url을 입력해주세요.">
+						  <input type="text" name="storeurl" class="form-control" id="store-url" placeholder="식당 주소 url을 입력해주세요.">
 						  <div class="invalid-feedback">
 							식당 주소 URL을 입력해주세요.
 						  </div>
@@ -400,22 +400,78 @@
 						<div class="mb-3">
 							<table>
 								<tr>
-									<td><label for="store-holiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="storeholiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
-										<input type="checkbox" id="store-holiday">월
-										<input type="checkbox" id="store-holiday">화
-										<input type="checkbox" id="store-holiday">수
-										<input type="checkbox" id="store-holiday">목
-										<input type="checkbox" id="store-holiday">금
-										<input type="checkbox" id="store-holiday">토
-										<input type="checkbox" id="store-holiday">일
+										<input type="checkbox" name="storeholiday" id="mon" value="월">
+										<lable for="mon">월</lable>&nbsp;&nbsp;
+										<input type="checkbox" name="storeholiday" id="tue" value="화">
+										<lable for="tue">화</lable>&nbsp;&nbsp;
+										<input type="checkbox" name="storeholiday" id="wed" value="수">
+										<lable for="wed">수</lable>&nbsp;&nbsp;
+										<input type="checkbox" name="storeholiday" id="thu" value="목">
+										<lable for="thu">목</lable>&nbsp;&nbsp;
+										<input type="checkbox" name="storeholiday" id="fri" value="금">
+										<lable for="fri">금</lable>&nbsp;&nbsp;
+										<input type="checkbox" name="storeholiday" id="sat" value="토">
+										<lable for="sat">토</lable>&nbsp;&nbsp;
+										<input type="checkbox" name="storeholiday" id="sun" value="일">
+										<lable for="sun">일</lable>
 									</td>
 								</tr>
 								<div class="invalid-feedback">
-									휴무일을 해주세요.
+									휴무일을 입력해주세요.
 								</div>
-							</table>
-						</div>			  
+								
+								<div class="mb-3">
+									<table>
+										<tr>											
+											<td>
+											
+											<!-- 분위기 체크박스 체크 3개 제한 -->
+												<script type="text/javascript">
+													
+													function countChecked(obj) {
+														var storemood = document.getElementsByName("storemood");
+														var count = 0;
+														for(var i = 0; i < storemood.length; i++) {
+															if(storemood[i].checked){
+																count++;
+															}
+														}
+														if(count > 3) {
+															alert("3개까지 체크할 수 있습니다.");
+															obj.checked = false;
+															return false;
+														}
+													}
+												
+												</script>
+											
+												<td><label for="storemood" style="color:#4B088A;"><b>* 분위기 태그</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood1" value="가성비좋은" required>
+												<lable for="mood1">가성비좋은</lable>&nbsp;&nbsp;&nbsp;
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood2" value="분위기좋은" required>
+												<lable for="mood2">분위기좋은</lable>&nbsp;&nbsp;&nbsp;
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood3" value="격식있는" required>
+												<lable for="mood3">격식있는</lable>&nbsp;&nbsp;&nbsp;
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood4" value="고급스러운" required>
+												<lable for="mood4">고급스러운</lable>&nbsp;&nbsp;&nbsp;
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood5" value="시끌벅적한" required>
+												<lable for="mood5">시끌벅적한</lable>&nbsp;&nbsp;&nbsp;
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood6" value="조용한" required>
+												<lable for="mood6">조용한</lable>&nbsp;&nbsp;&nbsp;
+												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood7" value="깔끔한" required>
+												<lable for="mood7">깔끔한</lable>&nbsp;&nbsp;&nbsp;
+												<input type="checkbox" onclick="CountChecked(this);" name="storemood" id="mood8" value="이색적인" required>
+												<lable for="mood8">이색적인</lable>																				
+											</td>
+										</tr>
+										<div class="invalid-feedback">
+											분위기 태그를 입력해주세요.
+										</div>									
+										
+									</table>
+								</div>			  
 						
 						<hr class="row">
 						
