@@ -28,6 +28,7 @@
 		String address = loginUser.getAddress();
 		String addressDetail = loginUser.getAddressDetail();
 		String addressRef = loginUser.getAddressRef();
+		String memImg = loginUser.getMemImgPath();
 	%>
 
   <!-- 회원 정보 수정 창 -->
@@ -37,7 +38,7 @@
         <h3 align="center">회원 정보 수정</h3>
         <br>
         
-	<form action="<%=contextPath %>/update.me" class="userUpdateForm" method="post">
+	<form action="<%=contextPath %>/update.me" class="userUpdateForm" method="post" enctype="multipart/form-data">
 	
         <div class="basicInfoTitle" style="height:50px;">
             <div class="basicInfo"><strong>기본정보</strong>
@@ -254,6 +255,22 @@
                         <% } %>
                     </td>
                 </tr>
+
+                <tr class="updateInfo">
+                 <!-- 회원 정보 수정시 첨부파일이 있을 경우 => 첨부파일 보이기 -->
+                    <th>프로필 사진</th>
+                    <% if (memImg != null ) { %>                    	
+                    <td>
+                    <img src="<%=memImg %>" id="userIcon" onclick="chooseFile();">
+                    <input type="file" id="originProfile" name="originProfile" value="<%=memImg %>" onchange="loadImg(this);">
+                    </td>
+                    <% } else { %>
+                    <td> <!-- 첨부파일이 없는 경우 => 첨부파일 추가 보이기 -->
+                     <img src="<%=request.getContextPath()%>/resources/image/user.png" id="userIcon" onclick="chooseNewFile();">
+                    <input type="file" id="newProfile" name="newProfile">
+                    </td>
+                    <% } %>
+                </tr>
               
               </table>
               
@@ -263,6 +280,33 @@
 
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
+	
+		// 프로필 사진 미리보기 공간 클릭시 실행하는 함수
+		function chooseFile() {
+			$("#originProfile").click();
+		}
+		
+		function chooseNewFile() {
+			$("#newProfile").click();
+		}
+		
+		// input type="file"에 변화(change)가 생길때 실행하는 함수 
+		function loadImg(inputFile) {
+			// inputFile : 현재 변화가 생긴 input type="file" 요소객체
+			
+			if( inputFile.files.length == 1 ) { // 파일이 선택된 경우 => 파일 읽여들여서 미리보기
+				const reader = new FileReder(); 
+			
+				reader.readAsDataURL(inputFile.files[0]);
+				
+				reader.onload = function(e) {
+					$("#userIcon")eq(0).attr("src", e.target.result);
+				}
+			} else { // 파일이 취소됐을 경우 => 미리보기 사라지기
+				
+			}
+			
+		}
 	
 	    // 비밀번호 유효성검사
 	    function check_pw(){

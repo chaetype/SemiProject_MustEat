@@ -41,7 +41,6 @@
     width: 70%;
     margin: 20px 10px 0px 15px;
     height: 30px;
-    line-height: 50px;
 }
 
 .updateInfo input[name=addressCode]{
@@ -164,5 +163,13 @@
 	font-size:12px;
 	color:red;
 	margin: 0px 15px;
+}
+
+#userIcon{
+	width:80px;
+    height:80px;
+    margin:10px;
+    border: 2px solid white;
+	border-radius: 70px;
 }
 

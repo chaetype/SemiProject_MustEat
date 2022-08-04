@@ -29,7 +29,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MustEat MyPage</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/myPage.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/myPage.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 </head>
@@ -42,7 +42,11 @@
 
     <div class="purpleContainer">
       <div class="myPage-user">
-        <img src="<%=request.getContextPath() %>/resources/image/user.png" id="userIcon">
+      <% if ( m.getMemImgPath() == null ) {  %>
+       <img src="<%=request.getContextPath()%>/resources/image/user.png" id="noneIcon">
+      <% } else { %>
+        <img src="<%=m.getMemImgPath() %>" id="userIcon">
+      <% } %>
         <div class="userInfo">
           <div class="name"><%=m.getMemName() %>님 반갑습니다!
             <button type="button" class="btn1" onclick="myPageOpen();">내정보</button>

@@ -25,6 +25,10 @@ public class Member {
 	private String secreatId;
 	
 	
+	public Member() {
+		
+	}
+	
 	// 태민 아이디 찾기에 사용
 	
 	public Member(String memId) {
@@ -69,13 +73,9 @@ public class Member {
 		this.memImgPath = memImgPath;
 		this.withDraw = withDraw;
 	}
-	
-
-
 
 	public Member(String memId, String memPwd, String memName, String memPhone, String memEmail, String memNickname,
-			String addressCode, String address, String addressDetail, String addressRef) {
-		super();
+			String addressCode, String address, String addressDetail, String addressRef, String memImgPath) {
 		this.memId = memId;
 		this.memPwd = memPwd;
 		this.memName = memName;
@@ -86,10 +86,9 @@ public class Member {
 		this.address = address;
 		this.addressDetail = addressDetail;
 		this.addressRef = addressRef;
+		this.memImgPath = memImgPath;
 	}
-	
 
-	
 	public Member(int memNo,String memName, String memImgPath) {
 		super();
 		this.memNo = memNo;
