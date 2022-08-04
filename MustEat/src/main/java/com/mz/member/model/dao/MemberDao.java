@@ -1,6 +1,7 @@
 package com.mz.member.model.dao;
 
 import static com.mz.common.JDBCTemplate.close;
+import static com.mz.common.JDBCTemplate.getConnection;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -806,7 +807,7 @@ public class MemberDao {
 		// 서원 사용자 적립금 조회 페이지 사용 가능한 적립금 조회
 		public Point membershipUseable(Connection conn, int memNo) {
 		
-			Point p = null;
+			Point pu = new Point();
 			
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
@@ -820,8 +821,9 @@ public class MemberDao {
 				rset = pstmt.executeQuery();
 				
 				if(rset.next()) {
-					
-					p = new Point(rset.getInt("USEABLE_MPS"));
+																					
+					pu.setUseableMps(rset.getsUseableMps("useable-mps"));
+							
 				}
 				
 			} catch (SQLException e) {
@@ -831,8 +833,40 @@ public class MemberDao {
 				close(pstmt);
 			}
 			
-			return p;
+			return pu;
 			
+		}
+		
+		// 서원 사용자 적립금 조회 페이지 소멸 예정 적립금 조회
+		public Point membershipDelete(Connection conn, int memNo) {
+			
+			Point pd = new Point();
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("membershipDelete");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, memNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					
+					pd.setMpsDelete(rset.getMpsDelete("mps_delete"));
+					
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return pd;
 		}
 	
 		// 서원 사용자 리뷰 조회 
