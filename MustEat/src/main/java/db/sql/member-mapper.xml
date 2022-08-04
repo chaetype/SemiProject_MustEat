@@ -395,9 +395,13 @@
 		  FROM MPS_POINT
 		 WHERE MEM_NO = ?
 		   AND MPS_STATUS = '적립'
-		   AND MONTHS_BETWEEN(SYSDATE,SU_DATE) BETWEEN 11 AND 12;
+		   AND MONTHS_BETWEEN(SYSDATE,SU_DATE) BETWEEN 11 AND 12
 	</entry>
 	
+	<!-- 서원 관리자 식당 등록 -->
+	<entry key="storeInsert">
+		
+	</entry>
 	
 	
 	
