@@ -1,27 +1,23 @@
-package com.mz.store.controller;
+package com.mz.product.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.StoreReview;
-
 /**
- * Servlet implementation class StoreReviewDetailController
+ * Servlet implementation class AdminInsertProductView
  */
-@WebServlet("/detail.sr")
-public class StoreReviewDetailController extends HttpServlet {
+@WebServlet("/AdminInsertProductView.do")
+public class AdminInsertProductView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreReviewDetailController() {
+    public AdminInsertProductView() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,25 +26,7 @@ public class StoreReviewDetailController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int reviewNo = Integer.parseInt(request.getParameter("no"));
-		
-		StoreService sService = new StoreService();
-		
-		// 1) 조회수 증가
-		int result = sService.increaseCountR(reviewNo);
-		
-		if(result > 0) { // 유효한게시글 맞음 
-			// 2) 게시글, 첨부파일 조회 
-			StoreReview sr = sService.storeReviewDetail(reviewNo);
-			
-			
-			// => 상세조회페이지
-			request.setAttribute("sr", sr);
-			
-			
-			request.getRequestDispatcher("views/kcy/userStoreReviewDetail91p.jsp").forward(request, response);
-			
-		}
+		request.getRequestDispatcher("views/hsb/adminProductInsert.jsp").forward(request, response);
 	}
 
 	/**

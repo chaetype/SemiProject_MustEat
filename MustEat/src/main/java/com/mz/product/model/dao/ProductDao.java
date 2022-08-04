@@ -495,7 +495,7 @@ public class ProductDao {
 			pstmt.setString(1, pr.getPrReviewContent());
 			pstmt.setInt(2, pr.getProductCode());
 			pstmt.setString(3, pr.getReviewWriter());
-			//pstmt.setInt(4, pr.getPrReviewRate());
+			pstmt.setInt(4, pr.getPrReviewRate());
 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -852,6 +852,54 @@ public class ProductDao {
 		
 		
 	}
+	
+	// 성범
+		/*
+		 * 관리자페이지 상품 insert
+		 */
+	public int insertProduct(Connection conn, Product p) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p.getProductName());
+			pstmt.setInt(2, p.getPrice());
+			pstmt.setString(3,p.getSeller());
+			pstmt.setString(4,p.getSellerPhone());
+			pstmt.setString(5, p.getSalesUnit());
+			pstmt.setString(6, p.getCapacity());
+			pstmt.setString(7, p.getPacking());
+			pstmt.setString(8, p.getAllergy());
+			pstmt.setString(9, p.getExpirationDate());
+			pstmt.setString(10, p.getImgPath());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

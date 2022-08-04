@@ -60,6 +60,18 @@
 		   SET COUNT = COUNT+1
 		 WHERE STORE_NO = ?
 	</entry>
+	<!-- 채윤 에디터 조회수 -->
+	<entry key="increaseCountE">
+		UPDATE EDITOR
+		   SET COUNT = COUNT+1
+		 WHERE EDITOR_NO = ?
+	</entry>
+	<!-- 채윤 식당리뷰 조회수 -->
+	<entry key="increaseCountR">
+		UPDATE STORE_RE
+		   SET COUNT = COUNT+1
+		 WHERE RE_NO = ?
+	</entry>
 	
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">
@@ -230,4 +242,55 @@
 	 	 JOIN MEMBER ON(REVIEW_WRITER = MEM_NO)
 		WHERE RE_NO = ?
 	</entry>
+	
+	<!-- 서원 관리자 식당 등록 -->
+	<entry key="storeInsert">
+		INSERT
+		  INTO STORE
+		     ( 
+		       STORE_NO
+		     , LOCAL_SI
+		     , LOCAL_GU
+		     , LOCAL_RO
+		     , STORE_NAME
+		     , STORE_TAG
+		     , STORE_ADDRESS
+		     , STORE_PHONE
+		     , STORE_INTRO
+		     , STORE_IMG_PATH
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , STORE_POP_PATH
+		     , STORE_OPERATING
+		     , STORE_BREAKTIME
+		     , NAVER_ADDRESS
+		     , DAY_OFF
+		     , STORE_URL
+		     , STORE_ENROLLDATE
+		     )
+		VALUES
+		     (
+		       SEQ_STORENO
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , SYSDATE     
+		     )
+	</entry>
+	
+	
 </properties>

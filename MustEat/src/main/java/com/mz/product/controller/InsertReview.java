@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mz.member.model.vo.Member;
 import com.mz.product.model.service.ProductService;
@@ -31,7 +32,7 @@ public class InsertReview extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("utf-8");
 		System.out.println("rate" + request.getParameter("rate"));
 		System.out.println(request.getParameter("no"));
@@ -51,6 +52,7 @@ public class InsertReview extends HttpServlet {
 		pr.setPrReviewRate(rate);
 		
 		int result = new ProductService().insertReview(pr);
+		
 		
 		response.getWriter().print(result);
 	

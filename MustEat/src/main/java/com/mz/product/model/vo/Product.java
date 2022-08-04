@@ -74,6 +74,24 @@ public class Product {
 		this.imgPath = imgPath;
 	}
 
+	
+	
+
+	public Product(String productName, int price, String seller, String sellerPhone, String salesUnit, String capacity,
+			String packing, String allergy, String expirationDate, String imgPath) {
+		super();
+		this.productName = productName;
+		this.price = price;
+		this.seller = seller;
+		this.sellerPhone = sellerPhone;
+		this.salesUnit = salesUnit;
+		this.capacity = capacity;
+		this.packing = packing;
+		this.allergy = allergy;
+		this.expirationDate = expirationDate;
+		this.imgPath = imgPath;
+	}
+
 	public int getProductCode() {
 		return productCode;
 	}

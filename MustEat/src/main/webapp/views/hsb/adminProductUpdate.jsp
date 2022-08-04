@@ -40,7 +40,7 @@
 		      <tr>
 		      	<td rowspan="5"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 250px; height:250px;"></td>
 		      	<th>상품코드</th>
-		      	<td><input type="text" size=50 required value="xxxxx"></td>
+		      	<td><input type="text" size=50 required value="xxxxx" readonly></td>
 		      </tr>
 		       <tr>
 		      	<th>상품명</th>
