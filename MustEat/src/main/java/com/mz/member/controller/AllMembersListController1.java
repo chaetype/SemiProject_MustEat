@@ -115,8 +115,10 @@ public class AllMembersListController1 extends HttpServlet {
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
+
 		request.setAttribute("count", count);
 		
+
 		request.getRequestDispatcher("views/ltm/allMembersAdmin.jsp").forward(request, response);
 				
 	}
