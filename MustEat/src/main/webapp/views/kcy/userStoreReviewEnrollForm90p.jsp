@@ -67,6 +67,9 @@
 .star.on {
   color: orange;
 }
+
+input[type = radio]{
+display:none;}
     
 </style>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
@@ -102,43 +105,36 @@
             </table>
             <br>
 			 <!-- 별점선택 -->
-			 <!-- <div class="star-container" id="star">
-		 이 식당에 대한 당신의 별점은 ?<span class="star">★</span>
-		  <span class="star">★</span>
-		  <span class="star">★</span>
-		  <span class="star">★</span>
-		  <span class="star">★</span>
-		</div>
-      	<script>
-      	(function () {
-      	    var starEls = document.querySelectorAll('#star span.star');
-      	    var rate = 0;
-
-      	    loop(starEls, function (el, index) {
-      	        el.addEventListener('click', function () {
-      	            rating(index + 1);
-      	        });
-      	    });
-
-      	    function loop(list, func) {
-      	        Array.prototype.forEach.call(list, func);
-      	    }
-
-      	    function rating(score) {
-      	        loop(starEls, function (el, index) {
-      	            if (index < score) {
-      	                el.classList.add('on');
-      	            } else {
-      	                el.classList.remove('on');
-      	            }
-      	        });
-
-      	        rate = score;
-      	        
-      	      
-      	    }
-      	})(); -->
+			             <div class="rate-area">
+               <p style="display:inline;">당신의 별점은: </p>
+               <fieldset id="rate-star">
+                    <input type="radio" name="rate" value="1" id="rate1">
+                    <label for="rate1"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="2" id="rate2">
+                    <label for="rate2"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="3" id="rate3">
+                    <label for="rate3"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="4" id="rate4">
+                    <label for="rate4"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="5" id="rate5">
+                    <label for="rate5"><i class="fa fa-star review-rate"></i></label>
+               </fieldset>
+            </div>
+            
+            <script>
+               $(function(){
+                  // 별점 checked속성에 대한 function (클릭하면 유지되도록)
+                  $("input[name=rate]").change(function(){
+                     $(this).next().children().css("color", "#fbd600");
+                     $(this).prevAll("label").children().css("color", "#fbd600");
+                     $(this).next().nextAll("label").children().css("color", "gainsboro");
+                  })
+               })                      
+            </script>
+      	
+      	
       	</script> 
+      	
 	     
       	
             <div align="center">

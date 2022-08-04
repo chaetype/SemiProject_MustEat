@@ -35,7 +35,7 @@ public class CategoryDetailController extends HttpServlet {
     	
     	int editorNo = Integer.parseInt(request.getParameter("no"));
 		
-		int result = new StoreService().increaseCount(editorNo);
+		int result = new StoreService().increaseCountE(editorNo);
 		
 		if(result > 0) {  
 			Editor e = new StoreService().selectDetailEdior(editorNo);

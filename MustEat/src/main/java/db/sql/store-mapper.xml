@@ -60,6 +60,18 @@
 		   SET COUNT = COUNT+1
 		 WHERE STORE_NO = ?
 	</entry>
+	<!-- 채윤 에디터 조회수 -->
+	<entry key="increaseCountE">
+		UPDATE EDITOR
+		   SET COUNT = COUNT+1
+		 WHERE EDITOR_NO = ?
+	</entry>
+	<!-- 채윤 식당리뷰 조회수 -->
+	<entry key="increaseCountR">
+		UPDATE STORE_RE
+		   SET COUNT = COUNT+1
+		 WHERE RE_NO = ?
+	</entry>
 	
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">

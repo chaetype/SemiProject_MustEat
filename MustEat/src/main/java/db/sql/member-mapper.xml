@@ -298,9 +298,9 @@
 		    (SELECT COUNT(MEM_NO) 
 		            FROM STORE_SCRAP SS 
 		    WHERE M.MEM_NO = SS.MEM_NO) AS STORE_SCRAP, <!-- 5. 식당 스크랩 갯수 -->
-		    (SELECT COUNT(FING_MNO) 
+		    (SELECT COUNT(F_MNO) 
 		            FROM FOLLOW F 
-		    WHERE M.MEM_NO = F.FING_MNO) AS FOLLOW <!-- 6. 팔로우한 인원 수 -->
+		    WHERE M.MEM_NO = F.F_MNO) AS FOLLOW <!-- 6. 팔로우한 인원 수 -->
 		FROM MEMBER M
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 	</entry>
@@ -401,22 +401,27 @@
 		<!-- 채윤 나의 팔로우 목록 조회 -->
 	<entry key="myFollowingList">
 		SELECT 
-			MEM_NAME,
-		   	MEM_IMGPATH ,
-		    (SELECT COUNT(REVIEW_WRITER) 
-		            FROM STORE_RE S 
-		    WHERE M.MEM_NO = S.REVIEW_WRITER) AS STORE_REVIEW, 
-            
-		    (SELECT COUNT(REVIEW_WRITER) 
-		            FROM PRODUCT_REVIEW P 
-		    WHERE M.MEM_NO = P.REVIEW_WRITER) AS PRODUCT_REVIEW,
-            
-		    (SELECT COUNT(F.FING_MNO) 
-		            FROM FOLLOW F 
-		    WHERE M.MEM_NO = F.FING_MNO) AS FOLLOW 
-		FROM FOLLOW F
-        JOIN MEMBER M ON (M.MEM_NO = F.F_MNO)
-		WHERE MEM_NO = ?
+		       F.FOLLOW_NO
+		     , M.MEM_NAME
+		     , M.MEM_IMGPATH
+		     , (
+		         SELECT COUNT(*)
+		           FROM FOLLOW FF
+		          WHERE FF.FING_MNO = F.FING_MNO
+		       ) AS FOLLOW
+		     , (
+		         SELECT COUNT(*)
+		           FROM PRODUCT_REVIEW
+		          WHERE REVIEW_WRITER = F.FING_MNO
+		       ) AS PRODUCT_REVIEW
+		     , (
+		         SELECT COUNT(*)
+		         FROM STORE_RE
+		         WHERE REVIEW_WRITER = F.FING_MNO
+		       )  AS STORE_REVIEW
+		  FROM FOLLOW F
+		  JOIN MEMBER M ON(F.FING_MNO = M.MEM_NO)
+		 WHERE F_MNO = ?
 	</entry>
 	
 
