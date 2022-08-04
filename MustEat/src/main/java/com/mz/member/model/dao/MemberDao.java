@@ -456,7 +456,7 @@ public class MemberDao {
 			
 			// 태민
 			public int selectListCount(Connection conn) {
-				// select문 => ResultSet(숫자한개) => int
+
 				int listCount = 0 ;
 				
 				PreparedStatement pstmt = null;
@@ -480,6 +480,30 @@ public class MemberDao {
 				}
 				
 				return listCount;
+				
+			}
+			
+			// 태민 체크박스 선택된 회원상태 블랙리스트로 변경
+			public int withdrawalMember(Connection conn, String userNo) {
+				
+				int result = 0;
+				PreparedStatement pstmt = null;
+				
+				String sql = prop.getProperty("withdrawalMember");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userNo);
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
 				
 			}
 	

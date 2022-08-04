@@ -168,6 +168,20 @@ public class MemberService {
 		close(conn);
 		return listCount;
 	}
+	
+	// 태민 체크박스 선택된 회원상태 블랙리스트로 변경
+	
+	public int withdrawalMember(String userNo) {
+		Connection conn = getConnection();
+		int result = new MemberDao().withdrawalMember(conn, userNo);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 
 	
 	

@@ -218,6 +218,14 @@
 		    OR MEM_STATUS ='A'
 	</entry>
 	
+	<!-- 태민 체크박스 체크된 회원 블랙리스트로 -->
+	<entry key="withdrawalMember">
+		UPDATE MEMBER
+		   SET MEM_STATUS = 'B'
+		 WHERE MEM_NO = ?
+		 
+	</entry>
+	
 	
 	<!-- 은영 (회원 정보 수정) -->
 	<entry key="updateMember">
