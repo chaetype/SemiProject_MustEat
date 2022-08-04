@@ -144,7 +144,7 @@ public class Store {
 	public Store(int storeNo, String storeName, String storeTag,
 			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
 			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
-			String dayOff, String storeUrl) {
+			String dayOff, String storeUrl, Date storeEnrolldate, int count) {
 		super();
 		this.storeNo = storeNo;
 		this.storeName = storeName;
@@ -161,6 +161,8 @@ public class Store {
 		this.naverAddress = naverAddress;
 		this.dayOff = dayOff;
 		this.storeUrl = storeUrl;
+		this.storeEnrollDate = storeEnrollDate;
+		this.count = count;
 	}
 	
 	public Store(String storeName, String storeTag,
