@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.mz.store.model.vo.Store" %>
+<%@ page import="java.util.ArrayList, com.mz.member.model.vo.Member" %>
 <%
-	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
 	int pu = (int)request.getAttribute("pu");
 	int pd = (int)request.getAttribute("pd");
 	
@@ -201,7 +201,7 @@
 		                      <td><%= s.getReviewEnrollDate() %></td>
 		                      <td><%= s.getStoreName() %></td>
 		                      <td><%= s.getRvCategory() %></td>	
-		                      <td><%= s.getRvStar() %></td>		       
+		                      <td><button class="btn1">상세보기</button></td>		       
 		                  </tr>   
 	                      <% } %>        
 	                  <% } %>
