@@ -131,7 +131,7 @@
 			<nav class="demo-dust menu menu--dustu" style="font-size:15px;">
 	
 					<br>
-					<a class="menu__item" href="<%=contextPath %>/allMembersList.bo?cpage=1">
+					<a class="menu__item" href="<%=contextPath %>/allMembersList.bo?cpage=1&a=1&c=no">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 회원조회</span>
 					</a>
 					<a class="menu__item" href="#">
