@@ -5,9 +5,6 @@ import java.sql.Date;
 public class Store {
 	
 	private int storeNo;
-	private String localSi;
-	private String localGu;
-	private String localRo;
 	private String storeName;
 	private String storeTag;
 	private String storeAddress;
@@ -34,16 +31,13 @@ public class Store {
 	}
 
 
-	public Store(int storeNo, String localSi, String localGu, String localRo, String storeName, String storeTag,
+	public Store(int storeNo, String storeName, String storeTag,
 			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
 			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
 			String dayOff, String storeUrl, Date storeEnrollDate, String storeReview, String reviewImg,
 			String reviewWriter,int count) {
 		super();
 		this.storeNo = storeNo;
-		this.localSi = localSi;
-		this.localGu = localGu;
-		this.localRo = localRo;
 		this.storeName = storeName;
 		this.storeTag = storeTag;
 		this.storeAddress = storeAddress;
@@ -66,15 +60,12 @@ public class Store {
 	}
 	
 	
-	public Store(int storeNo, String localSi, String localGu, String localRo, String storeName, String storeTag,
+	public Store(int storeNo, String storeName, String storeTag,
 			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
 			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
 			String dayOff, String storeUrl, Date storeEnrollDate,int count) {
 		super();
 		this.storeNo = storeNo;
-		this.localSi = localSi;
-		this.localGu = localGu;
-		this.localRo = localRo;
 		this.storeName = storeName;
 		this.storeTag = storeTag;
 		this.storeAddress = storeAddress;
@@ -127,9 +118,6 @@ public class Store {
 		super();
 		this.storeName = storeName;
 		this.storePhone = storePhone;
-		this.localSi = localSi;
-		this.localGu = localGu;
-		this.localRo = localRo;
 		this.storeAddress = storeAddress;
 		this.storeImgPath = storeImgPath;
 		this.storeIntro = storeIntro;
@@ -142,6 +130,49 @@ public class Store {
 		this.storeUrl = storeUrl;
 		this.dayOff = dayOff;
 		this.storeTag = storeTag;
+	}
+	
+	public Store(int storeNo, String storeName, String storeTag,
+			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
+			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
+			String dayOff, String storeUrl) {
+		super();
+		this.storeNo = storeNo;
+		this.storeName = storeName;
+		this.storeTag = storeTag;
+		this.storeAddress = storeAddress;
+		this.storePhone = storePhone;
+		this.storeIntro = storeIntro;
+		this.storeImgPath = storeImgPath;
+		this.storePopularity = storePopularity;
+		this.storePopInfo = storePopInfo;
+		this.storePopPath = storePopPath;
+		this.storeOperating = storeOperating;
+		this.storeBreaktime = storeBreaktime;
+		this.naverAddress = naverAddress;
+		this.dayOff = dayOff;
+		this.storeUrl = storeUrl;
+	}
+	
+	public Store(String storeName, String storeTag,
+			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
+			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
+			String dayOff, String storeUrl) {
+		super();
+		this.storeName = storeName;
+		this.storeTag = storeTag;
+		this.storeAddress = storeAddress;
+		this.storePhone = storePhone;
+		this.storeIntro = storeIntro;
+		this.storeImgPath = storeImgPath;
+		this.storePopularity = storePopularity;
+		this.storePopInfo = storePopInfo;
+		this.storePopPath = storePopPath;
+		this.storeOperating = storeOperating;
+		this.storeBreaktime = storeBreaktime;
+		this.naverAddress = naverAddress;
+		this.dayOff = dayOff;
+		this.storeUrl = storeUrl;
 	}
 
 
@@ -158,63 +189,9 @@ public class Store {
 		this.storeNo = storeNo;
 	}
 
-
-
-
-
-	public String getLocalSi() {
-		return localSi;
-	}
-
-
-
-
-
-	public void setLocalSi(String localSi) {
-		this.localSi = localSi;
-	}
-
-
-
-
-
-	public String getLocalGu() {
-		return localGu;
-	}
-
-
-
-
-
-	public void setLocalGu(String localGu) {
-		this.localGu = localGu;
-	}
-
-
-
-
-
-	public String getLocalRo() {
-		return localRo;
-	}
-
-
-
-
-
-	public void setLocalRo(String localRo) {
-		this.localRo = localRo;
-	}
-
-
-
-
-
 	public String getStoreName() {
 		return storeName;
 	}
-
-
 
 
 
@@ -500,7 +477,7 @@ public class Store {
 
 	@Override
 	public String toString() {
-		return "Store [storeNo=" + storeNo + ", localSi=" + localSi + ", localGu=" + localGu + ", localRo=" + localRo
+		return "Store [storeNo=" + storeNo 
 				+ ", storeName=" + storeName + ", storeTag=" + storeTag + ", storeAddress=" + storeAddress
 				+ ", storePhone=" + storePhone + ", storeIntro=" + storeIntro + ", storeImgPath=" + storeImgPath
 				+ ", storePopularity=" + storePopularity + ", storePopInfo=" + storePopInfo + ", storePopPath="
