@@ -32,8 +32,8 @@ public class DirectPayment extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		String productCode = request.getParameter("no");
-		String productName = request.getParameter("name");
+		String productCode = request.getParameter("productCode");
+		String productName = request.getParameter("productName");
 		int price = Integer.parseInt(request.getParameter("price"));
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		

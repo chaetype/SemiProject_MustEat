@@ -26,7 +26,7 @@ public class PaymentView extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("views/hsb/address.jsp").forward(request, response);
+		//response.sendRedirect(request.getContextPath() + "/direct.do");
 		
 		
 	}

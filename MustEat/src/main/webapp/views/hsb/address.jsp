@@ -232,6 +232,7 @@
 .outer{
     margin-top: 10%;
 }
+
     </style>
 </head>
 <body>
@@ -239,32 +240,32 @@
     <%@ include file="../common/menubar.jsp"%>
         <div class="wrap1212">
             <div class="outer" align="center">
-            <form action="<%=contextPath%>/addressInsert.do">
+            <form action="<%=contextPath%>/addressInsert.do" id="insertAddress">
                 <b>배송정보</b><br>
                 <table style="margin: top 10% ;">
                    
                     <tbody>
                         <tr>
                             <th>* 이름</th>
-                            <td><input type="text" name="name" required></td>
+                            <td><input type="text" id="name" name="name" required></td>
                         </tr>
                          <tr>
                             <th>* 휴대폰</th>
-                            <td><input type="text" name="phone" placeholder="-를 이어서 작성해주세요." required></td>
+                            <td><input type="text" id="phone" name="phone" placeholder="-를 이어서 작성해주세요." required></td>
                         </tr>
                         <tr>
                         <tr>
                             <th>* 이메일</th>
-                            <td><input type="email" name="email" placeholder="example@must.eat" required></td>
+                            <td><input type="email" id="email" name="email" placeholder="example@must.eat" required></td>
                          </tr>
                             <th>* 주소</th>
                             <td>
                                 <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" required>
                                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                                <input type="text" name="address" id="sample6_address" placeholder="주소" style="width:240px" required><br>
-                                <input type="text" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px" required><br>
-                                <input type="text" name="addressRef" id="sample6_extraAddress" placeholder="참고항목" style="width:240px" required><br>
-                               
+                                <input type="text" id="address" name="address" id="sample6_address" placeholder="주소" style="width:240px" required><br>
+                                <input type="text" id="addressDetail" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px" required><br>
+                                <input type="text" id="addressRef" name="addressRef" id="sample6_extraAddress" placeholder="참고항목" style="width:240px" required><br>
+                               	<input type="hidden" name="count" value="<%=bs.getCount()%>">
                             </td>    
                         </tr>
                         <tr>
@@ -275,21 +276,32 @@
                 </table>
                 <input type="radio" id="delivery" name="deli" value="새벽배송">  새벽 배송
                 <input type="radio" id="delivery" name="deli" value="일반배송">  일반 배송
-            </form>
+            
            
            
             <br><br>
             <div style="background-color:rgb(231, 216, 241)">
-           
+               <div class="bigtext right-align box blue summoney"><%=bs.getProductName()%></div>
+               <div class="bigtext right-align box blue summoney"><%=bs.getCount()%>개</div>
                 
                 <hr>
                 <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2,500원</div>
-                <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 59,800원</div>
-           
-            <hr>
-        
-            <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: 62,300원</div>
-       
+                <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 
+                    <%int total = 0;                     %>
+                    <%for(int i=0; i<bs.getCount(); i++){%>
+                    <% total += bs.getPrice();           %>
+                    <% } int all = total+80;         %>
+                    <%= total%>원
+                </div>
+
+                
+                
+                <hr>
+                
+                <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: <%=all%>원</div>
+                <input type="hidden" name="pName" id="pName" value="<%=bs.getProductName()%>">
+                <input type="hidden" name="price" id="price" value="<%=all%>">
+                
         
             
                 <div id="goorder" class="">
@@ -369,6 +381,7 @@
 
 <script>
     function requestPay() {
+    	
         
         var IMP = window.IMP; // 생략 가능
        IMP.init("imp53614451"); // 예: imp00000000
@@ -377,18 +390,18 @@
           pg: "html5_inicis",
           pay_method: "card",
           merchant_uid: "ORD20180131-0000011",
-          name: "노르웨이 회전 의자",
-          amount: 64900,
-          buyer_email: "gildong@gmail.com",
-          buyer_name: "홍길동",
-          buyer_tel: "010-4242-4242",
-          buyer_addr: "서울특별시 강남구 신사동",
-          buyer_postcode: "01181"
+          name: $("#pName").val(),
+          amount: $("#price").val(),
+          buyer_email: $("#email").val(),
+          buyer_name: $("#name").val(),
+          buyer_tel: $("#phone").val(),
+          buyer_addr: $("#address").val(),
+          buyer_postcode: $("#addressCode").val()
       }, function (rsp) { // callback
           if (rsp.success) {
-              alert("성공");
+              $("#insertAddress").submit();
           } else {
-              alert("실패");
+              alert("결제 실패");
           }
       });
     }

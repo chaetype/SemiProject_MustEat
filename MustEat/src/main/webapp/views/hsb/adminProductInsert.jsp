@@ -46,8 +46,8 @@
 					<td data-th="Supplier Name"><input type="text" name="price" placeholder="가격을 입력해주세요" size=70 required></td>
 				</tr>
 				<tr>
-					<td data-th="Supplier Code">등록일</td>
-					<td data-th="Supplier Name"><input type="text" name="enrollDate" placeholder="등록일을 입력해주세요" size=70></td>
+					<td data-th="Supplier Code">*등록일</td>
+					<td data-th="Supplier Name"><input type="text" name="enrollDate" placeholder="등록일을 입력해주세요 ex) xxxx/xx/xx" size=70 required></td>
 				</tr>
 				<tr>
 					<td data-th="Supplier Code">*판매자</td>
@@ -55,7 +55,7 @@
 				</tr>
 				<tr>
 					<td data-th="Supplier Code">판매자연락처</td>
-					<td data-th="Supplier Name"><input type="text" name="sPhone" placeholder="판매자연락처를 입력해주세요" size=70 required></td>
+					<td data-th="Supplier Name"><input type="text" name="sPhone" placeholder="판매자연락처를 입력해주세요" size=70 ></td>
 				</tr>
 				<tr>
 					<td data-th="Supplier Code">*판매단위</td>

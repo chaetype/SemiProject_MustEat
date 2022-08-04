@@ -300,11 +300,19 @@
 		  INTO ORDER_PRO
 		  (
 		    ORDER_NO
-		  , DEL_NAME
+		  , MEM_NO
+		  , ORDER_QUENTITY
+		  , ORDER_DATE
+		  , MEMO
+		  , MODIFY_DATE
+		  , ORDER_STATUS
+		  , TATAL_PRICE
+		  , PAYMENT
+          , DELIVERY_STATUS
+          , DELIVERY_TYPE
+          , DEL_NAME
 		  , DEL_PHONE
 		  , DEL_EMAIL
-		  , MEMO
-          , DELIVERY_STATUS
           , DEL_ADDRESS
           , DEL_ADDRESS_CODE
           , DEL_ADDRESS_DETAIL

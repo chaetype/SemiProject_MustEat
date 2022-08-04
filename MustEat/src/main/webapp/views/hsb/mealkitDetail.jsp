@@ -66,22 +66,24 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 		<div class="outer">
 			
 				<div style="display:inline-block;vertical-align:top;">
-					<img style="display:flex" width="300" height="300" src="<%= p.getImgPath() %>]">
+					<img style="display:flex" width="300" height="300" src="<%= contextPath %>/<%= p.getImgPath() %>">
 					 
 				</div>
 				
 
 				
-				<form action="<%=contextPath%>/insertCart.do" style="display:inline-block; margin-left: 50px;">
-				<div style="display:inline-block; margin-left: 50px;" >
+				<form action="<%=contextPath%>/insertCart.do" style="display:inline-block; margin-left: 50px;" id="orderMealkit" method="post">
+				<div style="display:inline-block; margin-left: 50px; width:400px;">
 					
 					<h3><%= p.getProductName() %></h3>
 					<br>
 					
 						<input type="hidden" name="productCode" value="<%=p.getProductCode()%>">
+						<input type="hidden" name="productName" value="<%=p.getProductName()%>">
 						<input type="hidden" name="seller" value="<%=p.getSeller()%>">
 						<input type="hidden" name="selPhone" value="<%=p.getSellerPhone()%>">
 						<input type="hidden" name="enrollDate" value="<%=p.getEnrollDate()%>">
+						<input type="hidden" name="price" value="<%=p.getPrice()%>">
 						<b>판매단위: </b><%= p.getSalesUnit() %>
 						<br><br>
 						<b>용량: </b><%= p.getCapacity() %>
@@ -112,9 +114,9 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 								<button type="button" class="btn1" onclick="log2();">장바구니</button>
 								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% }else{ // 로그인이 되어있을 경우 %>
-								<a href="<%=contextPath%>/payment.vi"><button type="button" class="btn1" onclick="direct();">바로구매</button></a>
+								<button type="button" class="btn1" onclick="direct();">바로구매</button>
 								<button type="submit" class="btn1">장바구니</button>
-								<a href="<%=contextPath%>mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
+								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% } %>
 					</div>
 				</form>
@@ -131,16 +133,8 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 					}
 					
 					function direct(){
-						$.ajax({
-							url:"<%=contextPath%>/address.do",
-							data:{
-								no:<%=p.getProductCode()%>,
-								name:<%=p.getProductName()%>,
-								price:<%=p.getPrice()%>,
-								amount:$(".numbox").val()
-							},
-							type:"post"
-						})
+						$("#orderMealkit").attr("action", "<%=request.getContextPath()%>/direct.do");
+						$("#orderMealkit").submit();
 					}
 					
 
@@ -261,7 +255,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 							value += "<tr>"
 								   +	"<td>" + list[i].reviewWriter + "</td>"
 								   +	"<td>" + list[i].prReviewContent + "</td>"
-								   +	"<td>" + list[i].prReviewRate + "</td>"
+								   +	"<td>☆ x " + list[i].prReviewRate + "</td>"
 								   + "</tr>";
 						}
 						
