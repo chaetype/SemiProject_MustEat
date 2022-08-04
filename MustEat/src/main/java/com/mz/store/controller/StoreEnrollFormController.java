@@ -43,12 +43,11 @@ public class StoreEnrollFormController extends HttpServlet {
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			
-		String storeSavePath = session.getServletContext().getRealPath("/resources/image/jsw/store_upfiles/");
-		String storeMenuSavePath = session.getServletContext().getRealPath("/resources/image/jsw/storemenu_upfiles/");
+		String SavePath = session.getServletContext().getRealPath("/resources/image/jsw/store_upfiles/");
 		
 		int maxSize = 10 * 1024 * 1024;
 		
-		MultipartRequest multiRequest = new MultipartRequest(request, storeSavePath, maxSize, "UTF-8", new MyFileRenamePolicy());
+		MultipartRequest multiRequest = new MultipartRequest(request, SavePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
 		String storeName = request.getParameter("storeName");
 		String storePhone = request.getParameter("storePhone");
@@ -88,7 +87,7 @@ public class StoreEnrollFormController extends HttpServlet {
 		se.setStoreImgPath("resources/image/jsw/store_upfiles/");
 		se.setStoreIntro(storeIntro);
 		se.setStorePopularity(storePopularity);
-		se.setStorePopPath("resources/image/jsw/storemenu_upfiles/");
+		se.setStorePopPath("resources/image/jsw/store_upfiles/");
 		se.setStorePopInfo(storePopInfo);
 		se.setStoreOperating(storeOperating);
 		se.setStoreBreaktime(storeBreaktime);
