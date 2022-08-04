@@ -51,7 +51,6 @@ public class MemberUpdateController extends HttpServlet {
 		
 		Member m = new Member(memId, updatePwd, memName, phone, email, memNickname
 							  , addressCode, address, addressDetail, addressRef);
-		System.out.println(m);
 	
 		Member updateMem = new MemberService().updateMember(m);
 		
