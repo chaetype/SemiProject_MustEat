@@ -164,6 +164,17 @@ public class NoticeService {
 		return list;
 	}
 	
+	/** 문의내역 세부페이지 조회 메소드
+	 * @param contactNo 조회할 문의번호
+	 * @return 조회된 문의 객체
+	 */
+	public Contact selectContact(int contactNo) {
+		Connection conn = getConnection();
+		Contact c = new NoticeDao().selectContact(conn, contactNo);
+		close(conn);
+		return c;
+	}
+	
 	
 	
 }
