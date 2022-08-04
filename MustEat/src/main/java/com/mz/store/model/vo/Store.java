@@ -120,7 +120,7 @@ public class Store {
 		this.storePhone = storePhone;
 	}
 
-	public Store(String storeName, String localSi, String localGu, String localRo, String storePhone, String localSi, String localGu, String localRo, String storeAddress, String storeImgPath, String storeIntro, String storePopularity, String storePopPath, String storePopInfo, String storeOperating, String storeBreaktime, String naverAddress, String storeUrl, String dayOff, String storeTag) {
+	public Store(String storeName, String localSi, String localGu, String localRo, String storePhone, String storeAddress, String storeImgPath, String storeIntro, String storePopularity, String storePopPath, String storePopInfo, String storeOperating, String storeBreaktime, String naverAddress, String storeUrl, String dayOff, String storeTag) {
 		super();
 		this.storeName = storeName;
 		this.localSi = localSi;
@@ -522,20 +522,31 @@ public class Store {
 	}
 
 
+	public int getCount() {
+		return count;
+	}
 
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Store [storeNo=" + storeNo 
+		return "Store [storeNo=" + storeNo + ", localSi=" + localSi + ", localGu=" + localGu + ", localRo=" + localRo
 				+ ", storeName=" + storeName + ", storeTag=" + storeTag + ", storeAddress=" + storeAddress
 				+ ", storePhone=" + storePhone + ", storeIntro=" + storeIntro + ", storeImgPath=" + storeImgPath
 				+ ", storePopularity=" + storePopularity + ", storePopInfo=" + storePopInfo + ", storePopPath="
 				+ storePopPath + ", storeOperating=" + storeOperating + ", storeBreaktime=" + storeBreaktime
 				+ ", naverAddress=" + naverAddress + ", dayOff=" + dayOff + ", storeUrl=" + storeUrl
 				+ ", storeEnrollDate=" + storeEnrollDate + ", storeReview=" + storeReview + ", reviewImg=" + reviewImg
-				+ ", reviewWriter=" + reviewWriter + "]";
+				+ ", reviewWriter=" + reviewWriter + ", count=" + count + "]";
 	}
+
+
+	
+
 
 	
 	
