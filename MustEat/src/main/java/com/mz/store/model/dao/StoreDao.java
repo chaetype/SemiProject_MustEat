@@ -422,7 +422,7 @@ public class StoreDao {
 	
 	
 	//채윤 에디터글 상세조회
-	public Editor selectDetailEdior(Connection conn, int editorNo) {
+	public Editor selectDetailEdior(Connection conn, int storeNo) {
 		Editor e = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -430,7 +430,7 @@ public class StoreDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, editorNo);
+			pstmt.setInt(1, storeNo);
 			
 			rset = pstmt.executeQuery();
 			
@@ -525,4 +525,43 @@ public class StoreDao {
 			}
 			return s;
 		}
+		
+		
+		
+		
+
+		//채윤 식당리뷰 상세조회
+		public StoreReview storeReviewDetail(Connection conn, int reviewNo) {
+			StoreReview sr = null;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("storeReviewDetail");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, reviewNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					sr = new StoreReview(rset.getInt("RE_NO")
+									   , rset.getString("REVIEW_TITLE")
+									   , rset.getString("MEM_NICKNAME")
+									   , rset.getString("REVIEW_IMG_PATH")
+									   , rset.getString("REVIEW_CONTENT")
+									   , rset.getDate("REVIEW_ENROLLDATE")
+									   , rset.getInt("COUNT")
+								 );
+				}
+				
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return sr;
+		}
+
 }

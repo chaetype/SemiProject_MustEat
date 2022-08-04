@@ -49,7 +49,7 @@
         <div class="outer333">
             <div class="popular2">
                 <h1><%= sr.getReviewTitle() %></h1>
-                <h6 style="float: right;">작성자 <%=sr.getReMemNick() %> 작성일자 <%=sr.getReviewEnrollDate() %></h6>
+                <h6 style="float: right;">작성자 <%=sr.getReMemNick() %> 작성일자 <%=sr.getReviewEnrollDate() %> <br>조회수 <%=sr.getCount() %></h6>
                 <br>
                 <br>
                 <hr>

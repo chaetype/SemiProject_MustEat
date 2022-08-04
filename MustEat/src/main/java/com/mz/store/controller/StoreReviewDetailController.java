@@ -39,7 +39,7 @@ public class StoreReviewDetailController extends HttpServlet {
 		
 		if(result > 0) { // 유효한게시글 맞음 
 			// 2) 게시글, 첨부파일 조회 
-			StoreReview sr = sService.StoreReviewDetail(reviewNo);
+			StoreReview sr = sService.storeReviewDetail(reviewNo);
 			
 			
 			// => 상세조회페이지
@@ -48,9 +48,6 @@ public class StoreReviewDetailController extends HttpServlet {
 			
 			request.getRequestDispatcher("views/kcy/userStoreReviewDetail91p.jsp").forward(request, response);
 			
-		}else { // 유효한게시글 아님 => 에러페이지
-			request.setAttribute("errorMsg", "실패");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

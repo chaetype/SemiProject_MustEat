@@ -2,8 +2,6 @@
     pageEncoding="UTF-8" import="com.mz.member.model.vo.Member"%>
 <%  
 	String contextPath = request.getContextPath(); 
-
-	Store thatStore = (Store)session.getAttribute("thatStore");
 	
 	Member loginUser = (Member)session.getAttribute("loginUser");
 	

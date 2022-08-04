@@ -254,7 +254,7 @@
 	
 		<h2 style="text-align:center">MZ RESTAURANT REVIEWS</h2>
 		
-		  <table class="rwd-table">
+		  <table class="rwd-table" style="cursor:pointer;">
 		  		<thead>
 		  			<tr>
 						<th width="75">글번호</th>
@@ -354,14 +354,14 @@
 	
 		<script>
     	$(function(){
-    		$(".list-area>tbody>tr").click(function(){
+    		$(".rwd-table>tbody>tr").click(function(){
     			const num = $(this).children().eq(0).text(); // 클릭했을때의 글번호
     			
     			// 요청할url?키=밸류&키=밸류... 
     			// 요청시전달값(키=밸류) => 쿼리스트링 
      			
     			// /web/detail.no?no=xx
-    			location.href = '<%=contextPath%>/detail.rp?no=' + num;
+    			location.href = '<%=contextPath%>/detail.sr?no=' + num;
     		})
     	})
     	

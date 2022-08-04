@@ -212,4 +212,20 @@
 		 WHERE STORE_NAME=?
 		   AND STORE_NO=?
 	</entry>
+	
+	
+	<!-- 채윤 : 식당리뷰 상세조회 -->
+	<entry key="storeReviewDetail">
+		SELECT 
+			   RE_NO
+		     , REVIEW_TITLE
+			 , MEM_NICKNAME
+			 , REVIEW_IMG_PATH
+			 , REVIEW_CONTENT
+			 , REVIEW_ENROLLDATE
+			 , COUNT
+	 	 FROM STORE_RE
+	 	 JOIN MEMBER ON(REVIEW_WRITER = MEM_NO)
+		WHERE RE_NO = ?
+	</entry>
 </properties>

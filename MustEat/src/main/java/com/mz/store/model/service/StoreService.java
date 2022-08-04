@@ -140,9 +140,9 @@ public class StoreService {
 	
 	
 	//채윤 에디터글 상세조회
-	public Editor selectDetailEdior(int editorNo) {
+	public Editor selectDetailEdior(int storeNo) {
 		Connection conn = getConnection();
-		Editor e = new StoreDao().selectDetailEdior(conn, editorNo);
+		Editor e = new StoreDao().selectDetailEdior(conn, storeNo);
 		close(conn);
 		return e;
 	}
@@ -170,6 +170,15 @@ public class StoreService {
 			Store s = new StoreDao().storeSession(conn, storename, storeno);
 			close(conn);
 			return s;
+		}
+		
+	//채윤 식당 리뷰 상세조회
+		public StoreReview storeReviewDetail(int reviewNo) {
+			Connection conn = getConnection();
+			StoreReview sr = new StoreDao().storeReviewDetail(conn, reviewNo);
+			close(conn);
+			return sr;
+			
 		}
 	
 }

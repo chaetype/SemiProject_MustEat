@@ -33,16 +33,16 @@ public class CategoryDetailController extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-    	int editorNo = Integer.parseInt(request.getParameter("no"));
+    	int storeNo = Integer.parseInt(request.getParameter("no"));
 		
 		StoreService sService = new StoreService();
 		
 		// 1) 조회수 증가
-		int result = sService.increaseCount(editorNo);
+		int result = sService.increaseCount(storeNo);
 		
 		if(result > 0) { // 유효한게시글 맞음 
 			// 2) 게시글, 첨부파일 조회 
-			Editor e = sService.selectDetailEdior(editorNo);
+			Editor e = sService.selectDetailEdior(storeNo);
 			
 			
 			// => 상세조회페이지

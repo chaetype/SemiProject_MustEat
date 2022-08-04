@@ -73,6 +73,20 @@ public class StoreReview {
 	}
 
 	
+	
+	
+	public StoreReview(int reNo, String reviewTitle, String reMemNick, String reviewImgPath ,String reviewContent, Date reviewEnrollDate,
+			int count) {
+		super();
+		this.reNo = reNo;
+		this.reviewContent = reviewContent;
+		this.reviewEnrollDate = reviewEnrollDate;
+		this.reviewImgPath = reviewImgPath;
+		this.reviewTitle = reviewTitle;
+		this.count = count;
+		this.reMemNick = reMemNick;
+	}
+
 	public String getReMemNick() {
 		return reMemNick;
 	}
