@@ -154,6 +154,81 @@ public class NoticeService {
 		return result;
 	}
 	
+	/** 문의내역 전체 조회 메소드
+	 * @return 조회된 문의 객체
+	 */
+	public ArrayList<Contact> selectContactListAll(){
+		Connection conn = getConnection();
+		ArrayList<Contact> list = new NoticeDao().selectContactListAll(conn);
+		close(conn);
+		return list;
+	}
+	
+	/** 문의내역 세부페이지 조회 메소드
+	 * @param contactNo 조회할 문의번호
+	 * @return 조회된 문의 객체
+	 */
+	public Contact selectContact(int contactNo) {
+		Connection conn = getConnection();
+		Contact c = new NoticeDao().selectContact(conn, contactNo);
+		close(conn);
+		return c;
+	}
+	
+	/** 문의 답변 업데이트 메소드
+	 * @param contactNo 문의번호
+	 * @param answer 답변
+	 * @return 성공/실패 결과
+	 */
+	public int updateContactReply(int contactNo, String answer) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().updateContactReply(conn, contactNo, answer);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	/** FAQ 전체 조회 메소드
+	 * @param pi 페이지인포 객체
+	 * @return 조회된 faq 객체
+	 */
+	public ArrayList<FAQ> selectFaqListAll(PageInfo pi){
+		Connection conn = getConnection();
+		ArrayList<FAQ> list = new NoticeDao().selectFaqListAll(conn, pi);
+		close(conn);
+		return list;
+	}
+	
+	/** FAQ 전체 목록 수 세는 메소드
+	 * @return 공지사항 목록 수
+	 */
+	public int selectFaqListCount() {
+		Connection conn = getConnection();
+		int listCount = new NoticeDao().selectFaqListCount(conn);
+		close(conn);
+		return listCount;
+	}
+	
+	/** FAQ 등록 메소드
+	 * @param f 등록할 faq 객체
+	 * @return 성공/실패 결과
+	 */
+	public int insertFaq(FAQ f) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().insertFaq(conn, f);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 	
 	
 }

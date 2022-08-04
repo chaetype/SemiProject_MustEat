@@ -46,8 +46,8 @@
 
     .outer{
         background-color:#f8f9fa;
-        width:80%;
-        height:100%;    
+        width:70%;
+        height:65%;    
         margin:auto;
         border-radius:5%;
     }

@@ -91,6 +91,8 @@
 		     , FAQ_COUNT
 		  FROM FAQ
 		 WHERE STATUS = 'Y'
+		 ORDER
+		    BY FAQ_NO DESC
 	</entry>
 	
 	<!-- 공지사항 등록 -->
@@ -153,6 +155,100 @@
 		UPDATE
 		       NOTICE
 		   SET STATUS = 'N'
+	</entry>
+	
+	<!-- 문의내역 전체 조회 -->
+	<entry key="selectContactListAll">
+		SELECT
+		       CONTACT_NO
+		     , CONTACT_TYPE
+		     , CONTACT_TITLE
+		     , CONTACT_CONTENT
+		     , CONTACT_WRITER
+		     , ENROLL_DATE
+		     , CONTACT_STATUS
+		     , CONTACT_ATTACH
+		     , ANSWER
+		     , ANSWER_DATE
+		  FROM CONTACT
+		 ORDER
+		    BY CONTACT_NO DESC
+	</entry>
+	
+	<!-- 문의내역 세부페이지 조회 -->
+	<entry key="selectContact">
+		SELECT
+		       CONTACT_NO
+		     , CONTACT_TYPE
+		     , CONTACT_TITLE
+		     , CONTACT_CONTENT
+		     , CONTACT_WRITER
+		     , ENROLL_DATE
+		     , CONTACT_STATUS
+		     , CONTACT_ATTACH
+		     , ANSWER
+		     , ANSWER_DATE
+		  FROM CONTACT
+		 WHERE CONTACT_NO = ?
+	</entry>
+	
+	<!-- 문의 답변 업데이트 -->
+	<entry key="updateContactReply">
+		UPDATE
+		       CONTACT
+		   SET CONTACT_STATUS = '답변 완료'
+		     , ANSWER = ?
+		     , ANSWER_DATE = SYSDATE
+		 WHERE CONTACT_NO = ?
+	</entry>
+	
+	<!-- FAQ 목록 조회 -->
+	<entry key="selectFaqListAll">
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM, A.*
+		          FROM (
+		                SELECT
+						       FAQ_NO
+						     , FAQ_TITLE
+						     , FAQ_CONTENT
+						     , FAQ_WRITER
+						     , ENROLL_DATE
+						     , FAQ_COUNT
+						  FROM FAQ
+						 WHERE STATUS = 'Y'
+						 ORDER
+						    BY FAQ_NO DESC
+		                ) A
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- FAQ 목록 수 -->
+	<entry key="selectFaqListCount">
+		SELECT
+		       COUNT(*) AS COUNT
+		  FROM FAQ
+		 WHERE STATUS = 'Y'
+	</entry>
+	
+	<!-- FAQ 등록 -->
+	<entry key="insertFaq">
+		INSERT
+		  INTO FAQ
+		  (
+		    FAQ_NO
+		  , FAQ_TITLE
+		  , FAQ_CONTENT
+		  , FAQ_WRITER
+		  )
+		  VALUES
+		  (
+		    SEQ_FNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  )
 	</entry>
 	
 	

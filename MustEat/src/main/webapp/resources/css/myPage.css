@@ -79,6 +79,15 @@
     width:80px;
     height:80px;
     margin:10px;
+    border: 2px solid white;
+	border-radius: 70px;
+  }
+
+  #noneIcon{
+    width:80px;
+    height:80px;
+    margin:10px;
+	  border-radius: 70px;
   }
   
   /* alert badge */

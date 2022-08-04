@@ -10,7 +10,7 @@
 <style>
     .outer{
         background-color:white;
-        width:80%;
+        width:70%;
         height:100%;    
         margin-left:20%;
         /* margin:auto; */

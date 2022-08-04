@@ -104,6 +104,18 @@
 
 <body>
 
+		<!-- alert문구 생성할 때 -->
+	<% if(alertMsg != null) { %>
+	<script>
+		alert("<%=alertMsg%>");
+		
+		// 지우지 않으면 새로고침할 때마다 alert가 띄워짐
+		// => 확인 버튼을 누르면 아예 사라지도록 설정(한 번 띄우고 난 뒤 안띄우기)
+		// session.removeAttribute() : session 자체를 지우는 것이 아닌 안에 담긴 값을 삭제하는 것
+		<% session.removeAttribute("alertMsg"); %>
+	</script>
+	<% } %>
+
 
   <div class="wrap">
 		<div class="header">
@@ -131,7 +143,7 @@
 			<nav class="demo-dust menu menu--dustu" style="font-size:15px;">
 	
 					<br>
-					<a class="menu__item" href="<%=contextPath %>/allMembersList.bo?cpage=1">
+					<a class="menu__item" href="<%=contextPath %>/allMembersList.bo?cpage=1&a=1&c=no">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 회원조회</span>
 					</a>
 					<a class="menu__item" href="#">
@@ -146,7 +158,7 @@
 					<a class="menu__item" href="#">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 밀키트 조회</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/AdminInsertProductView.do">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 밀키트 등록</span>
 					</a>
 					<a class="menu__item" href="#">
@@ -164,10 +176,10 @@
 					<a class="menu__item" href="<%=contextPath%>/adminNoticeList.no?cpage=1">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 공지사항</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/adminContactList.no">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 1:1문의</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/adminFaqList.no?cpage=1">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ FAQ</span>
 					</a>		
 					<a class="menu__item" href="<%=contextPath%>/tosadminlist.no">

@@ -32,6 +32,8 @@ public class InsertCart extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		String productCode = request.getParameter("productCode");
 		int amount = Integer.parseInt(request.getParameter("amount"));

@@ -214,6 +214,8 @@
 		<!-- 현재 멤버 총 갯수 조회용 --> 
 		SELECT COUNT(*) as "COUNT"
 		  FROM MEMBER
+		 WHERE MEM_STATUS ='Y'
+		    OR MEM_STATUS ='A'
 	</entry>
 	
 	
@@ -226,10 +228,12 @@
 	      , MEM_PHONE = ?
 	      , MEM_EMAIL = ?
 	      , MEM_NICKNAME = ?
+	      , MEM_IMGPATH = ?
 	      , ADDRESS_CODE = ?
 	      , ADDRESS = ?
 	      , ADDRESS_DETAIL = ?
 	      , ADDRESS_REF = ?
+	      , MEM_MODIFYDATE = SYSDATE
 		WHERE MEM_ID = ?
 	</entry>
 	
@@ -243,6 +247,7 @@
 		  , MEM_PHONE
 		  , MEM_EMAIL
 		  , MEM_NICKNAME
+		  , MEM_IMGPATH
 		  , ADDRESS_CODE
 		  , ADDRESS
 		  , ADDRESS_DETAIL

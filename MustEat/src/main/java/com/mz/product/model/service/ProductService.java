@@ -387,5 +387,27 @@ public class ProductService {
 		return listP;
 	}
 	
+	// 성범
+	/*
+	 * 관리자페이지 상품 insert
+	 */
+	
+	public int insertProduct(Product p) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().insertProduct(conn, p);
+		
+
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
 }
 

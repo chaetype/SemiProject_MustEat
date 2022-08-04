@@ -542,9 +542,6 @@ public class StoreDao {
 				
 				if(rset.next()) {
 					s = new Store(rset.getInt("STORE_NO")
-							    , rset.getString("LOCAL_SI")
-							    , rset.getString("LOCAL_GU")
-							    , rset.getString("LOCAL_RO")
 							    , rset.getString("STORE_NAME")
 							    , rset.getString("STORE_TAG")
 							    , rset.getString("STORE_ADDRESS")
@@ -613,27 +610,26 @@ public class StoreDao {
 		public int storeInsert(Connection conn, Store se) {
 			int result = 0;
 			PreparedStatement pstmt = null;
-			String sql = prop.getProperty("insertNotice");
+			String sql = prop.getProperty("storeInsert");
+			
+			System.out.println(se);
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, se.getStoreName());
-				pstmt.setString(2, se.getStorePhone());
-				pstmt.setString(3, se.getLocalSi());
-				pstmt.setString(4, se.getLocalGu());
-				pstmt.setString(5, se.getLocalRo());
-				pstmt.setString(6, se.getStoreAddress());
-				pstmt.setString(7, se.getStoreImgPath());
-				pstmt.setString(8, se.getStoreIntro());
-				pstmt.setString(9, se.getStorePopularity());
-				pstmt.setString(10, se.getStorePopPath());
-				pstmt.setString(11, se.getStorePopInfo());
-				pstmt.setString(12, se.getStoreOperating());
-				pstmt.setString(13, se.getStoreBreaktime());
-				pstmt.setString(14, se.getNaverAddress());
-				pstmt.setString(15, se.getStoreUrl());
-				pstmt.setString(16, se.getDayOff());
-				pstmt.setString(17, se.getStoreTag());				
+				pstmt.setString(2, se.getStoreTag());	
+				pstmt.setString(3, se.getStoreAddress());
+				pstmt.setString(4, se.getStorePhone());
+				pstmt.setString(5, se.getStoreIntro());
+				pstmt.setString(6, se.getStoreImgPath());
+				pstmt.setString(7, se.getStorePopularity());
+				pstmt.setString(8, se.getStorePopInfo());
+				pstmt.setString(9, se.getStorePopPath());				
+				pstmt.setString(10, se.getStoreOperating());				
+				pstmt.setString(11, se.getStoreBreaktime());
+				pstmt.setString(12, se.getNaverAddress());
+				pstmt.setString(13, se.getDayOff());
+				pstmt.setString(14, se.getStoreUrl());		
 				
 				result = pstmt.executeUpdate();
 				
@@ -643,7 +639,10 @@ public class StoreDao {
 				close(pstmt);
 			}
 			
+			System.out.println(result);
+			
 			return result;
+
 		}
 		
 		

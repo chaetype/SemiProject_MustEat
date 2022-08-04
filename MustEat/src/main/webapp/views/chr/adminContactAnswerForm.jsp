@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.notice.model.vo.Contact"%>
+<%
+	Contact c = (Contact)request.getAttribute("c");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>[관리자]문의답변</title>
+<title>세부공지사항</title>
 <!-- Font Awesome -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -30,76 +33,66 @@
 <style>
     .outer{
         background-color:white;
-        width:80%;
+        width:70%;
         height:100%;    
         margin:auto;
     }
-    #a th{
-        border-bottom-style:hidden;
-        padding-left:5%;
-        padding-top:5%;
-        color:lightyellow
+    .content, .footer {
+        width: 90%;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 3% 5%;
+        font-family: "Spoqa Han Sans", "spoqahansans", "Apple SD Gothic Neo", "Nanum Barun Gothic", "Nanum Gothic", Verdana, Arial, "Malgun Gothic", Dotum, sans-serif;
     }
-    #b th{
-        border-left-style:hidden;
-        text-align:right;
-        color:lightyellow
+    .post-author-info {
+        margin-bottom: 12%;
+        text-align: center;
     }
-    table{
-        margin:auto;
+    .post-title {
+	    font-size: 44px;
+	    margin-top: 30px;
+	    margin-bottom: 10px;
+	    color: #4d5256;
+	}
+	.outer h1 {
+	    line-height: 1.3em;
+	    font-weight: 700 !important; 
+	    display: block;
+	    /* font-size: 2em; */
+	    margin-block-start: 0.67em;
+	    margin-block-end: 0.67em;
+	    margin-inline-start: 0px;
+	    margin-inline-end: 0px;
+	    /* font-weight: bold; */
+	    font-family: "Spoqa Han Sans", "spoqahansans", "Apple SD Gothic Neo", "Nanum Barun Gothic", "Nanum Gothic", Verdana, Arial, "Malgun Gothic", Dotum, sans-serif !important;
+	}
+	.post-date {
+	    margin-bottom: 10px;
+	    color: #81878b;
+	}
+	.sep {
+	    color: #81878b;
+	    margin: 0 5px;
+	}
+	.post-author-info .author-name {
+	    color: #81878b;
+	}
+	.post div{
+        text-align:center;
     }
-    h2{
-        display:inline-block;
-        margin-left:20%;
+    #noticeImg{
+    	margin-top:10%;
+    	margin-bottom:3%;
     }
-    .bar{
-        border:3px solid rgba(139, 3, 230, 0.726);
+    .noticeContent{
+        line-height:30px;
+        margin-bottom:10%;
+        font-size:larger;
+        /* font-weight:bolder; */
     }
-    textarea{
-        width:70%;
-    }
-    .form-wrap{
-        margin:auto;
-        width:60%;
-        border-top:3px solid black;
-        padding-top:30px;
-    }
-    /* .form-outline .form-control {
-        border: 1px solid #bdbdbd;
-        border-top-right-radius: 0.25rem;
-        border-bottom-right-radius: 0.25rem;
-    } */
-    /* .form-outline .form-control:focus {
-        border: 1px solid rgba(139, 3, 230, 0.726);
-        box-shadow: none;
-    } */
-    /* .form-outline .form-control:focus~ .form-notch .form-notch-leading {
-        border-top: .125rem solid #ffaabb;
-        border-bottom: .125rem solid #ffaabb;
-        border-left: .125rem solid #ffaabb;
-    } 
+@import url(solarized_light.css);@import url(//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css);
 
-    .form-outline .form-control:focus~ .form-notch .form-notch-trailing {
-        border-top: .125rem solid #ffaabb;
-        border-right: .125rem solid #ffaabb;
-        border-bottom: .125rem solid #ffaabb;
-    } 
-
-    .form-outline .form-control:focus~ .form-notch .form-notch-middle {
-        border-top: 0;
-        border-bottom: .125rem solid #ffaabb;
-    } 
-    .form-outline .form-control~ .form-notch .form-notch-leading {
-        border-radius: 10px 0 0 10px;
-    } 
-
-    .form-outline .form-control~ .form-notch .form-notch-trailing {
-    border-radius: 0 10px 10px 0;
-    } 
-
-    .form-label {
-    color: #ffaabb !important;
-    } */
 </style>
 </head>
 <body>
@@ -108,57 +101,77 @@
 
     <div class="outer">
 
-        <br><br>
-        <h2><b>1 : 1 문의</b></h2>
-        <br><br>
+        <div class="content" style="align-items:unset; display:contents;">
+      
 
-        <div class="form-wrap"></div>
-        <table class="table table-bordered border-secondary" style="width:60%">
-            <thead style="background:rgba(139, 3, 230, 0.726)">
-                <tr id="a">
-                    <th colspan="3"><h4><b>[주문] 주문할 때 적립금 적용 어떻게 해요?</b></h4></th>
-                </tr>
-                <tr id="b">
-                    <td width="60%"></td>
-                    <th><b>user01</b></th>
-                    <th>2022-07-10</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="3">
-                        <div style="padding:10% 0">
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                            적립금 적용하는 방법을 모르겠어요ㅠ <br>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <br><br>
-        <!-- <div class="bar"></div> -->
-        <form action="">
-            <div class="form-outline" style="width:60%; margin:auto;">
-                <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
-                <label class="form-label" for="textAreaExample">답변 입력</label>
+
+            <div class="post-author-info">
+              
+                <h1 class="post-title">
+                	[<%= c.getContactType() %>] <%= c.getContactTitle() %>
+                </h1>
+                <span class="post-date"><%= c.getEnrollDate() %></span>
+                <span class="sep">|</span>
+                <span class="author-name"><%= c.getContactWriter() %></span>
+              
             </div>
-            <br>
-            <div style="width:80%" align="right">
-                <button type="submit" class="btn1">답변 등록</button>
+            
+            
+            
+            <div class="post">
+                
+                <% if(c.getContactAttach() != null){ %>
+	                <div id="noticeImg">
+	                    <img src="<%= contextPath %>/<%= c.getContactAttach() %>" width="600" height="300">
+	                </div>
+                <% } %>
+
+                <div class="noticeContent">
+                    <%= c.getContactContent() %>
+                </div>
+                
             </div>
-        </form>
-        <script>
-            document.querySelectorAll('.form-outline').forEach((formOutline) => {
-            new mdb.Input(formOutline).init();
-            });
-        </script>
+            
+            <form action="<%= contextPath %>/reply.no" method="post">
+            	<input type="hidden" name="no" value="<%=c.getContactNo()%>">
+            	<% if(c.getAnswer() != null){ %>
+            		<div class="form-outline" style="width:600px; margin:auto;">
+		                <textarea class="form-control" name="answer" id="textAreaExample" rows="4"><%= c.getAnswer() %></textarea>
+		                <label class="form-label" for="textAreaExample">답변</label>
+		            </div>
+		            <br>
+		            <div style="width:76%" align="right">
+		                <button type="submit" class="btn1">답변 수정</button>
+		                <button type="button" class="btn1" onclick="toList();">목록으로</button>
+		            </div>
+            	<% }else{ %>
+	            <div class="form-outline" style="width:600px; margin:auto;">
+	                <textarea class="form-control" name="answer" id="textAreaExample" rows="4"></textarea>
+	                <label class="form-label" for="textAreaExample">답변 입력</label>
+	            </div>
+	            <br>
+	            <div style="width:76%" align="right">
+	                <button type="submit" class="btn1">답변 등록</button>
+	                <button type="button" class="btn1" onclick="toList();">목록으로</button>
+	            </div>
+	            <% } %>
+	        </form>
+	        <script>
+	            document.querySelectorAll('.form-outline').forEach((formOutline) => {
+	            new mdb.Input(formOutline).init();
+	            });
+	            
+	            function toList(){
+	            	location.href="<%=contextPath%>/adminContactList.no";
+	            }
+	        </script>
+            
+            
+            
+        </div>
+
     </div>
+
 
 </body>
 </html>

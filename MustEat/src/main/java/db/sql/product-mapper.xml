@@ -37,7 +37,7 @@
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
             		AND ORDER_STATUS = 2
-            		 OR DELIVERY_STATUS = '구매취소') AS CANCEL, <!-- 구매취소 -->
+            		AND DELIVERY_STATUS = '구매취소') AS CANCEL, <!-- 구매취소 -->
             (SELECT COUNT(*) 
             	FROM ORDER_PRO O 
             		WHERE M.MEM_NO = O.MEM_NO 
@@ -233,7 +233,7 @@
 		  , PR_REVIEW_CONTENT
 		  , PRODUCT_CODE
 		  , REVIEW_WRITER
-		 <!--  , PR_REVIEW_RATE -->
+		  , PR_REVIEW_RATE 
 		  )
 		  VALUES
 		  (
@@ -241,7 +241,7 @@
 		  , ?
 		  , ?
 		  , ?
-		  <!--  , ?-->
+		  , ?
 		  )
 	</entry>
 	
@@ -299,11 +299,20 @@
 		INSERT
 		  INTO ORDER_PRO
 		  (
-		    DEL_NAME
+		    ORDER_NO
+		  , MEM_NO
+		  , ORDER_QUENTITY
+		  , ORDER_DATE
+		  , MEMO
+		  , MODIFY_DATE
+		  , ORDER_STATUS
+		  , TATAL_PRICE
+		  , PAYMENT
+          , DELIVERY_STATUS
+          , DELIVERY_TYPE
+          , DEL_NAME
 		  , DEL_PHONE
 		  , DEL_EMAIL
-		  , MEMO
-          , DELIVERY_STATUS
           , DEL_ADDRESS
           , DEL_ADDRESS_CODE
           , DEL_ADDRESS_DETAIL
@@ -311,11 +320,12 @@
 		  )
 		  VALUES
 		  (
-		    ?
+		    SEQ_ORDERNO.NEXTVAL
 		  , ?
 		  , ?
 		  , ?
 		  , ?
+          , ?
           , ?
           , ?
           , ?
@@ -376,6 +386,7 @@
 	
 	</entry>
 	
+	<!-- 성범  -->
 	<entry key="selectmealkit">
 		SELECT *
 		  FROM (
@@ -394,8 +405,54 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<!-- 성범  -->
 	<entry key="selectListCount">
 		SELECT COUNT(*) as "COUNT"
 		  FROM PRODUCT
 	</entry>
+	
+	<!-- 성범  -->
+	<entry key="insertProduct">
+		INSERT
+		  INTO PRODUCT
+		  (
+		  PRODUCT_CODE
+        , PRODUCT_NAME
+        , PRICE
+        , ENROLL_DATE
+        , SELLER
+        , SELLER_PHONE
+        , SALES_UNIT
+        , CAPACITY
+        , PACKING
+        , ALLERGY
+        , EXPIRATION_DATE
+        , IMG_PATH
+		  )
+		  VALUES
+		  (
+			SEQ_PRNO.NEXTVAL		   
+		  , ?  
+		  , ?
+		  , SYSDATE
+		  , ?
+          , ?
+          , ?
+          , ?
+          , ?
+          , ?
+          , ?
+          , ?
+		  )
+
+	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </properties>

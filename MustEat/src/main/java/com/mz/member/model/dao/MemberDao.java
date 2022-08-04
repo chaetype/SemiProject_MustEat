@@ -506,11 +506,12 @@ public class MemberDao {
 			pstmt.setString(3, m.getMemPhone());
 			pstmt.setString(4, m.getMemEmail());
 			pstmt.setString(5, m.getMemNickname());
-			pstmt.setString(6, m.getAddressCode());
-			pstmt.setString(7, m.getAddress());
-			pstmt.setString(8, m.getAddressDetail());
-			pstmt.setString(9, m.getAddressRef());
-			pstmt.setString(10, m.getMemId());
+			pstmt.setString(6, m.getMemImgPath());
+			pstmt.setString(7, m.getAddressCode());
+			pstmt.setString(8, m.getAddress());
+			pstmt.setString(9, m.getAddressDetail());
+			pstmt.setString(10, m.getAddressRef());
+			pstmt.setString(11, m.getMemId());
 			
 			result = pstmt.executeUpdate();
 			
@@ -560,6 +561,7 @@ public class MemberDao {
 									 , rset.getString("address")
 									 , rset.getString("address_detail")
 									 , rset.getString("address_ref")
+									 , rset.getString("mem_imgpath")
 									 );
 			}
 			
