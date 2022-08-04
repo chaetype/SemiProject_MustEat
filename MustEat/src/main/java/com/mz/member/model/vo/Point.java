@@ -88,11 +88,7 @@ public class Point {
 		this.mpsRecord = mpsRecord;
 	}
 	
-	public Point(int useableMps) {
-		super();
-		this.useableMps = useableMps;
-	}
-	
+
 	public int getMpsNo() {
 		return mpsNo;
 	}
