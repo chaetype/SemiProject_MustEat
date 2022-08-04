@@ -22,6 +22,17 @@
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../resources/css/fontawesome-stars.css">
+	<script type="text/javascript" src="../resources/js/jquery.barrating.min.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
 <style>
     #enroll-form table{
         border:1px solid white;
@@ -32,8 +43,34 @@
         box-sizing:border-box;
     }
     .outer{
-        margin-left: 50px ;
+        margin:auto;
+        width:80%;
+        text-align:center;
     }
+    .star-container{
+    	margin-left : 200px ;
+    }
+    #star {
+  display: flex;
+}
+
+.star {
+  font-size: 2rem;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.star:not(.on) {
+  color: #ccc;
+}
+
+.star.on {
+  color: orange;
+}
+
+input[type = radio]{
+display:none;}
+    
 </style>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
@@ -49,10 +86,11 @@
         <br>
         <h2 align="center">식당 리뷰 작성하기</h2>
         <br>
-	
-        <form id="enroll-form" action="<%= contextPath %>/srinsert.st?no=<%=storeNo %>" method="post" enctype="multipart/form-data">
-            <!-- 카테고리번호, 제목, 내용, 로그인한회원번호, 첨부파일 한개 -->
-            <input type="hidden" name="no" value="<%=storeNo%>">
+        
+		
+        <form id="enroll-form" action="<%= contextPath %>/srinsert.st?no=<%=storeNo%>" method="post" enctype="multipart/form-data">
+        <%-- <input type="hidden" name="no" value="<%=storeNo%>"> --%>
+      
       
             <table align="center">
                 <tr>
@@ -66,7 +104,39 @@
 
             </table>
             <br>
-
+			 <!-- 별점선택 -->
+			             <div class="rate-area">
+               <p style="display:inline;">당신의 별점은: </p>
+               <fieldset id="rate-star">
+                    <input type="radio" name="rate" value="1" id="rate1">
+                    <label for="rate1"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="2" id="rate2">
+                    <label for="rate2"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="3" id="rate3">
+                    <label for="rate3"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="4" id="rate4">
+                    <label for="rate4"><i class="fa fa-star review-rate"></i></label>
+                    <input type="radio" name="rate" value="5" id="rate5">
+                    <label for="rate5"><i class="fa fa-star review-rate"></i></label>
+               </fieldset>
+            </div>
+            
+            <script>
+               $(function(){
+                  // 별점 checked속성에 대한 function (클릭하면 유지되도록)
+                  $("input[name=rate]").change(function(){
+                     $(this).next().children().css("color", "#fbd600");
+                     $(this).prevAll("label").children().css("color", "#fbd600");
+                     $(this).next().nextAll("label").children().css("color", "gainsboro");
+                  })
+               })                      
+            </script>
+      	
+      	
+      	</script> 
+      	
+	     
+      	
             <div align="center">
                 <button class="btn1" type="submit">작성하기</button>
                 <button class="btn1" type="reset">취소하기</button>
@@ -86,7 +156,7 @@
                        disableDragAndDrop: true,
                   codeviewFilter: false,
                   codeviewIframeFilter: true,
-                  placeholder: '에디터글 작성',
+                  placeholder: '식당 리뷰 작성',
                   tabsize: 2,
                   height: 600,
                   toolbar: [

@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.member.model.vo.Member;
 import com.mz.product.model.service.ProductService;
 import com.mz.product.model.vo.OrderPro;
 
 /**
  * Servlet implementation class Address
  */
-@WebServlet("/address.do")
+@WebServlet("/addressInsert.do")
 public class Address extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,6 +34,7 @@ public class Address extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 		
+		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		String delName = request.getParameter("name");
 		String delPhone = request.getParameter("memPhone");
 		String delEmail = request.getParameter("email");
@@ -43,11 +45,11 @@ public class Address extends HttpServlet {
 		String memo = request.getParameter("memo");
 		String deliveryStatus = request.getParameter("deli");
 		
-		OrderPro op = new OrderPro(memo, deliveryStatus, delName, delPhone, delEmail, delAddress, delAddressCode, delAddressDetail, delAddressRef);
+		OrderPro op = new OrderPro(String.valueOf(memNo), memo, deliveryStatus, delName, delPhone, delEmail, delAddress, delAddressCode, delAddressDetail, delAddressRef);
 		
 		int result = new ProductService().insertAddress(op);
 		
-		request.getRequestDispatcher("views/hsb/address.jsp").forward(request, response);
+		//request.getRequestDispatcher("views/hsb/address.jsp").forward(request, response);
 		
 	}
 

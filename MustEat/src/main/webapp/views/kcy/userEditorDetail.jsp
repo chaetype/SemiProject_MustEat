@@ -28,6 +28,7 @@
       <!-- 에디터 글 조회에서 관리자만 글쓰기 버튼 활성화 시키기 -->
     <div class="wrap99">
         <%=e.getEditorContent() %>
+        
 
     </div>
 </body>

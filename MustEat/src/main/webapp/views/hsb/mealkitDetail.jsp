@@ -16,6 +16,7 @@
 	.outer{
 		width:80%;
 		margin:auto;
+		margin-left: 15%;
 	}
     .rating {
  display: flex;
@@ -111,20 +112,16 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 								<button type="button" class="btn1" onclick="log2();">장바구니</button>
 								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% }else{ // 로그인이 되어있을 경우 %>
-								<a href="<%=contextPath%>/address.do"><button type="button" class="btn1">바로구매</button></a>
+								<a href="<%=contextPath%>/payment.vi"><button type="button" class="btn1" onclick="direct();">바로구매</button></a>
 								<button type="submit" class="btn1">장바구니</button>
-								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
+								<a href="<%=contextPath%>mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% } %>
 					</div>
 				</form>
 					<hr>
 		        </div>		
 
-				<script>
-				$({
-					
-				})
-				
+				<script>				
 					function log1(){
 						alert("로그인 후 이용가능합니다.");
 					}
@@ -132,6 +129,20 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 					function log2(){
 						alert("로그인 후 이용가능합니다.");
 					}
+					
+					function direct(){
+						$.ajax({
+							url:"<%=contextPath%>/address.do",
+							data:{
+								no:<%=p.getProductCode()%>,
+								name:<%=p.getProductName()%>,
+								price:<%=p.getPrice()%>,
+								amount:$(".numbox").val()
+							},
+							type:"post"
+						})
+					}
+					
 
 				</script>
 			
@@ -146,11 +157,11 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 	                        <td><textarea rows="3" cols="50" style="resize:none" readonly>로그인 후 이용가능한 서비스입니다.</textarea></td>
 	                        <td width="100">
                                 <div class="rating"> 
-                                <input type="radio" class=rate name="rate" value="5" id="5"><label for="5">☆</label>
-                                <input type="radio" class=rate name="rate" value="4" id="4"><label for="4">☆</label> 
-                                <input type="radio" class=rate name="rate" value="3" id="3"><label for="3">☆</label>
-                                <input type="radio" class=rate name="rate" value="2" id="2"><label for="2">☆</label>
-                                <input type="radio" class=rate name="rate" value="1" id="1"><label for="1">☆</label>
+                                <input type="radio" class="rate" name="rate" value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" class="rate" name="rate" value="4" id="4"><label for="4">☆</label> 
+                                <input type="radio" class="rate" name="rate" value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" class="rate" name="rate" value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" class="rate" name="rate" value="1" id="1"><label for="1">☆</label>
                             </div>
                             </td>
 	                        <td><button disabled>댓글등록</button></td>
@@ -159,11 +170,11 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 	                        <td><textarea rows="3" cols="50" style="resize:none" id="replyContent"></textarea></td>
                             <td width="100">
                                 <div class="rating"> 
-                                <input type="radio" class=rate name="rate" value="5" id="5"><label for="5">☆</label>
-                                <input type="radio" class=rate name="rate" value="4" id="4"><label for="4">☆</label> 
-                                <input type="radio" class=rate name="rate" value="3" id="3"><label for="3">☆</label>
-                                <input type="radio" class=rate name="rate" value="2" id="2"><label for="2">☆</label>
-                                <input type="radio" class=rate name="rate" value="1" id="1"><label for="1">☆</label>
+                                <input type="radio" class="rate" name="rate" value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" class="rate" name="rate" value="4" id="4"><label for="4">☆</label> 
+                                <input type="radio" class="rate" name="rate" value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" class="rate" name="rate" value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" class="rate" name="rate" value="1" id="1"><label for="1">☆</label>
                             </div>
                             </td>
 	                        <td><button onclick="insertReply();">댓글등록</button></td>
@@ -174,7 +185,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
                 <tbody>
                     
                 </tbody>
-           
+           </table>
         </div>
 			
 		<script>
@@ -216,7 +227,9 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 					url:"<%=contextPath%>/insert.rv",
 					data:{
 						content:$("#replyContent").val(),
-						no:<%=p.getProductCode()%>
+						no:<%=p.getProductCode()%>,
+						rate:$("input[name=rate]:checked").val()
+			
 					},
 					type:"post",
 					success:function(result){

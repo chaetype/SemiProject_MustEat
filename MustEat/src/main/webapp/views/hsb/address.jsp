@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.product.model.vo.Basket"%>
+<%
+	Basket bs = (Basket)request.getAttribute("bs");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -236,36 +239,36 @@
     <%@ include file="../common/menubar.jsp"%>
         <div class="wrap1212">
             <div class="outer" align="center">
-            <form action="<%=contextPath%>/address.do">
+            <form action="<%=contextPath%>/addressInsert.do">
                 <b>배송정보</b><br>
                 <table style="margin: top 10% ;">
                    
                     <tbody>
                         <tr>
                             <th>* 이름</th>
-                            <td><input type="text" name="name"></td>
+                            <td><input type="text" name="name" required></td>
                         </tr>
                          <tr>
                             <th>* 휴대폰</th>
-                            <td><input type="text" name="phone" placeholder="-를 이어서 작성해주세요."></td>
+                            <td><input type="text" name="phone" placeholder="-를 이어서 작성해주세요." required></td>
                         </tr>
                         <tr>
                         <tr>
                             <th>* 이메일</th>
-                            <td><input type="email" name="email" placeholder="example@must.eat"></td>
+                            <td><input type="email" name="email" placeholder="example@must.eat" required></td>
                          </tr>
                             <th>* 주소</th>
                             <td>
-                                <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호">
+                                <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" required>
                                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                                <input type="text" name="address" id="sample6_address" placeholder="주소" style="width:240px"><br>
-                                <input type="text" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px"><br>
-                                <input type="text" name="addressRef" id="sample6_extraAddress" placeholder="참고항목" style="width:240px"><br>
+                                <input type="text" name="address" id="sample6_address" placeholder="주소" style="width:240px" required><br>
+                                <input type="text" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px" required><br>
+                                <input type="text" name="addressRef" id="sample6_extraAddress" placeholder="참고항목" style="width:240px" required><br>
                                
                             </td>    
                         </tr>
                         <tr>
-                            <th>* 배송시 요청사항</th>
+                            <th> 배송시 요청사항</th>
                             <td><textarea name="memo" cols="30" rows="10" style="resize: none ;"></textarea></td>
                         
                     </tbody>
@@ -277,6 +280,9 @@
            
             <br><br>
             <div style="background-color:rgb(231, 216, 241)">
+           
+                
+                <hr>
                 <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2,500원</div>
                 <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 59,800원</div>
            

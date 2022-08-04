@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.mz.store.model.vo.Store" %>
+<%
+	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
+	int pu = (int)request.getAttribute("pu");
+	int pd = (int)request.getAttribute("pd");
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -181,75 +188,30 @@
 						<th>작성내역</th>
 				      </tr>
 				      <tr>
+				      <% if(list.isEmpty()) { %>
+	                  <!--case1. 게시글이 없을경우-->
+	                  <tr>
+	                      <td colspan="4">조회된 리뷰가 없습니다.</td>
+	                  </tr>
+					  <% }else { %>
+	                  <!--case2. 게시글이 있을경우-->
+	                  	<% for(Store s : list){ %>
+		                  <tr>
+		                  	  <td><%= s.getStoreEnrollDate() %></td>
+		                      <td><%= s.getRvDate() %></td>
+		                      <td><%= s.getRvName() %></td>
+		                      <td><%= s.getRvCategory() %></td>	
+		                      <td><%= s.getRvStar() %></td>		       
+		                  </tr>   
+	                      <% } %>        
+	                  <% } %>
 				        <td>xxxx-xx-xx</td>
 				        <td>김밥천국</td>
 						<td>식당</td>
 				        <td>4.0</td>
 				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
 				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>고메짬뽕</td>
-						<td>밀키트</td>
-				        <td>4.5</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>김밥천국</td>
-						<td>식당</td>
-				        <td>4.0</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>고메짬뽕</td>
-						<td>밀키트</td>
-				        <td>4.5</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>김밥천국</td>
-						<td>식당</td>
-				        <td>4.0</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>고메짬뽕</td>
-						<td>밀키트</td>
-				        <td>4.5</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>김밥천국</td>
-						<td>식당</td>
-				        <td>4.0</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>고메짬뽕</td>
-						<td>밀키트</td>
-				        <td>4.5</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>김밥천국</td>
-						<td>식당</td>
-				        <td>4.0</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      <tr>
-				        <td>xxxx-xx-xx</td>
-				        <td>고메짬뽕</td>
-						<td>밀키트</td>
-				        <td>4.5</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
+				      				      
 				    </tbody>
 		  		</table>
 			

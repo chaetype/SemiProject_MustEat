@@ -32,10 +32,10 @@ public class AllMembersListController1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		//태민
 		// 회원 전체 조회페이지(관리자) 요청
-		 
+		
 		// ----------- 페이징 처리 ------------
 		int listCount;    // 현재 총 게시글 갯수
 		int currentPage;   // 사용자가 곧 보게될 페이지 (즉, 현재 사용자가 요청한 페이지)
@@ -94,12 +94,36 @@ public class AllMembersListController1 extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
 		// * 현재 요청한 페이지(currentPage)에 보여질 게시글 리스트 조회해야됨 (boardLimit 수만큼조회)
-		ArrayList<Member> list = new MemberService().selectList(pi);
+		
+		
+		int a = Integer.parseInt(request.getParameter("a"));
+		String c = request.getParameter("c");
+				
+		ArrayList<Member> list = null;
+		int count = new MemberService().selectListCount();
+				
+		if(a==1) {
+			list = new MemberService().selectList(pi);
+			request.setAttribute("b", 1);
+			request.setAttribute("c", c);
+		}else if(a==2) {
+			list = new MemberService().selectList1(pi);
+			request.setAttribute("b", 2);
+			request.setAttribute("c", c);
+		}else if(a==3) {
+			list = new MemberService().selectList2(pi);
+			request.setAttribute("b", 3);
+			request.setAttribute("c", c);
+		}
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
-		
+
+		request.setAttribute("count", count);
+		request.setAttribute("a", a);	
+
 		request.getRequestDispatcher("views/ltm/allMembersAdmin.jsp").forward(request, response);
+		
 				
 	}
 

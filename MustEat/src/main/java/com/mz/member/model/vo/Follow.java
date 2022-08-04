@@ -50,8 +50,8 @@ public class Follow {
 		this.reviewCount = reviewCount;
 	}
 	
-	public Follow(String ingMemName, String profileImg, int reviewCount, int proreviewCount, int followCount ) {
-		
+	public Follow(int followNo, String ingMemName, String profileImg, int reviewCount, int proreviewCount, int followCount ) {
+		this.followNo = followNo;
 		this.ingMemName = ingMemName;
 		this.profileImg = profileImg;
 		this.followCount = followCount;

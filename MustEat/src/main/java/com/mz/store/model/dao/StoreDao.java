@@ -202,6 +202,50 @@ public class StoreDao {
 		return result;
 		
 	}
+	//에디터 조회
+	public int increaseCountE(Connection conn, int editorNo) {
+		// update문 => 처리된행수
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, editorNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	//식당리뷰
+	public int increaseCountR(Connection conn, int reviewNo) {
+		// update문 => 처리된행수
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, reviewNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 	
 
 	//채윤 식당 메인2
@@ -422,7 +466,7 @@ public class StoreDao {
 	
 	
 	//채윤 에디터글 상세조회
-	public Editor selectDetailEdior(Connection conn, int storeNo) {
+	public Editor selectDetailEdior(Connection conn, int editorNo) {
 		Editor e = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -430,7 +474,7 @@ public class StoreDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, storeNo);
+			pstmt.setInt(1, editorNo);
 			
 			rset = pstmt.executeQuery();
 			
@@ -465,6 +509,7 @@ public class StoreDao {
 		         pstmt.setString(2,sr.getReviewWriter());
 		         pstmt.setString(3, sr.getReviewTitle());
 		         pstmt.setString(4, html);
+		         pstmt.setInt(5, sr.getReviewRate());
 		         result = pstmt.executeUpdate();
 		      } catch (SQLException e) {
 		         e.printStackTrace();
@@ -563,5 +608,54 @@ public class StoreDao {
 			
 			return sr;
 		}
+		
+		//서원 관리자 식당 등록
+		public int storeInsert(Connection conn, Store se) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("storeInsert");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, se.getLocalSi());
+				pstmt.setString(2, se.getLocalGu());
+				pstmt.setString(3, se.getLocalRo());
+				pstmt.setString(4, se.getStoreName());
+				pstmt.setString(5, se.getStoreTag());	
+				pstmt.setString(6, se.getStoreAddress());
+				pstmt.setString(7, se.getStorePhone());
+				pstmt.setString(8, se.getStoreIntro());
+				pstmt.setString(9, se.getStoreImgPath());
+				pstmt.setString(10, se.getStorePopularity());
+				pstmt.setString(11, se.getStorePopInfo());
+				pstmt.setString(12, se.getStorePopPath());				
+				pstmt.setString(13, se.getStoreOperating());				
+				pstmt.setString(14, se.getStoreBreaktime());
+				pstmt.setString(15, se.getNaverAddress());
+				pstmt.setString(16, se.getDayOff());
+				pstmt.setString(17, se.getStoreUrl());		
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 }

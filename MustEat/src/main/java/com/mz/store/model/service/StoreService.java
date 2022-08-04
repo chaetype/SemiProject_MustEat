@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
+import com.mz.notice.model.dao.NoticeDao;
 import com.mz.store.model.dao.StoreDao;
 import com.mz.store.model.vo.Editor;
 import com.mz.store.model.vo.Store;
@@ -33,7 +34,36 @@ public class StoreService {
 		
 		return result;
 	}
-	
+	//채윤(에디터상세조회수)
+		public int increaseCountE(int editorNo) {
+			Connection conn = getConnection();
+			int result = new StoreDao().increaseCountE(conn,editorNo);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
+		//채윤(식당리뷰상세조회수)
+		public int increaseCountR(int reviewNo) {
+			Connection conn = getConnection();
+			int result = new StoreDao().increaseCountR(conn,reviewNo);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
 	//채윤 (식당 리뷰 목록 조회/ StoreReviewListController와 연결)
 	public ArrayList<StoreReview> selectStoreReviewList(){
 		Connection conn = getConnection();
@@ -140,9 +170,9 @@ public class StoreService {
 	
 	
 	//채윤 에디터글 상세조회
-	public Editor selectDetailEdior(int storeNo) {
+	public Editor selectDetailEdior(int editorNo) {
 		Connection conn = getConnection();
-		Editor e = new StoreDao().selectDetailEdior(conn, storeNo);
+		Editor e = new StoreDao().selectDetailEdior(conn, editorNo);
 		close(conn);
 		return e;
 	}
@@ -180,5 +210,29 @@ public class StoreService {
 			return sr;
 			
 		}
+		
+		
+	//서원 관리자 식당 등록
+		public int storeInsert(Store se) {
+			Connection conn = getConnection();
+			int result = new StoreDao().storeInsert(conn, se);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
+		
+		
+		
+		
+		
+		
+		
 	
 }

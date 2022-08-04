@@ -238,7 +238,7 @@
 				
 				<div class="mustEatInfo">
 					<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
-					<a href="" class="plain-btn btn" style="font-size:12px">적립금</a> 
+					<a href="<%= contextPath %>/mpsuserlist.me" class="plain-btn btn" style="font-size:12px">적립금</a> 
 					<a href="" class="plain-btn btn" style="font-size:12px">공지사항</a>
 					</div>
 					
