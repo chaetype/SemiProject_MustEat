@@ -198,8 +198,8 @@
 	                  	<% for(Store s : list){ %>
 		                  <tr>
 		                  	  <td><%= s.getStoreEnrollDate() %></td>
-		                      <td><%= s.getRvDate() %></td>
-		                      <td><%= s.getRvName() %></td>
+		                      <td><%= s.getReviewEnrollDate() %></td>
+		                      <td><%= s.getStoreName() %></td>
 		                      <td><%= s.getRvCategory() %></td>	
 		                      <td><%= s.getRvStar() %></td>		       
 		                  </tr>   
