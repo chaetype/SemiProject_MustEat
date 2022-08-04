@@ -186,7 +186,7 @@ public class Store {
 		this.storeUrl = storeUrl;
 	}
 
-
+	
 
 	public int getStoreNo() {
 		return storeNo;
