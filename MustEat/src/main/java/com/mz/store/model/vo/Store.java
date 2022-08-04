@@ -123,7 +123,26 @@ public class Store {
 		this.storePhone = storePhone;
 	}
 
-
+	public Store(String storeName, String storePhone, String localSi, String localGu, String localRo, String storeAddress, String storeImgPath, String storeIntro, String storePopularity, String storePopPath, String storePopInfo, String storeOperating, String storeBreaktime, String naverAddress, String storeUrl, String dayOff, String storeTag) {
+		super();
+		this.storeName = storeName;
+		this.storePhone = storePhone;
+		this.localSi = localSi;
+		this.localGu = localGu;
+		this.localRo = localRo;
+		this.storeAddress = storeAddress;
+		this.storeImgPath = storeImgPath;
+		this.storeIntro = storeIntro;
+		this.storePopularity = storePopularity; 
+		this.storePopPath = storePopPath;
+		this.storePopInfo = storePopInfo; 
+		this.storeOperating = storeOperating;
+		this.storeBreaktime = storeBreaktime; 
+		this.naverAddress = naverAddress;
+		this.storeUrl = storeUrl;
+		this.dayOff = dayOff;
+		this.storeTag = storeTag;
+	}
 
 
 
