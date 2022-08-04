@@ -101,7 +101,7 @@
 		  )
 	</entry>
 	
-	<!-- 태민 페이징 -->
+	<!-- 태민 페이징 회원번호별 조회-->
 	<entry key="selectList">
 		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
 		SELECT *
@@ -127,8 +127,82 @@
 					, MEM_IMGPATH
 					, WITHDRAW
               FROM MEMBER M
+             WHERE M.MEM_STATUS = 'Y'
+                OR M.MEM_STATUS = 'A'  
              ORDER
                 BY MEM_NO DESC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+	
+	<!-- 태민 페이징 회원이름별 조회-->
+	<entry key="selectList1">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'Y'
+                OR M.MEM_STATUS = 'A'  
+             ORDER
+                BY MEM_NAME ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+	
+	<!-- 태민 페이징 회원등급별 조회-->
+	<entry key="selectList2">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'Y'
+                OR M.MEM_STATUS = 'A'  
+             ORDER
+                BY MEM_GRADE ASC
             ) A
         ) 
 		WHERE RNUM BETWEEN ? AND ?

@@ -21,6 +21,7 @@ public class Member {
 	private String addressRef;
 	private String memImgPath;
 	private String withDraw;
+	
 	private String secreatId;
 	
 	
