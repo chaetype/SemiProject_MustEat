@@ -140,9 +140,9 @@ public class StoreService {
 	
 	
 	//채윤 에디터글 상세조회
-	public Editor selectDetailEdior(int storeNo) {
+	public Editor selectDetailEdior(int editorNo) {
 		Connection conn = getConnection();
-		Editor e = new StoreDao().selectDetailEdior(conn, storeNo);
+		Editor e = new StoreDao().selectDetailEdior(conn, editorNo);
 		close(conn);
 		return e;
 	}

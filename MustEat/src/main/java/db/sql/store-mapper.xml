@@ -160,7 +160,7 @@
 		 WHERE EDITOR_NO = ?
 	</entry>
 	
-	<!-- 채윤 식당리뷰 -->
+	<!-- 채윤 식당리뷰 등록 -->
 	<entry key="insertStoreReview">
 	INSERT
 		  INTO STORE_RE
@@ -170,11 +170,13 @@
 		  , REVIEW_WRITER
 		  , REVIEW_TITLE
 		  , REVIEW_CONTENT
+		  , REVIEW_RATE
 		  , REVIEW_ENROLLDATE
 		  )
 		  VALUES
 		  (
 		    SEQ_RNO.NEXTVAL
+		  , ?
 		  , ?
 		  , ?
 		  , ?

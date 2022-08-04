@@ -34,23 +34,14 @@ public class StoreDetailController extends HttpServlet {
 		
 		StoreService sService = new StoreService();
 		
-		// 1) 조회수 증가
 		int result = sService.increaseCount(storeNo);
 		
-		if(result > 0) { // 유효한게시글 맞음 
-			// 2) 게시글, 첨부파일 조회 
+		if(result > 0) {
 			Store s = sService.selectStore(storeNo);
-			
-			
-			// => 상세조회페이지
 			request.setAttribute("s", s);
-			
 			
 			request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
 			
-		}else { // 유효한게시글 아님 => 에러페이지
-			request.setAttribute("errorMsg", "공지사항 삭제 실패");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

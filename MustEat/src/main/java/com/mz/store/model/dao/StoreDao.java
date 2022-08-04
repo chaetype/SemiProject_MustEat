@@ -422,7 +422,7 @@ public class StoreDao {
 	
 	
 	//채윤 에디터글 상세조회
-	public Editor selectDetailEdior(Connection conn, int storeNo) {
+	public Editor selectDetailEdior(Connection conn, int editorNo) {
 		Editor e = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -430,7 +430,7 @@ public class StoreDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, storeNo);
+			pstmt.setInt(1, editorNo);
 			
 			rset = pstmt.executeQuery();
 			
@@ -465,6 +465,7 @@ public class StoreDao {
 		         pstmt.setString(2,sr.getReviewWriter());
 		         pstmt.setString(3, sr.getReviewTitle());
 		         pstmt.setString(4, html);
+		         pstmt.setInt(5, sr.getReviewRate());
 		         result = pstmt.executeUpdate();
 		      } catch (SQLException e) {
 		         e.printStackTrace();
