@@ -617,23 +617,23 @@ public class StoreDao {
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, se.getStoreName());
-				pstmt.setString(2, se.getStorePhone());
-				pstmt.setString(3, se.getLocalSi());
-				pstmt.setString(4, se.getLocalGu());
-				pstmt.setString(5, se.getLocalRo());
+				pstmt.setString(1, se.getLocalSi());
+				pstmt.setString(2, se.getLocalGu());
+				pstmt.setString(3, se.getLocalRo());
+				pstmt.setString(4, se.getStoreName());
+				pstmt.setString(5, se.getStoreTag());	
 				pstmt.setString(6, se.getStoreAddress());
-				pstmt.setString(7, se.getStoreImgPath());
+				pstmt.setString(7, se.getStorePhone());
 				pstmt.setString(8, se.getStoreIntro());
-				pstmt.setString(9, se.getStorePopularity());
-				pstmt.setString(10, se.getStorePopPath());
+				pstmt.setString(9, se.getStoreImgPath());
+				pstmt.setString(10, se.getStorePopularity());
 				pstmt.setString(11, se.getStorePopInfo());
-				pstmt.setString(12, se.getStoreOperating());
-				pstmt.setString(13, se.getStoreBreaktime());
-				pstmt.setString(14, se.getNaverAddress());
-				pstmt.setString(15, se.getStoreUrl());
+				pstmt.setString(12, se.getStorePopPath());				
+				pstmt.setString(13, se.getStoreOperating());				
+				pstmt.setString(14, se.getStoreBreaktime());
+				pstmt.setString(15, se.getNaverAddress());
 				pstmt.setString(16, se.getDayOff());
-				pstmt.setString(17, se.getStoreTag());				
+				pstmt.setString(17, se.getStoreUrl());		
 				
 				result = pstmt.executeUpdate();
 				
