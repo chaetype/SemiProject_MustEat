@@ -5,6 +5,9 @@ import java.sql.Date;
 public class Store {
 	
 	private int storeNo;
+	private String localSi;
+	private String localGu;
+	private String localRo;
 	private String storeName;
 	private String storeTag;
 	private String storeAddress;
@@ -60,13 +63,16 @@ public class Store {
 	}
 	
 	
-	public Store(int storeNo, String storeName, String storeTag,
+	public Store(int storeNo, String storeName, String localSi, String localGu, String localRo, String storeTag,
 			String storeAddress, String storePhone, String storeIntro, String storeImgPath, String storePopularity,
 			String storePopInfo, String storePopPath, String storeOperating, String storeBreaktime, String naverAddress,
 			String dayOff, String storeUrl, Date storeEnrollDate,int count) {
 		super();
 		this.storeNo = storeNo;
 		this.storeName = storeName;
+		this.localSi = localSi;
+		this.localGu = localGu;
+		this.localRo = localRo;
 		this.storeTag = storeTag;
 		this.storeAddress = storeAddress;
 		this.storePhone = storePhone;
@@ -114,9 +120,12 @@ public class Store {
 		this.storePhone = storePhone;
 	}
 
-	public Store(String storeName, String storePhone, String localSi, String localGu, String localRo, String storeAddress, String storeImgPath, String storeIntro, String storePopularity, String storePopPath, String storePopInfo, String storeOperating, String storeBreaktime, String naverAddress, String storeUrl, String dayOff, String storeTag) {
+	public Store(String storeName, String localSi, String localGu, String localRo, String storePhone, String localSi, String localGu, String localRo, String storeAddress, String storeImgPath, String storeIntro, String storePopularity, String storePopPath, String storePopInfo, String storeOperating, String storeBreaktime, String naverAddress, String storeUrl, String dayOff, String storeTag) {
 		super();
 		this.storeName = storeName;
+		this.localSi = localSi;
+		this.localGu = localGu;
+		this.localRo = localRo;
 		this.storePhone = storePhone;
 		this.storeAddress = storeAddress;
 		this.storeImgPath = storeImgPath;
@@ -181,13 +190,54 @@ public class Store {
 		return storeNo;
 	}
 
-
-
-
-
 	public void setStoreNo(int storeNo) {
 		this.storeNo = storeNo;
 	}
+	
+	public String getLocalSi() {
+		return localSi;
+	}
+
+
+
+
+
+	public void setLocalSi(String localSi) {
+		this.localSi = localSi;
+	}
+
+
+
+
+
+	public String getLocalGu() {
+		return localGu;
+	}
+
+
+
+
+
+	public void setLocalGu(String localGu) {
+		this.localGu = localGu;
+	}
+
+
+
+
+
+	public String getLocalRo() {
+		return localRo;
+	}
+
+
+
+
+
+	public void setLocalRo(String localRo) {
+		this.localRo = localRo;
+	}
+
 
 	public String getStoreName() {
 		return storeName;
