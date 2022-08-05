@@ -147,8 +147,8 @@
 
   <div class="myPageList">
 
-    <a href="" class="listTitle">식당 리뷰</a>
-    <a href="" class="listMore">더보기 ></a>
+    <a href="<%=contextPath%>/reviewlist.me" class="listTitle">식당 리뷰</a>
+    <a href="<%=contextPath%>/reviewlist.me" class="listMore">더보기 ></a>
 
     <table class="list" width="100%">
 
