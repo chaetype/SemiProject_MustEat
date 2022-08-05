@@ -133,30 +133,30 @@ public class MemberService {
 	 * @param pi
 	 * @return
 	 */
-	public ArrayList<Member> selectList(PageInfo pi){
+	public ArrayList<Member> selectList(PageInfo pi, String search){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList(conn, pi);
+		ArrayList<Member> list = new MemberDao().selectList(conn, pi, search);
+		close(conn); 
+		return list;
+	}
+	
+	public ArrayList<Member> selectList1(PageInfo pi, String search){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList1(conn, pi, search);
 		close(conn);
 		return list;
 	}
 	
-	public ArrayList<Member> selectList1(PageInfo pi){
+	public ArrayList<Member> selectList2(PageInfo pi, String search){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList1(conn, pi);
+		ArrayList<Member> list = new MemberDao().selectList2(conn, pi, search);
 		close(conn);
 		return list;
 	}
 	
-	public ArrayList<Member> selectList2(PageInfo pi){
+	public ArrayList<Member> selectList3(PageInfo pi, String search){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList2(conn, pi);
-		close(conn);
-		return list;
-	}
-	
-	public ArrayList<Member> selectList3(PageInfo pi){
-		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList2(conn, pi);
+		ArrayList<Member> list = new MemberDao().selectList2(conn, pi, search);
 		close(conn);
 		return list;
 	}
