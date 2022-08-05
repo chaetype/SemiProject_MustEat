@@ -409,5 +409,22 @@ public class ProductService {
 		return result;
 	}
 	
+	// 혜림
+	/** 밀키트 리뷰 삭제 메소드
+	 * @param delStr 삭제하고자 하는 리뷰 번호를 담은 문자열
+	 * @return 성공/실패 결과
+	 */
+	public int deleteReview(String delStr) {
+		Connection conn = getConnection();
+		int result = new ProductDao().deleteReview(conn, delStr);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 }
 

@@ -8,10 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 상세 정보</title>
-
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/table.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
+<link rel="icon" href="../resources/image/favicon-32x32.png" type="image/x-icon">
 <style>
 	.outer{
 		width:80%;
@@ -34,7 +35,7 @@
         position: relative;
     width: 19px;
     font-size: 25px;
-    color: rgb(173, 101, 221);
+    color:gold;
     cursor: pointer;
 }
 
@@ -115,7 +116,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% }else{ // 로그인이 되어있을 경우 %>
 								<button type="button" class="btn1" onclick="direct();">바로구매</button>
-								<button type="submit" class="btn1">장바구니</button>
+								<button type="submit" onclick="cartMove();" class="btn1">장바구니</button>
 								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% } %>
 					</div>
@@ -136,6 +137,16 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 						$("#orderMealkit").attr("action", "<%=request.getContextPath()%>/direct.do");
 						$("#orderMealkit").submit();
 					}
+					
+					function cartMove(){
+						if(confirm("장바구니로 이동하시겠습니까?")){
+							//loction.href = "<%=contextPath%>/orderStatusList.pro?status=basket";
+							window.open("<%=contextPath%>/orderStatusList.pro?status=basket");
+						}
+							
+						
+					}
+					
 					
 
 				</script>
@@ -362,11 +373,29 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 	        		
 	        		const str = delArr.toString();
 	        		
+	        		$.ajax({
+	        			url:"<%=contextPath%>/adminDelete.rv",
+	        			data:{delStr:str},
+	        			success:function(result){
+	        				if(result > 0){ 
+	        					
+								selectReplyList();
+								
+							}
+	        			},
+	        			error:function(){
+	        				console.log("댓글목록 조회용 ajax 통신 실패");
+	        			}
+	        		})
+	        		
 	        		
 	        	}
 	        }
 		</script>
-
+          <br><br><br>
+  
+	</div>
+	
 	<script>
         const $container = document.querySelector('.wrap55');
         const $inputs = [...$container.children];
@@ -387,7 +416,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 		
 		
 	 
-
+</div>
 
 
 
