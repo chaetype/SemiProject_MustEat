@@ -267,6 +267,7 @@ public class ProductDao {
 						           , rset.getString("PRODUCT_CODE")
 						           , rset.getInt("AMOUNT")
 						           , rset.getDate("BASKET_DATE")
+						           , rset.getInt("BASKET_NO")
 						           , rset.getString("MONTH")
 						           , rset.getInt("PRICE")
 						           , rset.getString("SELLER")
