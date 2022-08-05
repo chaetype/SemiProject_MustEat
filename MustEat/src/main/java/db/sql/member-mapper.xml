@@ -520,6 +520,54 @@
 	  	) ORDER BY RV_DATE DESC
 	</entry>
 	
+	<!-- 서원 사용자 my리뷰 이번달 리뷰 조회 -->
+	<entry key="memberReviewMonth">
+		(SELECT 
+		        REVIEW_ENROLLDATE AS RV_DATE
+		      , STORE_NAME AS RV_NAME
+		      , SR_CATEGORY AS RV_CATEGORY
+		      , REVIEW_RATE AS RV_RATE
+		   FROM STORE_RE
+		   JOIN STORE USING(STORE_NO)
+		  WHERE REVIEW_WRITER = ?
+		
+		 UNION
+		
+		 SELECT
+		        PR_REVIEW_ENROLLDATE
+		      , PRODUCT_NAME
+		      , PR_CATEGORY
+		      , PR_REVIEW_RATE
+		   FROM PRODUCT_REVIEW
+		   JOIN PRODUCT USING(PRODUCT_CODE)
+		  WHERE REVIEW_WRITER = ?
+	  	) ORDER BY RV_DATE DESC
+	</entry>
+	
+	<!-- 서원 사용자 my리뷰 그동안 리뷰 조회 -->
+	<entry key="memberReviewTotal">
+		(SELECT 
+		        REVIEW_ENROLLDATE AS RV_DATE
+		      , STORE_NAME AS RV_NAME
+		      , SR_CATEGORY AS RV_CATEGORY
+		      , REVIEW_RATE AS RV_RATE
+		   FROM STORE_RE
+		   JOIN STORE USING(STORE_NO)
+		  WHERE REVIEW_WRITER = ?
+		
+		 UNION
+		
+		 SELECT
+		        PR_REVIEW_ENROLLDATE
+		      , PRODUCT_NAME
+		      , PR_CATEGORY
+		      , PR_REVIEW_RATE
+		   FROM PRODUCT_REVIEW
+		   JOIN PRODUCT USING(PRODUCT_CODE)
+		  WHERE REVIEW_WRITER = ?
+	  	) ORDER BY RV_DATE DESC
+	</entry>
+	
 	
 	
 	
