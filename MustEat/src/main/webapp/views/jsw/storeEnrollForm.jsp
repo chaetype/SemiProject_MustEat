@@ -385,7 +385,7 @@
 						
 						<div class="mb-3">
 							<label for="store-naver" style="color:#4B088A;"><b>* 네이버 주소 URL</b></label>
-						  <input type="url" name="storenaverurl" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
+						  <input type="text" name="storenaverurl" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
 						  <div class="invalid-feedback">
 							네이버 주소 URL을 입력해주세요.
 						  </div>
