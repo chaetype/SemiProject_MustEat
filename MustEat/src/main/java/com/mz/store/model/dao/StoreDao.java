@@ -616,10 +616,10 @@ public class StoreDao {
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, se.getStoreName());
-				pstmt.setString(2, se.getLocalSi());
-				pstmt.setString(3, se.getLocalGu());
-				pstmt.setString(4, se.getLocalRo());
+				pstmt.setString(1, se.getLocalSi());
+				pstmt.setString(2, se.getLocalGu());
+				pstmt.setString(3, se.getLocalRo());
+				pstmt.setString(4, se.getStoreName());
 				pstmt.setString(5, se.getStoreTag());	
 				pstmt.setString(6, se.getStoreAddress());
 				pstmt.setString(7, se.getStorePhone());

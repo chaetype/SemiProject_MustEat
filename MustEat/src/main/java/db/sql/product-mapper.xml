@@ -388,6 +388,7 @@
 			  , PRODUCT_CODE
 			  , AMOUNT
 	          , BASKET_DATE
+	          , BASKET_NO
 			  )
 			  VALUES
 			  (
@@ -395,6 +396,7 @@
 			  , ?
 			  , ?
 			  , SYSDATE
+			  , SEQ_BNO.NEXTVAL
 			  )
 	
 	</entry>
