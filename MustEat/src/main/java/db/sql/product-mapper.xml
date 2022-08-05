@@ -152,7 +152,7 @@
 		JOIN MEMBER USING (MEM_NO)
 		JOIN PRODUCT USING (PRODUCT_CODE)
 		WHERE MEM_ID = ?
-		ORDER BY MONTH DESC
+		ORDER BY BASKET_DATE DESC
 	</entry>
 	
 	<!-- 은영 (상품 주문한 '월'만 조회) -->
