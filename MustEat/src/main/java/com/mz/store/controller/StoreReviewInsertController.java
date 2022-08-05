@@ -65,6 +65,7 @@ public class StoreReviewInsertController extends HttpServlet {
 			sr.setReviewWriter(writer);
 			sr.setReviewTitle(title);
 			sr.setReviewRate(rate);
+			sr.setReviewContent(html);
 			
 //		System.out.println(sr);
 		

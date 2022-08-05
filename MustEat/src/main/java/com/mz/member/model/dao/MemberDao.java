@@ -1209,6 +1209,34 @@ public class MemberDao {
 			
 		}	
 		
+		
+		
+		public int reportInsert(Connection conn, Report rp) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("reportInsert");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, rp.getReportContent());
+				pstmt.setInt(2, rp.getReportType());
+				pstmt.setInt(3, rp.getMemNo());
+				pstmt.setInt(4, rp.getReNo());
+				pstmt.setString(5, rp.getMemId());
+				pstmt.setString(6, rp.getMemNickname());
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+		
 }
 		
 		
