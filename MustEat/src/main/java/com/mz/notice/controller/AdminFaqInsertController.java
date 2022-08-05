@@ -41,6 +41,8 @@ public class AdminFaqInsertController extends HttpServlet {
 		String content = request.getParameter("contactContent");
 		String writer = ((Member)session.getAttribute("loginUser")).getMemId();
 		
+		
+		
 		FAQ f = new FAQ();
 		f.setFaqTitle(title);
 		f.setFaqContent(content);
@@ -50,6 +52,7 @@ public class AdminFaqInsertController extends HttpServlet {
 		
 		if(result > 0) { // 등록 성공
 			session.setAttribute("alertMsg", "성공적으로 등록되었습니다.");
+				
 			response.sendRedirect(request.getContextPath() + "/adminFaqList.no?cpage=1");
 		}
 		
