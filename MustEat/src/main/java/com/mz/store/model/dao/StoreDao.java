@@ -650,11 +650,11 @@ public class StoreDao {
 		}
 		
 		// 서원 관리자 식당 상세 조회
-		public Store selectStoreList(Connection conn, int storeNo) {
-			Store sl = null;
+		public Store selectStoreFormList(Connection conn, int storeNo) {
+			Store s = null;
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
-			String sql = prop.getProperty("selectStoreList");
+			String sql = prop.getProperty("selectStoreFormList");
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -663,7 +663,8 @@ public class StoreDao {
 				rset = pstmt.executeQuery();
 				
 				if(rset.next()) {
-					sl = new Store(rset.getString("local_si")
+					s = new Store(rset.getInt("store_no")
+									   , rset.getString("local_si")
 									   , rset.getString("local_gu")
 									   , rset.getString("local_ro")
 									   , rset.getString("store_name")
@@ -691,7 +692,7 @@ public class StoreDao {
 				close(pstmt);
 			}
 			
-			return sl;
+			return s;
 		}
 		
 		

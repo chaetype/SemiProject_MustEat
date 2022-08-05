@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>식당상세조회</title>
+<title>식당정보수정</title>
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 
@@ -111,18 +111,20 @@
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
 					 
-					  <div class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
+					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storelistUpdate.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
 						
 						<input type="hidden"  name="storefulladdress" value="" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
-							<input type="text" class="form-control" name="storename" id="store-name" value="<%=s.getStoreName()%>" disabled>
-
+							<input type="text" class="form-control" name="storename" id="store-name"placeholder="식당명을 입력해주세요." required>
+							<div class="invalid-feedback">
+							  식당명을 입력해주세요.
+							</div>
 						  </div>
 						  <div class="col-md-6 mb-3">
 							<label for="store-phone" style="color:#4B088A;"><b>* 전화번호(-포함)</b></label>
-							<input type="tel" class="form-control" name="storephone" id="store-phone" value="<%=s.getStorePhone()%>" disabled>
+							<input type="tel" class="form-control" name="storephone" id="store-phone" placeholder="전화번호를 입력해주세요. ex) xx-xxx-xxxx / xxx-xxx-xxxx" required>
 						 	<div class="invalid-feedback">
 							  전화번호를 입력해주세요.
 						  </div>
@@ -131,7 +133,9 @@
 			  
 						<div class="mb-3">
 							<label for="store-address" style="color:#4B088A;"><b>* 식당주소</b></label>
-							<input type="text" class="form-control" value="<%=s.getStoreAddress()%>" disabled>
+							<br>
+							<select name="sido" id="sido"></select>
+							<select name="gugun" id="gugun"></select>	
 							
 							<script>						
 
@@ -175,6 +179,17 @@
 
 							</script>
 							
+							<table>
+								<tr>
+									<td width="400px;">
+										<input type="text" class="form-control" name="storeaddress" id="store-address" placeholder="나머지 주소를 입력해주세요. ex) 이태원로 177" required style="margin-top:1%;">
+									</td>
+									<td>
+										<button type="button" class="btn btn-sm btn-primary" id="searchMap">클릭</button>
+									</td>
+								</tr>
+								
+							</table>
 							<div class="invalid-feedback">
 							  식당 주소를 입력해주세요.
 							</div>
@@ -223,7 +238,7 @@
 	
 							// 주소로 좌표를 검색합니다 // *식당 주소 넣기*
 							
-							geocoder.addressSearch(storeAddress, function(result, status) {
+							geocoder.addressSearch(fullAddress, function(result, status) {
 
 								// 정상적으로 검색이 완료됐으면 
 								if (status === kakao.maps.services.Status.OK) {
@@ -259,10 +274,11 @@
 							<table>
 								<tr>
 									<td><label for="store-img" style="color:#4B088A;"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+									<td><input type="file" name="storeimg"></td>
 								</tr>
 								<tr>
 									<td colspan="2">
-										<img src="<%=s.getStoreImgPath()%>"alt="" width="200" height="180" style="margin-top:3%;">
+										<img src="" alt="" width="200" height="180" style="margin-top:3%;">
 									</td>
 								</tr>
 							</table>
@@ -272,7 +288,7 @@
 						<div class="mb-3">
 						  <label for="store-introduce" name="storeintro" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
-						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"><%=s.getStoreIntro()%></textarea>
+						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div style="text-align:right; margin-right:1%;"><span id="store-count">0 / 1200</span></div>
 						  <div class="invalid-feedback">
 							식당 소개글을 입력해주세요.
@@ -470,7 +486,7 @@
 						<div class="mb-4"></div>
 						<button class="btn1" type="submit">등록하기</button>
 
-					  </div>
+					  </form>
 					</div>
 
 

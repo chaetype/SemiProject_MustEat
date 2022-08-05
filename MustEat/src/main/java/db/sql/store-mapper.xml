@@ -294,9 +294,10 @@
 	</entry>
 	
 	<!-- 서원 관리자 식당 상세 조회 -->
-	<entry key="selectStoreList">
+	<entry key="selectStoreFormList">
 		SELECT 
-		       LOCAL_SI
+		 	   STORE_NO
+		 	 , LOCAL_SI
 		     , LOCAL_GU
 		     , LOCAL_RO
 		     , STORE_NAME
