@@ -1,7 +1,6 @@
-package com.mz.member.controller;
+package com.mz.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,21 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.common.model.vo.PageInfo;
-import com.mz.member.model.service.MemberService;
-import com.mz.member.model.vo.Member;
+import com.google.gson.Gson;
+import com.mz.product.model.service.ProductService;
 
 /**
- * Servlet implementation class AllMembersListController3
+ * Servlet implementation class DeleteReview
  */
-@WebServlet("/allMembersList3.bo")
-public class AllMembersListController3 extends HttpServlet {
+@WebServlet("/adminDelete.rv")
+public class DeleteReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllMembersListController3() {
+    public DeleteReview() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,27 +31,14 @@ public class AllMembersListController3 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
+		request.setCharacterEncoding("UTF-8");
 		
-		String input = request.getParameter("search");
+		String delStr = request.getParameter("delStr");
 		
-		//System.out.println(input);
+		int result = new ProductService().deleteReview(delStr);
 		
-		if(input != null || !input.isEmpty()) {
-			ArrayList<Member> list = new MemberService().searchList(pi, input);
-			
-			request.setAttribute("pi", pi);
-			request.setAttribute("search", list);
-			
-			response.getWriter().print("NNN");
-		}else {
-			
-		}
-		
-		
-		
-		
-		
+		response.setContentType("application/json; charset=UTF-8");
+		new Gson().toJson(result, response.getWriter());
 		
 	}
 

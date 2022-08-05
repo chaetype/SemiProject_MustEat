@@ -267,6 +267,7 @@ public class ProductDao {
 						           , rset.getString("PRODUCT_CODE")
 						           , rset.getInt("AMOUNT")
 						           , rset.getDate("BASKET_DATE")
+						           , rset.getInt("BASKET_NO")
 						           , rset.getString("MONTH")
 						           , rset.getInt("PRICE")
 						           , rset.getString("SELLER")
@@ -886,6 +887,31 @@ public class ProductDao {
 		}
 		
 		return result;
+	}
+	
+	// 혜림
+	/** 밀키트 리뷰 삭제 메소드
+	 * @param conn Connection 객체
+	 * @param delStr 삭제하고자 하는 글번호배열
+	 * @return 성공/실패 결과
+	 */
+	public int deleteReview(Connection conn, String delStr) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteReview") + "WHERE REVIEW_NO IN (" + delStr + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
 	}
 	
 	

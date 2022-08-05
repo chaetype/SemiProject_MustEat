@@ -7,6 +7,7 @@
 	int count = (int)request.getAttribute("count");
     int a = (int)request.getAttribute("a");
     String c = (String)request.getAttribute("c");
+    String search = (String)request.getAttribute("search");
 
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
@@ -227,21 +228,21 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
 					<% if(currentPage != 1) { %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%= currentPage-1 %>&a=<%=a%>&c=<%=c%>">&lt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%= currentPage-1 %>&a=<%=a%>&c=<%=c%>&search=<%=search%>">&lt;</a></li>
 				    <% } %>
 				    
 				    <% for(int p=startPage; p<=endPage; p++) { %>
 				    	
 				    	<% if(p == currentPage) { %>
-				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>&a=<%=a%>&c=<%=c%>"><%= p %></a></li>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>&a=<%=a%>&c=<%=c%>&search=<%=search%>"><%= p %></a></li>
 				    	<% } else { %>
-				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>&a=<%=a%>&c=<%=c%>"><%= p %></a></li>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=p%>&a=<%=a%>&c=<%=c%>&search=<%=search%>"><%= p %></a></li>
 				    	<% } %>
 				    	
 				    <% } %>
 				    
 				    <% if(currentPage != maxPage) { %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage+1%>&a=<%=a%>&c=<%=c%>">&gt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage+1%>&a=<%=a%>&c=<%=c%>&search=<%=search%>">&gt;</a></li>
 				    <% } %>
 			    </ul>
             </nav>					
@@ -281,33 +282,24 @@
                 let val = $(this).val();
 
                 switch(val) {
-                    case 'no' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=1&c=no";                    
+                    case 'no' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=1&c=no&search=<%=search%>";                    
                     break;
-                    case 'name' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=2&c=name";
+                    case 'name' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=2&c=name&search=<%=search%>";
                     break;
-                    case 'grade' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=3&c=grade";
+                    case 'grade' : location.href="<%=contextPath%>/allMembersList.bo?cpage=<%=currentPage%>&a=3&c=grade&search=<%=search%>";
                     break; 
 			    }
 	        });
 
 
-            // 검색하는 ajax
+            // 검색하는 기능
             function search(){
-                $.ajax({
-                    url:"<%=request.getContextPath()%>//allMembersList3.bo",
-                    data:{search:$('#search').val()},
-                    success:function(result){   
-                        if(result=='NNN'){
-                            
-                        }else{
-                            alert('검색완료');
-                        }
-                    },error:function(){
-                        console.log("아이디검색 중복체크용 ajax 통신 실패");
-                    }
-                });
+             
+                location.href="<%=request.getContextPath()%>/allMembersList.bo?cpage=1&a=<%=a%>&c=<%=c%>&search="+$('#search').val();
             }
             
+
+            // 
         </script>
 
     </div>

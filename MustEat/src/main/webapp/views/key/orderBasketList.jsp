@@ -107,7 +107,7 @@
 	          <li class="goodsPayItem">
 	          
 			  <div class="checkGoods">
-				<input type="checkbox" name="check" value="<%=bk.getProductCode()%>">
+				<input type="checkbox" class="check" name="check" value="<%=bk.getBasketNo()%>">
 	          </div>
 	          
 	            <div class="goodsItem">
@@ -181,7 +181,9 @@
 	  <div class="line" style="border-bottom: 2px solid #ebe9e9;"></div>
  	  
  	  <div class="chooseAll">
-	  	<button type="button" id="buy" class="choose btn1" onclick="chooseBuy(this);">전체 구매</button>
+	  	<button type="button" id="buy" class="choose btn1" onclick="chkClick();">전체 선택</button>
+	  	<input type="checkbox" id="checkAll" name="checkAll" onclick="chooseAll(this);" style="display:none;">
+	  	<button type="button" id="chooseBuy" class="chooseBuy btn1" onclick="chooseBuy();">선택한 상품 구매하기</button>
 	  	<button type="button" id="delete" class="choose btn1" onclick="chooseDelete();">선택 삭제</button>
 	  </div>
 	  
@@ -193,6 +195,60 @@
  	  <% }  %>
  
  	<script>
+
+	// '전체 구매'누를 때 발생하는 함수
+	function chkClick() {
+		$("#checkAll").click();  // <input type="checkbox" id="checkAll" 요소 클릭
+	}
+
+	
+	// '전체 구매' 클릭 후 체크박스가 클릭되어질 때 실행하는 함수
+	function chooseAll(checkAll) {
+		
+		if( $("#checkAll").checked ) {
+			$(this).attr("checked", false);
+		} else {
+			$(this).attr("checked", true);
+		}
+		
+		let checkInput = document.getElementsByName("check");
+		
+		checkInput.forEach( (checkbox) => {
+			checkbox.checked = checkAll.checked;
+		})
+	}
+	
+	// '선택한 상품 구매하기' 버튼 클릭시 발생하는 함수
+	function chooseBuy() {
+		location.href="";
+	}
+	
+
+	// '선택 삭제' 버튼 클릭시 발생하는 함수
+	function chooseDelete(){
+		
+		if(confirm("선택한 상품을 삭제하시겠습니까?")) {
+			
+			let delArr = [];
+			
+		$(".check").each(function() {
+				if($(this).prop("checked")) {
+					delArr.push( $(this).val() );
+				}
+			});
+			
+			console.log(delArr.toString());
+			
+			const str = delArr.toString();
+			
+			location.href="<%=contextPath%>/deleteBasket.pro?no=" + str;
+			
+		}
+		
+	}
+	
+
+
 
 		$(function(){
 			

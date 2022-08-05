@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>식당등록</title>
+<title>식당상세조회</title>
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 
@@ -108,20 +108,19 @@
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
 					 
-					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
+					  <form class="store-enroll-form" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
 						
-						<input type="hidden"  name="storefulladdress" value="" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
-							<input type="text" class="form-control" name="storename" id="store-name"placeholder="식당명을 입력해주세요." required>
+							<input type="text" class="form-control" name="storename" id="store-name" disabled>
 							<div class="invalid-feedback">
 							  식당명을 입력해주세요.
 							</div>
 						  </div>
 						  <div class="col-md-6 mb-3">
 							<label for="store-phone" style="color:#4B088A;"><b>* 전화번호(-포함)</b></label>
-							<input type="tel" class="form-control" name="storephone" id="store-phone" placeholder="전화번호를 입력해주세요. ex) xx-xxx-xxxx / xxx-xxx-xxxx" required>
+							<input type="tel" class="form-control" name="storephone" id="store-phone" disabled>
 						 	<div class="invalid-feedback">
 							  전화번호를 입력해주세요.
 						  </div>
@@ -131,8 +130,8 @@
 						<div class="mb-3">
 							<label for="store-address" style="color:#4B088A;"><b>* 식당주소</b></label>
 							<br>
-							<select name="sido" id="sido"></select>
-							<select name="gugun" id="gugun"></select>	
+							<select name="sido" id="sido" disabled></select>
+							<select name="gugun" id="gugun" disabled></select>	
 							
 							<script>						
 
@@ -179,10 +178,10 @@
 							<table>
 								<tr>
 									<td width="400px;">
-										<input type="text" class="form-control" name="storeaddress" id="store-address" placeholder="나머지 주소를 입력해주세요. ex) 이태원로 177" required style="margin-top:1%;">
+										<input type="text" class="form-control" name="storeaddress" id="store-address" disabled style="margin-top:1%;">
 									</td>
 									<td>
-										<button type="button" class="btn btn-sm btn-primary" id="searchMap">클릭</button>
+										<button type="button" class="btn btn-sm btn-primary" id="searchMap" disabled>클릭</button>
 									</td>
 								</tr>
 								
@@ -221,43 +220,42 @@
 																					
 							function storemap(fullAddress){
 								
-								var mapContainer = document.getElementById('store-map'), // 지도를 표시할 div 
-								mapOption = {
-									center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-									level: 3 // 지도의 확대 레벨
-								};  
+								var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+							    mapOption = {
+							        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+							        level: 3 // 지도의 확대 레벨
+							    };  
 
 							// 지도를 생성합니다    
 							var map = new kakao.maps.Map(mapContainer, mapOption); 
 
 							// 주소-좌표 변환 객체를 생성합니다
 							var geocoder = new kakao.maps.services.Geocoder();
-	
-							// 주소로 좌표를 검색합니다 // *식당 주소 넣기*
-							
-							geocoder.addressSearch(fullAddress, function(result, status) {
 
-								// 정상적으로 검색이 완료됐으면 
-								if (status === kakao.maps.services.Status.OK) {
+							// 주소로 좌표를 검색합니다
+							geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
 
-									var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+							    // 정상적으로 검색이 완료됐으면 
+							     if (status === kakao.maps.services.Status.OK) {
 
-									// 결과값으로 받은 위치를 마커로 표시합니다
-									var marker = new kakao.maps.Marker({
-										map: map,
-										position: coords
-									});
+							        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-									// 인포윈도우로 장소에 대한 설명을 표시합니다
-									var infowindow = new kakao.maps.InfoWindow({
-										content: '<div style="width:150px;text-align:center;padding:6px 0;">입력한 식당 위치를 확인해주세요.</div>'
-									});
-									infowindow.open(map, marker);
+							        // 결과값으로 받은 위치를 마커로 표시합니다
+							        var marker = new kakao.maps.Marker({
+							            map: map,
+							            position: coords
+							        });
 
-									// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-									map.setCenter(coords);
-								} 
-							});   
+							        // 인포윈도우로 장소에 대한 설명을 표시합니다
+							        var infowindow = new kakao.maps.InfoWindow({
+							            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+							        });
+							        infowindow.open(map, marker);
+
+							        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+							        map.setCenter(coords);
+							    } 
+							});    
 							}
 							
 							 
@@ -271,7 +269,7 @@
 							<table>
 								<tr>
 									<td><label for="store-img" style="color:#4B088A;"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-									<td><input type="file" name="storeimg"></td>
+									<td><input type="file" name="storeimg" disabled></td>
 								</tr>
 								<tr>
 									<td colspan="2">
@@ -285,7 +283,7 @@
 						<div class="mb-3">
 						  <label for="store-introduce" name="storeintro" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
-						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
+						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;" disabled></textarea>
 						  <div style="text-align:right; margin-right:1%;"><span id="store-count">0 / 1200</span></div>
 						  <div class="invalid-feedback">
 							식당 소개글을 입력해주세요.
@@ -309,7 +307,7 @@
 			  
 						<div class="mb-3">
 							<label for="store-menu" name="storemenu" style="color:#4B088A;"><b>* 인기메뉴</b></label>
-						  <input type="text" class="form-control" name="storemenu" id="store-menu" placeholder="인기메뉴를 입력해주세요.">
+						  <input type="text" class="form-control" name="storemenu" id="store-menu" disabled>
 						  <div class="invalid-feedback">
 							인기메뉴를 입력해주세요.
 						  </div>
@@ -320,7 +318,7 @@
 							<table>
 								<tr>
 									<td><label for="menu-img" style="color:#4B088A;"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
-									<td><input type="file" name="storemenuimg"></td>
+									<td><input type="file" name="storemenuimg" disabled></td>
 								</tr>
 								<tr>
 									<td colspan="2">
@@ -334,7 +332,7 @@
 						<div class="mb-3">
 							<label for="menu-introduce" style="color:#4B088A;"><b>* 인기메뉴 설명</b></label>
 							<br>
-							<textarea name="storemenuintro" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;"></textarea>
+							<textarea name="storemenuintro" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;" disabled></textarea>
 						  <div style="text-align:right; margin-right:1%;"><span id="menu-count">0 / 600</span></div>
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
@@ -481,7 +479,8 @@
 						<span style="color:red;"><strong>최종 등록 전, 입력 정보를 다시 한번 확인해주세요.</strong></span>
 						
 						<div class="mb-4"></div>
-						<button class="btn1" type="submit">등록하기</button>
+						<button>수정하기</button>
+						<button>삭제하기</button>
 
 					  </form>
 					</div>

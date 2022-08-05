@@ -252,7 +252,7 @@
 					, WITHDRAW
               FROM MEMBER M 
              WHERE MEM_ID LIKE %?%
-                OR MEM_NAME LIKE %?% 
+                OR MEM_NAME LIKE %?%
              ORDER
                 BY MEM_NO DESC
             ) A

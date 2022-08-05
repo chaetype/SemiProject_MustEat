@@ -275,12 +275,16 @@ public class MemberDao {
 				return result;
 			}
 			// 태민 회원번호별 조회
-			public ArrayList<Member> selectList(Connection conn, PageInfo pi){
+			public ArrayList<Member> selectList(Connection conn, PageInfo pi, String search){
 				// select문 => ResultSet(여러행) => ArrayList<Board>
 				ArrayList<Member> list = new ArrayList();
 				PreparedStatement pstmt  = null;
 				ResultSet rset = null;
 				String sql = prop.getProperty("selectList");
+				
+				if(!(search.equals("") || search == null)) {
+					sql += "AND MEM_NAME LIKE '%"+search+"%'";
+				}
 				
 				try {
 					pstmt = conn.prepareStatement(sql);
@@ -335,12 +339,16 @@ public class MemberDao {
 			}
 			
 			// 태민 이름순 조회
-				public ArrayList<Member> selectList1(Connection conn, PageInfo pi){
+				public ArrayList<Member> selectList1(Connection conn, PageInfo pi, String search){
 					// select문 => ResultSet(여러행) => ArrayList<Board>
 					ArrayList<Member> list = new ArrayList();
 					PreparedStatement pstmt  = null;
 					ResultSet rset = null;
 					String sql = prop.getProperty("selectList1");
+					
+					if(!(search.equals("") || search == null)) {
+						sql += "AND MEM_NAME LIKE '%"+search+"%'";
+					}
 					
 					try {
 						pstmt = conn.prepareStatement(sql);
@@ -395,12 +403,16 @@ public class MemberDao {
 				}
 				
 				// 태민 회원등급순 조회
-				public ArrayList<Member> selectList2(Connection conn, PageInfo pi){
+				public ArrayList<Member> selectList2(Connection conn, PageInfo pi, String search){
 					// select문 => ResultSet(여러행) => ArrayList<Board>
 					ArrayList<Member> list = new ArrayList();
 					PreparedStatement pstmt  = null;
 					ResultSet rset = null;
 					String sql = prop.getProperty("selectList2");
+					
+					if(!(search.equals("") || search == null)) {
+						sql += "AND MEM_NAME LIKE '%"+search+"%'";
+					}
 					
 					try {
 						pstmt = conn.prepareStatement(sql);
@@ -442,6 +454,7 @@ public class MemberDao {
 											   rset.getString("MEM_IMGPATH"),
 											   rset.getString("WITHDRAW")
 											   ));
+							System.out.println(list);
 						}
 						
 					} catch (SQLException e) {
@@ -450,6 +463,7 @@ public class MemberDao {
 						close(rset);
 						close(pstmt);
 					}
+					sql="";
 					return list;
 						
 				}
