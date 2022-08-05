@@ -30,7 +30,7 @@ public class Member {
 	private int cstreview;//내가쓴 식당리뷰수
 	
 	// my리뷰 조회에 쓰일거
-	private String rvDate;
+	private Date rvDate;
 	private String rvName;
 	private String rvCategory;
 	private String rvRate;
@@ -130,7 +130,7 @@ public class Member {
 	
 	
 
-	public Member(String rvDate, String rvName, String rvCategory, String rvRate) {
+	public Member(Date rvDate, String rvName, String rvCategory, String rvRate) {
 		super();
 		this.rvDate = rvDate;
 		this.rvName = rvName;
@@ -319,13 +319,13 @@ public class Member {
 		
 	}
 
-	public String getRvDate() {
+	public Date getRvDate() {
 		return rvDate;
 	}
 
 
 
-	public void setRvDate(String rvDate) {
+	public void setRvDate(Date rvDate) {
 		this.rvDate = rvDate;
 	}
 
