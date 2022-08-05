@@ -292,5 +292,30 @@
 		     )
 	</entry>
 	
+	<!-- 서원 관리자 식당 상세 조회 -->
+	<entry key="selectStoreList">
+		SELECT 
+		       LOCAL_SI
+		     , LOCAL_GU
+		     , LOCAL_RO
+		     , STORE_NAME
+		     , STORE_TAG
+		     , STORE_ADDRESS
+		     , STORE_PHONE
+		     , STORE_INTRO
+		     , STORE_IMG_PATH
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , STORE_POP_PATH
+		     , STORE_OPERATING
+		     , STORE_BREAKTIME
+		     , NAVER_ADDRESS
+		     , DAY_OFF
+		     , STORE_URL
+		     , STORE_ENROLLDATE
+		  FROM STORE
+		 WHERE STORE_NO = ?
+	</entry>
+	
 	
 </properties>
