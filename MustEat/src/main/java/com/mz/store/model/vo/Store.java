@@ -186,7 +186,32 @@ public class Store {
 		this.storeUrl = storeUrl;
 	}
 
-	
+
+	public Store(String storeName, String localSi, String localGu, String localRo, String storeTag, String storeAddress,
+			String storePhone, String storeIntro, String storeImgPath, String storePopularity, String storePopInfo,
+			String storePopPath, String storeOperating, String storeBreaktime, String naverAddress, String dayOff,
+			String storeUrl, Date storeEnrollDate) {
+		super();
+		this.storeName = storeName;
+		this.localSi = localSi;
+		this.localGu = localGu;
+		this.localRo = localRo;
+		this.storeTag = storeTag;
+		this.storeAddress = storeAddress;
+		this.storePhone = storePhone;
+		this.storeIntro = storeIntro;
+		this.storeImgPath = storeImgPath;
+		this.storePopularity = storePopularity;
+		this.storePopInfo = storePopInfo;
+		this.storePopPath = storePopPath;
+		this.storeOperating = storeOperating;
+		this.storeBreaktime = storeBreaktime;
+		this.naverAddress = naverAddress;
+		this.dayOff = dayOff;
+		this.storeUrl = storeUrl;
+		this.storeEnrollDate = storeEnrollDate;
+	}
+
 
 	public int getStoreNo() {
 		return storeNo;

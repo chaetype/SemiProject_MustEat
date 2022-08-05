@@ -405,19 +405,19 @@
 									<td><label for="storeholiday" name="storeholiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
 										<input type="checkbox" name="storeholiday" id="mon" value="월">
-										<lable for="mon">월</lable>&nbsp;&nbsp;
+										<label for="mon">월</label>&nbsp;&nbsp;
 										<input type="checkbox" name="storeholiday" id="tue" value="화">
-										<lable for="tue">화</lable>&nbsp;&nbsp;
+										<label for="tue">화</label>&nbsp;&nbsp;
 										<input type="checkbox" name="storeholiday" id="wed" value="수">
-										<lable for="wed">수</lable>&nbsp;&nbsp;
+										<label for="wed">수</label>&nbsp;&nbsp;
 										<input type="checkbox" name="storeholiday" id="thu" value="목">
-										<lable for="thu">목</lable>&nbsp;&nbsp;
+										<label for="thu">목</label>&nbsp;&nbsp;
 										<input type="checkbox" name="storeholiday" id="fri" value="금">
-										<lable for="fri">금</lable>&nbsp;&nbsp;
+										<label for="fri">금</label>&nbsp;&nbsp;
 										<input type="checkbox" name="storeholiday" id="sat" value="토">
-										<lable for="sat">토</lable>&nbsp;&nbsp;
+										<label for="sat">토</label>&nbsp;&nbsp;
 										<input type="checkbox" name="storeholiday" id="sun" value="일">
-										<lable for="sun">일</lable>
+										<label for="sun">일</label>
 									</td>
 								</tr>
 								<div class="invalid-feedback">
@@ -452,21 +452,21 @@
 												<td><label for="storemood" style="color:#4B088A;"><b>* 분위기 태그</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 												<td>
 												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood1" value="가성비좋은">
-												<lable for="mood1">가성비좋은</lable>&nbsp;&nbsp;&nbsp;
+												<label for="mood1">가성비좋은</label>&nbsp;&nbsp;&nbsp;
 												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood2" value="분위기좋은">
-												<lable for="mood2">분위기좋은</lable>&nbsp;&nbsp;&nbsp;
+												<label for="mood2">분위기좋은</label>&nbsp;&nbsp;&nbsp;
 												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood3" value="격식있는">
-												<lable for="mood3">격식있는</lable>&nbsp;&nbsp;&nbsp;
+												<label for="mood3">격식있는</label>&nbsp;&nbsp;&nbsp;
 												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood4" value="고급스러운">
-												<lable for="mood4">고급스러운</lable>&nbsp;&nbsp;&nbsp;
+												<label for="mood4">고급스러운</label>&nbsp;&nbsp;&nbsp;
 												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood5" value="시끌벅적한">
-												<lable for="mood5">시끌벅적한</lable>&nbsp;&nbsp;&nbsp;
+												<label for="mood5">시끌벅적한</label>&nbsp;&nbsp;&nbsp;
 												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood6" value="조용한">
-												<lable for="mood6">조용한</lable>&nbsp;&nbsp;&nbsp;
+												<label for="mood6">조용한</label>&nbsp;&nbsp;&nbsp;
 												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood7" value="깔끔한">
-												<lable for="mood7">깔끔한</lable>&nbsp;&nbsp;&nbsp;
+												<label for="mood7">깔끔한</label>&nbsp;&nbsp;&nbsp;
 												<input type="checkbox" onclick="CountChecked(this);" name="storemood" id="mood8" value="이색적인">
-												<lable for="mood8">이색적인</lable>																				
+												<label for="mood8">이색적인</label>																				
 											</td>
 										</tr>
 										<div class="invalid-feedback">
