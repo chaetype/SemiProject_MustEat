@@ -363,17 +363,17 @@ public class MemberService {
 	}
 	
 	// 서원 사용자 리뷰 조회 페이지 이번달 작성한 리뷰 조회
-	public int memberReviewMonth(int memNo) {
-		Connection conn = getConnection();
-		int month = new MemberDao().memberReviewMonth(conn, memNo);
-		close(conn);
-		return month;
-	}
+//	public int memberReviewMonth(int memNo) {
+//		Connection conn = getConnection();
+//		int month = new MemberDao().memberReviewMonth(conn, memNo);
+//		close(conn);
+//		return month;
+//	}
 		
 	// 서원 사용자 리뷰 조회 페이지 그동안 작성한 리뷰 조회
-	public int memberReviewTotal(int memNo) {
+	public int memberReviewListTotal(int memNo) {
 		Connection conn = getConnection();
-		int pd = new MemberDao().memberReviewTotal(conn, memNo);
+		int pd = new MemberDao().memberReviewListTotal(conn, memNo);
 		close(conn);
 		return pd;
 	}

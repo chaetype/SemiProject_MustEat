@@ -524,7 +524,7 @@
 
 	
 	<!-- 서원 사용자 my리뷰 그동안 리뷰 조회 -->
-	<entry key="memberReviewTotal">
+	<entry key="memberReviewListTotal">
 		SELECT NVL(COUNT(*), 0) AS RV_TOTAL
 		  FROM STORE_RE SR
 		  JOIN MEMBER M ON (M.MEM_NO = SR.REVIEW_WRITER)

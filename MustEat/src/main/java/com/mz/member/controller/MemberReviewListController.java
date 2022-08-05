@@ -37,13 +37,13 @@ int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
 		ArrayList<Member> list = new MemberService().memberReviewList(memNo);
 		
-		int month = new MemberService().memberReviewListMonth(memNo);
+		//int month = new MemberService().memberReviewListMonth(memNo);
 		
 		int total = new MemberService().memberReviewListTotal(memNo);		
 		
 		request.setAttribute("list", list);
 		
-		request.setAttribute("month", month);
+		//request.setAttribute("month", month);
 		
 		request.setAttribute("total", total);
 		 

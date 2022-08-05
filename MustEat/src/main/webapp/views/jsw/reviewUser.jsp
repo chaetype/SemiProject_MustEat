@@ -3,7 +3,7 @@
 <%@ page import="java.util.ArrayList, com.mz.member.model.vo.Member" %>
 <%
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
-	int month = (int)request.getAttribute("month");
+	//int month = (int)request.getAttribute("month");
 	int total = (int)request.getAttribute("total");	
 %>
 <!DOCTYPE html>
@@ -159,13 +159,13 @@
 			
 			</div>
 		
-
+			<!--  
 			<div class="review-sum" style="background:rgb(231, 216, 241)">
 				
-				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span><%= month %>건</span></h2>
+				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>건</span></h2>
 				
 			</div>
-		
+		    -->
 		
 			<div class="review-total" style="background:rgb(231, 216, 241)">
 			
@@ -194,12 +194,12 @@
 	                  </tr>
 					  <% }else { %>
 	                  <!--case2. 게시글이 있을경우-->
-	                  	<% for(Member b : list){ %>
+	                  	<% for(Member m : list){ %>
 		                  <tr>
-		                  	  <td><%= b.rvDate() %></td>
-		                      <td><%= b.rvName() %></td>
-		                      <td><%= b.rvCategory() %></td>
-		                      <td><%= b.rvRate() %></td>	
+		                  	  <td><%= m.getRvDate() %></td>
+		                      <td><%= m.getRvName() %></td>
+		                      <td><%= m.getRvCategory() %></td>
+		                      <td><%= m.getRvRate() %></td>	
 		                      <td><button class="btn1" style="height:40px;">상세보기</button></td>		       
 		                  </tr>   
 	                      <% } %>        

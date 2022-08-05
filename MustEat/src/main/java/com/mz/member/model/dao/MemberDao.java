@@ -1088,12 +1088,12 @@ public class MemberDao {
 //		}
 			
 		// 서원 사용자 리뷰 조회 페이지 그동안 작성한 리뷰 조회
-		public int memberReviewTotal(Connection conn, int memNo) {
+		public int memberReviewListTotal(Connection conn, int memNo) {
 			int total = 0;
 			
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
-			String sql = prop.getProperty("memberReviewTotal");
+			String sql = prop.getProperty("memberReviewListTotal");
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
