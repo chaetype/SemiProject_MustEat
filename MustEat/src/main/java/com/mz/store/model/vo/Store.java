@@ -211,6 +211,7 @@ public class Store {
 		this.storeUrl = storeUrl;
 		this.storeEnrollDate = storeEnrollDate;
 	}
+		
 
 
 	public int getStoreNo() {

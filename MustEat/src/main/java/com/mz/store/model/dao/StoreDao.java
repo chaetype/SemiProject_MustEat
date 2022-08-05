@@ -649,6 +649,51 @@ public class StoreDao {
 
 		}
 		
+		// 서원 관리자 식당 상세 조회
+		public Store selectStoreList(Connection conn, int storeNo) {
+			Store sl = null;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("selectStoreList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, storeNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					sl = new Store(rset.getString("local_si")
+									   , rset.getString("local_gu")
+									   , rset.getString("local_ro")
+									   , rset.getString("store_name")
+									   , rset.getString("store_tag")
+									   , rset.getString("store_address")
+									   , rset.getString("store_phone")
+									   , rset.getString("store_intro")
+									   , rset.getString("store_img_path")
+									   , rset.getString("store_popularity")
+									   , rset.getString("store_pop_info")
+									   , rset.getString("store_pop_path")
+									   , rset.getString("store_operating")
+									   , rset.getString("store_breaktime")
+									   , rset.getString("naver_address")
+									   , rset.getString("day_off")
+									   , rset.getString("store_url")
+									   , rset.getDate("store_enrolldate")
+								 );
+				}
+				
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return sl;
+		}
+		
 		
 		
 		

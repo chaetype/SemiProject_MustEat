@@ -228,6 +228,14 @@ public class StoreService {
 			return result;
 		}
 		
+	// 서원 관리자 식당 상세 조회
+		public Store selectStoreList(int storeNo) {
+			Connection conn = getConnection();
+			Store sl = new StoreDao().selectStoreList(conn, storeNo);
+			close(conn);
+			return sl;
+		}
+		
 		
 		
 		//채윤 식당리뷰 세선

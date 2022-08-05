@@ -150,8 +150,8 @@
 		                    <td><%= s.getStoreName() %></td>
 		                    <td><%= s.getStoreAddress() %></td>
 		                    <td><%= s.getStorePhone() %></td>
-		                    <td><button type="button" class="btn1"><strong>보기</strong></button></td>
-		                    <td><button type="button" class="btn1"><strong>삭제</strong></button></td>
+		                    <td><button type="button" class="btn1" onclick="location.href='<%= contextPath %>/storelistdetail.st?no=<%= s.getStoreNo() %>'"><strong>보기</strong></button></td>
+		                    <td><button type="button" class="btn1" onclick="location.href='<%= contextPath %>/storelistdelete.st?no=<%= s.getStoreNo() %>'"><strong>삭제</strong></button></td>
 		               </tr>   
 	                   <% } %>        
 	                <% } %>
