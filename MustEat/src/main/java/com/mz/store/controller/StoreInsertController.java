@@ -51,6 +51,7 @@ request.setCharacterEncoding("UTF-8");
 		String localSi = multiRequest.getParameter("sido");
 		String localGu = multiRequest.getParameter("gugun");
 		String localRo = multiRequest.getParameter("storeaddress");
+		String[] storeTagArr = multiRequest.getParameterValues("storemood");
 		String storePhone = multiRequest.getParameter("storephone");
 		String storeAddress = multiRequest.getParameter("storefulladdress");
 		String storeImgPath = multiRequest.getParameter("storeimg");
@@ -61,9 +62,8 @@ request.setCharacterEncoding("UTF-8");
 		String storeOperating = multiRequest.getParameter("storeoperating1") + "~" + multiRequest.getParameter("storeoperating2");
 		String storeBreaktime = multiRequest.getParameter("storebreak1") + "~" + multiRequest.getParameter("storebreak2");
 		String naverAddress = multiRequest.getParameter("storenaverurl");
-		String storeUrl = multiRequest.getParameter("storeurl");
 		String[] dayOffArr = multiRequest.getParameterValues("storeholiday");
-		String[] storeTagArr = multiRequest.getParameterValues("storemood");
+		String storeUrl = multiRequest.getParameter("storeurl");
 		
 		String dayOff = "";
 		if(dayOffArr != null) {
@@ -96,6 +96,8 @@ request.setCharacterEncoding("UTF-8");
 				
 
 		int result = new StoreService().storeInsert(se);
+		
+		System.out.println(se);
 				
 		if(result > 0) {
 			// 등록 성공

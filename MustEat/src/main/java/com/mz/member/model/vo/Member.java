@@ -30,7 +30,7 @@ public class Member {
 	private int cstreview;//내가쓴 식당리뷰수
 	
 	// my리뷰 조회에 쓰일거
-	private String rvDate;
+	private Date rvDate;
 	private String rvName;
 	private String rvCategory;
 	private String rvRate;
@@ -113,10 +113,33 @@ public class Member {
 	}
 	
 	
-	
-	
-	
-	
+
+	public Member(Date rvDate, String rvName, String rvCategory, String rvRate) {
+		super();
+		this.rvDate = rvDate;
+		this.rvName = rvName;
+		this.rvCategory = rvCategory;
+		this.rvRate = rvRate;
+	}
+
+
+
+	public Member(String memId, String memPwd, String memName, String memPhone, String memEmail, String memNickname,
+			String addressCode, String address, String addressDetail, String addressRef) {
+		super();
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.memName = memName;
+		this.memPhone = memPhone;
+		this.memEmail = memEmail;
+		this.memNickname = memNickname;
+		this.addressCode = addressCode;
+		this.address = address;
+		this.addressDetail = addressDetail;
+		this.addressRef = addressRef;
+	}
+
+
 
 	public Member(int memNo, String memImgPath,String memNickname,String memId,   /* int cfollowing, */ int cstreview) {
 		super();
@@ -130,15 +153,8 @@ public class Member {
 	
 	
 
-	public Member(String rvDate, String rvName, String rvCategory, String rvRate) {
-		super();
-		this.rvDate = rvDate;
-		this.rvName = rvName;
-		this.rvCategory = rvCategory;
-		this.rvRate = rvRate;
-	}
 
-	
+
 
 	public int getCfollowing() {
 		return cfollowing;
@@ -319,13 +335,14 @@ public class Member {
 		
 	}
 
-	public String getRvDate() {
+
+	public Date getRvDate() {
 		return rvDate;
 	}
 
 
 
-	public void setRvDate(String rvDate) {
+	public void setRvDate(Date rvDate) {
 		this.rvDate = rvDate;
 	}
 

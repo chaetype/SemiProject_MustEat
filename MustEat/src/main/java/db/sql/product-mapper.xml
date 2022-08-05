@@ -308,7 +308,8 @@
 		  , MEMO
 		  , MODIFY_DATE
 		  , ORDER_STATUS
-		  , TATAL_PRICE
+		  , TOTAL_PRICE
+		  , DELIVERY_PRICE
 		  , PAYMENT
           , DELIVERY_STATUS
           , DELIVERY_TYPE
@@ -323,15 +324,24 @@
 		  VALUES
 		  (
 		    SEQ_ORDERNO.NEXTVAL
-		  , ?
-		  , ?
-		  , ?
-		  , ?
-          , ?
-          , ?
-          , ?
-          , ?
-          , ?
+		  , ?	<!-- 1. MEM_NO -->
+		  , ?	<!-- 2. ORDER_QUENTITY -->
+		  , SYSDATE	<!-- ORDER_DATE -->
+		  , ?	<!-- 3. MEMO -->
+          , SYSDATE	<!-- MODIFY_DATE -->
+          , 1	<!-- ORDER_STATUS -->
+          , ?	<!-- 4. TOTAL_PRICE -->
+          , 2500	<!-- DELIVERY_PRICE -->
+          , '카드'	<!-- PAYMENT -->
+          , DEFAULT	<!-- DELIVERY_STATUS -->
+          , ?	<!-- DELIVERY_TYPE -->
+          , ?	<!-- 5. DEL_NAME -->
+          , ?	<!-- 6. DEL_PHONE -->
+          , ?	<!-- 7. DEL_EMAIL -->
+          , ?	<!-- 8. DEL_ADDRESS -->
+          , ?	<!-- 9. DEL_ADDRESS_CODE -->
+          , ?	<!-- 10. DEL_ADDRESS_DETAIL -->
+          , ?	<!-- 11. DEL_ADDRESS_REF -->
 		  )
 
 	</entry>
