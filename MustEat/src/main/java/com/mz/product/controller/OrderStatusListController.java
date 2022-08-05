@@ -69,14 +69,12 @@ public class OrderStatusListController extends HttpServlet {
 
 		// 상품 배송 현황에 따른 주문 갯수
 		OrderPro op = new ProductService().countOrder(memId);
-		System.out.println(op);
 
 		request.setAttribute("basketMonth", bMonth);
 		request.setAttribute("orderMonth", opMonth);
 		request.setAttribute("orderList", opList);
 		request.setAttribute("basketList", bList);
 		request.setAttribute("orderStatus", op);
-		System.out.println(bList);
 
 		
 		if (status.equals("basket")) { // 장바구니
