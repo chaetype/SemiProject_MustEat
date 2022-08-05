@@ -92,6 +92,7 @@
         
         	
             <div class="popular2">
+            <input type="hidden" name="<%= sr.getReNo()%>">
                 <h1><%= sr.getReviewTitle() %></h1>
                 <h6 style="float: right;">작성자 <%=sr.getReMemNick() %> 작성일자 <%=sr.getReviewEnrollDate() %> <br>조회수 <%=sr.getCount() %></h6>
                 <br>
@@ -125,17 +126,19 @@
 		        <!-- Modal body -->
 		        <div class="modal-body">
 		          
-					
+					<input type="hidden" name="no" value="<%=sr.getReNo() %>">
+					<input type="hidden" name="reportedMemId" value="<%= sr.getReviewMemId() %>">
 					<div class="container d-flex justify-content-center text-center">
 					    <div class="card px-5 py-5">
 					        <div class="row">
 					        <h1 style="font-family: 'OTWelcomeRA';">신고합니다</h1>
-					            <div class="col-md-6" style="float:left;"> 신고유형<br><br> <input type="radio" name="reportType" value="1">식당리뷰신고<br>
-        											  		<input type="radio" name="reportType" value="2">밀키트리뷰신고</div>
+					            <div class="col-md-6" style="float:left;"> 신고유형<br><br> 
+					            <input type="radio" name="reportType" value="1">식당리뷰신고<br>
+        						<input type="radio" name="reportType" value="2">밀키트리뷰신고</div>
 					        </div>
 					        <div class="row mt-3">
 					            <div class="col-md-12" style="width:100%;"> <textarea name="reportContent" rows="15" class="form-control" id="tos-content" style="width:100% !important; resize:none;" placeholder="신고 내용" ></textarea> </div>
-					        </div> <button type="submit" value="신고내용" class="btn btn-primary mt-5" style="background:rgb(167, 112, 239) !important;">신고제출<i class="fa fa-long-arrow-right ml-2 mt-1"></i></button>
+					        </div> <button id="report"  type="submit" value="신고내용" class="btn btn-primary mt-5" style="background:rgb(167, 112, 239) !important;">신고제출<i class="fa fa-long-arrow-right ml-2 mt-1"></i></button>
 					    </div>
 					</div>				          
 		          
@@ -173,7 +176,7 @@
         
     </div>
     
-    
+   
     
     
     

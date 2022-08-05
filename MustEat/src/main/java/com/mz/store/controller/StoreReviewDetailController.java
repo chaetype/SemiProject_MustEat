@@ -31,19 +31,16 @@ public class StoreReviewDetailController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int reviewNo = Integer.parseInt(request.getParameter("reNo"));
-		System.out.println(reviewNo);
+		int reNo = Integer.parseInt(request.getParameter("no"));
+		
 		StoreService sService = new StoreService();
+	
+		int result = sService.increaseCountR(reNo);
 		
-		// 1) 조회수 증가
-		int result = sService.increaseCountR(reviewNo);
-		
-		if(result > 0) { // 유효한게시글 맞음 
-			// 2) 게시글, 첨부파일 조회 
-			StoreReview sr = sService.storeReviewDetail(reviewNo);
+		if(result > 0) { 
+			StoreReview sr = sService.storeReviewDetail(reNo);
 			
 			
-			// => 상세조회페이지
 			request.setAttribute("sr", sr);
 			
 			

@@ -15,7 +15,7 @@ import com.mz.store.model.vo.StoreReview;
 /**
  * Servlet implementation class StoreReviewSessionController
  */
-@WebServlet("/Session.st")
+@WebServlet("/Session.sr")
 public class StoreReviewSessionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

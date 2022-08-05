@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.Report;
+import com.mz.store.model.vo.StoreReview;
 
 /**
  * Servlet implementation class ReportInsertController
@@ -37,7 +38,7 @@ public class ReportInsertController extends HttpServlet {
 		
 		int reportType = Integer.parseInt(request.getParameter("reportType"));//신고타입
 		String reportContent = request.getParameter("reportContent");//신고내용
-		int reNo = Integer.parseInt(request.getParameter("no"));//신고당한 리뷰번호
+		int reNo = Integer.parseInt(request.getParameter("no"));
 		String reportedMemId = request.getParameter("reportedMemId");//신고당한 회원아이디 필요
 		String reportMemNickName = ((Member)request.getSession().getAttribute("loginUser")).getMemNickname();//신고한 회원닉네임
 		int memNo= ((Member)request.getSession().getAttribute("loginUser")).getMemNo();

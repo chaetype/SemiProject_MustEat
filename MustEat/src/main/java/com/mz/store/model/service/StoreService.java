@@ -203,9 +203,9 @@ public class StoreService {
 		}
 		
 	//채윤 식당 리뷰 상세조회
-		public StoreReview storeReviewDetail(int reviewNo) {
+		public StoreReview storeReviewDetail(int reNo) {
 			Connection conn = getConnection();
-			StoreReview sr = new StoreDao().storeReviewDetail(conn, reviewNo);
+			StoreReview sr = new StoreDao().storeReviewDetail(conn, reNo);
 			close(conn);
 			return sr;
 			

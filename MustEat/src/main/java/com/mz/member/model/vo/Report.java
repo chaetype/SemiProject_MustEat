@@ -58,7 +58,7 @@ public class Report {
 	
 	
 
-	public Report(int memNo, int reportType, String reportContent, int reNo, String memNickname, String memId) {
+	public Report(int memNo, int reportType, String reportContent, int reNo, String memId, String memNickname) {
 		super();
 		this.memNo= memNo;
 		this.reportType = reportType;

@@ -573,7 +573,7 @@ public class StoreDao {
 		
 
 		//채윤 식당리뷰 상세조회
-		public StoreReview storeReviewDetail(Connection conn, int reviewNo) {
+		public StoreReview storeReviewDetail(Connection conn, int reNo) {
 			StoreReview sr = null;
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
@@ -581,7 +581,7 @@ public class StoreDao {
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, reviewNo);
+				pstmt.setInt(1, reNo);
 				
 				rset = pstmt.executeQuery();
 				
@@ -594,6 +594,7 @@ public class StoreDao {
 									   , rset.getDate("REVIEW_ENROLLDATE")
 									   , rset.getInt("COUNT")
 								 );
+					sr.setReviewMemId(rset.getString("mem_id"));
 				}
 				
 			} catch (SQLException e1) {
