@@ -292,44 +292,24 @@
                <div class="bigtext right-align box blue summoney"><%=bs.getCount()%>개</div>
                 
                 <hr>
-                <input type="hidden" name="tPrice" value="<%=bs.getPrice()%>">
-                <input type="hidden" name="tCount" value="<%=bs.getCount()%>">
                 <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2500원</div>
-                <div class="bigtext right-align box blue summoney" style="color: black;">적립금: <input type="text" style="width:70px" name="mile" id="mile" value="0"></div>
-                <div class="bigtext right-align box blue summoney" style="color: black;" id="totalPrice">총상품 금액: 
-                   
+                <div class="bigtext right-align box blue summoney" style="color: black;"><input type="number" name="mile" id="mile"></div>
+                <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 
+                    <%int total = 0;                     %>
+                    <%for(int i=0; i<bs.getCount(); i++){%>
+                    <% total += bs.getPrice();           %>
+                    <% } int all = total+90;%>
+                    <%= total%>원
                 </div>
 				
-				
-                
-                <script>
-                   let tPrice = $("input[name='tPrice']").val();
-                   let tCount = $("input[name='tCount']").val();
-                   let sum = tPrice*tCount;
-                   
-                   $("#totalPrice").text('총상품 금액: ' + sum)
-
-                   $(function(){
-                    let mile = $(this).val();
-                        let tSum = sum - mile;
-
-                        $("#sum_p_price").text('최종결제 금액 : ' + tSum)
-                        
-                    $("#mile").change(function(){
-                        let mile = $(this).val();
-                        let tSum = sum - mile;
-
-                        $("#sum_p_price").text('최종결제 금액 : ' + tSum)
-
-                    })
-                   })
-                </script>
+				<input type="hidden" name="totalPrice" value="<%= all %>">
                 
                 
                 
-                <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: 원</div>
+                
+                <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: <%=all%>원</div>
                 <input type="hidden" name="pName" id="pName" value="<%=bs.getProductName()%>">
-                <input type="hidden" name="price" id="price">
+                <input type="hidden" name="price" id="price" value="<%=all%>">
                 <input type="hidden" name="count" value="<%=bs.getCount()%>">
         
             
