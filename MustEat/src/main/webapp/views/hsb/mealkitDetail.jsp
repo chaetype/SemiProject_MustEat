@@ -145,6 +145,10 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
             
                 <thead>
                     <tr>
+                    	<% if(loginUser != null && loginUser.getMemGrade().equals("관리자")){ %>
+                    		<th>댓글삭제</th>
+                    	<% } %>
+                    	
                         <th>댓글작성</th>
                         
                         <% if(loginUser == null){ // 로그인이 안되어있을 경우 %>
@@ -160,7 +164,20 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
                             </td>
 	                        <td><button disabled>댓글등록</button></td>
 							<div align="center"><a href="<%=contextPath%>/login1.me"><button class="btn1">로그인하러가기</button></a></div>
-                        <% }else{ // 로그인이 되어있을 경우 %>
+                        <% }else if(loginUser.getMemGrade().equals("관리자")){ // 관리자로 로그인이 되어있을 경우 %>
+	                        <td><textarea rows="3" cols="50" style="resize:none" id="replyContent"></textarea></td>
+                            <td width="100">
+                                <div class="rating"> 
+                                <input type="radio" class="rate" name="rate" value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" class="rate" name="rate" value="4" id="4"><label for="4">☆</label> 
+                                <input type="radio" class="rate" name="rate" value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" class="rate" name="rate" value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" class="rate" name="rate" value="1" id="1"><label for="1">☆</label>
+                            </div>
+                            </td>
+	                        <td><button onclick="insertReply();">댓글등록</button></td>
+                            
+                        <% }else{ // 사용자로 로그인이 되어있을 경우 %>
 	                        <td><textarea rows="3" cols="50" style="resize:none" id="replyContent"></textarea></td>
                             <td width="100">
                                 <div class="rating"> 
@@ -180,6 +197,13 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
                     
                 </tbody>
            </table>
+        </div>
+        <div class="list01">
+        	<% if(loginUser != null && loginUser.getMemGrade().equals("관리자")){ %>
+		        <button class="btn1" id="btn2" onclick="chkClick();">전체선택</button>
+		        <input type="checkbox" id="checkAll" name="checkAll" onclick="checkAll(this)" style="display:none">
+		        <button class="btn1" onclick="deleteNo();">선택삭제</button>
+            <% } %>
         </div>
 			
 		<script>
@@ -205,6 +229,13 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 			 }
 			});
 		   </script>
+
+		<% 
+			String memGrade = "";
+			if(loginUser != null){
+				memGrade = loginUser.getMemGrade();
+			}
+		%>
 
         <script>
 			$(function(){ // 현재 이페이지상에 모든 요소가 다 로딩되자마자 곧바로 실행 
@@ -251,12 +282,25 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 						console.log(list); // [{한댓글}, {한댓글}, {한댓글}]
 						
 						let value = "";
-						for(let i=0; i<list.length; i++){
-							value += "<tr>"
-								   +	"<td>" + list[i].reviewWriter + "</td>"
-								   +	"<td>" + list[i].prReviewContent + "</td>"
-								   +	"<td>☆ x " + list[i].prReviewRate + "</td>"
-								   + "</tr>";
+						if('<%= memGrade %>' == "관리자"){
+							for(let i=0; i<list.length; i++){
+								value += "<tr>"
+									   +	"<td class='reviewDelete'>"
+									   +		"<input type='checkbox' name='check' class='chkbox' value='" + list[i].reviewNo + "'>"
+									   +	"</td>"
+									   +	"<td>" + list[i].reviewWriter + "</td>"
+									   +	"<td>" + list[i].prReviewContent + "</td>"
+									   +	"<td>☆ x " + list[i].prReviewRate + "</td>"
+									   + "</tr>";
+							}
+						}else{
+							for(let i=0; i<list.length; i++){
+								value += "<tr>"
+									   +	"<td>" + list[i].reviewWriter + "</td>"
+									   +	"<td>" + list[i].prReviewContent + "</td>"
+									   +	"<td>☆ x " + list[i].prReviewRate + "</td>"
+									   + "</tr>";
+							}
 						}
 						
 						$("#reply-area tbody").html(value);
@@ -267,6 +311,60 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 				})
 				
 			}
+			
+			function chkClick(){
+	        	$("#checkAll").click();
+	        }
+	        
+	        
+	        let check = false;
+	        // function checkAll(){
+	        //     let chk = document.getElementsByName("chk[]");
+	        //     console.log(chk);
+	        //     if(check==false){
+	        //         check=true;
+	        //         for(let i=0; i<chk.length; i++){
+	        //             chk[i].checked=true;
+	        //         }
+	        //     }else{
+	        //         check=false;
+	        //         for(let i=0; i<chk.length; i++){
+	        //             chi[i].checked=false;
+	        //         }
+	        //     }
+	        // }
+	     
+	        function checkAll(checkAll){
+	        	if($("#checkAll").checked){
+	        		$(this).attr("checked", false);
+	        	}else{
+	        		$(this).attr("checked", true);
+	        	}
+	           let checkboxes=document.getElementsByName("check");
+	           //console.log(checkboxes);
+	           checkboxes.forEach((checkbox)=>{
+	              //console.log(checkbox    );
+	              checkbox.checked=checkAll.checked;
+	           });
+	        }
+	        
+	        function deleteNo(){
+	        	if(confirm("선택한 댓글을 삭제하시겠습니까?")){
+	        		let delArr = [];
+	        		
+	        		$("tbody .chkbox").each(function(){
+	        			if($(this).prop("checked")){
+	        				delArr.push($(this).val());
+	        			}
+	        		});
+	        		
+		        	console.log(delArr.toString());
+	        		
+	        		const str = delArr.toString();
+	        		
+	        		
+	        	}
+	        }
 		</script>
 
 	<script>
