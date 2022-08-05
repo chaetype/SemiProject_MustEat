@@ -107,7 +107,7 @@
 	          <li class="goodsPayItem">
 	          
 			  <div class="checkGoods">
-				<input type="checkbox" class="check" name="check" value="<%=bk.getProductCode()%>">
+				<input type="checkbox" class="check" name="check" value="<%=bk.getBasketNo()%>">
 	          </div>
 	          
 	            <div class="goodsItem">
@@ -198,7 +198,7 @@
 
 	// '전체 구매'누를 때 발생하는 함수
 	function chkClick() {
-		$("#checkAll").click(); // <input type="checkbox" id="checkAll" 요소 클릭
+		$("#checkAll").click();  // <input type="checkbox" id="checkAll" 요소 클릭
 	}
 
 	
@@ -223,6 +223,7 @@
 		location.href="";
 	}
 	
+
 	// '선택 삭제' 버튼 클릭시 발생하는 함수
 	function chooseDelete(){
 		
@@ -230,16 +231,22 @@
 			
 			let delArr = [];
 			
-			$(".check").each(function() {
+		$(".check").each(function() {
 				if($(this).prop("checked")) {
 					delArr.push( $(this).val() );
 				}
 			});
 			
+			console.log(delArr.toString());
+			
+			const str = delArr.toString();
+			
+			location.href="<%=contextPath%>/deleteBasket.pro?no=" + str;
 			
 		}
 		
 	}
+	
 
 
 
