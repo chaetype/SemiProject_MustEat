@@ -35,6 +35,8 @@ public class Member {
 	private String rvCategory;
 	private String rvRate;
 	
+	private int rvMonth;
+	private int rvTotal;	
 	
 	
 	public Member() {
@@ -136,7 +138,7 @@ public class Member {
 		this.rvRate = rvRate;
 	}
 
-
+	
 
 	public int getCfollowing() {
 		return cfollowing;
