@@ -226,6 +226,39 @@
 		 
 	</entry>
 	
+	<!-- 태민 회원조회페이지 검색기능 -->
+	<entry key ="searchList">
+	SELECT *
+		FROM (
+		SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+              FROM MEMBER M 
+             WHERE MEM_ID LIKE %?%
+                OR MEM_NAME LIKE %?% 
+             ORDER
+                BY MEM_NO DESC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
 	
 	<!-- 은영 (회원 정보 수정) -->
 	<entry key="updateMember">

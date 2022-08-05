@@ -506,6 +506,58 @@ public class MemberDao {
 				return result;
 				
 			}
+			
+			// 태민 회원 검색 조회
+			public ArrayList<Member> searchList(Connection conn, PageInfo pi, String input){
+
+				ArrayList<Member> list = new ArrayList();
+				PreparedStatement pstmt  = null;
+				ResultSet rset = null;
+				String sql = prop.getProperty("searchList");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					
+					int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+					int endRow = startRow + pi.getBoardLimit() - 1;
+						
+					pstmt.setString(1, input);
+					pstmt.setString(2, input);
+					pstmt.setInt(3, startRow);
+					pstmt.setInt(4, endRow);
+					
+					rset = pstmt.executeQuery();
+					
+					while(rset.next()) {
+						list.add(new Member(rset.getInt("MEM_NO"),
+										   rset.getString("MEM_ID"),
+										   rset.getString("MEM_PWD"),
+										   rset.getString("MEM_NAME"),
+										   rset.getString("MEM_PHONE"),
+										   rset.getString("MEM_EMAIL"),
+										   rset.getDate("MEM_ENROLLDATE"),
+										   rset.getDate("MEM_MODIFYDATE"),
+										   rset.getString("MEM_STATUS"),
+										   rset.getString("MEM_NICKNAME"),
+										   rset.getString("MEM_GRADE"),
+										   rset.getString("ADDRESS_CODE"),
+										   rset.getString("ADDRESS"),
+										   rset.getString("ADDRESS_DETAIL"),
+										   rset.getString("ADDRESS_REF"),
+										   rset.getString("MEM_IMGPATH"),
+										   rset.getString("WITHDRAW")
+										   ));
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(pstmt);
+				}
+				return list;
+					
+			}
 	
 	
 	// 은영

@@ -35,7 +35,6 @@ public class MemberService {
 	}
 	
 
-
 	//태민 
 	/**
 	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
@@ -182,7 +181,14 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
-
+	
+	// 태민 회원 검색
+	public ArrayList<Member> searchList(PageInfo pi, String input){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().searchList(conn, pi, input);
+		close(conn);
+		return list;
+	}
 	
 	
 	// 은영

@@ -178,8 +178,8 @@
                                 <td style="color:blue"><%= m.getMemGrade() %></td>
                             <% } %>    
 		                    <td><%= m.getMemPhone() %></td>
-                            <% if(m.getAddress() == null && m.getAddressDetail() == null) {%>
-                                <td> </td>
+                            <% if(m.getAddress() ==  null || m.getAddressDetail() == null) {%>
+                                <td>없음</td>
                             <% }else{ %>
                                 <td><%= m.getAddress() %><br><%= m.getAddressDetail() %></td>
                             <% } %>
@@ -255,7 +255,7 @@
         <div align="center">
 	        <div class="wrap55">
 	            <div class="input-group mb-3" >
-	              <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+	              <input type="text" class="form-control input-text" id=search placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 	                <div class="input-group-append">
 	                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search" onclick="search();">검색</i></button>
 	                </div>
@@ -290,7 +290,23 @@
 			    }
 	        });
 
+
             // 검색하는 ajax
+            function search(){
+                $.ajax({
+                    url:"<%=request.getContextPath()%>//allMembersList3.bo",
+                    data:{search:$('#search').val()},
+                    success:function(result){   
+                        if(result=='NNN'){
+                            
+                        }else{
+                            alert('검색완료');
+                        }
+                    },error:function(){
+                        console.log("아이디검색 중복체크용 ajax 통신 실패");
+                    }
+                });
+            }
             
         </script>
 
