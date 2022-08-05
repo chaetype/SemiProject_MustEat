@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.mz.member.model.vo.Member" %>
 <%
-	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
-	//int month = (int)request.getAttribute("month");
+	ArrayList<Member> reviewList = (ArrayList<Member>)request.getAttribute("reviewList");
+	int month = (int)request.getAttribute("month");
 	int total = (int)request.getAttribute("total");	
 %>
 <!DOCTYPE html>
@@ -159,13 +159,13 @@
 			
 			</div>
 		
-			<!--  
+		
 			<div class="review-sum" style="background:rgb(231, 216, 241)">
 				
 				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>건</span></h2>
 				
 			</div>
-		    -->
+		  
 		
 			<div class="review-total" style="background:rgb(231, 216, 241)">
 			
@@ -187,14 +187,14 @@
 						<th>작성내역</th>
 				      </tr>
 				      <tr>
-				      <% if(list.isEmpty()) { %>
+				      <% if(reviewList.isEmpty()) { %>
 	                  <!--case1. 게시글이 없을경우-->
 	                  <tr>
 	                      <td colspan="4">조회된 리뷰가 없습니다.</td>
 	                  </tr>
 					  <% }else { %>
 	                  <!--case2. 게시글이 있을경우-->
-	                  	<% for(Member m : list){ %>
+	                  	<% for(Member m : reviewList){ %>
 		                  <tr>
 		                  	  <td><%= m.getRvDate() %></td>
 		                      <td><%= m.getRvName() %></td>
