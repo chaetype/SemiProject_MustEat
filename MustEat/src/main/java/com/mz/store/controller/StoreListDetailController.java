@@ -35,8 +35,6 @@ public class StoreListDetailController extends HttpServlet {
 		
 		Store s = new StoreService().selectStoreFormList(storeNo);
 		
-		System.out.println(s);
-		
 		request.setAttribute("Store", s);
 		request.getRequestDispatcher("views/jsw/storelistDetailView.jsp").forward(request, response);
 		

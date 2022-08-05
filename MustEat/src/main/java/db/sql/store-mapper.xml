@@ -245,7 +245,7 @@
 	</entry>
 	
 	<!-- 서원 관리자 식당 등록 -->
-	<entry key="storeInsert">
+	<entry key="storelistInsert">
 		INSERT
 		  INTO STORE
 		     ( 
@@ -340,4 +340,15 @@
 		  FROM STORE_RE
 		 WHERE RE_NO=?
 	</entry>
+	
+	<!-- 서원 식당 수정 -->
+	<entry key="storelistUpdate">
+		
+	</entry>
+	
+	<!-- 서원 식당 삭제 -->
+	<entry key="storelistDelete">
+		
+	</entry>
+	
 </properties>

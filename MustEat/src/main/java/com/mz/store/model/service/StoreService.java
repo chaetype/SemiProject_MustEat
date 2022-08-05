@@ -213,9 +213,9 @@ public class StoreService {
 		
 		
 	//서원 관리자 식당 등록
-		public int storeInsert(Store se) {
+		public int storelistInsert(Store se) {
 			Connection conn = getConnection();
-			int result = new StoreDao().storeInsert(conn, se);
+			int result = new StoreDao().storelistInsert(conn, se);
 			
 			if(result > 0) {
 				commit(conn);

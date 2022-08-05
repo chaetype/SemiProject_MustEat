@@ -34,7 +34,7 @@ public class StoreUpdateFormController extends HttpServlet {
 		
 		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
-		Store s = new StoreService().storeInsert(storeNo);
+		Store s = new StoreService().selectStoreFormList(storeNo);
 		
 		request.setAttribute("store", s);
 		request.getRequestDispatcher("views/jsw/storeEnrollForm.jsp").forward(request, response);

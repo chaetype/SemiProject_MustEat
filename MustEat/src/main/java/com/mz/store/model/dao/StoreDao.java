@@ -608,10 +608,10 @@ public class StoreDao {
 		}
 		
 		//서원 관리자 식당 등록
-		public int storeInsert(Connection conn, Store se) {
+		public int storelistInsert(Connection conn, Store se) {
 			int result = 0;
 			PreparedStatement pstmt = null;
-			String sql = prop.getProperty("storeInsert");
+			String sql = prop.getProperty("storelistInsert");
 			
 			System.out.println(se);
 			
