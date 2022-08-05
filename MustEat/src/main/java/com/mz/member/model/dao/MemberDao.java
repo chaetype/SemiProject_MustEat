@@ -1057,19 +1057,65 @@ public class MemberDao {
 		}
 		
 		// 서원 사용자 리뷰 조회 페이지 이번달 작성한 리뷰 조회
-		public int memberReviewMonth(int memNo) {
-			Connection conn = getConnection();
-			int month = new MemberDao().memberReviewMonth(conn, memNo);
-			close(conn);
+		public int memberReviewMonth(Connection conn, int memNo) {
+			int month = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("memberReviewMonth");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, memNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					
+					month = rset.getInt("RV_MONTH");
+					
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
 			return month;
 		}
 			
 		// 서원 사용자 리뷰 조회 페이지 그동안 작성한 리뷰 조회
-		public int memberReviewTotal(int memNo) {
-			Connection conn = getConnection();
-			int pd = new MemberDao().memberReviewTotal(conn, memNo);
-			close(conn);
-			return pd;
+		public int memberReviewTotal(Connection conn, int memNo) {
+			int total = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("memberReviewTotal");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, memNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					
+					total = rset.getInt("RV_TOTAL");
+					
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return total;
 		}
 		
 		//채윤
