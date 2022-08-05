@@ -137,12 +137,13 @@
 	
 	<!-- 은영 (장바구니 목록 조회) -->
 	<entry key="selectBasketList">
-		SELECT 
+      SELECT 
 		     MEM_ID
 		   , PRODUCT_NAME
 		   , PRODUCT_CODE
 		   , TO_CHAR(BASKET_DATE, 'YYYY.MM') "MONTH" 
 		   , BASKET_DATE
+		   , BASKET_NO
 		   , AMOUNT
 		   , PRICE * AMOUNT "PRICE"
 		   , SELLER
@@ -150,8 +151,8 @@
 		FROM BASKET
 		JOIN MEMBER USING (MEM_NO)
 		JOIN PRODUCT USING (PRODUCT_CODE)
-		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
-		ORDER BY MONTH DESC
+		WHERE MEM_ID = ?
+		ORDER BY BASKET_DATE DESC
 	</entry>
 	
 	<!-- 은영 (상품 주문한 '월'만 조회) -->
@@ -387,6 +388,7 @@
 			  , PRODUCT_CODE
 			  , AMOUNT
 	          , BASKET_DATE
+	          , BASKET_NO
 			  )
 			  VALUES
 			  (
@@ -394,6 +396,7 @@
 			  , ?
 			  , ?
 			  , SYSDATE
+			  , SEQ_BNO.NEXTVAL
 			  )
 	
 	</entry>
