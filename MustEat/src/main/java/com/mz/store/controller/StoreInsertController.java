@@ -96,6 +96,8 @@ request.setCharacterEncoding("UTF-8");
 				
 
 		int result = new StoreService().storeInsert(se);
+		
+		System.out.println(se);
 				
 		if(result > 0) {
 			// 등록 성공
