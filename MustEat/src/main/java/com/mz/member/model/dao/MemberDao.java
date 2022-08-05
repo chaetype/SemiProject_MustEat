@@ -1090,10 +1090,10 @@ public class MemberDao {
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
-					reviewList.add(new Member(rset.getString("rv_date"),
-									   rset.getString("rv_name"),
-									   rset.getString("rv_category"),
-									   rset.getString("rv_rate")
+					reviewList.add(new Member(rset.getDate("RV_DATE"),
+									   rset.getString("RV_NAME"),
+									   rset.getString("RV_CATEGORY"),
+									   rset.getString("RV_RATE")
 							          ));
 				}
 				
