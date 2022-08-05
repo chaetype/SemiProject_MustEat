@@ -456,7 +456,7 @@ public class MemberDao {
 			
 			// 태민
 			public int selectListCount(Connection conn) {
-				// select문 => ResultSet(숫자한개) => int
+
 				int listCount = 0 ;
 				
 				PreparedStatement pstmt = null;
@@ -481,6 +481,82 @@ public class MemberDao {
 				
 				return listCount;
 				
+			}
+			
+			// 태민 체크박스 선택된 회원상태 블랙리스트로 변경
+			public int withdrawalMember(Connection conn, String userNo) {
+				
+				int result = 0;
+				PreparedStatement pstmt = null;
+				
+				String sql = prop.getProperty("withdrawalMember");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userNo);
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+				
+			}
+			
+			// 태민 회원 검색 조회
+			public ArrayList<Member> searchList(Connection conn, PageInfo pi, String input){
+
+				ArrayList<Member> list = new ArrayList();
+				PreparedStatement pstmt  = null;
+				ResultSet rset = null;
+				String sql = prop.getProperty("searchList");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					
+					int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+					int endRow = startRow + pi.getBoardLimit() - 1;
+						
+					pstmt.setString(1, input);
+					pstmt.setString(2, input);
+					pstmt.setInt(3, startRow);
+					pstmt.setInt(4, endRow);
+					
+					rset = pstmt.executeQuery();
+					
+					while(rset.next()) {
+						list.add(new Member(rset.getInt("MEM_NO"),
+										   rset.getString("MEM_ID"),
+										   rset.getString("MEM_PWD"),
+										   rset.getString("MEM_NAME"),
+										   rset.getString("MEM_PHONE"),
+										   rset.getString("MEM_EMAIL"),
+										   rset.getDate("MEM_ENROLLDATE"),
+										   rset.getDate("MEM_MODIFYDATE"),
+										   rset.getString("MEM_STATUS"),
+										   rset.getString("MEM_NICKNAME"),
+										   rset.getString("MEM_GRADE"),
+										   rset.getString("ADDRESS_CODE"),
+										   rset.getString("ADDRESS"),
+										   rset.getString("ADDRESS_DETAIL"),
+										   rset.getString("ADDRESS_REF"),
+										   rset.getString("MEM_IMGPATH"),
+										   rset.getString("WITHDRAW")
+										   ));
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(pstmt);
+				}
+				return list;
+					
 			}
 	
 	
@@ -551,17 +627,23 @@ public class MemberDao {
 			
 			if(rset.next()) {
 								
-				updateMem = new Member(rset.getString("mem_id")
-									 , rset.getString("mem_pwd")
-									 , rset.getString("mem_name")
-									 , rset.getString("mem_phone")
-									 , rset.getString("mem_email")
-									 , rset.getString("mem_nickname")
-									 , rset.getString("address_code")
-									 , rset.getString("address")
-									 , rset.getString("address_detail")
-									 , rset.getString("address_ref")
-									 , rset.getString("mem_imgpath")
+				updateMem = new Member(rset.getInt("MEM_NO"),
+									   rset.getString("MEM_ID"),
+									   rset.getString("MEM_PWD"),
+									   rset.getString("MEM_NAME"),
+									   rset.getString("MEM_PHONE"),
+									   rset.getString("MEM_EMAIL"),
+									   rset.getDate("MEM_ENROLLDATE"),
+									   rset.getDate("MEM_MODIFYDATE"),
+									   rset.getString("MEM_STATUS"),
+									   rset.getString("MEM_NICKNAME"),
+									   rset.getString("MEM_GRADE"),
+									   rset.getString("ADDRESS_CODE"),
+									   rset.getString("ADDRESS"),
+									   rset.getString("ADDRESS_DETAIL"),
+									   rset.getString("ADDRESS_REF"),
+									   rset.getString("MEM_IMGPATH"),
+									   rset.getString("WITHDRAW")
 									 );
 			}
 			
@@ -995,6 +1077,98 @@ public class MemberDao {
 		}
 	
 		// 서원 사용자 리뷰 조회 
+		public ArrayList<Member> memberReviewList(Connection conn, int memNo){
+			ArrayList<Member> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("memberReviewList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, memNo);
+				pstmt.setInt(2, memNo);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Member(rset.getString("rv_date"),
+									   rset.getString("rv_name"),
+									   rset.getString("rv_category"),
+									   rset.getString("rv_rate")
+							          ));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;		
+		}
+		
+		// 서원 사용자 리뷰 조회 페이지 이번달 작성한 리뷰 조회
+//		public int memberReviewMonth(Connection conn, int memNo) {
+//			int month = 0;
+//			
+//			PreparedStatement pstmt = null;
+//			ResultSet rset = null;
+//			String sql = prop.getProperty("memberReviewMonth");
+//			
+//			try {
+//				pstmt = conn.prepareStatement(sql);
+//				
+//				pstmt.setInt(1, memNo);
+//				
+//				rset = pstmt.executeQuery();
+//				
+//				if(rset.next()) {
+//					
+//					month = rset.getInt("RV_MONTH");
+//					
+//				}
+//				
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				close(rset);
+//				close(pstmt);
+//			}
+//			
+//			return month;
+//		}
+			
+		// 서원 사용자 리뷰 조회 페이지 그동안 작성한 리뷰 조회
+		public int memberReviewTotal(Connection conn, int memNo) {
+			int total = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("memberReviewTotal");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, memNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					
+					total = rset.getInt("RV_TOTAL");
+					
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return total;
+		}
 		
 		//채윤
 		/**

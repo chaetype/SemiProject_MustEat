@@ -14,16 +14,16 @@ import com.mz.member.model.vo.Member;
 import com.mz.member.model.vo.Point;
 
 /**
- * Servlet implementation class MembershipUserListController
+ * Servlet implementation class MemberReviewListController
  */
-@WebServlet("/mpsuserlist.me")
-public class MembershipUserListController extends HttpServlet {
+@WebServlet("/reviewlist.me")
+public class MemberReviewListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MembershipUserListController() {
+    public MemberReviewListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +32,22 @@ public class MembershipUserListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
+
+int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
-		ArrayList<Point> list = new MemberService().membershipUserList(memNo);
+		ArrayList<Member> list = new MemberService().memberReviewList(memNo);
 		
-		int pu = new MemberService().membershipUseable(memNo);
+		int month = new MemberService().memberReviewListMonth(memNo);
 		
-		int pd = new MemberService().membershipDelete(memNo);		
+		int total = new MemberService().memberReviewListTotal(memNo);		
 		
 		request.setAttribute("list", list);
 		
-		request.setAttribute("pu", pu);
+		request.setAttribute("month", month);
 		
-		request.setAttribute("pd", pd);
+		request.setAttribute("total", total);
 		 
-		request.getRequestDispatcher("views/jsw/membershipViewsUser.jsp").forward(request, response);
+		request.getRequestDispatcher("views/jsw/reviewUser.jsp").forward(request, response);
 		
 	}
 

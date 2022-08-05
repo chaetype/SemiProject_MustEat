@@ -165,11 +165,13 @@
 	margin: 0px 15px;
 }
 
-#userIcon{
-	width:80px;
-    height:80px;
+
+#existIcon, #noneIcon{
+	width:140px;
+    height:140px;
     margin:10px;
     border: 2px solid white;
 	border-radius: 70px;
 }
+
 

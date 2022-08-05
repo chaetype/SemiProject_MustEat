@@ -50,15 +50,18 @@ public class StoreEnrollFormController extends HttpServlet {
 		MultipartRequest multiRequest = new MultipartRequest(request, SavePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
 		String storeName = multiRequest.getParameter("storename");
+		String localSi = multiRequest.getParameter("sido");
+		String localGu = multiRequest.getParameter("gugun");
+		String localRo = multiRequest.getParameter("storeaddress");
 		String storePhone = multiRequest.getParameter("storephone");
-		String storeAddress = multiRequest.getParameter("tt");
+		String storeAddress = multiRequest.getParameter("storefulladdress");
 		String storeImgPath = multiRequest.getParameter("storeimg");
 		String storeIntro = multiRequest.getParameter("storeintro");
 		String storePopularity = multiRequest.getParameter("storemenu");
 		String storePopPath = multiRequest.getParameter("storemenuimg");
 		String storePopInfo = multiRequest.getParameter("storemenuintro");
-		String storeOperating = multiRequest.getParameter("storeoperating1") + "~" + request.getParameter("storeoperating2");
-		String storeBreaktime = multiRequest.getParameter("storebreak1") + "~" + request.getParameter("storebreak2");
+		String storeOperating = multiRequest.getParameter("storeoperating1") + "~" + multiRequest.getParameter("storeoperating2");
+		String storeBreaktime = multiRequest.getParameter("storebreak1") + "~" + multiRequest.getParameter("storebreak2");
 		String naverAddress = multiRequest.getParameter("storenaverurl");
 		String storeUrl = multiRequest.getParameter("storeurl");
 		String[] dayOffArr = multiRequest.getParameterValues("storeholiday");
@@ -74,8 +77,11 @@ public class StoreEnrollFormController extends HttpServlet {
 			storeTag = String.join(",", storeTagArr);
 		}
 		
-		Store se = new Store(storeName, storeTag, storeAddress, storePhone, storeIntro, storeImgPath, storePopularity, storePopInfo, storePopPath, storeOperating, storeBreaktime, naverAddress, dayOff, storeUrl);		
+		Store se = new Store(storeName, localSi, localGu, localRo, storeTag, storeAddress, storePhone, storeIntro, storeImgPath, storePopularity, storePopInfo, storePopPath, storeOperating, storeBreaktime, naverAddress, dayOff, storeUrl);		
 		se.setStoreName(storeName);
+		se.setLocalSi(localSi);
+		se.setLocalGu(localGu);
+		se.setLocalRo(localRo);
 		se.setStoreTag(storeTag);
 		se.setStoreAddress(storeAddress);
 		se.setStorePhone(storePhone);

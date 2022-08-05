@@ -29,15 +29,19 @@ public class Member {
 	private int cfollowing;//나를 팔로우 하는 회원들수
 	private int cstreview;//내가쓴 식당리뷰수
 	
+	// my리뷰 조회에 쓰일거
+	private String rvDate;
+	private String rvName;
+	private String rvCategory;
+	private String rvRate;
+	
 	
 	
 	public Member() {
 		
 	}
 	
-	public Member() {
-		
-	}
+
 	
 	// 태민 아이디 찾기에 사용
 	
@@ -121,6 +125,18 @@ public class Member {
 		/* this.cfollowing = cfollowing; */
 		this.cstreview = cstreview;
 	}
+	
+	
+
+	public Member(String rvDate, String rvName, String rvCategory, String rvRate) {
+		super();
+		this.rvDate = rvDate;
+		this.rvName = rvName;
+		this.rvCategory = rvCategory;
+		this.rvRate = rvRate;
+	}
+
+
 
 	public int getCfollowing() {
 		return cfollowing;
@@ -297,7 +313,57 @@ public class Member {
 	
 	public void setSecreatId(String secreatId) {
 		this.secreatId = secreatId;
+		
+		
 	}
+
+	public String getRvDate() {
+		return rvDate;
+	}
+
+
+
+	public void setRvDate(String rvDate) {
+		this.rvDate = rvDate;
+	}
+
+
+
+	public String getRvName() {
+		return rvName;
+	}
+
+
+
+	public void setRvName(String rvName) {
+		this.rvName = rvName;
+	}
+
+
+
+	public String getRvCategory() {
+		return rvCategory;
+	}
+
+
+
+	public void setRvCategory(String rvCategory) {
+		this.rvCategory = rvCategory;
+	}
+
+
+
+	public String getRvRate() {
+		return rvRate;
+	}
+
+
+
+	public void setRvRate(String rvRate) {
+		this.rvRate = rvRate;
+	}
+
+
 
 	@Override
 	public String toString() {

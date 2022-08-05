@@ -35,7 +35,6 @@ public class MemberService {
 	}
 	
 
-
 	//태민 
 	/**
 	 * 아이디 찾기 처리하는 Service / FindIdController2랑 연결
@@ -168,7 +167,28 @@ public class MemberService {
 		close(conn);
 		return listCount;
 	}
-
+	
+	// 태민 체크박스 선택된 회원상태 블랙리스트로 변경
+	
+	public int withdrawalMember(String userNo) {
+		Connection conn = getConnection();
+		int result = new MemberDao().withdrawalMember(conn, userNo);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	// 태민 회원 검색
+	public ArrayList<Member> searchList(PageInfo pi, String input){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().searchList(conn, pi, input);
+		close(conn);
+		return list;
+	}
 	
 	
 	// 은영
@@ -341,9 +361,28 @@ public class MemberService {
 	}
 	
 	// 서원 사용자 리뷰 조회 
+	public ArrayList<Member> memberReviewList(int memNo){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().memberReviewList(conn, memNo);
+		close(conn);
+		return list;	
+	}
 	
-	
-	
+	// 서원 사용자 리뷰 조회 페이지 이번달 작성한 리뷰 조회
+	public int memberReviewMonth(int memNo) {
+		Connection conn = getConnection();
+		int month = new MemberDao().memberReviewMonth(conn, memNo);
+		close(conn);
+		return month;
+	}
+		
+	// 서원 사용자 리뷰 조회 페이지 그동안 작성한 리뷰 조회
+	public int memberReviewTotal(int memNo) {
+		Connection conn = getConnection();
+		int pd = new MemberDao().memberReviewTotal(conn, memNo);
+		close(conn);
+		return pd;
+	}
 	
 	
 	

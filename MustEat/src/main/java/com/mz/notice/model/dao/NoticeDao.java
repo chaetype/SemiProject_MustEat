@@ -473,6 +473,102 @@ public class NoticeDao {
 		
 	}
 	
+	public int increaseFaqCount(Connection conn, int faqNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseFaqCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, faqNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	public FAQ selectFaq(Connection conn, int faqNo) {
+		
+		FAQ f = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectFaq");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, faqNo);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				f = new FAQ(rset.getInt("faq_no"),
+							   rset.getString("faq_title"),
+							   rset.getString("faq_content"),
+							   rset.getString("faq_writer"),
+							   rset.getDate("enroll_date"),
+							   rset.getInt("faq_count"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return f;
+		
+	}
+	
+	public int updateFaq(Connection conn, FAQ f) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateFaq");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, f.getFaqTitle());
+			pstmt.setString(2, f.getFaqContent());
+			pstmt.setString(3, f.getFaqWriter());
+			pstmt.setInt(4, f.getFaqNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	public int deleteFaq(Connection conn, String delArr) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteFaq") + "WHERE FAQ_NO IN (" + delArr + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
 	
 	
 	

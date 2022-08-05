@@ -178,8 +178,8 @@
                                 <td style="color:blue"><%= m.getMemGrade() %></td>
                             <% } %>    
 		                    <td><%= m.getMemPhone() %></td>
-                            <% if(m.getAddress() == null && m.getAddressDetail() == null) {%>
-                                <td> </td>
+                            <% if(m.getAddress() ==  null || m.getAddressDetail() == null) {%>
+                                <td>없음</td>
                             <% }else{ %>
                                 <td><%= m.getAddress() %><br><%= m.getAddressDetail() %></td>
                             <% } %>
@@ -203,31 +203,19 @@
                     })
                     //console.log(delArr);
                     $.ajax({
-        			url:"<%=request.getContextPath()%>/nickCheck.me",
-        			data:{checkNick:$nickInput.val()},
-        			success:function(result){   
-        				//console.log(result);
-        				if(result == "NNNN"){ // 사용불가능일 경우
-        					alert("이미 존재하거나 탈퇴한 회원의 닉네임입니다.");
-                            document.getElementById("nick").value='';
-        					$nickInput.focus();
-        				}else{ // 사용가능일 경우
-        					if(confirm("멋진 닉네임이네요! 사용하시겠습니까?")){ // 사용하겠다
-        						$nickInput.attr("readonly", true);
-                                //$("#enroll-form :submit").removeAttr("disabled");
-                                check3 = 1;
-                                        						
-        					}else{ // 사용안하겠다
-                                //$nickInput.val()=''; 왜 안먹는지...
-                                document.getElementById("nick").value='';
-        						$nickInput.focus();
-        					}
-        				}
-        				
-        			},error:function(){
-        				console.log("닉네임 중복체크용 ajax 통신 실패");
-        			}
-        		});
+                        url:"<%=request.getContextPath()%>//allMembersList2.bo",
+                        traditional: true,
+                        data:{delArr:delArr},
+                        success:function(result){   
+                            if(result=='NNN'){
+                                alert('hi');
+                            }else{
+                                alert('bye');
+                            }
+                        },error:function(){
+                            console.log("블랙리스트처리 중복체크용 ajax 통신 실패");
+                        }
+        		    });
                 }
             }
 
@@ -267,7 +255,7 @@
         <div align="center">
 	        <div class="wrap55">
 	            <div class="input-group mb-3" >
-	              <input type="text" class="form-control input-text" placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+	              <input type="text" class="form-control input-text" id=search placeholder="검색할 내용을 입력해주세요" width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 	                <div class="input-group-append">
 	                    <button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search" onclick="search();">검색</i></button>
 	                </div>
@@ -302,7 +290,23 @@
 			    }
 	        });
 
+
             // 검색하는 ajax
+            function search(){
+                $.ajax({
+                    url:"<%=request.getContextPath()%>//allMembersList3.bo",
+                    data:{search:$('#search').val()},
+                    success:function(result){   
+                        if(result=='NNN'){
+                            
+                        }else{
+                            alert('검색완료');
+                        }
+                    },error:function(){
+                        console.log("아이디검색 중복체크용 ajax 통신 실패");
+                    }
+                });
+            }
             
         </script>
 

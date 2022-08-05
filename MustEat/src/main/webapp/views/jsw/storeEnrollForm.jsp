@@ -110,7 +110,7 @@
 					 
 					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
 						
-						<input type="hidden"  name="storeaddress" value="" id="tt" >
+						<input type="hidden"  name="storefulladdress" value="" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
@@ -285,7 +285,7 @@
 						<div class="mb-3">
 						  <label for="store-introduce" name="storeintro" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
-						  <textarea name="store-introduce" name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
+						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div style="text-align:right; margin-right:1%;"><span id="store-count">0 / 1200</span></div>
 						  <div class="invalid-feedback">
 							식당 소개글을 입력해주세요.
@@ -334,7 +334,7 @@
 						<div class="mb-3">
 							<label for="menu-introduce" style="color:#4B088A;"><b>* 인기메뉴 설명</b></label>
 							<br>
-							<textarea name="menu-introduce" name="storemenuintro" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;"></textarea>
+							<textarea name="storemenuintro" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;"></textarea>
 						  <div style="text-align:right; margin-right:1%;"><span id="menu-count">0 / 600</span></div>
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
@@ -402,7 +402,7 @@
 						<div class="mb-3">
 							<table>
 								<tr>
-									<td><label for="storeholiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+									<td><label for="storeholiday" name="storeholiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
 										<input type="checkbox" name="storeholiday" id="mon" value="월">
 										<lable for="mon">월</lable>&nbsp;&nbsp;

@@ -251,6 +251,46 @@
 		  )
 	</entry>
 	
+	<!-- FAQ 조회수 증가 -->
+	<entry key="increaseFaqCount">
+		UPDATE
+		       FAQ
+		   SET FAQ_COUNT = FAQ_COUNT + 1
+		 WHERE FAQ_NO = ?
+		   AND STATUS = 'Y'
+	</entry>
+	
+	<!-- FAQ 세부페이지 조회 -->
+	<entry key="selectFaq">
+		SELECT
+		       FAQ_NO
+		     , FAQ_TITLE
+		     , FAQ_CONTENT
+		     , FAQ_WRITER
+		     , ENROLL_DATE
+		     , FAQ_COUNT
+		  FROM FAQ
+		 WHERE STATUS = 'Y'
+		   AND FAQ_NO = ?
+	</entry>
+	
+	<!-- FAQ 수정 -->
+	<entry key="updateFaq">
+		UPDATE
+		       FAQ
+		   SET FAQ_TITLE = ?
+		     , FAQ_CONTENT = ?
+		     , FAQ_WRITER = ?
+		 WHERE FAQ_NO = ?
+	</entry>
+	
+	<!-- FAQ 삭제 -->
+	<entry key="deleteFaq">
+		UPDATE
+		       FAQ
+		   SET STATUS = 'N'
+	</entry>
+	
 	
 	
 	

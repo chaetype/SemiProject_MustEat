@@ -158,7 +158,7 @@
   margin-bottom:5px;
 }
 
-.orderButton>a{
+.orderButton>a, #updateBasket{
   display: block;
   width: 90px;
   margin: 10px 0px;
@@ -168,11 +168,102 @@
   line-height: 13px;
 }
 
-.orderButton>a:hover{
+.orderButton>a:hover, #updateBasket:hover{
   color:white;
   background:rgb(167, 112, 239);
 }
 
+ /* ================== 장바구니 주문 수정 ==================== */
+#updateModel{
+	height: 100%;
+    max-height: 700px;
+}
+
+.updateCart{
+	background-color: black;
+    color:white;
+    text-align: left;
+}
+
+
+ .updateContent{
+ 	padding:12px 0px;
+ 	margin:0 20px;
+ 	border-bottom: 1px solid #e9ecef;
+ 	flex-direction: column;
+ 	display:flex;
+    text-align:left;
+    padding:15px;
+    line-height:30px;
+    border:1px solid rgba(221, 219, 219, 0.87);
+ }
+ 
+.num, .sum{
+   width: 41%;
+   height:20%;
+   min-width: 105px;
+   margin: 0 20px;
+   /*flex-direction: column; */
+   display: inline-block;
+   padding: 15px;
+   
+}
+
+.changePrice{
+	border-bottom: 1px solid #e9ecef;
+}
+
+.sum{
+	text-align:right;
+	font-size: 17px;	
+}
+    
+.p_num {
+    text-align: right;
+    width: 40px;
+    font-size: 15px;
+}
+
+.finalPrice, .finalDelivery{
+ 	margin:0 35px;
+}
+
+.finalPrice{
+	font-weight:bold;
+}
+
+.finalDelivery{
+	margin-bottom:15px;
+}
+
+.final_t{
+	display:inline-block;
+	width:20%;
+	font-size: 17px;
+}
+.final_p {
+	display:inline-block;
+	width:77%;
+	text-align:right;
+	font-size: 17px;
+}
+
+
+#updateModal .btn{
+    font-size:15px;
+    width:100px;
+    height: 35px;
+    line-height: 10px;
+}
+
+#updateModal .btn:hover{
+    font-size:15px;
+    width:100px;
+    height: 35px;
+    line-height: 10px;
+    background-color: rgb(167, 112, 239);
+    color:white;
+}
 
  /* ================== 더보기 ==================== */
  

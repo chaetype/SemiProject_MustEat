@@ -229,6 +229,65 @@ public class NoticeService {
 		return result;
 	}
 	
+	/** FAQ 조회수 증가 메소드
+	 * @param faqNo 증가시킬 글번호
+	 * @return 성공/실패 결과
+	 */
+	public int increaseFaqCount(int faqNo) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().increaseFaqCount(conn, faqNo);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	/** FAQ 세무페이지 조회 메소드
+	 * @param faqNo 조회할 faq 글번호
+	 * @return 조회된 faq 객체
+	 */
+	public FAQ selectFaq(int faqNo) {
+		Connection conn = getConnection();
+		FAQ f = new NoticeDao().selectFaq(conn, faqNo);
+		close(conn);
+		return f;
+	}
+	
+	/** FAQ 수정 메소드
+	 * @param f 수정할 정보가 담긴 faq 객체
+	 * @return 성공/실패 결과
+	 */
+	public int updateFaq(FAQ f) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().updateFaq(conn, f);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	/** FAQ 삭제 메소드
+	 * @param delArr 삭제하고자 하는 글번호 배열
+	 * @return 성공/실패 결과
+	 */
+	public int deleteFaq(String delArr) {
+		Connection conn = getConnection();
+		int result = new NoticeDao().deleteFaq(conn, delArr);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 	
 	
 }

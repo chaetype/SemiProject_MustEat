@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.mz.store.model.vo.Store" %>
+<%@ page import="java.util.ArrayList, com.mz.member.model.vo.Member" %>
 <%
-	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
-	int pu = (int)request.getAttribute("pu");
-	int pd = (int)request.getAttribute("pd");
-	
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+	int month = (int)request.getAttribute("month");
+	int total = (int)request.getAttribute("total");	
 %>
 <!DOCTYPE html>
 <html>
@@ -163,14 +162,14 @@
 
 			<div class="review-sum" style="background:rgb(231, 216, 241)">
 				
-				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>xx건(수정)한달간리뷰갯수들어갈자리</span></h2>
+				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span><%= month %>건</span></h2>
 				
 			</div>
 		
 		
 			<div class="review-total" style="background:rgb(231, 216, 241)">
 			
-				&nbsp;<h2>그동안 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>xx건(수정)그동안리뷰갯수들어갈자리</span></h2>
+				&nbsp;<h2>그동안 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span><%= total %>건</span></h2>
 			
 			</div>
 				
@@ -195,23 +194,16 @@
 	                  </tr>
 					  <% }else { %>
 	                  <!--case2. 게시글이 있을경우-->
-	                  	<% for(Store s : list){ %>
+	                  	<% for(Member b : list){ %>
 		                  <tr>
-		                  	  <td><%= s.getStoreEnrollDate() %></td>
-		                      <td><%= s.getRvDate() %></td>
-		                      <td><%= s.getRvName() %></td>
-		                      <td><%= s.getRvCategory() %></td>	
-		                      <td><%= s.getRvStar() %></td>		       
+		                  	  <td><%= b.rvDate() %></td>
+		                      <td><%= b.rvName() %></td>
+		                      <td><%= b.rvCategory() %></td>
+		                      <td><%= b.rvRate() %></td>	
+		                      <td><button class="btn1" style="height:40px;">상세보기</button></td>		       
 		                  </tr>   
 	                      <% } %>        
-	                  <% } %>
-				        <td>xxxx-xx-xx</td>
-				        <td>김밥천국</td>
-						<td>식당</td>
-				        <td>4.0</td>
-				        <td><button class="btn1" style="height:40px;">상세보기</button></td>
-				      </tr>
-				      				      
+	                  <% } %>				      				      
 				    </tbody>
 		  		</table>
 			

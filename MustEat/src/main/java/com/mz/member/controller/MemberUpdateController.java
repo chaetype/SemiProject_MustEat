@@ -60,8 +60,6 @@ public class MemberUpdateController extends HttpServlet {
 			String address = multiRequest.getParameter("address");
 			String addressDetail = multiRequest.getParameter("addressDetail");
 			String addressRef = multiRequest.getParameter("addressRef");
-			String originProfile = multiRequest.getParameter("originProfile");
-			String newProfile = multiRequest.getParameter("newProfile");
 			
 			Member m = new Member();
 			m.setMemId(userId);
@@ -75,16 +73,38 @@ public class MemberUpdateController extends HttpServlet {
 			m.setAddressDetail(addressDetail);
 			m.setAddressRef(addressRef);
 			
-			if( multiRequest.getOriginalFileName("newProfile") != null) {
-				// 프로필 사진을 추가한 경우
+			/*
+			if( multiRequest.getOriginalFileName("newProfile") != null || multiRequest.getOriginalFileName("profile") != null) {
+				// 새로 프로필 사진을 추가한 경우 => imgPath에 정보 추가
 				
-				String attachment = "resources/image/key/attachment/" + multiRequest.getFilesystemName("newProfile");
+				String attachment = "";
+				
+
+				if( multiRequest.getParameter("originProfile") != null  ) {
+					// 기존의 첨부파일이 있는 경우 => 기존 첨부파일에서 변경된 이름을 저장
+					attachment = "resources/image/key/attachment/" + multiRequest.getFilesystemName("newProfile");
+				} else {
+					// 기존의 첨부파일이 없는 경우 => 새로운 첨부파일에서 변경된 이름을 저장
+					attachment = "resources/image/key/attachment/" + multiRequest.getFilesystemName("newProfile");
+					
+				}
 				
 				m.setMemImgPath(attachment); // 프로필 사진 경로 + 바뀐 사진 명 Member 객체에 추가하기
+				
+				System.out.println(attachment);
+			}
+			*/
+			
+			if( multiRequest.getOriginalFileName("newProfile") != null || multiRequest.getOriginalFileName("profile") != null) {
+				// 기존사진이 없으면서 새로운 사진이 올라오는 경우 | 기존 사진이 있으면서 새로운 사진으로 변경하는 경우
+				
+				String attachment = "resources/image/key/attachment/" + multiRequest.getFilesystemName("newProfile");
+				m.setMemImgPath(attachment);
 				
 			}
 			
 			Member updateMem = new MemberService().updateMember(m);
+
 			
 			if( updateMem == null ) { // 회원정보 변경 실패
 				session.setAttribute("alertMsg", "회원정보를 수정하는데 실패했습니다. 다시 시도해주시길 바랍니다.");

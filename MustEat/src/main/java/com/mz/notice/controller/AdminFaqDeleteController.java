@@ -1,29 +1,26 @@
-package com.mz.member.controller;
+package com.mz.notice.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.mz.member.model.service.MemberService;
-import com.mz.member.model.vo.Member;
-import com.mz.member.model.vo.Point;
+import com.mz.notice.model.service.NoticeService;
 
 /**
- * Servlet implementation class MembershipUserListController
+ * Servlet implementation class AdminFaqDeleteController
  */
-@WebServlet("/mpsuserlist.me")
-public class MembershipUserListController extends HttpServlet {
+@WebServlet("/deleteFaq.no")
+public class AdminFaqDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MembershipUserListController() {
+    public AdminFaqDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +29,20 @@ public class MembershipUserListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
-		ArrayList<Point> list = new MemberService().membershipUserList(memNo);
+		int cpage = Integer.parseInt(request.getParameter("cpage"));
+		String delArr = request.getParameter("delNo");
 		
-		int pu = new MemberService().membershipUseable(memNo);
+		int result = new NoticeService().deleteFaq(delArr);
 		
-		int pd = new MemberService().membershipDelete(memNo);		
-		
-		request.setAttribute("list", list);
-		
-		request.setAttribute("pu", pu);
-		
-		request.setAttribute("pd", pd);
-		 
-		request.getRequestDispatcher("views/jsw/membershipViewsUser.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		if(result > 0) {
+			session.setAttribute("alertMsg", "성공적으로 삭제되었습니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/adminFaqList.no?cpage=" + cpage);
+		}else {
+			System.out.println("실패");
+		}
 		
 	}
 

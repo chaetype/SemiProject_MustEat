@@ -14,16 +14,16 @@ import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Member;
 
 /**
- * Servlet implementation class AllMembersListController1
+ * Servlet implementation class AllMembersListController3
  */
-@WebServlet("/allMembersList.bo")
-public class AllMembersListController1 extends HttpServlet {
+@WebServlet("/allMembersList3.bo")
+public class AllMembersListController3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllMembersListController1() {
+    public AllMembersListController3() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,10 +33,8 @@ public class AllMembersListController1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//태민
-		// 회원 전체 조회페이지(관리자) 요청
+		// 태민 회원 검색하는 기능 
 		
-		// ----------- 페이징 처리 ------------
 		int listCount;    // 현재 총 게시글 갯수
 		int currentPage;   // 사용자가 곧 보게될 페이지 (즉, 현재 사용자가 요청한 페이지)
 		int pageLimit;    // 페이징바의 페이지 최대갯수 (몇개 단위씩)
@@ -93,37 +91,26 @@ public class AllMembersListController1 extends HttpServlet {
 		// * 페이징바를 만들 때 필요한 객체
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
-		// * 현재 요청한 페이지(currentPage)에 보여질 게시글 리스트 조회해야됨 (boardLimit 수만큼조회)
+		String input = request.getParameter("search");
 		
+		//System.out.println(input);
 		
-		int a = Integer.parseInt(request.getParameter("a"));
-		String c = request.getParameter("c");
-				
-		ArrayList<Member> list = null;
-		int count = new MemberService().selectListCount();
-				
-		if(a==1) {
-			list = new MemberService().selectList(pi);
-			request.setAttribute("b", 1);
-			request.setAttribute("c", c);
-		}else if(a==2) {
-			list = new MemberService().selectList1(pi);
-			request.setAttribute("b", 2);
-			request.setAttribute("c", c);
-		}else if(a==3) {
-			list = new MemberService().selectList2(pi);
-			request.setAttribute("b", 3);
-			request.setAttribute("c", c);
+		if(input != null || !input.isEmpty()) {
+			ArrayList<Member> list = new MemberService().searchList(pi, input);
+			
+			request.setAttribute("pi", pi);
+			request.setAttribute("search", list);
+			
+			response.getWriter().print("NNN");
+		}else {
+			
 		}
 		
-		request.setAttribute("pi", pi);
-		request.setAttribute("list", list);
-
-		request.setAttribute("count", count);
-		request.setAttribute("a", a);	
-
-		request.getRequestDispatcher("views/ltm/allMembersAdmin.jsp").forward(request, response);
-					
+		
+		
+		
+		
+		
 	}
 
 	/**
