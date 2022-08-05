@@ -37,7 +37,7 @@ public class StoreEnrollFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			
+		// 식당 등록 폼 요청	
 		request.getRequestDispatcher("views/jsw/storeEnrollForm.jsp").forward(request, response);
 		
 		}

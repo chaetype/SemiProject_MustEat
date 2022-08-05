@@ -1064,7 +1064,6 @@ public class MemberDao {
 					pd = rset.getInt("MPS_DELETE");
 					
 				}
-				//System.out.println(pd);
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -1091,10 +1090,10 @@ public class MemberDao {
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
-					reviewList.add(new Member(rset.getString("rv_date"),
-									   rset.getString("rv_name"),
-									   rset.getString("rv_category"),
-									   rset.getString("rv_rate")
+					reviewList.add(new Member(rset.getDate("RV_DATE"),
+									   rset.getString("RV_NAME"),
+									   rset.getString("RV_CATEGORY"),
+									   rset.getString("RV_RATE")
 							          ));
 				}
 				
@@ -1209,6 +1208,34 @@ public class MemberDao {
 			return list;
 			
 		}	
+		
+		
+		
+		public int reportInsert(Connection conn, Report rp) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("reportInsert");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, rp.getReportContent());
+				pstmt.setInt(2, rp.getReportType());
+				pstmt.setInt(3, rp.getMemNo());
+				pstmt.setInt(4, rp.getReNo());
+				pstmt.setString(5, rp.getMemId());
+				pstmt.setString(6, rp.getMemNickname());
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
 		
 }
 		

@@ -132,6 +132,7 @@
 		JOIN MEMBER USING (MEM_NO)
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 		GROUP BY TO_CHAR(BASKET_DATE, 'YYYY.MM')
+		ORDER BY MONTH DESC
 	</entry>
 	
 	<!-- 은영 (장바구니 목록 조회) -->
@@ -150,6 +151,7 @@
 		JOIN MEMBER USING (MEM_NO)
 		JOIN PRODUCT USING (PRODUCT_CODE)
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
+		ORDER BY MONTH DESC
 	</entry>
 	
 	<!-- 은영 (상품 주문한 '월'만 조회) -->
@@ -161,7 +163,7 @@
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 		  AND DELIVERY_STATUS = ? <!-- 배송현황 -->
 		GROUP BY TO_CHAR(ORDER_DATE, 'YYYY.MM')
-		ORDER BY MONTH ASC
+		ORDER BY MONTH DESC
 	</entry>
 	
 	<!-- 은영 (배송현황에 따른 주문목록 조회) -->
@@ -184,7 +186,7 @@
 		JOIN PRODUCT P ON (OL.PRODUCT_CODE = P.PRODUCT_CODE)
 		WHERE MEM_ID =  ? <!-- 로그인한 회원 아이디 -->
 		  AND DELIVERY_STATUS = ? <!-- 배송현황 -->
-		ORDER BY ORDER_DATE ASC
+		ORDER BY ORDER_DATE DESC
 	</entry>
 
 	<!-- 성범 (밀키트 상세페이지에 들어갈 데이터 조회) -->
@@ -269,7 +271,7 @@
 		JOIN MEMBER USING (MEM_NO)
 		WHERE MEM_ID = ? <!-- 로그인한 회원 아이디 -->
 		GROUP BY TO_CHAR(ORDER_DATE, 'YYYY.MM')
-		ORDER BY MONTH ASC
+		ORDER BY MONTH DESC
 	</entry>
 
 	<!-- 은영 (주문 전체 리스트 조회) -->
@@ -291,7 +293,7 @@
 		JOIN ORDER_LIST OL ON (OP.ORDER_NO = OL.ORDER_NO)
 		JOIN PRODUCT P ON (OL.PRODUCT_CODE = P.PRODUCT_CODE)
 		WHERE MEM_ID =  ? <!-- 로그인한 회원 아이디 -->
-		ORDER BY ORDER_DATE ASC
+		ORDER BY ORDER_DATE DESC
 	</entry>
 
 	<!-- 성범 (밀키트 주문시 배송지정보 입력 INSERT) -->
@@ -306,7 +308,8 @@
 		  , MEMO
 		  , MODIFY_DATE
 		  , ORDER_STATUS
-		  , TATAL_PRICE
+		  , TOTAL_PRICE
+		  , DELIVERY_PRICE
 		  , PAYMENT
           , DELIVERY_STATUS
           , DELIVERY_TYPE
@@ -321,15 +324,24 @@
 		  VALUES
 		  (
 		    SEQ_ORDERNO.NEXTVAL
-		  , ?
-		  , ?
-		  , ?
-		  , ?
-          , ?
-          , ?
-          , ?
-          , ?
-          , ?
+		  , ?	<!-- 1. MEM_NO -->
+		  , ?	<!-- 2. ORDER_QUENTITY -->
+		  , SYSDATE	<!-- ORDER_DATE -->
+		  , ?	<!-- 3. MEMO -->
+          , SYSDATE	<!-- MODIFY_DATE -->
+          , 1	<!-- ORDER_STATUS -->
+          , ?	<!-- 4. TOTAL_PRICE -->
+          , 2500	<!-- DELIVERY_PRICE -->
+          , '카드'	<!-- PAYMENT -->
+          , DEFAULT	<!-- DELIVERY_STATUS -->
+          , ?	<!-- DELIVERY_TYPE -->
+          , ?	<!-- 5. DEL_NAME -->
+          , ?	<!-- 6. DEL_PHONE -->
+          , ?	<!-- 7. DEL_EMAIL -->
+          , ?	<!-- 8. DEL_ADDRESS -->
+          , ?	<!-- 9. DEL_ADDRESS_CODE -->
+          , ?	<!-- 10. DEL_ADDRESS_DETAIL -->
+          , ?	<!-- 11. DEL_ADDRESS_REF -->
 		  )
 
 	</entry>

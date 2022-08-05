@@ -600,4 +600,31 @@
 		       
 	</entry>
 	
+	<!-- 채윤 신고 등록 -->
+	<entry key="reportInsert">
+		INSERT 
+		  INTO REPORT
+		     (
+		       REPORT_NO
+		     , REPORT_DATE
+		     , REPORT_CONTENT
+		     , REPORT_TYPE
+		     , MEM_NO<!-- 신고한 회원 번호 -->
+		     , RE_NO
+		     , RP_MEM_ID<!-- 신고당한 회원아이디 -->
+		     , MEM_NICKNAME_RP<!-- 신고한 회원 닉네임 -->
+		     )
+		VALUES
+		     (
+		       SEQ_REPNO.NEXTVAL
+		     , SYSDATE
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ?
+		     , ? 
+		     )
+	</entry>
+	
 </properties>

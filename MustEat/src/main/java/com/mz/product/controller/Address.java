@@ -38,18 +38,24 @@ public class Address extends HttpServlet {
 		String delName = request.getParameter("name");
 		String delPhone = request.getParameter("memPhone");
 		String delEmail = request.getParameter("email");
-		String delAddress = request.getParameter("address");
-		String delAddressCode = request.getParameter("addressCode");
-		String delAddressDetail = request.getParameter("addressDetail");
-		String delAddressRef = request.getParameter("addressRef");
+		String delAddress = request.getParameter("sample6_address");
+		String delAddressCode = request.getParameter("sample6_postcode");
+		String delAddressDetail = request.getParameter("sample6_detailAddress");
+		String delAddressRef = request.getParameter("sample6_extraAddress");
 		String memo = request.getParameter("memo");
-		String deliveryStatus = request.getParameter("deli");
+		int orderQuentity = Integer.parseInt(request.getParameter("count"));
+		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
+		String deliType = request.getParameter("deli");
 		
-		OrderPro op = new OrderPro(String.valueOf(memNo), memo, deliveryStatus, delName, delPhone, delEmail, delAddress, delAddressCode, delAddressDetail, delAddressRef);
+		
+		OrderPro op = new OrderPro(String.valueOf(memNo), orderQuentity, memo, totalPrice, deliType, delName, delPhone, delEmail, delAddress, delAddressCode, delAddressDetail, delAddressRef);
 		
 		int result = new ProductService().insertAddress(op);
 		
-		//request.getRequestDispatcher("views/hsb/address.jsp").forward(request, response);
+		if(result > 0) {
+			request.getRequestDispatcher("views/hsb/payComplete.jsp").forward(request, response);
+		}
+		
 		
 	}
 

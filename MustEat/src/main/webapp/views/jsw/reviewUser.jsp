@@ -162,7 +162,7 @@
 		
 			<div class="review-sum" style="background:rgb(231, 216, 241)">
 				
-				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>건</span></h2>
+				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span><%= month %>건</span></h2>
 				
 			</div>
 		  
