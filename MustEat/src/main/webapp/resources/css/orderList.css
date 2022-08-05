@@ -304,6 +304,14 @@
     height: 40px;
 }
 
+.chooseBuy{
+    font-size: 14px;
+    font-weight:bold;
+    background: white;
+    width: 200px;
+    height: 40px;
+}
+
 #delete{
 	float:right;
 }
