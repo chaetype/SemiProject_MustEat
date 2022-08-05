@@ -362,11 +362,29 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 	        		
 	        		const str = delArr.toString();
 	        		
+	        		$.ajax({
+	        			url:"<%=contextPath%>/adminDelete.rv",
+	        			data:{delStr:str},
+	        			success:function(result){
+	        				if(result > 0){ 
+	        					
+								selectReplyList();
+								
+							}
+	        			},
+	        			error:function(){
+	        				console.log("댓글목록 조회용 ajax 통신 실패");
+	        			}
+	        		})
+	        		
 	        		
 	        	}
 	        }
 		</script>
-
+          <br><br><br>
+  
+	</div>
+	
 	<script>
         const $container = document.querySelector('.wrap55');
         const $inputs = [...$container.children];
@@ -387,7 +405,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 		
 		
 	 
-
+</div>
 
 
 

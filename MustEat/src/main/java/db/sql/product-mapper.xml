@@ -459,6 +459,13 @@
 
 	</entry>
 	
+	<!-- 혜림 (밀키트 리뷰 삭제) -->
+	<entry key="deleteReview">
+		UPDATE
+		       PRODUCT_REVIEW
+		   SET PR_REVIEW_STATUE = 'Y'
+	</entry>
+	
 	
 	
 	
