@@ -62,7 +62,7 @@
                 <td>
                 	<% if(n.getNoticeAttach() != null) { %>
                 		<div id="attachImg" style="margin-left:20px;">
-                            <img src="<%=contextPath%>/<%=n.getNoticeAttach()%>" width="100px" heigh="50px" onclick="chooseFile();" title="클릭해서 수정">
+                            <img src="<%=contextPath%>/<%=n.getNoticeAttach()%>" id="preview" width="100px" heigh="50px" onclick="chooseFile();" title="클릭해서 수정">
                             <input type="hidden" name="originFile" id="originFile" value="<%=n.getNoticeAttach()%>">
                         </div>
                 		<div class="btn" id="btnDe" onclick="deleteImg();" style="margin-left:20px;">삭제</div><br>
@@ -96,6 +96,7 @@
     		
     		reader.onload = function(e){
     			$("#changeFile").attr("src", e.target.result);
+    			$("#preview").attr("src", e.target.result);
     		}
     		
     	}
