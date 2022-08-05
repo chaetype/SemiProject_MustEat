@@ -37,17 +37,15 @@ int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
 		ArrayList<Member> list = new MemberService().memberReviewList(memNo);
 		
-		int pu = new MemberService().membershipUseable(memNo);
+		int month = new MemberService().memberReviewListMonth(memNo);
 		
-		int pd = new MemberService().membershipDelete(memNo);		
+		int total = new MemberService().memberReviewListTotal(memNo);		
 		
 		request.setAttribute("list", list);
 		
-		request.setAttribute("pu", pu);
+		request.setAttribute("month", month);
 		
-		request.setAttribute("pd", pd);
-		
-		System.out.println(pu + " " + pd);
+		request.setAttribute("total", total);
 		 
 		request.getRequestDispatcher("views/jsw/reviewUser.jsp").forward(request, response);
 		
