@@ -1078,7 +1078,7 @@ public class MemberDao {
 	
 		// 서원 사용자 리뷰 조회 
 		public ArrayList<Member> memberReviewList(Connection conn, int memNo){
-			ArrayList<Member> list = new ArrayList<>();
+			ArrayList<Member> reviewList = new ArrayList<>();
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			String sql = prop.getProperty("memberReviewList");
@@ -1091,7 +1091,7 @@ public class MemberDao {
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
-					list.add(new Member(rset.getString("rv_date"),
+					reviewList.add(new Member(rset.getString("rv_date"),
 									   rset.getString("rv_name"),
 									   rset.getString("rv_category"),
 									   rset.getString("rv_rate")
@@ -1105,39 +1105,40 @@ public class MemberDao {
 				close(pstmt);
 			}
 			
-			return list;		
+			return reviewList;		
 		}
 		
 		// 서원 사용자 리뷰 조회 페이지 이번달 작성한 리뷰 조회
-//		public int memberReviewMonth(Connection conn, int memNo) {
-//			int month = 0;
-//			
-//			PreparedStatement pstmt = null;
-//			ResultSet rset = null;
-//			String sql = prop.getProperty("memberReviewMonth");
-//			
-//			try {
-//				pstmt = conn.prepareStatement(sql);
-//				
-//				pstmt.setInt(1, memNo);
-//				
-//				rset = pstmt.executeQuery();
-//				
-//				if(rset.next()) {
-//					
-//					month = rset.getInt("RV_MONTH");
-//					
-//				}
-//				
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} finally {
-//				close(rset);
-//				close(pstmt);
-//			}
-//			
-//			return month;
-//		}
+		public int memberReviewListMonth(Connection conn, int memNo) {
+			int month = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("memberReviewListMonth");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, memNo);
+				pstmt.setInt(2, memNo);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					
+					month = rset.getInt("RV_MONTH");
+					
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return month;
+		}
 			
 		// 서원 사용자 리뷰 조회 페이지 그동안 작성한 리뷰 조회
 		public int memberReviewListTotal(Connection conn, int memNo) {
