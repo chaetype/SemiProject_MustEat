@@ -136,6 +136,7 @@
             	<input type="hidden" name="no" value="<%=c.getContactNo()%>">
             	<% if(c.getAnswer() != null){ %>
             		<div class="form-outline" style="width:600px; margin:auto;">
+            			<input type="hidden" name="chkNo" value="1">
 		                <textarea class="form-control" name="answer" id="textAreaExample" rows="4"><%= c.getAnswer() %></textarea>
 		                <label class="form-label" for="textAreaExample">답변</label>
 		            </div>
@@ -146,6 +147,7 @@
 		            </div>
             	<% }else{ %>
 	            <div class="form-outline" style="width:600px; margin:auto;">
+	            	<input type="hidden" name="chkNo" value="2">
 	                <textarea class="form-control" name="answer" id="textAreaExample" rows="4"></textarea>
 	                <label class="form-label" for="textAreaExample">답변 입력</label>
 	            </div>

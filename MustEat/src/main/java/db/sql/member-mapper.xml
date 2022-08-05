@@ -554,7 +554,21 @@
 	</entry>
 	
 	<!-- 서원 사용자 my리뷰 이번달 리뷰 조회 -->
-
+	<entry key="memberReviewListMonth">
+		SELECT NVL(COUNT(*), 0) AS RV_MONTH
+		  FROM
+		(SELECT SR.REVIEW_CONTENT
+		   FROM STORE_RE SR
+		   JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+		  WHERE M.MEM_NO = ?
+		  
+		  UNION
+		  
+		 SELECT PR.PR_REVIEW_CONTENT
+		   FROM PRODUCT_REVIEW PR
+		   JOIN MEMBER M ON (PR.REVIEW_WRITER = M.MEM_NO)
+		  WHERE M.MEM_NO = ?)
+	</entry>
 	
 	<!-- 서원 사용자 my리뷰 그동안 리뷰 조회 -->
 	<entry key="memberReviewListTotal">

@@ -34,13 +34,18 @@ public class AdminContactReplyController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int contactNo = Integer.parseInt(request.getParameter("no"));
+		int chkNo = Integer.parseInt(request.getParameter("chkNo"));
 		String answer = request.getParameter("answer");
 		
 		int result = new NoticeService().updateContactReply(contactNo, answer);
 		
 		HttpSession session = request.getSession();
 		if(result > 0) {
-			session.setAttribute("alertMsg", "답변이 등록되었습니다.");
+			if(chkNo == 1) {
+				session.setAttribute("alertMsg", "답변이 수정되었습니다.");
+			}else {
+				session.setAttribute("alertMsg", "답변이 등록되었습니다.");
+			}
 			
 			response.sendRedirect(request.getContextPath() + "/adminContactDetail.no?no=" + contactNo);
 		}
