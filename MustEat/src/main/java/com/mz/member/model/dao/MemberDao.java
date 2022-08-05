@@ -998,7 +998,7 @@ public class MemberDao {
 		
 		//채윤
 		/**
-		 * 회원목록 조회
+		 * 팔로우를 위한 회원목록 조회
 		 * @param conn
 		 * @return
 		 */
