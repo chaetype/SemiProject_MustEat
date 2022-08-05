@@ -211,7 +211,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
         </div>
         <div class="list01">
         	<% if(loginUser != null && loginUser.getMemGrade().equals("관리자")){ %>
-		        <button class="btn1" id="btn2" onclick="chkClick();">전체선택</button>
+		        <button class="btn1" id="btn2" onclick="chkClick();" style="margin-left:23.5%">전체선택</button>
 		        <input type="checkbox" id="checkAll" name="checkAll" onclick="checkAll(this)" style="display:none">
 		        <button class="btn1" onclick="deleteNo();">선택삭제</button>
 		        <input type="hidden" id="delStr" value="">
