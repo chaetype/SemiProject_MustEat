@@ -214,6 +214,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 		        <button class="btn1" id="btn2" onclick="chkClick();">전체선택</button>
 		        <input type="checkbox" id="checkAll" name="checkAll" onclick="checkAll(this)" style="display:none">
 		        <button class="btn1" onclick="deleteNo();">선택삭제</button>
+		        <input type="hidden" id="delStr" value="">
             <% } %>
         </div>
 			
@@ -281,6 +282,41 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 					}
 				})
 			}
+			
+			function deleteNo(){
+	        	if(confirm("선택한 댓글을 삭제하시겠습니까?")){
+	        		let delArr = [];
+	        		
+	        		$("tbody .chkbox").each(function(){
+	        			if($(this).prop("checked")){
+	        				delArr.push($(this).val());
+	        			}
+	        		});
+	        		
+		        	console.log(delArr.toString());
+	        		
+	        		const str = delArr.toString();
+	        		
+	        		//$("#delStr").val(str);
+	        		
+	        		$.ajax({
+	        			url:"<%=contextPath%>/adminDelete.rv",
+	        			data:{delStr:str},
+	        			success:function(result){
+	        				if(result > 0){ 
+	        					
+								selectReplyList();
+								
+							}
+	        			},
+	        			error:function(){
+	        				console.log("댓글목록 조회용 ajax 통신 실패");
+	        			}
+	        		})
+	        		
+	        		
+	        	}
+	        }
 		
 			// ajax로 현재 게시글에 딸려있는 댓글 목록 조회용 function
 			function selectReplyList(){

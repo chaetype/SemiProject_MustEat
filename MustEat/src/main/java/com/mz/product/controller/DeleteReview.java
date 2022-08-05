@@ -31,7 +31,9 @@ public class DeleteReview extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String delStr = request.getParameter("str");
+		request.setCharacterEncoding("UTF-8");
+		
+		String delStr = request.getParameter("delStr");
 		
 		int result = new ProductService().deleteReview(delStr);
 		
