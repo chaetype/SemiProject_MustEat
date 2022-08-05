@@ -105,7 +105,11 @@
 	        <ul class="goodsList">
 	
 	          <li class="goodsPayItem">
-	
+	          
+			  <div class="checkGoods">
+				<input type="checkbox" name="check" value="<%=bk.getProductCode()%>">
+	          </div>
+	          
 	            <div class="goodsItem">
 	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
 	              <img src="<%=contextPath %>/resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
@@ -173,6 +177,13 @@
 	  </div>
 	  <%} %>
 	  <!-- 바깥쪽 for문 끝-->
+	  
+	  <div class="line" style="border-bottom: 2px solid #ebe9e9;"></div>
+ 	  
+ 	  <div class="chooseAll">
+	  	<button type="button" id="buy" class="choose btn1" onclick="chooseBuy(this);">전체 구매</button>
+	  	<button type="button" id="delete" class="choose btn1" onclick="chooseDelete();">선택 삭제</button>
+	  </div>
 	  
 	  <!-- 상품 '더보기' 영역!!! -->
 	  <% if ( bList.size() >= 10) { %> <!-- 상품 10개 이하면 안보이도록 설정 -->
