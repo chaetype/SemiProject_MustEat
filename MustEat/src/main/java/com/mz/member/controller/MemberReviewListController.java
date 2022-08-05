@@ -42,7 +42,7 @@ public class MemberReviewListController extends HttpServlet {
 		int total = new MemberService().memberReviewListTotal(memNo);		
 		
 		request.setAttribute("reviewList", reviewList);
-		
+		 
 		request.setAttribute("month", month);
 		
 		request.setAttribute("total", total);

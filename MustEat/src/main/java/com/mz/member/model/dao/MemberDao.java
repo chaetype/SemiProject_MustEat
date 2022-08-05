@@ -1064,7 +1064,6 @@ public class MemberDao {
 					pd = rset.getInt("MPS_DELETE");
 					
 				}
-				//System.out.println(pd);
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
