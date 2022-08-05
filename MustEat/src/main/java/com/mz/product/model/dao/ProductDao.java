@@ -644,15 +644,18 @@ public class ProductDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, op.getDelName());
-			pstmt.setString(2, op.getDelPhone());
-			pstmt.setString(3, op.getDelEmail());
-			pstmt.setString(4, op.getMemo());
-			pstmt.setString(5, op.getDeliveryStatus());
-			pstmt.setString(6, op.getDelAddress());
-			pstmt.setString(7, op.getDelAddressCode());
-			pstmt.setString(8, op.getDelAddressDetail());
-			pstmt.setString(9, op.getDelAddressRef());
+			pstmt.setString(1, op.getMemNo());
+			pstmt.setInt(2, op.getOrderQuentity());
+			pstmt.setString(3, op.getMemo());
+			pstmt.setInt(4, op.getTotalPrice());
+			pstmt.setString(5, op.getDeliverType());
+			pstmt.setString(6, op.getDelName());
+			pstmt.setString(7, op.getDelPhone());
+			pstmt.setString(8, op.getDelEmail());
+			pstmt.setString(9, op.getDelAddress());
+			pstmt.setString(10, op.getDelAddressCode());
+			pstmt.setString(11, op.getDelAddressDetail());
+			pstmt.setString(12, op.getDelAddressRef());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

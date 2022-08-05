@@ -215,6 +215,30 @@ public class OrderPro {
 	public int getOrderNo() {
 		return orderNo;
 	}
+	
+	
+	
+
+	
+
+
+	public OrderPro(String memNo, int orderQuentity, String memo, int totalPrice, String deliverType, String delName,
+			String delPhone, String delEmail, String delAddress, String delAddressCode, String delAddressDetail,
+			String delAddressRef) {
+		super();
+		this.memNo = memNo;
+		this.orderQuentity = orderQuentity;
+		this.memo = memo;
+		this.totalPrice = totalPrice;
+		this.deliverType = deliverType;
+		this.delName = delName;
+		this.delPhone = delPhone;
+		this.delEmail = delEmail;
+		this.delAddress = delAddress;
+		this.delAddressCode = delAddressCode;
+		this.delAddressDetail = delAddressDetail;
+		this.delAddressRef = delAddressRef;
+	}
 
 
 	public void setOrderNo(int orderNo) {
