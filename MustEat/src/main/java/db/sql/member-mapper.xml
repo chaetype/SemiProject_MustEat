@@ -521,13 +521,7 @@
 	</entry>
 	
 	<!-- 서원 사용자 my리뷰 이번달 리뷰 조회 -->
-	<entry key="memberReviewMonth">
-		SELECT NVL(SUM(MPS_RECORD), 0) AS RV_MONTH
-		  FROM MPS_POINT
-		 WHERE MEM_NO = ?
-		   AND MPS_STATUS = '적립'
-		   AND MONTHS_BETWEEN(SYSDATE, REVIEW_DATE) BETWEEN 0 AND 1
-	</entry>
+
 	
 	<!-- 서원 사용자 my리뷰 그동안 리뷰 조회 -->
 	<entry key="memberReviewTotal">
