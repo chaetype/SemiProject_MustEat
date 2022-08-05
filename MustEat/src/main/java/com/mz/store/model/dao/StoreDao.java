@@ -696,7 +696,48 @@ public class StoreDao {
 		
 		
 		
+		//채윤 식당리뷰 세션
 		
+				public StoreReview storeReviewSession(Connection conn,String reviewNo) {
+					StoreReview sr = null;
+					
+					PreparedStatement pstmt = null;
+					ResultSet rset = null;
+					
+					String sql = prop.getProperty("storeReviewSession");
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, reviewNo);
+						
+						
+						rset=pstmt.executeQuery();
+						
+						if(rset.next()) {
+							sr = new StoreReview(rset.getInt("RE_NO")
+									    , rset.getString("REVIEW_WRITER")
+									    , rset.getInt("STORE_NO")
+									    , rset.getString("REVIEW_IMG")
+									    , rset.getInt("REVIEW_RATE")
+									    , rset.getDate("REVIEW_ENROLLDATE")
+									    , rset.getDate("REVIEW_MODIFYDATE")
+									    , rset.getString("REVIEW_STATUE")
+									    , rset.getString("REVIEW_IMG_PATH")
+									    , rset.getString("VISIT_DATE")
+									    , rset.getString("REVIEW_TITLE")
+									    , rset.getInt("COUNT")
+									    , rset.getString("REVIEW_CONTENT")
+									    , rset.getString("SR_CATEGORY"));
+									    
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						close(rset);
+						close(pstmt);
+					}
+					return sr;
+				}
 		
 		
 		

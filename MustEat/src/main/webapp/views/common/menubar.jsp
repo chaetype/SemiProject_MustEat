@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.member.model.vo.Member, com.mz.store.model.vo.Store"%>
+    pageEncoding="UTF-8" import="com.mz.member.model.vo.Member, com.mz.store.model.vo.*"%>
 <%  
 	String contextPath = request.getContextPath(); 
 	
 	Member loginUser = (Member)session.getAttribute("loginUser");
 	
 	String alertMsg = (String)session.getAttribute("alertMsg");
+	
+	StoreReview thatReview = (StoreReview)session.getAttribute("thatReview");
 %>
 <!DOCTYPE html>
 <html lang="en">

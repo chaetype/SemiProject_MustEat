@@ -194,7 +194,7 @@ public class StoreService {
 			return result;
 		}
 		
-	//채윤 식당리뷰 세선
+	//채윤 식당 세선
 		public Store storeSession(String storename, String storeno) {
 			Connection conn = getConnection();
 			Store s = new StoreDao().storeSession(conn, storename, storeno);
@@ -238,7 +238,13 @@ public class StoreService {
 		
 		
 		
-		
+		//채윤 식당리뷰 세선
+				public StoreReview storeReviewSession(String reviewNo) {
+					Connection conn = getConnection();
+					StoreReview sr= new StoreDao().storeReviewSession(conn,reviewNo);
+					close(conn);
+					return sr;
+				}
 		
 		
 		

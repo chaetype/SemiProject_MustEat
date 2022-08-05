@@ -99,21 +99,27 @@ public class AllMembersListController1 extends HttpServlet {
 		int a = Integer.parseInt(request.getParameter("a"));
 		String c = request.getParameter("c");
 				
+		String search = request.getParameter("search");
+		System.out.println(search);
+		
 		ArrayList<Member> list = null;
 		int count = new MemberService().selectListCount();
 				
 		if(a==1) {
-			list = new MemberService().selectList(pi);
-			request.setAttribute("b", 1);
+			list = new MemberService().selectList(pi, search);
 			request.setAttribute("c", c);
+			request.setAttribute("search", search);
+			
 		}else if(a==2) {
-			list = new MemberService().selectList1(pi);
-			request.setAttribute("b", 2);
+			list = new MemberService().selectList1(pi, search);
 			request.setAttribute("c", c);
+			request.setAttribute("search", search);
+			
 		}else if(a==3) {
-			list = new MemberService().selectList2(pi);
-			request.setAttribute("b", 3);
+			list = new MemberService().selectList2(pi, search);
 			request.setAttribute("c", c);
+			request.setAttribute("search", search);
+			
 		}
 		
 		request.setAttribute("pi", pi);

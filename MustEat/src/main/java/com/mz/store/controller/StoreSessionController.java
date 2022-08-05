@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.StoreReview;
+import com.mz.store.model.vo.Store;
 
 /**
  * Servlet implementation class StoreReviewSessionController
  */
 @WebServlet("/Session.st")
-public class StoreReviewSessionController extends HttpServlet {
+public class StoreSessionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreReviewSessionController() {
+    public StoreSessionController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,13 +33,14 @@ public class StoreReviewSessionController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		String reviewNo = request.getParameter("reviewNo");
+		String storename = request.getParameter("storename");
+		String storeno = request.getParameter("storeno");
 		
-		StoreReview thatReview = new StoreService().storeReviewSession(reviewNo);
+		Store thatStore = new StoreService().storeSession(storename, storeno);
 		
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("thatReview", thatReview);
+		session.setAttribute("thatStore", thatStore);
 		
 		response.sendRedirect(request.getContextPath());
 	}
