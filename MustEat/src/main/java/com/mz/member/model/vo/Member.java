@@ -113,10 +113,16 @@ public class Member {
 	}
 	
 	
-	
-	
-	
-	
+
+	public Member(Date rvDate, String rvName, String rvCategory, String rvRate) {
+		super();
+		this.rvDate = rvDate;
+		this.rvName = rvName;
+		this.rvCategory = rvCategory;
+		this.rvRate = rvRate;
+	}
+
+
 
 	public Member(int memNo, String memImgPath,String memNickname,String memId,   /* int cfollowing, */ int cstreview) {
 		super();
@@ -130,15 +136,8 @@ public class Member {
 	
 	
 
-	public Member(Date rvDate, String rvName, String rvCategory, String rvRate) {
-		super();
-		this.rvDate = rvDate;
-		this.rvName = rvName;
-		this.rvCategory = rvCategory;
-		this.rvRate = rvRate;
-	}
 
-	
+
 
 	public int getCfollowing() {
 		return cfollowing;
@@ -318,6 +317,7 @@ public class Member {
 		
 		
 	}
+
 
 	public Date getRvDate() {
 		return rvDate;
