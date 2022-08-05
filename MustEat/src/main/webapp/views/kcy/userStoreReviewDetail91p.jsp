@@ -3,6 +3,7 @@
 <%
 	Store s = (Store)request.getAttribute("s");
 	StoreReview sr = (StoreReview)request.getAttribute("sr");
+	int streviewNo = (int)request.getAttribute("streviewNo");
 %>
 
 
@@ -17,52 +18,42 @@
 
 
     <style>
-     .background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-
-        /* 숨기기 */
-        z-index: -1;
-        opacity: 0;
-      }
-
-      .show {
-        opacity: 1;
-        z-index: 1000;
-        transition: all 0.5s;
-      }
-
-      .window {
-        position: relative;
-        width: 100%;
-        height: 100%;
-      }
-
-      .modal {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #ffffff;
-        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-
-        /* 임시 지정 */
-        width: 1000px;
-        height: 1000px;
-
-        /* 초기에 약간 아래에 배치 */
-        transform: translate(-50%, -40%);
-      }
-
-      .show .modal {
-        transform: translate(-50%, -50%);
-        transition: all 0.5s;
-      }
+     
+	.container-tos {
+		margin-top:5%;
+		margin-bottom:5%;
+	}	
+	
+	.tos-table{
+		width:100%;
+	}
+	
+	.tos-enroll{
+		margin-top:2%;	
+		text-align:center;
+	}
+	
+	#tos-list-area>tbody>tr:hover{
+    	cursor:pointer;
+    }
+	
+	@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+    .card{position: relative;display: flex;flex-direction: column;min-width: 0;padding: 20px;word-wrap: break-word;background-color: #fff;background-clip: border-box;border-radius: 6px;-moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)}
+	
+	.card input{margin-top:10px}.btn-success{color: #fff;background-color: #ff5300;border-color: #ff5300}
+	
+	.btn-success:hover{color: #fff;background-color: #ff0000;border-color: #ff0000}
+	
+	.btn-success.focus, .btn-success:focus{box-shadow: 0 0 0 0.2rem rgb(255, 255, 255)}
+	
+	.btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle{color: #fff;background-color: #ff0000;border-color: #ff0000}
+	
+	.form-control:focus{color: #495057;background-color: #fff;border-color: #ff5300;outline: 0;box-shadow: 0 0 0 1px rgb(255, 255, 255) !important}
+	
+	
+	
+	
+      
       
       
         .wrap33{
@@ -112,11 +103,7 @@
                 <div class="info3">
                     <%=sr.getReviewContent() %>
                 </div>
-                <% if(loginUser != null) { %>
-                <div style="float: right;">
-                	<button class="btn1 .btn-open-popup" id="show">신고하기</button>
-                </div>
-                <%} %>
+                
             </div>
             
             
@@ -124,36 +111,67 @@
         
         
         
-        <div class="background">
-        <div class="window">
-        <div class="modal">
-        	<form action="">
-        	<h3>신고합니다</h3>
-        	<input type="hidden" id="reportNo" name="reportNo">
-        	<li>신고 유형 : <select name = "reportType"> <option value="1">식당리뷰신고</option>
-        											   <option value="2">밀키트리뷰신고</option></li>
-        	<li>신고 내용 : <input type=text id="reportContent" name="reportContent" placeholder="신고내용을 입력해주세요" width="200px" required></li>
-        	
-        	 <button type="submit" class="btn1" >신고제출</button><button id="close" class="btn1">신고취소</button>
-        	</form>
-        </div>
-        </div>
-        </div>
         
-        <script>
-        	
-        	
-        	function show() {
-                document.querySelector(".modal").className = "background show";
-              }
-
-              function close() {
-                document.querySelector(".modal").className = "background";
-              }
-
-              document.querySelector("#show").addEventListener("click", show);
-              document.querySelector("#close").addEventListener("click", close);
-        </script>
+        
+       
+		
+		<form action="<%= contextPath %>/insert.rp?no=<%=streviewNo%>" id="tos-modify-form" method="post">
+				
+		<!-- 등록 The Modal -->
+		<div class="modal fade" id="myModal">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		      		        
+		        <!-- Modal body -->
+		        <div class="modal-body">
+		          
+					
+					<div class="container d-flex justify-content-center text-center">
+					    <div class="card px-5 py-5">
+					        <div class="row">
+					        <h1 style="font-family: 'OTWelcomeRA';">신고합니다</h1>
+					            <div class="col-md-6"> <input type="text" name="reportTitle" class="form-control" placeholder="이용약관 제목"></div>
+					            <div class="col-md-6" > 신고유형<br> <input type="radio" name="reportType" value="1">식당리뷰신고<br>
+        											  		<input type="radio" name="reportType" value="2">밀키트리뷰신고</div>
+					        </div>
+					        <div class="row mt-3">
+					            <div class="col-md-12" style="width:100%;"> <textarea name="reportContent" rows="15" class="form-control" id="tos-content" style="width:100% !important; resize:none;" placeholder="신고 내용" ></textarea> </div>
+					        </div> <button type="submit" value="신고내용" class="btn btn-primary mt-5" style="background:rgb(167, 112, 239) !important;">신고제출<i class="fa fa-long-arrow-right ml-2 mt-1"></i></button>
+					    </div>
+					</div>				          
+		          
+		        </div>
+		        
+		        <!-- Modal footer -->
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        </div>
+		        
+		      </div>
+		    </div>
+		  </div>
+		  
+		  
+		  </form>
+		  
+		 <% if(loginUser != null) { %>
+        
+        <%} %>
+      
+		<button type="button" class="btn1" id="tos-enroll-btn" data-toggle="modal" data-target="#myModal">신고하기</button>
+        <button type="button" class="btn1" id="tos-delete-btn" onclick="history.back();">목록가기</button>
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
     
     

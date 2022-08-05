@@ -395,5 +395,22 @@ public class MemberService {
 			ArrayList<Member> list = new MemberDao().selectFMemList(conn);
 			close(conn);
 			return list;
+		} 
+		
+		
+	//채윤 신고 등록
+	public int reportInsert(Report rp) {
+		Connection conn = getConnection();
+		int result = new MemberDao().reportInsert(conn, rp);
+	
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
 		}
+		
+		close(conn);
+		
+		return result;
+	}
 }

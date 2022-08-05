@@ -124,6 +124,23 @@ public class Member {
 
 
 
+	public Member(String memId, String memPwd, String memName, String memPhone, String memEmail, String memNickname,
+			String addressCode, String address, String addressDetail, String addressRef) {
+		super();
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.memName = memName;
+		this.memPhone = memPhone;
+		this.memEmail = memEmail;
+		this.memNickname = memNickname;
+		this.addressCode = addressCode;
+		this.address = address;
+		this.addressDetail = addressDetail;
+		this.addressRef = addressRef;
+	}
+
+
+
 	public Member(int memNo, String memImgPath,String memNickname,String memId,   /* int cfollowing, */ int cstreview) {
 		super();
 		this.memNo = memNo;

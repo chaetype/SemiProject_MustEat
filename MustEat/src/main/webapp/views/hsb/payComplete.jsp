@@ -39,7 +39,7 @@
 
     <script>
         function moveOrderList(){
-            location.href = "<%=contextPath%>/mealkit.li";
+            location.href = "<%=contextPath%>/orderList.pro";
         }
     </script>
    

@@ -42,7 +42,7 @@ public class Report {
 		this.reportTitle = reportTitle;
 	}
 	
-//	건들이지 마세요!!! 채윤 신고게시판에서 쓰임!!!
+//	 채윤 신고게시판에서 쓰임
 	public Report(int reportNo,String memNickname, String memId, String reportTitle, String reportContent, Date reportDate) {
 		super();
 		this.reportNo = reportNo;
@@ -51,6 +51,21 @@ public class Report {
 		this.reportTitle = reportTitle;
 		this.reportContent = reportContent;
 		this.reportDate = reportDate;
+	}
+
+
+	
+	
+	
+
+	public Report(int memNo, int reportType, String reportContent, int reNo, String memNickname, String memId) {
+		super();
+		this.memNo= memNo;
+		this.reportType = reportType;
+		this.reportContent = reportContent;
+		this.reNo = reNo;
+		this.memNickname = memNickname;
+		this.memId = memId;
 	}
 
 

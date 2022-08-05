@@ -15,10 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+   
     
     <style>
         .wrap1212{
@@ -233,14 +230,24 @@
     margin-top: 10%;
 }
 
+#sum_p_price{
+    background-color:white;
+    color: blueviolet;
+    border: 1px  blueviolet;
+    height: 33px;
+    padding-top: 2%;
+}
+
     </style>
 </head>
 <body>
 
     <%@ include file="../common/menubar.jsp"%>
+    
         <div class="wrap1212">
+        <form action="<%=contextPath%>/addressInsert.do" id="insertAddress">
             <div class="outer" align="center">
-            <form action="<%=contextPath%>/addressInsert.do" id="insertAddress">
+            
                 <b>배송정보</b><br>
                 <table style="margin: top 10% ;">
                    
@@ -262,10 +269,10 @@
                             <td>
                                 <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" required>
                                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                                <input type="text" id="address" name="address" id="sample6_address" placeholder="주소" style="width:240px" required><br>
-                                <input type="text" id="addressDetail" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px" required><br>
-                                <input type="text" id="addressRef" name="addressRef" id="sample6_extraAddress" placeholder="참고항목" style="width:240px" required><br>
-                               	<input type="hidden" name="count" value="<%=bs.getCount()%>">
+                                <input type="text" name="address" id="sample6_address" placeholder="주소" style="width:240px" required><br>
+                                <input type="text" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px" required><br>
+                                <input type="text" name="addressRef" id="sample6_extraAddress" placeholder="참고항목" style="width:240px" required><br>
+                               	
                             </td>    
                         </tr>
                         <tr>
@@ -285,28 +292,36 @@
                <div class="bigtext right-align box blue summoney"><%=bs.getCount()%>개</div>
                 
                 <hr>
-                <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2,500원</div>
+                <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2500원</div>
+                <div class="bigtext right-align box blue summoney" style="color: black;"><input type="number" name="mile" id="mile"></div>
                 <div class="bigtext right-align box blue summoney" style="color: black;">총상품 금액: 
                     <%int total = 0;                     %>
                     <%for(int i=0; i<bs.getCount(); i++){%>
                     <% total += bs.getPrice();           %>
-                    <% } int all = total+80;         %>
+                    <% } int all = total+90;%>
                     <%= total%>원
                 </div>
-
+				
+				<input type="hidden" name="totalPrice" value="<%= all %>">
                 
                 
-                <hr>
+                
                 
                 <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: <%=all%>원</div>
                 <input type="hidden" name="pName" id="pName" value="<%=bs.getProductName()%>">
                 <input type="hidden" name="price" id="price" value="<%=all%>">
-                
+                <input type="hidden" name="count" value="<%=bs.getCount()%>">
         
             
-                <div id="goorder" class="">
+                
+      
+    
+            </div>
+        </div>
+       </form>
+       
             
-                    <div class="clear"></div>
+                    
             
                     <div class="buttongroup center-align cmd">
                         <% if(loginUser == null){ // 로그인이 안되어있을 경우 %>
@@ -316,12 +331,7 @@
                         <% } %>
                     </div>
             
-                </div>
-      
-    
-            </div>
-        </div>
-       
+                
    </div>
    <script>
         function noPay(){
@@ -379,9 +389,15 @@
     }
 </script>
 
+
+ <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
     function requestPay() {
     	
+    	console.log("결제하기 클릭");
         
         var IMP = window.IMP; // 생략 가능
        IMP.init("imp53614451"); // 예: imp00000000
@@ -389,23 +405,27 @@
       IMP.request_pay({ // param
           pg: "html5_inicis",
           pay_method: "card",
-          merchant_uid: "ORD20180131-0000011",
+          merchant_uid: 'merchant_' + new Date().getTime(),
           name: $("#pName").val(),
           amount: $("#price").val(),
           buyer_email: $("#email").val(),
           buyer_name: $("#name").val(),
           buyer_tel: $("#phone").val(),
-          buyer_addr: $("#address").val(),
-          buyer_postcode: $("#addressCode").val()
+          buyer_addr: $("#sample6_address").val(),
+          buyer_postcode: $("#sample6_postcode").val()
       }, function (rsp) { // callback
+    	  console.log('function 안');
           if (rsp.success) {
               $("#insertAddress").submit();
           } else {
               alert("결제 실패");
           }
       });
+        
+        
     }
-
+    
+  
     
   </script>
 

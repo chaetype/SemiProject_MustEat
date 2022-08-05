@@ -268,10 +268,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 				
 			}
 		</script>
-          <br><br><br>
-  
-	</div>
-	
+
 	<script>
         const $container = document.querySelector('.wrap55');
         const $inputs = [...$container.children];
@@ -292,7 +289,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 		
 		
 	 
-</div>
+
 
 
 
