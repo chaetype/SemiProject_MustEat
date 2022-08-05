@@ -46,8 +46,6 @@ public class MembershipUserListController extends HttpServlet {
 		request.setAttribute("pu", pu);
 		
 		request.setAttribute("pd", pd);
-		
-		System.out.println(pu + " " + pd);
 		 
 		request.getRequestDispatcher("views/jsw/membershipViewsUser.jsp").forward(request, response);
 		
