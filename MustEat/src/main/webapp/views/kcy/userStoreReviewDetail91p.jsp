@@ -3,7 +3,7 @@
 <%
 	Store s = (Store)request.getAttribute("s");
 	StoreReview sr = (StoreReview)request.getAttribute("sr");
-	int streviewNo = (int)request.getAttribute("streviewNo");
+	
 %>
 
 
@@ -115,7 +115,7 @@
         
        
 		
-		<form action="<%= contextPath %>/insert.rp?no=<%=streviewNo%>" id="tos-modify-form" method="post">
+		<form action="<%= contextPath %>/insert.rp" id="tos-modify-form" method="post">
 				
 		<!-- 등록 The Modal -->
 		<div class="modal fade" id="myModal">
@@ -130,8 +130,7 @@
 					    <div class="card px-5 py-5">
 					        <div class="row">
 					        <h1 style="font-family: 'OTWelcomeRA';">신고합니다</h1>
-					            <div class="col-md-6"> <input type="text" name="reportTitle" class="form-control" placeholder="이용약관 제목"></div>
-					            <div class="col-md-6" > 신고유형<br> <input type="radio" name="reportType" value="1">식당리뷰신고<br>
+					            <div class="col-md-6" style="float:left;"> 신고유형<br><br> <input type="radio" name="reportType" value="1">식당리뷰신고<br>
         											  		<input type="radio" name="reportType" value="2">밀키트리뷰신고</div>
 					        </div>
 					        <div class="row mt-3">

@@ -289,5 +289,25 @@
 		     )
 	</entry>
 	
+	<!-- 채윤 식당리뷰 세션 -->
 	
+	<entry key="storeReviewSession">
+		SELECT
+			   RE_NO
+			 , REVIEW_WRITER
+			 , STORE_NO
+			 , REVIEW_IMG
+			 , REVIEW_RATE
+			 , REVIEW_ENROLLDATE
+			 , REVIEW_MODIFYDATE
+			 , REVIEW_STATUE
+			 , REVIEW_IMG_PATH
+			 , VISIT_DATE
+			 , REVIEW_TITLE
+			 , COUNT
+			 , REVIEW_CONTENT
+			 , SR_CATEGORY
+		  FROM STORE_RE
+		 WHERE RE_NO=?
+	</entry>
 </properties>

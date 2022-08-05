@@ -23,6 +23,9 @@ public class StoreReview {
 	private String memLevel;//리뷰작성 회원 등급
 	private String storeName; // 식당명
 	private String reMemNick;//리뷰작성 회원 닉네임
+	private String srCategory;
+	
+	
 	
 	public StoreReview() {
 		
@@ -85,6 +88,42 @@ public class StoreReview {
 		this.reviewTitle = reviewTitle;
 		this.count = count;
 		this.reMemNick = reMemNick;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	public StoreReview(int reNo, String reviewWriter, int storeNo, String reviewImg, 
+			int reviewRate, Date reviewEnrollDate, Date reviewModifyDate, String reviewStatus, String reviewImgPath,
+			String visitDate, String reviewTitle, int count, String reviewContent,String srCategory) {
+		super();
+		this.reNo = reNo;
+		this.reviewWriter = reviewWriter;
+		this.storeNo = storeNo;
+		this.reviewImg = reviewImg;
+		this.reviewRate = reviewRate;
+		this.reviewEnrollDate = reviewEnrollDate;
+		this.reviewModifyDate = reviewModifyDate;
+		this.reviewStatus = reviewStatus;
+		this.reviewImgPath = reviewImgPath;
+		this.visitDate = visitDate;
+		this.reviewTitle = reviewTitle;
+		this.count = count;
+		this.reviewContent = reviewContent;
+		this.srCategory = srCategory;
+	}
+
+	public String getSrCategory() {
+		return srCategory;
+	}
+
+	public void setSrCategory(String srCategory) {
+		this.srCategory = srCategory;
 	}
 
 	public String getReMemNick() {

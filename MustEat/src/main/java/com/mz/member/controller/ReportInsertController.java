@@ -37,13 +37,13 @@ public class ReportInsertController extends HttpServlet {
 		
 		int reportType = Integer.parseInt(request.getParameter("reportType"));//신고타입
 		String reportContent = request.getParameter("reportContent");//신고내용
-		int streviewNo = Integer.parseInt(request.getParameter("no"));//신고당한 리뷰번호
+		int reNo = Integer.parseInt(request.getParameter("no"));//신고당한 리뷰번호
 		String reportedMemId = request.getParameter("reportedMemId");//신고당한 회원아이디 필요
 		String reportMemNickName = ((Member)request.getSession().getAttribute("loginUser")).getMemNickname();//신고한 회원닉네임
 		int memNo= ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 		
 		
-		Report rp = new Report(memNo,reportType,reportContent,streviewNo,reportedMemId,reportMemNickName);
+		Report rp = new Report(memNo,reportType,reportContent,reNo,reportedMemId,reportMemNickName);
 		
 		
 		
@@ -54,7 +54,7 @@ public class ReportInsertController extends HttpServlet {
 		if(result > 0) {
 			// 등록 성공
 			session.setAttribute("alertMsg", "성공적으로 신고되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/detail.sr?no=" + streviewNo);
+			response.sendRedirect(request.getContextPath() + "/detail.sr?no=" + reNo);
 		}else { 
 			// 등록 실패
 			session.setAttribute("alertMsg", "신고 실패");
