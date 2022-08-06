@@ -231,9 +231,9 @@
                     <th>주소</th>
                     <td colspan="3">
                     	<% if( addressCode == null) { %>
-                    	<input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호"> <button onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
+                    	<input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호"> <button type="button" onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
                     	<% } else { %>
-                        <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" value="<%=addressCode %>" > <button onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
+                        <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" value="<%=addressCode %>" > <button type="button" onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
                         <% } %>
                         
                         <% if ( address == null) { %>
