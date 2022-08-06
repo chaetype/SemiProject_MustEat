@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Editor;
@@ -37,6 +38,31 @@ public class StoreDao {
 		}
 		
 	}
+	//채윤
+	
+	public int StoreReviewPaging(Connection conn) {
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("StoreReviewPaging");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+	
 	//채윤
 		/**
 		 * 식당 리뷰 조회

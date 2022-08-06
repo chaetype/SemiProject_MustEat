@@ -16,6 +16,8 @@ import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Point;
 import com.mz.member.model.vo.Report;
 import com.mz.member.model.vo.StoreScrap;
+import com.mz.notice.model.dao.NoticeDao;
+import com.mz.notice.model.vo.Notice;
 
 public class MemberService {
 	//메소드 위에 이름 주석 꼭 달기!!!
@@ -218,9 +220,9 @@ public class MemberService {
 	
 
 	//채윤(신고 목록 조회 / ReportListController와 연결)
-	public ArrayList<Report> selectReportList() {
+	public ArrayList<Report> selectReportList(PageInfo pi) {
 		Connection conn = getConnection();
-		ArrayList<Report> list = new MemberDao().selectReportList(conn);
+		ArrayList<Report> list = new MemberDao().selectReportList(conn,pi);
 		close(conn);
 		return list;
 	}
@@ -454,4 +456,15 @@ public class MemberService {
 					
 			return result;
 	}
+	
+	//채윤 신고 페이징..
+	
+		public int selectReportListCount() {
+			Connection conn = getConnection();
+			int listCount = new MemberDao().selectReportListCount(conn);
+			close(conn);
+			return listCount;
+		}
+		
+		
 }

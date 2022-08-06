@@ -680,7 +680,7 @@ public class MemberDao {
 	 * @param conn
 	 * @return
 	 */
-	public ArrayList<Report> selectReportList(Connection conn){
+	public ArrayList<Report> selectReportList(Connection conn, PageInfo pi){
 		
 		ArrayList<Report> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -690,6 +690,15 @@ public class MemberDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -1358,17 +1367,19 @@ public class MemberDao {
 	// 채윤 신고 페이징...
 		public int selectReportListCount(Connection conn) {
 			int listCount = 0;
+			
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
-			String sql = prop.getProperty("selectReportListCount");
+			String sql = prop.getProperty("selectListCount");
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
 				rset = pstmt.executeQuery();
 				
 				if(rset.next()) {
-					listCount = rset.getInt("count");
+					listCount = rset.getInt("COUNT");
 				}
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {

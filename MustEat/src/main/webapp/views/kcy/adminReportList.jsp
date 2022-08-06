@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Report, com.mz.common.model.vo.PageInfo"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Report, com.mz.common.model.vo.PageInfo" %>
 <%
 	ArrayList<Report> list = (ArrayList<Report>)request.getAttribute("list");
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
@@ -116,7 +116,7 @@
 						<th width="100">신고대상자</th><!--신고당한 사람 가게리뷰에서 가져오기-->
 						<th width="280">리뷰제목</th>
 						<th>신고내용</th><!--신고 한 사람이 작성한 신고 사유-->
-						<th width="145">게시일</th>
+						<th width="145">신고일</th>
 					
 					</tr>
 				</thead>
@@ -161,91 +161,44 @@
 		    <nav aria-label="Page navigation example">
 				<ul class="pagination">
 					<% if(currentPage != 1){ %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=currentPage-1%>">&lt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/list.rp?cpage=<%=currentPage-1%>">&lt;</a></li>
 				    <% } %>
 				    
 				    <% for(int i=startPage; i<=endPage; i++){ %>
 				    	<% if(i == currentPage){ %>
-				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=i%>"><%= i %></a></li>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/list.rp?cpage=<%=i%>"><%= i %></a></li>
 				    	<% }else{ %>
-				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=i%>"><%= i %></a></li>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/list.rp?cpage=<%=i%>"><%= i %></a></li>
 				    	<% } %>
 				    <% } %>
 				    
 				    <% if(currentPage != maxPage){ %>
-				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/list.rp?cpage=<%=currentPage+1%>">&gt;</a></li>
 				    <% } %>
 			    </ul>
 			</nav>					
 		
 		</div>
-    </div>
+ 
 
-    <script type="text/javascript">
-    	
-    	
-        let check = false;
-        // function checkAll(){
-        //     let chk = document.getElementsByName("chk[]");
-        //     console.log(chk);
-        //     if(check==false){
-        //         check=true;
-        //         for(let i=0; i<chk.length; i++){
-        //             chk[i].checked=true;
-        //         }
-        //     }else{
-        //         check=false;
-        //         for(let i=0; i<chk.length; i++){
-        //             chi[i].checked=false;
-        //         }
-        //     }
-        // }
-     
-        function checkAll(checkAll){
-           let checkboxes=document.getElementsByName("check");
-           console.log(checkboxes);
-           checkboxes.forEach((checkbox)=>{
-              console.log(checkbox    );
-              checkbox.checked=checkAll.checked;
-           })
-        }
-        
-     
-     </script>
+    
 	
 
 	
 	<script>
-    	$(function(){
-    		$(".list-area>tbody>tr").click(function(){
-    			const num = $(this).children().eq(0).text(); // 클릭했을때의 글번호
-    			
-    			// 요청할url?키=밸류&키=밸류... 
-    			// 요청시전달값(키=밸류) => 쿼리스트링 
-     			
-    			// /web/detail.no?no=xx
-    			location.href = '<%=contextPath%>/detail.rp?no=' + num;
-    		})
-    	})
+		
+	
+	
     	
     	
-    	function deleteNo(){
-				        	if(confirm("선택한 게시글을 삭제하시겠습니까?")){
-				        		let delArr = [];
-				        		
-				        		$("tbody .chkbox").each(function(){
-				        			if($(this).prop("checked")){
-				        				delArr.push($(this).val());
-				        			}
-				        		});
-				        		
-					        	console.log(delArr.toString());
-				        		
-				        		const str = delArr.toString();
-				        		
-				        		location.href="<%=contextPath%>/deleteNotice.no?cpage=<%=currentPage%>&delNo=" + str;
-				        	}
-				        }
+    	
+    	$(".rwd-table>tbody>tr").click(function(){
+		                	location.href="<%=contextPath%>/detail.st?no=" + $(this).siblings().eq(1).text();
+		                })
+    	
+    	
+    	
+    	
     </script> 
 	
 	

@@ -306,21 +306,29 @@
 	
 	
 
-	<!-- 채윤 : 신고글 -->
+	<!-- 채윤 : 신고글 조회 -->
 	<entry key="selectReportList">
-		SELECT 
-		       REPORT_NO
-		     , REM.MEM_NICKNAME
-		     , SRM.MEM_ID
-		     , SR.REVIEW_TITLE
-		     , REPORT_CONTENT
-             , REPORT_DATE
-		  FROM REPORT RE
-		  JOIN MEMBER REM ON (RE.MEM_NO = REM.MEM_NO)
-          JOIN STORE_RE SR ON (RE.RE_NO = SR.RE_NO)
-          JOIN MEMBER SRM ON (SR.REVIEW_WRITER = SRM.MEM_NO)
-		 ORDER 
-		    BY REPORT_NO DESC
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM, A.*
+		          FROM (
+		  		SELECT
+				       REPORT_NO
+				     , REM.MEM_NICKNAME
+				     , SRM.MEM_ID
+				     , SR.REVIEW_TITLE
+				     , REPORT_CONTENT
+		             , REPORT_DATE
+				  FROM REPORT RE
+				  JOIN MEMBER REM ON (RE.MEM_NO = REM.MEM_NO)
+		          JOIN STORE_RE SR ON (RE.RE_NO = SR.RE_NO)
+		          JOIN MEMBER SRM ON (SR.REVIEW_WRITER = SRM.MEM_NO)
+				 ORDER 
+				    BY REPORT_NO DESC
+				    ) A
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+				
 	</entry>
 	
 	<!-- 은영 (회원 탈퇴 처리) -->
@@ -684,7 +692,7 @@
 	</entry>
 	
 	<!-- 채윤 신고 페이징... -->
-	<entry key="selectNoticeListCount">
+	<entry key="selectReportListCount">
 		SELECT
 		       COUNT(*) AS COUNT
 		  FROM REPORT

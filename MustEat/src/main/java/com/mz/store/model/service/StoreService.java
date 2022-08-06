@@ -8,6 +8,7 @@ import static com.mz.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
 import com.mz.notice.model.dao.NoticeDao;
@@ -18,7 +19,12 @@ import com.mz.store.model.vo.StoreReview;
 
 public class StoreService {
 	//메소드 위에 주석으로 이름 달아두기!!!
-	
+	public int StoreReviewPaging() {
+		Connection conn = getConnection();
+		int listCount = new StoreDao().StoreReviewPaging(conn);
+		close(conn);
+		return listCount;
+	}
 	//채윤(식당 상세조회수)
 	public int increaseCount(int storeNo) {
 		Connection conn = getConnection();
