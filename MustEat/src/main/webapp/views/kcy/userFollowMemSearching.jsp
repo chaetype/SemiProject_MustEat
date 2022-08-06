@@ -73,10 +73,11 @@
 	
 	
 		<form action="<%= contextPath %>/insert.fo" method="post">
+		<div>
         <table class="tt" style="width:100%; background-color: rgb(223, 196, 240);" >
             <% for(Member m : list){ %>
             <tr>
-                <th width="50" name="fingMno"><%=m.getMemNo()%></th>
+                <th width="50"><input type="hidden" name="fingMno" value="<%=m.getMemNo()%>"></th>
                 <td width="70"><img src="<%=contextPath%><%=m.getMemImgPath() %>" style="width: 40px; height:40px; border-radius:50px;
                     overflow:hidden;"></td>
                 <td width="100"><%=m.getMemNickname() %></td>
@@ -90,51 +91,12 @@
             
 
         </table>
+        </div>
         </form>
     </div>
     
     
-    <script>
-
-		var ref = [
-		    {key:1, name:'데이터1'},
-		    {key:2, name:'데이터2'},
-		    {key:3, name:'자바스크립트'},
-		    {key:4, name:'Json'},
-		];
-		
-		var isComplete = false;  //autoMaker 자식이 선택 되었는지 여부
-		$('#search_area').keyup(function(){
-		    var txt = $(this).val();
-		    if(txt != ''){  //빈줄이 들어오면
-		        $('#autoMaker').children().remove();
-		
-		        ref.forEach(function(arg){
-		            if(arg.name.indexOf(txt) > -1 ){
-		                $('#autoMaker').append(
-		                    $('<div>').text(arg.name).attr({'key':arg.key})
-		                );		
-		            }
-		        });
-		        $('#autoMaker').children().each(function(){
-		            $(this).click(function(){
-		                $('#search_area').val($(this).text());
-		                $('#insert_target').val("key : "+$(this).attr('key')+ ", data : " + $(this).text());
-		                $('#autoMaker').children().remove();	
-		                isComplete = true;
-		            });
-		        });			
-		    } else {
-		        $('#autoMaker').children().remove();
-		    }  
-		});
-		$('#search_area').keydown(function(event){
-		    if(isComplete) {  //autoMaker 자식이 선택 되었으면 초기화
-		        $('#insert_target').val('')	
-		    }
-		})
-
-	</script>
+    
 	
 </body>
 </html>

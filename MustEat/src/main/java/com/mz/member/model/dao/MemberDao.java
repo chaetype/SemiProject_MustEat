@@ -1339,8 +1339,8 @@ public class MemberDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 						
-			
-			pstmt.setInt(1, f.getFingMNo());
+			pstmt.setInt(1, f.getfMNo());
+			pstmt.setInt(2, f.getFingMNo());
 				
 						
 			result = pstmt.executeUpdate();
@@ -1355,7 +1355,29 @@ public class MemberDao {
 	}
 	
 	
-	
+	// 채윤 신고 페이징...
+		public int selectReportListCount(Connection conn) {
+			int listCount = 0;
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("selectReportListCount");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					listCount = rset.getInt("count");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return listCount;
+		}
 		
 }
 		

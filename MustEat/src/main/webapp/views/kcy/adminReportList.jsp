@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Report"%>
-<%ArrayList<Report> list = (ArrayList<Report>)request.getAttribute("list");%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Report, com.mz.common.model.vo.PageInfo"%>
+<%
+	ArrayList<Report> list = (ArrayList<Report>)request.getAttribute("list");
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,7 +131,7 @@
                 <td colspan="7"></td>
                 	<% for(Report r : list){ %>
 	                <tr>
-	                	<td data-th="Supplier Code"><input type="checkbox" name="list"></td>
+	                	<td data-th="Supplier Code"><input type="checkbox" class="chkbox" name="list"></td>
 	                    <td><%=r.getReportNo()%></td>
 	                    <td><%= r.getMemNickname()%></td>
 	                    <td><%= r.getMemId()%></td>
@@ -143,7 +150,7 @@
 		
 			<div class="list01" style="float: left;">
 				<!-- <input class="btn1" type="button" id="check_all" value="전체선택" /> -->
-		        <button class="btn1">선택삭제</button>
+		        <button class="btn1" onclick="deleteNo();">선택삭제</button>
 				
 	        </div>
 		
@@ -151,20 +158,60 @@
 	<br><br><br>
 	<div class="wrapper-paging">
 					    
-		<nav aria-label="Page navigation example">
-			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">4</a></li>
-				<li class="page-item"><a class="page-link" href="#">5</a></li>
-				<li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-			</ul>
-		</nav>					
-	
-	</div>
-	<br><br>
+		    <nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<% if(currentPage != 1){ %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=currentPage-1%>">&lt;</a></li>
+				    <% } %>
+				    
+				    <% for(int i=startPage; i<=endPage; i++){ %>
+				    	<% if(i == currentPage){ %>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=i%>"><%= i %></a></li>
+				    	<% }else{ %>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=i%>"><%= i %></a></li>
+				    	<% } %>
+				    <% } %>
+				    
+				    <% if(currentPage != maxPage){ %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/adminNoticeList.no?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    <% } %>
+			    </ul>
+			</nav>					
+		
+		</div>
+    </div>
+
+    <script type="text/javascript">
+    	
+    	
+        let check = false;
+        // function checkAll(){
+        //     let chk = document.getElementsByName("chk[]");
+        //     console.log(chk);
+        //     if(check==false){
+        //         check=true;
+        //         for(let i=0; i<chk.length; i++){
+        //             chk[i].checked=true;
+        //         }
+        //     }else{
+        //         check=false;
+        //         for(let i=0; i<chk.length; i++){
+        //             chi[i].checked=false;
+        //         }
+        //     }
+        // }
+     
+        function checkAll(checkAll){
+           let checkboxes=document.getElementsByName("check");
+           console.log(checkboxes);
+           checkboxes.forEach((checkbox)=>{
+              console.log(checkbox    );
+              checkbox.checked=checkAll.checked;
+           })
+        }
+        
+     
+     </script>
 	
 
 	
@@ -181,6 +228,24 @@
     		})
     	})
     	
+    	
+    	function deleteNo(){
+				        	if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+				        		let delArr = [];
+				        		
+				        		$("tbody .chkbox").each(function(){
+				        			if($(this).prop("checked")){
+				        				delArr.push($(this).val());
+				        			}
+				        		});
+				        		
+					        	console.log(delArr.toString());
+				        		
+				        		const str = delArr.toString();
+				        		
+				        		location.href="<%=contextPath%>/deleteNotice.no?cpage=<%=currentPage%>&delNo=" + str;
+				        	}
+				        }
     </script> 
 	
 	

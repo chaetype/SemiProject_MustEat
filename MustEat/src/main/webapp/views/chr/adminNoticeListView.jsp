@@ -23,7 +23,7 @@
 <style>
     .outer{
         background-color:white;
-        width:70%;
+        width:80%;
         height:100%;    
         margin:auto;
     }
