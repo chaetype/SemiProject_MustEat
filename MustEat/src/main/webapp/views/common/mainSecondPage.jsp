@@ -47,7 +47,7 @@
 
         .thumb1{
             border: 1px solid black;
-            width: 400px;
+            width: 370px;
             height: 500px;
             margin: 50px;
             display: inline-block;

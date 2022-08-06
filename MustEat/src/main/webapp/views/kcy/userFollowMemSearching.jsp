@@ -48,6 +48,7 @@
 </head>
 <body>
 	<%@ include file="../common/menubar.jsp"%>
+	<br><br><br><br>
     <div class="wrap77">
         
         <!-- 검색폼 시작 -->
@@ -67,10 +68,10 @@
 	
 	
 	
-	
-        <table class="tt" style="width:100%;" background = "<%=contextPath%>/resources/image/cy/retrobg.jpg">
-         
+		<form action="<%= contextPath %>/insert.fo" method="post">
+        <table class="tt" style="width:100%; background-color: rgb(223, 196, 240);" >
             <% for(Member m : list){ %>
+            	
             <tr>
                 <th width="50"><%=m.getMemNo() %></th>
                 <td width="70"><img src="<%=contextPath%><%=m.getMemImgPath() %>" style="width: 40px; height:40px; border-radius:50px;
@@ -78,13 +79,15 @@
                 <td width="100"><%=m.getMemNickname() %></td>
                 <td width="100"><%=m.getMemId() %></td>
                 <td width="100">리뷰 갯수 <%=m.getCstreview() %></td>
-                <th width="200"><button class="btn1" style="padding: 0.3em 1.2em;
+                <th width="200"><button type="submit" class="btn1" style="padding: 0.3em 1.2em;
                     margin: 0 0.1em 0.1em 0;">follow</button></th>
             </tr>
+			
 			<%} %>
             
 
         </table>
+        </form>
     </div>
     
     

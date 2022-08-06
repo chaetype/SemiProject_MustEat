@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Follow "%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.StoreScrap"%>
 <%
-	ArrayList<Follow> list = (ArrayList<Follow>)request.getAttribute("followlist");
+	ArrayList<StoreScrap> list = (ArrayList<StoreScrap>)request.getAttribute("list");
 %>
 
 <!DOCTYPE html>
@@ -53,14 +53,14 @@
         <div class="outer661">
         
 
-        	<% for (Follow f : list){ %>
+        	<% for (StoreScrap ss : list){ %>
             <div class="outer66">
-            <input type="hidden" value="<%=f.getFollowNo() %>">
-                <div class="thumbnail66"> <img src="<%=contextPath%><%=f.getProfileImg() %>" style="width: 100%; height:100%;"></div>
+            <input type="hidden" value="<%=ss.getScarpNo() %>">
+                <div class="thumbnail66"> <img src="<%=contextPath%><%=ss.getStoreImg() %>" style="width: 100%; height:100%;"></div>
                 <div class="info66">
                     <table>
                         <tr>
-                            <td style="width: 200px;"><b><%=f.getIngMemName() %></b></td>
+                            <td style="width: 200px;"><b><%=ss.getStoreName() %></b></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -72,21 +72,17 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>팔로워</td>
-                            <td style="color: white; "><%=f.getFollowCount() %></td>
+                            <td>주소</td>
+                            <td style="color: white; "><%=ss.getStoreAddress() %></td>
                         </tr>
                         <tr>
-                            <td>식당리뷰</td>
-                            <td style="color: white; "><%=f.getReviewCount() %></td>
-                        </tr>
-                         <tr>
-                            <td>밀키트리뷰</td>
-                            <td style="color: white; "><%=f.getProreviewCount() %></td>
+                            <td>평점</td>
+                            <td style="color: white; "><%=ss.getReviewRate()%></td>
                         </tr>
                     </table>
                     <br>
                     <button class="btn1" style="padding: 0.2em 1.2em;
-                    margin: 0 0.1em 0.1em 0;">Unfollow</button>
+                    margin: 0 0.1em 0.1em 0;">찜 취소</button>
                 </div>
             </div>
             <br>

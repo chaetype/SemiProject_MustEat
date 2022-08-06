@@ -287,7 +287,7 @@
   <div class="myPageList">
     
     <a href="" class="listTitle">가고싶다</a>
-    <a href="" class="listMore">더보기 ></a>
+    <a href="<%=contextPath %>/list.ss" class="listMore">더보기 ></a>
 
     <table class="list" width="100%">
 

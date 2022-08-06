@@ -9,6 +9,12 @@ public class StoreScrap {
 	private Date scrapDate;
 	private String storeAddress; // 가게주소
 	private int reviewRate; // 평점
+	private int scarpNo;
+	private String storeImg;
+	private String storeName;
+	private int memno;
+	
+	
 	
 	public StoreScrap() {
 		
@@ -28,6 +34,71 @@ public class StoreScrap {
 		this.storeNo = storeNo;
 		this.storeAddress = storeAddress;
 		this.reviewRate = reviewRate;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public StoreScrap(int memno, String storeNo,  String storeImg) {
+		super();
+		this.storeNo = storeNo;
+		this.memno = memno;
+		this.storeImg = storeImg;
+	}
+
+	public StoreScrap(int scarpNo,String storeImg,String storeName,String storeAddress, int reviewRate) {
+		super();
+		this.storeAddress = storeAddress;
+		this.reviewRate = reviewRate;
+		this.scarpNo = scarpNo;
+		this.storeImg = storeImg;
+		this.storeName = storeName;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public int getMemno() {
+		return memno;
+	}
+
+	public void setMemno(int memno) {
+		this.memno = memno;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
+	public String getStoreImg() {
+		return storeImg;
+	}
+
+	public void setStoreImg(String storeImg) {
+		this.storeImg = storeImg;
+	}
+
+	public int getScarpNo() {
+		return scarpNo;
+	}
+
+	public void setScarpNo(int scarpNo) {
+		this.scarpNo = scarpNo;
 	}
 
 	public String getStoreNo() {

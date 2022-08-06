@@ -627,4 +627,41 @@
 		     )
 	</entry>
 	
+	
+	<!-- 채윤 가게 찜 목록 조회 -->
+	<entry key="storeScrapList">
+		SELECT 
+		       SCRAP_NO
+		     , S.STORE_IMG_PATH
+		     , S.STORE_NAME
+		     , S.STORE_ADDRESS
+		     , S.SCRAP_RATE
+		  FROM STORE_SCRAP SS
+		  JOIN STORE S ON (S.STORE_NO = SS.STORE_NO)
+		  JOIN MEMBER M ON (M.MEM_NO = SS.MEM_NO)
+		  WHERE SS.MEM_NO = ?
+		     
+	</entry>
+	
+	<!-- 채윤 가게찜 등록 -->
+	<entry key="storeScrapInsert">
+		INSERT 
+		  INTO STORE_SCRAP
+		     (
+		       STORE_NO
+		     , MEM_NO
+		     , SCRAP_DATE
+		     , SCRAP_NO
+		     , STORE_IMG
+		     )
+		VALUES
+		     (
+		       ?
+		     , ?
+		     , SYSDATE
+		     , SEQ_SSCRAPNO.NEXTVAL
+		     , ?
+		     )
+	</entry>
+	
 </properties>

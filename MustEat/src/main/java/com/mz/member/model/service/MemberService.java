@@ -413,4 +413,28 @@ public class MemberService {
 		
 		return result;
 	}
+	
+	//채윤 가게찜 조회
+	public ArrayList<StoreScrap> storeScrapList(int MNo){
+		Connection conn = getConnection();
+		ArrayList<StoreScrap> list = new MemberDao().storeScrapList(conn, MNo);
+		close(conn);
+		return list;
+	}
+	
+	//채윤 가게 찜 등록
+		public int storeScrapInsert(StoreScrap ss) {
+			Connection conn = getConnection();
+			int result = new MemberDao().storeScrapInsert(conn, ss);
+		
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
 }

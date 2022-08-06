@@ -1223,7 +1223,7 @@ public class MemberDao {
 			
 		}	
 		
-		
+		//채윤 신고 등록
 		
 		public int reportInsert(Connection conn, Report rp) {
 			int result = 0;
@@ -1250,6 +1250,80 @@ public class MemberDao {
 			
 			return result;
 		}
+		
+		
+		
+		//채윤
+				/**
+				 * 찜한 가게 목록 조회
+				 * @param conn
+				 * @return
+				 */
+		public ArrayList<StoreScrap> storeScrapList(Connection conn,int MNo){
+					
+			ArrayList<StoreScrap> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+					
+			String sql = prop.getProperty("storeScrapList");
+					
+					try {
+						pstmt=conn.prepareStatement(sql);
+						pstmt.setInt(1, MNo);
+						rset = pstmt.executeQuery();
+						
+						while(rset.next()) {
+							list.add(new StoreScrap(
+												rset.getInt("SCRAP_NO"),
+												rset.getString("STORE_IMG_PATH"),
+												rset.getString("STORE_NAME"),
+												rset.getString("STORE_ADDRESS"),
+												rset.getInt("SCRAP_RATE")
+												
+												));
+									
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}finally {
+						close(rset);
+						close(pstmt);
+					}
+					
+					return list;
+					
+				}
+
+		
+		
+		
+		
+		//채윤 가게찜 등록
+		
+				public int storeScrapInsert(Connection conn, StoreScrap ss) {
+					int result = 0;
+					PreparedStatement pstmt = null;
+					String sql = prop.getProperty("storeScrapInsert");
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						
+						pstmt.setString(1, ss.getStoreNo());
+						pstmt.setInt(2, ss.getMemno());
+						pstmt.setString(3, ss.getStoreImg());
+						
+						
+						result = pstmt.executeUpdate();
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}finally {
+						close(pstmt);
+					}
+					
+					return result;
+				}
 		
 }
 		
