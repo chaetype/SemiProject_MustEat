@@ -214,8 +214,8 @@
 		<!-- 현재 멤버 총 갯수 조회용 --> 
 		SELECT COUNT(*) as "COUNT"
 		  FROM MEMBER
-		 WHERE MEM_STATUS ='Y'
-		    OR MEM_STATUS ='A'
+		 WHERE (MEM_STATUS ='Y'
+		    OR MEM_STATUS ='A')
 	</entry>
 	
 	<!-- 태민 체크박스 체크된 회원 블랙리스트로 -->
@@ -520,6 +520,176 @@
 		  FROM MEMBER
 		 WHERE MEM_EMAIL = ?
 	</entry>
+	
+	
+	<!-- @@@@@태민 탈퇴상태 회원 관리@@@@ -->
+	 
+	<!-- 태민 페이징 이름별 조회-->
+	<entry key="bselectList">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'Y'
+                OR M.MEM_STATUS = 'A'  
+             ORDER
+                BY MEM_NO DESC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+	
+	<!-- 태민 페이징 탈퇴유형별 조회-->
+	<entry key="bselectList1">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'Y'
+                OR M.MEM_STATUS = 'A'  
+             ORDER
+                BY MEM_NAME ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+	
+	<!-- 태민 페이징 탈퇴일 조회-->
+	<entry key="bselectList2">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'Y'
+                OR M.MEM_STATUS = 'A'  
+             ORDER
+                BY MEM_GRADE ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+		
+		
+		<!-- 태민 탈퇴기간별 조회 -->
+		<entry key="bselectList3">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'Y'
+                OR M.MEM_STATUS = 'A'  
+             ORDER
+                BY MEM_GRADE ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+	
+	<!-- 태민 페이징2 -->
+	<entry key="bselectListCount">
+		<!-- 탈퇴 멤버 총 갯수 조회용 --> 
+		SELECT COUNT(*) as "COUNT"
+		  FROM MEMBER
+		 WHERE (MEM_STATUS ='N'
+		    OR MEM_STATUS ='B')
+	</entry>
+	
+	<!-- 태민 체크박스 체크된 회원정보 삭제 -->
+	<entry key="bwithdrawalMember">
+		UPDATE MEMBER
+		   SET MEM_STATUS = 'B'
+		 WHERE MEM_NO = ?
+		 
+	</entry>
+	
+	<!-- @@@@@태민 탈퇴상태 회원 관리@@@@ -->
+	
+	
+	
 
 	<!-- 서원 사용자 적립금 조회 페이지 사용가능한 적립금 조회 -->
 	<entry key="membershipUseable">
@@ -697,4 +867,6 @@
 		       COUNT(*) AS COUNT
 		  FROM REPORT
 	</entry>
+	
+	
 </properties>

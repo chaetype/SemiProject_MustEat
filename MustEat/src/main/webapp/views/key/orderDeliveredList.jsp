@@ -195,7 +195,7 @@
 	  <!-- 바깥쪽 for문 끝-->
 	
 	  <!-- 상품 '더보기' 영역!!! -->
-	  <% if ( opList.size() >= 10) { %> <!-- 상품 10개 이하면 안보이도록 설정 -->
+	  <% if ( opList.size() >= 5) { %> <!-- 상품 10개 이하면 안보이도록 설정 -->
 	  <div class="viewMore">
 	  	<a href='#' id='load' class='btn1'>더 보기</a>
 	  </div>

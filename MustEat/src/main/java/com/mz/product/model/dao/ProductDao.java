@@ -914,8 +914,34 @@ public class ProductDao {
 		
 	}
 	
-	
-	
+	// 은영
+	/**
+	 * 장바구니 상품 삭제처리하는 Dao
+	 * @param memNo : 로그인한 회원 번호
+	 * @param no : 삭제처리하고자하는 장바구니 번호
+	 * @return : 장바구니 삭제여부가 담긴 int형 변수
+	 */
+	public int deleteBasket(Connection conn, String no) {
+		
+		// delete => 처리된 행 수 반환 => int형 변수
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteBasket") + "WHERE BASKET_NO IN (" + no + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 	
 	
 	

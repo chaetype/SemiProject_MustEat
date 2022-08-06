@@ -455,8 +455,8 @@
 
     <br><br>
 
-    </div>
-
+    
+	<form action="<%=contextPath %>/delete.me" method="get" id="delete-form">
   <!-- 회원 탈퇴에 해당하는 Modal창 -->
 	<div class="modal" id="deleteModal">
 	  <div class="modal-dialog">
@@ -472,7 +472,6 @@
 	      <!-- Modal body -->
 	      <div class="modal-body" align="center">
 	      
-	        <form action="<%=contextPath %>/delete.me" method="post" id="delete-form">
 	        	<input type="hidden" name="userId" value="<%=memId%>">
 	        	
 	        	<%
@@ -513,21 +512,23 @@
 			<br>
             <div align="center">
               <button type="submit" class="plain-btn btn" onclick="return deleteMember();">탈퇴하기</button>
-              <button type="button" class="plain-btn btn" onclick="history.back();">취소</button>
+              <button type="button" class="plain-btn btn" data-dismiss="modal">취소</button>
             </div>
             
             <br><br>
+         </div>
+	  </div>
+	</div> 
 
 	        </form>
 	        
 	        <script>
-
 	       		 $("#alert-none").hide(); // 비밀번호 미입력 안내창 숨기기
 	        	 $("#alert-fail").hide(); // 비밀번호 불일치 안내창 숨기기
 	        	
 	        	function deleteMember() {
 	        		 
-	        		 if( $("deletePwd").val() == null ) {
+	        		 if( $("#deletePwd").val() == null ) {
 	        			 $("#alert-none").show(); // 비밀번호 미입력시 안내창 보이도록 설정
 	        			 return false;
 	        		 } else if( $("#deletePwd").val() != <%=memPwd %>) {
@@ -536,14 +537,11 @@
 	        		} 
 	        		
 	        	}
-
 	        </script>
 
 	        
 	 		</div>
-		 </div>
-	  </div>
-	</div>
+
 
 </body>
 </html>

@@ -165,7 +165,7 @@
                     </tr>
                      
                     <% for(Member m : list){ %>
-                        <tr>
+                        <tr id="detail">
 		                    <th><input type="checkbox" class="chkbox" name="check"></th>
 		                    <td><%= m.getMemNo() %></td>
 		                    <td><%= m.getMemId() %></td>
@@ -179,7 +179,7 @@
                                 <td style="color:blue"><%= m.getMemGrade() %></td>
                             <% } %>    
 		                    <td><%= m.getMemPhone() %></td>
-                            <% if(m.getAddress() ==  null || m.getAddressDetail() == null) {%>
+                            <% if(m.getAddress()==null || m.getAddressDetail() == null) {%>
                                 <td>없음</td>
                             <% }else{ %>
                                 <td><%= m.getAddress() %><br><%= m.getAddressDetail() %></td>
@@ -209,7 +209,7 @@
                         data:{delArr:delArr},
                         success:function(result){   
                             if(result=='NNN'){
-                                alert('hi');
+                                location.href="<%=contextPath%>/allMembersList.bo?cpage=<%= currentPage %>&a=<%=a%>&c=<%=c%>&search=";
                             }else{
                                 alert('bye');
                             }
@@ -299,7 +299,19 @@
             }
             
 
-            // 
+            // 회원 상세정보로 가는 길
+            
+            $(function(){
+                $("#detail").click(function(){
+                    const num = $(this).children.eq(0).text(); // 클릭했을때의 글번호
+                    
+                    // 요청할url?키=밸류&키=밸류... 
+                    // 요청시전달값(키=밸류) => 쿼리스트링 
+                    
+                    // /web/detail.no?no=xx
+                    location.href = '<%=contextPath%>/detail.no?no=' + num;
+    		    })
+    	    })
         </script>
 
     </div>
