@@ -47,6 +47,7 @@ public class FollowInsertController extends HttpServlet {
 		int result = new MemberService().followInsert(f);
 //		System.out.println(f);
 		
+		
 		HttpSession session = request.getSession();
 		if(result > 0) {
 			// 등록 성공

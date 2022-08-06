@@ -683,4 +683,10 @@
 		     )
 	</entry>
 	
+	<!-- 채윤 신고 페이징... -->
+	<entry key="selectNoticeListCount">
+		SELECT
+		       COUNT(*) AS COUNT
+		  FROM REPORT
+	</entry>
 </properties>
