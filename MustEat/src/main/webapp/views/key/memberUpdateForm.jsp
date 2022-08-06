@@ -507,8 +507,8 @@
               <div><input type="password" name="deletePwd" id="deletePwd"></div>
 			</div>
 			
-			 <div id="alert-fail" style="padding-left:31px; font-size:12px; color:red;">비밀번호를 잘못 입력하셨습니다. 다시 입력해주세요.</div>
-			 <div id="alert-none" style="padding-left:31px; font-size:12px; color:red;">비밀번호를 입력해주세요.</div>
+			 <div id="alert-fail" style="padding-left:31px; font-size:12px; color:red; display:none;">비밀번호를 잘못 입력하셨습니다. 다시 입력해주세요.</div>
+			 <div id="alert-none" style="padding-left:31px; font-size:12px; color:red; display:none;">비밀번호를 입력해주세요.</div>
 
 			<br>
             <div align="center">

@@ -426,5 +426,27 @@ public class ProductService {
 		return result;
 	}
 	
+	// 은영
+	/**
+	 * 장바구니 상품 삭제처리하는 Dao
+	 * @param memNo : 로그인한 회원 번호
+	 * @param no : 삭제처리하고자하는 장바구니 번호
+	 * @return : 장바구니 삭제여부가 담긴 int형 변수
+	 */
+	public int deleteBasket(String no) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ProductDao().deleteBasket(conn, no);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		return result;
+	}
+	
 }
 
