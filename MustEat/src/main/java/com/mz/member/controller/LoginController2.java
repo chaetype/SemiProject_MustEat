@@ -53,11 +53,19 @@ public class LoginController2 extends HttpServlet {
 			
 		}else { // 로그인성공  ==> ?
 			
-			session.setAttribute("loginUser", loginUser);
+			if(loginUser.getMemStatus().equals("Y")) {
+				
+				session.setAttribute("loginUser", loginUser);
+				response.sendRedirect(request.getContextPath()); 
+				
+			}else {
+				
+				session.setAttribute("loginUser", loginUser);
+				RequestDispatcher view = request.getRequestDispatcher("views/common/adminMenubar.jsp");
+				view.forward(request, response);
+				
+			}
 			
-			response.sendRedirect(request.getContextPath()); 
-			
-			//System.out.println(loginUser);
 		}
 	}
 

@@ -113,9 +113,9 @@
         <div style="display: inline; padding-left: 10%">
             <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
                 <option id="x" value="no">이름</option>
-                <option id="y" value="name">탈퇴기간</option>
+                <option id="y" value="name">탈퇴유형</option>
                 <option id="z" value="grade">탈퇴일</option>
-                <option id="k" value="kkk">탈퇴유형</option>
+                <option id="k" value="kkk">탈퇴기간</option>
             </select>
         </div>
 
@@ -306,6 +306,8 @@
                     break;
                     case 'grade' : location.href="<%=contextPath%>/memberWithdrawalAdmin.bo?cpage=<%=currentPage%>&a=3&c=grade&search=<%=search%>";
                     break; 
+                    case 'kkk' : location.href="<%=contextPath%>/memberWithdrawalAdmin.bo?cpage=<%=currentPage%>&a=4&c=kkk&search=<%=search%>";
+                    break;
 			    }
 	        });
 

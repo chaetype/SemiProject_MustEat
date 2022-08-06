@@ -46,8 +46,11 @@ public class AllMembersListController1 extends HttpServlet {
 		int startPage;    // 페이징바의 시작수  
 		int endPage;	  // 페이징바의 끝수
 
+		// 검색어
+		String search = request.getParameter("search");
+		
 		// * listcount : 현재 게시글 총갯수
-		listCount = new MemberService().selectListCount();
+		listCount = new MemberService().selectListCount(search);
 		
 		// System.out.println(listCount);
 		
@@ -99,11 +102,10 @@ public class AllMembersListController1 extends HttpServlet {
 		int a = Integer.parseInt(request.getParameter("a"));
 		String c = request.getParameter("c");
 				
-		String search = request.getParameter("search");
 		System.out.println(search);
 		
 		ArrayList<Member> list = null;
-		int count = new MemberService().selectListCount();
+		int count = new MemberService().selectListCount(search);
 				
 		if(a==1) {
 			list = new MemberService().selectList(pi, search);
