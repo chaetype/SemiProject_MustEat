@@ -454,7 +454,7 @@ public class MemberDao {
 											   rset.getString("MEM_IMGPATH"),
 											   rset.getString("WITHDRAW")
 											   ));
-							System.out.println(list);
+							
 						}
 						
 					} catch (SQLException e) {
@@ -525,6 +525,54 @@ public class MemberDao {
 				
 			}
 			
+			// 태민 체크박스 선택된 회원 정보수정일 sysdate로 업데이트
+			public int modifyDate(Connection conn, String userNo) {
+				
+				int result = 0;
+				PreparedStatement pstmt = null;
+				
+				String sql = prop.getProperty("modifyDate");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userNo);
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+				
+			}
+			
+			// 태민 체크박스 선택된 회원상태 정상으로 변경
+			public int revivalMember(Connection conn, String userNo) {
+				
+				int result = 0;
+				PreparedStatement pstmt = null;
+				
+				String sql = prop.getProperty("revivalMember");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userNo);
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+				
+			}
+			
 			/////////////////////////탈퇴상태 멤버 관리////////////////
 			
 			// 태민 이름별 조회
@@ -533,7 +581,7 @@ public class MemberDao {
 				ArrayList<Member> list = new ArrayList();
 				PreparedStatement pstmt  = null;
 				ResultSet rset = null;
-				String sql = prop.getProperty("selectList");
+				String sql = prop.getProperty("bselectList");
 				
 				if(!(search.equals("") || search == null)) {
 					sql += "AND MEM_NAME LIKE '%"+search+"%'";
@@ -577,7 +625,8 @@ public class MemberDao {
 										   rset.getString("ADDRESS_DETAIL"),
 										   rset.getString("ADDRESS_REF"),
 										   rset.getString("MEM_IMGPATH"),
-										   rset.getString("WITHDRAW")
+										   rset.getString("WITHDRAW"),
+										   rset.getInt("DAY")
 										   ));
 					}
 					
@@ -597,7 +646,7 @@ public class MemberDao {
 					ArrayList<Member> list = new ArrayList();
 					PreparedStatement pstmt  = null;
 					ResultSet rset = null;
-					String sql = prop.getProperty("selectList1");
+					String sql = prop.getProperty("bselectList1");
 					
 					if(!(search.equals("") || search == null)) {
 						sql += "AND MEM_NAME LIKE '%"+search+"%'";
@@ -641,7 +690,8 @@ public class MemberDao {
 											   rset.getString("ADDRESS_DETAIL"),
 											   rset.getString("ADDRESS_REF"),
 											   rset.getString("MEM_IMGPATH"),
-											   rset.getString("WITHDRAW")
+											   rset.getString("WITHDRAW"),
+											   rset.getInt("DAY")
 											   ));
 						}
 						
@@ -661,7 +711,7 @@ public class MemberDao {
 					ArrayList<Member> list = new ArrayList();
 					PreparedStatement pstmt  = null;
 					ResultSet rset = null;
-					String sql = prop.getProperty("selectList2");
+					String sql = prop.getProperty("bselectList2");
 					
 					if(!(search.equals("") || search == null)) {
 						sql += "AND MEM_NAME LIKE '%"+search+"%'";
@@ -705,9 +755,10 @@ public class MemberDao {
 											   rset.getString("ADDRESS_DETAIL"),
 											   rset.getString("ADDRESS_REF"),
 											   rset.getString("MEM_IMGPATH"),
-											   rset.getString("WITHDRAW")
+											   rset.getString("WITHDRAW"),
+											   rset.getInt("DAY")
 											   ));
-							System.out.println(list);
+							
 						}
 						
 					} catch (SQLException e) {
@@ -727,7 +778,7 @@ public class MemberDao {
 					ArrayList<Member> list = new ArrayList();
 					PreparedStatement pstmt  = null;
 					ResultSet rset = null;
-					String sql = prop.getProperty("selectList2");
+					String sql = prop.getProperty("bselectList3");
 					
 					if(!(search.equals("") || search == null)) {
 						sql += "AND MEM_NAME LIKE '%"+search+"%'";
@@ -771,9 +822,9 @@ public class MemberDao {
 											   rset.getString("ADDRESS_DETAIL"),
 											   rset.getString("ADDRESS_REF"),
 											   rset.getString("MEM_IMGPATH"),
-											   rset.getString("WITHDRAW")
+											   rset.getString("WITHDRAW"),
+											   rset.getInt("DAY")
 											   ));
-							System.out.println(list);
 						}
 						
 					} catch (SQLException e) {
@@ -795,7 +846,7 @@ public class MemberDao {
 				PreparedStatement pstmt = null;
 				ResultSet rset = null;
 				
-				String sql = prop.getProperty("selectListCount");
+				String sql = prop.getProperty("bselectListCount");
 				
 				if(!(search.equals("") || search == null)) { 
 					sql += "AND MEM_NAME LIKE '%"+search+"%'";
@@ -826,7 +877,7 @@ public class MemberDao {
 				int result = 0;
 				PreparedStatement pstmt = null;
 				
-				String sql = prop.getProperty("withdrawalMember");
+				String sql = prop.getProperty("bwithdrawalMember");
 				
 				try {
 					pstmt = conn.prepareStatement(sql);
@@ -843,6 +894,8 @@ public class MemberDao {
 				return result;
 				
 			}
+			
+
 						
 			/////////////////////////////////////////////////////////
 						

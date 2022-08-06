@@ -110,11 +110,11 @@
         <p align="center">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
         <br>
 
-        <div style="display: inline; padding-left: 10%">
+        <div style="display: inline; padding-left: 11%">
             <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
                 <option id="x" value="no">회원번호</option>
-                <option id="y" value="name">이름</option>
                 <option id="z" value="grade">회원등급</option>
+                <option id="y" value="name">이름</option>
             </select>
         </div>
 
@@ -179,8 +179,8 @@
                                 <td style="color:blue"><%= m.getMemGrade() %></td>
                             <% } %>    
 		                    <td><%= m.getMemPhone() %></td>
-                            <% if(m.getAddress()==null || m.getAddressDetail() == null) {%>
-                                <td>없음</td>
+                            <% if(m.getAddress().equals("(null)")) {%>
+                                <td></td>
                             <% }else{ %>
                                 <td><%= m.getAddress() %><br><%= m.getAddressDetail() %></td>
                             <% } %>

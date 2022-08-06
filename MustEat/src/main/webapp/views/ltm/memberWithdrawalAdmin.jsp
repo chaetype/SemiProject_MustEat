@@ -112,10 +112,10 @@
 
         <div style="display: inline; padding-left: 10%">
             <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
-                <option id="x" value="no">이름</option>
+                <option id="k" value="kkk">탈퇴기간</option>
                 <option id="y" value="name">탈퇴유형</option>
                 <option id="z" value="grade">탈퇴일</option>
-                <option id="k" value="kkk">탈퇴기간</option>
+                <option id="x" value="no">이름</option>
             </select>
         </div>
 
@@ -137,9 +137,11 @@
 
         <p style="display:inline-block; font-size: larger; font-size: x-large;" >총 탈퇴 회원 : <%=count%> 명</p>
 
-        <div style="display:inline; padding-left:52%">
+
+        <div style="display:inline; padding-left:45%">
+            <button onclick="revivalNo();" class="btn1" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" >회원 복원</button>
             <button onclick="deleteNo();" class="btn1" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" >회원 삭제</button>
-        </div>
+        </div>        
         
         <br>
 
@@ -174,36 +176,19 @@
 		                    <td><%= m.getMemId() %></td>
 		                    <td><%= m.getMemName() %></td>
                             <td><%= m.getMemNickname() %></td>
-                            <% if(m.getMemGrade().equals("일반")){ %>
-                                <td style="color:black"><%= m.getMemGrade() %></td>
-                            <% }else if(m.getMemGrade().equals("관리자")){ %>
-                                <td style="color:red"><%= m.getMemGrade() %></td>
-                            <% }else {%>
-                                <td style="color:blue"><%= m.getMemGrade() %></td>
-                            <% } %>    
+                            <% if(m.getMemStatus().equals("N")){ %>
+                                <td style="color:black">일반</td>
+                            <% }else if(m.getMemStatus().equals("B")){ %>
+                                <td style="color:red">강제</td>
+                            <% } %> 
 		                    <td><%= m.getMemPhone() %></td>
-                            <% if(m.getAddress() ==  null || m.getAddressDetail() == null) {%>
-                                <td>없음</td>
-                            <% }else{ %>
-                                <td><%= m.getAddress() %><br><%= m.getAddressDetail() %></td>
-                            <% } %>
-		                    <td><%= m.getMemEmail() %></td>
-                            <td><%= m.getMemEmail() %></td>
+                            <td><%= m.getEnrollDate() %></td>
+                            <td><%= m.getModifyDate() %></td>
+		                    <td><%= m.getDay() %></td>
+
 		                </tr>
                      <%} %>
                 <%} %>
-                <!-- <tr>
-                    <th><input type="checkbox"></th>
-                    <td>1</td>
-                    <td>user1</td>
-                    <td>백혜린</td>
-                    <td>일반</td>
-                    <td>010-1111-2222</td>
-                    <td>2012.10.30</td>
-                    <td>2015.10.30</td>
-                    <td>87</td>
-                    <td><button class="delete2">삭제</button></td>
-                </tr> -->
                 
             </tbody>
         </table> 
@@ -212,7 +197,7 @@
             // 선택한 체크박스 삭제
             // prev
             function deleteNo(){
-                if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+                if(confirm("선택한 회원정보를 삭제하시겠습니까?")){
                     let delArr = []
                     let tr = $('input[class="chkbox"]:checked')
                     $(tr).each(function(){
@@ -220,7 +205,7 @@
                     })
                     //console.log(delArr);
                     $.ajax({
-                        url:"<%=request.getContextPath()%>//memberWithdrawalAdmin.bo2.bo",
+                        url:"<%=request.getContextPath()%>/memberWithdrawalAdmin2.bo",
                         traditional: true,
                         data:{delArr:delArr},
                         success:function(result){   
@@ -231,6 +216,33 @@
                             }
                         },error:function(){
                             console.log("블랙리스트처리 중복체크용 ajax 통신 실패");
+                        }
+        		    });
+                }
+            }
+
+
+            // 선택한 체크박스 복구
+            function revivalNo(){
+                if(confirm("선택한 회원정보를 복구하시겠습니까?")){
+                    let delArr = []
+                    let tr = $('input[class="chkbox"]:checked')
+                    $(tr).each(function(){
+                       delArr.push( $(this).parent().next().text())
+                    })
+                    //console.log(delArr);
+                    $.ajax({
+                        url:"<%=request.getContextPath()%>/memberWithdrawalAdmin3.bo",
+                        traditional: true,
+                        data:{delArr:delArr},
+                        success:function(result){   
+                            if(result=='NNN'){
+                                location.href="<%=contextPath%>/memberWithdrawalAdmin.bo?cpage=<%= currentPage %>&a=<%=a%>&c=<%=c%>&search=";
+                            }else{
+                                alert('bye');
+                            }
+                        },error:function(){
+                            console.log("회원 복구 ajax 통신 실패");
                         }
         		    });
                 }
@@ -321,17 +333,17 @@
 
             // 회원 상세정보로 가는 길
             
-            $(function(){
-                $("#detail").click(function(){
-                    const num = $(this).children.eq(0).text(); // 클릭했을때의 글번호
+            // $(function(){
+            //     $("#detail").click(function(){
+            //         const num = $(this).children.eq(0).text(); // 클릭했을때의 글번호
                     
-                    // 요청할url?키=밸류&키=밸류... 
-                    // 요청시전달값(키=밸류) => 쿼리스트링 
+            //         // 요청할url?키=밸류&키=밸류... 
+            //         // 요청시전달값(키=밸류) => 쿼리스트링 
                     
-                    // /web/detail.no?no=xx
-                    location.href = '<%=contextPath%>/detail.no?no=' + num;
-    		    })
-    	    })
+            //         // /web/detail.no?no=xx
+            //         location.href = '<%=contextPath%>/detail.no?no=' + num;
+    		//     })
+    	    // })
         </script>
 
 
