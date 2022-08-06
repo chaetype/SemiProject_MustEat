@@ -35,16 +35,10 @@ public class DeleteBasketController extends HttpServlet {
 		
 		String no = request.getParameter("no");
 		
-		
 		int result = new ProductService().deleteBasket(no);
-		
-		System.out.println(no);
-		System.out.println(result);
-		
+
 		response.getWriter().print(result);
-		
-		
-		
+
 	}
 
 	/**
