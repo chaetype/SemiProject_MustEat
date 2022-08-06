@@ -113,8 +113,8 @@
         <div style="display: inline; padding-left: 10%">
             <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
                 <option id="x" value="no">회원번호</option>
-                <option id="y" value="name">이름</option>
                 <option id="z" value="grade">회원등급</option>
+                <option id="y" value="name">이름</option>
             </select>
         </div>
 
@@ -165,7 +165,7 @@
                     </tr>
                      
                     <% for(Member m : list){ %>
-                        <tr>
+                        <tr id="detail">
 		                    <th><input type="checkbox" class="chkbox" name="check"></th>
 		                    <td><%= m.getMemNo() %></td>
 		                    <td><%= m.getMemId() %></td>
@@ -179,8 +179,8 @@
                                 <td style="color:blue"><%= m.getMemGrade() %></td>
                             <% } %>    
 		                    <td><%= m.getMemPhone() %></td>
-                            <% if(m.getAddress() ==  null || m.getAddressDetail() == null) {%>
-                                <td>없음</td>
+                            <% if(m.getAddress() == null) {%>
+                                <td></td>
                             <% }else{ %>
                                 <td><%= m.getAddress() %><br><%= m.getAddressDetail() %></td>
                             <% } %>
@@ -209,7 +209,7 @@
                         data:{delArr:delArr},
                         success:function(result){   
                             if(result=='NNN'){
-                                alert('hi');
+                                location.href="<%=contextPath%>/allMembersList.bo?cpage=<%= currentPage %>&a=<%=a%>&c=<%=c%>&search=";
                             }else{
                                 alert('bye');
                             }
@@ -299,7 +299,19 @@
             }
             
 
-            // 
+            // 회원 상세정보로 가는 길
+            
+            $(function(){
+                $("#detail").click(function(){
+                    const num = $(this).children.eq(0).text(); // 클릭했을때의 글번호
+                    
+                    // 요청할url?키=밸류&키=밸류... 
+                    // 요청시전달값(키=밸류) => 쿼리스트링 
+                    
+                    // /web/detail.no?no=xx
+                    location.href = '<%=contextPath%>/detail.no?no=' + num;
+    		    })
+    	    })
         </script>
 
     </div>

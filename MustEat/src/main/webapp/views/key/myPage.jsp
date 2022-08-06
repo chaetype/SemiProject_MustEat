@@ -42,9 +42,11 @@
 
     <div class="purpleContainer">
       <div class="myPage-user">
-      <% if ( m.getMemImgPath() == null ) {  %>
+      <% if ( m.getMemImgPath() == null ) {  %> <!-- 프로필 없을 떄 -->
        <img src="<%=request.getContextPath()%>/resources/image/user.png" id="noneIcon">
-      <% } else { %>
+      <% } else if ( m.getMemImgPath().equals("/MustEat/resources/image/user.png") ) { %> <!-- 기본 이미지로 변경시 -->
+       <img src="<%=request.getContextPath()%>/resources/image/user.png" id="noneIcon">
+      <% } else { %> <!-- 프로필을 변경할 때 (기본이미지가 아닐 떄) -->
         <img src="<%=m.getMemImgPath() %>" id="userIcon">
       <% } %>
         <div class="userInfo">
@@ -287,7 +289,7 @@
   <div class="myPageList">
     
     <a href="" class="listTitle">가고싶다</a>
-    <a href="" class="listMore">더보기 ></a>
+    <a href="<%=contextPath %>/list.ss" class="listMore">더보기 ></a>
 
     <table class="list" width="100%">
 

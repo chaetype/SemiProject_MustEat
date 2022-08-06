@@ -15,7 +15,8 @@
     .wrap66{
         /* border: 1px solid black; */
         width : 80%;
-		margin : auto;        
+        margin-left:20%;
+        
     }
     .outer{
         /* border: 1px solid blue; */
@@ -38,7 +39,7 @@
     }
     .outer661{
         background-color: rgb(231, 216, 241);
-        width: 100%;
+        width: 70%;
         margin-top: 50px;
        
     }

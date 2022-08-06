@@ -148,8 +148,8 @@
 	
 	          <div class="orderButton">
 	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">구매하기</a>
-	            <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal">주문수정</button>
-	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">상품삭제</a>
+	            <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal" style="display:none;">주문수정</button>
+	            <a class="plain-btn btn" onclick="return deleteCart(<%=bk.getBasketNo() %>);">상품삭제</a>
 	          </div>
 	      
 
@@ -159,6 +159,33 @@
 			   function orderStatus(status) { // 실행시 전달되는 값을 담는 매개변수
 				location.href="<%=contextPath%>/orderStatusList.pro?status=" + status;
 			}
+			
+			function deleteCart(basketNo) {
+				if(confirm("상품을 삭제하시겠습니까?")) {
+					
+					$.ajax({
+						url : "<%=contextPath%>/deleteBasket.pro",
+						data : { no:basketNo },
+						success : function(result) {
+							
+							if(result == 1) {
+								location.reload(); // 기존페이지에서 그대로 삭제처리됨
+							} else {
+								alert("상품을 삭제하는데 실패했습니다. 다시 시도해주세요.");
+							}
+							console.log("ajax 통신 성공");
+							
+						},
+						error : function(result) {
+							console.log("ajax 통신 실패");
+						}
+					});
+					
+				} else {
+					return false;
+				}
+			}
+			
 		
 		</script>
 	          
@@ -184,7 +211,7 @@
 	  	<button type="button" id="buy" class="choose btn1" onclick="chkClick();">전체 선택</button>
 	  	<input type="checkbox" id="checkAll" name="checkAll" onclick="chooseAll(this);" style="display:none;">
 	  	<button type="button" id="chooseBuy" class="chooseBuy btn1" onclick="chooseBuy();">선택한 상품 구매하기</button>
-	  	<button type="button" id="delete" class="choose btn1" onclick="chooseDelete();">선택 삭제</button>
+	  	<button type="button" id="delete" class="choose btn1" onclick="return chooseDelete();">선택 삭제</button>
 	  </div>
 	  
 	  <!-- 상품 '더보기' 영역!!! -->
@@ -229,26 +256,33 @@
 		
 		if(confirm("선택한 상품을 삭제하시겠습니까?")) {
 			
-			let delArr = [];
+			let checkArr = [];
 			
 		$(".check").each(function() {
 				if($(this).prop("checked")) {
-					delArr.push( $(this).val() );
+					checkArr.push( $(this).val() );
 				}
 			});
+		
+		const basketNo = checkArr.toString();
+		console.log(basketNo);
 			
-			console.log(delArr.toString());
+		$.ajax({
+			url : "<%=contextPath%>/deleteBasket.pro",
+			data : { no:basketNo },
+			success : function(result) {
+					location.reload();
+			},
+			error : function() {
+				console.log("ajax 통신 실패");
+			}
+		});
 			
-			const str = delArr.toString();
-			
-			location.href="<%=contextPath%>/deleteBasket.pro?no=" + str;
-			
+		} else {
+			return false;
 		}
 		
-	}
-	
-
-
+	};
 
 		$(function(){
 			

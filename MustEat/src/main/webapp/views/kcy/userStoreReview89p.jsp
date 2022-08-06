@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.StoreReview"%>
-<%ArrayList<StoreReview> list = (ArrayList<StoreReview>)request.getAttribute("list");%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.StoreReview, com.mz.common.model.vo.PageInfo"%>
+<%
+	ArrayList<StoreReview> list = (ArrayList<StoreReview>)request.getAttribute("list");
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
     
 <!DOCTYPE html>
 <html>
@@ -327,27 +334,36 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	<div class="wrapper-paging">
 					    
-		<nav aria-label="Page navigation example">
-			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">4</a></li>
-				<li class="page-item"><a class="page-link" href="#">5</a></li>
-				<li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-			</ul>
-		</nav>					
+		    <nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<% if(currentPage != 1){ %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/srlist.st?cpage=<%=currentPage-1%>">&lt;</a></li>
+				    <% } %>
+				    
+				    <% for(int i=startPage; i<=endPage; i++){ %>
+				    	<% if(i == currentPage){ %>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/srlist.st?cpage=<%=i%>"><%= i %></a></li>
+				    	<% }else{ %>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/srlist.st?cpage=<%=i%>"><%= i %></a></li>
+				    	<% } %>
+				    <% } %>
+				    
+				    <% if(currentPage != maxPage){ %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/srlist.st?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    <% } %>
+			    </ul>
+			</nav>					
+		
+		</div>
+ 
 	
-	</div>
+	
+	
+	
+	
+	
 	<br><br><br><br><br>
 	
 	
@@ -361,7 +377,7 @@
     			// 요청시전달값(키=밸류) => 쿼리스트링 
      			
     			// /web/detail.no?no=xx
-    			location.href = '<%=contextPath%>/detail.sr?no=' + num;
+    			location.href = '<%=contextPath%>/detail.sr?reno=' + num;
     		})
     	})
     	

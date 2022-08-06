@@ -60,6 +60,13 @@ public class Follow {
 	}
 	
 	
+	public Follow(int fMNo, int fingMNo) {
+		super();
+		this.fMNo = fMNo;
+		this.fingMNo = fingMNo;
+	}
+
+
 	public int getFollowNo() {
 		return followNo;
 	}

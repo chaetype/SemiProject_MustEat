@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Report;
+import com.mz.notice.model.service.NoticeService;
+import com.mz.notice.model.vo.FAQ;
+import com.mz.product.model.service.ProductService;
 
 /**
  * Servlet implementation class ReportListController
@@ -31,10 +35,25 @@ public class ReportListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 신고 목록 조회용 
+		int listCount = new MemberService().selectReportListCount();
+		int currentPage = Integer.parseInt(request.getParameter("cpage"));
+		int pageLimit = 5;
+		int boardLimit = 10;
 		
-		ArrayList<Report> list = new MemberService().selectReportList();
-				
+		int maxPage = (int)Math.ceil((double)listCount / boardLimit);
+		int startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
+		int endPage = startPage + pageLimit - 1;
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+		
+		
+		request.setAttribute("pi", pi);
+		
+		ArrayList<Report> list = new MemberService().selectReportList(pi);
+		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("views/kcy/adminReportList.jsp").forward(request, response);
 	}

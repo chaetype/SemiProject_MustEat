@@ -214,14 +214,22 @@
 		<!-- 현재 멤버 총 갯수 조회용 --> 
 		SELECT COUNT(*) as "COUNT"
 		  FROM MEMBER
-		 WHERE MEM_STATUS ='Y'
-		    OR MEM_STATUS ='A'
+		 WHERE (MEM_STATUS ='Y'
+		    OR MEM_STATUS ='A')
 	</entry>
 	
 	<!-- 태민 체크박스 체크된 회원 블랙리스트로 -->
 	<entry key="withdrawalMember">
 		UPDATE MEMBER
 		   SET MEM_STATUS = 'B'
+		 WHERE MEM_NO = ?
+		 
+	</entry>
+	
+	<!-- 태민 체크박스 체크된 회원 블랙리스트로 -->
+	<entry key="modifyDate">
+		UPDATE MEMBER
+		   SET MEM_MODIFYDATE = SYSDATE
 		 WHERE MEM_NO = ?
 		 
 	</entry>
@@ -306,21 +314,29 @@
 	
 	
 
-	<!-- 채윤 : 신고글 -->
+	<!-- 채윤 : 신고글 조회 -->
 	<entry key="selectReportList">
-		SELECT 
-		       REPORT_NO
-		     , REM.MEM_NICKNAME
-		     , SRM.MEM_ID
-		     , SR.REVIEW_TITLE
-		     , REPORT_CONTENT
-             , REPORT_DATE
-		  FROM REPORT RE
-		  JOIN MEMBER REM ON (RE.MEM_NO = REM.MEM_NO)
-          JOIN STORE_RE SR ON (RE.RE_NO = SR.RE_NO)
-          JOIN MEMBER SRM ON (SR.REVIEW_WRITER = SRM.MEM_NO)
-		 ORDER 
-		    BY REPORT_NO DESC
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM, A.*
+		          FROM (
+		  		SELECT
+				       REPORT_NO
+				     , REM.MEM_NICKNAME
+				     , SRM.MEM_ID
+				     , SR.REVIEW_TITLE
+				     , REPORT_CONTENT
+		             , REPORT_DATE
+				  FROM REPORT RE
+				  JOIN MEMBER REM ON (RE.MEM_NO = REM.MEM_NO)
+		          JOIN STORE_RE SR ON (RE.RE_NO = SR.RE_NO)
+		          JOIN MEMBER SRM ON (SR.REVIEW_WRITER = SRM.MEM_NO)
+				 ORDER 
+				    BY REPORT_NO DESC
+				    ) A
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+				
 	</entry>
 	
 	<!-- 은영 (회원 탈퇴 처리) -->
@@ -512,6 +528,191 @@
 		  FROM MEMBER
 		 WHERE MEM_EMAIL = ?
 	</entry>
+	
+	
+	<!-- @@@@@태민 탈퇴상태 회원 관리@@@@ -->
+	 
+	<!-- 태민 페이징 이름별 조회-->
+	<entry key="bselectList">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
+             ORDER
+                BY MEM_NAME ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+	
+	<!-- 태민 페이징 탈퇴유형별 조회-->
+	<entry key="bselectList1">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
+             ORDER
+                BY M.MEM_STATUS ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+	
+	<!-- 태민 페이징 탈퇴일 조회-->
+	<entry key="bselectList2">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
+             ORDER
+                BY MEM_MODIFYDATE DESC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+	</entry>
+		
+		
+		<!-- 태민 탈퇴기간별 조회 -->
+		<entry key="bselectList3">
+		<!-- 사용자가 요청한 페이지에 필요한 게시글 리스트 조회 --> 
+		SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      MEM_NO
+					, MEM_ID
+					, MEM_PWD
+					, MEM_NAME
+					, MEM_PHONE
+					, MEM_EMAIL
+					, MEM_ENROLLDATE
+					, MEM_MODIFYDATE
+					, MEM_STATUS
+					, MEM_NICKNAME
+					, MEM_GRADE
+					, ADDRESS_CODE
+					, ADDRESS
+					, ADDRESS_DETAIL
+					, ADDRESS_REF
+					, MEM_IMGPATH
+					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
+              FROM MEMBER M
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
+		     ORDER
+          	     BY DAY ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+		
+        	
+		
+	</entry>
+	
+	<!-- 태민 페이징2 -->
+	<entry key="bselectListCount">
+		<!-- 탈퇴 멤버 총 갯수 조회용 --> 
+		SELECT COUNT(*) as "COUNT"
+		  FROM MEMBER
+		 WHERE (MEM_STATUS ='N'
+		    OR MEM_STATUS ='B')
+	</entry>
+	
+	<!-- 태민 체크박스 체크된 회원정보 삭제 -->
+	<entry key="bwithdrawalMember">
+
+		DELETE 
+		FROM MEMBER 
+		WHERE MEM_NO = ?
+		 
+	</entry>
+	
+	<!-- 태민 체크박스 체크된 회원정보 복구 -->
+	<entry key="revivalMember">
+		UPDATE MEMBER
+		   SET MEM_STATUS = 'Y'
+		 WHERE MEM_NO = ?
+	</entry>
+	
+	
+	<!-- @@@@@태민 탈퇴상태 회원 관리@@@@ -->
+	
+	
+	
 
 	<!-- 서원 사용자 적립금 조회 페이지 사용가능한 적립금 조회 -->
 	<entry key="membershipUseable">
@@ -627,4 +828,73 @@
 		     )
 	</entry>
 	
+	
+	<!-- 채윤 가게 찜 목록 조회 -->
+	<entry key="storeScrapList">
+		SELECT 
+		       SCRAP_NO
+		     , S.STORE_IMG_PATH
+		     , S.STORE_NAME
+		     , S.STORE_ADDRESS
+		     , S.SCRAP_RATE
+		  FROM STORE_SCRAP SS
+		  JOIN STORE S ON (S.STORE_NO = SS.STORE_NO)
+		  JOIN MEMBER M ON (M.MEM_NO = SS.MEM_NO)
+		  WHERE SS.MEM_NO = ?
+		     
+	</entry>
+	
+	<!-- 채윤 가게찜 등록 -->
+	<entry key="storeScrapInsert">
+		INSERT 
+		  INTO STORE_SCRAP
+		     (
+		       STORE_NO
+		     , MEM_NO
+		     , SCRAP_DATE
+		     , SCRAP_NO
+		     , STORE_IMG
+		     )
+		VALUES
+		     (
+		       ?
+		     , ?
+		     , SYSDATE
+		     , SEQ_SSCRAPNO.NEXTVAL
+		     , ?
+		     )
+	</entry>
+	
+	<!-- 채윤 팔로우 등록 -->
+	<entry key="followInsert">
+		INSERT 
+		  INTO FOLLOW
+		     (
+			   FOLLOW_NO
+			 , F_MNO
+			 , FING_MNO
+			 , ENROLL_DATE
+		     )
+		VALUES
+		     (
+		       SEQ_FOLNO.NEXTVAL
+		     , ?
+		     , ?
+		     , SYSDATE
+		     )
+	</entry>
+	
+	<!-- 채윤 신고 페이징... -->
+	<entry key="selectReportListCount">
+		SELECT
+		       COUNT(*) AS COUNT
+		  FROM REPORT
+	</entry>
+	
+	<!-- 채윤 신고 삭제 -->
+	<entry key="deleteReport">
+		UPDATE
+		       STORE_RE
+		   SET REVIEW_STATUE = 'Y'
+	</entry>
 </properties>

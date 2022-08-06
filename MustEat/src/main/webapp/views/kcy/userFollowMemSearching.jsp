@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Member"%>
-<%ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");%>
+<%
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MUST EAT</title>
 
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
@@ -18,6 +20,8 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+
 
 <style>
     
@@ -48,6 +52,7 @@
 </head>
 <body>
 	<%@ include file="../common/menubar.jsp"%>
+	<br><br><br><br>
     <div class="wrap77">
         
         <!-- 검색폼 시작 -->
@@ -67,68 +72,31 @@
 	
 	
 	
-	
-        <table class="tt" style="width:100%;" background = "<%=contextPath%>/resources/image/cy/retrobg.jpg">
-         
+		<form action="<%= contextPath %>/insert.fo" method="post">
+		<div>
+        <table class="tt" style="width:100%; background-color: rgb(223, 196, 240);" >
             <% for(Member m : list){ %>
             <tr>
-                <th width="50"><%=m.getMemNo() %></th>
+                <th width="50"><input type="hidden" name="fingMno" value="<%=m.getMemNo()%>"></th>
                 <td width="70"><img src="<%=contextPath%><%=m.getMemImgPath() %>" style="width: 40px; height:40px; border-radius:50px;
                     overflow:hidden;"></td>
                 <td width="100"><%=m.getMemNickname() %></td>
                 <td width="100"><%=m.getMemId() %></td>
                 <td width="100">리뷰 갯수 <%=m.getCstreview() %></td>
-                <th width="200"><button class="btn1" style="padding: 0.3em 1.2em;
+                <th width="200"><button type="submit" class="btn1" style="padding: 0.3em 1.2em;
                     margin: 0 0.1em 0.1em 0;">follow</button></th>
             </tr>
+			
 			<%} %>
             
 
         </table>
+        </div>
+        </form>
     </div>
     
     
-    <script>
-
-		var ref = [
-		    {key:1, name:'데이터1'},
-		    {key:2, name:'데이터2'},
-		    {key:3, name:'자바스크립트'},
-		    {key:4, name:'Json'},
-		];
-		
-		var isComplete = false;  //autoMaker 자식이 선택 되었는지 여부
-		$('#search_area').keyup(function(){
-		    var txt = $(this).val();
-		    if(txt != ''){  //빈줄이 들어오면
-		        $('#autoMaker').children().remove();
-		
-		        ref.forEach(function(arg){
-		            if(arg.name.indexOf(txt) > -1 ){
-		                $('#autoMaker').append(
-		                    $('<div>').text(arg.name).attr({'key':arg.key})
-		                );		
-		            }
-		        });
-		        $('#autoMaker').children().each(function(){
-		            $(this).click(function(){
-		                $('#search_area').val($(this).text());
-		                $('#insert_target').val("key : "+$(this).attr('key')+ ", data : " + $(this).text());
-		                $('#autoMaker').children().remove();	
-		                isComplete = true;
-		            });
-		        });			
-		    } else {
-		        $('#autoMaker').children().remove();
-		    }  
-		});
-		$('#search_area').keydown(function(event){
-		    if(isComplete) {  //autoMaker 자식이 선택 되었으면 초기화
-		        $('#insert_target').val('')	
-		    }
-		})
-
-	</script>
+    
 	
 </body>
 </html>

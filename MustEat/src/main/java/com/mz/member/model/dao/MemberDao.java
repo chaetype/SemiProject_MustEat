@@ -454,7 +454,7 @@ public class MemberDao {
 											   rset.getString("MEM_IMGPATH"),
 											   rset.getString("WITHDRAW")
 											   ));
-							System.out.println(list);
+							
 						}
 						
 					} catch (SQLException e) {
@@ -469,7 +469,7 @@ public class MemberDao {
 				}
 			
 			// 태민
-			public int selectListCount(Connection conn) {
+			public int selectListCount(Connection conn, String search) {
 
 				int listCount = 0 ;
 				
@@ -477,6 +477,10 @@ public class MemberDao {
 				ResultSet rset = null;
 				
 				String sql = prop.getProperty("selectListCount");
+				
+				if(!(search.equals("") || search == null)) { 
+					sql += "AND MEM_NAME LIKE '%"+search+"%'";
+				}
 				
 				try {
 					pstmt = conn.prepareStatement(sql);
@@ -521,6 +525,381 @@ public class MemberDao {
 				
 			}
 			
+			// 태민 체크박스 선택된 회원 정보수정일 sysdate로 업데이트
+			public int modifyDate(Connection conn, String userNo) {
+				
+				int result = 0;
+				PreparedStatement pstmt = null;
+				
+				String sql = prop.getProperty("modifyDate");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userNo);
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+				
+			}
+			
+			// 태민 체크박스 선택된 회원상태 정상으로 변경
+			public int revivalMember(Connection conn, String userNo) {
+				
+				int result = 0;
+				PreparedStatement pstmt = null;
+				
+				String sql = prop.getProperty("revivalMember");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userNo);
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+				
+			}
+			
+			/////////////////////////탈퇴상태 멤버 관리////////////////
+			
+			// 태민 이름별 조회
+			public ArrayList<Member> bselectList(Connection conn, PageInfo pi, String search){
+				// select문 => ResultSet(여러행) => ArrayList<Board>
+				ArrayList<Member> list = new ArrayList();
+				PreparedStatement pstmt  = null;
+				ResultSet rset = null;
+				String sql = prop.getProperty("bselectList");
+				
+				if(!(search.equals("") || search == null)) {
+					sql += "AND MEM_NAME LIKE '%"+search+"%'";
+				}
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					
+					/*
+					 * ex) boardLimit : 10이라는 가정하에
+					 * 
+					 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
+					 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
+					 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
+					 * 
+					 * 시작값 : (currentPage - 1) * boardLimit + 1
+					 * 끝값 : 시작값 + boardLimit - 1
+					 */
+					int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+					int endRow = startRow + pi.getBoardLimit() - 1;
+						
+					pstmt.setInt(1, startRow);
+					pstmt.setInt(2, endRow);
+					
+					rset = pstmt.executeQuery();
+					
+					while(rset.next()) {
+						list.add(new Member(rset.getInt("MEM_NO"),
+										   rset.getString("MEM_ID"),
+										   rset.getString("MEM_PWD"),
+										   rset.getString("MEM_NAME"),
+										   rset.getString("MEM_PHONE"),
+										   rset.getString("MEM_EMAIL"),
+										   rset.getDate("MEM_ENROLLDATE"),
+										   rset.getDate("MEM_MODIFYDATE"),
+										   rset.getString("MEM_STATUS"),
+										   rset.getString("MEM_NICKNAME"),
+										   rset.getString("MEM_GRADE"),
+										   rset.getString("ADDRESS_CODE"),
+										   rset.getString("ADDRESS"),
+										   rset.getString("ADDRESS_DETAIL"),
+										   rset.getString("ADDRESS_REF"),
+										   rset.getString("MEM_IMGPATH"),
+										   rset.getString("WITHDRAW"),
+										   rset.getInt("DAY")
+										   ));
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(pstmt);
+				}
+				return list;
+					
+			}
+			
+			// 태민 탈퇴유형별 조회
+				public ArrayList<Member> bselectList1(Connection conn, PageInfo pi, String search){
+					// select문 => ResultSet(여러행) => ArrayList<Board>
+					ArrayList<Member> list = new ArrayList();
+					PreparedStatement pstmt  = null;
+					ResultSet rset = null;
+					String sql = prop.getProperty("bselectList1");
+					
+					if(!(search.equals("") || search == null)) {
+						sql += "AND MEM_NAME LIKE '%"+search+"%'";
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						
+						/*
+						 * ex) boardLimit : 10이라는 가정하에
+						 * 
+						 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
+						 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
+						 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
+						 * 
+						 * 시작값 : (currentPage - 1) * boardLimit + 1
+						 * 끝값 : 시작값 + boardLimit - 1
+						 */
+						int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+						int endRow = startRow + pi.getBoardLimit() - 1;
+							
+						pstmt.setInt(1, startRow);
+						pstmt.setInt(2, endRow);
+						
+						rset = pstmt.executeQuery();
+						
+						while(rset.next()) {
+							list.add(new Member(rset.getInt("MEM_NO"),
+											   rset.getString("MEM_ID"),
+											   rset.getString("MEM_PWD"),
+											   rset.getString("MEM_NAME"),
+											   rset.getString("MEM_PHONE"),
+											   rset.getString("MEM_EMAIL"),
+											   rset.getDate("MEM_ENROLLDATE"),
+											   rset.getDate("MEM_MODIFYDATE"),
+											   rset.getString("MEM_STATUS"),
+											   rset.getString("MEM_NICKNAME"),
+											   rset.getString("MEM_GRADE"),
+											   rset.getString("ADDRESS_CODE"),
+											   rset.getString("ADDRESS"),
+											   rset.getString("ADDRESS_DETAIL"),
+											   rset.getString("ADDRESS_REF"),
+											   rset.getString("MEM_IMGPATH"),
+											   rset.getString("WITHDRAW"),
+											   rset.getInt("DAY")
+											   ));
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						close(rset);
+						close(pstmt);
+					}
+					return list;
+						
+				}
+				
+				// 태민 탈퇴일별 조회
+				public ArrayList<Member> bselectList2(Connection conn, PageInfo pi, String search){
+					// select문 => ResultSet(여러행) => ArrayList<Board>
+					ArrayList<Member> list = new ArrayList();
+					PreparedStatement pstmt  = null;
+					ResultSet rset = null;
+					String sql = prop.getProperty("bselectList2");
+					
+					if(!(search.equals("") || search == null)) {
+						sql += "AND MEM_NAME LIKE '%"+search+"%'";
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						
+						/*
+						 * ex) boardLimit : 10이라는 가정하에
+						 * 
+						 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
+						 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
+						 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
+						 * 
+						 * 시작값 : (currentPage - 1) * boardLimit + 1
+						 * 끝값 : 시작값 + boardLimit - 1
+						 */
+						int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+						int endRow = startRow + pi.getBoardLimit() - 1;
+							
+						pstmt.setInt(1, startRow);
+						pstmt.setInt(2, endRow);
+						
+						rset = pstmt.executeQuery();
+						
+						while(rset.next()) {
+							list.add(new Member(rset.getInt("MEM_NO"),
+											   rset.getString("MEM_ID"),
+											   rset.getString("MEM_PWD"),
+											   rset.getString("MEM_NAME"),
+											   rset.getString("MEM_PHONE"),
+											   rset.getString("MEM_EMAIL"),
+											   rset.getDate("MEM_ENROLLDATE"),
+											   rset.getDate("MEM_MODIFYDATE"),
+											   rset.getString("MEM_STATUS"),
+											   rset.getString("MEM_NICKNAME"),
+											   rset.getString("MEM_GRADE"),
+											   rset.getString("ADDRESS_CODE"),
+											   rset.getString("ADDRESS"),
+											   rset.getString("ADDRESS_DETAIL"),
+											   rset.getString("ADDRESS_REF"),
+											   rset.getString("MEM_IMGPATH"),
+											   rset.getString("WITHDRAW"),
+											   rset.getInt("DAY")
+											   ));
+							
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						close(rset);
+						close(pstmt);
+					}
+					sql="";
+					return list;
+						
+				}
+				
+				// 탈퇴기간별 조회
+				public ArrayList<Member> bselectList3(Connection conn, PageInfo pi, String search){
+					// select문 => ResultSet(여러행) => ArrayList<Board>
+					ArrayList<Member> list = new ArrayList();
+					PreparedStatement pstmt  = null;
+					ResultSet rset = null;
+					String sql = prop.getProperty("bselectList3");
+					
+					if(!(search.equals("") || search == null)) {
+						sql += "AND MEM_NAME LIKE '%"+search+"%'";
+					}
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						
+						/*
+						 * ex) boardLimit : 10이라는 가정하에
+						 * 
+						 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
+						 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
+						 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
+						 * 
+						 * 시작값 : (currentPage - 1) * boardLimit + 1
+						 * 끝값 : 시작값 + boardLimit - 1
+						 */
+						int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+						int endRow = startRow + pi.getBoardLimit() - 1;
+							
+						pstmt.setInt(1, startRow);
+						pstmt.setInt(2, endRow);
+						
+						rset = pstmt.executeQuery();
+						
+						while(rset.next()) {
+							list.add(new Member(rset.getInt("MEM_NO"),
+											   rset.getString("MEM_ID"),
+											   rset.getString("MEM_PWD"),
+											   rset.getString("MEM_NAME"),
+											   rset.getString("MEM_PHONE"),
+											   rset.getString("MEM_EMAIL"),
+											   rset.getDate("MEM_ENROLLDATE"),
+											   rset.getDate("MEM_MODIFYDATE"),
+											   rset.getString("MEM_STATUS"),
+											   rset.getString("MEM_NICKNAME"),
+											   rset.getString("MEM_GRADE"),
+											   rset.getString("ADDRESS_CODE"),
+											   rset.getString("ADDRESS"),
+											   rset.getString("ADDRESS_DETAIL"),
+											   rset.getString("ADDRESS_REF"),
+											   rset.getString("MEM_IMGPATH"),
+											   rset.getString("WITHDRAW"),
+											   rset.getInt("DAY")
+											   ));
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						close(rset);
+						close(pstmt);
+					}
+					sql="";
+					return list;
+						
+				}
+			
+			// 태민 탈퇴회원 총수
+			public int bselectListCount(Connection conn, String search) {
+
+				int listCount = 0 ;
+				
+				PreparedStatement pstmt = null;
+				ResultSet rset = null;
+				
+				String sql = prop.getProperty("bselectListCount");
+				
+				if(!(search.equals("") || search == null)) { 
+					sql += "AND MEM_NAME LIKE '%"+search+"%'";
+				}
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					rset = pstmt.executeQuery();
+					
+					if(rset.next()) {
+						listCount = rset.getInt("COUNT");
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(pstmt);
+				}
+				
+				return listCount;
+				
+			}
+			
+			// 태민 체크박스 선택된 회원정보 삭제
+			public int bwithdrawalMember(Connection conn, String userNo) {
+				
+				int result = 0;
+				PreparedStatement pstmt = null;
+				
+				String sql = prop.getProperty("bwithdrawalMember");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, userNo);
+					
+					result = pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(pstmt);
+				}
+				
+				return result;
+				
+			}
+			
+
+						
+			/////////////////////////////////////////////////////////
+						
+						
 			// 태민 회원 검색 조회
 			public ArrayList<Member> searchList(Connection conn, PageInfo pi, String input){
 
@@ -680,7 +1059,7 @@ public class MemberDao {
 	 * @param conn
 	 * @return
 	 */
-	public ArrayList<Report> selectReportList(Connection conn){
+	public ArrayList<Report> selectReportList(Connection conn, PageInfo pi){
 		
 		ArrayList<Report> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -690,6 +1069,14 @@ public class MemberDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -1223,7 +1610,7 @@ public class MemberDao {
 			
 		}	
 		
-		
+		//채윤 신고 등록
 		
 		public int reportInsert(Connection conn, Report rp) {
 			int result = 0;
@@ -1251,6 +1638,158 @@ public class MemberDao {
 			return result;
 		}
 		
+		
+		
+		//채윤
+				/**
+				 * 찜한 가게 목록 조회
+				 * @param conn
+				 * @return
+				 */
+		public ArrayList<StoreScrap> storeScrapList(Connection conn,int MNo){
+					
+			ArrayList<StoreScrap> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+					
+			String sql = prop.getProperty("storeScrapList");
+					
+					try {
+						pstmt=conn.prepareStatement(sql);
+						pstmt.setInt(1, MNo);
+						rset = pstmt.executeQuery();
+						
+						while(rset.next()) {
+							list.add(new StoreScrap(
+												rset.getInt("SCRAP_NO"),
+												rset.getString("STORE_IMG_PATH"),
+												rset.getString("STORE_NAME"),
+												rset.getString("STORE_ADDRESS"),
+												rset.getInt("SCRAP_RATE")
+												
+												));
+									
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}finally {
+						close(rset);
+						close(pstmt);
+					}
+					
+					return list;
+					
+				}
+
+		
+		
+		
+		
+		//채윤 가게찜 등록
+		
+	public int storeScrapInsert(Connection conn, StoreScrap ss) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("storeScrapInsert");
+					
+		try {
+			pstmt = conn.prepareStatement(sql);
+						
+			pstmt.setString(1, ss.getStoreNo());
+			pstmt.setInt(2, ss.getMemno());
+			pstmt.setString(3, ss.getStoreImg());
+				
+						
+			result = pstmt.executeUpdate();
+						
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
+					
+				return result;
+	}
+	
+	
+	
+	
+	
+	//채윤 팔로우 등록
+	
+	public int followInsert(Connection conn, Follow f) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("followInsert");
+					
+		try {
+			pstmt = conn.prepareStatement(sql);
+						
+			pstmt.setInt(1, f.getfMNo());
+			pstmt.setInt(2, f.getFingMNo());
+				
+						
+			result = pstmt.executeUpdate();
+						
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
+					
+				return result;
+	}
+	
+	
+	// 채윤 신고 페이징...
+		public int selectReportListCount(Connection conn) {
+			int listCount = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			String sql = prop.getProperty("selectListCount");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					listCount = rset.getInt("COUNT");
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return listCount;
+		}
+		
+	
+		
+	//채윤 신고 삭제
+	public int deleteReport(Connection conn, String delArr) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteReport") + "WHERE RE_NO IN (" + delArr + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 }
 		
 		

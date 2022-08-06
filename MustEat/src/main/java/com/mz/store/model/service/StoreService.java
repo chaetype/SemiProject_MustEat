@@ -8,6 +8,7 @@ import static com.mz.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
 import com.mz.notice.model.dao.NoticeDao;
@@ -19,7 +20,12 @@ import com.mz.store.model.vo.StoreReview;
 
 public class StoreService {
 	//메소드 위에 주석으로 이름 달아두기!!!
-	
+	public int StoreReviewPaging() {
+		Connection conn = getConnection();
+		int listCount = new StoreDao().StoreReviewPaging(conn);
+		close(conn);
+		return listCount;
+	}
 	//채윤(식당 상세조회수)
 	public int increaseCount(int storeNo) {
 		Connection conn = getConnection();
@@ -66,9 +72,9 @@ public class StoreService {
 			return result;
 		}
 	//채윤 (식당 리뷰 목록 조회/ StoreReviewListController와 연결)
-	public ArrayList<StoreReview> selectStoreReviewList(){
+	public ArrayList<StoreReview> selectStoreReviewList(PageInfo pi){
 		Connection conn = getConnection();
-		ArrayList<StoreReview> list = new StoreDao().selectStoreReviewList(conn);
+		ArrayList<StoreReview> list = new StoreDao().selectStoreReviewList(conn,pi);
 		close(conn);
 		return list;
 	}
@@ -126,7 +132,14 @@ public class StoreService {
 		return list;
 	}
 	
+	//채윤 식당리뷰 페이징..
 	
+			public int StoreReviewListCount() {
+				Connection conn = getConnection();
+				int listCount = new StoreDao().StoreReviewListCount(conn);
+				close(conn);
+				return listCount;
+			}
 	
 	
 	
@@ -144,9 +157,9 @@ public class StoreService {
 	
 	
 	//채윤 써머노트 등록
-	public int insertEditor(String html) {
+	public int insertEditor(Editor e) {
 		Connection conn = getConnection();
-		int result = new StoreDao().insertPost(conn, html);
+		int result = new StoreDao().insertPost(conn, e);
 		
 		if(result > 0) {
 			commit(conn);

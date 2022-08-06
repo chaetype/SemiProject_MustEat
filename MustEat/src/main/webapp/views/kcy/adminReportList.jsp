@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Report"%>
-<%ArrayList<Report> list = (ArrayList<Report>)request.getAttribute("list");%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Report, com.mz.common.model.vo.PageInfo" %>
+<%
+	ArrayList<Report> list = (ArrayList<Report>)request.getAttribute("list");
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,7 +116,7 @@
 						<th width="100">신고대상자</th><!--신고당한 사람 가게리뷰에서 가져오기-->
 						<th width="280">리뷰제목</th>
 						<th>신고내용</th><!--신고 한 사람이 작성한 신고 사유-->
-						<th width="145">게시일</th>
+						<th width="145">신고일</th>
 					
 					</tr>
 				</thead>
@@ -124,13 +131,13 @@
                 <td colspan="7"></td>
                 	<% for(Report r : list){ %>
 	                <tr>
-	                	<td data-th="Supplier Code"><input type="checkbox" name="list"></td>
-	                    <td><%=r.getReportNo()%></td>
-	                    <td><%= r.getMemNickname()%></td>
-	                    <td><%= r.getMemId()%></td>
-	                    <td><%= r.getReportTitle()%></td>
-	                    <td><%= r.getReportContent()%></td>
-	                    <td><%= r.getReportDate()%></td>
+	                	<td data-th="Supplier Code"><input type="checkbox" class="chkbox" name="check" id="chkbox<%=r%>" value="<%=r.getReportNo()%>"></td>
+	                    <td class="noDetail"><%=r.getReportNo()%></td>
+	                    <td class="noDetail"><%= r.getMemNickname()%></td>
+	                    <td class="noDetail"><%= r.getMemId()%></td>
+	                    <td class="noDetail"><%= r.getReportTitle()%></td>
+	                    <td class="noDetail"><%= r.getReportContent()%></td>
+	                    <td class="noDetail"><%= r.getReportDate()%></td>
 	                   
 	                </tr>
                 	<% } %>
@@ -143,7 +150,7 @@
 		
 			<div class="list01" style="float: left;">
 				<!-- <input class="btn1" type="button" id="check_all" value="전체선택" /> -->
-		        <button class="btn1">선택삭제</button>
+		        <button type="button" class="btn1" onclick="deleteNo();">선택삭제</button>
 				
 	        </div>
 		
@@ -151,74 +158,94 @@
 	<br><br><br>
 	<div class="wrapper-paging">
 					    
-		<nav aria-label="Page navigation example">
-			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">4</a></li>
-				<li class="page-item"><a class="page-link" href="#">5</a></li>
-				<li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-			</ul>
-		</nav>					
-	
-	</div>
-	<br><br>
+		    <nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<% if(currentPage != 1){ %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/list.rp?cpage=<%=currentPage-1%>">&lt;</a></li>
+				    <% } %>
+				    
+				    <% for(int i=startPage; i<=endPage; i++){ %>
+				    	<% if(i == currentPage){ %>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/list.rp?cpage=<%=i%>"><%= i %></a></li>
+				    	<% }else{ %>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/list.rp?cpage=<%=i%>"><%= i %></a></li>
+				    	<% } %>
+				    <% } %>
+				    
+				    <% if(currentPage != maxPage){ %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/list.rp?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    <% } %>
+			    </ul>
+			</nav>					
+		
+		</div>
+ 
+
+    
 	
 
 	
 	<script>
-    	$(function(){
-    		$(".list-area>tbody>tr").click(function(){
-    			const num = $(this).children().eq(0).text(); // 클릭했을때의 글번호
-    			
-    			// 요청할url?키=밸류&키=밸류... 
-    			// 요청시전달값(키=밸류) => 쿼리스트링 
-     			
-    			// /web/detail.no?no=xx
-    			location.href = '<%=contextPath%>/detail.rp?no=' + num;
-    		})
-    	})
+		
+	
+	
     	
-    </script> 
-	
-	
-	
+    	
+    	
+    	
+    	
 
-
-
-
-
- <script type="text/javascript">
-	let check = false;
-	// function checkAll(){
-	//     let chk = document.getElementsByName("chk[]");
-	//     console.log(chk);
-	//     if(check==false){
-	//         check=true;
-	//         for(let i=0; i<chk.length; i++){
-	//             chk[i].checked=true;
-	//         }
-	//     }else{
-	//         check=false;
-	//         for(let i=0; i<chk.length; i++){
-	//             chi[i].checked=false;
-	//         }
-	//     }
-	// }
-
-	function checkAll(checkAll){
-		let checkboxes=document.getElementsByName("list");
-		console.log(checkboxes);
-		checkboxes.forEach((checkbox)=>{
-			console.log(checkbox    );
-			checkbox.checked=checkAll.checked;
-		})
-	}
-
+    $("tbody>tr>.noDetail").click(function(){
+    	location.href="<%=contextPath%>/detail.sr?<%=currentPage%>&reno=" + $(this).siblings().eq(1).text();
+    })
+    
+    let check = false;
+    // function checkAll(){
+    //     let chk = document.getElementsByName("chk[]");
+    //     console.log(chk);
+    //     if(check==false){
+    //         check=true;
+    //         for(let i=0; i<chk.length; i++){
+    //             chk[i].checked=true;
+    //         }
+    //     }else{
+    //         check=false;
+    //         for(let i=0; i<chk.length; i++){
+    //             chi[i].checked=false;
+    //         }
+    //     }
+    // }
+ 
+    function checkAll(checkAll){
+       let checkboxes=document.getElementsByName("check");
+       //console.log(checkboxes);
+       checkboxes.forEach((checkbox)=>{
+          //console.log(checkbox    );
+          checkbox.checked=checkAll.checked;
+       });
+    }
+    
+    function deleteNo(){
+    	if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+    		let delArr = [];
+    		
+    		$("tbody .chkbox").each(function(){
+    			if($(this).prop("checked")){
+    				delArr.push($(this).val());
+    			}
+    		});
+    		
+        	console.log(delArr.toString());
+    		
+    		const str = delArr.toString();
+    		
+    		location.href="<%=contextPath%>/rpdelete.rp?cpage=<%=currentPage%>&delNo=" + str;
+    	}
+    }
+    
 </script>
-
+    	
+    
 
 
 

@@ -16,14 +16,14 @@ import com.mz.member.model.vo.Member;
 /**
  * Servlet implementation class AllMembersListController1
  */
-@WebServlet("/allMembersList.bo")
-public class AllMembersListController1 extends HttpServlet {
+@WebServlet("/memberWithdrawalAdmin.bo")
+public class MemberWithdrawalController1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllMembersListController1() {
+    public MemberWithdrawalController1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,11 +46,13 @@ public class AllMembersListController1 extends HttpServlet {
 		int startPage;    // 페이징바의 시작수  
 		int endPage;	  // 페이징바의 끝수
 
+		
 		// 검색어
+		
 		String search = request.getParameter("search");
 		
 		// * listcount : 현재 게시글 총갯수
-		listCount = new MemberService().selectListCount(search);
+		listCount = new MemberService().bselectListCount(search);
 		
 		// System.out.println(listCount);
 		
@@ -102,26 +104,31 @@ public class AllMembersListController1 extends HttpServlet {
 		int a = Integer.parseInt(request.getParameter("a"));
 		String c = request.getParameter("c");
 				
-		System.out.println(search);
+		
+		//System.out.println(search);
 		
 		ArrayList<Member> list = null;
-		int count = new MemberService().selectListCount(search);
+		int count = new MemberService().bselectListCount(search);
 				
-		if(a==1) {
-			list = new MemberService().selectList(pi, search);
+		if(a==1) {  //이름
+			list = new MemberService().bselectList(pi, search);
 			request.setAttribute("c", c);
 			request.setAttribute("search", search);
 			
-		}else if(a==2) {
-			list = new MemberService().selectList1(pi, search);
+		}else if(a==2) {  //탈퇴유형
+			list = new MemberService().bselectList1(pi, search);
 			request.setAttribute("c", c);
 			request.setAttribute("search", search);
 			
-		}else if(a==3) {
-			list = new MemberService().selectList2(pi, search);
+		}else if(a==3) {  //탈퇴일
+			list = new MemberService().bselectList2(pi, search);
 			request.setAttribute("c", c);
 			request.setAttribute("search", search);
 			
+		}else if(a==4) {  //탈퇴기간
+			list = new MemberService().bselectList3(pi, search);
+			request.setAttribute("c", c);
+			request.setAttribute("search", search);
 		}
 		
 		request.setAttribute("pi", pi);
@@ -130,7 +137,7 @@ public class AllMembersListController1 extends HttpServlet {
 		request.setAttribute("count", count);
 		request.setAttribute("a", a);	
 
-		request.getRequestDispatcher("views/ltm/allMembersAdmin.jsp").forward(request, response);
+		request.getRequestDispatcher("views/ltm/memberWithdrawalAdmin.jsp").forward(request, response);
 					
 	}
 

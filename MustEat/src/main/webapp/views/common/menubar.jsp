@@ -149,6 +149,8 @@
 			margin-left:2px;
 			margin-bottom:7px;
 		}
+
+
 </style>
 </head>
 
@@ -175,16 +177,16 @@
 					
 					<% if(loginUser == null) { %> <!-- 로그인하지 않은 경우 -->
 						<div class="bbtn">
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/login1.me" style="text-decoration: none;">SIGN IN</a></button>
-		                	<button class="custom-btn btn-8"><span>SIGN OUT</span></button>
 		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/enroll1.me" style="text-decoration: none;">SIGN UP</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/login1.me" style="text-decoration: none;">SIGN IN</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%= contextPath %>/tosuserlist.no" style="text-decoration: none;">ME❥MZ</a></button>
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
 					<% } else { %> <!-- 로그인한 경우 -->
 						<div class="bbtn">
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">정보수정</a></button>
 		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/myPage.me" style="text-decoration: none;">MY PAGE</a></button>
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">로그아웃</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">MODIFY</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">SIGN OUT</a></button>
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
             		<% } %>
@@ -268,10 +270,18 @@
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
-
-
+<!-- 채윤 임시 채팅창 넣어봄 -->
+		<div class="chat" align="center" OnClick="location.href ='<%=contextPath %>/chat.me'">
+			<img src="<%=contextPath%>/resources/image/chatimg.png" style="position: fixed; right: 50px; bottom: 50px; width: 30px; height: 30px; cursor: pointer;" >
+		</div>
+		
+		
+		
+		
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
+  		
+  		
 
 </body>
 

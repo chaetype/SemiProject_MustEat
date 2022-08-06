@@ -99,7 +99,12 @@
                 <br>
                 <hr>
                 <div class="tumbnail3">
-                    <img src="<%=contextPath%><%= sr.getReviewImgPath()%>"style="width: 100%; height:100%;">
+                <% if ( sr.getReviewImgPath() == null ) {  %>
+                    <img src="<%=request.getContextPath()%>/resources/image/mz.png" style="width: 400px; height:400px;" id="noneIcon">
+                <% } else { %>
+        			<img src="<%=contextPath%><%= sr.getReviewImgPath()%>" style="width: 400px; height:400px;">
+      			<% } %>
+                    
                 </div>
                 <div class="info3">
                     <%=sr.getReviewContent() %>
@@ -126,7 +131,7 @@
 		        <!-- Modal body -->
 		        <div class="modal-body">
 		          
-					<input type="hidden" name="no" value="<%=sr.getReNo() %>">
+					<input type="hidden" name="reno" value="<%=sr.getReNo() %>">
 					<input type="hidden" name="reportedMemId" value="<%= sr.getReviewMemId() %>">
 					<div class="container d-flex justify-content-center text-center">
 					    <div class="card px-5 py-5">

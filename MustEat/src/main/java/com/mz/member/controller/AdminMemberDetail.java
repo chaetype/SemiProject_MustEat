@@ -1,4 +1,4 @@
-package com.mz.product.controller;
+package com.mz.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BasketDeleteController
+ * Servlet implementation class AdminMemberDetail
  */
-@WebServlet("/deleteBasket.pro")
-public class BasketDeleteController extends HttpServlet {
+@WebServlet("/detail.no")
+public class AdminMemberDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BasketDeleteController() {
+    public AdminMemberDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,10 +26,10 @@ public class BasketDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 은영
-		// 장바구니 상품 선택 삭제 처리하는 Servlet
 		
+		String userNo = request.getParameter("num");
 		
+		request.getRequestDispatcher("views/ltm/adminMemDetailView6p.jsp");
 		
 	}
 

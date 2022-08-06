@@ -64,6 +64,7 @@ public class CategoryInsertContoller extends HttpServlet {
 	          response.sendRedirect(request.getContextPath() + "/clist.st");
 	           session.setAttribute("successMsg", "성공적으로 등록하였습니다.");
 	        }
+	        
         }    
         
      }

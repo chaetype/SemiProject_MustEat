@@ -66,7 +66,7 @@
         <div class="list-area">
 	
             <div class="thumbnail33" align="center">
-            <a href="<%=contextPath%>/srlist.st " style="text-decoration: none;">
+            <a href="<%=contextPath%>/srlist.st?cpage=1 " style="text-decoration: none;">
                 <img src="<%=contextPath%>/resources/image/cy/rank.jpg" width="270" height="170">
                 <p>ME인정 맛집+리뷰 상위랭킹 확인하기</p>
             </a> 
@@ -79,7 +79,7 @@
             </div>
 
             <div class="thumbnail33" align="center">
-            <a href="<%=contextPath%>/mlist.fo " style="text-decoration: none;">
+            <a href="<%=contextPath%>/mlist.fo?cpage=1 " style="text-decoration: none;">
                 <img src="<%=contextPath%>/resources/image/mz.png" width="270" height="170">
                 <p>MZ유저들 찾아보기</p>
              </a>
@@ -116,11 +116,36 @@
             <div class="thumbnail2" align="center">
             	<input type="hidden" value="<%= e.getEditorNo() %>">
                 <img src="<%=contextPath%>/<%=e.getEditorAttach() %>" width="400" height="250">
-                
             </div>
 			<% } %>
 
+			<div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/shrimp.jpg" width="400" height="250">
+            </div>
 
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/neyorkcafe.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/dosirak.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/bankan.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/makgeolli.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/winter.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/hapjung.jpg" width="400" height="250">
+            </div>
 
         </div>
         

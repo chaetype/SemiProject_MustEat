@@ -1,28 +1,29 @@
 package com.mz.member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Member;
+import com.mz.member.model.vo.StoreScrap;
 
 /**
- * Servlet implementation class MemForFollowListController
+ * Servlet implementation class StoreScrapInsert
  */
-@WebServlet("/mlist.fo")
-public class MemForFollowListController extends HttpServlet {
+@WebServlet("/insert.ss")
+public class StoreScrapInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemForFollowListController() {
+    public StoreScrapInsertController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,11 +32,31 @@ public class MemForFollowListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		
-		ArrayList<Member> list = new MemberService().selectFMemList();
-		//System.out.println(list);
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/kcy/userFollowMemSearching.jsp").forward(request, response);
+		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
+		String storeNo = request.getParameter("storeNo");
+		String storeImg = request.getParameter("storeImg");
+		
+		
+		
+		StoreScrap ss = new StoreScrap(memNo, storeNo,storeImg);
+		
+		
+		
+		int result = new MemberService().storeScrapInsert(ss);
+		
+		
+		HttpSession session = request.getSession();
+		if(result > 0) {
+			// 등록 성공
+			session.setAttribute("alertMsg", "찜이 완료되었습니다!");
+			response.sendRedirect(request.getContextPath() + "/detail.st?no=" + storeNo);
+		}else { 
+			// 등록 실패
+			session.setAttribute("alertMsg", "찜 오류 발생");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
 	}
 
 	/**

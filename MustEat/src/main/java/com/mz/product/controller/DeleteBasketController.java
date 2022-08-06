@@ -1,4 +1,4 @@
-package com.mz.store.controller;
+package com.mz.product.controller;
 
 import java.io.IOException;
 
@@ -8,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.StoreReview;
+import com.mz.member.model.vo.Member;
+import com.mz.product.model.service.ProductService;
 
 /**
- * Servlet implementation class StoreReviewDetailController
+ * Servlet implementation class BasketDeleteController
  */
-@WebServlet("/detail.sr")
-public class StoreReviewDetailController extends HttpServlet {
+@WebServlet("/deleteBasket.pro")
+public class DeleteBasketController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreReviewDetailController() {
+    public DeleteBasketController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +30,15 @@ public class StoreReviewDetailController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int reNo = Integer.parseInt(request.getParameter("reno"));
+		// 은영
+		// 장바구니 상품 선택 삭제 처리하는 Servlet
 		
-		StoreService sService = new StoreService();
-	
-		int result = sService.increaseCountR(reNo);
+		String no = request.getParameter("no");
 		
-		StoreReview sr = sService.storeReviewDetail(reNo);
-		request.setAttribute("sr", sr);
-		request.getRequestDispatcher("views/kcy/userStoreReviewDetail91p.jsp").forward(request, response);
-		
-//		if(result > 0) { 
-//			StoreReview sr = sService.storeReviewDetail(reNo);
-//			request.setAttribute("sr", sr);
-//			request.getRequestDispatcher("views/kcy/userStoreReviewDetail91p.jsp").forward(request, response);
-//			
-//		}
+		int result = new ProductService().deleteBasket(no);
+
+		response.getWriter().print(result);
+
 	}
 
 	/**

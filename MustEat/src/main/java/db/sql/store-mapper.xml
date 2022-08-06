@@ -4,19 +4,34 @@
 	
 	<!-- 채윤 : 식당리뷰목록조회 -->
 	<entry key="selectStoreReviewList">
-	SELECT
-	        RE_NO
-	       ,M.MEM_NICKNAME
-	       ,M.MEM_ID
-	       ,REVIEW_TITLE
-	       ,REVIEW_RATE
-	       ,REVIEW_ENROLLDATE
-	       ,M.MEM_GRADE
-	       ,COUNT
-	FROM STORE_RE SR
-	JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
-	ORDER
-    BY RE_NO DESC
+	SELECT *
+	FROM (
+ 	SELECT ROWNUM RNUM, A.*
+ 	FROM (
+		SELECT
+		        RE_NO
+		       ,M.MEM_NICKNAME
+		       ,M.MEM_ID
+		       ,REVIEW_TITLE
+		       ,REVIEW_RATE
+		       ,REVIEW_ENROLLDATE
+		       ,M.MEM_GRADE
+		       ,COUNT
+		FROM STORE_RE SR
+		JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+		WHERE REVIEW_STATUE ='N'
+		ORDER
+    	      BY RE_NO DESC
+    	) A
+		)
+		WHERE RNUM BETWEEN ? AND ?
+    
+	</entry>
+	<!-- 채윤 식당 페이징... -->
+	<entry key="StoreReviewListCount">
+		SELECT
+		       COUNT(*) AS COUNT
+		  FROM STORE_RE
 	</entry>
 	
 	<!-- 채윤 : 식당 리뷰 검색 -->

@@ -110,7 +110,9 @@
 <body>
     <%@ include file="../common/menubar.jsp" %>
     <div class="wrap33">
+    <form action="<%= contextPath %>/insert.ss" id="" method="post">
         <div class="outer111">
+        	<input type="hidden" name="storeNo" value="<%=s.getStoreNo() %>">
             <div class="tumbnail">
                 <img src="<%=contextPath%>/<%=s.getStoreImgPath()%>" style="width: 100%; height:100%;" alt="">
             </div>
@@ -185,6 +187,7 @@
                 <div class="info3"><b><%=s.getReviewWriter() %></b><br><%=s.getStoreReview()%></div>
             </div>
         </div>
+        </form>
     </div>
 </body>
 </html>

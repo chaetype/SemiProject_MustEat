@@ -16,6 +16,8 @@ import com.mz.member.model.vo.MyPage;
 import com.mz.member.model.vo.Point;
 import com.mz.member.model.vo.Report;
 import com.mz.member.model.vo.StoreScrap;
+import com.mz.notice.model.dao.NoticeDao;
+import com.mz.notice.model.vo.Notice;
 
 public class MemberService {
 	//메소드 위에 이름 주석 꼭 달기!!!
@@ -161,9 +163,9 @@ public class MemberService {
 		return list;
 	}
 	
-	public int selectListCount() {
+	public int selectListCount(String search) {
 		Connection conn = getConnection();
-		int listCount = new MemberDao().selectListCount(conn);
+		int listCount = new MemberDao().selectListCount(conn, search);
 		close(conn);
 		return listCount;
 	}
@@ -182,6 +184,18 @@ public class MemberService {
 		return result;
 	}
 	
+	public int modifyDate(String userNo) {
+		Connection conn = getConnection();
+		int result2 = new MemberDao().modifyDate(conn, userNo);
+		if(result2>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result2;
+	}
+	
 	// 태민 회원 검색
 	public ArrayList<Member> searchList(PageInfo pi, String input){
 		Connection conn = getConnection();
@@ -190,6 +204,88 @@ public class MemberService {
 		return list;
 	}
 	
+	
+	////////////////////////태민 탈퇴상태 회원 관리//////////////////////
+	
+	//이름별 조회
+	public ArrayList<Member> bselectList(PageInfo pi, String search){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().bselectList(conn, pi, search);
+		close(conn); 
+		return list;
+	}
+	
+	//탈퇴유형별 조회
+	public ArrayList<Member> bselectList1(PageInfo pi, String search){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().bselectList1(conn, pi, search);
+		close(conn);
+		return list;
+	}
+	
+	// 탈퇴일별 조회
+	public ArrayList<Member> bselectList2(PageInfo pi, String search){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().bselectList2(conn, pi, search);
+		close(conn);
+		return list;
+	}
+	
+	//탈퇴기간별 조회
+	public ArrayList<Member> bselectList3(PageInfo pi, String search){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().bselectList3(conn, pi, search);
+		close(conn);
+		return list;
+	}
+	
+	// 탈퇴상태 회원 총수
+	public int bselectListCount(String search) {
+		Connection conn = getConnection();
+		int listCount = new MemberDao().bselectListCount(conn, search);
+		close(conn);
+		return listCount;
+	}
+	
+	// 태민 체크박스 선택된 회원정보삭제
+	
+	public int bwithdrawalMember(String userNo) {
+		Connection conn = getConnection();
+		int result = new MemberDao().bwithdrawalMember(conn, userNo);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	// 태민 체크박스 선택된 회원정보복구
+	
+		public int revivalMember(String userNo) {
+			Connection conn = getConnection();
+			int result = new MemberDao().revivalMember(conn, userNo);
+			if(result>0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			close(conn);
+			return result;
+		}
+	
+
+	
+	// 태민 회원 검색
+	public ArrayList<Member> bsearchList(PageInfo pi, String input){
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().searchList(conn, pi, input);
+		close(conn);
+		return list;
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////
 	
 	// 은영
 	/**
@@ -218,9 +314,9 @@ public class MemberService {
 	
 
 	//채윤(신고 목록 조회 / ReportListController와 연결)
-	public ArrayList<Report> selectReportList() {
+	public ArrayList<Report> selectReportList(PageInfo pi) {
 		Connection conn = getConnection();
-		ArrayList<Report> list = new MemberDao().selectReportList(conn);
+		ArrayList<Report> list = new MemberDao().selectReportList(conn,pi);
 		close(conn);
 		return list;
 	}
@@ -411,6 +507,69 @@ public class MemberService {
 		
 		close(conn);
 		
+		return result;
+	}
+	
+	//채윤 가게찜 조회
+	public ArrayList<StoreScrap> storeScrapList(int MNo){
+		Connection conn = getConnection();
+		ArrayList<StoreScrap> list = new MemberDao().storeScrapList(conn, MNo);
+		close(conn);
+		return list;
+	}
+	
+	//채윤 가게 찜 등록
+		public int storeScrapInsert(StoreScrap ss) {
+			Connection conn = getConnection();
+			int result = new MemberDao().storeScrapInsert(conn, ss);
+		
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
+		
+		
+		//채윤 팔로우 등록
+	public int followInsert(Follow f) {
+		Connection conn = getConnection();
+		int result = new MemberDao().followInsert(conn, f);
+				
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+					
+			close(conn);
+					
+			return result;
+	}
+	
+	//채윤 신고 페이징..
+	
+		public int selectReportListCount() {
+			Connection conn = getConnection();
+			int listCount = new MemberDao().selectReportListCount(conn);
+			close(conn);
+			return listCount;
+		}
+		
+	//채윤 신고 삭제
+	public int deleteReport(String delArr) {
+		Connection conn = getConnection();
+		int result = new MemberDao().deleteReport(conn, delArr);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
 		return result;
 	}
 }
