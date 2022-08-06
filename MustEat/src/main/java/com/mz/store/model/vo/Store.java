@@ -93,6 +93,22 @@ public class Store {
 	
 	
 	
+	public Store(int storeNo,String storeName, String storeAddress, String storeIntro,String storeImgPath,
+			String storePopularity, String storePopInfo, String storeReview, String reviewImg, String reviewWriter) {
+		super();
+		this.storeNo = storeNo;
+		this.storeName = storeName;
+		this.storeAddress = storeAddress;
+		this.storeIntro = storeIntro;
+		this.storeImgPath = storeImgPath;
+		this.storePopularity = storePopularity;
+		this.storePopInfo = storePopInfo;
+		this.reviewWriter = reviewWriter;
+		this.reviewImg = reviewImg;
+		this.storeReview = storeReview;
+	}
+
+
 	public Store(int storeNo, String storeName, String storeAddress, String storeIntro,
 				 String storeImgPath, String storePopularity, String storePopPath,String storePopInfo,
 			 String reviewWriter, String storeReview, String reviewImg) {

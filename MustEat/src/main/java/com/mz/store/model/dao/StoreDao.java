@@ -262,15 +262,15 @@ public class StoreDao {
 			while(rset.next()) {
 				Store s = new Store();
 				s.setStoreNo(rset.getInt("store_no"));
-				s.setStoreImgPath(rset.getString("store_img_path"));
 				s.setStoreName(rset.getString("store_name"));
 				s.setStoreAddress(rset.getString("store_address"));
 				s.setStoreIntro(rset.getString("store_intro"));
+				s.setStoreImgPath(rset.getString("store_img_path"));
 				s.setStorePopPath(rset.getString("store_popularity"));
 				s.setStorePopInfo(rset.getString("store_pop_info"));
-				s.setStoreReview(rset.getString("REVIEW_CONTENT"));
-				s.setReviewImg(rset.getString("REVIEW_IMG"));
 				s.setReviewWriter(rset.getString("review_writer"));
+				s.setReviewImg(rset.getString("REVIEW_IMG"));
+				s.setStoreReview(rset.getString("REVIEW_CONTENT"));
 				
 				list.add(s);
 			}

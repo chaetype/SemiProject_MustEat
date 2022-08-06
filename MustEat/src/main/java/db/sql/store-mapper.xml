@@ -77,19 +77,19 @@
 	<entry key="selectStoreList">
 		SELECT 
 		       S.STORE_NO
-		     , STORE_IMG_PATH
 		     , STORE_NAME
 		     , STORE_ADDRESS
 		     , STORE_INTRO
+		     , STORE_IMG_PATH
 		     , STORE_POPULARITY
 		     , STORE_POP_INFO
-		     , SR.REVIEW_CONTENT
-		     , SR.REVIEW_IMG
 		     , SR.REVIEW_WRITER
+		     , SR.REVIEW_IMG
+		     , SR.REVIEW_CONTENT
 		  FROM STORE S
 		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
 		 ORDER
-		 	BY STORE_NO DESC
+		 	BY S.STORE_NO DESC
 	</entry>
 	
 	<!-- 채윤 : 메인2 식당 검색 -->

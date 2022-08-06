@@ -36,13 +36,18 @@ public class StoreDetailController extends HttpServlet {
 		
 		int result = sService.increaseCount(storeNo);
 		
-		if(result > 0) {
-			Store s = sService.selectStore(storeNo);
-			request.setAttribute("s", s);
-			
-			request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
-			
-		}
+		Store s = sService.selectStore(storeNo);
+		request.setAttribute("s", s);
+		
+		request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
+		
+//		if(result > 0) {
+//			Store s = sService.selectStore(storeNo);
+//			request.setAttribute("s", s);
+//			
+//			request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
+//			
+//		}
 	}
 
 	/**

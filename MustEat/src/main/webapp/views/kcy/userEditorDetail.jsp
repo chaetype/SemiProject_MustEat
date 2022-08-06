@@ -27,6 +27,7 @@
     <%@ include file="../common/menubar.jsp"%>
       <!-- 에디터 글 조회에서 관리자만 글쓰기 버튼 활성화 시키기 -->
     <div class="wrap99">
+    	<input type="hidden" name="no" value="<%=e.getEditorNo()%>">
         <%=e.getEditorContent() %>
         
 

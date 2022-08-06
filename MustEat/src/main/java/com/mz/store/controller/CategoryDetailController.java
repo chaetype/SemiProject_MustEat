@@ -34,15 +34,19 @@ public class CategoryDetailController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	int editorNo = Integer.parseInt(request.getParameter("no"));
+//		int result = new StoreService().increaseCountE(editorNo);
 		
-		int result = new StoreService().increaseCountE(editorNo);
-		
-		if(result > 0) {  
-			Editor e = new StoreService().selectDetailEdior(editorNo);
-			request.setAttribute("e", e);
-			request.getRequestDispatcher("views/kcy/userEditorDetail.jsp").forward(request, response);
-			
-		}
+    	Editor e = new StoreService().selectDetailEdior(editorNo);
+		request.setAttribute("e", e);
+		request.getRequestDispatcher("views/kcy/userEditorDetail.jsp").forward(request, response);
+    	
+    	
+//		if(result > 0) {  
+//			Editor e = new StoreService().selectDetailEdior(editorNo);
+//			request.setAttribute("e", e);
+//			request.getRequestDispatcher("views/kcy/userEditorDetail.jsp").forward(request, response);
+//			
+//		}
 	
 	
 	}
