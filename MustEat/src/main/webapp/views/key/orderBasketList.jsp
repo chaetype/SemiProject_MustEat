@@ -148,7 +148,7 @@
 	
 	          <div class="orderButton">
 	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">구매하기</a>
-	            <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal">주문수정</button>
+	            <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal" style="display:none;">주문수정</button>
 	            <a class="plain-btn btn" onclick="return deleteCart(<%=bk.getBasketNo() %>);">상품삭제</a>
 	          </div>
 	      
