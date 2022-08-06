@@ -1,28 +1,28 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.notice.model.service.TosService;
-import com.mz.notice.model.vo.Tos;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class StoreUpdateFormController
+ * Servlet implementation class StorelistSearchController
  */
-@WebServlet("/storeupdateForm.st")
-public class StoreUpdateFormController extends HttpServlet {
+@WebServlet("/storesearch.st")
+public class StorelistSearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreUpdateFormController() {
+    public StorelistSearchController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,12 +32,10 @@ public class StoreUpdateFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int storeNo = Integer.parseInt(request.getParameter("no"));
+		ArrayList<Store> list = new StoreService().storelistSearch();
+		request.setAttribute("list", list);
 		
-		Store s = new StoreService().selectStoreFormList(storeNo);
-		
-		request.setAttribute("Store", s);
-		request.getRequestDispatcher("views/jsw/storelistUpdate.jsp").forward(request, response);
+		request.getRequestDispatcher("views/jsw/storeSearch.jsp").forward(request, response);
 		
 	}
 

@@ -133,6 +133,7 @@
 			 , STORE_ADDRESS 
 			 , STORE_PHONE
 		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
 		 ORDER 
             BY STORE_NO DESC
 	</entry>
@@ -289,7 +290,7 @@
 		     , ?
 		     , ?
 		     , ?
-		     , SYSDATE     
+		     , SYSDATE   
 		     )
 	</entry>
 	
@@ -342,13 +343,45 @@
 	</entry>
 	
 	<!-- 서원 식당 수정 -->
-	<entry key="storelistUpdate">
-		
+	<entry key="storelistUpdate">		
+		UPDATE STORE
+		   SET STORE_NAME = ?
+		     , STORE_TAG = ?
+		     , STORE_ADDRESS = ?
+		     , STORE_PHONE = ?
+		     , STORE_INTRO = ?
+		     , STORE_IMG_PATH = ?
+		     , STORE_POPULARITY = ?
+		     , STORE_POP_INFO = ?
+		     , STORE_POP_PATH = ?
+		     , STORE_OPERATING = ?
+		     , STORE_BREAKTIME = ?
+		     , NAVER_ADDRESS = ?
+		     , DAY_OFF = ?
+		     , STORE_URL = ?
+		 WHERE STORE_NO = ?	
 	</entry>
 	
 	<!-- 서원 식당 삭제 -->
 	<entry key="storelistDelete">
-		
+		UPDATE STORE
+		   SET STORE_STATUS = 'N'
+		 WHERE STORE_NO = ?
+	</entry>
+	
+	<!-- 서원 사용자 식당 검색 -->
+	<entry key="storelistSearch">
+		SELECT
+		       STORE_IMG_PATH
+		     , LOCAL_SI
+		     , LOCAL_GU
+		     , STORE_NAME
+		     , STORE_TAG
+		     , STORE_POPULARITY
+		     , STORE_OPERATING
+		     , STORE_BREAKTIME
+		  FROM STORE
+		 ORDER BY STORE_NAME ASC;
 	</entry>
 	
 </properties>

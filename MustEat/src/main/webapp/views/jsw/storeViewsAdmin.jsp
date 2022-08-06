@@ -135,7 +135,6 @@
 						<th>주소</th>
 						<th>전화번호</th>
 						<th>상세보기</th>
-						<th>삭제</th>
 				      </tr>
 				      <% if(list.isEmpty()) { %>
 	                  <!--case1. 게시글이 없을경우-->
@@ -151,7 +150,6 @@
 		                    <td><%= s.getStoreAddress() %></td>
 		                    <td><%= s.getStorePhone() %></td>
 		                    <td><button type="button" class="btn1" onclick="location.href='<%= contextPath %>/storelistDetail.st?no=<%= s.getStoreNo() %>'"><strong>보기</strong></button></td>
-		                    <td><button type="button" class="btn1" onclick="location.href='<%= contextPath %>/storelistDelete.st?no=<%= s.getStoreNo() %>'"><strong>삭제</strong></button></td>
 		               </tr>   
 	                   <% } %>        
 	                <% } %>

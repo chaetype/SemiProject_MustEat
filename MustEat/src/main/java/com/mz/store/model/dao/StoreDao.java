@@ -741,10 +741,103 @@ public class StoreDao {
 					return sr;
 				}
 		
+				// 서원 관리자 식당 수정
+				public int storelistUpdate(Connection conn, Store s) {
+					int result = 0;
+					PreparedStatement pstmt = null;
+					String sql = prop.getProperty("storelistUpdate");
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, s.getStoreName());
+						pstmt.setString(2, s.getStoreTag());	
+						pstmt.setString(3, s.getStoreAddress());
+						pstmt.setString(4, s.getStorePhone());
+						pstmt.setString(5, s.getStoreIntro());
+						pstmt.setString(6, s.getStoreImgPath());
+						pstmt.setString(7, s.getStorePopularity());
+						pstmt.setString(8, s.getStorePopInfo());
+						pstmt.setString(9, s.getStorePopPath());				
+						pstmt.setString(10, s.getStoreOperating());				
+						pstmt.setString(11, s.getStoreBreaktime());
+						pstmt.setString(12, s.getNaverAddress());
+						pstmt.setString(13, s.getDayOff());
+						pstmt.setString(14, s.getStoreUrl());		
+						pstmt.setInt(15, s.getStoreNo());	
+						
+						result = pstmt.executeUpdate();
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						close(pstmt);
+					}
+					
+					//System.out.println(result);
+					
+					return result;
+
+				}				
 		
 		
-		
-		
+				// 서원 관리자 식당 삭제
+				public int storelistDelete(Connection conn, int storeNo) {
+					
+					int result = 0;
+					PreparedStatement pstmt = null;
+					String sql = prop.getProperty("storelistDelete");
+					
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setInt(1, storeNo);
+						
+						result = pstmt.executeUpdate();
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						close(pstmt);
+					}
+					
+					return result;
+								
+				}
+					
+			// 서원 사용자 식당 조회
+			public ArrayList<Store> storelistSearch(Connection conn) {
+				ArrayList<Store> list = new ArrayList<>();
+				PreparedStatement pstmt = null;
+				ResultSet rset = null;
+				String sql = prop.getProperty("storelistSearch");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					rset = pstmt.executeQuery();
+					
+					
+					while(rset.next()) {
+						list.add(new Store(rset.getString("STORE_IMG_PATH"),
+									       rset.getString("LOCAL_SI"),
+										   rset.getString("LOCAL_GU"),
+										   rset.getString("STORE_NAME"),
+										   rset.getString("STORE_TAG"),
+										   rset.getString("STORE_POPULARITY"),
+										   rset.getString("STORE_OPERATING"),
+										   rset.getString("STORE_BREAKTIME")
+											));
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close(rset);
+					close(pstmt);
+				}
+				
+				
+	
+				return list;
+					}
+				
 		
 		
 

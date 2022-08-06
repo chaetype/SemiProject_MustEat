@@ -8,21 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mz.notice.model.service.TosService;
-import com.mz.notice.model.vo.Tos;
 import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class StoreUpdateFormController
+ * Servlet implementation class StorelistDeleteController
  */
-@WebServlet("/storeupdateForm.st")
-public class StoreUpdateFormController extends HttpServlet {
+@WebServlet("/storelistDelete.st")
+public class StorelistDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreUpdateFormController() {
+    public StorelistDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,13 +29,20 @@ public class StoreUpdateFormController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		request.setCharacterEncoding("UTF-8");
 		
 		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
-		Store s = new StoreService().selectStoreFormList(storeNo);
+		int result = new StoreService().storelistDelete(storeNo);
 		
-		request.setAttribute("Store", s);
-		request.getRequestDispatcher("views/jsw/storelistUpdate.jsp").forward(request, response);
+		if(result > 0) {
+			response.sendRedirect(request.getContextPath() + "/storelistDetail.st");
+		}else {
+			request.setAttribute("errorMsg", "식당 삭제 실패");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
+		
 		
 	}
 

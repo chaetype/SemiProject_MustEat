@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
 import com.mz.notice.model.dao.NoticeDao;
+import com.mz.notice.model.dao.TosDao;
 import com.mz.store.model.dao.StoreDao;
 import com.mz.store.model.vo.Editor;
 import com.mz.store.model.vo.Store;
@@ -245,8 +246,45 @@ public class StoreService {
 					close(conn);
 					return sr;
 				}
+				
+	// 서원 관리자 식당 수정
+		public int storelistUpdate(Store s) {
+			Connection conn = getConnection();
+			int result = new StoreDao().storelistUpdate(conn, s);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+		}
+			
+	// 서원 관리자 식당 삭제
+		public int storelistDelete(int storeNo) {
+			Connection conn = getConnection();
+			int result = new StoreDao().storelistDelete(conn, storeNo);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			close(conn);
+			
+			return result;		
+		}
 		
-		
-		
+	// 서원 사용자 식당 조회
+		public ArrayList<Store> storelistSearch() {
+			Connection conn = getConnection();
+			ArrayList<Store> list = new StoreDao().storelistSearch(conn);
+			
+			close(conn);
+			return list;
+		}
 	
 }

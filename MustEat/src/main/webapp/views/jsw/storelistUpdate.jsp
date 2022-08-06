@@ -103,7 +103,7 @@
 		
 		<div class="container">
 		
-			<h1 style="text-align:center; font-family: 'OTWelcomeRA' !important;">식당 등록</h1>
+			<h1 style="text-align:center; font-family: 'OTWelcomeRA' !important;">식당 수정</h1>
 	
 			<hr noshade size = 1 style="background:black;">
 
@@ -111,20 +111,19 @@
 				<div class="input-form-backgroud row">
 					<div class="input-form col-md-12 mx-auto">
 					 
-					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storelistUpdate.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
-						
+					  <form class="store-update-form" action="<%=request.getContextPath()%>/storelistUpdate.st" method="post" enctype="multipart/form-data" id="storeUpdateForm" style="margin-top:1%;">
+						<input type="hidden" name="no" value="<%=s.getStoreNo()%>">
 						<input type="hidden"  name="storefulladdress" value="" id="tt" >
+					
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
-							<input type="text" class="form-control" name="storename" id="store-name"placeholder="식당명을 입력해주세요." required>
-							<div class="invalid-feedback">
-							  식당명을 입력해주세요.
-							</div>
+							<input type="text" class="form-control" name="storename" id="store-name" value="<%=s.getStoreName()%>">
+
 						  </div>
 						  <div class="col-md-6 mb-3">
 							<label for="store-phone" style="color:#4B088A;"><b>* 전화번호(-포함)</b></label>
-							<input type="tel" class="form-control" name="storephone" id="store-phone" placeholder="전화번호를 입력해주세요. ex) xx-xxx-xxxx / xxx-xxx-xxxx" required>
+							<input type="tel" class="form-control" name="storephone" id="store-phone" value="<%=s.getStorePhone()%>">
 						 	<div class="invalid-feedback">
 							  전화번호를 입력해주세요.
 						  </div>
@@ -133,139 +132,8 @@
 			  
 						<div class="mb-3">
 							<label for="store-address" style="color:#4B088A;"><b>* 식당주소</b></label>
-							<br>
-							<select name="sido" id="sido"></select>
-							<select name="gugun" id="gugun"></select>	
-							
-							<script>						
-
-								$('document').ready(function() {
-								var area0 = ["시/도 선택","서울특별시","인천광역시", "경기도"];
-								var area1 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
-								var area2 = ["계양구","남구","남동구","동구","부평구","서구","연수구","중구","강화군","옹진군"];
-								var area3 = ["고양시","과천시","광명시","광주시","구리시","군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시","안산시","안성시","안양시","양주시","오산시","용인시","의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시","가평군","양평군","여주군","연천군"];
-								
-
-								// 시/도 선택 박스 초기화
-
-								$("select[name^=sido]").each(function() {
-								$selsido = $(this);
-								$.each(eval(area0), function() {
-								$selsido.append("<option value='"+this+"'>"+this+"</option>");
-								});
-								$selsido.next().append("<option value=''>구/군 선택</option>");
-								});
-
-								
-
-								// 시/도 선택시 구/군 설정
-
-								$("select[name^=sido]").change(function() {
-								var area = "area"+$("option",$(this)).index($("option:selected",$(this))); // 선택지역의 구군 Array
-								var $gugun = $(this).next(); // 선택영역 군구 객체
-								$("option",$gugun).remove(); // 구군 초기화
-
-								if(area == "area0")
-								$gugun.append("<option value=''>구/군 선택</option>");
-								else {
-								$.each(eval(area), function() {
-									$gugun.append("<option value='"+this+"'>"+this+"</option>");
-								});
-								}
-								});
-								
-							
-								});
-
-							</script>
-							
-							<table>
-								<tr>
-									<td width="400px;">
-										<input type="text" class="form-control" name="storeaddress" id="store-address" placeholder="나머지 주소를 입력해주세요. ex) 이태원로 177" required style="margin-top:1%;">
-									</td>
-									<td>
-										<button type="button" class="btn btn-sm btn-primary" id="searchMap">클릭</button>
-									</td>
-								</tr>
-								
-							</table>
-							<div class="invalid-feedback">
-							  식당 주소를 입력해주세요.
-							</div>
-						</div>
-												
-						
-						<div class="mb-3" id="store-map">
-
-							<label for="store-map" style="color:#4B088A;"><b>* 식당지도</b></label>
-
-							<div id="map" name="storemap" style="width:100%;height:350px;"></div>
-
-							<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ad501a6ae45c08e27025f470712da55&libraries=services"></script>
-							<script>
-							
-							$(function(){
-								storemap("서울 중구 회현동1가");
-								
-								
-								$("#searchMap").click(function(){
-									
-									//console.log($("#sido").val());
-									//console.log($("#gugun").val());
-									//console.log($("#store-address").val());
-									storemap( $("#sido").val() + " " +  $("#gugun").val() + " " + $("#store-address").val());
-									$("#tt").val($("#sido").val() + " " +  $("#gugun").val() + " " + $("#store-address").val());
-									
-								})							
-								
-							})
-							
-																					
-							function storemap(fullAddress){
-								
-								var mapContainer = document.getElementById('store-map'), // 지도를 표시할 div 
-								mapOption = {
-									center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-									level: 3 // 지도의 확대 레벨
-								};  
-
-							// 지도를 생성합니다    
-							var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-							// 주소-좌표 변환 객체를 생성합니다
-							var geocoder = new kakao.maps.services.Geocoder();
-	
-							// 주소로 좌표를 검색합니다 // *식당 주소 넣기*
-							
-							geocoder.addressSearch(fullAddress, function(result, status) {
-
-								// 정상적으로 검색이 완료됐으면 
-								if (status === kakao.maps.services.Status.OK) {
-
-									var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-									// 결과값으로 받은 위치를 마커로 표시합니다
-									var marker = new kakao.maps.Marker({
-										map: map,
-										position: coords
-									});
-
-									// 인포윈도우로 장소에 대한 설명을 표시합니다
-									var infowindow = new kakao.maps.InfoWindow({
-										content: '<div style="width:150px;text-align:center;padding:6px 0;">입력한 식당 위치를 확인해주세요.</div>'
-									});
-									infowindow.open(map, marker);
-
-									// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-									map.setCenter(coords);
-								} 
-							});   
-							}
-							
-							 
-							</script>
-							
+							<input type="text" class="form-control" name="storefulladdress" id="store-address" value="<%=s.getStoreAddress()%>">
+											
 
 						</div>
 
@@ -276,11 +144,7 @@
 									<td><label for="store-img" style="color:#4B088A;"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file" name="storeimg"></td>
 								</tr>
-								<tr>
-									<td colspan="2">
-										<img src="" alt="" width="200" height="180" style="margin-top:3%;">
-									</td>
-								</tr>
+								
 							</table>
 							
 						</div>
@@ -288,11 +152,8 @@
 						<div class="mb-3">
 						  <label for="store-introduce" name="storeintro" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
-						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"></textarea>
-						  <div style="text-align:right; margin-right:1%;"><span id="store-count">0 / 1200</span></div>
-						  <div class="invalid-feedback">
-							식당 소개글을 입력해주세요.
-						  </div>
+						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;"><%=s.getStoreIntro()%></textarea>
+						 						
 						</div>
 						
 						<script>
@@ -312,10 +173,8 @@
 			  
 						<div class="mb-3">
 							<label for="store-menu" name="storemenu" style="color:#4B088A;"><b>* 인기메뉴</b></label>
-						  <input type="text" class="form-control" name="storemenu" id="store-menu" placeholder="인기메뉴를 입력해주세요.">
-						  <div class="invalid-feedback">
-							인기메뉴를 입력해주세요.
-						  </div>
+						  <input type="text" class="form-control" name="storemenu" id="store-menu"  value="<%=s.getStorePopularity()%>">
+					
 						</div>
 
 						<div class="mb-3">
@@ -325,11 +184,6 @@
 									<td><label for="menu-img" style="color:#4B088A;"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file" name="storemenuimg"></td>
 								</tr>
-								<tr>
-									<td colspan="2">
-										<img src="" alt="" width="200" height="180" style="margin-top:3%;">
-									</td>
-								</tr>
 							</table>
 							
 						</div>
@@ -337,35 +191,19 @@
 						<div class="mb-3">
 							<label for="menu-introduce" style="color:#4B088A;"><b>* 인기메뉴 설명</b></label>
 							<br>
-							<textarea name="storemenuintro" id="menu-introduce" cols="145" rows="10" onkeyup="counter2(this, 600)" style="resize:none; border:1px solid lightgrey;"></textarea>
-						  <div style="text-align:right; margin-right:1%;"><span id="menu-count">0 / 600</span></div>
+							<textarea name="storemenuintro" id="menu-introduce" cols="145" rows="10" style="resize:none; border:1px solid lightgrey;"><%= s.getStorePopInfo() %></textarea>
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
 						  </div>
 						</div>
-						
-						<script>
-						
-							function counter2(text, length){
-								var limit = length;
-								var str = text.value.length;
-								if(str>limit){
-									document.getElementById("menu-count").innerHTML = "600자 이상 입력했습니다.";
-									text.value = text.value.substring(0, limit);
-									text.focus();
-								}
-								document.getElementById("menu-count").innerHTML = text.value.length + "/" + limit;
-							}	
-							
-						</script>
 
 						<div style="margin-top:3%;">
 
-							<table>
+								<table>
 								<div class="mb-3">
 									<tr>
 										<td><label for="store-operating-start" style="color:#4B088A;"><b>* 운영시간</b></label></td>
-										<td><input type="time" name="storeoperating1" id="store-operating-start">&nbsp;~&nbsp;<input type="time" name="storeoperating2" id="store-operating-end"></td>
+										<td><input type="text" name="storeoperating" id="storeoperating" value="<%=s.getStoreOperating()%>"></td>
 									</tr>
 									<div class="invalid-feedback">
 										운영시간을 입력해주세요.
@@ -374,7 +212,7 @@
 								<div class="mb-3">
 									<tr>
 										<td><label for="store-break-start" style="color:#4B088A;"><b>* 브레이크타임</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td><input type="time" name="storebreak1" id="store-break-start">&nbsp;~&nbsp;<input type="time" name="storebreak2" id="store-break-end"></td>
+										<td><input type="text" name="storebreak" id="storebreak" value="<%=s.getStoreBreaktime()%>"></td>
 									</tr>
 									<div class="invalid-feedback">
 										브레이크 타임을 입력해주세요.
@@ -388,18 +226,14 @@
 						
 						<div class="mb-3">
 							<label for="store-naver" style="color:#4B088A;"><b>* 네이버 주소 URL</b></label>
-						  <input type="text" name="storenaverurl" class="form-control" id="store-naver" placeholder="네이버 주소 url을 입력해주세요.">
-						  <div class="invalid-feedback">
-							네이버 주소 URL을 입력해주세요.
-						  </div>
+						  <input type="text" name="storenaverurl" class="form-control" id="store-naver" value="<%=s.getNaverAddress()%>">
+						  
 						</div>
 
 						<div class="mb-3">
 							<label for="store-url" style="color:#4B088A;"><b>* 식당 주소 URL</b></label>
-						  <input type="text" name="storeurl" class="form-control" id="store-url" placeholder="식당 주소 url을 입력해주세요.">
-						  <div class="invalid-feedback">
-							식당 주소 URL을 입력해주세요.
-						  </div>
+						  <input type="text" name="storeurl" class="form-control" id="store-url" value="<%=s.getStoreUrl()%>">
+						 
 						</div>
 
 						<div class="mb-3">
@@ -407,25 +241,11 @@
 								<tr>
 									<td><label for="storeholiday" name="storeholiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
-										<input type="checkbox" name="storeholiday" id="mon" value="월">
-										<label for="mon">월</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="tue" value="화">
-										<label for="tue">화</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="wed" value="수">
-										<label for="wed">수</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="thu" value="목">
-										<label for="thu">목</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="fri" value="금">
-										<label for="fri">금</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="sat" value="토">
-										<label for="sat">토</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="sun" value="일">
-										<label for="sun">일</label>
+										<input type="text" name="storeholiday" id="storeholiday" value="<%=s.getDayOff()%>">
 									</td>
 								</tr>
-								<div class="invalid-feedback">
-									휴무일을 입력해주세요.
-								</div>
+								</table>
+						</div>
 								
 								<div class="mb-3">
 									<table>
@@ -454,37 +274,52 @@
 											
 												<td><label for="storemood" style="color:#4B088A;"><b>* 분위기 태그</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 												<td>
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood1" value="가성비좋은">
+												<input type="checkbox" onclick="countChecked(this);" class="storemood" name="storemood" id="mood1" value="가성비좋은">
 												<label for="mood1">가성비좋은</label>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood2" value="분위기좋은">
+												<input type="checkbox" onclick="countChecked(this);" class="storemood" name="storemood" id="mood2" value="분위기좋은">
 												<label for="mood2">분위기좋은</label>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood3" value="격식있는">
+												<input type="checkbox" onclick="countChecked(this);" class="storemood" name="storemood" id="mood3" value="격식있는">
 												<label for="mood3">격식있는</label>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood4" value="고급스러운">
+												<input type="checkbox" onclick="countChecked(this);" class="storemood" name="storemood" id="mood4" value="고급스러운">
 												<label for="mood4">고급스러운</label>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood5" value="시끌벅적한">
+												<input type="checkbox" onclick="countChecked(this);" class="storemood" name="storemood" id="mood5" value="시끌벅적한">
 												<label for="mood5">시끌벅적한</label>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood6" value="조용한">
+												<input type="checkbox" onclick="countChecked(this);" class="storemood" name="storemood" id="mood6" value="조용한">
 												<label for="mood6">조용한</label>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="countChecked(this);" name="storemood" id="mood7" value="깔끔한">
+												<input type="checkbox" onclick="countChecked(this);" class="storemood" name="storemood" id="mood7" value="깔끔한">
 												<label for="mood7">깔끔한</label>&nbsp;&nbsp;&nbsp;
-												<input type="checkbox" onclick="CountChecked(this);" name="storemood" id="mood8" value="이색적인">
+												<input type="checkbox" onclick="CountChecked(this);" class="storemood" name="storemood" id="mood8" value="이색적인">
 												<label for="mood8">이색적인</label>																				
 											</td>
 										</tr>
-										<div class="invalid-feedback">
-											분위기 태그를 입력해주세요.
-										</div>									
+																		
 										
 									</table>
-								</div>			  
+									
+									<script>
+									$(function(){
+										
+										const storemood = "<%=s.getStoreTag()%>";
+										
+										$("input[type=checkbox]").each(function(){
+											if( storemood.search( $(this).val() ) != -1){
+												$(this).attr("checked", true);
+											}
+										})
+										
+									})
+								</script>
+									
+								</div>				  
 						
 						<hr class="row">
 						
-						<span style="color:red;"><strong>최종 등록 전, 입력 정보를 다시 한번 확인해주세요.</strong></span>
+						<span style="color:red;"><strong>입력 정보를 다시 한번 확인해주세요.</strong></span>
 						
-						<div class="mb-4"></div>
-						<button class="btn1" type="submit">등록하기</button>
+						<div class="mb-4" style="text-align:center; margin-top:4%;">
+						<button class="btn1" type="submit" style="color:blue;">수정완료</button>
+						<button class="btn1" type="button" style="color:black;" onclick="history.back();">뒤로가기</button>
+						</div>
 
 					  </form>
 					</div>

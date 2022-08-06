@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.service.MemberService;
 import com.mz.member.model.vo.Point;
+import com.mz.notice.model.service.NoticeService;
 
 /**
  * Servlet implementation class MembershipListController
@@ -31,7 +33,8 @@ public class MembershipListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+				
+				
 		ArrayList<Point> list = new MemberService().membershipList();
 		
 		request.setAttribute("list", list);

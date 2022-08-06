@@ -12,21 +12,23 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.mz.common.MyFileRenamePolicy;
+import com.mz.notice.model.service.TosService;
+import com.mz.notice.model.vo.Tos;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
- * Servlet implementation class StoreInsertController
+ * Servlet implementation class StorelistUpdateController
  */
-@WebServlet("/storeinsert.st")
-public class StoreInsertController extends HttpServlet {
+@WebServlet("/storelistUpdate.st")
+public class StorelistUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreInsertController() {
+    public StorelistUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,8 +37,8 @@ public class StoreInsertController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-request.setCharacterEncoding("UTF-8");
+	
+		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();
 		
@@ -49,60 +51,58 @@ request.setCharacterEncoding("UTF-8");
 		MultipartRequest multiRequest = new MultipartRequest(request, SavePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
 		String storeName = multiRequest.getParameter("storename");
-		String localSi = multiRequest.getParameter("sido");
-		String localGu = multiRequest.getParameter("gugun");
-		String localRo = multiRequest.getParameter("storeaddress");
 		String[] storeTagArr = multiRequest.getParameterValues("storemood");
 		String storePhone = multiRequest.getParameter("storephone");
-		String storeAddress = multiRequest.getParameter("storefulladdress");		
+		String storeAddress = multiRequest.getParameter("storefulladdress");
 		String storeIntro = multiRequest.getParameter("storeintro");
 		String storePopularity = multiRequest.getParameter("storemenu");
 		String storePopInfo = multiRequest.getParameter("storemenuintro");
-		String storeOperating = multiRequest.getParameter("storeoperating1") + "~" + multiRequest.getParameter("storeoperating2");
-		String storeBreaktime = multiRequest.getParameter("storebreak1") + "~" + multiRequest.getParameter("storebreak2");
+		String storeOperating = multiRequest.getParameter("storeoperating");
+		String storeBreaktime = multiRequest.getParameter("storebreak");
 		String naverAddress = multiRequest.getParameter("storenaverurl");
 		String dayOff = multiRequest.getParameter("storeholiday");
 		String storeUrl = multiRequest.getParameter("storeurl");
+		int storeNo = Integer.parseInt(multiRequest.getParameter("no"));
+		
 		
 		String storeTag = "";
 		if(storeTagArr != null) {
 			storeTag = String.join(",", storeTagArr);
 		}
 		
-		Store se = new Store();		
-		se.setStoreName(storeName);
-		se.setLocalSi(localSi);
-		se.setLocalGu(localGu);
-		se.setLocalRo(localRo);
-		se.setStoreTag(storeTag);
-		se.setStoreAddress(storeAddress);
-		se.setStorePhone(storePhone);
-		se.setStoreIntro(storeIntro);
-		se.setStorePopularity(storePopularity);
-		se.setStorePopInfo(storePopInfo);
-		se.setStoreOperating(storeOperating);
-		se.setStoreBreaktime(storeBreaktime);
-		se.setNaverAddress(naverAddress);
-		se.setDayOff(dayOff);
-		se.setStoreUrl(storeUrl);
-		
+		Store s = new Store();		
+		s.setStoreNo(storeNo);
+		s.setStoreName(storeName);
+		s.setStoreTag(storeTag);
+		s.setStoreAddress(storeAddress);
+		s.setStorePhone(storePhone);
+		s.setStoreIntro(storeIntro);
+		s.setStorePopularity(storePopularity);
+		s.setStorePopInfo(storePopInfo);
+		s.setStoreOperating(storeOperating);
+		s.setStoreBreaktime(storeBreaktime);
+		s.setNaverAddress(naverAddress);
+		s.setDayOff(dayOff);
+		s.setStoreUrl(storeUrl);
+				
 		if(multiRequest.getOriginalFileName("storeimg") != null) {
 			String storeImgPath = "resources/image/jsw/store_upfiles/" + multiRequest.getFilesystemName("storeimg");
-			se.setStoreImgPath(storeImgPath);
+			s.setStoreImgPath(storeImgPath);
 		}
 		
 		if(multiRequest.getOriginalFileName("storemenuimg") != null) {
 			String storePopPath = "resources/image/jsw/store_upfiles/" + multiRequest.getFilesystemName("storemenuimg");
-			se.setStorePopPath(storePopPath);
+			s.setStorePopPath(storePopPath);
 		}
-				
 
-		int result = new StoreService().storelistInsert(se);
+		int result = new StoreService().storelistUpdate(s);
+		
+		//System.out.println(s);
 				
 		if(result > 0) {
 			// 등록 성공
-			session.setAttribute("alertMsg", "성공적으로 식당 등록이 완료되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/storeadminlist.st");
+			session.setAttribute("alertMsg", "성공적으로 식당 수정이 완료되었습니다.");
+			response.sendRedirect(request.getContextPath() + "/storelistDetail.st?no=" + storeNo);
 		}else { 
 			// 등록 실패
 			
@@ -113,8 +113,8 @@ request.setCharacterEncoding("UTF-8");
 			if(multiRequest.getOriginalFileName("storemenuimg") != null) {
 				new File(SavePath + multiRequest.getFilesystemName("storemenuimg")).delete();
 			}
-			
-			request.setAttribute("alertMsg", "식당 등록 실패");
+						
+			request.setAttribute("alertMsg", "식당 수정 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 		

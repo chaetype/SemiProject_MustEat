@@ -109,8 +109,8 @@
 					<div class="input-form col-md-12 mx-auto">
 					 
 					  <form class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
-						
-						<input type="hidden"  name="storefulladdress" value="" id="tt" >
+						<input type="hidden"  name="no" id="no" >
+						<input type="hidden"  name="storefulladdress" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
@@ -273,11 +273,6 @@
 									<td><label for="store-img" style="color:#4B088A;"><b>* 식당사진</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file" name="storeimg"></td>
 								</tr>
-								<tr>
-									<td colspan="2">
-										<img src="" alt="" width="200" height="180" style="margin-top:3%;">
-									</td>
-								</tr>
 							</table>
 							
 						</div>
@@ -321,11 +316,6 @@
 								<tr>
 									<td><label for="menu-img" style="color:#4B088A;"><b>* 인기메뉴사진</b>&nbsp;&nbsp;&nbsp;</label></td>
 									<td><input type="file" name="storemenuimg"></td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<img src="" alt="" width="200" height="180" style="margin-top:3%;">
-									</td>
 								</tr>
 							</table>
 							
@@ -404,20 +394,7 @@
 								<tr>
 									<td><label for="storeholiday" name="storeholiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
-										<input type="checkbox" name="storeholiday" id="mon" value="월">
-										<label for="mon">월</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="tue" value="화">
-										<label for="tue">화</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="wed" value="수">
-										<label for="wed">수</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="thu" value="목">
-										<label for="thu">목</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="fri" value="금">
-										<label for="fri">금</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="sat" value="토">
-										<label for="sat">토</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="sun" value="일">
-										<label for="sun">일</label>
+										<input type="text" name="storeholiday" id="storeholiday">
 									</td>
 								</tr>
 								<div class="invalid-feedback">
