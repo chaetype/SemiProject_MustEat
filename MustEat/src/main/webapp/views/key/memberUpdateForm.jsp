@@ -263,6 +263,7 @@
 	                    <img src="<%=memImg %>" id="existIcon" onclick="chooseFile(1);">
 	                    <input type="hidden" name="profile" value="<%=memImg %>">
 	                    <input type="file" id="profile1" name="newProfile" onchange="loadImg(this, 1);" style="display:none;">
+	                    <button type="button" class="btn1 basicProfile">기본프로필로 변경</button>
                     </td>
                     <% } else { %>
                     <td> <!-- 프로필 사진이 없는 경우 -->

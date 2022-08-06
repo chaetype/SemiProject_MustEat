@@ -469,7 +469,11 @@
 		   SET PR_REVIEW_STATUE = 'Y'
 	</entry>
 	
-	
+	<!-- 은영 (장바구니 삭제) -->
+	<entry key="deleteBasket">
+	DELETE FROM BASKET
+        WHERE BASKET_NO IN ( ? );
+	</entry>
 	
 	
 	

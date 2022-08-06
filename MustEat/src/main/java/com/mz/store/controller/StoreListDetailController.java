@@ -14,7 +14,7 @@ import com.mz.store.model.vo.Store;
 /**
  * Servlet implementation class StoreListDetailController
  */
-@WebServlet("/storelistdetail.st")
+@WebServlet("/storelistDetail.st")
 public class StoreListDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,10 +33,10 @@ public class StoreListDetailController extends HttpServlet {
 
 		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
-		Store sl = new StoreService().selectStoreList(storeNo);
+		Store s = new StoreService().selectStoreFormList(storeNo);
 		
-		request.setAttribute("Store", sl);
-		request.getRequestDispatcher("views/jsw/tosDetailView.jsp").forward(request, response);
+		request.setAttribute("Store", s);
+		request.getRequestDispatcher("views/jsw/storelistDetailView.jsp").forward(request, response);
 		
 	}
 

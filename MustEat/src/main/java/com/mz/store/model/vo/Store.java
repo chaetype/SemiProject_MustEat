@@ -203,11 +203,12 @@ public class Store {
 	}
 
 
-	public Store(String localSi, String localGu, String localRo, String storeName, String storeTag, String storeAddress,
+	public Store(int storeNo, String localSi, String localGu, String localRo, String storeName, String storeTag, String storeAddress,
 			String storePhone, String storeIntro, String storeImgPath, String storePopularity, String storePopInfo,
 			String storePopPath, String storeOperating, String storeBreaktime, String naverAddress, String dayOff,
 			String storeUrl, Date storeEnrollDate) {
 		super();
+		this.storeNo = storeNo;
 		this.localSi = localSi;
 		this.localGu = localGu;
 		this.localRo = localRo;
