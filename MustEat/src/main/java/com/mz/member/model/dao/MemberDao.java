@@ -1301,29 +1301,61 @@ public class MemberDao {
 		
 		//채윤 가게찜 등록
 		
-				public int storeScrapInsert(Connection conn, StoreScrap ss) {
-					int result = 0;
-					PreparedStatement pstmt = null;
-					String sql = prop.getProperty("storeScrapInsert");
+	public int storeScrapInsert(Connection conn, StoreScrap ss) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("storeScrapInsert");
 					
-					try {
-						pstmt = conn.prepareStatement(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
 						
-						pstmt.setString(1, ss.getStoreNo());
-						pstmt.setInt(2, ss.getMemno());
-						pstmt.setString(3, ss.getStoreImg());
+			pstmt.setString(1, ss.getStoreNo());
+			pstmt.setInt(2, ss.getMemno());
+			pstmt.setString(3, ss.getStoreImg());
+				
 						
+			result = pstmt.executeUpdate();
 						
-						result = pstmt.executeUpdate();
-						
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}finally {
-						close(pstmt);
-					}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
 					
-					return result;
-				}
+				return result;
+	}
+	
+	
+	
+	
+	
+	//채윤 팔로우 등록
+	
+	public int followInsert(Connection conn, Follow f) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("followInsert");
+					
+		try {
+			pstmt = conn.prepareStatement(sql);
+						
+			
+			pstmt.setInt(1, f.getFingMNo());
+				
+						
+			result = pstmt.executeUpdate();
+						
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+			}
+					
+				return result;
+	}
+	
+	
+	
 		
 }
 		

@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.member.model.vo.Member"%>
-<%ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");%>
+<%
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MUST EAT</title>
 
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
@@ -18,6 +20,8 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+
 
 <style>
     
@@ -71,9 +75,8 @@
 		<form action="<%= contextPath %>/insert.fo" method="post">
         <table class="tt" style="width:100%; background-color: rgb(223, 196, 240);" >
             <% for(Member m : list){ %>
-            	
             <tr>
-                <th width="50"><%=m.getMemNo() %></th>
+                <th width="50" name="fingMno"><%=m.getMemNo()%></th>
                 <td width="70"><img src="<%=contextPath%><%=m.getMemImgPath() %>" style="width: 40px; height:40px; border-radius:50px;
                     overflow:hidden;"></td>
                 <td width="100"><%=m.getMemNickname() %></td>

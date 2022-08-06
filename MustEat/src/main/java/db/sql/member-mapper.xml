@@ -664,4 +664,23 @@
 		     )
 	</entry>
 	
+	<!-- 채윤 팔로우 등록 -->
+	<entry key="followInsert">
+		INSERT 
+		  INTO FOLLOW
+		     (
+			   FOLLOW_NO
+			 , F_MNO
+			 , FING_MNO
+			 , ENROLL_DATE
+		     )
+		VALUES
+		     (
+		       SEQ_FOLNO.NEXTVAL
+		     , ?
+		     , ?
+		     , SYSDATE
+		     )
+	</entry>
+	
 </properties>

@@ -33,7 +33,7 @@ public class MemForFollowListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<Member> list = new MemberService().selectFMemList();
-		
+		//System.out.println(list);
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("views/kcy/userFollowMemSearching.jsp").forward(request, response);
 	}

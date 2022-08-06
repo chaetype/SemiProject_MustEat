@@ -437,4 +437,21 @@ public class MemberService {
 			
 			return result;
 		}
+		
+		
+		//채윤 팔로우 등록
+	public int followInsert(Follow f) {
+		Connection conn = getConnection();
+		int result = new MemberDao().followInsert(conn, f);
+				
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+					
+			close(conn);
+					
+			return result;
+	}
 }

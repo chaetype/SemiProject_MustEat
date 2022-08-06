@@ -54,7 +54,7 @@ public class StoreScrapInsertController extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/detail.st?no=" + storeNo);
 		}else { 
 			// 등록 실패
-			session.setAttribute("alertMsg", "신고 실패");
+			session.setAttribute("alertMsg", "찜 오류 발생");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
