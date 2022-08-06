@@ -31,7 +31,7 @@ public class StoreReviewDetailController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int reNo = Integer.parseInt(request.getParameter("no"));
+		int reNo = Integer.parseInt(request.getParameter("reno"));
 		
 		StoreService sService = new StoreService();
 	

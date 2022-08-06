@@ -131,13 +131,13 @@
                 <td colspan="7"></td>
                 	<% for(Report r : list){ %>
 	                <tr>
-	                	<td data-th="Supplier Code"><input type="checkbox" class="chkbox" name="list"></td>
-	                    <td><%=r.getReportNo()%></td>
-	                    <td><%= r.getMemNickname()%></td>
-	                    <td><%= r.getMemId()%></td>
-	                    <td><%= r.getReportTitle()%></td>
-	                    <td><%= r.getReportContent()%></td>
-	                    <td><%= r.getReportDate()%></td>
+	                	<td data-th="Supplier Code"><input type="checkbox" class="chkbox" name="check" id="chkbox<%=r%>" value="<%=r.getReportNo()%>"></td>
+	                    <td class="noDetail"><%=r.getReportNo()%></td>
+	                    <td class="noDetail"><%= r.getMemNickname()%></td>
+	                    <td class="noDetail"><%= r.getMemId()%></td>
+	                    <td class="noDetail"><%= r.getReportTitle()%></td>
+	                    <td class="noDetail"><%= r.getReportContent()%></td>
+	                    <td class="noDetail"><%= r.getReportDate()%></td>
 	                   
 	                </tr>
                 	<% } %>
@@ -150,7 +150,7 @@
 		
 			<div class="list01" style="float: left;">
 				<!-- <input class="btn1" type="button" id="check_all" value="전체선택" /> -->
-		        <button class="btn1" onclick="deleteNo();">선택삭제</button>
+		        <button type="button" class="btn1" onclick="deleteNo();">선택삭제</button>
 				
 	        </div>
 		
@@ -192,51 +192,60 @@
     	
     	
     	
-    	$(".rwd-table>tbody>tr").click(function(){
-		                	location.href="<%=contextPath%>/detail.st?no=" + $(this).siblings().eq(1).text();
-		                })
     	
     	
-    	
-    	
-    </script> 
-	
-	
-	
 
-
-
-
-
- <script type="text/javascript">
-	let check = false;
-	// function checkAll(){
-	//     let chk = document.getElementsByName("chk[]");
-	//     console.log(chk);
-	//     if(check==false){
-	//         check=true;
-	//         for(let i=0; i<chk.length; i++){
-	//             chk[i].checked=true;
-	//         }
-	//     }else{
-	//         check=false;
-	//         for(let i=0; i<chk.length; i++){
-	//             chi[i].checked=false;
-	//         }
-	//     }
-	// }
-
-	function checkAll(checkAll){
-		let checkboxes=document.getElementsByName("list");
-		console.log(checkboxes);
-		checkboxes.forEach((checkbox)=>{
-			console.log(checkbox    );
-			checkbox.checked=checkAll.checked;
-		})
-	}
-
+    $("tbody>tr>.noDetail").click(function(){
+    	location.href="<%=contextPath%>/detail.sr?<%=currentPage%>&reno=" + $(this).siblings().eq(1).text();
+    })
+    
+    let check = false;
+    // function checkAll(){
+    //     let chk = document.getElementsByName("chk[]");
+    //     console.log(chk);
+    //     if(check==false){
+    //         check=true;
+    //         for(let i=0; i<chk.length; i++){
+    //             chk[i].checked=true;
+    //         }
+    //     }else{
+    //         check=false;
+    //         for(let i=0; i<chk.length; i++){
+    //             chi[i].checked=false;
+    //         }
+    //     }
+    // }
+ 
+    function checkAll(checkAll){
+       let checkboxes=document.getElementsByName("check");
+       //console.log(checkboxes);
+       checkboxes.forEach((checkbox)=>{
+          //console.log(checkbox    );
+          checkbox.checked=checkAll.checked;
+       });
+    }
+    
+    function deleteNo(){
+    	if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+    		let delArr = [];
+    		
+    		$("tbody .chkbox").each(function(){
+    			if($(this).prop("checked")){
+    				delArr.push($(this).val());
+    			}
+    		});
+    		
+        	console.log(delArr.toString());
+    		
+    		const str = delArr.toString();
+    		
+    		location.href="<%=contextPath%>/rpdelete.rp?cpage=<%=currentPage%>&delNo=" + str;
+    	}
+    }
+    
 </script>
-
+    	
+    
 
 
 

@@ -868,5 +868,10 @@
 		  FROM REPORT
 	</entry>
 	
-	
+	<!-- 채윤 신고 삭제 -->
+	<entry key="deleteReport">
+		UPDATE
+		       STORE_RE
+		   SET REVIEW_STATUE = 'Y'
+	</entry>
 </properties>

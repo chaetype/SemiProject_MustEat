@@ -532,5 +532,16 @@ public class MemberService {
 			return listCount;
 		}
 		
-		
+	//채윤 신고 삭제
+	public int deleteReport(String delArr) {
+		Connection conn = getConnection();
+		int result = new MemberDao().deleteReport(conn, delArr);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 }

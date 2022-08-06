@@ -71,9 +71,9 @@ public class StoreService {
 			return result;
 		}
 	//채윤 (식당 리뷰 목록 조회/ StoreReviewListController와 연결)
-	public ArrayList<StoreReview> selectStoreReviewList(){
+	public ArrayList<StoreReview> selectStoreReviewList(PageInfo pi){
 		Connection conn = getConnection();
-		ArrayList<StoreReview> list = new StoreDao().selectStoreReviewList(conn);
+		ArrayList<StoreReview> list = new StoreDao().selectStoreReviewList(conn,pi);
 		close(conn);
 		return list;
 	}
@@ -131,7 +131,14 @@ public class StoreService {
 		return list;
 	}
 	
+	//채윤 식당리뷰 페이징..
 	
+			public int StoreReviewListCount() {
+				Connection conn = getConnection();
+				int listCount = new StoreDao().StoreReviewListCount(conn);
+				close(conn);
+				return listCount;
+			}
 	
 	
 	

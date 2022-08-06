@@ -1023,7 +1023,6 @@ public class MemberDao {
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
 			
-			rset = pstmt.executeQuery();
 			
 			rset = pstmt.executeQuery();
 			
@@ -1716,6 +1715,28 @@ public class MemberDao {
 			return listCount;
 		}
 		
+	
+		
+	//채윤 신고 삭제
+	public int deleteReport(Connection conn, String delArr) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteReport") + "WHERE RE_NO IN (" + delArr + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 }
 		
 		

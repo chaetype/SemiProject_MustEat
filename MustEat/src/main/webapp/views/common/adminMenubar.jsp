@@ -185,7 +185,7 @@
 					<a class="menu__item" href="<%=contextPath%>/tosadminlist.no">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 이용약관</span>
 					</a>
-					<a class="menu__item" href="<%=contextPath%>/list.rp">
+					<a class="menu__item" href="<%=contextPath%>/list.rp?cpage=1">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 신고관리</span>
 					</a>				
 					
