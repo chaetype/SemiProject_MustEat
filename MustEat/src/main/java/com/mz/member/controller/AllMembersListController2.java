@@ -44,7 +44,9 @@ public class AllMembersListController2 extends HttpServlet {
                int result = new MemberService().withdrawalMember(userNo);
                if(result==1) {
             	   int result2 = new MemberService().modifyDate(userNo);
-            	   a++;
+            	   if(result2 == 1) {
+            		   a++;
+            	   }
                }
        	    }
 		}
