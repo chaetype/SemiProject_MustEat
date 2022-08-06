@@ -98,9 +98,14 @@
                 <br>
                 <br>
                 <hr>
-                <%-- <div class="tumbnail3">
-                    <img src="<%=contextPath%><%= sr.getReviewImgPath()%>"style="width: 100%; height:100%;">
-                </div> --%>
+                <div class="tumbnail3">
+                <% if ( sr.getReviewImgPath() == null ) {  %>
+                    <img src="<%=request.getContextPath()%>/resources/image/mz.png" style="width: 400px; height:400px;" id="noneIcon">
+                <% } else { %>
+        			<img src="<%=contextPath%><%= sr.getReviewImgPath()%>" style="width: 400px; height:400px;">
+      			<% } %>
+                    
+                </div>
                 <div class="info3">
                     <%=sr.getReviewContent() %>
                 </div>

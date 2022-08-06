@@ -116,11 +116,36 @@
             <div class="thumbnail2" align="center">
             	<input type="hidden" value="<%= e.getEditorNo() %>">
                 <img src="<%=contextPath%>/<%=e.getEditorAttach() %>" width="400" height="250">
-                
             </div>
 			<% } %>
 
+			<div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/shrimp.jpg" width="400" height="250">
+            </div>
 
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/neyorkcafe.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/dosirak.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/bankan.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/makgeolli.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/winter.jpg" width="400" height="250">
+            </div>
+
+            <div class="thumbnail2" align="center">
+                <img src="<%=contextPath%>/resources/image/cy/hapjung.jpg" width="400" height="250">
+            </div>
 
         </div>
         

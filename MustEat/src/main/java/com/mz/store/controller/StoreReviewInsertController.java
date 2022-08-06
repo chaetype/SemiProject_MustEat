@@ -51,7 +51,7 @@ public class StoreReviewInsertController extends HttpServlet {
 			
 //	        System.out.println(html);
 	        
-			StoreReview sr = new StoreReview();
+			
 
 	        
 	        int storeNo = Integer.parseInt(request.getParameter("no"));
@@ -61,18 +61,20 @@ public class StoreReviewInsertController extends HttpServlet {
 			int rate = Integer.parseInt(multiRequest.getParameter("rate"));
 			
 			
+			StoreReview sr = new StoreReview();
+			
 			sr.setStoreNo(storeNo);
 			sr.setReviewWriter(writer);
 			sr.setReviewTitle(title);
 			sr.setReviewRate(rate);
 			sr.setReviewContent(html);
 			
-//		System.out.println(sr);
+			System.out.println(sr);
 		
 			int result = new StoreService().insertStoreReview(html, sr);
 	        
 	        if(result > 0) {
-	          response.sendRedirect(request.getContextPath() + "/srlist.st");
+	          response.sendRedirect(request.getContextPath() + "/srlist.st?cpage=1");
 	           session.setAttribute("successMsg", "성공적으로 등록하였습니다.");
 	        }
 	        

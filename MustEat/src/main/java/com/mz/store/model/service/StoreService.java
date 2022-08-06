@@ -156,9 +156,9 @@ public class StoreService {
 	
 	
 	//채윤 써머노트 등록
-	public int insertEditor(String html) {
+	public int insertEditor(Editor e) {
 		Connection conn = getConnection();
-		int result = new StoreDao().insertPost(conn, html);
+		int result = new StoreDao().insertPost(conn, e);
 		
 		if(result > 0) {
 			commit(conn);

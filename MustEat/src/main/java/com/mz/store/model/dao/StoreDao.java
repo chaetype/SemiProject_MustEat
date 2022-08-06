@@ -473,17 +473,17 @@ public class StoreDao {
 	
 
 	//채윤 summernote
-	public int insertPost(Connection conn, String html) {
+	public int insertPost(Connection conn, Editor e) {
 	      int result = 0;
 	      PreparedStatement pstmt = null;
 	      String sql = prop.getProperty("insertEditor");
 	      
 	      try {
 	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, html);
+	         pstmt.setString(1, e.getEditorContent());
 	         result = pstmt.executeUpdate();
-	      } catch (SQLException e) {
-	         e.printStackTrace();
+	      } catch (SQLException e1) {
+	         e1.printStackTrace();
 	      } finally {
 	         close(pstmt);
 	      }
