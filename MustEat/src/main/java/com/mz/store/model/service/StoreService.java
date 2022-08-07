@@ -397,6 +397,7 @@ public class StoreService {
 			
 
 		}
+
 		
 		// 서원 관리자 식당 검색
 		public ArrayList<Store> selectStoreAdminSearch(String keyword) {
@@ -421,4 +422,34 @@ public class StoreService {
 		
 		
 		
+
+
+		// 은영
+		/**
+		 * 지도에서 해당 지역 누르면 지역이 조회되는 Service
+		 * @param city : 사용자가 누른 지역명
+		 * @return : 해당 지역 정보가 담긴 Store 객체
+		 */
+		public Store selectCity(String city) {
+			
+			Connection conn = getConnection();
+			
+			Store s = new StoreDao().selectCity(conn, city);
+			
+			close(conn);
+			
+			return s;
+			
+		}
+		
+
+	//채윤 메인페이지 조회	
+	/*
+	 * public ArrayList<Store> mainpage(String map){ Connection conn =
+	 * getConnection(); ArrayList<Store> list = new StoreDao().mainpage(conn, map);
+	 * 
+	 * close(conn); return list; }
+	 */
+
+
 }

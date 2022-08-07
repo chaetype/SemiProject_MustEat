@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Store"%>
 <%
-	@SuppressWarnings("unchecked")
-	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
-	
+	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("store");
+	Store city = (Store)request.getAttribute("city");
 %>
 <!DOCTYPE html>
 <html>
@@ -19,6 +18,14 @@
 
 
     <style>
+    
+    		html{
+			cursor:url("<%=request.getContextPath() %>/burger.cur"),auto;
+		}
+		
+		body{margin:0 auto;
+			cursor:url("<%=request.getContextPath() %>/burger.cur"),auto;
+		}
         .wrap31{
             border: 1px solid red;
             width: 80%;
@@ -55,18 +62,19 @@
             display: inline-block;
             cursor: pointer;
         }
-    </style>
+
+ </style>
 </head>
 <body>
     <%@ include file="../common/menubar.jsp" %>
-
+    
     <div class="wrap31">
         <div class="outer11"><span>서울,경기, 인천 지도 넣기</span>      
         
         </div>
         <div class="outer22">
             <hr>
-            <h3>(지역명)서울 금천구</h3><br>
+            <h3><%=city.getLocalSi() + " "%><%=city.getLocalGu() %></h3><br>
             <!-- 검색폼 시작 -->
             <!-- @@@@@@@@@@@전체 조회도 가능하게 해야함 -->
 		<form action="<%=contextPath %>/search.st" class="outer33">

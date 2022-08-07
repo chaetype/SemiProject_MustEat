@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.mz.member.model.vo.Member;
 import com.mz.store.model.service.StoreService;
@@ -34,11 +33,12 @@ public class StoreListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 				
-		ArrayList<Store> list = new StoreService().selectStoreList();
+		ArrayList<Store> list = new StoreService().selectStoreList(memNo);
 		request.setAttribute("list", list);
 		System.out.println(list);
-		request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
+		//request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
 	}
 
 	/**

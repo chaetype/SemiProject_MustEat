@@ -311,7 +311,7 @@ public class StoreDao {
 	//채윤 식당 메인2
 
 
-	public ArrayList<Store> selectStoreList(Connection conn){
+	public ArrayList<Store> selectStoreList(Connection conn, int memNo){
 		ArrayList<Store> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -1292,6 +1292,7 @@ public class StoreDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, "%" + city + "%");
+			pstmt.setString(2, "%" + city + "%");
 			
 			rset = pstmt.executeQuery();
 			
@@ -1302,8 +1303,6 @@ public class StoreDao {
 			s.setStoreNo(rset.getInt("STORE_NO"));
 			s.setStoreName(rset.getString("STORE_NAME"));
 			s.setStoreImgPath(rset.getString("STORE_IMG_PATH"));
-			s.setLocalSi(rset.getString("LOCAL_SI"));
-			s.setLocalGu(rset.getString("LOCAL_GU"));
 			
 			list.add(s);
 				
@@ -1319,47 +1318,38 @@ public class StoreDao {
 
 	}
 
-	
-	//모두함께 메인
-	public ArrayList<Store> mainpage(Connection conn, String map){
-		ArrayList<Store> list = new ArrayList<>();
+	// 은영 
+	public Store selectCity(Connection conn, String city) {
+		
+		// 조회 => ResultSet 
+		Store s = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("mainpage");
-		switch(map) {
-			case "1": sql += "WHERE LOCAL_SI LIKE ? ";
-				break;
-			case "2":  sql += "WHERE review_title like ? ";
-				break;
-			case "3": sql += "WHERE (MEM_NICKNAME LIKE ? OR review_title like ?)";
-				break; 
+		String sql = prop.getProperty("selectCity");
 		
-		}
-	
-		sql += "ORDER BY re_no desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%" + city + "%");
+			pstmt.setString(2, "%" + city + "%");
+			
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				Store s = new Store();
-				s.setStoreNo(rset.getInt("store_no"));
-				s.setStoreName(rset.getString("store_name"));
-				s.setStoreImgPath(rset.getString("store_img_path"));
-				s.setStoreImgPath(rset.getString("mem_nickname"));
-				s.setStoreImgPath(rset.getString("review_content"));
-				s.setStoreImgPath(rset.getString("review_img_path"));
+			if(rset.next()) {
+				s = new Store();
 				
-				
-				list.add(s);
+				s.setLocalSi(rset.getString("LOCAL_SI"));
+				s.setLocalGu(rset.getString("LOCAL_GU"));
 			}
-			} catch (SQLException e) {
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
 		
+
 
 		return list;
 
@@ -1458,5 +1448,13 @@ public class StoreDao {
 	
 	
 	
+
+		return s;
+		
+		
+	}
+	
+	
+
 	
 }

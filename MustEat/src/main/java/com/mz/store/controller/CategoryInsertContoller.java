@@ -49,15 +49,17 @@ public class CategoryInsertContoller extends HttpServlet {
 	       
 			
 			String html = multiRequest.getParameter("editcontent");
-			String attach = multiRequest.getParameter("titleImg");
 			
 			System.out.println(html);
 	        
 			Editor e = new Editor();
 	        e.setEditorContent(html);
-	        e.setEditorAttach(attach);
 			
-			
+	        if(multiRequest.getOriginalFileName("storeimg") != null) {
+				String attach = "/resources/image/cy/attachment/" + multiRequest.getFilesystemName("storeimg");
+				e.setEditorAttach(attach);
+			}
+	        
 	        int result = new StoreService().insertEditor(e);
 	        
 	        if(result > 0) {
