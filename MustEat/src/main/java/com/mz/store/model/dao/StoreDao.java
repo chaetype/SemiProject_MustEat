@@ -206,7 +206,7 @@ public class StoreDao {
 		Store s = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectStore");
+		String sql = prop.getProperty("selectStore2");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -215,17 +215,14 @@ public class StoreDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				s = new Store(rset.getInt("store_no"),
-							  rset.getString("store_name"),
-							  rset.getString("store_address"),
-							  rset.getString("store_intro"),
-							  rset.getString("store_img_path"),
-							  rset.getString("store_popularity"),
-							  rset.getString("store_pop_info"),
-							  rset.getString("STORE_POP_PATH"),
-							  rset.getString("MEM_NICKNAME"),
-							  rset.getString("review_content"),
-							  rset.getString("review_img")
+				s = new Store(rset.getInt("STORE_NO")
+							, rset.getString("STORE_NAME")
+							, rset.getString("STORE_ADDRESS")
+							, rset.getString("STORE_INTRO")
+							, rset.getString("STORE_IMG_PATH")
+							, rset.getString("STORE_POPULARITY")
+							, rset.getString("STORE_POP_INFO")
+							, rset.getString("STORE_POP_PATH")
 							 );
 			}
 			
@@ -237,6 +234,45 @@ public class StoreDao {
 		}
 		
 		return s;
+		
+	}
+	
+	public ArrayList<StoreReview> selectStoreReview(Connection conn, int storeNo){
+		
+		ArrayList<StoreReview> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectStoreReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, storeNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new StoreReview( rset.getInt("RE_NO")
+						          , rset.getString("REVIEW_WRITER")
+						          , rset.getInt("STORE_NO")
+						          , rset.getString("REVIEW_CONTENT")
+						          , rset.getInt("REVIEW_RATE")
+						          , rset.getDate("REVIEW_ENROLLDATE")
+						          , rset.getString("VISIT_DATE")
+						          , rset.getString("REVIEW_TITLE")
+						          , rset.getInt("COUNT")
+						          ));
+						          
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 		
 	}
 	
@@ -1243,35 +1279,35 @@ public class StoreDao {
 			
 
 			// 서원 식당검색 페이지 별점 조회
-			public int selectStoreRate(Connection conn, int storeNo) {
-				
-				int storeRate = 0;
-				
-				PreparedStatement pstmt = null;
-				ResultSet rset = null;
-				String sql = prop.getProperty("selectStoreRate");
-				
-				try {
-					pstmt = conn.prepareStatement(sql);
-					
-					pstmt.setInt(1, storeNo);
-					
-					rset = pstmt.executeQuery();
-					
-					if(rset.next()) {
-						storeRate = rset.getInt("REVIEW_RATE");						
-								
-					}
-					
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} finally {
-					close(rset);
-					close(pstmt);
-				}
-				
-				return storeRate;
-			}
+//			public int selectStoreRate(Connection conn, int storeNo) {
+//				
+//				int storeRate = 0;
+//				
+//				PreparedStatement pstmt = null;
+//				ResultSet rset = null;
+//				String sql = prop.getProperty("selectStoreRate");
+//				
+//				try {
+//					pstmt = conn.prepareStatement(sql);
+//					
+//					pstmt.setInt(1, storeNo);
+//					
+//					rset = pstmt.executeQuery();
+//					
+//					if(rset.next()) {
+//						storeRate = rset.getInt("REVIEW_RATE");						
+//								
+//					}
+//					
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				} finally {
+//					close(rset);
+//					close(pstmt);
+//				}
+//				
+//				return storeRate;
+//			}
 
 	// 은영
 	/**
@@ -1349,11 +1385,97 @@ public class StoreDao {
 			close(pstmt);
 		}
 		
-		return s;
+
+
+		return list;
+
+	}
+	
+	// 서원 관리자 식당 검색
+	public ArrayList<Store> selectStoreAdminSearch(Connection conn, String keyword){
+		ArrayList<Store> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectStoreAdminSearch");
+				
+		sql += "WHERE STORE_NAME LIKE ?";
+	
+		sql += "ORDER BY STORE_NO desc";
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+keyword+"%");
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+					Store s = new Store();
+					s.setStoreNo(rset.getInt("store_no"));
+					s.setStoreName(rset.getString("store_name"));
+					s.setStoreAddress(rset.getString("store_address"));
+					s.setStorePhone(rset.getString("store_phone"));				
+					
+					list.add(s);
+				}
+			} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
 		
+
+		return list;
+
+	}
+	
+	// 서원 사용자 식당 검색
+	public ArrayList<Store> selectStorelistSearchForm(Connection conn, String keyword){
+		
+		ArrayList<Store> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectStorelistSearchForm");
+		
+		sql += "AND STORE_NAME LIKE ?";
+	
+		sql += "ORDER BY STORE_NAME ASC";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+keyword+"%");
+		
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+					Store s = new Store();
+					s.setStoreNo(rset.getInt("store_no"));
+					s.setStoreImgPath(rset.getString("STORE_IMG_PATH"));
+					s.setLocalSi(rset.getString("local_si"));
+					s.setLocalGu(rset.getString("local_gu"));
+					s.setStoreName(rset.getString("store_name"));
+					s.setStoreTag(rset.getString("STORE_TAG"));
+					s.setStorePopularity(rset.getString("STORE_POPULARITY"));
+					s.setStoreOperating(rset.getString("store_breaktime"));
+					
+					list.add(s);
+				}
+			} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+
+		return list;
+
 	}
 	
 	
+
 	
 }

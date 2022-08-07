@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.*" %>
 <%
-	Store s = (Store)request.getAttribute("s");
+	Store s = (Store)request.getAttribute("s");	
+	ArrayList<StoreReview> review = (ArrayList<StoreReview>)request.getAttribute("review");
 	
 %>
 <!DOCTYPE html>
@@ -181,10 +182,12 @@
         <div class="outer333">
             <div class="popular2">
                 <h2>관련리뷰</h2>
+                <% for(StoreReview sr : review) { %>
                 <div class="tumbnail3">
-                    <img src="<%=contextPath%>/<%=s.getReviewImg() %>"style="width: 100%; height:100%;">
+                   
                 </div>
-                <div class="info3"><b><%=s.getReviewWriter() %></b><br><%=s.getStoreReview()%></div>
+                <div class="info3"><b><%=sr.getReviewWriter() %></b><br><%=sr.getReviewContent()%></div>
+                <% } %>
             </div>
         </div>
         </form>

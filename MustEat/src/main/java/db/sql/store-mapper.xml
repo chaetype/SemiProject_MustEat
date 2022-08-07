@@ -69,6 +69,33 @@
 		 WHERE S.STORE_NO = ?
 	</entry>
 	
+	<entry key="selectStore2">
+		SELECT STORE_NO 
+		     , STORE_NAME
+		     , STORE_ADDRESS
+		     , STORE_INTRO
+		     , STORE_IMG_PATH
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , STORE_POP_PATH
+		FROM STORE
+		WHERE STORE_NO = ?
+	</entry>
+	
+	<entry key="selectStoreReview">
+		SELECT RE_NO
+		      ,REVIEW_WRITER
+		      ,STORE_NO
+		      ,REVIEW_CONTENT
+		      ,REVIEW_RATE
+		      ,REVIEW_ENROLLDATE
+		      ,VISIT_DATE
+		      ,REVIEW_TITLE
+		      ,COUNT
+		FROM STORE_RE
+		WHERE STORE_NO = ?
+	</entry>
+	
 	<!-- 채윤 식당 조회수 -->
 	<entry key="increaseCount">
 		UPDATE STORE
@@ -417,7 +444,7 @@
 		 WHERE STORE_NO = ?
 	</entry>
 	
-	<!-- 서원 사용자 식당 검색 -->
+	<!-- 서원 사용자 식당 조회 -->
 	<entry key="storelistSearch">
 		SELECT
 			   STORE_NO
@@ -430,6 +457,7 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
 		 ORDER BY STORE_NAME ASC
 	</entry>
 	
@@ -438,19 +466,10 @@
 	  SELECT STORE_NO
        , STORE_NAME
        , STORE_IMG_PATH
-	  FROM STORE
-	  WHERE LOCAL_SI LIKE ?
-	     OR LOCAL_GU LIKE ?
-	</entry>
-	
-	<!-- 은영 (메인페이지 지역별 식당 조회시 시,구 조회) -->
-	<entry key="selectCity">
-	  SELECT 
-         LOCAL_SI
+       , LOCAL_SI
        , LOCAL_GU
 	  FROM STORE
 	  WHERE LOCAL_SI LIKE ?
-	  	 OR LOCAL_GU LIKE ?
 	</entry>
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->
@@ -458,7 +477,8 @@
 		SELECT
 		       AVG(REVIEW_RATE)
 		  FROM STORE_RE
-		 WHERE STORE_NO = ?
+		  JOIN STORE S USING(STORE_NO)
+		 WHERE S.STORE_NO = ?
 	</entry>
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@태민@@@@@@@@@@@@@@리뷰관리관리자 -->
@@ -586,6 +606,32 @@
 		   SET REVIEW_STATUE = 'N'
 		 WHERE RE_NO = ?
 		 
+	</entry>
+	
+	<!-- 서원 관리자 식당 검색 -->
+	<entry key="selectStoreAdminSearch">
+		SELECT
+		       STORE_NO
+		     , STORE_NAME
+		     , STORE_ADDRESS
+		     , STORE_PHONE
+		  FROM STORE
+	</entry>
+	
+	<!-- 서원 사용자 식당 검색 -->
+	<entry key="selectStorelistSearchForm">
+		SELECT
+			   STORE_NO
+		     , STORE_IMG_PATH
+		     , LOCAL_SI
+		     , LOCAL_GU
+		     , STORE_NAME
+		     , STORE_TAG
+		     , STORE_POPULARITY
+		     , STORE_OPERATING
+		     , STORE_BREAKTIME
+		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
 	</entry>
 	
 </properties>

@@ -145,6 +145,24 @@ public class StoreReview {
 		this.reviewContent = reviewContent;
 		this.srCategory = srCategory;
 	}
+	
+	 
+
+	public StoreReview(int reNo, String reviewWriter, int storeNo, String reviewContent, int reviewRate,
+			Date reviewEnrollDate, String visitDate, String reviewTitle, int count) {
+		super();
+		this.reNo = reNo;
+		this.reviewWriter = reviewWriter;
+		this.storeNo = storeNo;
+		this.reviewContent = reviewContent;
+		this.reviewRate = reviewRate;
+		this.reviewEnrollDate = reviewEnrollDate;
+		this.visitDate = visitDate;
+		this.reviewTitle = reviewTitle;
+		this.count = count;
+	}
+
+
 
 	public String getSrCategory() {
 		return srCategory;

@@ -305,19 +305,19 @@
                    let tPrice = $("input[name='tPrice']").val();
                    let tCount = $("input[name='tCount']").val();
                    let sum = tPrice*tCount;
+                   let del = 2500;
                    
                    $("#totalPrice").text('총상품 금액: ' + sum + "원")
-                   
 
                    $(function(){
                     let mile = $(this).val();
-                        let tSum = sum - mile;
+                        let tSum = sum - mile+del;
 
                         $("#sum_p_price").text('최종결제 금액 : ' + tSum + "원")
                         $("#price").val(tSum)
                     $("#mile").keyup(function(){
                         let mile = $(this).val();
-                        let tSum = sum - mile;
+                        let tSum = sum - mile + del;
 
                         $("#sum_p_price").text('최종결제 금액 : ' + tSum + "원")
 						$("#price").val(tSum)

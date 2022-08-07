@@ -36,11 +36,11 @@ public class StorelistSearchController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		int storeNo = Integer.parseInt(request.getParameter("no"));
+		//int storeNo = Integer.parseInt(request.getParameter("no"));
 		
 		ArrayList<Store> list = new StoreService().storelistSearch();
 		
-		int storeRate = new StoreService().selectStoreRate(storeNo);
+		//int storeRate = new StoreService().selectStoreRate(storeNo);
 		
 		request.setAttribute("list", list);
 		

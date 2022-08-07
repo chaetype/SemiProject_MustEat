@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Store"%>
 <%
 	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
-	int storeRate = (int)request.getAttribute("storeRate");
 %>
 <!DOCTYPE html>
 <html>
@@ -120,79 +119,19 @@
 		<div class="container">
 
 			<div class="search-head">
-				<table width="100%;" style="border-collapse:collapse; border:1px lightgrey solid;">
-					<tr>
-						<td colspan="2">
+			<form action="<%=contextPath%>/storesearchList.st">
+				<div width="100%;" style="border-collapse:collapse;">
+					
 							<div class="wrap55" style="width:60%;">
 								<div class="input-group mb-3">
-									<input type="text" class="form-control input-text" placeholder="식당명, 지역명으로 검색해주세요." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<input type="text" name="storeSearch" class="form-control input-text" placeholder="식당명으로 검색해주세요." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									<div class="input-group-append">
-										<button class="btn btn-outline-warning btn-lg" type="button" style="color:rgb(167, 112, 239); border-color:rgb(167, 112, 239)"><i class="fa fa-search"></i></button>
+										<button class="btn btn-outline-warning btn-lg" type="submit" style="color:rgb(167, 112, 239); border-color:rgb(167, 112, 239)"><i class="fa fa-search"></i></button>
 									</div>
 								</div>
 							</div>							
-						</td>
-					</tr>
-					<tr>
-						<th><h4><strong>분위기</strong></h4></th>
-						<td class="search-tag search-padding">
-							<button class="btn1">#가성비좋은</button>
-							<button class="btn1">#분위기좋은</button>
-							<button class="btn1">#격식있는</button>
-							<button class="btn1">#고급스러운</button>
-							<br>
-							<button class="btn1">#시끌벅적한</button>
-							<button class="btn1">#조용한</button>
-							<button class="btn1">#깔끔한</button>
-							<button class="btn1">#이색적인</button>
-						</td>
-					</tr>
-					<tr>
-						<th><h4><strong><span style="color:#ffd966;">★</span>별점</strong></h4></th>
-						<td class="search-tag search-padding">
-							<select name="" id="" style="width:10%;">
-								<option value="">0.5</option>
-								<option value="">1.0</option>
-								<option value="">1.5</option>
-								<option value="">2.0</option>
-								<option value="">2.5</option>
-								<option value="">3.0</option>
-								<option value="">3.5</option>
-								<option value="">4.0</option>
-								<option value="">4.5</option>
-								<option value="">5.0</option>
-							</select>
-							이상&nbsp;&nbsp;
-							<select name="" id="" style="width:10%;">
-								<option value="">0.5</option>
-								<option value="">1.0</option>
-								<option value="">1.5</option>
-								<option value="">2.0</option>
-								<option value="">2.5</option>
-								<option value="">3.0</option>
-								<option value="">3.5</option>
-								<option value="">4.0</option>
-								<option value="">4.5</option>
-								<option value="">5.0</option>
-							</select>
-							이하
-						</td>
-					</tr>
-					
-					<tr>
-						<td width="20%;">
-							<select name="" id="" style="width:40%;">
-								<option value="">인기순</option>
-								<option value="">이름순</option>
-								<option value="">별점순</option>
-							</select>
-						</td>
-						<td>
-							<h2 class="search-padding" style="text-align:left;">XX맛집 XX순</h2>
-						</td>
-					</tr>
-					
-				</table>
+					</div>
+				</form>
 			</div>
 			
 			<br><br>
@@ -224,13 +163,11 @@
 									<input type="hidden" name="no" id="no">
 									<span class="tag tag-purple"><strong><%= s.getLocalSi() %> <%= s.getLocalGu() %></strong></span>
 									<h4 style="margin-top:3%;"><strong><%= s.getStoreName() %></strong></h4>
-									<h6 style="margin-top:4%;"><span style="color:#FACC2E;">★</span></h6>
 			
 									<p style="margin-top:4%;">
 									<%= s.getStoreTag() %> <br><br>
 									대표메뉴 : <%= s.getStorePopularity() %> <br>
-									영업시간 : <%= s.getStoreOperating() %> <br>
-									브레이크 : <%= s.getStoreBreaktime() %>          
+									영업시간 : <%= s.getStoreOperating() %> <br>        
 									</p>
 								</div>
 							</div>							

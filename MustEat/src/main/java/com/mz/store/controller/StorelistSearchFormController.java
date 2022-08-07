@@ -11,19 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
-import com.mz.store.model.vo.StoreReview;
 
 /**
- * Servlet implementation class StoreDetailController
+ * Servlet implementation class StorelistSearchFormController
  */
-@WebServlet("/detail.st")
-public class StoreDetailController extends HttpServlet {
+@WebServlet("/storesearchList.st")
+public class StorelistSearchFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreDetailController() {
+    public StorelistSearchFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,27 +31,20 @@ public class StoreDetailController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
-		StoreService sService = new StoreService();
+		String keyword_ = request.getParameter("storeSearch");
 		
-		System.out.println(storeNo);
-		int result = sService.increaseCount(storeNo);
+		String keyword ="";
+		if(keyword_ != null) {
+			keyword = keyword_;
+		}
 		
-		Store s = sService.selectStore(storeNo);
-		ArrayList<StoreReview> review = sService.selectStoreReview(storeNo);
-		request.setAttribute("s", s);
-		request.setAttribute("review", review);
+		StoreService service = new StoreService();
+		ArrayList<Store> list = service.selectStorelistSearchForm(keyword);
 		
-		request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("views/jsw/storeSearch.jsp").forward(request, response);
 		
-//		if(result > 0) {
-//			Store s = sService.selectStore(storeNo);
-//			request.setAttribute("s", s);
-//			
-//			request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
-//			
-//		}
 	}
 
 	/**
