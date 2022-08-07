@@ -440,6 +440,7 @@
        , STORE_IMG_PATH
 	  FROM STORE
 	  WHERE LOCAL_SI LIKE ?
+	     OR LOCAL_GU LIKE ?
 	</entry>
 	
 	<!-- 은영 (메인페이지 지역별 식당 조회시 시,구 조회) -->
