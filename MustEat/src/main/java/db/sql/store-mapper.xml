@@ -91,15 +91,17 @@
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">
 		SELECT 
-		       STORE_NO
+			   STORE_NO
 		     , STORE_NAME
 		     , STORE_IMG_PATH
-		     
-		 
-		  FROM STORE
-           
+		     , MEM_NICKNAME
+		     , REVIEW_CONTENT
+		     , REVIEW_IMG_PATH
+		  FROM STORE_RE
+		  JOIN MEMBER ON (REVIEW_WRITER = MEM_NO)
+		  JOIN STORE USING(STORE_NO)
 		 ORDER
-		 	BY STORE_NO DESC
+		    BY STORE_NO DESC
 	</entry>
 	
 	<entry key="forDetailList">
@@ -425,7 +427,10 @@
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->
 	<entry key="selectStoreRate">
-		
+		SELECT
+		       AVG(REVIEW_RATE)
+		  FROM STORE_RE
+		 WHERE STORE_NO = ?
 	</entry>
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@태민@@@@@@@@@@@@@@리뷰관리관리자 -->

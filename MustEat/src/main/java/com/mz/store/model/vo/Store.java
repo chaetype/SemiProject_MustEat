@@ -29,6 +29,9 @@ public class Store {
 	private int count;//식당 조회수
 	private String storeStatus;
 	
+	private int reviewRate;
+	
+	
 	public Store() {
 		
 	}
@@ -587,8 +590,28 @@ public class Store {
 	public void setCount(int count) {
 		this.count = count;
 	}
-
 	
+	
+
+	public String getStoreStatus() {
+		return storeStatus;
+	}
+
+
+	public void setStoreStatus(String storeStatus) {
+		this.storeStatus = storeStatus;
+	}
+
+
+	public int getReviewRate() {
+		return reviewRate;
+	}
+
+
+	public void setReviewRate(int reviewRate) {
+		this.reviewRate = reviewRate;
+	}
+
 
 	@Override
 	public String toString() {

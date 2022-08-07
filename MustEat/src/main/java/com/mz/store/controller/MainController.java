@@ -1,30 +1,23 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.mz.member.model.vo.Member;
-import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class StoreListController
+ * Servlet implementation class MainController
  */
-@WebServlet("/list.st")
-public class StoreListController extends HttpServlet {
+@WebServlet("/main.st")
+public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreListController() {
+    public MainController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,12 +26,7 @@ public class StoreListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-				
-		ArrayList<Store> list = new StoreService().selectStoreList();
-		request.setAttribute("list", list);
-		System.out.println(list);
-		request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
+		ArrayList<Store>
 	}
 
 	/**

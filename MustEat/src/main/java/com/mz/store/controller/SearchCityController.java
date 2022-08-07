@@ -8,23 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.mz.member.model.vo.Member;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class StoreListController
+ * Servlet implementation class SearchCityController
  */
-@WebServlet("/list.st")
-public class StoreListController extends HttpServlet {
+@WebServlet("/searchCity.st")
+public class SearchCityController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreListController() {
+    public SearchCityController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,12 +31,16 @@ public class StoreListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 메인페이지에서 도시 찾는 Servlet
+		String city = request.getParameter("map");
 		
-				
-		ArrayList<Store> list = new StoreService().selectStoreList();
+		ArrayList<Store> list = new StoreService().searchCity(city);
+		
+		
 		request.setAttribute("list", list);
-		System.out.println(list);
 		request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
+		
+		
 	}
 
 	/**

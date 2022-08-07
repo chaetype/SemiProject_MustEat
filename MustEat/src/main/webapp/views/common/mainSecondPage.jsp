@@ -3,7 +3,7 @@
 <%
 	@SuppressWarnings("unchecked")
 	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
-	ArrayList<Store> fdlist = (ArrayList<Store>)request.getAttribute("fdlist");
+	
 %>
 <!DOCTYPE html>
 <html>

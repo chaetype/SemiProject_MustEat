@@ -309,6 +309,8 @@ public class StoreDao {
 	
 
 	//채윤 식당 메인2
+
+
 	public ArrayList<Store> selectStoreList(Connection conn){
 		ArrayList<Store> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -318,6 +320,9 @@ public class StoreDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -325,6 +330,9 @@ public class StoreDao {
 				s.setStoreNo(rset.getInt("store_no"));
 				s.setStoreName(rset.getString("store_name"));
 				s.setStoreImgPath(rset.getString("store_img_path"));
+				s.setStoreImgPath(rset.getString("mem_nickname"));
+				s.setStoreImgPath(rset.getString("review_content"));
+				s.setStoreImgPath(rset.getString("review_img_path"));
 				
 				
 				list.add(s);
@@ -1241,7 +1249,7 @@ public class StoreDao {
 				
 				PreparedStatement pstmt = null;
 				ResultSet rset = null;
-				String sql = prop.getProperty("");
+				String sql = prop.getProperty("selectStoreRate");
 				
 				try {
 					pstmt = conn.prepareStatement(sql);
@@ -1251,8 +1259,7 @@ public class StoreDao {
 					rset = pstmt.executeQuery();
 					
 					if(rset.next()) {
-						storeRate = rset.getInt("");															
-						
+						storeRate = rset.getInt("REVIEW_RATE");						
 								
 					}
 					

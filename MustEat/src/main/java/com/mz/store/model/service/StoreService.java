@@ -124,6 +124,7 @@ public class StoreService {
 	}
 
 	//채윤 식당 메인2페이지
+
 	public ArrayList<Store> selectStoreList(){
 		Connection conn = getConnection();
 		ArrayList<Store> list = new StoreDao().selectStoreList(conn);
@@ -376,6 +377,7 @@ public class StoreService {
 			int storeRate = new StoreDao().selectStoreRate(conn, storeNo);
 			close(conn);
 			return storeRate;
+		}
 
 		}
 		// 은영
