@@ -389,7 +389,7 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
-		 ORDER BY STORE_NAME ASC;
+		 ORDER BY STORE_NAME ASC
 	</entry>
 	
 </properties>
