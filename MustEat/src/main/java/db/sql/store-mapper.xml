@@ -91,15 +91,18 @@
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">
 		SELECT 
-		       STORE_NO
-		     , STORE_NAME
+		       STORE_NAME
 		     , STORE_IMG_PATH
-		     
-		 
-		  FROM STORE
-           
+		     , MEM_NICKNAME
+		     , REVIEW_CONTENT
+		     , REVIEW_IMG_PATH
+		  FROM STORE_RE
+		  JOIN MEMBER ON (REVIEW_WRITER = MEM_NO)
+		  JOIN STORE USING(STORE_NO)
+		 WHERE STORE_NO = ?
+		   AND REVIEW_WRITER = ?
 		 ORDER
-		 	BY STORE_NO DESC
+		    BY STORE_NO DESC
 	</entry>
 	
 	<entry key="forDetailList">

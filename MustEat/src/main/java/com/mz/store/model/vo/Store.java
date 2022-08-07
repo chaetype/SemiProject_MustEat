@@ -29,6 +29,8 @@ public class Store {
 	private int count;//식당 조회수
 	private String storeStatus;
 	
+	
+	
 	public Store() {
 		
 	}

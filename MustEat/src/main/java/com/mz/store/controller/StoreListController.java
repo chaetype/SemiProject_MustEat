@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mz.member.model.vo.Member;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
 
@@ -31,12 +32,16 @@ public class StoreListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Store> list = new StoreService().selectStoreList();
-		ArrayList<Store> fdlist = new StoreService().forDetailList();
+		
+		int storeNo = Integer.parseInt(request.getParameter("no"));
+		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
+				
+		ArrayList<Store> list = new StoreService().selectStoreList(storeNo, memNo);
+		//ArrayList<Store> fdlist = new StoreService().forDetailList();
 		request.setAttribute("list", list);
-		request.setAttribute("fdlist", fdlist);
+		//request.setAttribute("fdlist", fdlist);
 		System.out.println(list);
-		System.out.println(fdlist);
+		//System.out.println(fdlist);
 		request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
 	}
 
