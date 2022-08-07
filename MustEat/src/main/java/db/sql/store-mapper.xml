@@ -428,4 +428,129 @@
 		
 	</entry>
 	
+	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@태민@@@@@@@@@@@@@@리뷰관리관리자 -->
+	
+	<!-- 태민 리뷰 회원번호별 조회 -->
+	<entry key="rselectList">
+			SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      SR.RE_NO
+					, SR.REVIEW_WRITER
+					, S.STORE_NO
+					, SR.REVIEW_CONTENT
+					, SR.REVIEW_IMG
+					, SR.REVIEW_RATE
+					, SR.REVIEW_ENROLLDATE
+					, SR.REVIEW_MODIFYDATE
+					, SR.REVIEW_STATUE
+					, SR.REVIEW_IMG_PATH
+					, SR.VISIT_DATE
+					, SR.REVIEW_TITLE
+					, SR.COUNT
+					, M.MEM_ID
+					, M.MEM_GRADE
+					, S.STORE_NAME
+					, M.MEM_NICKNAME
+              FROM STORE_RE SR 
+              JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+              JOIN STORE S ON (SR.STORE_NO = S.STORE_NO)
+			 WHERE REVIEW_STATUE = 'Y'   
+             ORDER
+                BY MEM_NO DESC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	
+	<!-- 태민 리뷰 닉네임별 조회 -->
+	<entry key="rselectList1">
+			SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      SR.RE_NO
+					, SR.REVIEW_WRITER
+					, S.STORE_NO
+					, SR.REVIEW_CONTENT
+					, SR.REVIEW_IMG
+					, SR.REVIEW_RATE
+					, SR.REVIEW_ENROLLDATE
+					, SR.REVIEW_MODIFYDATE
+					, SR.REVIEW_STATUE
+					, SR.REVIEW_IMG_PATH
+					, SR.VISIT_DATE
+					, SR.REVIEW_TITLE
+					, SR.COUNT
+					, M.MEM_ID
+					, M.MEM_GRADE
+					, S.STORE_NAME
+					, M.MEM_NICKNAME
+              FROM STORE_RE SR 
+              JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+              JOIN STORE S ON (SR.STORE_NO = S.STORE_NO)
+			 WHERE REVIEW_STATUE = 'Y'   
+             ORDER
+                BY MEM_NICKNAME ASC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	
+	<!-- 태민 게시일별 조회 -->
+	<entry key="rselectList2">
+			SELECT *
+		 FROM (
+            SELECT ROWNUM RNUM, A.*
+              FROM (
+             SELECT 
+                      SR.RE_NO
+					, SR.REVIEW_WRITER
+					, S.STORE_NO
+					, SR.REVIEW_CONTENT
+					, SR.REVIEW_IMG
+					, SR.REVIEW_RATE
+					, SR.REVIEW_ENROLLDATE
+					, SR.REVIEW_MODIFYDATE
+					, SR.REVIEW_STATUE
+					, SR.REVIEW_IMG_PATH
+					, SR.VISIT_DATE
+					, SR.REVIEW_TITLE
+					, SR.COUNT
+					, M.MEM_ID
+					, M.MEM_GRADE
+					, S.STORE_NAME
+					, M.MEM_NICKNAME
+              FROM STORE_RE SR 
+              JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+              JOIN STORE S ON (SR.STORE_NO = S.STORE_NO)
+			 WHERE REVIEW_STATUE = 'Y'   
+             ORDER
+                BY SR.REVIEW_ENROLLDATE DESC
+            ) A
+        ) 
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="rselectListCount">
+		<!-- 현재 리뷰 총 갯수 조회용 --> 
+		SELECT COUNT(*) as "COUNT"
+		  FROM STORE_RE
+		 WHERE REVIEW_STATUE = 'Y'
+	</entry>
+	
+	
+	<!-- 태민 체크박스 체크된 리뷰 블랙리스트로 -->
+	<entry key="rwithdrawalMember">
+		UPDATE STORE_RE
+		   SET REVIEW_STATUE = 'N'
+		 WHERE RE_NO = ?
+		 
+	</entry>
+	
 </properties>

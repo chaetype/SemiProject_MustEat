@@ -312,61 +312,61 @@ public class StoreService {
 		
 //	//////////////@@@@리뷰관리@@@@@/////////////////////
 //		
-//		//회원번호별 조회
-//		public ArrayList<StoreReview> selectList(PageInfo pi, String search){
-//			Connection conn = getConnection();
-//			ArrayList<StoreReview> list = new StoreDao().selectList(conn, pi, search);
-//			close(conn); 
-//			return list;
-//		}
-//		
-//		//신고횟수별 조회
-//		public ArrayList<StoreReview> selectList1(PageInfo pi, String search){
-//			Connection conn = getConnection();
-//			ArrayList<StoreReview> list = new StoreDao().selectList1(conn, pi, search);
-//			close(conn);
-//			return list;
-//		}
-//		
-//		// 게시일별 조회
-//		public ArrayList<StoreReview> selectList2(PageInfo pi, String search){
-//			Connection conn = getConnection();
-//			ArrayList<StoreReview> list = new StoreDao().selectList2(conn, pi, search);
-//			close(conn);
-//			return list;
-//		}
-//		
-//		// 리뷰 총수
-//		public int selectListCount(String search) {
-//			Connection conn = getConnection();
-//			int listCount = new StoreDao().selectListCount(conn, search);
-//			close(conn);
-//			return listCount;
-//		}
-//		
-//		// 태민 체크박스 선택된 리뷰삭제
-//		
-//		public int withdrawalMember(String userNo) {
-//			Connection conn = getConnection();
-//			int result = new StoreDao().withdrawalMember(conn, userNo);
-//			if(result>0) {
-//				commit(conn);
-//			}else {
-//				rollback(conn);
-//			}
-//			close(conn);
-//			return result;
-//		}
-//		
-//		
-//		// 태민 리뷰 검색
+		//회원번호별 조회
+		public ArrayList<StoreReview> selectList(PageInfo pi, String search){
+			Connection conn = getConnection();
+			ArrayList<StoreReview> list = new StoreDao().selectList(conn, pi, search);
+			close(conn); 
+			return list;
+		}
+		
+		//신고횟수별 조회
+		public ArrayList<StoreReview> selectList1(PageInfo pi, String search){
+			Connection conn = getConnection();
+			ArrayList<StoreReview> list = new StoreDao().selectList1(conn, pi, search);
+			close(conn);
+			return list;
+		}
+		
+		// 게시일별 조회
+		public ArrayList<StoreReview> selectList2(PageInfo pi, String search){
+			Connection conn = getConnection();
+			ArrayList<StoreReview> list = new StoreDao().selectList2(conn, pi, search);
+			close(conn);
+			return list;
+		}
+		
+		// 리뷰 총수
+		public int selectListCount(String search) {
+			Connection conn = getConnection();
+			int listCount = new StoreDao().selectListCount(conn, search);
+			close(conn);
+			return listCount;
+		}
+		
+		// 태민 체크박스 선택된 리뷰삭제
+		
+		public int rwithdrawalMember(String userNo) {
+			Connection conn = getConnection();
+			int result = new StoreDao().rwithdrawalMember(conn, userNo);
+			if(result>0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			close(conn);
+			return result;
+		}
+		
+		
+		// 태민 리뷰 검색
 //		public ArrayList<StoreReview> searchList(PageInfo pi, String input){
 //			Connection conn = getConnection();
 //			ArrayList<StoreReview> list = new StoreDao().searchList(conn, pi, input);
 //			close(conn);
 //			return list;
 //		}
-//		
+		
 //		////////////////////////////
 		
 		
