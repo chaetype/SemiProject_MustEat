@@ -978,7 +978,7 @@ public class StoreDao {
 			// 태민 회원번호별 조회
 				public ArrayList<StoreReview> selectList(Connection conn, PageInfo pi, String search){
 					// select문 => ResultSet(여러행) => ArrayList<Board>
-					ArrayList<StoreReview> list = new ArrayList();
+					ArrayList<StoreReview> list = new ArrayList<>();
 					PreparedStatement pstmt  = null;
 					ResultSet rset = null;
 					String sql = prop.getProperty("rselectList");
