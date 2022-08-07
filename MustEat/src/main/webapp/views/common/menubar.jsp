@@ -229,10 +229,10 @@
 
 			<div class="menu-footer_down font_basic">
 				<p>
-					- 전화 전 <a href="#" style="color:black;">자주 묻는 질문</a>을 확인하세요.
+					- 전화 전 <a href="<%=contextPath%>/faqList.no" style="color:black;">자주 묻는 질문</a>을 확인하세요.
 				</p>
 				<p>
-					- <a href="#" style="color:black;">1:1문의</a>를 통해서도 상담이 가능합니다.
+					- <a href="<%=contextPath%>/contactEnrollForm.no" style="color:black;">1:1문의</a>를 통해서도 상담이 가능합니다.
 				</p>
 				<p>- 상품 문의는 각 상품 Q&A를 이용하세요.</p>
 
@@ -241,13 +241,13 @@
 				<div class="mustEatInfo">
 					<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
 					<a href="<%= contextPath %>/mpsuserlist.me" class="plain-btn btn" style="font-size:12px">적립금</a> 
-					<a href="" class="plain-btn btn" style="font-size:12px">공지사항</a>
+					<a href="<%=contextPath%>/noticeList.no?cpage=1" class="plain-btn btn" style="font-size:12px">공지사항</a>
 					</div>
 					
 					<div class="mustEatInfo">
-					<a href="" class="plain-btn btn" style="font-size:12px; width:55px; height:40px;">FAQ</a>
+					<a href="<%=contextPath%>/faqList.no" class="plain-btn btn" style="font-size:12px; width:55px; height:40px;">FAQ</a>
 					<a href="<%= contextPath %>/tosuserlist.no" class="plain-btn btn" style="font-size:12px">이용약관</a>
-					<a href="" class="plain-btn btn" style="font-size:12px">1대1 문의</a>
+					<a href="<%=contextPath%>/contactEnrollForm.no" class="plain-btn btn" style="font-size:12px">1대1 문의</a>
 					
 					<p align="center" style="color:lightgray;">
 						© MUSTEAT Corp.	

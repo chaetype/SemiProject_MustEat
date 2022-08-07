@@ -8,6 +8,11 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/contactEnrollFormAdmin.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+<style>
+	button{
+		cursor:pointer;
+	}
+</style>
 </head>
 <body>
 
@@ -18,7 +23,7 @@
         <br><br>
         <h2><b>공지사항</b></h2>
 
-    <div id="bar"></div>
+    <div id="bar" style="background:black; height:3px;"></div>
     <br><br>
 
     <form action="<%= contextPath %>/adminNoticeInsert.no" method="post" class="contactForm" enctype="multipart/form-data">
