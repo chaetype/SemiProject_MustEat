@@ -18,7 +18,7 @@
 </head>
 <style>
 	.map-area{
-        background-image: url("<%=request.getContextPath()%>/resources/image/cy/background.png");
+        background-image: url("<%=request.getContextPath()%>/resources/image/cy/bg9.jpg");
  	}
 </style>
 <body>
