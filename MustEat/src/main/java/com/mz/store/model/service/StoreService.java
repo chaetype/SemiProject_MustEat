@@ -125,9 +125,9 @@ public class StoreService {
 
 	//채윤 식당 메인2페이지
 
-	public ArrayList<Store> selectStoreList(int memNo){
+	public ArrayList<Store> selectStoreList(){
 		Connection conn = getConnection();
-		ArrayList<Store> list = new StoreDao().selectStoreList(conn, memNo);
+		ArrayList<Store> list = new StoreDao().selectStoreList(conn);
 		
 		close(conn);
 		return list;

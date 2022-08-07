@@ -311,7 +311,7 @@ public class StoreDao {
 	//채윤 식당 메인2
 
 
-	public ArrayList<Store> selectStoreList(Connection conn, int memNo){
+	public ArrayList<Store> selectStoreList(Connection conn){
 		ArrayList<Store> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -321,13 +321,13 @@ public class StoreDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, rset.getInt("storeNo"));
-			pstmt.setInt(2, memNo);
+			
 			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				Store s = new Store();
+				s.setStoreNo(rset.getInt("store_no"));
 				s.setStoreName(rset.getString("store_name"));
 				s.setStoreImgPath(rset.getString("store_img_path"));
 				s.setStoreImgPath(rset.getString("mem_nickname"));

@@ -91,7 +91,8 @@
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">
 		SELECT 
-		       STORE_NAME
+			   STORE_NO
+		     , STORE_NAME
 		     , STORE_IMG_PATH
 		     , MEM_NICKNAME
 		     , REVIEW_CONTENT
