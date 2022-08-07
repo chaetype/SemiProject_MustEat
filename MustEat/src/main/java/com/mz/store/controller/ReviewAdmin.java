@@ -130,7 +130,8 @@ public class ReviewAdmin extends HttpServlet {
 				request.setAttribute("a", a);	
 
 				request.getRequestDispatcher("views/ltm/reviewsAdmin.jsp").forward(request, response);
-							
+				System.out.println(count);
+				System.out.println(a);
 			}
 
 			/**

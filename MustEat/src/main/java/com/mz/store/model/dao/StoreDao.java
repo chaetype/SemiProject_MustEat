@@ -556,6 +556,7 @@ public class StoreDao {
 	      try {
 	         pstmt = conn.prepareStatement(sql);
 	         pstmt.setString(1, e.getEditorContent());
+	         pstmt.setString(2, e.getEditorAttach());
 	         result = pstmt.executeUpdate();
 	      } catch (SQLException e1) {
 	         e1.printStackTrace();
