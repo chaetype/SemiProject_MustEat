@@ -518,7 +518,7 @@ public class StoreDao {
 	
 	
 	// 서원 관리자 식당조회 
-	public ArrayList<Store> selectAdminStorelist(Connection conn){
+	public ArrayList<Store> selectAdminStorelist(Connection conn, PageInfo pi){
 	ArrayList<Store> list = new ArrayList<>();
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -1400,7 +1400,7 @@ public class StoreDao {
 				
 		sql += "WHERE STORE_NAME LIKE ? OR LOCAL_SI LIKE ? OR LOCAL_GU LIKE ?";
 	
-		sql += "ORDER BY STORE_NO desc";
+		sql += "ORDER BY STORE_NO DESC";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
