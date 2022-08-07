@@ -35,7 +35,7 @@ public class StoreReview {
 
 	public StoreReview(int reNo, String reviewWriter, int storeNo, String reviewContent, String reviewImg,
 			int reviewRate, Date reviewEnrollDate, Date reviewModifyDate, String reviewStatus, String reviewImgPath,
-			String visitDate, String reviewTitle, int count, int reportCount, String reviewMemId, String memLevel,
+			String visitDate, String reviewTitle, int count, String reviewMemId, String memLevel,
 			String storeName, String reMemNick) {
 		super();
 		this.reNo = reNo;
@@ -51,7 +51,6 @@ public class StoreReview {
 		this.visitDate = visitDate;
 		this.reviewTitle = reviewTitle;
 		this.count = count;
-		this.reportCount = reportCount;
 		this.reviewMemId = reviewMemId;
 		this.memLevel = memLevel;
 		this.storeName = storeName;

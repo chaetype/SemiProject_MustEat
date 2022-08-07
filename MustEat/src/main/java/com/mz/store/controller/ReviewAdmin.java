@@ -49,7 +49,7 @@ public class ReviewAdmin extends HttpServlet {
 				String search = request.getParameter("search");
 				
 				// * listcount : 현재 게시글 총갯수
-//				listCount = new StoreService().selectListCount(search);
+				listCount = new StoreService().selectListCount(search);
 				
 				// System.out.println(listCount);
 				
@@ -71,9 +71,9 @@ public class ReviewAdmin extends HttpServlet {
 				 *  	
 				 */
 				
-//				maxPage = (int)Math.ceil((double)listCount / boardLimit);
-//				
-//				startPage = (currentPage-1) / pageLimit * pageLimit + 1;
+				maxPage = (int)Math.ceil((double)listCount / boardLimit);
+				
+				startPage = (currentPage-1) / pageLimit * pageLimit + 1;
 				
 				/*
 				 * * endPage : 페이징바의 끝 수
@@ -84,53 +84,53 @@ public class ReviewAdmin extends HttpServlet {
 				 * 
 				 * statPage : 1 => end
 				 */
-//				endPage = startPage + pageLimit - 1;
-//				
-//				// startPage가 11이면 endPage는 20으로 됨 (근데 maxPage가 고작 13까지 밖에 안되면?)
-//				if(endPage > maxPage) {
-//					endPage = maxPage;
-//				}
+				endPage = startPage + pageLimit - 1;
+				
+				// startPage가 11이면 endPage는 20으로 됨 (근데 maxPage가 고작 13까지 밖에 안되면?)
+				if(endPage > maxPage) {
+					endPage = maxPage;
+				}
 				
 				
 				// * 페이징바를 만들 때 필요한 객체
-//				PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+				PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 				
 				// * 현재 요청한 페이지(currentPage)에 보여질 게시글 리스트 조회해야됨 (boardLimit 수만큼조회)
 				
 				
-//				int a = Integer.parseInt(request.getParameter("a"));
-//				String c = request.getParameter("c");
-//						
-//				System.out.println(search);
-//				
-//				ArrayList<StoreReview> list = null;
-//				int count = new StoreService().selectListCount(search);
-//						
-//				if(a==1) {   // 회원번호
-//					list = new StoreService().selectList(pi, search);
-//					request.setAttribute("c", c);
-//					request.setAttribute("search", search);
-//					
-//				}else if(a==2) {  // 신고횟수
-//					list = new StoreService().selectList1(pi, search);
-//					request.setAttribute("c", c);
-//					request.setAttribute("search", search);
-//					
-//				}else if(a==3) {   // 게시일
-//					list = new StoreService().selectList2(pi, search);
-//					request.setAttribute("c", c);
-//					request.setAttribute("search", search);
-//					
-//				}
-//				
-//				request.setAttribute("pi", pi);
-//				request.setAttribute("list", list);
-//
-//				request.setAttribute("count", count);
-//				request.setAttribute("a", a);	
-//
-//				request.getRequestDispatcher("views/ltm/reviewsAdmin.jsp").forward(request, response);
-//							
+				int a = Integer.parseInt(request.getParameter("a"));
+				String c = request.getParameter("c");
+						
+				System.out.println(search);
+				
+				ArrayList<StoreReview> list = null;
+				int count = new StoreService().selectListCount(search);
+						
+				if(a==1) {   // 회원번호
+					list = new StoreService().selectList(pi, search);
+					request.setAttribute("c", c);
+					request.setAttribute("search", search);
+					
+				}else if(a==2) {  // 닉네임
+					list = new StoreService().selectList1(pi, search);
+					request.setAttribute("c", c);
+					request.setAttribute("search", search);
+					
+				}else if(a==3) {   // 게시일
+					list = new StoreService().selectList2(pi, search);
+					request.setAttribute("c", c);
+					request.setAttribute("search", search);
+					
+				}
+				
+				request.setAttribute("pi", pi);
+				request.setAttribute("list", list);
+
+				request.setAttribute("count", count);
+				request.setAttribute("a", a);	
+
+				request.getRequestDispatcher("views/ltm/reviewsAdmin.jsp").forward(request, response);
+							
 			}
 
 			/**

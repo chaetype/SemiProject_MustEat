@@ -115,7 +115,7 @@
             <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
                 <option id="x" value="no">회원번호</option>
                 <option id="z" value="grade">게시일</option>
-                <option id="y" value="name">신고횟수</option>
+                <option id="y" value="name">닉네임</option>
             </select>
         </div>
 
@@ -147,32 +147,30 @@
                 <% if(list.isEmpty()){ %>
                     <!--case1. 게시글이 없을경우-->
                     <tr>
-                        <td colspan="10">조회된 멤버가 없습니다.</td>
+                        <td colspan="10">조회된 리뷰가 없습니다.</td>
                     </tr>
                     
                     <%}else { %>
                     <!--case2. 게시글이 있을경우-->
                 <tr>
-                    <th></th>
+                    <th><input type="checkbox" name="check" onclick="selectAll(this)"></th>
                     <th>번호</th>
                     <th>게시일</th>
                     <th>아이디</th>
                     <th>닉네임</th>
                     <th width="500px">제목</th>
                     <th>회원등급</th>
-                    <th>신고횟수</th>
                 </tr>
 
                 <% for(StoreReview s : list){ %>
                     <tr id="detail">
                         <th><input type="checkbox" class="chkbox" name="check"></th>
-                        <td><%= s.get %></td>
-                        <td><%= m.getMemId() %></td>
-                        <td><%= m.getMemName() %></td>
-                        <td><%= m.getMemNickname() %></td>
-                        <td>제목</td>
-                        <td>회원등급</td>
-                        <td>신고횟수</td>
+                        <td><%= s.getReNo() %></td>
+                        <td><%= s.getReviewEnrollDate() %></td>
+                        <td><%= s.getReviewMemId() %></td>
+                        <td><%= s.getReMemNick() %></td>
+                        <td><%= s.getReviewTitle() %></td>
+                        <td><%= s.getMemLevel() %></td>
                     </tr>
                  <%} %>
             <%} %>
@@ -183,7 +181,7 @@
             // 선택한 체크박스 삭제
             // prev
             function deleteNo(){
-                if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+                if(confirm("선택한 리뷰를 삭제하시겠습니까?")){
                     let delArr = []
                     let tr = $('input[class="chkbox"]:checked')
                     $(tr).each(function(){
