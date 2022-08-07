@@ -1387,7 +1387,7 @@ public class StoreDao {
 		
 
 
-		return list;
+		return s;
 
 	}
 	
