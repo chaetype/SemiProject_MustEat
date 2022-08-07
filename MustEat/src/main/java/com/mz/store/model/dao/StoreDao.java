@@ -1439,6 +1439,10 @@ public class StoreDao {
 		String sql = prop.getProperty("selectStorelistSearchForm");
 		
 		sql += "AND STORE_NAME LIKE ?";
+		
+		sql += "AND LOCAL_SI LIKE ?";
+		
+		sql += "AND LOCAL_GU LIKE ?";
 	
 		sql += "ORDER BY STORE_NAME ASC";
 		
@@ -1446,6 +1450,8 @@ public class StoreDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setString(2, "%"+keyword+"%");
+			pstmt.setString(3, "%"+keyword+"%");
 		
 			
 			rset = pstmt.executeQuery();
