@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.store.model.vo.Store"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Store"%>
 <%
-	Store s = (Store)request.getAttribute("Store");
+	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -202,8 +202,17 @@
 				<div class="container-storelist">
 				
 				<table class="table-storelist">
-				
-					<tr>
+					
+					<% if(list.isEmpty()) { %>
+	                  <!--case1. 게시글이 없을경우-->
+	                  <tr>
+	                      <td colspan="8">조회된 식당내역이 없습니다.</td>
+	                  </tr>
+					  <% }else { %>
+	                  <!--case2. 게시글이 있을경우-->
+	                  	<% for(Store s : list){ %>
+					  <tr>
+						
 						<td>
 							
 							<div class="card">
@@ -218,7 +227,7 @@
 									<p style="margin-top:4%;">
 									<%= s.getStoreTag() %> <br><br>
 									대표메뉴 : <%= s.getStorePopularity() %> <br>
-									영업시간 : <%= s.getStoreOperating() %>0 <br>
+									영업시간 : <%= s.getStoreOperating() %> <br>
 									브레이크 : <%= s.getStoreBreaktime() %>          
 									</p>
 								</div>
@@ -226,6 +235,8 @@
 							
 						</td>						
 					</tr>
+					<% } %>        
+	             <% } %>
 				
 				
 				</table>
