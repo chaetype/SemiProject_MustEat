@@ -43,7 +43,7 @@ public class Address extends HttpServlet {
 		String delAddressDetail = request.getParameter("sample6_detailAddress");
 		String delAddressRef = request.getParameter("sample6_extraAddress");
 		String memo = request.getParameter("memo");
-		int orderQuentity = Integer.parseInt(request.getParameter("count"));
+		int orderQuentity = Integer.parseInt(request.getParameter("tCount"));
 		int totalPrice = Integer.parseInt(request.getParameter("price"));
 		String deliType = request.getParameter("deli");
 		
@@ -53,6 +53,7 @@ public class Address extends HttpServlet {
 		int result = new ProductService().insertAddress(op);
 		
 		if(result > 0) {
+			request.setAttribute("op", op);
 			request.getRequestDispatcher("views/hsb/payComplete.jsp").forward(request, response);
 		}
 		

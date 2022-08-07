@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.product.model.vo.OrderPro"%>
+    
+<%
+	OrderPro op = (OrderPro)request.getAttribute("op");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +36,7 @@
             주문 접수가  <span style="color:rgb(155, 89, 182) ;">완료되었습니다.</span>  
         </div>
         <br>
-        <div>xxx 고객님의 주문을 진심으로 감사드립니다.</div>
+        <span style="color: rgb(155, 89, 182); font-weight: bolder;"><%=op.getDelName() %></span><span> 고객님의 주문을 진심으로 감사드립니다.</span>
         <br><br>
         <button type="button" class="btn1" onclick="moveOrderList();">주문내역 상세보기</button>
     </div>
@@ -45,4 +49,4 @@
    
     
 </body>
-</html>
+</html>w
