@@ -37,7 +37,8 @@ public class SearchCityController extends HttpServlet {
 		ArrayList<Store> list = new StoreService().searchCity(city);
 		Store s = new StoreService().selectCity(city);
 		
-		request.setAttribute("list", list);
+		System.out.println(list);
+		request.setAttribute("store", list);
 		request.setAttribute("city", s);
 		request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
 		
