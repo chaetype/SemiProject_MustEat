@@ -34,8 +34,9 @@ public class StoreListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 				
-		ArrayList<Store> list = new StoreService().selectStoreList();
+		ArrayList<Store> list = new StoreService().selectStoreList(memNo);
 		//ArrayList<Store> fdlist = new StoreService().forDetailList();
 		request.setAttribute("list", list);
 		//request.setAttribute("fdlist", fdlist);
