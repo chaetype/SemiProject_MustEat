@@ -104,6 +104,22 @@
 		    BY STORE_NO DESC
 	</entry>
 	
+	<entry key="mainpage">
+		SELECT 
+			   STORE_NO
+		     , STORE_NAME
+		     , STORE_IMG_PATH
+		     , MEM_NICKNAME
+		     , REVIEW_CONTENT
+		     , REVIEW_IMG_PATH
+		  FROM STORE_RE
+		  JOIN MEMBER ON (REVIEW_WRITER = MEM_NO)
+		  JOIN STORE USING(STORE_NO)
+		 ORDER
+		    BY STORE_NO DESC
+	</entry>
+	
+	
 	<entry key="forDetailList">
 		SELECT 
 		       S.STORE_NO
@@ -404,7 +420,8 @@
 	<!-- 서원 사용자 식당 검색 -->
 	<entry key="storelistSearch">
 		SELECT
-		       STORE_IMG_PATH
+			   STORE_NO
+		     , STORE_IMG_PATH
 		     , LOCAL_SI
 		     , LOCAL_GU
 		     , STORE_NAME
@@ -413,16 +430,18 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
-		 ORDER BY STORE_NAME ASC;
+		 ORDER BY STORE_NAME ASC
 	</entry>
 	
 	<!-- 은영 (메인페이지 지역별 식당 조회) -->
-	<entry key="seachCity">
+	<entry key="searchCity">
 	  SELECT STORE_NO
        , STORE_NAME
        , STORE_IMG_PATH
+       , LOCAL_SI
+       , LOCAL_GU
 	  FROM STORE
-	  WHERE LOCAL_SI = ?
+	  WHERE LOCAL_SI LIKE ?
 	</entry>
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->

@@ -232,7 +232,7 @@ public class Store {
 		this.storeEnrollDate = storeEnrollDate;
 	}
 
-	public Store( String storeImgPath, String localSi, String localGu, String storeName, String storeTag,
+	public Store(String storeImgPath, String localSi, String localGu, String storeName, String storeTag,
 			String storePopularity, String storeOperating, String storeBreaktime) {
 		super();
 		this.storeImgPath = storeImgPath;

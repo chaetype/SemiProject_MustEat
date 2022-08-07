@@ -182,7 +182,7 @@
 	
 							// 주소로 좌표를 검색합니다 // *식당 주소 넣기*
 							
-							geocoder.addressSearch(storeFullAddress, function(result, status) {
+							geocoder.addressSearch('서울 중구 수표로 48-8 1, 2층', function(result, status) {
 
 								// 정상적으로 검색이 완료됐으면 
 								if (status === kakao.maps.services.Status.OK) {
