@@ -25,6 +25,16 @@ public class Basket {
 		
 	}
 	
+	public Basket(String memNo, String productCode, int count, Date basketDate, int price, String productName) {
+	      super();
+	      this.memNo = memNo;
+	      this.productCode = productCode;
+	      this.count = count;
+	      this.basketDate = basketDate;
+	      this.price = price;
+	      this.productName = productName;
+	   }
+	
 	public Basket(String memNo, String productCode, int count, Date basketDate, int basketNo) {
 		this.memNo = memNo;
 		this.productCode = productCode;

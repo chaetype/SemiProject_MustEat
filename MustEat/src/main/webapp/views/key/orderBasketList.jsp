@@ -147,10 +147,13 @@
 	          </div>
 	
 	          <div class="orderButton">
-	            <a href="<%=contextPath%>/address.do?" class="plain-btn btn">구매하기</a>
-	            <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal" style="display:none;">주문수정</button>
-	            <a class="plain-btn btn" onclick="return deleteCart(<%=bk.getBasketNo() %>);">상품삭제</a>
-	          </div>
+                <form action="<%=contextPath%>/cartdirect.do">
+                   <input type="hidden" value="<%=bk.getBasketNo() %>" name="basNo">
+                  <button type="submit" class="plain-btn btn" id="buy">구매하기</button>
+                  <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal" style="display:none;">주문수정</button>
+                  <a class="plain-btn btn" onclick="return deleteCart(<%=bk.getBasketNo() %>);">상품삭제</a>
+               </form>
+             </div>
 	      
 
 		 <script>
