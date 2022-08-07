@@ -260,6 +260,7 @@ public class Store {
 		this.storePopPath = storePopPath;
 	}
 
+	
 
 	public int getStoreNo() {
 		return storeNo;

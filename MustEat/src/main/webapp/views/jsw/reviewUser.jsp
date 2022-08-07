@@ -200,7 +200,7 @@
 		                      <td><%= m.getRvName() %></td>
 		                      <td><%= m.getRvCategory() %></td>
 		                      <td><%= m.getRvRate() %></td>	
-		                      <td><button class="btn1" style="height:40px;">상세보기</button></td>		       
+		                      <td><button class="btn1" style="height:40px;" onclick="">상세보기</button></td>		       
 		                  </tr>   
 	                      <% } %>        
 	                  <% } %>				      				      
