@@ -309,6 +309,8 @@ public class StoreDao {
 	
 
 	//채윤 식당 메인2
+
+
 	public ArrayList<Store> selectStoreList(Connection conn, int memNo){
 		ArrayList<Store> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
