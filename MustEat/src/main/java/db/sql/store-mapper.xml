@@ -91,18 +91,11 @@
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">
 		SELECT 
-		       S.STORE_NO
+		       STORE_NO
 		     , STORE_NAME
-		     , STORE_ADDRESS
-		     , STORE_INTRO
 		     , STORE_IMG_PATH
-		     , STORE_POPULARITY
-		     , STORE_POP_INFO
-		     , SR.REVIEW_WRITER
-		     , SR.REVIEW_IMG
-		     , SR.REVIEW_CONTENT
+		     , LOCAL_SI
 		  FROM STORE S
-		  JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
 		 ORDER
 		 	BY S.STORE_NO DESC
 	</entry>

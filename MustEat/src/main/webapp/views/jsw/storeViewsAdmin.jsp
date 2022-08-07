@@ -98,23 +98,8 @@
 						<table style="display:inline-block;">
 							<tr>
 								<td>
-									<select class="store-array" name="" id="" style="height: 48px; border-color:lightgrey;">									
-										<option value="">번호순</option>
-										<option value="">이름순</option>
-										<option value="">주소순</option>
-									</select>
-								</td>
-								<td>
-									<div class="point-category">
-										<select class="point-select" name="" id="" style="height: 48px; border-color:lightgrey; font-family: Verdana, Geneva, Arial, sans-serif !important;">
-											<option value="">식당명</option>
-											<option value="">식당주소</option>
-										</select>
-									</div>
-								</td>
-								<td>
 									<div class="input-group mb-3" style="margin-top:6%;">
-										<input type="text" class="form-control input-text" placeholder="검색내용입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: Verdana, Geneva, Arial, sans-serif !important;">
+										<input type="text" class="form-control input-text" placeholder="식당명을 입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: Verdana, Geneva, Arial, sans-serif !important;">
 										<div class="input-group-append">
 											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
 										</div>

@@ -163,10 +163,10 @@
                     <th>신고횟수</th>
                 </tr>
 
-                <% for(Member m : list){ %>
+                <% for(StoreReview s : list){ %>
                     <tr id="detail">
                         <th><input type="checkbox" class="chkbox" name="check"></th>
-                        <td><%= m.getMemNo() %></td>
+                        <td><%= s.get %></td>
                         <td><%= m.getMemId() %></td>
                         <td><%= m.getMemName() %></td>
                         <td><%= m.getMemNickname() %></td>
