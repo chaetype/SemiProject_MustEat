@@ -63,7 +63,7 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 		html{
-			cursor:url(burger.cur),auto;
+			cursor:url("<%=request.getContextPath() %>/resources/image/burger.cur"),auto;
 		}
 		
 		body{margin:0 auto;}

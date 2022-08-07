@@ -1291,7 +1291,7 @@ public class StoreDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, city);
+			pstmt.setString(1, "%" + city + "%");
 			
 			rset = pstmt.executeQuery();
 			
@@ -1319,13 +1319,13 @@ public class StoreDao {
 
 	
 	//모두함께 메인
-	public ArrayList<Store> mainpage(Connection conn){
+	public ArrayList<Store> mainpage(Connection conn, String map){
 		ArrayList<Store> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("mainpage");
 		switch(map) {
-			case "1": sql += "WHERE mem_nickname like ? ";
+			case "1": sql += "WHERE LOCAL_SI LIKE ? ";
 				break;
 			case "2":  sql += "WHERE review_title like ? ";
 				break;
@@ -1361,4 +1361,6 @@ public class StoreDao {
 
 		return list;
 
+}
+	
 }
