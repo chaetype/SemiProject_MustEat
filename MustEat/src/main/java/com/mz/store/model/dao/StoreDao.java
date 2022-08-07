@@ -518,7 +518,7 @@ public class StoreDao {
 	
 	
 	// 서원 관리자 식당조회 
-	public ArrayList<Store> selectAdminStorelist(Connection conn, PageInfo pi){
+	public ArrayList<Store> selectAdminStorelist(Connection conn){
 	ArrayList<Store> list = new ArrayList<>();
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -1481,29 +1481,29 @@ public class StoreDao {
 	}
 	
 	// 서원 관리자 식당 조회 페이징 처리
-	public int selectStoreAdminListCount(Connection conn) {
-		int listCount = 0;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectStoreAdminListCount");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				listCount = rset.getInt("count");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return listCount;
-	}
-	
+//	public int selectStoreAdminListCount(Connection conn) {
+//		int listCount = 0;
+//		PreparedStatement pstmt = null;
+//		ResultSet rset = null;
+//		String sql = prop.getProperty("selectStoreAdminListCount");
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			rset = pstmt.executeQuery();
+//			
+//			if(rset.next()) {
+//				listCount = rset.getInt("count");
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close(rset);
+//			close(pstmt);
+//		}
+//		
+//		return listCount;
+//	}
+//	
 	
 
 	

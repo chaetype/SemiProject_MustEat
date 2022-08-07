@@ -161,9 +161,9 @@ public class StoreService {
 	
 
 	// 서원 관리자 식당조회 
-	public ArrayList<Store> selectAdminStorelist(PageInfo pi) {
+	public ArrayList<Store> selectAdminStorelist() {
 		Connection conn = getConnection();
-		ArrayList<Store> list = new StoreDao().selectAdminStorelist(conn, pi); 
+		ArrayList<Store> list = new StoreDao().selectAdminStorelist(conn); 
 		close(conn);
 		return list;
 	}
@@ -459,12 +459,12 @@ public class StoreService {
 	 */
 
 	// 서원 관리자 식당 조회 페이징 처리
-	public int selectStoreAdminListCount() {
-		Connection conn = getConnection();
-		int listCount = new StoreDao().selectStoreAdminListCount(conn);
-		close(conn);
-		return listCount;
-	}
+//	public int selectStoreAdminListCount() {
+//		Connection conn = getConnection();
+//		int listCount = new StoreDao().selectStoreAdminListCount(conn);
+//		close(conn);
+//		return listCount;
+//	}
 		
 		
 
