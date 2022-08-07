@@ -281,7 +281,7 @@ public class MemberService {
 	// 태민 회원 검색
 	public ArrayList<Member> bsearchList(PageInfo pi, String input){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().searchList(conn, pi, input);
+		ArrayList<Member> list = new MemberDao().bsearchList(conn, pi, input);
 		close(conn);
 		return list;
 	}

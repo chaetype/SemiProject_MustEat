@@ -74,7 +74,7 @@
                 		</tr>
                 	<% }else{ %>
 	                	<% for(int i=0; i<list.size(); i++){ %>
-		                    <tr class="contact-title">
+		                    <tr class="contact-title" style="cursor:pointer">
 		                        <td><%= list.size() - i %></td>
 		                        <td>[<%= list.get(i).getContactType() %>] <%= list.get(i).getContactTitle() %></td>
 		                        <% if(list.get(i).getContactStatus().equals("답변 대기")){ %>

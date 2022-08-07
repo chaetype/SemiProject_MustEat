@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mz.common.model.vo.PageInfo;
-import com.mz.member.model.service.MemberService;
-import com.mz.member.model.vo.Member;
+import com.mz.store.model.service.StoreService;
+import com.mz.store.model.vo.StoreReview;
 
 /**
  * Servlet implementation class ReviewAdmin
@@ -49,7 +49,7 @@ public class ReviewAdmin extends HttpServlet {
 				String search = request.getParameter("search");
 				
 				// * listcount : 현재 게시글 총갯수
-				listCount = new MemberService().selectListCount(search);
+				listCount = new StoreService().selectListCount(search);
 				
 				// System.out.println(listCount);
 				
@@ -103,21 +103,21 @@ public class ReviewAdmin extends HttpServlet {
 						
 				System.out.println(search);
 				
-				ArrayList<Member> list = null;
-				int count = new MemberService().selectListCount(search);
+				ArrayList<StoreReview> list = null;
+				int count = new StoreService().selectListCount(search);
 						
-				if(a==1) {
-					list = new MemberService().selectList(pi, search);
+				if(a==1) {   // 회원번호
+					list = new StoreService().selectList(pi, search);
 					request.setAttribute("c", c);
 					request.setAttribute("search", search);
 					
-				}else if(a==2) {
-					list = new MemberService().selectList1(pi, search);
+				}else if(a==2) {  // 신고횟수
+					list = new StoreService().selectList1(pi, search);
 					request.setAttribute("c", c);
 					request.setAttribute("search", search);
 					
-				}else if(a==3) {
-					list = new MemberService().selectList2(pi, search);
+				}else if(a==3) {   // 게시일
+					list = new StoreService().selectList2(pi, search);
 					request.setAttribute("c", c);
 					request.setAttribute("search", search);
 					
@@ -129,7 +129,7 @@ public class ReviewAdmin extends HttpServlet {
 				request.setAttribute("count", count);
 				request.setAttribute("a", a);	
 
-				request.getRequestDispatcher("views/ltm/allMembersAdmin.jsp").forward(request, response);
+				request.getRequestDispatcher("views/ltm/reviewsAdmin.jsp").forward(request, response);
 							
 			}
 

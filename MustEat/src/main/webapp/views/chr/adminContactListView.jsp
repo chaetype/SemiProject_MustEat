@@ -67,7 +67,7 @@
                 		</tr>
                 	<% }else{ %>
 	                	<% for(int i=0; i<list.size(); i++){ %>
-		                    <tr class="contact-title" onclick="location.href='<%=contextPath%>/adminContactDetail.no?no=<%= list.get(i).getContactNo() %>'">
+		                    <tr class="contact-title" style="cursor:pointer" onclick="location.href='<%=contextPath%>/adminContactDetail.no?no=<%= list.get(i).getContactNo() %>'">
 		                        <td><%= list.get(i).getContactNo() %></td>
 		                        <td><%= list.get(i).getContactType() %></td>
 		                        <td><%= list.get(i).getContactTitle() %></td>

@@ -23,6 +23,9 @@
         background:rgb(167, 112, 239);
         color:white;
 	}
+	button{
+		cursor:pointer;
+	}
 </style>
 </head>
 <body>
@@ -34,7 +37,7 @@
         <br><br>
         <h2><b>FAQ</b></h2>
 
-    <div id="bar"></div>
+    <div id="bar" style="background:black; height:3px;"></div>
     <br><br>
 
     <form action="<%= contextPath %>/adminFaqUpdate.no" method="post" class="contactForm">
