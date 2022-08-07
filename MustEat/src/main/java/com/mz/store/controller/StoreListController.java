@@ -35,7 +35,7 @@ public class StoreListController extends HttpServlet {
 		
 		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 				
-		ArrayList<Store> list = new StoreService().selectStoreList(memNo);
+		ArrayList<Store> list = new StoreService().selectStoreList();
 		request.setAttribute("list", list);
 		System.out.println(list);
 		//request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
