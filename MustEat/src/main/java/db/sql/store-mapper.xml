@@ -104,6 +104,22 @@
 		    BY STORE_NO DESC
 	</entry>
 	
+	<entry key="mainpage">
+		SELECT 
+			   STORE_NO
+		     , STORE_NAME
+		     , STORE_IMG_PATH
+		     , MEM_NICKNAME
+		     , REVIEW_CONTENT
+		     , REVIEW_IMG_PATH
+		  FROM STORE_RE
+		  JOIN MEMBER ON (REVIEW_WRITER = MEM_NO)
+		  JOIN STORE USING(STORE_NO)
+		 ORDER
+		    BY STORE_NO DESC
+	</entry>
+	
+	
 	<entry key="forDetailList">
 		SELECT 
 		       S.STORE_NO
