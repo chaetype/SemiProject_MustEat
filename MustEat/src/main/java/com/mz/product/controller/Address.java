@@ -44,7 +44,7 @@ public class Address extends HttpServlet {
 		String delAddressRef = request.getParameter("sample6_extraAddress");
 		String memo = request.getParameter("memo");
 		int orderQuentity = Integer.parseInt(request.getParameter("count"));
-		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
+		int totalPrice = Integer.parseInt(request.getParameter("price"));
 		String deliType = request.getParameter("deli");
 		
 		
