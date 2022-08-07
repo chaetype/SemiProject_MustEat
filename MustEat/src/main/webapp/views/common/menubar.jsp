@@ -199,7 +199,7 @@ body { cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAAAAACoCAAAFgAAACgAAAA
 			<!-- 메뉴바 -->
 			<nav class="demo-dust menu menu--dustu">
 					
-					<a class="menu__item" href="<%=contextPath%>/list.st">
+					<a class="menu__item" href="<%=contextPath%>/storesearch.st">
 						<span class="menu__item-name">Restaurant</span>
 						<span class="menu__item-label">View all our Restaurant</span>
 					</a>
