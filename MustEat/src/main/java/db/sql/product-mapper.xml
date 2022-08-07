@@ -475,6 +475,20 @@
         
 	</entry>
 	
+	<!--  성범 -->
+	<entry key="cartPay">
+      SELECT 
+             MEM_NO
+           , PRODUCT_CODE
+           , AMOUNT
+           , BASKET_DATE
+           , PRICE
+           , PRODUCT_NAME
+        FROM BASKET
+        JOIN PRODUCT USING(PRODUCT_CODE)
+       WHERE BASKET_NO = ?
+   </entry>
+	
 	
 	
 	

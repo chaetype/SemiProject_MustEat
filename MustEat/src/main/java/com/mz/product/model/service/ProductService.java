@@ -448,5 +448,20 @@ public class ProductService {
 		return result;
 	}
 	
+	// 성범
+	   /*
+	    * 장바구니 밀키트 구매
+	    */
+	   public Basket cartPay(int basNo) {
+	      
+	      Connection conn = getConnection();
+	      
+	      Basket bs = new ProductDao().cartPay(conn, basNo);
+	      
+	      close(conn);
+	      
+	      return bs;
+	   }
+	
 }
 

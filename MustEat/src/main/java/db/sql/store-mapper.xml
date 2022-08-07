@@ -420,7 +420,8 @@
 	<!-- 서원 사용자 식당 검색 -->
 	<entry key="storelistSearch">
 		SELECT
-		       STORE_IMG_PATH
+			   STORE_NO
+		     , STORE_IMG_PATH
 		     , LOCAL_SI
 		     , LOCAL_GU
 		     , STORE_NAME
@@ -439,6 +440,16 @@
        , STORE_IMG_PATH
 	  FROM STORE
 	  WHERE LOCAL_SI LIKE ?
+	</entry>
+	
+	<!-- 은영 (메인페이지 지역별 식당 조회시 시,구 조회) -->
+	<entry key="selectCity">
+	  SELECT 
+         LOCAL_SI
+       , LOCAL_GU
+	  FROM STORE
+	  WHERE LOCAL_SI LIKE ?
+	  	 OR LOCAL_GU LIKE ?
 	</entry>
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->

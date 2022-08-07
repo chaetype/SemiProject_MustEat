@@ -1,7 +1,6 @@
-package com.mz.store.controller;
+package com.mz.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.Store;
+import com.mz.product.model.service.ProductService;
+import com.mz.product.model.vo.Basket;
 
 /**
- * Servlet implementation class SearchCityController
+ * Servlet implementation class DirectPayment
  */
-@WebServlet("/searchCity.st")
-public class SearchCityController extends HttpServlet {
+@WebServlet("/cartdirect.do")
+public class CartPayment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchCityController() {
+    public CartPayment() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,17 +30,16 @@ public class SearchCityController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 메인페이지에서 도시 찾는 Servlet
-		String city = request.getParameter("map");
 		
-		ArrayList<Store> list = new StoreService().searchCity(city);
-		Store s = new StoreService().selectCity(city);
-		
-		request.setAttribute("list", list);
-		request.setAttribute("city", s);
-		request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
 		
 		
+		int basketNo = Integer.parseInt(request.getParameter("basNo"));
+		
+		Basket bs = new ProductService().cartPay(basketNo);
+		
+		request.setAttribute("bs", bs);
+		request.getRequestDispatcher("views/hsb/cartAddress.jsp").forward(request, response);
 	}
 
 	/**

@@ -943,6 +943,38 @@ public class ProductDao {
 		
 	}
 	
+	// 성범
+    /*
+     * 장바구니 밀키트 구매
+     */
+    public Basket cartPay(Connection conn, int basNo) {
+       Basket bs = null;
+       PreparedStatement pstmt = null;
+       ResultSet rset = null;
+       String sql = prop.getProperty("cartPay");
+       try {
+          pstmt = conn.prepareStatement(sql);
+          pstmt.setInt(1, basNo);
+          
+          rset = pstmt.executeQuery();
+          if(rset.next()) {
+             bs = new Basket(rset.getString("mem_no"),
+                           rset.getString("product_code"),
+                           rset.getInt("amount"),
+                           rset.getDate("basket_date"),
+                           rset.getInt("price"),
+                           rset.getString("product_name"));
+          }
+       } catch (SQLException e) {
+          e.printStackTrace();
+       } finally {
+          close(rset);
+          close(pstmt);
+       }
+       
+       return bs;
+    }
+	
 	
 	
 	

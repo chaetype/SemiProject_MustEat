@@ -1,4 +1,4 @@
-package com.mz.product;
+package com.mz.product.controller;
 
 import java.io.IOException;
 
