@@ -270,8 +270,8 @@
                                 <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" required>
                                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
                                 <input type="text" name="address" id="sample6_address" placeholder="주소" style="width:240px" required><br>
-                                <input type="text" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px" required><br>
                                 <input type="text" name="addressRef" id="sample6_extraAddress" placeholder="참고항목" style="width:240px" required><br>
+                                <input type="text" name="addressDetail" id="sample6_detailAddress" placeholder="상세주소" style="width:240px" required><br>
                                	
                             </td>    
                         </tr>
@@ -295,21 +295,19 @@
                 <input type="hidden" name="tPrice" value="<%=bs.getPrice()%>">
                 <input type="hidden" name="tCount" value="<%=bs.getCount()%>">
                 <div class="bigtext right-align box blue summoney" style="color: black;">배송비: 2500원</div>
-                <div class="bigtext right-align box blue summoney" style="color: black;">적립금: <input type="text" style="width:70px" name="mile" id="mile" value="0"></div>
+                <div class="bigtext right-align box blue summoney" style="color: black;">적립금: <input type="text" name="mile" id="mile" style="width:70px" value="0"></div>
                 <div class="bigtext right-align box blue summoney" style="color: black;" id="totalPrice">총상품 금액: 
                    
                 </div>
 				
 				
                 
-                
-                
                 <script>
                    let tPrice = $("input[name='tPrice']").val();
                    let tCount = $("input[name='tCount']").val();
                    let sum = tPrice*tCount;
                    
-                   $("#totalPrice").text('총상품 금액: ' + sum)
+                   $("#totalPrice").text('총상품 금액: ' + sum + "원")
 
                    $(function(){
                     let mile = $(this).val();
@@ -322,7 +320,7 @@
                         let tSum = sum - mile;
 
                         $("#sum_p_price").text('최종결제 금액 : ' + tSum + "원")
-                  $("#price").val(tSum)
+						$("#price").val(tSum)
                     })
                    })
                 </script>
@@ -330,11 +328,8 @@
                 
                 <input type="hidden" name="price" id="price">
                 
-                
-                
                 <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: 원</div>
                 <input type="hidden" name="pName" id="pName" value="<%=bs.getProductName()%>">
-                <input type="hidden" name="price" id="price">
                 <input type="hidden" name="count" value="<%=bs.getCount()%>">
         
             

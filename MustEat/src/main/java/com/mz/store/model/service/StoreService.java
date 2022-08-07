@@ -7,7 +7,6 @@ import static com.mz.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
-
 import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.member.model.vo.Member;
@@ -125,9 +124,9 @@ public class StoreService {
 
 	//채윤 식당 메인2페이지
 
-	public ArrayList<Store> selectStoreList(){
+	public ArrayList<Store> selectStoreList(int memNo){
 		Connection conn = getConnection();
-		ArrayList<Store> list = new StoreDao().selectStoreList(conn);
+		ArrayList<Store> list = new StoreDao().selectStoreList(conn, memNo);
 		
 		close(conn);
 		return list;
@@ -379,7 +378,7 @@ public class StoreService {
 			return storeRate;
 		}
 
-
+		
 		// 은영
 		/**
 		 * 지도에서 해당 지역 누르면 지역 페이지로 이동하는 Service
@@ -398,7 +397,7 @@ public class StoreService {
 			
 
 		}
-		
+
 		// 은영
 		/**
 		 * 지도에서 해당 지역 누르면 지역이 조회되는 Service
@@ -425,4 +424,5 @@ public class StoreService {
 		close(conn);
 		return list;
 	}
+
 }
