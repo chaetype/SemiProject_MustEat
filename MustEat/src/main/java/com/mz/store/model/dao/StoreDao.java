@@ -1302,6 +1302,8 @@ public class StoreDao {
 			s.setStoreNo(rset.getInt("STORE_NO"));
 			s.setStoreName(rset.getString("STORE_NAME"));
 			s.setStoreImgPath(rset.getString("STORE_IMG_PATH"));
+			s.setLocalSi(rset.getString("LOCAL_SI"));
+			s.setLocalGu(rset.getString("LOCAL_GU"));
 			
 			list.add(s);
 				
