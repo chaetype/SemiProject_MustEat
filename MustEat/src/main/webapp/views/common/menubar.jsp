@@ -211,7 +211,7 @@ body { cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAAAAACoCAAAFgAAACgAAAA
 						<span class="menu__item-name">MZ Pick</span>
 						<span class="menu__item-label">Meet what MZ choice</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath%>/event.st">
 						<span class="menu__item-name">Event</span>
 						<span class="menu__item-label">Read what others say</span>
 					</a>

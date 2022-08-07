@@ -124,9 +124,9 @@
 					
 							<div class="wrap55" style="width:60%;">
 								<div class="input-group mb-3">
-									<input type="text" class="form-control input-text" placeholder="식당명, 지역명으로 검색해주세요." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<input type="text" name="storeSearch" class="form-control input-text" placeholder="식당명으로 검색해주세요." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									<div class="input-group-append">
-										<button class="btn btn-outline-warning btn-lg" type="submit" style="color:rgb(167, 112, 239); border-color:rgb(167, 112, 239)" onclick="location.href='<%= contextPath %>/storeadminSearch.st"><i class="fa fa-search"></i></button>
+										<button class="btn btn-outline-warning btn-lg" type="submit" style="color:rgb(167, 112, 239); border-color:rgb(167, 112, 239)"><i class="fa fa-search"></i></button>
 									</div>
 								</div>
 							</div>							
@@ -167,8 +167,7 @@
 									<p style="margin-top:4%;">
 									<%= s.getStoreTag() %> <br><br>
 									대표메뉴 : <%= s.getStorePopularity() %> <br>
-									영업시간 : <%= s.getStoreOperating() %> <br>
-									브레이크 : <%= s.getStoreBreaktime() %>          
+									영업시간 : <%= s.getStoreOperating() %> <br>        
 									</p>
 								</div>
 							</div>							
