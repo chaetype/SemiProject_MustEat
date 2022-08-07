@@ -1438,11 +1438,7 @@ public class StoreDao {
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectStorelistSearchForm");
 		
-		sql += "AND STORE_NAME LIKE ?";
-		
-		sql += "AND LOCAL_SI LIKE ?";
-		
-		sql += "AND LOCAL_GU LIKE ?";
+		sql += "AND STORE_NAME LIKE ? OR LOCAL_SI LIKE ? OR LOCAL_GU LIKE ?";
 	
 		sql += "ORDER BY STORE_NAME ASC";
 		
