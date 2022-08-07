@@ -91,6 +91,19 @@
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">
 		SELECT 
+		       STORE_NO
+		     , STORE_NAME
+		     , STORE_IMG_PATH
+		     
+		 
+		  FROM STORE
+           
+		 ORDER
+		 	BY STORE_NO DESC
+	</entry>
+	
+	<entry key="forDetailList">
+		SELECT 
 		       S.STORE_NO
 		     , STORE_NAME
 		     , STORE_IMG_PATH
@@ -398,8 +411,7 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
-		 WHERE STORE_STATUS = 'Y'
-		 ORDER BY STORE_NAME ASC
+		 ORDER BY STORE_NAME ASC;
 	</entry>
 	
 	<!-- 은영 (메인페이지 지역별 식당 조회) -->
