@@ -49,6 +49,17 @@
     body{
     	/* background-color: #eee; */
 	}
+    .outer a{
+        display:block;
+        width:88%;
+        text-decoration:none;
+        color:rgb(167, 112, 239);
+        text-align:right;
+        margin-bottom:1%;
+    }
+    .outer a:hover{
+        color:rgb(149, 101, 212);
+    }
 </style>
 </head>
 <body>
@@ -62,6 +73,7 @@
 
         <div class="table-wrap"></div>
         <h5><b>공지사항</b></h5><br>
+        <a href="">더보기</a>
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>
@@ -122,6 +134,7 @@
 
         <div class="table-subWrap"></div>
         <h5><b>1 : 1 문의</b></h5><br>
+        <a href="">더보기</a>
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>
@@ -182,6 +195,7 @@
 
         <div class="table-subWrap"></div>
         <h5><b>FAQ</b></h5><br>
+        <a href="">더보기</a>
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>

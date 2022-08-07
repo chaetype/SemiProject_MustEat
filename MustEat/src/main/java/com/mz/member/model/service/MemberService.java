@@ -18,6 +18,7 @@ import com.mz.member.model.vo.Report;
 import com.mz.member.model.vo.StoreScrap;
 import com.mz.notice.model.dao.NoticeDao;
 import com.mz.notice.model.vo.Notice;
+import com.mz.product.model.dao.ProductDao;
 
 public class MemberService {
 	//메소드 위에 이름 주석 꼭 달기!!!
@@ -572,4 +573,21 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
+	
+	
+	//채윤 언팔로우
+		public int unfollow(int no) {
+			
+			Connection conn = getConnection();
+			
+			int result = new MemberDao().unfollow(conn, no);
+			
+			if(result > 0) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+			
+			return result;
+		}
 }
