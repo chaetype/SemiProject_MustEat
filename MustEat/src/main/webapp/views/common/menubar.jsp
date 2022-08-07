@@ -241,8 +241,9 @@
 				<br> 
 				
 				<div class="mustEatInfo">
-					<a href="" class="plain-btn btn" style="font-size:12px">회원후기</a> 
+					<a href="<%=contextPath%>/clist.st" class="plain-btn btn" style="font-size:12px">회원후기</a> 
 					<a href="<%= contextPath %>/mpsuserlist.me" class="plain-btn btn" style="font-size:12px">적립금</a> 
+
 					<a href="<%=contextPath%>/noticeList.no?cpage=1" class="plain-btn btn" style="font-size:12px">공지사항</a>
 					</div>
 					
@@ -250,6 +251,7 @@
 					<a href="<%=contextPath%>/faqList.no" class="plain-btn btn" style="font-size:12px; width:55px; height:40px;">FAQ</a>
 					<a href="<%= contextPath %>/tosuserlist.no" class="plain-btn btn" style="font-size:12px">이용약관</a>
 					<a href="<%=contextPath%>/contactEnrollForm.no" class="plain-btn btn" style="font-size:12px">1대1 문의</a>
+
 					
 					<p align="center" style="color:lightgray;">
 						© MUSTEAT Corp.	

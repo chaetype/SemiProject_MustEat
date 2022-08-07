@@ -323,15 +323,8 @@ public class StoreDao {
 				Store s = new Store();
 				s.setStoreNo(rset.getInt("store_no"));
 				s.setStoreName(rset.getString("store_name"));
-				s.setStoreAddress(rset.getString("store_address"));
-				s.setStoreIntro(rset.getString("store_intro"));
 				s.setStoreImgPath(rset.getString("store_img_path"));
-				s.setStorePopPath(rset.getString("store_popularity"));
-				s.setStorePopInfo(rset.getString("store_pop_info"));
-				s.setReviewWriter(rset.getString("review_writer"));
-				s.setReviewImg(rset.getString("REVIEW_IMG"));
-				s.setStoreReview(rset.getString("REVIEW_CONTENT"));
-				
+				s.setLocalSi("local_si");
 				list.add(s);
 			}
 			} catch (SQLException e) {
@@ -900,309 +893,309 @@ public class StoreDao {
 				
 		
 		
-		// @@@@@@@태민 리뷰 관리@@@@@@
-			
-			// 태민 회원번호별 조회
-				public ArrayList<StoreReview> selectList(Connection conn, PageInfo pi, String search){
-					// select문 => ResultSet(여러행) => ArrayList<Board>
-					ArrayList<StoreReview> list = new ArrayList();
-					PreparedStatement pstmt  = null;
-					ResultSet rset = null;
-					String sql = prop.getProperty("selectList");
-					
-					if(!(search.equals("") || search == null)) {
-						sql += "AND MEM_NAME LIKE '%"+search+"%'";
-					}
-					
-					try {
-						pstmt = conn.prepareStatement(sql);
-						
-						/*
-						 * ex) boardLimit : 10이라는 가정하에
-						 * 
-						 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
-						 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
-						 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
-						 * 
-						 * 시작값 : (currentPage - 1) * boardLimit + 1
-						 * 끝값 : 시작값 + boardLimit - 1
-						 */
-						int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
-						int endRow = startRow + pi.getBoardLimit() - 1;
-							
-						pstmt.setInt(1, startRow);
-						pstmt.setInt(2, endRow);
-						
-						rset = pstmt.executeQuery();
-						
-						while(rset.next()) {
-							list.add(new StoreReview(rset.getInt("RE_NO"),
-											   rset.getString("REVIEW_WRITER"),
-											   rset.getInt("STORE_NO"),
-											   rset.getString("REVIEW_CONTENT"),
-											   rset.getString("REVIEW_IMG"),
-											   rset.getInt("REVIEW_RATE"),
-											   rset.getDate("REVIEW_ENROLLDATE"),
-											   rset.getDate("REVIEW_MODIFYDATE"),
-											   rset.getString("REVIEW_STATUE"),
-											   rset.getString("REVIEW_IMG_PATH"),
-											   rset.getString("VISIT_DATE"),
-											   rset.getString("REVIEW_TITLE"),
-											   rset.getInt("COUNT"),
-											   rset.getInt(""),
-											   rset.getString("MEM_ID"),
-											   rset.getString("MEM_GRADE"),
-											   rset.getString("STORE_NAME"),
-											   rset.getString("MEM_NICKNAME")
-											   ));
-						}
-						
-					} catch (SQLException e) {
-						e.printStackTrace();
-					} finally {
-						close(rset);
-						close(pstmt);
-					}
-					return list;
-						
-				}
-				
-				// 신고횟수별 조회
-					public ArrayList<StoreReview> selectList1(Connection conn, PageInfo pi, String search){
-						// select문 => ResultSet(여러행) => ArrayList<Board>
-						ArrayList<StoreReview> list = new ArrayList();
-						PreparedStatement pstmt  = null;
-						ResultSet rset = null;
-						String sql = prop.getProperty("selectList1");
-						
-						if(!(search.equals("") || search == null)) {
-							sql += "AND MEM_NAME LIKE '%"+search+"%'";
-						}
-						
-						try {
-							pstmt = conn.prepareStatement(sql);
-							
-							/*
-							 * ex) boardLimit : 10이라는 가정하에
-							 * 
-							 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
-							 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
-							 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
-							 * 
-							 * 시작값 : (currentPage - 1) * boardLimit + 1
-							 * 끝값 : 시작값 + boardLimit - 1
-							 */
-							int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
-							int endRow = startRow + pi.getBoardLimit() - 1;
-								
-							pstmt.setInt(1, startRow);
-							pstmt.setInt(2, endRow);
-							
-							rset = pstmt.executeQuery();
-							
-							while(rset.next()) {
-								list.add(new StoreReview(rset.getInt("MEM_NO"),
-												   rset.getString("MEM_ID"),
-												   rset.getString("MEM_PWD"),
-												   rset.getString("MEM_NAME"),
-												   rset.getString("MEM_PHONE"),
-												   rset.getString("MEM_EMAIL"),
-												   rset.getDate("MEM_ENROLLDATE"),
-												   rset.getDate("MEM_MODIFYDATE"),
-												   rset.getString("MEM_STATUS"),
-												   rset.getString("MEM_NICKNAME"),
-												   rset.getString("MEM_GRADE"),
-												   rset.getString("ADDRESS_CODE"),
-												   rset.getString("ADDRESS"),
-												   rset.getString("ADDRESS_DETAIL"),
-												   rset.getString("ADDRESS_REF"),
-												   rset.getString("MEM_IMGPATH"),
-												   rset.getString("WITHDRAW")
-												   ));
-							}
-							
-						} catch (SQLException e) {
-							e.printStackTrace();
-						} finally {
-							close(rset);
-							close(pstmt);
-						}
-						return list;
-							
-					}
-					
-					// 태민 게시일별
-					public ArrayList<StoreReview> selectList2(Connection conn, PageInfo pi, String search){
-						// select문 => ResultSet(여러행) => ArrayList<Board>
-						ArrayList<StoreReview> list = new ArrayList();
-						PreparedStatement pstmt  = null;
-						ResultSet rset = null;
-						String sql = prop.getProperty("selectList2");
-						
-						if(!(search.equals("") || search == null)) {
-							sql += "AND MEM_NAME LIKE '%"+search+"%'";
-						}
-						
-						try {
-							pstmt = conn.prepareStatement(sql);
-							
-							/*
-							 * ex) boardLimit : 10이라는 가정하에
-							 * 
-							 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
-							 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
-							 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
-							 * 
-							 * 시작값 : (currentPage - 1) * boardLimit + 1
-							 * 끝값 : 시작값 + boardLimit - 1
-							 */
-							int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
-							int endRow = startRow + pi.getBoardLimit() - 1;
-								
-							pstmt.setInt(1, startRow);
-							pstmt.setInt(2, endRow);
-							
-							rset = pstmt.executeQuery();
-							
-							while(rset.next()) {
-								list.add(new StoreReview(rset.getInt("MEM_NO"),
-												   rset.getString("MEM_ID"),
-												   rset.getString("MEM_PWD"),
-												   rset.getString("MEM_NAME"),
-												   rset.getString("MEM_PHONE"),
-												   rset.getString("MEM_EMAIL"),
-												   rset.getDate("MEM_ENROLLDATE"),
-												   rset.getDate("MEM_MODIFYDATE"),
-												   rset.getString("MEM_STATUS"),
-												   rset.getString("MEM_NICKNAME"),
-												   rset.getString("MEM_GRADE"),
-												   rset.getString("ADDRESS_CODE"),
-												   rset.getString("ADDRESS"),
-												   rset.getString("ADDRESS_DETAIL"),
-												   rset.getString("ADDRESS_REF"),
-												   rset.getString("MEM_IMGPATH"),
-												   rset.getString("WITHDRAW")
-												   ));
-								
-							}
-							
-						} catch (SQLException e) {
-							e.printStackTrace();
-						} finally {
-							close(rset);
-							close(pstmt);
-						}
-						sql="";
-						return list;
-							
-					}
-				
-				// 태민 리뷰총수
-				public int selectListCount(Connection conn, String search) {
-
-					int listCount = 0 ;
-					
-					PreparedStatement pstmt = null;
-					ResultSet rset = null;
-					
-					String sql = prop.getProperty("selectListCount");
-					
-					if(!(search.equals("") || search == null)) { 
-						sql += "AND MEM_NAME LIKE '%"+search+"%'";
-					}
-					
-					try {
-						pstmt = conn.prepareStatement(sql);
-						rset = pstmt.executeQuery();
-						
-						if(rset.next()) {
-							listCount = rset.getInt("COUNT");
-						}
-						
-					} catch (SQLException e) {
-						e.printStackTrace();
-					} finally {
-						close(rset);
-						close(pstmt);
-					}
-					
-					return listCount;
-					
-				}
-				
-				// 태민 체크박스 선택된 리뷰 블랙리스트로 변경
-				public int withdrawalMember(Connection conn, String userNo) {
-					
-					int result = 0;
-					PreparedStatement pstmt = null;
-					
-					String sql = prop.getProperty("withdrawalMember");
-					
-					try {
-						pstmt = conn.prepareStatement(sql);
-						pstmt.setString(1, userNo);
-						
-						result = pstmt.executeUpdate();
-						
-					} catch (SQLException e) {
-						e.printStackTrace();
-					} finally {
-						close(pstmt);
-					}
-					
-					return result;
-					
-				}
-
-				public ArrayList<StoreReview> searchList(Connection conn, PageInfo pi, String input){
-
-					ArrayList<StoreReview> list = new ArrayList();
-					PreparedStatement pstmt  = null;
-					ResultSet rset = null;
-					String sql = prop.getProperty("searchList");
-					
-					try {
-						pstmt = conn.prepareStatement(sql);
-						
-						int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
-						int endRow = startRow + pi.getBoardLimit() - 1;
-							
-						pstmt.setString(1, input);
-						pstmt.setString(2, input);
-						pstmt.setInt(3, startRow);
-						pstmt.setInt(4, endRow);
-						
-						rset = pstmt.executeQuery();
-						
-						while(rset.next()) {
-							list.add(new StoreReview(rset.getInt("MEM_NO"),
-											   rset.getString("MEM_ID"),
-											   rset.getString("MEM_PWD"),
-											   rset.getString("MEM_NAME"),
-											   rset.getString("MEM_PHONE"),
-											   rset.getString("MEM_EMAIL"),
-											   rset.getDate("MEM_ENROLLDATE"),
-											   rset.getDate("MEM_MODIFYDATE"),
-											   rset.getString("MEM_STATUS"),
-											   rset.getString("MEM_NICKNAME"),
-											   rset.getString("MEM_GRADE"),
-											   rset.getString("ADDRESS_CODE"),
-											   rset.getString("ADDRESS"),
-											   rset.getString("ADDRESS_DETAIL"),
-											   rset.getString("ADDRESS_REF"),
-											   rset.getString("MEM_IMGPATH"),
-											   rset.getString("WITHDRAW")
-											   ));
-						}
-						
-					} catch (SQLException e) {
-						e.printStackTrace();
-					} finally {
-						close(rset);
-						close(pstmt);
-					}
-					return list;
-						
-				}
+//		// @@@@@@@태민 리뷰 관리@@@@@@
+//			
+//			// 태민 회원번호별 조회
+//				public ArrayList<StoreReview> selectList(Connection conn, PageInfo pi, String search){
+//					// select문 => ResultSet(여러행) => ArrayList<Board>
+//					ArrayList<StoreReview> list = new ArrayList();
+//					PreparedStatement pstmt  = null;
+//					ResultSet rset = null;
+//					String sql = prop.getProperty("selectList");
+//					
+//					if(!(search.equals("") || search == null)) {
+//						sql += "AND MEM_NAME LIKE '%"+search+"%'";
+//					}
+//					
+//					try {
+//						pstmt = conn.prepareStatement(sql);
+//						
+//						/*
+//						 * ex) boardLimit : 10이라는 가정하에
+//						 * 
+//						 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
+//						 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
+//						 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
+//						 * 
+//						 * 시작값 : (currentPage - 1) * boardLimit + 1
+//						 * 끝값 : 시작값 + boardLimit - 1
+//						 */
+//						int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+//						int endRow = startRow + pi.getBoardLimit() - 1;
+//							
+//						pstmt.setInt(1, startRow);
+//						pstmt.setInt(2, endRow);
+//						
+//						rset = pstmt.executeQuery();
+//						
+//						while(rset.next()) {
+//							list.add(new StoreReview(rset.getInt("RE_NO"),
+//											   rset.getString("REVIEW_WRITER"),
+//											   rset.getInt("STORE_NO"),
+//											   rset.getString("REVIEW_CONTENT"),
+//											   rset.getString("REVIEW_IMG"),
+//											   rset.getInt("REVIEW_RATE"),
+//											   rset.getDate("REVIEW_ENROLLDATE"),
+//											   rset.getDate("REVIEW_MODIFYDATE"),
+//											   rset.getString("REVIEW_STATUE"),
+//											   rset.getString("REVIEW_IMG_PATH"),
+//											   rset.getString("VISIT_DATE"),
+//											   rset.getString("REVIEW_TITLE"),
+//											   rset.getInt("COUNT"),
+//											   rset.getInt(""),
+//											   rset.getString("MEM_ID"),
+//											   rset.getString("MEM_GRADE"),
+//											   rset.getString("STORE_NAME"),
+//											   rset.getString("MEM_NICKNAME")
+//											   ));
+//						}
+//						
+//					} catch (SQLException e) {
+//						e.printStackTrace();
+//					} finally {
+//						close(rset);
+//						close(pstmt);
+//					}
+//					return list;
+//						
+//				}
+//				
+//				// 신고횟수별 조회
+//					public ArrayList<StoreReview> selectList1(Connection conn, PageInfo pi, String search){
+//						// select문 => ResultSet(여러행) => ArrayList<Board>
+//						ArrayList<StoreReview> list = new ArrayList();
+//						PreparedStatement pstmt  = null;
+//						ResultSet rset = null;
+//						String sql = prop.getProperty("selectList1");
+//						
+//						if(!(search.equals("") || search == null)) {
+//							sql += "AND MEM_NAME LIKE '%"+search+"%'";
+//						}
+//						
+//						try {
+//							pstmt = conn.prepareStatement(sql);
+//							
+//							/*
+//							 * ex) boardLimit : 10이라는 가정하에
+//							 * 
+//							 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
+//							 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
+//							 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
+//							 * 
+//							 * 시작값 : (currentPage - 1) * boardLimit + 1
+//							 * 끝값 : 시작값 + boardLimit - 1
+//							 */
+//							int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+//							int endRow = startRow + pi.getBoardLimit() - 1;
+//								
+//							pstmt.setInt(1, startRow);
+//							pstmt.setInt(2, endRow);
+//							
+//							rset = pstmt.executeQuery();
+//							
+//							while(rset.next()) {
+//								list.add(new StoreReview(rset.getInt("MEM_NO"),
+//												   rset.getString("MEM_ID"),
+//												   rset.getString("MEM_PWD"),
+//												   rset.getString("MEM_NAME"),
+//												   rset.getString("MEM_PHONE"),
+//												   rset.getString("MEM_EMAIL"),
+//												   rset.getDate("MEM_ENROLLDATE"),
+//												   rset.getDate("MEM_MODIFYDATE"),
+//												   rset.getString("MEM_STATUS"),
+//												   rset.getString("MEM_NICKNAME"),
+//												   rset.getString("MEM_GRADE"),
+//												   rset.getString("ADDRESS_CODE"),
+//												   rset.getString("ADDRESS"),
+//												   rset.getString("ADDRESS_DETAIL"),
+//												   rset.getString("ADDRESS_REF"),
+//												   rset.getString("MEM_IMGPATH"),
+//												   rset.getString("WITHDRAW")
+//												   ));
+//							}
+//							
+//						} catch (SQLException e) {
+//							e.printStackTrace();
+//						} finally {
+//							close(rset);
+//							close(pstmt);
+//						}
+//						return list;
+//							
+//					}
+//					
+//					// 태민 게시일별
+//					public ArrayList<StoreReview> selectList2(Connection conn, PageInfo pi, String search){
+//						// select문 => ResultSet(여러행) => ArrayList<Board>
+//						ArrayList<StoreReview> list = new ArrayList();
+//						PreparedStatement pstmt  = null;
+//						ResultSet rset = null;
+//						String sql = prop.getProperty("selectList2");
+//						
+//						if(!(search.equals("") || search == null)) {
+//							sql += "AND MEM_NAME LIKE '%"+search+"%'";
+//						}
+//						
+//						try {
+//							pstmt = conn.prepareStatement(sql);
+//							
+//							/*
+//							 * ex) boardLimit : 10이라는 가정하에
+//							 * 
+//							 * currentPage : 1 => 시작값 : 1 | 끝값 : 10
+//							 * currentPage : 2 => 시작값 : 11 | 끝값 : 20
+//							 * currentPage : 3 => 시작값 : 21 | 끝값 : 30
+//							 * 
+//							 * 시작값 : (currentPage - 1) * boardLimit + 1
+//							 * 끝값 : 시작값 + boardLimit - 1
+//							 */
+//							int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+//							int endRow = startRow + pi.getBoardLimit() - 1;
+//								
+//							pstmt.setInt(1, startRow);
+//							pstmt.setInt(2, endRow);
+//							
+//							rset = pstmt.executeQuery();
+//							
+//							while(rset.next()) {
+//								list.add(new StoreReview(rset.getInt("MEM_NO"),
+//												   rset.getString("MEM_ID"),
+//												   rset.getString("MEM_PWD"),
+//												   rset.getString("MEM_NAME"),
+//												   rset.getString("MEM_PHONE"),
+//												   rset.getString("MEM_EMAIL"),
+//												   rset.getDate("MEM_ENROLLDATE"),
+//												   rset.getDate("MEM_MODIFYDATE"),
+//												   rset.getString("MEM_STATUS"),
+//												   rset.getString("MEM_NICKNAME"),
+//												   rset.getString("MEM_GRADE"),
+//												   rset.getString("ADDRESS_CODE"),
+//												   rset.getString("ADDRESS"),
+//												   rset.getString("ADDRESS_DETAIL"),
+//												   rset.getString("ADDRESS_REF"),
+//												   rset.getString("MEM_IMGPATH"),
+//												   rset.getString("WITHDRAW")
+//												   ));
+//								
+//							}
+//							
+//						} catch (SQLException e) {
+//							e.printStackTrace();
+//						} finally {
+//							close(rset);
+//							close(pstmt);
+//						}
+//						sql="";
+//						return list;
+//							
+//					}
+//				
+//				// 태민 리뷰총수
+//				public int selectListCount(Connection conn, String search) {
+//
+//					int listCount = 0 ;
+//					
+//					PreparedStatement pstmt = null;
+//					ResultSet rset = null;
+//					
+//					String sql = prop.getProperty("selectListCount");
+//					
+//					if(!(search.equals("") || search == null)) { 
+//						sql += "AND MEM_NAME LIKE '%"+search+"%'";
+//					}
+//					
+//					try {
+//						pstmt = conn.prepareStatement(sql);
+//						rset = pstmt.executeQuery();
+//						
+//						if(rset.next()) {
+//							listCount = rset.getInt("COUNT");
+//						}
+//						
+//					} catch (SQLException e) {
+//						e.printStackTrace();
+//					} finally {
+//						close(rset);
+//						close(pstmt);
+//					}
+//					
+//					return listCount;
+//					
+//				}
+//				
+//				// 태민 체크박스 선택된 리뷰 블랙리스트로 변경
+//				public int withdrawalMember(Connection conn, String userNo) {
+//					
+//					int result = 0;
+//					PreparedStatement pstmt = null;
+//					
+//					String sql = prop.getProperty("withdrawalMember");
+//					
+//					try {
+//						pstmt = conn.prepareStatement(sql);
+//						pstmt.setString(1, userNo);
+//						
+//						result = pstmt.executeUpdate();
+//						
+//					} catch (SQLException e) {
+//						e.printStackTrace();
+//					} finally {
+//						close(pstmt);
+//					}
+//					
+//					return result;
+//					
+//				}
+//
+//				public ArrayList<StoreReview> searchList(Connection conn, PageInfo pi, String input){
+//
+//					ArrayList<StoreReview> list = new ArrayList();
+//					PreparedStatement pstmt  = null;
+//					ResultSet rset = null;
+//					String sql = prop.getProperty("searchList");
+//					
+//					try {
+//						pstmt = conn.prepareStatement(sql);
+//						
+//						int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+//						int endRow = startRow + pi.getBoardLimit() - 1;
+//							
+//						pstmt.setString(1, input);
+//						pstmt.setString(2, input);
+//						pstmt.setInt(3, startRow);
+//						pstmt.setInt(4, endRow);
+//						
+//						rset = pstmt.executeQuery();
+//						
+//						while(rset.next()) {
+//							list.add(new StoreReview(rset.getInt("MEM_NO"),
+//											   rset.getString("MEM_ID"),
+//											   rset.getString("MEM_PWD"),
+//											   rset.getString("MEM_NAME"),
+//											   rset.getString("MEM_PHONE"),
+//											   rset.getString("MEM_EMAIL"),
+//											   rset.getDate("MEM_ENROLLDATE"),
+//											   rset.getDate("MEM_MODIFYDATE"),
+//											   rset.getString("MEM_STATUS"),
+//											   rset.getString("MEM_NICKNAME"),
+//											   rset.getString("MEM_GRADE"),
+//											   rset.getString("ADDRESS_CODE"),
+//											   rset.getString("ADDRESS"),
+//											   rset.getString("ADDRESS_DETAIL"),
+//											   rset.getString("ADDRESS_REF"),
+//											   rset.getString("MEM_IMGPATH"),
+//											   rset.getString("WITHDRAW")
+//											   ));
+//						}
+//						
+//					} catch (SQLException e) {
+//						e.printStackTrace();
+//					} finally {
+//						close(rset);
+//						close(pstmt);
+//					}
+//					return list;
+//						
+//				}
 
 }
