@@ -416,6 +416,7 @@ public class StoreService {
 			
 		}
 		
+
 	//채윤 메인페이지 조회	
 	public ArrayList<Store> mainpage(String map){
 		Connection conn = getConnection();
