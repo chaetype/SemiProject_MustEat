@@ -1398,7 +1398,7 @@ public class StoreDao {
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectStoreAdminSearch");
 				
-		sql += "WHERE STORE_NAME LIKE ?";
+		sql += "WHERE STORE_NAME LIKE ? OR LOCAL_SI LIKE ? OR LOCAL_GU LIKE ?";
 	
 		sql += "ORDER BY STORE_NO desc";
 		
@@ -1406,6 +1406,8 @@ public class StoreDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setString(2, "%"+keyword+"%");
+			pstmt.setString(3, "%"+keyword+"%");
 			
 			rset = pstmt.executeQuery();
 			
