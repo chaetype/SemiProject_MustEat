@@ -124,9 +124,9 @@ public class StoreService {
 
 	//채윤 식당 메인2페이지
 
-	public ArrayList<Store> selectStoreList(int memNo){
+	public ArrayList<Store> selectStoreList(){
 		Connection conn = getConnection();
-		ArrayList<Store> list = new StoreDao().selectStoreList(conn, memNo);
+		ArrayList<Store> list = new StoreDao().selectStoreList(conn);
 		
 		close(conn);
 		return list;
@@ -418,12 +418,11 @@ public class StoreService {
 		
 
 	//채윤 메인페이지 조회	
-	public ArrayList<Store> mainpage(String map){
-		Connection conn = getConnection();
-		ArrayList<Store> list = new StoreDao().mainpage(conn, map);
-		
-		close(conn);
-		return list;
-	}
+	/*
+	 * public ArrayList<Store> mainpage(String map){ Connection conn =
+	 * getConnection(); ArrayList<Store> list = new StoreDao().mainpage(conn, map);
+	 * 
+	 * close(conn); return list; }
+	 */
 
 }
