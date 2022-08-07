@@ -113,7 +113,7 @@
 
         <div style="display: inline; padding-left: 10%">
             <select id="select" name="selectbox" onchange="chageSelect()" style="height: 40px; width: 120px; font-weight: bold;">
-                <option id="x" value="no">회원번호</option>
+                <option id="x" value="no">리뷰번호</option>
                 <option id="z" value="grade">게시일</option>
                 <option id="y" value="name">닉네임</option>
             </select>

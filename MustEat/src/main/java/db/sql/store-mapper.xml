@@ -522,7 +522,7 @@
               JOIN STORE S ON (SR.STORE_NO = S.STORE_NO)
 			 WHERE REVIEW_STATUE = 'Y'   
              ORDER
-                BY MEM_NO DESC
+                BY RE_NO DESC
             ) A
         ) 
 		WHERE RNUM BETWEEN ? AND ?
