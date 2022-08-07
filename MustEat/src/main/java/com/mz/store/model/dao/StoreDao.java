@@ -1318,49 +1318,6 @@ public class StoreDao {
 	}
 
 	
-	//모두함께 메인
-	public ArrayList<Store> mainpage(Connection conn, String map){
-		ArrayList<Store> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("mainpage");
-		switch(map) {
-			case "1": sql += "WHERE LOCAL_SI LIKE ? ";
-				break;
-			case "2":  sql += "WHERE review_title like ? ";
-				break;
-			case "3": sql += "WHERE (MEM_NICKNAME LIKE ? OR review_title like ?)";
-				break; 
-		
-		}
 	
-		sql += "ORDER BY re_no desc";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				Store s = new Store();
-				s.setStoreNo(rset.getInt("store_no"));
-				s.setStoreName(rset.getString("store_name"));
-				s.setStoreImgPath(rset.getString("store_img_path"));
-				s.setStoreImgPath(rset.getString("mem_nickname"));
-				s.setStoreImgPath(rset.getString("review_content"));
-				s.setStoreImgPath(rset.getString("review_img_path"));
-				
-				
-				list.add(s);
-			}
-			} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-
-		return list;
-
-}
 	
 }
