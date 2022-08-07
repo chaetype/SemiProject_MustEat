@@ -87,7 +87,7 @@
 	
 	<!-- 채윤 팔로우 조회 연결 -->	
       <div class="item" OnClick="location.href ='<%=contextPath %>/myfollow.me'" style="cursor:pointer;">
-        <div class="number"><%=mp.getFollow() %>명</div>
+        <div class="number"><%=mp.getFollow()%>명</div>
         <div class="summary">팔로우</div>
       </div>
      
@@ -288,7 +288,7 @@
 
   <div class="myPageList">
     
-    <a href="" class="listTitle">가고싶다</a>
+    <a href="<%=contextPath %>/list.ss" class="listTitle">가고싶다</a>
     <a href="<%=contextPath %>/list.ss" class="listMore">더보기 ></a>
 
     <table class="list" width="100%">
