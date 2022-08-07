@@ -359,4 +359,13 @@ public class StoreService {
 //		}
 //		
 //		////////////////////////////
+		
+		
+		// 서원 식당검색 페이지 별점 조회
+		public int selectStoreRate(int storeNo) {
+			Connection conn = getConnection();
+			int storeRate = new StoreDao().selectStoreRate(conn, storeNo);
+			close(conn);
+			return storeRate;
+		}
 }

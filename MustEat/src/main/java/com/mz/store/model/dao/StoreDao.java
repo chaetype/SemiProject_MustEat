@@ -1197,5 +1197,37 @@ public class StoreDao {
 //					return list;
 //						
 //				}
+			
+			// 서원 식당검색 페이지 별점 조회
+			public int selectStoreRate(Connection conn, int storeNo) {
+				
+				int storeRate = 0;
+				
+				PreparedStatement pstmt = null;
+				ResultSet rset = null;
+				String sql = prop.getProperty("");
+				
+				try {
+					pstmt = conn.prepareStatement(sql);
+					
+					pstmt.setInt(1, storeNo);
+					
+					rset = pstmt.executeQuery();
+					
+					if(rset.next()) {
+						storeRate = rset.getInt("");															
+						
+								
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(pstmt);
+				}
+				
+				return storeRate;
+			}
 
 }

@@ -393,4 +393,9 @@
 		 ORDER BY STORE_NAME ASC
 	</entry>
 	
+	<!-- 서원 식당검색 페이지 별점 조회 -->
+	<entry key="selectStoreRate">
+		
+	</entry>
+	
 </properties>

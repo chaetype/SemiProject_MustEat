@@ -213,16 +213,17 @@
 	                  
 					  <tr>
 						<% for(Store s : list){ %>
-						<td>
+						<td width="600" style="table-layout: fixed">
 							
 							<div class="card">
 								<div class="card-header">
 									<img src="<%= s.getStoreImgPath() %>" alt="rover" />
 								</div>
-								<div class="card-body">
-			
+								<div class="card-body">			
+									
 									<span class="tag tag-purple"><strong><%= s.getLocalSi() %> <%= s.getLocalGu() %></strong></span>
-									<h4 style="margin-top:3%;"><strong><%= s.getStoreName() %>(<span style="color:#FACC2E;">★</span>별점)</strong></h4>
+									<h4 style="margin-top:3%;"><strong><%= s.getStoreName() %></strong></h4>
+									<h6 style="margin-top:4%;"><span style="color:#FACC2E;">★</span><%=  %></h6>
 			
 									<p style="margin-top:4%;">
 									<%= s.getStoreTag() %> <br><br>

@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.mz.member.model.service.MemberService;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
 
@@ -32,7 +34,14 @@ public class StorelistSearchController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		
+		int storeNo = Integer.parseInt(request.getParameter("no"));
+		
 		ArrayList<Store> list = new StoreService().storelistSearch();
+		
+		int storeRate = new StoreService().selectStoreRate(storeNo);
+		
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/jsw/storeSearch.jsp").forward(request, response);

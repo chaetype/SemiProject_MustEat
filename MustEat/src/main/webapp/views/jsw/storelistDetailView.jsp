@@ -113,7 +113,7 @@
 					 
 					  <div class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
 						
-						<input type="hidden"  name="storefulladdress" id="tt" >
+						<input type="hidden" name="storefulladdress" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
@@ -132,48 +132,7 @@
 						<div class="mb-3">
 							<label for="store-address" style="color:#4B088A;"><b>* 식당주소</b></label>
 							<input type="text" class="form-control" value="<%=s.getStoreAddress()%>" disabled>
-							
-							<script>						
-
-								$('document').ready(function() {
-								var area0 = ["시/도 선택","서울특별시","인천광역시", "경기도"];
-								var area1 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
-								var area2 = ["계양구","남구","남동구","동구","부평구","서구","연수구","중구","강화군","옹진군"];
-								var area3 = ["고양시","과천시","광명시","광주시","구리시","군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시","안산시","안성시","안양시","양주시","오산시","용인시","의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시","가평군","양평군","여주군","연천군"];
-								
-
-								// 시/도 선택 박스 초기화
-
-								$("select[name^=sido]").each(function() {
-								$selsido = $(this);
-								$.each(eval(area0), function() {
-								$selsido.append("<option value='"+this+"'>"+this+"</option>");
-								});
-								$selsido.next().append("<option value=''>구/군 선택</option>");
-								});
-
-								
-
-								// 시/도 선택시 구/군 설정
-
-								$("select[name^=sido]").change(function() {
-								var area = "area"+$("option",$(this)).index($("option:selected",$(this))); // 선택지역의 구군 Array
-								var $gugun = $(this).next(); // 선택영역 군구 객체
-								$("option",$gugun).remove(); // 구군 초기화
-
-								if(area == "area0")
-								$gugun.append("<option value=''>구/군 선택</option>");
-								else {
-								$.each(eval(area), function() {
-									$gugun.append("<option value='"+this+"'>"+this+"</option>");
-								});
-								}
-								});
-								
-							
-								});
-
-							</script>
+										
 							
 							<div class="invalid-feedback">
 							  식당 주소를 입력해주세요.
@@ -186,7 +145,7 @@
 							<label for="store-map" style="color:#4B088A;"><b>* 식당지도</b></label>
 
 							<div id="map" name="storemap" style="width:100%;height:350px;"></div>
-
+							
 							<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ad501a6ae45c08e27025f470712da55&libraries=services"></script>
 							<script>
 							
@@ -223,7 +182,7 @@
 	
 							// 주소로 좌표를 검색합니다 // *식당 주소 넣기*
 							
-							geocoder.addressSearch(storeAddress, function(result, status) {
+							geocoder.addressSearch(storeFullAddress, function(result, status) {
 
 								// 정상적으로 검색이 완료됐으면 
 								if (status === kakao.maps.services.Status.OK) {
