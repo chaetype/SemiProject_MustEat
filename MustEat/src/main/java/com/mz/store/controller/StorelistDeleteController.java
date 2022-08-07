@@ -37,7 +37,7 @@ public class StorelistDeleteController extends HttpServlet {
 		int result = new StoreService().storelistDelete(storeNo);
 		
 		if(result > 0) {
-			response.sendRedirect(request.getContextPath() + "/storelistDetail.st");
+			response.sendRedirect(request.getContextPath() + "/storeadminlist.st");
 		}else {
 			request.setAttribute("errorMsg", "식당 삭제 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);

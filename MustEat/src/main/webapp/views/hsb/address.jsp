@@ -302,6 +302,8 @@
 				
 				
                 
+                
+                
                 <script>
                    let tPrice = $("input[name='tPrice']").val();
                    let tCount = $("input[name='tCount']").val();
@@ -313,17 +315,20 @@
                     let mile = $(this).val();
                         let tSum = sum - mile;
 
-                        $("#sum_p_price").text('최종결제 금액 : ' + tSum)
-                        
-                    $("#mile").change(function(){
+                        $("#sum_p_price").text('최종결제 금액 : ' + tSum + "원")
+                        $("#price").val(tSum)
+                    $("#mile").keyup(function(){
                         let mile = $(this).val();
                         let tSum = sum - mile;
 
-                        $("#sum_p_price").text('최종결제 금액 : ' + tSum)
-
+                        $("#sum_p_price").text('최종결제 금액 : ' + tSum + "원")
+                  $("#price").val(tSum)
                     })
                    })
                 </script>
+                
+                
+                <input type="hidden" name="price" id="price">
                 
                 
                 

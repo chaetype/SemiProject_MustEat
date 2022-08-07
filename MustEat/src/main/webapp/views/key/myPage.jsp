@@ -211,8 +211,8 @@
 
   <div class="myPageList">
 
-    <a href="" class="listTitle">적립금</a>
-    <a href="" class="listMore">더보기 ></a>
+    <a href="<%=contextPath %>/mpsuserlist.me" class="listTitle">적립금</a>
+    <a href="<%=contextPath %>/mpsuserlist.me" class="listMore">더보기 ></a>
 
     <table class="list" width="100%">
 
