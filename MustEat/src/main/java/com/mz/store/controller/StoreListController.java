@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mz.member.model.vo.Member;
 import com.mz.store.model.service.StoreService;
@@ -33,10 +34,9 @@ public class StoreListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int storeNo = Integer.parseInt(request.getParameter("no"));
 		int memNo = ((Member)request.getSession().getAttribute("loginUser")).getMemNo();
 				
-		ArrayList<Store> list = new StoreService().selectStoreList(storeNo, memNo);
+		ArrayList<Store> list = new StoreService().selectStoreList(memNo);
 		//ArrayList<Store> fdlist = new StoreService().forDetailList();
 		request.setAttribute("list", list);
 		//request.setAttribute("fdlist", fdlist);
