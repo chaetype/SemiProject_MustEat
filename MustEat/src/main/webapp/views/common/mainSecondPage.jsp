@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Store"%>
 <%
+	@SuppressWarnings("unchecked")
 	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
@@ -59,7 +60,9 @@
     <%@ include file="../common/menubar.jsp" %>
 
     <div class="wrap31">
-        <div class="outer11">서울,경기, 인천 지도 넣기</div>
+        <div class="outer11"><span>서울,경기, 인천 지도 넣기</span>      
+        
+        </div>
         <div class="outer22">
             <hr>
             <h3>(지역명)서울 금천구</h3><br>

@@ -398,7 +398,8 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
-		 ORDER BY STORE_NAME ASC;
+		 WHERE STORE_STATUS = 'Y'
+		 ORDER BY STORE_NAME ASC
 	</entry>
 	
 </properties>

@@ -228,10 +228,6 @@ public class Store {
 		this.storeUrl = storeUrl;
 		this.storeEnrollDate = storeEnrollDate;
 	}
-	
-	
-		
-
 
 	public Store( String storeImgPath, String localSi, String localGu, String storeName, String storeTag,
 			String storePopularity, String storeOperating, String storeBreaktime) {
