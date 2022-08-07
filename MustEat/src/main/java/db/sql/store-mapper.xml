@@ -426,7 +426,10 @@
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->
 	<entry key="selectStoreRate">
-		
+		SELECT
+		       AVG(REVIEW_RATE)
+		  FROM STORE_RE
+		 WHERE STORE_NO = ?
 	</entry>
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@태민@@@@@@@@@@@@@@리뷰관리관리자 -->

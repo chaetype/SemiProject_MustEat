@@ -1260,8 +1260,7 @@ public class StoreDao {
 					rset = pstmt.executeQuery();
 					
 					if(rset.next()) {
-						storeRate = rset.getInt("");															
-						
+						storeRate = rset.getInt("REVIEW_RATE");						
 								
 					}
 					
