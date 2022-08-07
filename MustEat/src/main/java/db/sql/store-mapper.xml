@@ -443,7 +443,10 @@
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->
 	<entry key="selectStoreRate">
-		
+		SELECT
+		       AVG(REVIEW_RATE)
+		  FROM STORE_RE
+		 WHERE STORE_NO = ?
 	</entry>
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@태민@@@@@@@@@@@@@@리뷰관리관리자 -->
@@ -558,8 +561,10 @@
 	<entry key="rselectListCount">
 		<!-- 현재 리뷰 총 갯수 조회용 --> 
 		SELECT COUNT(*) as "COUNT"
-		  FROM STORE_RE
-		 WHERE REVIEW_STATUE = 'Y'
+		 FROM STORE_RE SR 
+          JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+          JOIN STORE S ON (SR.STORE_NO = S.STORE_NO)
+		WHERE REVIEW_STATUE = 'Y' 
 	</entry>
 	
 	
