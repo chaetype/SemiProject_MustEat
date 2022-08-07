@@ -398,4 +398,13 @@ public class StoreService {
 			
 
 		}
+		
+	//채윤 메인페이지 조회	
+	public ArrayList<Store> mainpage(){
+		Connection conn = getConnection();
+		ArrayList<Store> list = new StoreDao().mainpage(conn);
+		
+		close(conn);
+		return list;
+	}
 }
