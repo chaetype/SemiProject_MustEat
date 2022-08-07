@@ -1319,6 +1319,41 @@ public class StoreDao {
 
 	}
 
+	// 은영 
+	public Store selectCity(Connection conn, String city) {
+		
+		// 조회 => ResultSet 
+		Store s = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectCity");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%" + city + "%");
+			pstmt.setString(2, "%" + city + "%");
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				s = new Store();
+				
+				s.setLocalSi(rset.getString("LOCAL_SI"));
+				s.setLocalGu(rset.getString("LOCAL_GU"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return s;
+		
+		
+	}
 	
 	//모두함께 메인
 	public ArrayList<Store> mainpage(Connection conn, String map){
