@@ -153,7 +153,7 @@
 	                  
 					  <tr>
 						<% for(Store s : list){ %>
-						<td width="600" style="table-layout: fixed">
+						<td width="600" style="table-layout: fixed;">
 							
 							<div class="card">
 								<div class="card-header">
@@ -171,7 +171,7 @@
 									</p>
 								</div>
 							</div>							
-						</td>	
+						</td>
 					<% } %>        
 	             <% } %>					
 					</tr>
