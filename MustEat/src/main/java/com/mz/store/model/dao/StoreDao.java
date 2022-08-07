@@ -323,15 +323,8 @@ public class StoreDao {
 				Store s = new Store();
 				s.setStoreNo(rset.getInt("store_no"));
 				s.setStoreName(rset.getString("store_name"));
-				s.setStoreAddress(rset.getString("store_address"));
-				s.setStoreIntro(rset.getString("store_intro"));
 				s.setStoreImgPath(rset.getString("store_img_path"));
-				s.setStorePopPath(rset.getString("store_popularity"));
-				s.setStorePopInfo(rset.getString("store_pop_info"));
-				s.setReviewWriter(rset.getString("review_writer"));
-				s.setReviewImg(rset.getString("REVIEW_IMG"));
-				s.setStoreReview(rset.getString("REVIEW_CONTENT"));
-				
+				s.setLocalSi("local_si");
 				list.add(s);
 			}
 			} catch (SQLException e) {
