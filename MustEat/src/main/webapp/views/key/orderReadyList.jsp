@@ -123,9 +123,7 @@
 	          <li class="goodsPayItem">
 	
 	            <div class="goodsItem">
-	            <a href="<%=contextPath %>/detail.pro?orderNo=<%=ol.getOrderNo() %>" class="goodsThumb">
-	              <img src="<%=contextPath %>/resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
-	            </a>
+
 	
 	            <div class="goodsInfo">
 	              <a href="<%=contextPath %>/detail.pro?orderNo=<%=ol.getOrderNo() %>" class="goods">

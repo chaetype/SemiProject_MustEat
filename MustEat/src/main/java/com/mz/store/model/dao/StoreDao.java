@@ -518,7 +518,7 @@ public class StoreDao {
 	
 	
 	// 서원 관리자 식당조회 
-	public ArrayList<Store> selectAdminStorelist(Connection conn){
+	public ArrayList<Store> selectAdminStorelist(Connection conn, PageInfo pi){
 	ArrayList<Store> list = new ArrayList<>();
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -556,6 +556,7 @@ public class StoreDao {
 	      try {
 	         pstmt = conn.prepareStatement(sql);
 	         pstmt.setString(1, e.getEditorContent());
+	         pstmt.setString(2, e.getEditorAttach());
 	         result = pstmt.executeUpdate();
 	      } catch (SQLException e1) {
 	         e1.printStackTrace();
@@ -978,7 +979,7 @@ public class StoreDao {
 			// 태민 회원번호별 조회
 				public ArrayList<StoreReview> selectList(Connection conn, PageInfo pi, String search){
 					// select문 => ResultSet(여러행) => ArrayList<Board>
-					ArrayList<StoreReview> list = new ArrayList();
+					ArrayList<StoreReview> list = new ArrayList<>();
 					PreparedStatement pstmt  = null;
 					ResultSet rset = null;
 					String sql = prop.getProperty("rselectList");
@@ -1400,7 +1401,7 @@ public class StoreDao {
 				
 		sql += "WHERE STORE_NAME LIKE ? OR LOCAL_SI LIKE ? OR LOCAL_GU LIKE ?";
 	
-		sql += "ORDER BY STORE_NO desc";
+		sql += "ORDER BY STORE_NO DESC";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -1477,6 +1478,30 @@ public class StoreDao {
 
 		return list;
 
+	}
+	
+	// 서원 관리자 식당 조회 페이징 처리
+	public int selectStoreAdminListCount(Connection conn) {
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectStoreAdminListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
 	}
 	
 	

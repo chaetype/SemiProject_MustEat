@@ -220,10 +220,12 @@
 		  (
 		    EDITOR_NO
 		  , EDITOR_CONTENT
+		  , EDITOR_ATTACH
 		  )
 		  VALUES
 		  (
 		    SEQ_ENO.NEXTVAL
+		  , ?
 		  , ?
 		  )
 	</entry>
@@ -640,6 +642,14 @@
 		     , STORE_POPULARITY
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
+		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
+	</entry>
+	
+	<!-- 서원 관리자 식당 조회 페이징 처리 -->
+	<entry key="selectStoreAdminListCount">
+		SELECT
+		       COUNT(*) AS COUNT
 		  FROM STORE
 		 WHERE STORE_STATUS = 'Y'
 	</entry>

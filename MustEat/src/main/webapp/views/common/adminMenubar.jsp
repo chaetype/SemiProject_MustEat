@@ -5,6 +5,7 @@
 	Member loginUser = (Member)session.getAttribute("loginUser");
 
 	String alertMsg = (String)session.getAttribute("alertMsg");
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,7 +150,7 @@
 					<a class="menu__item" href="<%=contextPath %>/memberWithdrawalAdmin.bo?cpage=1&a=4&c=kkk&search=">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 회원탈퇴 내역</span>
 					</a>
-					<a class="menu__item" href="<%=contextPath%>/storeadminlist.st">
+					<a class="menu__item" href="<%=contextPath%>/storeadminlist.st?cpage=1">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 식당 조회</span>
 					</a>
 					<a class="menu__item" href="<%=contextPath%>/storeEnrollForm.st">

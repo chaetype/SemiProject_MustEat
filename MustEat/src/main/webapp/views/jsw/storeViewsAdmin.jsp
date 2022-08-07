@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.mz.common.model.vo.PageInfo, java.util.ArrayList, com.mz.store.model.vo.Store"%>
 <%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
 %>
 <!DOCTYPE html>
 <html>
@@ -68,6 +74,13 @@
 	
 	.store-array{
 		font-family: 'Nanum Gothic Coding', monospace;
+	}
+	
+	.focus {
+		z-index: 2;
+	    color: #fff !important;
+	    background-color: rgb(167, 112, 239) !important;
+	    border-color: rgb(167, 112, 239) !important;
 	}
 	
 </style>
@@ -147,20 +160,30 @@
 				  <div>
 			
 					<div class="wrapper-paging">
-					    
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">4</a></li>
-								<li class="page-item"><a class="page-link" href="#">5</a></li>
-								<li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-							</ul>
-						</nav>					
-					
-					</div>
+						    
+		    <nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<% if(currentPage != 1) { %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/storeadminlist.st?cpage=<%= currentPage-1 %>">&lt;</a></li>
+				    <% } %>
+				    
+				    <% for(int p=startPage; p<=endPage; p++) { %>
+				    	
+				    	<% if(p == currentPage) { %>
+				    		<li class="page-item"><a class="page-link focus" href="<%=contextPath%>/storeadminlist.st?cpage=<%=p%>"><%= p %></a></li>
+				    	<% } else { %>
+				    		<li class="page-item"><a class="page-link" href="<%=contextPath%>/storeadminlist.st?cpage=<%=p%>"><%= p %></a></li>
+				    	<% } %>
+				    	
+				    <% } %>
+				    
+				    <% if(currentPage != maxPage) { %>
+				    	<li class="page-item"><a class="page-link" href="<%=contextPath%>/storeadminlist.st?cpage=<%=currentPage+1%>">&gt;</a></li>
+				    <% } %>
+			    </ul>
+			</nav>					
+				
+		</div>
 				
 				</div>	
 	

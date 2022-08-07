@@ -55,8 +55,8 @@ public class CategoryInsertContoller extends HttpServlet {
 			Editor e = new Editor();
 	        e.setEditorContent(html);
 			
-	        if(multiRequest.getOriginalFileName("storeimg") != null) {
-				String attach = "/resources/image/cy/attachment/" + multiRequest.getFilesystemName("storeimg");
+	        if(multiRequest.getOriginalFileName("attach") != null) {
+				String attach = "resources/image/cy/attachment/" + multiRequest.getFilesystemName("attach");
 				e.setEditorAttach(attach);
 			}
 	        
