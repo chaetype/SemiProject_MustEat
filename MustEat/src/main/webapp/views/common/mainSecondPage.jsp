@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Store"%>
 <%
 	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
+	Store s = new Store();
 %>
 <!DOCTYPE html>
 <html>
@@ -62,7 +63,7 @@
         <div class="outer11">서울,경기, 인천 지도 넣기</div>
         <div class="outer22">
             <hr>
-            <h3>(지역명)서울 금천구</h3><br>
+            <h3><%=s.getLocalSi() %></h3><br>
             <!-- 검색폼 시작 -->
             <!-- @@@@@@@@@@@전체 조회도 가능하게 해야함 -->
 		<form action="<%=contextPath %>/search.st" class="outer33">
