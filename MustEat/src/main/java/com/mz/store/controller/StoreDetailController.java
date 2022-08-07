@@ -1,6 +1,7 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
+import com.mz.store.model.vo.StoreReview;
 
 /**
  * Servlet implementation class StoreDetailController
@@ -34,10 +36,13 @@ public class StoreDetailController extends HttpServlet {
 		
 		StoreService sService = new StoreService();
 		
+		System.out.println(storeNo);
 		int result = sService.increaseCount(storeNo);
 		
 		Store s = sService.selectStore(storeNo);
+		ArrayList<StoreReview> review = sService.selectStoreReview(storeNo);
 		request.setAttribute("s", s);
+		request.setAttribute("review", review);
 		
 		request.getRequestDispatcher("views/kcy/userStoreDetail88p.jsp").forward(request, response);
 		

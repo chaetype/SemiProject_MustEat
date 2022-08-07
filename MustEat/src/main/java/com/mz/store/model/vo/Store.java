@@ -245,6 +245,21 @@ public class Store {
 		this.storeBreaktime = storeBreaktime;
 	}
 
+	 
+
+	public Store(int storeNo, String storeName, String storeAddress, String storeIntro, String storeImgPath,
+			String storePopularity, String storePopInfo, String storePopPath) {
+		super();
+		this.storeNo = storeNo;
+		this.storeName = storeName;
+		this.storeAddress = storeAddress;
+		this.storeIntro = storeIntro;
+		this.storeImgPath = storeImgPath;
+		this.storePopularity = storePopularity;
+		this.storePopInfo = storePopInfo;
+		this.storePopPath = storePopPath;
+	}
+
 
 	public int getStoreNo() {
 		return storeNo;
