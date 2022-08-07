@@ -77,12 +77,8 @@
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>
-                    <th width="10%">
-                        <input type="checkbox" name="allCheck" id="all" onclick="checkAll();"> 전체 선택
-                    </th>
                     <th width="6%">번호</th>
                     <th width="45%">제목</th>
-                    <th width="15%">작성자</th>
                     <th width="15%">작성일자</th>
                     <th width="9%">조회수</th>
                 </tr>
@@ -138,9 +134,6 @@
         <table class="table-bordered" width="90%">
             <thead>
                 <tr>
-                    <th width="10%">
-                        <input type="checkbox" name="allCheck" id="all" onclick="checkAll();"> 전체 선택
-                    </th>
                     <th width="6%">번호</th>
                     <th width="45%">제목</th>
                     <th width="15%">작성자</th>

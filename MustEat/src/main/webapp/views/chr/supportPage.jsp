@@ -104,8 +104,9 @@
 
     <div class="outer" align="center">
         <br>
-        <h1 align="center" style="margin-top:10%"><b>무엇을 도와드릴까요?</b></h1>
-        <div class="container justify-content-center" style="margin-left:20%">
+        <h1 align="center" style="margin-top:20%; margin-bottom:5%;"><b>무엇을 도와드릴까요?</b></h1>
+        
+        <!-- <div class="container justify-content-center" style="margin-left:20%">
     
             <div class="row">
         
@@ -125,7 +126,8 @@
             </div>
 
             
-        </div>
+        </div> -->
+        
         <div class="support-button" id="notice-button"><a href="<%=contextPath%>/noticeList.no?cpage=1"><b>공지사항</b></a></div>
 
         <div class="support-button" id="contact-button"><a href="<%=contextPath%>/contactEnrollForm.no"><b>1 : 1 문의하기</b></a></div>
