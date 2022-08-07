@@ -94,17 +94,16 @@ public class MemberUpdateController extends HttpServlet {
 				System.out.println(attachment);
 			}
 			*/
-			
+			String attachment = multiRequest.getParameter("profile"); // 기본프로필이 있는 경우 그대로 전달
 			if( multiRequest.getOriginalFileName("newProfile") != null || multiRequest.getOriginalFileName("profile") != null) {
-				// 기존사진이 없으면서 새로운 사진이 올라오는 경우 | 기존 사진이 있으면서 새로운 사진으로 변경하는 경우
+				// 기존사진이 없으면서 새로운 사진이 올라오는 경우
 				
-				String attachment = "resources/image/key/attachment/" + multiRequest.getFilesystemName("newProfile");
-				m.setMemImgPath(attachment);
+				attachment = "resources/image/key/attachment/" + multiRequest.getFilesystemName("newProfile");
 				
 			}
 			
+			m.setMemImgPath(attachment);
 			Member updateMem = new MemberService().updateMember(m);
-
 			
 			if( updateMem == null ) { // 회원정보 변경 실패
 				session.setAttribute("alertMsg", "회원정보를 수정하는데 실패했습니다. 다시 시도해주시길 바랍니다.");

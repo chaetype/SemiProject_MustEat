@@ -226,6 +226,14 @@
 		 
 	</entry>
 	
+	<!-- 태민 체크박스 체크된 회원 블랙리스트로 -->
+	<entry key="modifyDate">
+		UPDATE MEMBER
+		   SET MEM_MODIFYDATE = SYSDATE
+		 WHERE MEM_NO = ?
+		 
+	</entry>
+	
 	<!-- 태민 회원조회페이지 검색기능 -->
 	<entry key ="searchList">
 	SELECT *
@@ -549,11 +557,12 @@
 					, ADDRESS_REF
 					, MEM_IMGPATH
 					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
               FROM MEMBER M
-             WHERE M.MEM_STATUS = 'Y'
-                OR M.MEM_STATUS = 'A'  
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
              ORDER
-                BY MEM_NO DESC
+                BY MEM_NAME ASC
             ) A
         ) 
 		WHERE RNUM BETWEEN ? AND ?
@@ -585,11 +594,12 @@
 					, ADDRESS_REF
 					, MEM_IMGPATH
 					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
               FROM MEMBER M
-             WHERE M.MEM_STATUS = 'Y'
-                OR M.MEM_STATUS = 'A'  
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
              ORDER
-                BY MEM_NAME ASC
+                BY M.MEM_STATUS ASC
             ) A
         ) 
 		WHERE RNUM BETWEEN ? AND ?
@@ -621,11 +631,12 @@
 					, ADDRESS_REF
 					, MEM_IMGPATH
 					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
               FROM MEMBER M
-             WHERE M.MEM_STATUS = 'Y'
-                OR M.MEM_STATUS = 'A'  
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
              ORDER
-                BY MEM_GRADE ASC
+                BY MEM_MODIFYDATE DESC
             ) A
         ) 
 		WHERE RNUM BETWEEN ? AND ?
@@ -658,14 +669,17 @@
 					, ADDRESS_REF
 					, MEM_IMGPATH
 					, WITHDRAW
+					, MEM_MODIFYDATE-MEM_ENROLLDATE AS"DAY"
               FROM MEMBER M
-             WHERE M.MEM_STATUS = 'Y'
-                OR M.MEM_STATUS = 'A'  
-             ORDER
-                BY MEM_GRADE ASC
+             WHERE M.MEM_STATUS = 'B'
+                OR M.MEM_STATUS = 'N'  
+		     ORDER
+          	     BY DAY ASC
             ) A
         ) 
 		WHERE RNUM BETWEEN ? AND ?
+		
+        	
 		
 	</entry>
 	
@@ -680,11 +694,20 @@
 	
 	<!-- 태민 체크박스 체크된 회원정보 삭제 -->
 	<entry key="bwithdrawalMember">
-		UPDATE MEMBER
-		   SET MEM_STATUS = 'B'
-		 WHERE MEM_NO = ?
+
+		DELETE 
+		FROM MEMBER 
+		WHERE MEM_NO = ?
 		 
 	</entry>
+	
+	<!-- 태민 체크박스 체크된 회원정보 복구 -->
+	<entry key="revivalMember">
+		UPDATE MEMBER
+		   SET MEM_STATUS = 'Y'
+		 WHERE MEM_NO = ?
+	</entry>
+	
 	
 	<!-- @@@@@태민 탈퇴상태 회원 관리@@@@ -->
 	
@@ -868,5 +891,16 @@
 		  FROM REPORT
 	</entry>
 	
+	<!-- 채윤 신고 삭제 -->
+	<entry key="deleteReport">
+		UPDATE
+		       STORE_RE
+		   SET REVIEW_STATUE = 'Y'
+	</entry>
 	
+	<!-- 채윤 언팔로우 -->
+	<entry key="unfollow">
+	DELETE FROM FOLLOW
+        
+	</entry>
 </properties>

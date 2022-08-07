@@ -1,5 +1,6 @@
 package com.mz.store.controller;
 
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,29 +54,22 @@ request.setCharacterEncoding("UTF-8");
 		String localRo = multiRequest.getParameter("storeaddress");
 		String[] storeTagArr = multiRequest.getParameterValues("storemood");
 		String storePhone = multiRequest.getParameter("storephone");
-		String storeAddress = multiRequest.getParameter("storefulladdress");
-		String storeImgPath = multiRequest.getParameter("storeimg");
+		String storeAddress = multiRequest.getParameter("storefulladdress");		
 		String storeIntro = multiRequest.getParameter("storeintro");
 		String storePopularity = multiRequest.getParameter("storemenu");
-		String storePopPath = multiRequest.getParameter("storemenuimg");
 		String storePopInfo = multiRequest.getParameter("storemenuintro");
 		String storeOperating = multiRequest.getParameter("storeoperating1") + "~" + multiRequest.getParameter("storeoperating2");
 		String storeBreaktime = multiRequest.getParameter("storebreak1") + "~" + multiRequest.getParameter("storebreak2");
 		String naverAddress = multiRequest.getParameter("storenaverurl");
-		String[] dayOffArr = multiRequest.getParameterValues("storeholiday");
+		String dayOff = multiRequest.getParameter("storeholiday");
 		String storeUrl = multiRequest.getParameter("storeurl");
-		
-		String dayOff = "";
-		if(dayOffArr != null) {
-			dayOff = String.join(",", storeTagArr);
-		}
 		
 		String storeTag = "";
 		if(storeTagArr != null) {
 			storeTag = String.join(",", storeTagArr);
 		}
 		
-		Store se = new Store(storeName, localSi, localGu, localRo, storeTag, storeAddress, storePhone, storeIntro, storeImgPath, storePopularity, storePopInfo, storePopPath, storeOperating, storeBreaktime, naverAddress, dayOff, storeUrl);		
+		Store se = new Store();		
 		se.setStoreName(storeName);
 		se.setLocalSi(localSi);
 		se.setLocalGu(localGu);
@@ -84,18 +78,26 @@ request.setCharacterEncoding("UTF-8");
 		se.setStoreAddress(storeAddress);
 		se.setStorePhone(storePhone);
 		se.setStoreIntro(storeIntro);
-		se.setStoreImgPath("/resources/image/jsw/store_upfiles/");
 		se.setStorePopularity(storePopularity);
 		se.setStorePopInfo(storePopInfo);
-		se.setStorePopPath("/resources/image/jsw/store_upfiles/");
 		se.setStoreOperating(storeOperating);
 		se.setStoreBreaktime(storeBreaktime);
 		se.setNaverAddress(naverAddress);
 		se.setDayOff(dayOff);
 		se.setStoreUrl(storeUrl);
+		
+		if(multiRequest.getOriginalFileName("storeimg") != null) {
+			String storeImgPath = "resources/image/jsw/store_upfiles/" + multiRequest.getFilesystemName("storeimg");
+			se.setStoreImgPath(storeImgPath);
+		}
+		
+		if(multiRequest.getOriginalFileName("storemenuimg") != null) {
+			String storePopPath = "resources/image/jsw/store_upfiles/" + multiRequest.getFilesystemName("storemenuimg");
+			se.setStorePopPath(storePopPath);
+		}
 				
 
-		int result = new StoreService().storeInsert(se);
+		int result = new StoreService().storelistInsert(se);
 				
 		if(result > 0) {
 			// 등록 성공
@@ -103,6 +105,14 @@ request.setCharacterEncoding("UTF-8");
 			response.sendRedirect(request.getContextPath() + "/storeadminlist.st");
 		}else { 
 			// 등록 실패
+			
+			if(multiRequest.getOriginalFileName("storeimg") != null) {
+				new File(SavePath + multiRequest.getFilesystemName("storeimg")).delete();
+			}
+			
+			if(multiRequest.getOriginalFileName("storemenuimg") != null) {
+				new File(SavePath + multiRequest.getFilesystemName("storemenuimg")).delete();
+			}
 			
 			request.setAttribute("alertMsg", "식당 등록 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);

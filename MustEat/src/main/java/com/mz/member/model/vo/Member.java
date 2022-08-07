@@ -22,7 +22,9 @@ public class Member {
 	private String memImgPath;
 	private String withDraw;
 	
-	private String secreatId;
+	
+	private String secreatId; // 아이디 찾기에 쓰이는 별표 포함 아이디
+	private int day; // 탈퇴일 계산
 	
 	private String following;//나를 팔로우 하는 회원들
 	private String streview;//내가쓴 식당리뷰
@@ -153,8 +155,34 @@ public class Member {
 	
 	
 
+	public Member(int memNo, String memId, String memPwd, String memName, String memPhone, String memEmail,
+			Date enrollDate, Date modifyDate, String memStatus, String memNickname, String memGrade, String addressCode,
+			String address, String addressDetail, String addressRef, String memImgPath, String withDraw, int day) {
+		super();
+		this.memNo = memNo;
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.memName = memName;
+		this.memPhone = memPhone;
+		this.memEmail = memEmail;
+		this.enrollDate = enrollDate;
+		this.modifyDate = modifyDate;
+		this.memStatus = memStatus;
+		this.memNickname = memNickname;
+		this.memGrade = memGrade;
+		this.addressCode = addressCode;
+		this.address = address;
+		this.addressDetail = addressDetail;
+		this.addressRef = addressRef;
+		this.memImgPath = memImgPath;
+		this.withDraw = withDraw;
+		this.day = day;
+	}
 
 
+	public int getDay() {
+		return day;
+	}
 
 	public int getCfollowing() {
 		return cfollowing;
@@ -380,6 +408,10 @@ public class Member {
 
 	public void setRvRate(String rvRate) {
 		this.rvRate = rvRate;
+	}
+	
+	public void setDay(int day) {
+		this.day = day;
 	}
 
 

@@ -4,19 +4,34 @@
 	
 	<!-- 채윤 : 식당리뷰목록조회 -->
 	<entry key="selectStoreReviewList">
-	SELECT
-	        RE_NO
-	       ,M.MEM_NICKNAME
-	       ,M.MEM_ID
-	       ,REVIEW_TITLE
-	       ,REVIEW_RATE
-	       ,REVIEW_ENROLLDATE
-	       ,M.MEM_GRADE
-	       ,COUNT
-	FROM STORE_RE SR
-	JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
-	ORDER
-    BY RE_NO DESC
+	SELECT *
+	FROM (
+ 	SELECT ROWNUM RNUM, A.*
+ 	FROM (
+		SELECT
+		        RE_NO
+		       ,M.MEM_NICKNAME
+		       ,M.MEM_ID
+		       ,REVIEW_TITLE
+		       ,REVIEW_RATE
+		       ,REVIEW_ENROLLDATE
+		       ,M.MEM_GRADE
+		       ,COUNT
+		FROM STORE_RE SR
+		JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+		WHERE REVIEW_STATUE ='N'
+		ORDER
+    	      BY RE_NO DESC
+    	) A
+		)
+		WHERE RNUM BETWEEN ? AND ?
+    
+	</entry>
+	<!-- 채윤 식당 페이징... -->
+	<entry key="StoreReviewListCount">
+		SELECT
+		       COUNT(*) AS COUNT
+		  FROM STORE_RE
 	</entry>
 	
 	<!-- 채윤 : 식당 리뷰 검색 -->
@@ -133,6 +148,7 @@
 			 , STORE_ADDRESS 
 			 , STORE_PHONE
 		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
 		 ORDER 
             BY STORE_NO DESC
 	</entry>
@@ -289,7 +305,7 @@
 		     , ?
 		     , ?
 		     , ?
-		     , SYSDATE     
+		     , SYSDATE   
 		     )
 	</entry>
 	
@@ -342,13 +358,45 @@
 	</entry>
 	
 	<!-- 서원 식당 수정 -->
-	<entry key="storelistUpdate">
-		
+	<entry key="storelistUpdate">		
+		UPDATE STORE
+		   SET STORE_NAME = ?
+		     , STORE_TAG = ?
+		     , STORE_ADDRESS = ?
+		     , STORE_PHONE = ?
+		     , STORE_INTRO = ?
+		     , STORE_IMG_PATH = ?
+		     , STORE_POPULARITY = ?
+		     , STORE_POP_INFO = ?
+		     , STORE_POP_PATH = ?
+		     , STORE_OPERATING = ?
+		     , STORE_BREAKTIME = ?
+		     , NAVER_ADDRESS = ?
+		     , DAY_OFF = ?
+		     , STORE_URL = ?
+		 WHERE STORE_NO = ?	
 	</entry>
 	
 	<!-- 서원 식당 삭제 -->
 	<entry key="storelistDelete">
-		
+		UPDATE STORE
+		   SET STORE_STATUS = 'N'
+		 WHERE STORE_NO = ?
+	</entry>
+	
+	<!-- 서원 사용자 식당 검색 -->
+	<entry key="storelistSearch">
+		SELECT
+		       STORE_IMG_PATH
+		     , LOCAL_SI
+		     , LOCAL_GU
+		     , STORE_NAME
+		     , STORE_TAG
+		     , STORE_POPULARITY
+		     , STORE_OPERATING
+		     , STORE_BREAKTIME
+		  FROM STORE
+		 ORDER BY STORE_NAME ASC;
 	</entry>
 	
 </properties>

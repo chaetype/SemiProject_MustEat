@@ -18,6 +18,7 @@ import com.mz.member.model.vo.Report;
 import com.mz.member.model.vo.StoreScrap;
 import com.mz.notice.model.dao.NoticeDao;
 import com.mz.notice.model.vo.Notice;
+import com.mz.product.model.dao.ProductDao;
 
 public class MemberService {
 	//메소드 위에 이름 주석 꼭 달기!!!
@@ -184,6 +185,18 @@ public class MemberService {
 		return result;
 	}
 	
+	public int modifyDate(String userNo) {
+		Connection conn = getConnection();
+		int result2 = new MemberDao().modifyDate(conn, userNo);
+		if(result2>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result2;
+	}
+	
 	// 태민 회원 검색
 	public ArrayList<Member> searchList(PageInfo pi, String input){
 		Connection conn = getConnection();
@@ -198,7 +211,7 @@ public class MemberService {
 	//이름별 조회
 	public ArrayList<Member> bselectList(PageInfo pi, String search){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList(conn, pi, search);
+		ArrayList<Member> list = new MemberDao().bselectList(conn, pi, search);
 		close(conn); 
 		return list;
 	}
@@ -206,7 +219,7 @@ public class MemberService {
 	//탈퇴유형별 조회
 	public ArrayList<Member> bselectList1(PageInfo pi, String search){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList1(conn, pi, search);
+		ArrayList<Member> list = new MemberDao().bselectList1(conn, pi, search);
 		close(conn);
 		return list;
 	}
@@ -214,7 +227,7 @@ public class MemberService {
 	// 탈퇴일별 조회
 	public ArrayList<Member> bselectList2(PageInfo pi, String search){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList2(conn, pi, search);
+		ArrayList<Member> list = new MemberDao().bselectList2(conn, pi, search);
 		close(conn);
 		return list;
 	}
@@ -222,7 +235,7 @@ public class MemberService {
 	//탈퇴기간별 조회
 	public ArrayList<Member> bselectList3(PageInfo pi, String search){
 		Connection conn = getConnection();
-		ArrayList<Member> list = new MemberDao().selectList2(conn, pi, search);
+		ArrayList<Member> list = new MemberDao().bselectList3(conn, pi, search);
 		close(conn);
 		return list;
 	}
@@ -230,7 +243,7 @@ public class MemberService {
 	// 탈퇴상태 회원 총수
 	public int bselectListCount(String search) {
 		Connection conn = getConnection();
-		int listCount = new MemberDao().selectListCount(conn, search);
+		int listCount = new MemberDao().bselectListCount(conn, search);
 		close(conn);
 		return listCount;
 	}
@@ -239,7 +252,7 @@ public class MemberService {
 	
 	public int bwithdrawalMember(String userNo) {
 		Connection conn = getConnection();
-		int result = new MemberDao().withdrawalMember(conn, userNo);
+		int result = new MemberDao().bwithdrawalMember(conn, userNo);
 		if(result>0) {
 			commit(conn);
 		}else {
@@ -248,6 +261,22 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
+	
+	// 태민 체크박스 선택된 회원정보복구
+	
+		public int revivalMember(String userNo) {
+			Connection conn = getConnection();
+			int result = new MemberDao().revivalMember(conn, userNo);
+			if(result>0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			close(conn);
+			return result;
+		}
+	
+
 	
 	// 태민 회원 검색
 	public ArrayList<Member> bsearchList(PageInfo pi, String input){
@@ -532,5 +561,33 @@ public class MemberService {
 			return listCount;
 		}
 		
-		
+	//채윤 신고 삭제
+	public int deleteReport(String delArr) {
+		Connection conn = getConnection();
+		int result = new MemberDao().deleteReport(conn, delArr);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
+	
+	//채윤 언팔로우
+		public int unfollow(int no) {
+			
+			Connection conn = getConnection();
+			
+			int result = new MemberDao().unfollow(conn, no);
+			
+			if(result > 0) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+			
+			return result;
+		}
 }

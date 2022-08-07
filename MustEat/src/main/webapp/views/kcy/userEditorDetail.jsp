@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.store.model.vo.*" %>
+    pageEncoding="UTF-8" import="com.mz.store.model.vo.Editor" %>
 <%
 	Editor e = (Editor)request.getAttribute("e");
 %>

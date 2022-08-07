@@ -231,9 +231,9 @@
                     <th>주소</th>
                     <td colspan="3">
                     	<% if( addressCode == null) { %>
-                    	<input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호"> <button onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
+                    	<input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호"> <button type="button" onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
                     	<% } else { %>
-                        <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" value="<%=addressCode %>" > <button onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
+                        <input type="text" name="addressCode" id="sample6_postcode" placeholder="우편번호" value="<%=addressCode %>" > <button type="button" onclick="sample6_execDaumPostcode()" class="addressCheck btn1">우편번호 찾기</button>  <br>
                         <% } %>
                         
                         <% if ( address == null) { %>
@@ -261,9 +261,9 @@
 	                <% if( memImg != null ) {%>
                     <td> <!-- 프로필 사진이 존재하는 경우 -->
 	                    <img src="<%=memImg %>" id="existIcon" onclick="chooseFile(1);">
-	                    <input type="hidden" name="profile" value="<%=memImg %>">
-	                    <input type="file" id="profile1" name="newProfile" onchange="loadImg(this, 1);" style="display:none;">
-	                    <button type="button" class="btn1 basicProfile">기본프로필로 변경</button>
+	                    <input type="hidden" id="hidden" name="profile" value="<%=memImg %>">
+	                    <input type="file" id="profile1" name="newProfile" value="" onchange="loadImg(this, 1);" style="display:none;">
+	                    <button type="button" class="btn1 basicProfile" onclick="removeImg();">기본프로필로 변경</button>
                     </td>
                     <% } else { %>
                     <td> <!-- 프로필 사진이 없는 경우 -->
@@ -283,6 +283,14 @@
       			$("#profile" + num).click();
       		}
       		
+      		function removeImg() {
+      			
+      			$("#existIcon").removeAttr('src'); // 이미지 경로 변경
+      			$("#existIcon").attr("src",'<%=request.getContextPath()%>/resources/image/user.png');
+      			$("#hidden").val( $("#existIcon").attr("src") ); // 변경된 이미지 경로 저장 
+      		}
+      					
+
 			// input type="file"에 변화(change)가 생길때 실행하는 함수 
 			function loadImg(inputFile, num) {
 
@@ -295,7 +303,8 @@
 
 						switch(num) {
 						case 1 : $("#existIcon").attr("src", e.target.result); break;
-						case 2 : $("#noneIcon").attr("src", e.target.result);
+						case 2 : $("#noneIcon").attr("src", e.target.result); break;
+						case 3 : $("#noneIcon").attr("src", e.target.result); break;
 						}
 						
 					}
@@ -528,11 +537,13 @@
 	        	
 	        	function deleteMember() {
 	        		 
-	        		 if( $("#deletePwd").val() == null ) {
+	        		 if( $("#deletePwd").val() == "" ) {
 	        			 $("#alert-none").show(); // 비밀번호 미입력시 안내창 보이도록 설정
+	        			 $("#alert-fail").hide();
 	        			 return false;
-	        		 } else if( $("#deletePwd").val() != <%=memPwd %>) {
+	        		 } else if( $("#deletePwd").val() != "<%=memPwd %>") {
 	        			 $("#alert-fail").show(); // 비밀번호 불일치시 안내창 보이도록 설정
+	        			 $("#alert-none").hide();
 	        			 return false; // 탈퇴 불가능하도록 설정
 	        		} 
 	        		

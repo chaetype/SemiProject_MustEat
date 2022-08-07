@@ -1,7 +1,6 @@
 package com.mz.store.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +12,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.mz.common.MyFileRenamePolicy;
-import com.mz.member.model.vo.Member;
 import com.mz.store.model.service.StoreService;
-import com.mz.store.model.vo.Editor;
 import com.oreilly.servlet.MultipartRequest;
+import com.mz.store.model.vo.Editor;
 
 /**
  * Servlet implementation class CategoryInsertContoller
@@ -51,16 +49,21 @@ public class CategoryInsertContoller extends HttpServlet {
 	       
 			
 			String html = multiRequest.getParameter("editcontent");
-//	        System.out.println(html);
+			String attach = multiRequest.getParameter("titleImg");
+			
+			System.out.println(html);
 	        
-	        
-	        int result = new StoreService().insertEditor(html);
+			Editor e = new Editor();
+	        e.setEditorContent(html);
+	        e.setEditorAttach(attach);
+			
+			
+	        int result = new StoreService().insertEditor(e);
 	        
 	        if(result > 0) {
 	          response.sendRedirect(request.getContextPath() + "/clist.st");
 	           session.setAttribute("successMsg", "성공적으로 등록하였습니다.");
 	        }
-	        
         }    
         
      }

@@ -30,7 +30,7 @@
 		<link rel="stylesheet" href="<%=contextPath %>/resources/css/buttoncss2.css">
 		
 		<link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/header.css">
-		
+			
 		<!-- 슬릭 -->
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -131,9 +131,9 @@
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
 					<% } else { %> <!-- 로그인한 경우 -->
 						<div class="bbtn">
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">정보수정</a></button>
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/myPage.me" style="text-decoration: none;">MY PAGE</a></button>
-		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">로그아웃</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">MODIFY</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/myPage.me" style="text-decoration: none;">USER</a></button>
+		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">SIGN OUT</a></button>
             			</div>
             			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
             		<% } %>
@@ -146,7 +146,7 @@
 					<a class="menu__item" href="<%=contextPath %>/allMembersList.bo?cpage=1&a=1&c=no&search=">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 회원조회</span>
 					</a>
-					<a class="menu__item" href="<%=contextPath %>/memberWithdrawalAdmin.bo?cpage=1&a=1&c=no&search=">
+					<a class="menu__item" href="<%=contextPath %>/memberWithdrawalAdmin.bo?cpage=1&a=4&c=kkk&search=">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 회원탈퇴 내역</span>
 					</a>
 					<a class="menu__item" href="<%=contextPath%>/storeadminlist.st">
@@ -164,7 +164,7 @@
 					<a class="menu__item" href="#">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 결제관리</span>
 					</a>
-					<a class="menu__item" href="#">
+					<a class="menu__item" href="<%=contextPath %>/reviewAdmin.bo?cpage=1&a=4&c=kkk&search=">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 리뷰관리</span>
 					</a>
 					<a class="menu__item" href="<%=contextPath%>/mpsList.me" >
@@ -185,7 +185,7 @@
 					<a class="menu__item" href="<%=contextPath%>/tosadminlist.no">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 이용약관</span>
 					</a>
-					<a class="menu__item" href="<%=contextPath%>/list.rp">
+					<a class="menu__item" href="<%=contextPath%>/list.rp?cpage=1">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 신고관리</span>
 					</a>				
 					

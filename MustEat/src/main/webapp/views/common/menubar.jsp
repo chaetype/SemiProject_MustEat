@@ -149,6 +149,8 @@
 			margin-left:2px;
 			margin-bottom:7px;
 		}
+
+
 </style>
 </head>
 
@@ -268,10 +270,18 @@
     
     <!-- 메인페이지 여기에 담기 -->
     <div class="main" role="main">
-
-
+<!-- 채윤 임시 채팅창 넣어봄 -->
+		<div class="chat" align="center" OnClick="location.href ='<%=contextPath %>/chat.me'">
+			<img src="<%=contextPath%>/resources/image/chatimg.png" style="position: fixed; right: 50px; bottom: 50px; width: 30px; height: 30px; cursor: pointer;" >
+		</div>
+		
+		
+		
+		
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
   		<script src="<%=contextPath %>/resources/js/demo.js"></script>
+  		
+  		
 
 </body>
 

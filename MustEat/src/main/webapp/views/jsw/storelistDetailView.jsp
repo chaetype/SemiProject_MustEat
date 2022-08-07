@@ -103,7 +103,7 @@
 		
 		<div class="container">
 		
-			<h1 style="text-align:center; font-family: 'OTWelcomeRA' !important;">식당 등록</h1>
+			<h1 style="text-align:center; font-family: 'OTWelcomeRA' !important;">식당 상세 조회</h1>
 	
 			<hr noshade size = 1 style="background:black;">
 
@@ -113,7 +113,7 @@
 					 
 					  <div class="store-enroll-form" action="<%=request.getContextPath()%>/storeinsert.st" method="post" enctype="multipart/form-data" id="storeEnrollForm" style="margin-top:1%;">
 						
-						<input type="hidden"  name="storefulladdress" value="" id="tt" >
+						<input type="hidden"  name="storefulladdress" id="tt" >
 						<div class="row">
 						  <div class="col-md-6 mb-3">
 							<label for="store-name" style="color:#4B088A;"><b>* 식당명</b></label>
@@ -272,26 +272,11 @@
 						<div class="mb-3">
 						  <label for="store-introduce" name="storeintro" style="color:#4B088A;"><b>* 식당소개</b></label>
 						  <br>
-						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" onkeyup="counter1(this, 1200)" style="resize:none; border:1px solid lightgrey;" disabled><%=s.getStoreIntro()%></textarea>
-						  <div style="text-align:right; margin-right:1%;"><span id="store-count">0 / 1200</span></div>
+						  <textarea name="storeintro" id="store-introduce" cols="145" rows="10" style="resize:none; border:1px solid lightgrey;" disabled><%=s.getStoreIntro()%></textarea>
+						  
 						
 						</div>
-						
-						<script>
-							
-							function counter1(text, length){
-								var limit = length;
-								var str = text.value.length;
-								if(str>limit){
-									document.getElementById("store-count").innerHTML = "1200자 이상 입력했습니다.";
-									text.value = text.value.substring(0, limit);
-									text.focus();
-								}
-								document.getElementById("store-count").innerHTML = text.value.length + "/" + limit;
-							}						
-
-						</script>
-			  
+									  
 						<div class="mb-3">
 							<label for="store-menu" name="storemenu" style="color:#4B088A;"><b>* 인기메뉴</b></label>
 						  <input type="text" class="form-control" name="storemenu" id="store-menu"  value="<%=s.getStorePopularity()%>" disabled>
@@ -318,7 +303,7 @@
 							<label for="menu-introduce" style="color:#4B088A;"><b>* 인기메뉴 설명</b></label>
 							<br>
 							<textarea name="storemenuintro" id="menu-introduce" cols="145" rows="10" disabled style="resize:none; border:1px solid lightgrey;"><%= s.getStorePopInfo() %></textarea>
-						  <div style="text-align:right; margin-right:1%;"><span id="menu-count">0 / 600</span></div>
+						  
 						  <div class="invalid-feedback">
 							인기메뉴 설명을 입력해주세요.
 						  </div>
@@ -364,36 +349,11 @@
 								<tr>
 									<td><label for="storeholiday" name="storeholiday" style="color:#4B088A;"><b>* 휴무일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									<td>
-										<input type="checkbox" name="storeholiday" id="mon" value="월" disabled>
-										<label for="mon">월</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="tue" value="화" disabled>
-										<label for="tue">화</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="wed" value="수" disabled>
-										<label for="wed">수</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="thu" value="목" disabled>
-										<label for="thu">목</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="fri" value="금" disabled>
-										<label for="fri">금</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="sat" value="토" disabled>
-										<label for="sat">토</label>&nbsp;&nbsp;
-										<input type="checkbox" name="storeholiday" id="sun" value="일" disabled>
-										<label for="sun">일</label>
+										<input type="text" name="storeholiday" id="storeholiday" value="<%=s.getDayOff()%>" disabled>
 									</td>
 								</tr>
 								</table>
-								<script>
-									$(function(){
-										
-										const storeholiday = "<%=s.getDayOff()%>";
-										
-										$("input[type=checkbox]").each(function(){
-											if( storeholiday.search( $(this).val() ) != -1){
-												$(this).attr("checked", true);
-											}
-										})
-										
-									})
-								</script>
+						</div>
 								
 								<div class="mb-3">
 									<table>
@@ -465,9 +425,9 @@
 						<span style="color:red;"><strong></strong></span>
 						
 						<div class="mb-4" style="text-align:center; margin-top:4%;">
-						<button class="btn1" type="button" style="color:blue;" onclick="location.href='<%= contextPath %>/storelistUpdate.st?no=<%= s.getStoreNo() %>'">수정하기</button>
+						<button class="btn1" type="button" style="color:blue;" onclick="location.href='<%= contextPath %>/storeupdateForm.st?no=<%= s.getStoreNo() %>'">수정하기</button>
 						<button class="btn1" type="button" style="color:red;" onclick="location.href='<%= contextPath %>/storelistDelete.st?no=<%= s.getStoreNo() %>'">삭제하기</button>
-						<button class="btn1" type="button" style="color:black;" onclick="history.back();">목록가기</button>
+						<button class="btn1" type="button" style="color:black;" onclick="location.href='<%= contextPath %>/storeadminlist.st'">목록가기</button>
 						</div>
 					  </div>
 					</div>

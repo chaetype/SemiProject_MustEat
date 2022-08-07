@@ -37,12 +37,16 @@ public class AllMembersListController2 extends HttpServlet {
 		String[] delArr = request.getParameterValues("delArr");
 		int a = 0;
 		String userNo = null;
+
 		if(delArr !=null && delArr.length > 0) {
             for(int i=0; i<delArr.length; i++) {
                userNo = delArr[i];
                int result = new MemberService().withdrawalMember(userNo);
                if(result==1) {
-            	   a++;
+            	   int result2 = new MemberService().modifyDate(userNo);
+            	   if(result2 == 1) {
+            		   a++;
+            	   }
                }
        	    }
 		}
