@@ -1248,7 +1248,7 @@ public class StoreDao {
 				
 				PreparedStatement pstmt = null;
 				ResultSet rset = null;
-				String sql = prop.getProperty("");
+				String sql = prop.getProperty("selectStoreRate");
 				
 				try {
 					pstmt = conn.prepareStatement(sql);
