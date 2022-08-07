@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.mz.common.model.vo.PageInfo, com.mz.member.model.vo.Member"%>
+    pageEncoding="UTF-8" import="com.mz.member.model.vo.Member"%>
 <% String contextPath = request.getContextPath(); 
 	
 	Member loginUser = (Member)session.getAttribute("loginUser");
 
 	String alertMsg = (String)session.getAttribute("alertMsg");
-	
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	
-	int currentPage = pi.getCurrentPage();
-	int startPage = pi.getStartPage();
-	int endPage = pi.getEndPage();
-	int maxPage = pi.getMaxPage();
+
 %>
 <!DOCTYPE html>
 <html lang="en">
