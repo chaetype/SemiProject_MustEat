@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.mz.store.model.vo.Store"%>
 <%
 	ArrayList<Store> list = (ArrayList<Store>)request.getAttribute("list");
+	int storeRate = (int)request.getAttribute("storeRate");
 %>
 <!DOCTYPE html>
 <html>
@@ -220,10 +221,10 @@
 									<img src="<%= s.getStoreImgPath() %>" alt="rover" />
 								</div>
 								<div class="card-body">			
-									
+									<input type="hidden" name="no" id="no">
 									<span class="tag tag-purple"><strong><%= s.getLocalSi() %> <%= s.getLocalGu() %></strong></span>
 									<h4 style="margin-top:3%;"><strong><%= s.getStoreName() %></strong></h4>
-									<h6 style="margin-top:4%;"><span style="color:#FACC2E;">★</span><%=  %></h6>
+									<h6 style="margin-top:4%;"><span style="color:#FACC2E;">★</span></h6>
 			
 									<p style="margin-top:4%;">
 									<%= s.getStoreTag() %> <br><br>
