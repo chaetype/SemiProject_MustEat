@@ -126,7 +126,9 @@
 								<div class="input-group mb-3">
 									<input type="text" name="storeSearch" class="form-control input-text" placeholder="식당명, 지역명으로 검색해주세요." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									<div class="input-group-append">
+
 										<button class="btn btn-outline-warning btn-lg" type="submit" style="color:rgb(167, 112, 239); border-color:rgb(167, 112, 239)"><i class="fa fa-search"></i></button>
+
 									</div>
 								</div>
 							</div>							
@@ -153,7 +155,7 @@
 	                  
 					  <tr>
 						<% for(Store s : list){ %>
-						<td width="600" style="table-layout: fixed">
+						<td width="600" style="table-layout: fixed;">
 							
 							<div class="card">
 								<div class="card-header">
@@ -171,7 +173,7 @@
 									</p>
 								</div>
 							</div>							
-						</td>	
+						</td>
 					<% } %>        
 	             <% } %>					
 					</tr>
