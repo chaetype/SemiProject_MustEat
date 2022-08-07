@@ -378,12 +378,12 @@ public class StoreService {
 		
 		
 		// 서원 식당검색 페이지 별점 조회
-		public int selectStoreRate(int storeNo) {
-			Connection conn = getConnection();
-			int storeRate = new StoreDao().selectStoreRate(conn, storeNo);
-			close(conn);
-			return storeRate;
-		}
+//		public int selectStoreRate(int storeNo) {
+//			Connection conn = getConnection();
+//			int storeRate = new StoreDao().selectStoreRate(conn, storeNo);
+//			close(conn);
+//			return storeRate;
+//		}
 
 		
 		// 은영
@@ -404,6 +404,32 @@ public class StoreService {
 			
 
 		}
+
+		
+		// 서원 관리자 식당 검색
+		public ArrayList<Store> selectStoreAdminSearch(String keyword) {
+			
+			Connection conn = getConnection();
+			ArrayList<Store> list = new StoreDao().selectStoreAdminSearch(conn, keyword);
+			close(conn);
+			return list;
+			
+		}
+		
+		// 식당 사용자 식당 검색
+		public ArrayList<Store> selectStorelistSearchForm(String keyword) {
+			Connection conn = getConnection();
+			ArrayList<Store> list = new StoreDao().selectStorelistSearchForm(conn, keyword);
+			close(conn);
+			return list;
+		}
+		
+		
+		
+		
+		
+		
+
 
 		// 은영
 		/**
@@ -431,5 +457,6 @@ public class StoreService {
 	 * 
 	 * close(conn); return list; }
 	 */
+
 
 }
