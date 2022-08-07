@@ -540,8 +540,10 @@
 	<entry key="rselectListCount">
 		<!-- 현재 리뷰 총 갯수 조회용 --> 
 		SELECT COUNT(*) as "COUNT"
-		  FROM STORE_RE
-		 WHERE REVIEW_STATUE = 'Y'
+		 FROM STORE_RE SR 
+          JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+          JOIN STORE S ON (SR.STORE_NO = S.STORE_NO)
+		WHERE REVIEW_STATUE = 'Y' 
 	</entry>
 	
 	

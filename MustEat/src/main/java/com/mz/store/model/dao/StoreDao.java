@@ -1091,9 +1091,8 @@ public class StoreDao {
 							pstmt.setInt(2, endRow);
 							
 							rset = pstmt.executeQuery();
-							
+					
 							while(rset.next()) {
-								while(rset.next()) {
 									list.add(new StoreReview(rset.getInt("RE_NO"),
 													   rset.getString("REVIEW_WRITER"),
 													   rset.getInt("STORE_NO"),
@@ -1113,7 +1112,7 @@ public class StoreDao {
 													   rset.getString("MEM_NICKNAME")
 													   ));
 								}
-							}
+							
 							
 						} catch (SQLException e) {
 							e.printStackTrace();
