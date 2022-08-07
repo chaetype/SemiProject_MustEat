@@ -18,7 +18,7 @@
 </head>
 <style>
 	.map-area{
- 		background-color:#e4f2fd;
+        background-image: url("<%=request.getContextPath()%>/resources/image/cy/background.png");
  	}
 </style>
 <body>

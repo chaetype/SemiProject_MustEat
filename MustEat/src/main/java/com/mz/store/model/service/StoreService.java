@@ -458,5 +458,14 @@ public class StoreService {
 	 * close(conn); return list; }
 	 */
 
+	// 서원 관리자 식당 조회 페이징 처리
+	public int selectStoreAdminListCount() {
+		Connection conn = getConnection();
+		int listCount = new StoreDao().selectStoreAdminListCount(conn);
+		close(conn);
+		return listCount;
+	}
+		
+		
 
 }

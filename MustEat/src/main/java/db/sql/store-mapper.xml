@@ -646,4 +646,12 @@
 		 WHERE STORE_STATUS = 'Y'
 	</entry>
 	
+	<!-- 서원 관리자 식당 조회 페이징 처리 -->
+	<entry key="selectStoreAdminListCount">
+		SELECT
+		       COUNT(*) AS COUNT
+		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
+	</entry>
+	
 </properties>

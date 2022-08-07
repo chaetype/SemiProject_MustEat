@@ -111,9 +111,6 @@
 	          </div>
 	          
 	            <div class="goodsItem">
-	            <a href="해당 상품 주문상세페이지" class="goodsThumb">
-	              <img src="<%=contextPath %>/resources/image/mz.png" alt="해당 물품사진" style="width:110px; height:110px;">
-	            </a>
 		    	
 		    	<%
 	       			DecimalFormat df = new DecimalFormat("#,##0"); // 가격 천단위로 보여지도록 설정
@@ -149,9 +146,9 @@
 	          <div class="orderButton">
                 <form action="<%=contextPath%>/cartdirect.do">
                    <input type="hidden" value="<%=bk.getBasketNo() %>" name="basNo">
-                  <button type="submit" class="plain-btn btn" id="buy">구매하기</button>
+                  <button type="submit" class="plain-btn btn" id="buy" style="font-size:12px; width:100px; margin: 10px 0px;">구매하기</button>
                   <button type="button" class="plain-btn btn" id="updateBasket" data-toggle="modal" data-target="#updateModal" style="display:none;">주문수정</button>
-                  <a class="plain-btn btn" onclick="return deleteCart(<%=bk.getBasketNo() %>);">상품삭제</a>
+                  <a class="plain-btn btn" onclick="return deleteCart(<%=bk.getBasketNo() %>);" style="font-size:12px; width:100px;">상품삭제</a>
                </form>
              </div>
 	      
