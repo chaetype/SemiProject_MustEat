@@ -206,7 +206,7 @@ public class StoreDao {
 		Store s = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectStore");
+		String sql = prop.getProperty("selectStore2");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -215,17 +215,14 @@ public class StoreDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				s = new Store(rset.getInt("store_no"),
-							  rset.getString("store_name"),
-							  rset.getString("store_address"),
-							  rset.getString("store_intro"),
-							  rset.getString("store_img_path"),
-							  rset.getString("store_popularity"),
-							  rset.getString("store_pop_info"),
-							  rset.getString("STORE_POP_PATH"),
-							  rset.getString("MEM_NICKNAME"),
-							  rset.getString("review_content"),
-							  rset.getString("review_img")
+				s = new Store(rset.getInt("STORE_NO")
+							, rset.getString("STORE_NAME")
+							, rset.getString("STORE_ADDRESS")
+							, rset.getString("STORE_INTRO")
+							, rset.getString("STORE_IMG_PATH")
+							, rset.getString("STORE_POPULARITY")
+							, rset.getString("STORE_POP_INFO")
+							, rset.getString("STORE_POP_PATH")
 							 );
 			}
 			
@@ -237,6 +234,45 @@ public class StoreDao {
 		}
 		
 		return s;
+		
+	}
+	
+	public ArrayList<StoreReview> selectStoreReview(Connection conn, int storeNo){
+		
+		ArrayList<StoreReview> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectStoreReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, storeNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new StoreReview( rset.getInt("RE_NO")
+						          , rset.getString("REVIEW_WRITER")
+						          , rset.getInt("STORE_NO")
+						          , rset.getString("REVIEW_CONTENT")
+						          , rset.getInt("REVIEW_RATE")
+						          , rset.getDate("REVIEW_ENROLLDATE")
+						          , rset.getString("VISIT_DATE")
+						          , rset.getString("REVIEW_TITLE")
+						          , rset.getInt("COUNT")
+						          ));
+						          
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 		
 	}
 	

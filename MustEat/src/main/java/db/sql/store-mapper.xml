@@ -69,6 +69,33 @@
 		 WHERE S.STORE_NO = ?
 	</entry>
 	
+	<entry key="selectStore2">
+		SELECT STORE_NO 
+		     , STORE_NAME
+		     , STORE_ADDRESS
+		     , STORE_INTRO
+		     , STORE_IMG_PATH
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , STORE_POP_PATH
+		FROM STORE
+		WHERE STORE_NO = ?
+	</entry>
+	
+	<entry key="selectStoreReview">
+		SELECT RE_NO
+		      ,REVIEW_WRITER
+		      ,STORE_NO
+		      ,REVIEW_CONTENT
+		      ,REVIEW_RATE
+		      ,REVIEW_ENROLLDATE
+		      ,VISIT_DATE
+		      ,REVIEW_TITLE
+		      ,COUNT
+		FROM STORE_RE
+		WHERE STORE_NO = ?
+	</entry>
+	
 	<!-- 채윤 식당 조회수 -->
 	<entry key="increaseCount">
 		UPDATE STORE

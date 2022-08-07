@@ -94,6 +94,13 @@ public class StoreService {
 		return s;
 	}
 	
+	public ArrayList<StoreReview> selectStoreReview(int storeNo) {
+		Connection conn = getConnection();
+		ArrayList<StoreReview> review = new StoreDao().selectStoreReview(conn, storeNo);
+		close(conn);
+		return review;
+	}
+	
 	//채윤 (식당 조회 상세위함)
 		public ArrayList<Store> forDetailList(){
 			
