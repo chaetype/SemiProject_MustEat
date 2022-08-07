@@ -156,8 +156,7 @@
 					  <tr>
 						<% for(Store s : list){ %>
 						<td width="600" style="table-layout: fixed;">
-							
-							<div class="card" onclick="location.href='<%= contextPath %>/storelistDetail.st?no=<%= s.getStoreNo() %>'">
+							<div class="card">
 								<div class="card-header">
 									<img src="<%= s.getStoreImgPath() %>" alt="rover" />
 								</div>
