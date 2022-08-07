@@ -18,6 +18,9 @@
         height:100%;    
         margin:auto;
     }
+    button{
+    	cursor:pointer;
+    }
     .content, .footer {
         width: 90%;
         max-width: 700px;

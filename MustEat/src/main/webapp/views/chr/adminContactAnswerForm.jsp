@@ -138,7 +138,7 @@
             		<div class="form-outline" style="width:600px; margin:auto;">
             			<input type="hidden" name="chkNo" value="1">
 		                <textarea class="form-control" name="answer" id="textAreaExample" rows="4"><%= c.getAnswer() %></textarea>
-		                <label class="form-label" for="textAreaExample">답변</label>
+		                <label class="form-label" for="textAreaExample"></label>
 		            </div>
 		            <br>
 		            <div style="width:76%" align="right">

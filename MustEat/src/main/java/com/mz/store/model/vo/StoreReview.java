@@ -30,6 +30,35 @@ public class StoreReview {
 	public StoreReview() {
 		
 	}
+	
+	
+
+	public StoreReview(int reNo, String reviewWriter, int storeNo, String reviewContent, String reviewImg,
+			int reviewRate, Date reviewEnrollDate, Date reviewModifyDate, String reviewStatus, String reviewImgPath,
+			String visitDate, String reviewTitle, int count, int reportCount, String reviewMemId, String memLevel,
+			String storeName, String reMemNick) {
+		super();
+		this.reNo = reNo;
+		this.reviewWriter = reviewWriter;
+		this.storeNo = storeNo;
+		this.reviewContent = reviewContent;
+		this.reviewImg = reviewImg;
+		this.reviewRate = reviewRate;
+		this.reviewEnrollDate = reviewEnrollDate;
+		this.reviewModifyDate = reviewModifyDate;
+		this.reviewStatus = reviewStatus;
+		this.reviewImgPath = reviewImgPath;
+		this.visitDate = visitDate;
+		this.reviewTitle = reviewTitle;
+		this.count = count;
+		this.reportCount = reportCount;
+		this.reviewMemId = reviewMemId;
+		this.memLevel = memLevel;
+		this.storeName = storeName;
+		this.reMemNick = reMemNick;
+	}
+
+
 
 	public StoreReview(int reNo, String reviewWriter, int storeNo, String reviewContent, String reviewImg,
 			int reviewRate, Date reviewEnrollDate, Date reviewModifyDate, String reviewStatus, String reviewImgPath,

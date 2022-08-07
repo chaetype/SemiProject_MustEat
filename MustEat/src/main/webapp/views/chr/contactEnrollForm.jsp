@@ -30,7 +30,7 @@
         margin-left:10px;
     }
     .form-wrap{
-        width:80%;
+        width:90%;
         border-top:3px solid black;
         padding-top:30px;
     }
@@ -53,7 +53,7 @@
                     <tr>
                         <th width="130px">문의 제목</th>
                         <td width="700px">
-                            <select name="contact-type" id="type" style="width:10%; height:80%">
+                            <select name="contact-type" id="type" style="width:10%; height:80%; cursor:pointer">
                                 <option>주문</option>
                                 <option>배송</option>
                                 <option>회원</option>
@@ -70,7 +70,7 @@
                     <tr>
                         <th>파일 첨부</th>
                         <td>
-                            <input type="file" name="contact-file" id="file">
+                            <input type="file" name="contact-file" id="file" style="cursor:pointer">
                         </td>
                     </tr>
                     <tr>
