@@ -379,7 +379,7 @@ public class StoreService {
 			return storeRate;
 		}
 
-		
+
 		// 은영
 		/**
 		 * 지도에서 해당 지역 누르면 지역 페이지로 이동하는 Service
@@ -398,4 +398,13 @@ public class StoreService {
 			
 
 		}
+		
+	//채윤 메인페이지 조회	
+	public ArrayList<Store> mainpage(){
+		Connection conn = getConnection();
+		ArrayList<Store> list = new StoreDao().mainpage(conn);
+		
+		close(conn);
+		return list;
+	}
 }

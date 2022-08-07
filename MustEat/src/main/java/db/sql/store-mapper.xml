@@ -104,6 +104,22 @@
 		    BY STORE_NO DESC
 	</entry>
 	
+	<entry key="mainpage">
+		SELECT 
+			   STORE_NO
+		     , STORE_NAME
+		     , STORE_IMG_PATH
+		     , MEM_NICKNAME
+		     , REVIEW_CONTENT
+		     , REVIEW_IMG_PATH
+		  FROM STORE_RE
+		  JOIN MEMBER ON (REVIEW_WRITER = MEM_NO)
+		  JOIN STORE USING(STORE_NO)
+		 ORDER
+		    BY STORE_NO DESC
+	</entry>
+	
+	
 	<entry key="forDetailList">
 		SELECT 
 		       S.STORE_NO
@@ -414,16 +430,16 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
-		 ORDER BY STORE_NAME ASC;
+		 ORDER BY STORE_NAME ASC
 	</entry>
 	
 	<!-- 은영 (메인페이지 지역별 식당 조회) -->
-	<entry key="seachCity">
+	<entry key="searchCity">
 	  SELECT STORE_NO
        , STORE_NAME
        , STORE_IMG_PATH
 	  FROM STORE
-	  WHERE LOCAL_SI = ?
+	  WHERE LOCAL_SI LIKE ?
 	</entry>
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->
@@ -546,8 +562,10 @@
 	<entry key="rselectListCount">
 		<!-- 현재 리뷰 총 갯수 조회용 --> 
 		SELECT COUNT(*) as "COUNT"
-		  FROM STORE_RE
-		 WHERE REVIEW_STATUE = 'Y'
+		 FROM STORE_RE SR 
+          JOIN MEMBER M ON (SR.REVIEW_WRITER = M.MEM_NO)
+          JOIN STORE S ON (SR.STORE_NO = S.STORE_NO)
+		WHERE REVIEW_STATUE = 'Y' 
 	</entry>
 	
 	
