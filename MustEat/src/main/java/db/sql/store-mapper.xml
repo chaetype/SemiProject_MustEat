@@ -470,6 +470,16 @@
        , LOCAL_GU
 	  FROM STORE
 	  WHERE LOCAL_SI LIKE ?
+	  	OR LOCAL_GU LIKE ?
+	</entry>
+	
+	<entry key="selectCity">
+	   	 SELECT 
+            LOCAL_SI
+          , LOCAL_GU
+          FROM STORE
+          WHERE LOCAL_SI LIKE ?
+            OR LOCAL_GU LIKE ?
 	</entry>
 	
 	<!-- 서원 식당검색 페이지 별점 조회 -->
