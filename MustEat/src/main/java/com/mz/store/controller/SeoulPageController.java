@@ -32,12 +32,7 @@ public class SeoulPageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 서울 지도로 이동하는 Servlet
-		String city = request.getParameter("map");
-		
-		ArrayList<Store> list = new StoreService().searchSeoul(city);
-		
-		
-		request.setAttribute("list", list);
+
 		request.getRequestDispatcher("views/common/mainSeoulPage.jsp").forward(request, response);
 	}
 
