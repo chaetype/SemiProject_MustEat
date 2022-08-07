@@ -85,8 +85,8 @@
                         </tr>
                     </table>
                     <br>
-                    <button class="btn1" style="padding: 0.2em 1.2em;
-                    margin: 0 0.1em 0.1em 0;">Unfollow</button>
+                    <a class="btn1" style="padding: 0.2em 1.2em;
+                    margin: 0 0.1em 0.1em 0;" onclick="return unfollow(<%=f.getFollowNo()%>);">Unfollow</a>
                 </div>
             </div>
             <br>
@@ -97,7 +97,34 @@
         </div>
 
 
-
+	<Script>
+	function unfollow(followNo) {
+		if(confirm("팔로우를 취소하시겠습니까?")) {
+			
+			$.ajax({
+				url : "<%=contextPath%>/unfollow.fo",
+				data : { no:followNo },
+				success : function(result) {
+					
+					if(result == 1) {
+						location.reload(); 
+					} else {
+						alert("팔로우 취소 실패");
+					}
+					console.log("ajax 성공");
+					
+				},
+				error : function(result) {
+					console.log("ajax 통신 실패");
+				}
+			});
+			
+		} else {
+			return false;
+		}
+	}
+	
+	</Script>
 
 
     </div>

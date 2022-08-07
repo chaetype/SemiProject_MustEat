@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.store.model.vo.*"%>
+    
+<%
+	Editor e = new Editor();
+%>
 <!DOCTYPE html>
 <html>
 
@@ -54,8 +58,8 @@
                 
             </table>
 
-            <div id="file-area" style="display:none">
-                <input type="file" name="file1" onchange="loadImg(this, 1);">
+            <div id="file-area" style="display:none"><input type="hidden" id="hidden" name="profile" value="<%=e.getEditorAttach()%>">
+             <input type="file" name="file1" onchange="loadImg(this, 1);">
             </div>
 
             <script>

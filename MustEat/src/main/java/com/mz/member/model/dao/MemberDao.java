@@ -1737,6 +1737,28 @@ public class MemberDao {
 		return result;
 		
 	}
+	
+	//채윤 언팔로우
+	public int unfollow(Connection conn, int no) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("unfollow") + "WHERE FOLLOW_NO IN (" + no + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 }
 		
 		

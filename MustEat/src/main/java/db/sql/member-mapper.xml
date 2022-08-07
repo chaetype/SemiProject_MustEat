@@ -874,4 +874,10 @@
 		       STORE_RE
 		   SET REVIEW_STATUE = 'Y'
 	</entry>
+	
+	<!-- 채윤 언팔로우 -->
+	<entry key="unfollow">
+	DELETE FROM FOLLOW
+        
+	</entry>
 </properties>
