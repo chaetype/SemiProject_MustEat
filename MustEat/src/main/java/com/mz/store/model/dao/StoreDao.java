@@ -1233,5 +1233,49 @@ public class StoreDao {
 //					return list;
 //						
 //				}
+			
+	// 은영
+	/**
+	 * 지도에서 해당 지역 누르면 지역 페이지로 이동하는 Dao
+	 * @param city : 사용자가 누른 지역명
+	 * @return : 해당 지역에 있는 식당 목록 정보가 담긴 ArrayList<Store>
+	 */
+	public ArrayList<Store> searchCity(Connection conn, String city) {
+		
+		// 식당 지역별 조회 => ResultSet => ArrayList 
+		ArrayList<Store> list = new ArrayList();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("searchCity");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, city);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+			Store s = new Store();
+			
+			s.setStoreNo(rset.getInt("STORE_NO"));
+			s.setStoreName(rset.getString("STORE_NAME"));
+			s.setStoreImgPath(rset.getString("STORE_IMG_PATH"));
+			
+			list.add(s);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+
+	}
 
 }

@@ -414,4 +414,13 @@
 		 ORDER BY STORE_NAME ASC;
 	</entry>
 	
+	<!-- 은영 (메인페이지 지역별 식당 조회) -->
+	<entry key="seachCity">
+	  SELECT STORE_NO
+       , STORE_NAME
+       , STORE_IMG_PATH
+	  FROM STORE
+	  WHERE LOCAL_SI = ?
+	</entry>
+	
 </properties>
