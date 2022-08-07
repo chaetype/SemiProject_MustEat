@@ -417,7 +417,7 @@
 		 WHERE STORE_NO = ?
 	</entry>
 	
-	<!-- 서원 사용자 식당 검색 -->
+	<!-- 서원 사용자 식당 조회 -->
 	<entry key="storelistSearch">
 		SELECT
 			   STORE_NO
@@ -430,6 +430,7 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
 		 ORDER BY STORE_NAME ASC
 	</entry>
 	
@@ -449,7 +450,8 @@
 		SELECT
 		       AVG(REVIEW_RATE)
 		  FROM STORE_RE
-		 WHERE STORE_NO = ?
+		  JOIN STORE S USING(STORE_NO)
+		 WHERE S.STORE_NO = ?
 	</entry>
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@태민@@@@@@@@@@@@@@리뷰관리관리자 -->
@@ -577,6 +579,32 @@
 		   SET REVIEW_STATUE = 'N'
 		 WHERE RE_NO = ?
 		 
+	</entry>
+	
+	<!-- 서원 관리자 식당 검색 -->
+	<entry key="selectStoreAdminSearch">
+		SELECT
+		       STORE_NO
+		     , STORE_NAME
+		     , STORE_ADDRESS
+		     , STORE_PHONE
+		  FROM STORE
+	</entry>
+	
+	<!-- 서원 사용자 식당 검색 -->
+	<entry key="selectStorelistSearchForm">
+		SELECT
+			   STORE_NO
+		     , STORE_IMG_PATH
+		     , LOCAL_SI
+		     , LOCAL_GU
+		     , STORE_NAME
+		     , STORE_TAG
+		     , STORE_POPULARITY
+		     , STORE_OPERATING
+		     , STORE_BREAKTIME
+		  FROM STORE
+		 WHERE STORE_STATUS = 'Y'
 	</entry>
 	
 </properties>

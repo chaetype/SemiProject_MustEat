@@ -8,23 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.mz.member.model.service.MemberService;
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
 
 /**
- * Servlet implementation class StorelistSearchController
+ * Servlet implementation class StoreAdminSearchController
  */
-@WebServlet("/storesearch.st")
-public class StorelistSearchController extends HttpServlet {
+@WebServlet("/storeadminSearch.st")
+public class StoreAdminSearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StorelistSearchController() {
+    public StoreAdminSearchController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +32,18 @@ public class StorelistSearchController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
+		String keyword_ = request.getParameter("storeSearch");
 		
-		//int storeNo = Integer.parseInt(request.getParameter("no"));
+		String keyword ="";
+		if(keyword_ != null) {
+			keyword = keyword_;
+		}
 		
-		ArrayList<Store> list = new StoreService().storelistSearch();
-		
-		//int storeRate = new StoreService().selectStoreRate(storeNo);
+		StoreService service = new StoreService();
+		ArrayList<Store> list = service.selectStoreAdminSearch(keyword);
 		
 		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("views/jsw/storeSearch.jsp").forward(request, response);
+		request.getRequestDispatcher("views/jsw/storeViewsAdmin.jsp").forward(request, response);
 		
 	}
 

@@ -93,22 +93,21 @@
 	
 		<hr noshade size = 1 style="background:black;">
 		
-				<div style="width:100%; margin-top:1%; text-align:left;" >
-					<div style="display:inline-block;">
-						<table style="display:inline-block;">
-							<tr>
-								<td>
-									<div class="input-group mb-3" style="margin-top:6%;">
-										<input type="text" class="form-control input-text" placeholder="식당명을 입력해주세요." width="100%;" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-family: Verdana, Geneva, Arial, sans-serif !important;">
-										<div class="input-group-append">
-											<button class="btn btn-outline-warning btn-lg" type="button"><i class="fa fa-search"></i></button>
-										</div>
+				<div class="search-head">
+				<form action="<%=contextPath%>/storeadminSearch.st">
+				<div width="100%;">
+					
+							<div class="wrap55" style="width:60%;">
+								<div class="input-group mb-3">
+									<input type="text" class="form-control input-text" placeholder="식당명을 검색해주세요." width="70%" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									<div class="input-group-append">
+										<button class="btn btn-outline-warning btn-lg" type="submit" style="color:rgb(167, 112, 239); border-color:rgb(167, 112, 239)" onclick="location.href='<%= contextPath %>/storeadminSearch.st"><i class="fa fa-search"></i></button>
 									</div>
-								</td>
-							</tr>
-						</table>
+								</div>
+							</div>							
 					</div>
-				</div>	
+				</form>
+			</div>
 		
 		<div class="table-div">
 			
