@@ -75,7 +75,7 @@
         </div>
         <div class="outer22">
             <hr>
-            <h3><%=city.getLocalSi() + " "  %><%=city.getLocalGu() %></h3><br>
+            <h3><%=city.getLocalSi() + " "%><%=city.getLocalGu() %></h3><br>
             <!-- 검색폼 시작 -->
             <!-- @@@@@@@@@@@전체 조회도 가능하게 해야함 -->
 		<form action="<%=contextPath %>/search.st" class="outer33">
