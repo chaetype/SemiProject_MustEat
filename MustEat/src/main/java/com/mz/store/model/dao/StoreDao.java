@@ -325,6 +325,14 @@ public class StoreDao {
 				s.setStoreName(rset.getString("store_name"));
 				s.setStoreImgPath(rset.getString("store_img_path"));
 				s.setLocalSi("local_si");
+				s.setStoreAddress("store_address");
+				s.setStoreIntro("store_intro");
+				s.setStoreImgPath("store_img_path");
+				s.setStorePopularity("store_popularity");
+				s.setStorePopInfo("store_pop_info");
+				s.setStorePopPath("STORE_POP_PATH");
+				s.setStoreReview("RE_NO");
+				
 				list.add(s);
 			}
 			} catch (SQLException e) {
