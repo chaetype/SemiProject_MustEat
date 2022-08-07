@@ -220,10 +220,12 @@
 		  (
 		    EDITOR_NO
 		  , EDITOR_CONTENT
+		  , EDITOR_ATTACH
 		  )
 		  VALUES
 		  (
 		    SEQ_ENO.NEXTVAL
+		  , ?
 		  , ?
 		  )
 	</entry>
