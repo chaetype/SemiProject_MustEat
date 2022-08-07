@@ -91,11 +91,20 @@
 	<!-- 채윤 식당 메인2 -->
 	<entry key="selectStoreList">
 		SELECT 
-		       STORE_NO
+		       S.STORE_NO
 		     , STORE_NAME
 		     , STORE_IMG_PATH
 		     , LOCAL_SI
+		     , STORE_ADDRESS
+		     , STORE_INTRO
+		     , STORE_IMG_PATH
+		     , STORE_POPULARITY
+		     , STORE_POP_INFO
+		     , STORE_POP_PATH
+		     , SR.RE_NO
+		 
 		  FROM STORE S
+           JOIN STORE_RE SR ON (SR.STORE_NO = S.STORE_NO)
 		 ORDER
 		 	BY S.STORE_NO DESC
 	</entry>
@@ -389,7 +398,8 @@
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE
-		 ORDER BY STORE_NAME ASC;
+		 WHERE STORE_STATUS = 'Y'
+		 ORDER BY STORE_NAME ASC
 	</entry>
 	
 	<!-- 은영 (메인페이지 지역별 식당 조회) -->
