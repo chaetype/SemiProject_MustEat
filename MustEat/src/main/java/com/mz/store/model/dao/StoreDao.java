@@ -315,6 +315,7 @@ public class StoreDao {
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectStoreList");
 		
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rset = pstmt.executeQuery();
@@ -324,7 +325,8 @@ public class StoreDao {
 				s.setStoreNo(rset.getInt("store_no"));
 				s.setStoreName(rset.getString("store_name"));
 				s.setStoreImgPath(rset.getString("store_img_path"));
-				s.setLocalSi("local_si");
+				
+				
 				list.add(s);
 			}
 			} catch (SQLException e) {
@@ -337,6 +339,40 @@ public class StoreDao {
 
 		return list;
 	}
+	
+	public ArrayList<Store> forDetailList(Connection conn){
+		ArrayList<Store> fdlist = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("forDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				Store s = new Store();
+				s.setStoreNo(rset.getInt("store_no"));
+				s.setStoreName(rset.getString("store_name"));
+				s.setStoreImgPath(rset.getString("store_img_path"));
+				s.setLocalSi("local_si");
+				s.setStoreAddress("store_address");
+				s.setStoreIntro("store_intro");
+				s.setStoreImgPath("store_img_path");
+				s.setStorePopularity("store_popularity");
+				s.setStorePopInfo("store_pop_info");
+				s.setStorePopPath("STORE_POP_PATH");
+				s.setStoreReview("RE_NO");
+				
+				fdlist.add(s);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}return fdlist;
+	}
+	
 	
 	
 	//채윤 메인2검색
@@ -1198,6 +1234,7 @@ public class StoreDao {
 //						
 //				}
 			
+
 			// 서원 식당검색 페이지 별점 조회
 			public int selectStoreRate(Connection conn, int storeNo) {
 				
@@ -1229,5 +1266,50 @@ public class StoreDao {
 				
 				return storeRate;
 			}
+
+	// 은영
+	/**
+	 * 지도에서 해당 지역 누르면 지역 페이지로 이동하는 Dao
+	 * @param city : 사용자가 누른 지역명
+	 * @return : 해당 지역에 있는 식당 목록 정보가 담긴 ArrayList<Store>
+	 */
+	public ArrayList<Store> searchCity(Connection conn, String city) {
+		
+		// 식당 지역별 조회 => ResultSet => ArrayList 
+		ArrayList<Store> list = new ArrayList();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("searchCity");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, city);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+			Store s = new Store();
+			
+			s.setStoreNo(rset.getInt("STORE_NO"));
+			s.setStoreName(rset.getString("STORE_NAME"));
+			s.setStoreImgPath(rset.getString("STORE_IMG_PATH"));
+			
+			list.add(s);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+
+	}
+
 
 }

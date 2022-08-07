@@ -32,8 +32,11 @@ public class StoreListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Store> list = new StoreService().selectStoreList();
+		ArrayList<Store> fdlist = new StoreService().forDetailList();
 		request.setAttribute("list", list);
-		
+		request.setAttribute("fdlist", fdlist);
+		System.out.println(list);
+		System.out.println(fdlist);
 		request.getRequestDispatcher("views/common/mainSecondPage.jsp").forward(request, response);
 	}
 
