@@ -35,7 +35,7 @@ public class StoreAdminListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 페이징 처리
-		int listCount = new NoticeService().selectNoticeListCount();
+		int listCount = new StoreService().selectStoreAdminListCount();
 		int currentPage = Integer.parseInt(request.getParameter("cpage"));
 		int pageLimit = 5;
 		int boardLimit = 10;
