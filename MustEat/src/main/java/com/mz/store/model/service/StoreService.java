@@ -95,6 +95,15 @@ public class StoreService {
 		return s;
 	}
 	
+	//채윤 (식당 조회 상세위함)
+		public ArrayList<Store> forDetailList(){
+			
+			Connection conn = getConnection();
+			ArrayList<Store> fdlist = new StoreDao().forDetailList(conn);
+			close(conn);
+			return fdlist;
+		}
+	
 
 	// 은영
 	/**

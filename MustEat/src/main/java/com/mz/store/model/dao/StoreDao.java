@@ -315,10 +315,40 @@ public class StoreDao {
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectStoreList");
 		
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rset = pstmt.executeQuery();
 			
+			while(rset.next()) {
+				Store s = new Store();
+				s.setStoreNo(rset.getInt("store_no"));
+				s.setStoreName(rset.getString("store_name"));
+				s.setStoreImgPath(rset.getString("store_img_path"));
+				
+				
+				list.add(s);
+			}
+			} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+
+		return list;
+	}
+	
+	public ArrayList<Store> forDetailList(Connection conn){
+		ArrayList<Store> fdlist = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("forDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				Store s = new Store();
 				s.setStoreNo(rset.getInt("store_no"));
@@ -333,18 +363,16 @@ public class StoreDao {
 				s.setStorePopPath("STORE_POP_PATH");
 				s.setStoreReview("RE_NO");
 				
-				list.add(s);
+				fdlist.add(s);
 			}
-			} catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			close(rset);
 			close(pstmt);
-		}
-		
-
-		return list;
+		}return fdlist;
 	}
+	
 	
 	
 	//채윤 메인2검색
