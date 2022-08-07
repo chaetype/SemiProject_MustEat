@@ -210,9 +210,9 @@
 	                  </tr>
 					  <% }else { %>
 	                  <!--case2. 게시글이 있을경우-->
-	                  	<% for(Store s : list){ %>
+	                  
 					  <tr>
-						
+						<% for(Store s : list){ %>
 						<td>
 							
 							<div class="card">
@@ -231,12 +231,12 @@
 									브레이크 : <%= s.getStoreBreaktime() %>          
 									</p>
 								</div>
-							</div>
-							
-						</td>						
-					</tr>
+							</div>							
+						</td>	
 					<% } %>        
-	             <% } %>
+	             <% } %>					
+					</tr>
+					
 				
 				
 				</table>
