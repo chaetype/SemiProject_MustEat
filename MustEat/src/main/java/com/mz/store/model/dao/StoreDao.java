@@ -309,7 +309,9 @@ public class StoreDao {
 	
 
 	//채윤 식당 메인2
-	public ArrayList<Store> selectStoreList(Connection conn){
+
+
+	public ArrayList<Store> selectStoreList(Connection conn, int memNo){
 		ArrayList<Store> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -319,6 +321,8 @@ public class StoreDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setInt(1, rset.getInt("storeNo"));
+			pstmt.setInt(2, memNo);
 			
 			rset = pstmt.executeQuery();
 			
