@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mz.store.model.service.StoreService;
 import com.mz.store.model.vo.Store;
@@ -31,6 +32,8 @@ public class StoreListDetailController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		
 		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
 		Store s = new StoreService().selectStoreFormList(storeNo);

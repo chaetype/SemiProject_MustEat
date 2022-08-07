@@ -27,7 +27,7 @@ public class Store {
 	private String reviewImg;//식당리뷰이미지
 	private String reviewWriter;//식당리뷰작성자
 	private int count;//식당 조회수
-	
+	private String storeStatus;
 	
 	public Store() {
 		
@@ -228,7 +228,23 @@ public class Store {
 		this.storeUrl = storeUrl;
 		this.storeEnrollDate = storeEnrollDate;
 	}
+	
+	
 		
+
+
+	public Store( String storeImgPath, String localSi, String localGu, String storeName, String storeTag,
+			String storePopularity, String storeOperating, String storeBreaktime) {
+		super();
+		this.storeImgPath = storeImgPath;
+		this.localSi = localSi;
+		this.localGu = localGu;
+		this.storeName = storeName;
+		this.storeTag = storeTag;
+		this.storePopularity = storePopularity;
+		this.storeOperating = storeOperating;
+		this.storeBreaktime = storeBreaktime;
+	}
 
 
 	public int getStoreNo() {
@@ -576,6 +592,7 @@ public class Store {
 		this.count = count;
 	}
 
+	
 
 	@Override
 	public String toString() {

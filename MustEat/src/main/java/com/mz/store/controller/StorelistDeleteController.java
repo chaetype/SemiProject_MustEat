@@ -1,29 +1,26 @@
-package com.mz.member.controller;
+package com.mz.store.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mz.common.model.vo.PageInfo;
-import com.mz.member.model.service.MemberService;
-import com.mz.member.model.vo.Member;
+import com.mz.notice.model.service.TosService;
+import com.mz.store.model.service.StoreService;
 
 /**
- * Servlet implementation class AllMembersListController3
+ * Servlet implementation class StorelistDeleteController
  */
-@WebServlet("/allMembersList3.bo")
-public class AllMembersListController3 extends HttpServlet {
+@WebServlet("/storelistDelete.st")
+public class StorelistDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllMembersListController3() {
+    public StorelistDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,27 +29,19 @@ public class AllMembersListController3 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	
+		request.setCharacterEncoding("UTF-8");
 		
-		String input = request.getParameter("search");
+		int storeNo = Integer.parseInt(request.getParameter("no"));
 		
-		//System.out.println(input);
+		int result = new StoreService().storelistDelete(storeNo);
 		
-		if(input != null || !input.isEmpty()) {
-			ArrayList<Member> list = new MemberService().searchList(pi, input);
-			
-			request.setAttribute("pi", pi);
-			request.setAttribute("search", list);
-			
-			response.getWriter().print("NNN");
+		if(result > 0) {
+			response.sendRedirect(request.getContextPath() + "/storelistDetail.st");
 		}else {
-			
+			request.setAttribute("errorMsg", "식당 삭제 실패");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
-		
-		
-		
-		
 		
 		
 	}

@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.mz.store.model.vo.Store"%>
+<%
+	Store s = (Store)request.getAttribute("Store");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>식당/지역검색페이지</title>
+<title>식당</title>
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
 
@@ -205,22 +208,19 @@
 							
 							<div class="card">
 								<div class="card-header">
-									<img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+									<img src="<%= s.getStoreImgPath() %>" alt="rover" />
 								</div>
 								<div class="card-body">
 			
-									<span class="tag tag-purple"><strong>서울시 금천구</strong></span>
-									<h4 style="margin-top:3%;"><strong>구디아카데미</strong></h4>
+									<span class="tag tag-purple"><strong><%= s.getLocalSi() %> <%= s.getLocalGu() %></strong></span>
+									<h4 style="margin-top:3%;"><strong><%= s.getStoreName() %>(<span style="color:#FACC2E;">★</span>별점)</strong></h4>
 			
 									<p style="margin-top:4%;">
-									#태그1, #태그2, #태그3 <br><br>
-									대표메뉴 : xxxx <br>
-									영업시간 : 00:00 ~ 00:00 <br>
-									브레이크 : 00:00 ~ 00:00            
+									<%= s.getStoreTag() %> <br><br>
+									대표메뉴 : <%= s.getStorePopularity() %> <br>
+									영업시간 : <%= s.getStoreOperating() %>0 <br>
+									브레이크 : <%= s.getStoreBreaktime() %>          
 									</p>
-									<div class="user-info">
-										<small><span style="color:#FACC2E;">★</span> 5.0(777) | <span style="color:#f54d4d;">♥</span> Like(777)</small>
-									</div>
 								</div>
 							</div>
 							
