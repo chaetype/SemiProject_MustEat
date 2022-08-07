@@ -301,17 +301,17 @@
 
             // 회원 상세정보로 가는 길
             
-            $(function(){
-                $("#detail").click(function(){
-                    const num = $(this).children.eq(0).text(); // 클릭했을때의 글번호
+            // $(function(){
+            //     $("#detail").click(function(){
+            //         const num = $(this).children.eq(0).text(); // 클릭했을때의 글번호
                     
-                    // 요청할url?키=밸류&키=밸류... 
-                    // 요청시전달값(키=밸류) => 쿼리스트링 
+            //         // 요청할url?키=밸류&키=밸류... 
+            //         // 요청시전달값(키=밸류) => 쿼리스트링 
                     
-                    // /web/detail.no?no=xx
-                    location.href = '<%=contextPath%>/detail.no?no=' + num;
-    		    })
-    	    })
+            //         // /web/detail.no?no=xx
+            //         location.href = '<%=contextPath%>/detail.no?no=' + num;
+    		//     })
+    	    // })
         </script>
 
     </div>

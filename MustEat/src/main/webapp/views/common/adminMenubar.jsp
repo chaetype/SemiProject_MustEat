@@ -164,7 +164,7 @@
 					<a class="menu__item" href="#">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 결제관리</span>
 					</a>
-					<a class="menu__item" href="<%=contextPath %>/reviewAdmin.bo?cpage=1&a=4&c=kkk&search=">
+					<a class="menu__item" href="<%=contextPath %>/reviewAdmin.bo?cpage=1&a=3&c=grade&search=">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 리뷰관리</span>
 					</a>
 					<a class="menu__item" href="<%=contextPath%>/mpsList.me" >
