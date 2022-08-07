@@ -1396,16 +1396,13 @@ public class StoreDao {
 	
 	// 서원 사용자 식당 검색
 	public ArrayList<Store> selectStorelistSearchForm(Connection conn, String keyword){
+		
 		ArrayList<Store> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectStorelistSearchForm");
 		
-		sql += "WHERE STORE_NAME LIKE ?";
-		
-		sql += "OR LOCAL_SI LIKE ?";
-		
-		sql += " LOCAL_GU LIKE ?";
+		sql += "AND STORE_NAME LIKE ?";
 	
 		sql += "ORDER BY STORE_NAME ASC";
 		
@@ -1413,10 +1410,7 @@ public class StoreDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, "%"+keyword+"%");
-			
-			pstmt.setString(2, "%"+keyword+"%");
-			
-			pstmt.setString(3, "%"+keyword+"%");
+		
 			
 			rset = pstmt.executeQuery();
 			
@@ -1443,15 +1437,6 @@ public class StoreDao {
 
 		return list;
 
-	}
-	
-	
-	
-	
-
-		return s;
-		
-		
 	}
 	
 	
