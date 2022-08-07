@@ -62,6 +62,10 @@
 		<!-- favicon -->
 		<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
 <style>
+		html{
+			cursor:url(burger.cur),auto;
+		}
+		
 		body{margin:0 auto;}
 		
 		.wrap {
@@ -149,7 +153,7 @@
 			margin-left:2px;
 			margin-bottom:7px;
 		}
-
+	
 
 </style>
 </head>
