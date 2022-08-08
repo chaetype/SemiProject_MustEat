@@ -456,6 +456,7 @@
 		     , STORE_NAME
 		     , STORE_TAG
 		     , STORE_POPULARITY
+		     , STORE_POP_PATH
 		     , STORE_OPERATING
 		     , STORE_BREAKTIME
 		  FROM STORE

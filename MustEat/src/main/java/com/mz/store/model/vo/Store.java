@@ -259,8 +259,25 @@ public class Store {
 		this.storePopInfo = storePopInfo;
 		this.storePopPath = storePopPath;
 	}
-
 	
+	
+	
+
+	public Store(String storeImgPath, String localSi, String localGu, String localRo, String storeName, String storeTag,
+			String storePopularity, String storePopPath, String storeOperating, String storeBreaktime) {
+		super();
+		this.storeImgPath = storeImgPath;
+		this.localSi = localSi;
+		this.localGu = localGu;
+		this.localRo = localRo;
+		this.storeName = storeName;
+		this.storeTag = storeTag;
+		this.storePopularity = storePopularity;
+		this.storePopPath = storePopPath;
+		this.storeOperating = storeOperating;
+		this.storeBreaktime = storeBreaktime;
+	}
+
 
 	public int getStoreNo() {
 		return storeNo;
