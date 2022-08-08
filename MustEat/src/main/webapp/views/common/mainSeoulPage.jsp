@@ -32,7 +32,7 @@
 	
 		<div align="center" class="map-name">
 			<br><br>
-			<h2>SEOUL</h2>
+			<h2 style="color: white;">SEOUL</h2>
 		</div>
 
 		<!-- 서울 지도 페이지! -->

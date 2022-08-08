@@ -74,11 +74,11 @@
 	
 		<form action="<%= contextPath %>/insert.fo" method="post">
 		<div>
-        <table class="tt" style="width:100%; background-color: rgb(223, 196, 240);" >
+        <table class="tt" style="width:100%; background-image: url(<%=contextPath%>/resources/image/cy/retrobg.jpg);" >
             <% for(Member m : list){ %>
             <tr>
                 <th width="50"><input type="hidden" name="fingMno" value="<%=m.getMemNo()%>"></th>
-                <td width="70"><img src="<%=contextPath%><%=m.getMemImgPath() %>" style="width: 40px; height:40px; border-radius:50px;
+                <td width="70"><img src="<%=contextPath%>/resources/image/mz.png" style="width: 40px; height:40px; border-radius:50px;
                     overflow:hidden;"></td>
                 <td width="100"><%=m.getMemNickname() %></td>
                 <td width="100"><%=m.getMemId() %></td>

@@ -94,13 +94,13 @@
             <div class="popular2">
             <input type="hidden" name="<%= sr.getReNo()%>">
                 <h1><%= sr.getReviewTitle() %></h1>
-                <h6 style="float: right;">작성자 <%=sr.getReMemNick() %> 작성일자 <%=sr.getReviewEnrollDate() %> <br>조회수 <%=sr.getCount() %></h6>
+                <h6 style="float: right;">작성자 <%=sr.getReMemNick() %> 작성일자 <%=sr.getReviewEnrollDate() %></h6>
                 <br>
                 <br>
                 <hr>
                 <div class="tumbnail3">
                 <% if ( sr.getReviewImgPath() == null ) {  %>
-                    <img src="<%=request.getContextPath()%>/resources/image/mz.png" style="width: 400px; height:400px;" id="noneIcon">
+                    <img src="<%=request.getContextPath()%>/resources/image/mz.png" style="width: 700px; height:400px;" id="noneIcon">
                 <% } else { %>
         			<img src="<%=contextPath%><%= sr.getReviewImgPath()%>" style="width: 400px; height:400px;">
       			<% } %>
