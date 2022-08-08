@@ -146,14 +146,14 @@
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = { 
-                center: new kakao.maps.LatLng(37.5332747,126.9722273), // 지도의 중심좌표
+                center: new kakao.maps.LatLng(37.5253641,127.0367206), // 지도의 중심좌표
                 level: 3 // 지도의 확대 레벨
             };
         
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
         
         // 마커가 표시될 위치입니다 
-        var markerPosition  = new kakao.maps.LatLng(37.5332747,126.9722273); 
+        var markerPosition  = new kakao.maps.LatLng(37.5253641,127.0367206); 
         
         // 마커를 생성합니다
         var marker = new kakao.maps.Marker({
@@ -184,13 +184,13 @@
         <hr>
         <div class="outer333">
             <div class="popular2">
-                 <h2>관련리뷰</h2>
-                    <div class="tumbnail3">
-                        <img src="<%=contextPath%>/resources/image/cy/cityby3.jpg"style="width: 100%; height:100%;">
-                    </div>
-                    <div class="info3">최근에 용산역 갈 일이있었는데 저녁에 시티팝에서 먹게되었습니다. 워낙에 한식을 좋아해서 애매한 퓨전음식은 좀 경계하는 편이였는데 이곳은 차원이 달랐습니다.
-                            물론 주말이나 금요일 저녁에는 줄이 매우 길것 같았습니다. 따로 예약시스템이 없기때문에 근처 주민들은 포장을 해가던데 포장은 정말 빨리 나오는거 같더라구요</div>
-                    </div>
+                <h2>관련리뷰</h2>
+                <% for(StoreReview sr : review) { %>
+                <div class="tumbnail3">
+                   
+                </div>
+                <div class="info3"><b><%=sr.getReviewWriter() %></b><br><%=sr.getReviewContent()%></div>
+                <% } %>
             </div>
         </div>
         </form>
