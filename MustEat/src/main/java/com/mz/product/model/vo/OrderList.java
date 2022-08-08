@@ -17,6 +17,13 @@ public class OrderList {
 		this.amount = amount;
 	}
 
+	
+	public OrderList(int productCode, int amount) {
+		super();
+		this.productCode = productCode;
+		this.amount = amount;
+	}
+
 	public int getOrderNo() {
 		return orderNo;
 	}

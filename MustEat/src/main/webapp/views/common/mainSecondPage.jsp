@@ -15,7 +15,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/searchForm.css">
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5083115c1fb16d0c71e6b310c47c7609"></script>
 
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>
+	<!-- services 라이브러리 불러오기 -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+	<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+	<link rel="icon" href="../../resources/image/favicon-32x32.png" type="image/x-icon">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/buttoncssNomal.css">
 
     <style>
     
@@ -26,12 +34,12 @@
 		body{margin:0 auto;
 			cursor:url("<%=request.getContextPath() %>/burger.cur"),auto;
 		}
-        .wrap31{
-            border: 1px solid red;
+        /* .wrap31{
+            border: 2px solid rgb(168, 99, 221);
             width: 80%;
             margin: auto;
             text-align: center;
-        }
+        } */
         
         .wrap32{
             width: 100%;
@@ -45,7 +53,7 @@
         }
 
         .outer22{
-            border: 1px solid blue;
+            border: 2px solid rgb(168, 99, 221);
             width: 100%;
             text-align: center;
         }
@@ -63,13 +71,53 @@
             cursor: pointer;
         }
 
+ .wrap31 {
+      border: 2px solid rgb(168, 99, 221);
+            width: 85%;
+            margin: auto;
+            text-align: center;
+      padding: 32px;
+
+      background: #fff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+    }
  </style>
 </head>
 <body>
     <%@ include file="../common/menubar.jsp" %>
     
     <div class="wrap31">
-        <div class="outer11"><span>서울,경기, 인천 지도 넣기</span>      
+        <div class="outer11">
+        <div id="map" style="width:100%;height:500px;"></div>
+<!-- @@@@@@@@@@@@@@@@@@@@지도 마커 움직이게 다시 작성할 것 -->
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+                center: new kakao.maps.LatLng(37.5295385,126.9663305), // 지도의 중심좌표
+                level: 5 // 지도의 확대 레벨
+            };
+        
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+        
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(37.5313985,126.9721602); 
+        
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+        
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+        
+        // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+        // marker.setMap(null);    
+        </script>    
         
         </div>
         <div class="outer22">
@@ -104,7 +152,7 @@
         	<div class="thumb1">
         		<input type="hidden" value="<%=s.getStoreNo() %>">
             	<img src="<%=contextPath%>/<%=s.getStoreImgPath() %>" alt="" style="width:100%; height:400px;">
-	            <br>
+	            <br><br>
 	            <h4><b><%=s.getStoreName() %></b></h4>
 	        </div>
 			<% } %>

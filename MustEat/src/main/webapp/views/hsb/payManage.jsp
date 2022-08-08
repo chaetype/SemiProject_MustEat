@@ -275,31 +275,7 @@
      </script>
 
         <br><br>
-        <div class="wrapper-paging">
-						    
-            <nav aria-label="Page navigation example" style="width : 100%;">
-                <ul class="pagination" style="width : 100%; justify-content: center;">
-                    <% if(currentPage != 1) { %>
-                        <li class="page-item"><a class="page-link" href="<%=contextPath%>/mealList.bo?cpage=<%=currentPage-1%>">&lt;</a></li>
-                    <% } %>
-                    
-                    <% for(int p=startPage; p<=endPage; p++) { %>
-                        
-                        <% if(p == currentPage) { %>
-                            <li class="page-item"><a class="page-link focus" href="<%=contextPath%>/mealList.bo?cpage=<%= p %>"><%= p %></a></li>
-                        <% } else { %>
-                            <li class="page-item"><a class="page-link" href="<%=contextPath%>/mealList.bo?cpage=<%=p%>"><%= p %></a></li>
-                        <% } %>
-                        
-                    <% } %>
-                    
-                    <% if(currentPage != maxPage) { %>
-                        <li class="page-item"><a class="page-link" href="<%=contextPath%>/mealList.bo?cpage=<%=currentPage+1%>">&gt;</a></li>
-                    <% } %>
-                </ul>
-            </nav>					
-                
-        </div>
+        
     </div>
 
      

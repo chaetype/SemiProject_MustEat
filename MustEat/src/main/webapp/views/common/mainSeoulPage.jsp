@@ -16,6 +16,11 @@
  	.map-name>h2{
  		font-size:50px;
  	}
+ 	
+ 	.map-area{
+        background-image: url("<%=request.getContextPath()%>/resources/image/cy/bg9.jpg");
+        
+ 	}
 </style>
 </head>
 <body>

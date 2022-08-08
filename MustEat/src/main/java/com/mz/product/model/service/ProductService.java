@@ -12,6 +12,7 @@ import com.mz.common.model.vo.PageInfo;
 import com.mz.product.model.dao.ProductDao;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderDetail;
+import com.mz.product.model.vo.OrderList;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
 import com.mz.product.model.vo.ProductReview;
@@ -461,6 +462,21 @@ public class ProductService {
 	      close(conn);
 	      
 	      return bs;
+	   }
+	   
+	   public int insertOrderList(OrderList or) {
+		   
+		   Connection conn = getConnection();
+			
+			int result2 = new ProductDao().insertOrderList(conn, or);
+			
+			if(result2 > 0) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+			
+			return result2;
 	   }
 	
 }

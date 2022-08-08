@@ -332,6 +332,7 @@
                 <div class="bigtext right-align box blue summoney" id="sum_p_price" >최종결제 금액: 원</div>
                 <input type="hidden" name="pName" id="pName" value="<%=bs.getProductName()%>">
                 <input type="hidden" name="count" value="<%=bs.getCount()%>">
+                <input type="hidden" name="code" value="<%=bs.getProductCode() %>">
         
             
                 

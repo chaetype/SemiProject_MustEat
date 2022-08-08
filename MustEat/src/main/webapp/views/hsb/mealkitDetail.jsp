@@ -116,7 +116,8 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% }else{ // 로그인이 되어있을 경우 %>
 								<button type="button" class="btn1" onclick="direct();">바로구매</button>
-								<button type="submit" onclick="cartMove();" class="btn1">장바구니</button>
+								<button type="submit" onclick="laction='<%=contextPath%>/orderStatusList.pro?status=basket';" class="btn1">장바구니</button>
+								<button type="submit" onclick="laction=windows.open('<%=contextPath%>/orderStatusList.pro?status=basket');" class="btn1">장바구니</button>
 								<a href="<%=contextPath%>/mealList.bo?cpage=1"><button type="button" class="btn1">목록가기</button></a>
 							<% } %>
 					</div>
@@ -366,21 +367,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 	        
 	        
 	        let check = false;
-	        // function checkAll(){
-	        //     let chk = document.getElementsByName("chk[]");
-	        //     console.log(chk);
-	        //     if(check==false){
-	        //         check=true;
-	        //         for(let i=0; i<chk.length; i++){
-	        //             chk[i].checked=true;
-	        //         }
-	        //     }else{
-	        //         check=false;
-	        //         for(let i=0; i<chk.length; i++){
-	        //             chi[i].checked=false;
-	        //         }
-	        //     }
-	        // }
+	     
 	     
 	        function checkAll(checkAll){
 	        	if($("#checkAll").checked){

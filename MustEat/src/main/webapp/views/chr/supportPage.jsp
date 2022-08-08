@@ -10,7 +10,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
 <link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="32x32" href="<%=request.getContextPath()%>/favicon-32x32.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></link>
 <style>
+
+	.outer h1{
+	font-family: 'OTWelcomeRA' !important;}
     .container{
         margin-top:4%;
         margin-left:20%;
@@ -102,7 +110,7 @@
 
 	<%@ include file="../common/menubar.jsp" %>
 
-    <div class="outer" align="center">
+    <div class="outer" align="center" >
         <br>
         <h1 align="center" style="margin-top:20%; margin-bottom:5%;"><b>무엇을 도와드릴까요?</b></h1>
         

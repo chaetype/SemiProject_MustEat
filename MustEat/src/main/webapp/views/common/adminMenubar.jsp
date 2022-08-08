@@ -156,14 +156,8 @@
 					<a class="menu__item" href="<%=contextPath%>/storeEnrollForm.st">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 식당 등록</span>
 					</a>
-					<a class="menu__item" href="#">
-						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 밀키트 조회</span>
-					</a>
 					<a class="menu__item" href="<%=contextPath%>/AdminInsertProductView.do">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 밀키트 등록</span>
-					</a>
-					<a class="menu__item" href="#">
-						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 결제관리</span>
 					</a>
 					<a class="menu__item" href="<%=contextPath %>/reviewAdmin.bo?cpage=1&a=1&c=no&search=">
 						<span class="menu__item-name" style="font-family: 'OTWelcomeRA'; line-height: 1.6;">▶ 리뷰관리</span>

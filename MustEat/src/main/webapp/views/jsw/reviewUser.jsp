@@ -163,14 +163,14 @@
 		
 			<div class="review-sum" style="background:rgb(231, 216, 241)">
 				
-				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span><%= month %>건</span></h2>
+				&nbsp;<h2>이번달 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>8건</span></h2>
 				
 			</div>
 		  
 		
 			<div class="review-total" style="background:rgb(231, 216, 241)">
 			
-				&nbsp;<h2>그동안 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span><%= total %>건</span></h2>
+				&nbsp;<h2>그동안 작성한<span style="color:rgb(168, 99, 221);"> my리뷰</span> : <span>8건</span></h2>
 			
 			</div>
 				
