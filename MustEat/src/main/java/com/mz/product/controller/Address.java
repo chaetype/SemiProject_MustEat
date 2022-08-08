@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mz.member.model.vo.Member;
 import com.mz.product.model.service.ProductService;
-import com.mz.product.model.vo.OrderList;
 import com.mz.product.model.vo.OrderPro;
 
 /**
@@ -47,19 +46,15 @@ public class Address extends HttpServlet {
 		int orderQuentity = Integer.parseInt(request.getParameter("tCount"));
 		int totalPrice = Integer.parseInt(request.getParameter("price"));
 		String deliType = request.getParameter("deli");
-		int productCode = Integer.parseInt(request.getParameter("producntCode"));
 		
 		
 		OrderPro op = new OrderPro(String.valueOf(memNo), orderQuentity, memo, totalPrice, deliType, delName, delPhone, delEmail, delAddress, delAddressCode, delAddressDetail, delAddressRef);
 		
-		int result1 = new ProductService().insertAddress(op);
+		int result = new ProductService().insertAddress(op);
 		
-		if(result1 > 0) {
+		if(result > 0) {
 			request.setAttribute("op", op);
 			request.getRequestDispatcher("views/hsb/payComplete.jsp").forward(request, response);
-			
-		OrderList or = new OrderList(productCode, orderQuentity);
-		int result2 = new ProductService().insertOrderList(or);
 		}
 		
 		

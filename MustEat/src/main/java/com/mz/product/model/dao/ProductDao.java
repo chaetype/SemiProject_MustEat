@@ -977,23 +977,7 @@ public class ProductDao {
     }
 	
 	
-	public int insertOrderList(Connection conn, OrderList or) {
-		int result2 = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertOrderList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, or.getProductCode());
-			pstmt.setInt(2, or.getAmount());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result2;
-	}
+	
 	
 	
 	

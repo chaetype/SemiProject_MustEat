@@ -489,22 +489,7 @@
        WHERE BASKET_NO = ?
    </entry>
 	
-	<entry key="insertOrderList">
-		INSERT
-		  INTO ORDER_LIST
-		     ( 
-		       ORDER_NO
-		     , PRODUCT_CODE
-		     , AMOUNT	
-		     )
-		      VALUES
-		     (
-		       SEQ_ORDERNO.CURRVAL
-		     , ?
-		     , ?   
-		     )
-		     
-	</entry>
+	
 	
 	
 	

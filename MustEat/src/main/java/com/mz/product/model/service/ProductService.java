@@ -466,21 +466,7 @@ public class ProductService {
 	      return bs;
 	   }
 	   
-	   public int insertOrderList(OrderList or) {
-		   
-		   Connection conn = getConnection();
-			
-			int result2 = new ProductDao().insertOrderList(conn, or);
-			
-			if(result2 > 0) {
-				commit(conn);
-			} else {
-				rollback(conn);
-			}
-			close(conn);
-			
-			return result2;
-	   }
+	   
 	
 }
 
