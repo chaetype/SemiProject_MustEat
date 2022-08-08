@@ -446,6 +446,8 @@ public class ProductService {
 			rollback(conn);
 		}
 		
+		close(conn);
+		
 		return result;
 	}
 	
@@ -475,6 +477,7 @@ public class ProductService {
 			} else {
 				rollback(conn);
 			}
+			close(conn);
 			
 			return result2;
 	   }
