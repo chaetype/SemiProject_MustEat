@@ -176,6 +176,7 @@
                     <img src="<%=contextPath%>/<%=s.getStorePopPath() %>"style="width: 100%; height:100%;">
                 </div>
                 <div class="info2"><b> <%=s.getStorePopularity()%> </b><br> <%=s.getStorePopInfo() %></div>
+            	<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cf3XQu9hpC4/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
             </div>
         </div>
         <hr>

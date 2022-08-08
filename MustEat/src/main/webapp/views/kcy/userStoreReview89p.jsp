@@ -189,24 +189,24 @@
 
 
         <div class="content23">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%"></div>
-            <div class="rmf11"><h2>호오오족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/동래정.jpg" style="width: 100%; height:100%"></div>
+            <div class="rmf11"><h2>동래정</h2><br>간만에 맛있는 가브리살과 오겹살을 즐길 수 있는 곳</div>
         </div>
 
         <div class="content22">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;"></div>
-            <div class="rmf11"><h2>호족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/images (1).jpg" style="width: 100%; height:100%;"></div>
+            <div class="rmf11"><h2>호세가</h2><br>멕시코음식이 맛있는 분위기 좋은 가디 맛집</div>
         </div>
 
 
         <div class="content23">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%"></div>
-            <div class="rmf11"><h2>호오오족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/IM20180605010028665001.png" style="width: 100%; height:100%"></div>
+            <div class="rmf11"><h2>데블스도어</h2><br>수제 맥주를 즐길 수 있는 주류 특화 아메리칸 스타일의 게스트로 펍입니다.</div>
         </div>
 
         <div class="content22">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;"></div>
-            <div class="rmf11"><h2>호족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/getlstd-property-photo.jpg" style="width: 100%; height:100%;"></div>
+            <div class="rmf11"><h2>페니힐스</h2><br>화려하진 않지만 기억에 남을 수 있는 맛, 공간을 연출하려 합니다</div>
         </div>
     </div>
     
@@ -214,30 +214,30 @@
     <h1 style="text-align: center;">MUST EAT TOP 5 : REVIEW</h1>
     <div class="wrap22">
         <div class="content22">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;"></div>
-            <div class="rmf11"><h2>호족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/다운로드 (2).jpg" style="width: 100%; height:100%;"></div>
+            <div class="rmf11"><h2>하정식당</h2><br>술도 다양하고 전통주도 많아서 안질려요</div>
         </div>
 
 
         <div class="content23">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%"></div>
-            <div class="rmf11"><h2>호오오족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/다운로드 (1).jpg" style="width: 100%; height:100%"></div>
+            <div class="rmf11"><h2>오월의 식당</h2><br>진짜 오월 같은 맛! 카레를 좋아하는 분이라면 꼭 가보세요</div>
         </div>
 
         <div class="content22">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;"></div>
-            <div class="rmf11"><h2>호족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/spinachchicken2.jpg" style="width: 100%; height:100%;"></div>
+            <div class="rmf11"><h2>양키통닭</h2><br>시금치 + 통닭 = 존맛 다들 문래 안가고 뭐해?</div>
         </div>
 
 
         <div class="content23">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%"></div>
-            <div class="rmf11"><h2>호오오족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/20220602125451610_photo_4f5c74b01ea8.jpg" style="width: 100%; height:100%"></div>
+            <div class="rmf11"><h2>냐향바바바</h2><br>코시국 베트남 가성비 여행 50만원 아꼈어요 어디서? 냐향바바바에서</div>
         </div>
 
         <div class="content22">
-            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/hojokban.jpg" style="width: 100%; height:100%;"></div>
-            <div class="rmf11"><h2>호족반</h2><br>모던 서양 한식 브랜드 <br>호족반 입니다. 좋을 호, 겨레 족, 밥 반. 훌륭한 민족의 밥이라는 뜻을 더해 어디에 내놓아도 선전할 수 있는 한식을 보여드릴 수 있도록 하겠습니다.</div>
+            <div class="img11"><img src="<%=contextPath%>/resources/image/cy/cityby2.jpg" style="width: 100%; height:100%;"></div>
+            <div class="rmf11"><h2>씨티보이 삼각지</h2><br>웨않머거...? 고등어 초밥먹으러 가세요</div>
         </div>
     </div>
     

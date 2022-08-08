@@ -34,12 +34,12 @@
 		body{margin:0 auto;
 			cursor:url("<%=request.getContextPath() %>/burger.cur"),auto;
 		}
-        .wrap31{
+        /* .wrap31{
             border: 2px solid rgb(168, 99, 221);
             width: 80%;
             margin: auto;
             text-align: center;
-        }
+        } */
         
         .wrap32{
             width: 100%;
@@ -71,6 +71,21 @@
             cursor: pointer;
         }
 
+ .wrap31 {
+      border: 2px solid rgb(168, 99, 221);
+            width: 85%;
+            margin: auto;
+            text-align: center;
+      padding: 32px;
+
+      background: #fff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+    }
  </style>
 </head>
 <body>
@@ -83,14 +98,14 @@
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = { 
-                center: new kakao.maps.LatLng(37.5253641,127.0367206), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
+                center: new kakao.maps.LatLng(37.5295385,126.9663305), // 지도의 중심좌표
+                level: 5 // 지도의 확대 레벨
             };
         
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
         
         // 마커가 표시될 위치입니다 
-        var markerPosition  = new kakao.maps.LatLng(37.5253641,127.0367206); 
+        var markerPosition  = new kakao.maps.LatLng(37.5313985,126.9721602); 
         
         // 마커를 생성합니다
         var marker = new kakao.maps.Marker({
@@ -137,7 +152,7 @@
         	<div class="thumb1">
         		<input type="hidden" value="<%=s.getStoreNo() %>">
             	<img src="<%=contextPath%>/<%=s.getStoreImgPath() %>" alt="" style="width:100%; height:400px;">
-	            <br>
+	            <br><br>
 	            <h4><b><%=s.getStoreName() %></b></h4>
 	        </div>
 			<% } %>

@@ -192,7 +192,7 @@ body { cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAAAAACoCAAAFgAAACgAAAA
 		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/updateForm.me" style="text-decoration: none;">MODIFY</a></button>
 		                	<button class="custom-btn btn-8"><a href="<%=contextPath%>/logout.me" style="text-decoration: none;">SIGN OUT</a></button>
             			</div>
-            			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;">
+            			<img src="<%=contextPath %>/resources/image/me.png" style="width:270px; height:220px;" onclick="javascript:location.href='<%= contextPath%>/searchCity.st'">
             		<% } %>
 				</div>
 			</div>
