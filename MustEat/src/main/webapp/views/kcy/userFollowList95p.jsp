@@ -35,11 +35,15 @@
         /* border: 1px solid black; */
         display: inline-block;
         margin-top: 50px;
+        color : white;
+        
+ 	
     }
     .outer661{
         background-color: rgb(231, 216, 241);
         width: 100%;
         margin-top: 50px;
+        background-image: url("<%=request.getContextPath()%>/resources/image/cy/retrobg.jpg");
        
     }
 </style>

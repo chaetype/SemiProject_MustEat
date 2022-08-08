@@ -56,7 +56,7 @@
         	<% for (StoreScrap ss : list){ %>
             <div class="outer66">
             <input type="hidden" value="<%=ss.getScarpNo() %>">
-                <div class="thumbnail66"> <img src="<%=contextPath%><%=ss.getStoreImg() %>" style="width: 100%; height:100%;"></div>
+                <div class="thumbnail66"> <img src="<%=contextPath%>/resources/image/mz.png" style="width: 100%; height:100%;"></div>
                 <div class="info66">
                     <table>
                         <tr>
@@ -77,7 +77,7 @@
                         </tr>
                         <tr>
                             <td>평점</td>
-                            <td style="color: white; "><%=ss.getReviewRate()%></td>
+                            <td style="color: white; ">4</td>
                         </tr>
                     </table>
                     <br>
