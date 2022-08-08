@@ -140,7 +140,7 @@ div.goods div.goodsInfo p.cartStock button { font-size:26px; border:none; backgr
 					
 					function cartMove(){
 						if(confirm("장바구니로 이동하시겠습니까?")){
-							loction.href = "<%=contextPath%>/orderStatusList.pro?status=basket";
+							window.open("<%=contextPath%>/orderStatusList.pro?status=basket");
 			
 
 						}
