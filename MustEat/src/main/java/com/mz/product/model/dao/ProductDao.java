@@ -15,6 +15,7 @@ import com.mz.common.model.vo.PageInfo;
 import com.mz.member.model.dao.MemberDao;
 import com.mz.product.model.vo.Basket;
 import com.mz.product.model.vo.OrderDetail;
+import com.mz.product.model.vo.OrderList;
 import com.mz.product.model.vo.OrderPro;
 import com.mz.product.model.vo.Product;
 import com.mz.product.model.vo.ProductReview;
@@ -976,7 +977,23 @@ public class ProductDao {
     }
 	
 	
-	
+	public int insertOrderList(Connection conn, OrderList or) {
+		int result2 = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertOrderList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, or.getProductCode());
+			pstmt.setInt(2, or.getAmount());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result2;
+	}
 	
 	
 	
