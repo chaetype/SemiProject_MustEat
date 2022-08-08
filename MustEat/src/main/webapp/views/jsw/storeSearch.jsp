@@ -117,10 +117,11 @@
 	<div class="wrap-search">
 		
 		<div class="container">
-
-			<div class="search-head">
+			<div width="100%;" style="text-align:center;">
+			<div class="search-head" style="text-align:center;">
+			
 			<form action="<%=contextPath%>/storesearchList.st">
-				<div width="100%;" style="border-collapse:collapse;">
+				<div style="border-collapse:collapse;" >
 					
 							<div class="wrap55" style="width:60%;">
 								<div class="input-group mb-3">
@@ -134,6 +135,7 @@
 							</div>							
 					</div>
 				</form>
+				</div>
 			</div>
 			
 			<br><br>
@@ -143,7 +145,7 @@
 			<div class="wrap-storelist">
 				<div class="container-storelist">
 				
-				<table class="table-storelist">
+				<table class="table-storelist" style="width:100%;">
 					
 					<% if(list.isEmpty()) { %>
 	                  <!--case1. 게시글이 없을경우-->
@@ -152,13 +154,13 @@
 	                  </tr>
 					  <% }else { %>
 	                  <!--case2. 게시글이 있을경우-->
-	                  
+	                
 					  <tr>
-						<% for(Store s : list){ %>
-						<td width="600" style="table-layout: fixed;">
+						  <% for(Store s : list){ %>
+						<td style="width:230px;">
 							<div class="card">
 								<div class="card-header">
-									<img src="<%= s.getStoreImgPath() %>" alt="rover" />
+									<img src="<%= s.getStoreImgPath() %>" alt="rover">
 								</div>
 								<div class="card-body">			
 									<input type="hidden" name="no" id="no">
@@ -173,9 +175,10 @@
 								</div>
 							</div>							
 						</td>
-					<% } %>        
-	             <% } %>					
+							<% } %>        
+	             <% } %>		
 					</tr>
+					
 					
 				
 				
