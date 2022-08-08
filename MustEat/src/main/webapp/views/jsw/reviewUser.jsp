@@ -3,6 +3,7 @@
 <%@ page import="java.util.ArrayList, com.mz.member.model.vo.Member" %>
 <%
 	ArrayList<Member> reviewList = (ArrayList<Member>)request.getAttribute("reviewList");
+
 	int month = (int)request.getAttribute("month");
 	int total = (int)request.getAttribute("total");	
 %>
@@ -200,7 +201,7 @@
 		                      <td><%= m.getRvName() %></td>
 		                      <td><%= m.getRvCategory() %></td>
 		                      <td><%= m.getRvRate() %></td>	
-		                      <td><button class="btn1" style="height:40px;" onclick="">상세보기</button></td>		       
+		                      <td><button class="btn1" style="height:40px;">상세보기</button></td>		       
 		                  </tr>   
 	                      <% } %>        
 	                  <% } %>				      				      
