@@ -28,7 +28,7 @@
 ![image](https://user-images.githubusercontent.com/103404357/188263303-c24fda3d-b927-4c87-a4eb-e7f41f342ea7.png) <br>
 
 - 개발 환경 <br><br>
-![image](https://user-images.githubusercontent.com/103404357/188263250-f46da472-f21c-45a1-a8c7-71781a79c933.png) <br>
+![image](https://user-images.githubusercontent.com/103404357/188269068-6baa0e0d-7060-466d-a091-e164f164f2f9.png) <br>
 ***
 
 ## :star: 주요 기능
