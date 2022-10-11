@@ -119,7 +119,7 @@
    
 ### 📌 회원 주문 및 결제
 ### 📌 밀키트 댓글 리뷰
-    <img src="https://user-images.githubusercontent.com/16822641/109461495-913fc480-7aa5-11eb-9d0e-aff762669f98.gif"/>
+    <img width="100%" src="https://user-images.githubusercontent.com/16822641/109461495-913fc480-7aa5-11eb-9d0e-aff762669f98.gif"/>
 
 ### 📌 밀키트 상품 등록
 </details>
