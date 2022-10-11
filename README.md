@@ -115,8 +115,7 @@
 <details><summary><h3>6. 허성범</h3></summary>
 
 ### 📌 밀키트 전체 및 상세조회
-    ![밀키트 목록 및 상세페이지](https://user-images.githubusercontent.com/103404620/195033365-332bcd26-3661-450f-99f5-675a36b3439f.gif) <br>
-![마이페이지3](https://user-images.githubusercontent.com/103404357/188264121-ac1f3fe7-296a-43a8-8baa-4a52e9e5521d.gif) <br>
+    ![밀키트 목록 및 상세페이지](https://user-images.githubusercontent.com/103404620/195035691-0ed684bc-38da-4bed-a3af-8d446b96d2a6.gif) <br>
 ### 📌 회원 주문 및 결제
 ### 📌 밀키트 댓글 리뷰
 ### 📌 밀키트 상품 등록
