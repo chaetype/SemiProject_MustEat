@@ -116,6 +116,7 @@
 
 ### 📌 밀키트 전체 및 상세조회
 <img width="80%" src="https://user-images.githubusercontent.com/16822641/109461495-913fc480-7aa5-11eb-9d0e-aff762669f98.gif"/>
+    <img width="80%" src="https://user-images.githubusercontent.com/103404620/195070299-ba743c04-49bc-4703-a5a2-a48ed7b75c45.gif"/>
 ### 📌 회원 주문 및 결제
 ### 📌 밀키트 댓글 리뷰
     ![밀키트리뷰등록](https://user-images.githubusercontent.com/103404620/195070299-ba743c04-49bc-4703-a5a2-a48ed7b75c45.gif)
