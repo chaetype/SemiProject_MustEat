@@ -83,11 +83,22 @@
 - 특정 식당 선택시 식당 정보 조회
 
 ### 📌 사용자 카테고리
+![채윤4](https://user-images.githubusercontent.com/102591871/197333584-40d8138d-edfe-44de-9c56-e1945dba51ee.gif)
+
+![채윤5](https://user-images.githubusercontent.com/102591871/197333610-196fe342-735b-44f5-a25c-e804f5c80434.gif)
+
+![채윤6](https://user-images.githubusercontent.com/102591871/197333667-ac1631e5-9109-41cf-9d13-6134cbc81d17.gif)
+    
+![채윤7](https://user-images.githubusercontent.com/102591871/197333676-df253b7e-b74c-4a4e-af86-7b0f5593d7b3.gif)
 
 - 맛집,리뷰,랭킹 찾아보기
 - MZ유저들 찾아보기, 팔로우하기
 
 ### 📌 에디터 추천 글
+![채윤2](https://user-images.githubusercontent.com/102591871/197333390-8e73ce8c-70a3-432a-80af-0407e13d67f2.gif)
+    
+![채윤3](https://user-images.githubusercontent.com/102591871/197333430-2b986d77-38dc-4c79-a66b-b6b7ddf62ec3.gif)
+    
 - 관리저 유저만 글 작성
 - 모든 유저들 작성된 글 조회
 
