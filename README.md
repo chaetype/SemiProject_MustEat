@@ -40,8 +40,7 @@
 ## :star: 구현 기능
 
 ### :pushpin: 메인페이지
-나중에 메인 페이지로 변경하기!!
-![마이페이지3](https://user-images.githubusercontent.com/103404357/188264121-ac1f3fe7-296a-43a8-8baa-4a52e9e5521d.gif) <br>
+![메인1](https://user-images.githubusercontent.com/102591871/197332609-de9e861d-5a27-47b6-8001-88e4699a388d.gif) <br>
 
 <details><summary><h3>1. 김은영</h3></summary>
 
@@ -76,12 +75,31 @@
 
 <details><summary><h3>2. 김채윤</h3></summary>
 
+
+### 📌 사용자 식당 조회
+![채윤1](https://user-images.githubusercontent.com/102591871/197332984-68244cc5-5425-4557-8aa0-6479a0c6ba11.gif)
+
+- 지역별 식당 전체보기
+- 특정 식당 선택시 식당 정보 조회
+
 ### 📌 사용자 카테고리
 
-### 📌 에디터 커뮤니티
+- 맛집,리뷰,랭킹 찾아보기
+- MZ유저들 찾아보기, 팔로우하기
+
+### 📌 에디터 추천 글
+- 관리저 유저만 글 작성
+- 모든 유저들 작성된 글 조회
+
 ### 📌 찜
+
+-마음에 드는 식당 찜하기
+-찜한 식당 조회
+
 ### 📌 팔로우
-### 📌 사용자 식당 조회
+
+-원하는 유저들 팔로우
+-팔로우한 유저들 조회
 </details>
 
 <details><summary><h3>3. 이태민</h3></summary>
