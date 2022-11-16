@@ -374,24 +374,7 @@ public class StoreService {
 //			return storeRate;
 //		}
 
-	// 은영
-	/**
-	 * 지도에서 해당 지역 누르면 지역 페이지로 이동하는 Service
-	 * 
-	 * @param city : 사용자가 누른 지역명
-	 * @return : 해당 지역에 있는 식당 목록 정보가 담긴 ArrayList<Store>
-	 */
-	public ArrayList<Store> searchCity(String city) {
 
-		Connection conn = getConnection();
-
-		ArrayList<Store> list = new StoreDao().searchCity(conn, city);
-
-		close(conn);
-
-		return list;
-
-	}
 
 	// 서원 관리자 식당 검색
 	public ArrayList<Store> selectStoreAdminSearch(String keyword) {
@@ -461,5 +444,24 @@ public class StoreService {
 
 		return result;
 	}
+		
+		// 은영
+		/**
+		 * 지도에서 해당 지역 누르면 지역 페이지로 이동하는 Service
+		 * @param city : 사용자가 누른 지역명
+		 * @return : 해당 지역에 있는 식당 목록 정보가 담긴 ArrayList<Store>
+		 */
+		public ArrayList<Store> searchCity(String city){
+			
+			Connection conn = getConnection();
+			
+			ArrayList<Store> list = new StoreDao().searchCity(conn, city);
+			
+			close(conn);
+			
+			return list;
+			
 
+		}
+		
 }

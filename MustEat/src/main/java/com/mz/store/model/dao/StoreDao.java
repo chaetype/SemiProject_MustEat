@@ -1325,6 +1325,9 @@ public class StoreDao {
 		ResultSet rset = null;
 		String sql = prop.getProperty("searchCity");
 		
+		
+		
+	
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
