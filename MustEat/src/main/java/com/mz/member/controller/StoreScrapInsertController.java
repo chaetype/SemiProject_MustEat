@@ -50,7 +50,7 @@ public class StoreScrapInsertController extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(result > 0) {
 			// 등록 성공
-			session.setAttribute("alertMsg", "찜이 완료되었습니다!");
+			session.setAttribute("alertMsg", "찜 성공!");
 			response.sendRedirect(request.getContextPath() + "/detail.st?no=" + storeNo);
 		}else { 
 			// 등록 실패

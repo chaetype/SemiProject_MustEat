@@ -86,12 +86,7 @@ display:none;}
         <br>
         <h2 align="center">식당 리뷰 작성하기</h2>
         <br>
-        
-		
         <form id="enroll-form" action="<%= contextPath %>/srinsert.st?no=<%=storeNo%>" method="post" enctype="multipart/form-data">
-        <%-- <input type="hidden" name="no" value="<%=storeNo%>"> --%>
-      
-      
             <table align="center">
                 <tr>
                     <th>제목</th>
@@ -101,11 +96,11 @@ display:none;}
                     <th>내용</th>
                     <td> <textarea class="yui3-cssreset" id="summernote" name="reviewcontent"></textarea></td>
                 </tr>
-
             </table>
             <br>
+            
 			 <!-- 별점선택 -->
-			             <div class="rate-area">
+			<div class="rate-area">
                <p style="display:inline;">당신의 별점은: </p>
                <fieldset id="rate-star">
                     <input type="radio" name="rate" value="1" id="rate1">
@@ -132,77 +127,64 @@ display:none;}
                })                      
             </script>
       	
-      	
-      	</script> 
-      	
-	     
-      	
             <div align="center">
                 <button class="btn1" type="submit">작성하기</button>
                 <button class="btn1" type="reset">취소하기</button>
             </div>
         </form>
-
         <br><br>
-
-
     </div>
 
-
-
-<script>
-                    $('#summernote').summernote({
-                       spellCheck: true,
-                       disableDragAndDrop: true,
-                  codeviewFilter: false,
-                  codeviewIframeFilter: true,
-                  placeholder: '식당 리뷰 작성',
-                  tabsize: 2,
-                  height: 600,
-                  toolbar: [
-                     ['style', ['fontname', 'fontsize', 'bold', 'italic', 'underline', 'clear']],
-                     ['color', ['color']],
-                     ['para', ['ul', 'ol', 'paragraph']],
-                     ['insert', ['link', 'picture', 'hr']],
-                     ['view', ['fullscreen']]
-                         ],
-                            // 이미지 업로드하면 이벤트 발생시킴
-                        onImageUpload: function(files, editor, webEitable){
-                            // 이미지 개수대로 함수 sendFile 호출
-                            for(var i=0; i<files.length; i++){
-                                sendFile(files[i], editor, welEditable);
-                            }
-                        }
-                        
-                    });
-
-                    function sendFile(file, editor, welEditable){
-                        var imgUrl = 'resources/image/cy/attachment/'
-
-                        // 파일 전송을 위한 form 생성
-                        form_data = new FormData();
-                        form_data.append("image", file);
-                        $.ajax({
-                            data: form_data,
-                            type: "post",
-                            url: "summernote_imageUpload.do",
-                            dataType: "text",
-                            cache: "false",
-                            enctype: "multipart/form-data",
-                            processData:"false",
-                            processData: "false",
-                            success: function(savename){
-                                imgUrl = imgUrl + savename;
-                                editor.insertImage(welEditable, imgUrl); // 에디터에 업로드된 이미지 삽입
-                            },
-                            error: function(){
-                                alert("error");
-                            }
-
-                        })
-                    }
-                    // $(".note-editable").change( console.log( $(this).html() ) )
-                    
-                  </script>
+	<script>
+	    $('#summernote').summernote({
+	      spellCheck: true,
+	      disableDragAndDrop: true,
+		  codeviewFilter: false,
+		  codeviewIframeFilter: true,
+		  placeholder: '식당 리뷰 작성',
+		  tabsize: 2,
+		  height: 600,
+		  toolbar: [
+		     ['style', ['fontname', 'fontsize', 'bold', 'italic', 'underline', 'clear']],
+		     ['color', ['color']],
+		     ['para', ['ul', 'ol', 'paragraph']],
+		     ['insert', ['link', 'picture', 'hr']],
+		     ['view', ['fullscreen']]
+		         ],
+		            // 이미지 업로드하면 이벤트 발생시킴
+		        onImageUpload: function(files, editor, webEitable){
+		            // 이미지 개수대로 함수 sendFile 호출
+		            for(var i=0; i<files.length; i++){
+		                sendFile(files[i], editor, welEditable);
+		            }
+		        }
+		        
+		    });
+	
+	    function sendFile(file, editor, welEditable){
+	        var imgUrl = 'resources/image/cy/attachment/'
+	
+	        // 파일 전송을 위한 form 생성
+	        form_data = new FormData();
+	        form_data.append("image", file);
+	        $.ajax({
+	            data: form_data,
+	            type: "post",
+	            url: "summernote_imageUpload.do",
+	            dataType: "text",
+	            cache: "false",
+	            enctype: "multipart/form-data",
+	            processData:"false",
+	            processData: "false",
+	            success: function(savename){
+	                imgUrl = imgUrl + savename;
+	                editor.insertImage(welEditable, imgUrl); // 에디터에 업로드된 이미지 삽입
+	            },
+	            error: function(){
+	                alert("error");
+	            }
+	        })
+	   }
+	</script>
 </body>
 </html>

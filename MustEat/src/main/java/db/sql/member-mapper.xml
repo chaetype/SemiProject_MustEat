@@ -902,7 +902,9 @@
 	
 	<!-- 채윤 언팔로우 -->
 	<entry key="unfollow">
-	DELETE FROM FOLLOW
-        
+	DELETE FING_MNO
+	FROM FOLLOW
+	WHERE FING_MNO = ?
+		  MEM_NO = ?
 	</entry>
 </properties>

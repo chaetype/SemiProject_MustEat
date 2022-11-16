@@ -655,4 +655,11 @@
 		 WHERE STORE_STATUS = 'Y'
 	</entry>
 	
+	<!-- 채윤 찜 취소 -->
+	<entry key="unscrap">
+	DELETE STORE_NO
+	  FROM STORE_SCRAP
+     WHERE MEM_NO =   
+	</entry>
+	
 </properties>

@@ -52,59 +52,51 @@
 <body>
 	<%@ include file="../common/menubar.jsp"%>
 
-    <div class="wrap66">
-
-
-        <div class="outer661">
-        
-
-        	<% for (Follow f : list){ %>
-            <div class="outer66">
-            <input type="hidden" value="<%=f.getFollowNo() %>">
-                <div class="thumbnail66"> <img src="<%=contextPath%><%=f.getProfileImg() %>" style="width: 100%; height:100%;"></div>
-                <div class="info66">
-                    <table>
-                        <tr>
-                            <td style="width: 200px;"><b><%=f.getIngMemName() %></b></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>팔로워</td>
-                            <td style="color: white; "><%=f.getFollowCount() %></td>
-                        </tr>
-                        <tr>
-                            <td>식당리뷰</td>
-                            <td style="color: white; "><%=f.getReviewCount() %></td>
-                        </tr>
-                         <tr>
-                            <td>밀키트리뷰</td>
-                            <td style="color: white; "><%=f.getProreviewCount() %></td>
-                        </tr>
-                    </table>
-                    <br>
-                    <button class="btn1" style="padding: 0.2em 1.2em;
-                    margin: 0 0.1em 0.1em 0;">Unfollow</button>
-                </div>
-            </div>
-            <br>
-            <hr>
+	<div class="wrap66">
+		<div class="outer661">
+			<% for (Follow f : list){ %>
+			<div class="outer66">
+				<input type="hidden" value="<%=f.getFollowNo() %>">
+				<div class="thumbnail66">
+					<img src="<%=contextPath%><%=f.getProfileImg() %>"
+						style="width: 100%; height: 100%;">
+				</div>
+				<div class="info66">
+					<table>
+						<tr>
+							<td style="width: 200px;"><b><%=f.getIngMemName() %></b></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>팔로워</td>
+							<td style="color: white;"><%=f.getFollowCount() %></td>
+						</tr>
+						<tr>
+							<td>식당리뷰</td>
+							<td style="color: white;"><%=f.getReviewCount() %></td>
+						</tr>
+						<tr>
+							<td>밀키트리뷰</td>
+							<td style="color: white;"><%=f.getProreviewCount() %></td>
+						</tr>
+					</table>
+					<br>
+					<button class="btn1"
+						style="padding: 0.2em 1.2em; margin: 0 0.1em 0.1em 0;">Unfollow</button>
+				</div>
+			</div>
+			<br>
+			<hr>
 			<%} %>
-           
-
-        </div>
-
-
-
-
-
-    </div>
+		</div>
+	</div>
 </body>
 </html>

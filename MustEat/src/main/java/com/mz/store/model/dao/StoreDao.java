@@ -1505,6 +1505,27 @@ public class StoreDao {
 //	}
 //	
 	
+	//채윤 찜 취소
+	public int unscrap(Connection conn, int no) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("unscrap") + "WHERE STORE_NO IN (" + no + ")";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 
 	
 }
